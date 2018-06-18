@@ -58,7 +58,8 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// The fullpath of the currently opened HenchSpells.2da file.
 		/// </summary>
-		string _pfe = String.Empty;
+		string _pfe  = String.Empty;
+		string _pfeT = String.Empty;
 		#endregion class Vars
 
 

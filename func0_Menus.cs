@@ -52,6 +52,12 @@ namespace nwn2_ai_2da_editor
 		{
 			if (DirtyDataApplied())
 			{
+				if (sender == null) // is Saveas
+				{
+					_pfe = _pfeT;
+					_pfeT = String.Empty;
+				}
+
 				Write2daFile();
 			}
 			else
@@ -67,14 +73,27 @@ namespace nwn2_ai_2da_editor
 				switch (MessageBox.Show(info, "  Attention", MessageBoxButtons.AbortRetryIgnore))
 				{
 					case DialogResult.Abort:
+						_pfeT = String.Empty;
 						break;
 
 					case DialogResult.Retry:
+						if (sender == null) // is Saveas
+						{
+							_pfe = _pfeT;
+							_pfeT = String.Empty;
+						}
+
 						ApplyDirtyData();
 						Write2daFile();
 						break;
 
 					case DialogResult.Ignore:
+						if (sender == null) // is Saveas
+						{
+							_pfe = _pfeT;
+							_pfeT = String.Empty;
+						}
+
 						Write2daFile();
 						break;
 				}
@@ -96,12 +115,12 @@ namespace nwn2_ai_2da_editor
 
 				if (sfd.ShowDialog() == DialogResult.OK)
 				{
-					_pfe = sfd.FileName;
-
-					Text = "nwn2_ai_2da_editor - " + _pfe; // titlebar text (append path of HenchSpells.2da)
+					_pfeT = sfd.FileName; // the fullpath still needs user-confirmation (if there's dirty data)
 
 					Click_save(null, EventArgs.Empty);
 				}
+				else
+					_pfeT = String.Empty;
 			}
 		}
 		#endregion File
@@ -495,6 +514,8 @@ namespace nwn2_ai_2da_editor
 		void Write2daFile()
 		{
 			//logfile.Log("Write2daFile() " + _pfe);
+
+			Text = "nwn2_ai_2da_editor - " + _pfe; // titlebar text (append path of saved file)
 
 			using (var sw = new StreamWriter(_pfe))
 			{
