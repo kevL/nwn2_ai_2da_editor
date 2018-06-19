@@ -526,31 +526,12 @@ namespace nwn2_ai_2da_editor
 				var cb = sender as CheckBox;
 				if (cb.Equals(st_SpellResistance))
 				{
-//					savetype *= -1; // TODO: I highly doubt this is correct.
-
-//					savetype = ~savetype;
-//					savetype ^= 1u << 31;
-
-//					logfile.Log("savetype= " + savetype.ToString("X"));
-//					const int i = -2147483648;
-//					logfile.Log("-2,147,483,648= " + i.ToString("X"));
-
-/*					if (cb.Checked)
-					{
-						savetype |= 0x80000000;
-					}
-					else
-						savetype &= 0x80000000; */
-
-/*					var savetype_u = Convert.ToUInt64(savetype);
 					if (cb.Checked)
 					{
-						savetype_u |= HENCH_SPELL_SAVE_TYPE_SR_FLAG;
+						savetype |= HENCH_SPELL_SAVE_TYPE_SR_FLAG;
 					}
 					else
-						savetype_u &= ~HENCH_SPELL_SAVE_TYPE_SR_FLAG;
-
-					savetype = Convert.ToInt32(savetype_u); */
+						savetype &= ~HENCH_SPELL_SAVE_TYPE_SR_FLAG;
 				}
 				else if (cb.Equals(st_MindAffecting))
 				{
@@ -640,7 +621,7 @@ namespace nwn2_ai_2da_editor
 				st_Impact2rb_effectdamage.Checked  = (savetype & HENCH_SPELL_SAVE_TYPE_SAVE2_EFFECT_DAMAGE)  != 0;
 				st_Impact2rb_damageevasion.Checked = (savetype & HENCH_SPELL_SAVE_TYPE_SAVE2_DAMAGE_EVASION) == HENCH_SPELL_SAVE_TYPE_SAVE2_DAMAGE_EVASION;
 
-				// General bit-toggles
+				// General checkboxes
 				st_SpellResistance.Checked   = (savetype & HENCH_SPELL_SAVE_TYPE_SR_FLAG)             != 0;
 				st_MindAffecting.Checked     = (savetype & HENCH_SPELL_SAVE_TYPE_MIND_SPELL_FLAG)     != 0;
 				st_AffectsFriendlies.Checked = (savetype & HENCH_SPELL_SAVE_TYPE_CHECK_FRIENDLY_FLAG) != 0;
