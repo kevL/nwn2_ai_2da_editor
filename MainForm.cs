@@ -80,10 +80,8 @@ namespace nwn2_ai_2da_editor
 			//
 			// The logfile ought appear in the directory with the executable.
 
-
-			var loc = et_PosEffectsGrp.Location;	// move the NegativeEffects group over to overlay the PositiveEffects group.
-			et_NegEffectsGrp.Location = loc;		// They're kept distinct in the editor so, you know, you can see them both.
-
+			et_NegEffectsGrp.Location = et_PosEffectsGrp.Location;	// move the NegativeEffects group over to overlay the PositiveEffects group.
+																	// They're kept distinct in the editor so, you know, you can see them both.
 
 			SpellInfo_hex  .BackColor = BackColor; // set the backgrounds of the hexadecimal and binary
 			SpellInfo_bin  .BackColor = BackColor; // textboxes to blend in with the Form's background
@@ -101,7 +99,6 @@ namespace nwn2_ai_2da_editor
 
 			PopulateSpellInfoComboboxes();
 			PopulateTargetInfoComboboxes();
-
 			PopulateDamageInfoComboboxes();
 			PopulateSaveTypeComboboxes();
 			PopulateSaveDcTypeComboboxes();
@@ -116,124 +113,129 @@ namespace nwn2_ai_2da_editor
 
 		#region Load
 		/// <summary>
-		/// Loads a given HenchSpells.2da file. If the file is not a valid
-		/// HenchSpells.2da then this should hopefully throw an exception at the
-		/// user. If it doesn't all bets are off.
-		/// note: "pfe" stands for "path_file_extension" - fullpath
+		/// Loads a HenchSpells.2da file.
+		/// If the file is not a valid HenchSpells.2da then this should
+		/// hopefully throw an exception at the user. If it doesn't all bets are
+		/// off.
+		/// The fullpath of the file must be stored in '_pfe'.
+		/// NOTE: "pfe" stands for "path_file_extension"
 		/// </summary>
 		void Load_HenchSpells()
 		{
-			//logfile.Log(pfe2da);
+			//logfile.Log(_pfe);
 
-			Text = "nwn2_ai_2da_editor - " + _pfe; // titlebar text (append path of HenchSpells.2da)
-
-			SpellsChanged.Clear();
-
-			SpellInfo_reset   .ForeColor = DefaultForeColor;
-			TargetInfo_reset  .ForeColor = DefaultForeColor;
-			EffectWeight_reset.ForeColor = DefaultForeColor;
-			EffectTypes_reset .ForeColor = DefaultForeColor;
-			DamageInfo_reset  .ForeColor = DefaultForeColor;
-			SaveType_reset    .ForeColor = DefaultForeColor;
-			SaveDCType_reset  .ForeColor = DefaultForeColor;
-
-
-			Spells.Clear();
-
-			string[] rows = File.ReadAllLines(_pfe);
-
-//			var pb = ProgBarF.Instance;
-//			pb.SetInfo("loading ...");
-//			pb.SetTotal(rows.Length);
-
-			foreach (string row in rows)
+			if (File.Exists(_pfe))
 			{
-				if (!String.IsNullOrEmpty(row))
+				Text = "nwn2_ai_2da_editor - " + _pfe; // titlebar text (append path of current file)
+
+				SpellsChanged.Clear();
+
+				SpellInfo_reset   .ForeColor = DefaultForeColor;
+				TargetInfo_reset  .ForeColor = DefaultForeColor;
+				EffectWeight_reset.ForeColor = DefaultForeColor;
+				EffectTypes_reset .ForeColor = DefaultForeColor;
+				DamageInfo_reset  .ForeColor = DefaultForeColor;
+				SaveType_reset    .ForeColor = DefaultForeColor;
+				SaveDCType_reset  .ForeColor = DefaultForeColor;
+
+
+				Spells.Clear();
+
+				string[] rows = File.ReadAllLines(_pfe);
+
+//				var pb = ProgBarF.Instance;
+//				pb.SetInfo("loading ...");
+//				pb.SetTotal(rows.Length);
+
+				foreach (string row in rows)
 				{
-					//logfile.Log(row);
-
-					// WARNING: This does *not* handle quotation marks around 2da fields.
-
-					string[] cols = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
-
-					//logfile.Log(cols[0]);
-
-					int id;
-					if (Int32.TryParse(cols[0], out id)) // is a valid 2da row
+					if (!String.IsNullOrEmpty(row))
 					{
-//						for (int i = 1; i != 9; ++i) // 9 cols in HenchSpells.2da
-//						{
-							//logfile.Log(cols[i]);
-//						}
+						//logfile.Log(row);
 
-						var spell = new Spell();
+						// WARNING: This does *not* handle quotation marks around 2da fields.
 
-						spell.id = id;
+						string[] cols = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
+
+						//logfile.Log(cols[0]);
+
+						int id;
+						if (Int32.TryParse(cols[0], out id)) // is a valid 2da row
+						{
+//							for (int i = 1; i != 9; ++i) // 9 cols in HenchSpells.2da
+//							{
+								//logfile.Log(cols[i]);
+//							}
+
+							var spell = new Spell();
+
+							spell.id = id;
 
 
-						string field = cols[1];
-						if (field != blank)
-							spell.label = field;
-						else
-							spell.label = String.Empty;
+							string field = cols[1];
+							if (field != blank)
+								spell.label = field;
+							else
+								spell.label = String.Empty;
 
-						field = cols[2];
-						if (field != blank)
-							spell.spellinfo = Int32.Parse(field);
-						else
-							spell.spellinfo = 0;
+							field = cols[2];
+							if (field != blank)
+								spell.spellinfo = Int32.Parse(field);
+							else
+								spell.spellinfo = 0;
 
-						field = cols[3];
-						if (field != blank)
-							spell.targetinfo = Int32.Parse(field);
-						else
-							spell.targetinfo = 0;
+							field = cols[3];
+							if (field != blank)
+								spell.targetinfo = Int32.Parse(field);
+							else
+								spell.targetinfo = 0;
 
-						field = cols[4];
-						if (field != blank)
-							spell.effectweight = float.Parse(field);
-						else
-							spell.effectweight = 0.0f;
+							field = cols[4];
+							if (field != blank)
+								spell.effectweight = float.Parse(field);
+							else
+								spell.effectweight = 0.0f;
 
-						field = cols[5];
-						if (field != blank)
-							spell.effecttypes = Int32.Parse(field);
-						else
-							spell.effecttypes = 0;
+							field = cols[5];
+							if (field != blank)
+								spell.effecttypes = Int32.Parse(field);
+							else
+								spell.effecttypes = 0;
 
-						field = cols[6];
-						if (field != blank)
-							spell.damageinfo = Int32.Parse(field);
-						else
-							spell.damageinfo = 0;
+							field = cols[6];
+							if (field != blank)
+								spell.damageinfo = Int32.Parse(field);
+							else
+								spell.damageinfo = 0;
 
-						field = cols[7];
-						if (field != blank)
-							spell.savetype = Int32.Parse(field);
-						else
-							spell.savetype = 0;
+							field = cols[7];
+							if (field != blank)
+								spell.savetype = Int32.Parse(field);
+							else
+								spell.savetype = 0;
 
-						field = cols[8];
-						if (field != blank)
-							spell.savedctype = Int32.Parse(field);
-						else
-							spell.savedctype = 0;
+							field = cols[8];
+							if (field != blank)
+								spell.savedctype = Int32.Parse(field);
+							else
+								spell.savedctype = 0;
 
-						spell.differ = bit_clear;
-						spell.isChanged = false;
+							spell.differ = bit_clear;
+							spell.isChanged = false;
 
-						spell.savedctypetype = SaveDcTypeType.SDTT_NOTINITED;	// the "SaveDCType" col was dual-purposed
-																				// resulting in this confusion/ambiguity.
+							spell.savedctypetype = SaveDcTypeType.SDTT_NOTINITED;	// the "SaveDCType" col was dual-purposed
+																					// resulting in this confusion/ambiguity.
 
-						Spells.Add(spell);	// spell-structs can now be referenced in the list by their
-					}						// - Spells[id]
-				}							// - HenchSpells.2da row#
-											// - SpellID (Spells.2da row#)
+							Spells.Add(spell);	// spell-structs can now be referenced in the list by their
+						}						// - Spells[id]
+					}							// - HenchSpells.2da row#
+												// - SpellID (Spells.2da row#)
 
-//				pb.Step();
+//					pb.Step();
+				}
+
+				PopulateSpellTree();
 			}
-
-			PopulateSpellTree();
 		}
 
 
@@ -505,9 +507,6 @@ namespace nwn2_ai_2da_editor
 				SaveType_reset    .ForeColor = DefaultForeColor;
 				SaveDCType_reset  .ForeColor = DefaultForeColor;
 
-//				logfile.Log(". set node to Blue");
-//				SpellTree.SelectedNode.ForeColor = DefaultForeColor; // don't do that. TODO: Do it on File|Save 2da-file only.
-//				SpellTree.SelectedNode.ForeColor = Color.Blue;
 
 				bypassTextChanged = true;
 				AfterSelect_spellnode(null, null); // refresh all displayed data for the current spell jic
@@ -617,11 +616,9 @@ namespace nwn2_ai_2da_editor
 	/// Struct that holds data of each spell in HenchSpells.2da.
 	/// note: This data can change when the Apply-btn is clicked (but only if
 	/// the spell-data has in fact been changed of c).
-	/// note: This is the data that gets saved to file on File|Save.
-	/// NOTE: Had to change this from struct to class since Click_setCoreAiVersion()
-	/// iterates through all Spells and changes the differ - else cs1654 error.
+	/// NOTE: This is the data that gets saved to file on File|Save.
 	/// </summary>
-	class Spell
+	struct Spell
 	{
 		public int id;
 		public string label;
@@ -634,11 +631,6 @@ namespace nwn2_ai_2da_editor
 		public int   savetype;
 		public int   savedctype;
 
-		// since the SR-flag for savetype is (uint)0x80000000
-		// which NwScript interprets as Int.Min (-2147483648)
-		// ... just use Int.Min as a literal.
-
-
 		// NOTE: The following fields are not saved to file ->
 
 		public int differ;		// bitwise master that holds flags for changed fields
@@ -650,7 +642,7 @@ namespace nwn2_ai_2da_editor
 	/// <summary>
 	/// Struct that holds changed data of any spell that has been modified in
 	/// the editor.
-	/// note: These structs get created and deleted on-the-fly as stuff changes
+	/// NOTE: These structs get created and deleted on-the-fly as stuff changes
 	/// in the editor.
 	/// </summary>
 	struct SpellChanged
