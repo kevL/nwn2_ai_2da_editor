@@ -270,6 +270,7 @@
 		private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
+		private System.Windows.Forms.ToolTip toolTip1;
 
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -292,6 +293,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+			this.components = new System.ComponentModel.Container();
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.cols_HenchSpells = new System.Windows.Forms.TabControl();
 			this.page_SpellInfo = new System.Windows.Forms.TabPage();
@@ -547,6 +549,7 @@
 			this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.Quit = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
 			this.edit = new System.Windows.Forms.ToolStripMenuItem();
 			this.Copy_decimal = new System.Windows.Forms.ToolStripMenuItem();
 			this.Copy_hexadecimal = new System.Windows.Forms.ToolStripMenuItem();
@@ -556,7 +559,7 @@
 			this.SpellTree = new System.Windows.Forms.TreeView();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.apply = new System.Windows.Forms.Button();
-			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.cols_HenchSpells.SuspendLayout();
 			this.page_SpellInfo.SuspendLayout();
 			this.si_ChildIDGrp.SuspendLayout();
@@ -960,6 +963,7 @@
 			this.SpellInfo_reset.Name = "SpellInfo_reset";
 			this.SpellInfo_reset.Size = new System.Drawing.Size(100, 25);
 			this.SpellInfo_reset.TabIndex = 0;
+			this.toolTip1.SetToolTip(this.SpellInfo_reset, "reset");
 			this.SpellInfo_reset.UseVisualStyleBackColor = true;
 			this.SpellInfo_reset.Click += new System.EventHandler(this.Click_si_reset);
 			// 
@@ -976,11 +980,11 @@
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_hex);
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_text);
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_reset);
-			this.page_TargetInfo.Location = new System.Drawing.Point(4, 23);
+			this.page_TargetInfo.Location = new System.Drawing.Point(4, 24);
 			this.page_TargetInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_TargetInfo.Name = "page_TargetInfo";
 			this.page_TargetInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_TargetInfo.Size = new System.Drawing.Size(734, 498);
+			this.page_TargetInfo.Size = new System.Drawing.Size(734, 497);
 			this.page_TargetInfo.TabIndex = 1;
 			this.page_TargetInfo.Text = "TargetInfo";
 			this.page_TargetInfo.UseVisualStyleBackColor = true;
@@ -1254,6 +1258,7 @@
 			this.TargetInfo_reset.Name = "TargetInfo_reset";
 			this.TargetInfo_reset.Size = new System.Drawing.Size(100, 25);
 			this.TargetInfo_reset.TabIndex = 1;
+			this.toolTip1.SetToolTip(this.TargetInfo_reset, "reset");
 			this.TargetInfo_reset.UseVisualStyleBackColor = true;
 			this.TargetInfo_reset.Click += new System.EventHandler(this.Click_ti_reset);
 			// 
@@ -1264,11 +1269,11 @@
 			this.page_EffectWeight.Controls.Add(this.f1);
 			this.page_EffectWeight.Controls.Add(this.EffectWeight_reset);
 			this.page_EffectWeight.Controls.Add(this.EffectWeight_text);
-			this.page_EffectWeight.Location = new System.Drawing.Point(4, 23);
+			this.page_EffectWeight.Location = new System.Drawing.Point(4, 24);
 			this.page_EffectWeight.Margin = new System.Windows.Forms.Padding(2);
 			this.page_EffectWeight.Name = "page_EffectWeight";
 			this.page_EffectWeight.Padding = new System.Windows.Forms.Padding(2);
-			this.page_EffectWeight.Size = new System.Drawing.Size(734, 498);
+			this.page_EffectWeight.Size = new System.Drawing.Size(734, 497);
 			this.page_EffectWeight.TabIndex = 2;
 			this.page_EffectWeight.Text = "EffectWeight";
 			this.page_EffectWeight.UseVisualStyleBackColor = true;
@@ -1309,6 +1314,7 @@
 			this.EffectWeight_reset.Name = "EffectWeight_reset";
 			this.EffectWeight_reset.Size = new System.Drawing.Size(100, 25);
 			this.EffectWeight_reset.TabIndex = 2;
+			this.toolTip1.SetToolTip(this.EffectWeight_reset, "reset");
 			this.EffectWeight_reset.UseVisualStyleBackColor = true;
 			this.EffectWeight_reset.Click += new System.EventHandler(this.Click_ew_reset);
 			// 
@@ -1333,11 +1339,11 @@
 			this.page_EffectTypes.Controls.Add(this.EffectTypes_hex);
 			this.page_EffectTypes.Controls.Add(this.EffectTypes_text);
 			this.page_EffectTypes.Controls.Add(this.EffectTypes_reset);
-			this.page_EffectTypes.Location = new System.Drawing.Point(4, 23);
+			this.page_EffectTypes.Location = new System.Drawing.Point(4, 24);
 			this.page_EffectTypes.Margin = new System.Windows.Forms.Padding(2);
 			this.page_EffectTypes.Name = "page_EffectTypes";
 			this.page_EffectTypes.Padding = new System.Windows.Forms.Padding(2);
-			this.page_EffectTypes.Size = new System.Drawing.Size(734, 498);
+			this.page_EffectTypes.Size = new System.Drawing.Size(734, 497);
 			this.page_EffectTypes.TabIndex = 3;
 			this.page_EffectTypes.Text = "EffectTypes";
 			this.page_EffectTypes.UseVisualStyleBackColor = true;
@@ -2094,6 +2100,7 @@
 			this.EffectTypes_reset.Name = "EffectTypes_reset";
 			this.EffectTypes_reset.Size = new System.Drawing.Size(100, 25);
 			this.EffectTypes_reset.TabIndex = 3;
+			this.toolTip1.SetToolTip(this.EffectTypes_reset, "reset");
 			this.EffectTypes_reset.UseVisualStyleBackColor = true;
 			this.EffectTypes_reset.Click += new System.EventHandler(this.Click_et_reset);
 			// 
@@ -2109,11 +2116,11 @@
 			this.page_DamageInfo.Controls.Add(this.DamageInfo_hex);
 			this.page_DamageInfo.Controls.Add(this.DamageInfo_text);
 			this.page_DamageInfo.Controls.Add(this.DamageInfo_reset);
-			this.page_DamageInfo.Location = new System.Drawing.Point(4, 23);
+			this.page_DamageInfo.Location = new System.Drawing.Point(4, 24);
 			this.page_DamageInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_DamageInfo.Name = "page_DamageInfo";
 			this.page_DamageInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_DamageInfo.Size = new System.Drawing.Size(734, 498);
+			this.page_DamageInfo.Size = new System.Drawing.Size(734, 497);
 			this.page_DamageInfo.TabIndex = 4;
 			this.page_DamageInfo.Text = "DamageInfo";
 			this.page_DamageInfo.UseVisualStyleBackColor = true;
@@ -2688,6 +2695,7 @@
 			this.DamageInfo_reset.Name = "DamageInfo_reset";
 			this.DamageInfo_reset.Size = new System.Drawing.Size(100, 25);
 			this.DamageInfo_reset.TabIndex = 4;
+			this.toolTip1.SetToolTip(this.DamageInfo_reset, "reset");
 			this.DamageInfo_reset.UseVisualStyleBackColor = true;
 			this.DamageInfo_reset.Click += new System.EventHandler(this.Click_di_reset);
 			// 
@@ -2710,11 +2718,11 @@
 			this.page_SaveType.Controls.Add(this.st_Save1Grp);
 			this.page_SaveType.Controls.Add(this.SaveType_text);
 			this.page_SaveType.Controls.Add(this.SaveType_reset);
-			this.page_SaveType.Location = new System.Drawing.Point(4, 23);
+			this.page_SaveType.Location = new System.Drawing.Point(4, 24);
 			this.page_SaveType.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SaveType.Name = "page_SaveType";
 			this.page_SaveType.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SaveType.Size = new System.Drawing.Size(734, 498);
+			this.page_SaveType.Size = new System.Drawing.Size(734, 497);
 			this.page_SaveType.TabIndex = 5;
 			this.page_SaveType.Text = "SaveType";
 			this.page_SaveType.UseVisualStyleBackColor = true;
@@ -3239,6 +3247,7 @@
 			this.SaveType_reset.Name = "SaveType_reset";
 			this.SaveType_reset.Size = new System.Drawing.Size(100, 25);
 			this.SaveType_reset.TabIndex = 5;
+			this.toolTip1.SetToolTip(this.SaveType_reset, "reset");
 			this.SaveType_reset.UseVisualStyleBackColor = true;
 			this.SaveType_reset.Click += new System.EventHandler(this.Click_st_reset);
 			// 
@@ -3257,11 +3266,11 @@
 			this.page_SaveDCType.Controls.Add(this.savedctype2);
 			this.page_SaveDCType.Controls.Add(this.savedctype1);
 			this.page_SaveDCType.Controls.Add(this.SaveDCType_reset);
-			this.page_SaveDCType.Location = new System.Drawing.Point(4, 23);
+			this.page_SaveDCType.Location = new System.Drawing.Point(4, 24);
 			this.page_SaveDCType.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SaveDCType.Name = "page_SaveDCType";
 			this.page_SaveDCType.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SaveDCType.Size = new System.Drawing.Size(734, 498);
+			this.page_SaveDCType.Size = new System.Drawing.Size(734, 497);
 			this.page_SaveDCType.TabIndex = 6;
 			this.page_SaveDCType.Text = "SaveDCType";
 			this.page_SaveDCType.UseVisualStyleBackColor = true;
@@ -3396,7 +3405,7 @@
 			this.dc_WeaponBonusGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.dc_WeaponBonusGrp.Name = "dc_WeaponBonusGrp";
 			this.dc_WeaponBonusGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.dc_WeaponBonusGrp.Size = new System.Drawing.Size(296, 56);
+			this.dc_WeaponBonusGrp.Size = new System.Drawing.Size(296, 55);
 			this.dc_WeaponBonusGrp.TabIndex = 11;
 			this.dc_WeaponBonusGrp.TabStop = false;
 			this.dc_WeaponBonusGrp.Text = "weapon bonus type";
@@ -3427,7 +3436,7 @@
 			this.dc_SaveDCGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.dc_SaveDCGrp.Name = "dc_SaveDCGrp";
 			this.dc_SaveDCGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.dc_SaveDCGrp.Size = new System.Drawing.Size(340, 316);
+			this.dc_SaveDCGrp.Size = new System.Drawing.Size(340, 315);
 			this.dc_SaveDCGrp.TabIndex = 10;
 			this.dc_SaveDCGrp.TabStop = false;
 			this.dc_SaveDCGrp.Text = "save dc type";
@@ -3529,6 +3538,7 @@
 			this.SaveDCType_reset.Name = "SaveDCType_reset";
 			this.SaveDCType_reset.Size = new System.Drawing.Size(100, 25);
 			this.SaveDCType_reset.TabIndex = 6;
+			this.toolTip1.SetToolTip(this.SaveDCType_reset, "reset");
 			this.SaveDCType_reset.UseVisualStyleBackColor = true;
 			this.SaveDCType_reset.Click += new System.EventHandler(this.Click_dc_reset);
 			// 
@@ -3587,6 +3597,11 @@
 			this.Quit.Size = new System.Drawing.Size(160, 22);
 			this.Quit.Text = "Quit";
 			this.Quit.Click += new System.EventHandler(this.Click_quit);
+			// 
+			// toolStripMenuItem1
+			// 
+			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+			this.toolStripMenuItem1.Size = new System.Drawing.Size(157, 6);
 			// 
 			// edit
 			// 
@@ -3677,11 +3692,6 @@
 			this.apply.Text = "apply this spell\'s data";
 			this.apply.UseVisualStyleBackColor = true;
 			this.apply.Click += new System.EventHandler(this.Click_apply);
-			// 
-			// toolStripMenuItem1
-			// 
-			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(157, 6);
 			// 
 			// MainForm
 			// 
