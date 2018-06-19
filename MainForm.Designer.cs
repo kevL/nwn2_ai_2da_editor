@@ -630,7 +630,7 @@
 			this.cols_HenchSpells.Name = "cols_HenchSpells";
 			this.cols_HenchSpells.Padding = new System.Drawing.Point(5, 2);
 			this.cols_HenchSpells.SelectedIndex = 0;
-			this.cols_HenchSpells.Size = new System.Drawing.Size(742, 525);
+			this.cols_HenchSpells.Size = new System.Drawing.Size(785, 525);
 			this.cols_HenchSpells.TabIndex = 0;
 			this.cols_HenchSpells.SelectedIndexChanged += new System.EventHandler(this.SelectedIndexChanged_tab);
 			// 
@@ -651,7 +651,7 @@
 			this.page_SpellInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SpellInfo.Name = "page_SpellInfo";
 			this.page_SpellInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SpellInfo.Size = new System.Drawing.Size(734, 497);
+			this.page_SpellInfo.Size = new System.Drawing.Size(777, 497);
 			this.page_SpellInfo.TabIndex = 0;
 			this.page_SpellInfo.Text = "SpellInfo";
 			this.page_SpellInfo.UseVisualStyleBackColor = true;
@@ -915,7 +915,7 @@
 			// 
 			// si_Clear
 			// 
-			this.si_Clear.Location = new System.Drawing.Point(440, 5);
+			this.si_Clear.Location = new System.Drawing.Point(445, 5);
 			this.si_Clear.Margin = new System.Windows.Forms.Padding(0);
 			this.si_Clear.Name = "si_Clear";
 			this.si_Clear.Size = new System.Drawing.Size(65, 50);
@@ -984,7 +984,7 @@
 			this.page_TargetInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_TargetInfo.Name = "page_TargetInfo";
 			this.page_TargetInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_TargetInfo.Size = new System.Drawing.Size(734, 497);
+			this.page_TargetInfo.Size = new System.Drawing.Size(777, 497);
 			this.page_TargetInfo.TabIndex = 1;
 			this.page_TargetInfo.Text = "TargetInfo";
 			this.page_TargetInfo.UseVisualStyleBackColor = true;
@@ -1210,7 +1210,7 @@
 			// 
 			// ti_Clear
 			// 
-			this.ti_Clear.Location = new System.Drawing.Point(440, 5);
+			this.ti_Clear.Location = new System.Drawing.Point(445, 5);
 			this.ti_Clear.Margin = new System.Windows.Forms.Padding(0);
 			this.ti_Clear.Name = "ti_Clear";
 			this.ti_Clear.Size = new System.Drawing.Size(65, 50);
@@ -1273,7 +1273,7 @@
 			this.page_EffectWeight.Margin = new System.Windows.Forms.Padding(2);
 			this.page_EffectWeight.Name = "page_EffectWeight";
 			this.page_EffectWeight.Padding = new System.Windows.Forms.Padding(2);
-			this.page_EffectWeight.Size = new System.Drawing.Size(734, 497);
+			this.page_EffectWeight.Size = new System.Drawing.Size(777, 497);
 			this.page_EffectWeight.TabIndex = 2;
 			this.page_EffectWeight.Text = "EffectWeight";
 			this.page_EffectWeight.UseVisualStyleBackColor = true;
@@ -1343,7 +1343,7 @@
 			this.page_EffectTypes.Margin = new System.Windows.Forms.Padding(2);
 			this.page_EffectTypes.Name = "page_EffectTypes";
 			this.page_EffectTypes.Padding = new System.Windows.Forms.Padding(2);
-			this.page_EffectTypes.Size = new System.Drawing.Size(734, 497);
+			this.page_EffectTypes.Size = new System.Drawing.Size(777, 497);
 			this.page_EffectTypes.TabIndex = 3;
 			this.page_EffectTypes.Text = "EffectTypes";
 			this.page_EffectTypes.UseVisualStyleBackColor = true;
@@ -2052,7 +2052,7 @@
 			// 
 			// et_Clear
 			// 
-			this.et_Clear.Location = new System.Drawing.Point(440, 5);
+			this.et_Clear.Location = new System.Drawing.Point(445, 5);
 			this.et_Clear.Margin = new System.Windows.Forms.Padding(0);
 			this.et_Clear.Name = "et_Clear";
 			this.et_Clear.Size = new System.Drawing.Size(65, 50);
@@ -2120,7 +2120,7 @@
 			this.page_DamageInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_DamageInfo.Name = "page_DamageInfo";
 			this.page_DamageInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_DamageInfo.Size = new System.Drawing.Size(734, 497);
+			this.page_DamageInfo.Size = new System.Drawing.Size(777, 497);
 			this.page_DamageInfo.TabIndex = 4;
 			this.page_DamageInfo.Text = "DamageInfo";
 			this.page_DamageInfo.UseVisualStyleBackColor = true;
@@ -2647,7 +2647,7 @@
 			// 
 			// di_Clear
 			// 
-			this.di_Clear.Location = new System.Drawing.Point(440, 5);
+			this.di_Clear.Location = new System.Drawing.Point(445, 5);
 			this.di_Clear.Margin = new System.Windows.Forms.Padding(0);
 			this.di_Clear.Name = "di_Clear";
 			this.di_Clear.Size = new System.Drawing.Size(65, 50);
@@ -2722,7 +2722,7 @@
 			this.page_SaveType.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SaveType.Name = "page_SaveType";
 			this.page_SaveType.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SaveType.Size = new System.Drawing.Size(734, 497);
+			this.page_SaveType.Size = new System.Drawing.Size(777, 497);
 			this.page_SaveType.TabIndex = 5;
 			this.page_SaveType.Text = "SaveType";
 			this.page_SaveType.UseVisualStyleBackColor = true;
@@ -2749,7 +2749,7 @@
 			// 
 			// st_Clear
 			// 
-			this.st_Clear.Location = new System.Drawing.Point(440, 5);
+			this.st_Clear.Location = new System.Drawing.Point(445, 5);
 			this.st_Clear.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Clear.Name = "st_Clear";
 			this.st_Clear.Size = new System.Drawing.Size(65, 50);
@@ -3270,14 +3270,14 @@
 			this.page_SaveDCType.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SaveDCType.Name = "page_SaveDCType";
 			this.page_SaveDCType.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SaveDCType.Size = new System.Drawing.Size(734, 497);
+			this.page_SaveDCType.Size = new System.Drawing.Size(777, 497);
 			this.page_SaveDCType.TabIndex = 6;
 			this.page_SaveDCType.Text = "SaveDCType";
 			this.page_SaveDCType.UseVisualStyleBackColor = true;
 			// 
 			// dc_bin
 			// 
-			this.dc_bin.Location = new System.Drawing.Point(290, 430);
+			this.dc_bin.Location = new System.Drawing.Point(395, 35);
 			this.dc_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.dc_bin.Name = "dc_bin";
 			this.dc_bin.Size = new System.Drawing.Size(45, 15);
@@ -3287,7 +3287,7 @@
 			// 
 			// dc_hex
 			// 
-			this.dc_hex.Location = new System.Drawing.Point(290, 410);
+			this.dc_hex.Location = new System.Drawing.Point(395, 15);
 			this.dc_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.dc_hex.Name = "dc_hex";
 			this.dc_hex.Size = new System.Drawing.Size(45, 15);
@@ -3297,7 +3297,7 @@
 			// 
 			// dc_Clear
 			// 
-			this.dc_Clear.Location = new System.Drawing.Point(335, 400);
+			this.dc_Clear.Location = new System.Drawing.Point(445, 5);
 			this.dc_Clear.Margin = new System.Windows.Forms.Padding(0);
 			this.dc_Clear.Name = "dc_Clear";
 			this.dc_Clear.Size = new System.Drawing.Size(65, 50);
@@ -3310,7 +3310,7 @@
 			// 
 			this.SaveDCType_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.SaveDCType_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.SaveDCType_bin.Location = new System.Drawing.Point(10, 430);
+			this.SaveDCType_bin.Location = new System.Drawing.Point(115, 35);
 			this.SaveDCType_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.SaveDCType_bin.Name = "SaveDCType_bin";
 			this.SaveDCType_bin.ReadOnly = true;
@@ -3321,7 +3321,7 @@
 			// 
 			this.SaveDCType_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.SaveDCType_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.SaveDCType_hex.Location = new System.Drawing.Point(10, 410);
+			this.SaveDCType_hex.Location = new System.Drawing.Point(115, 15);
 			this.SaveDCType_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.SaveDCType_hex.Name = "SaveDCType_hex";
 			this.SaveDCType_hex.ReadOnly = true;
@@ -3334,7 +3334,7 @@
 			this.dc_ArmorCheckGrp.Controls.Add(this.savedc_ac3);
 			this.dc_ArmorCheckGrp.Controls.Add(this.savedc_ac1);
 			this.dc_ArmorCheckGrp.Controls.Add(this.savedc_ac2);
-			this.dc_ArmorCheckGrp.Location = new System.Drawing.Point(345, 145);
+			this.dc_ArmorCheckGrp.Location = new System.Drawing.Point(345, 185);
 			this.dc_ArmorCheckGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.dc_ArmorCheckGrp.Name = "dc_ArmorCheckGrp";
 			this.dc_ArmorCheckGrp.Padding = new System.Windows.Forms.Padding(0);
@@ -3401,7 +3401,7 @@
 			| System.Windows.Forms.AnchorStyles.Left)));
 			this.dc_WeaponBonusGrp.AutoSize = true;
 			this.dc_WeaponBonusGrp.Controls.Add(this.cbo_dc_WeaponBonus);
-			this.dc_WeaponBonusGrp.Location = new System.Drawing.Point(345, 85);
+			this.dc_WeaponBonusGrp.Location = new System.Drawing.Point(345, 125);
 			this.dc_WeaponBonusGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.dc_WeaponBonusGrp.Name = "dc_WeaponBonusGrp";
 			this.dc_WeaponBonusGrp.Padding = new System.Windows.Forms.Padding(0);
@@ -3432,7 +3432,7 @@
 			this.dc_SaveDCGrp.Controls.Add(this.savedc_dn);
 			this.dc_SaveDCGrp.Controls.Add(this.savedc_up);
 			this.dc_SaveDCGrp.Controls.Add(this.cbo_dc_SaveDC);
-			this.dc_SaveDCGrp.Location = new System.Drawing.Point(5, 85);
+			this.dc_SaveDCGrp.Location = new System.Drawing.Point(5, 125);
 			this.dc_SaveDCGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.dc_SaveDCGrp.Name = "dc_SaveDCGrp";
 			this.dc_SaveDCGrp.Padding = new System.Windows.Forms.Padding(0);
@@ -3500,16 +3500,16 @@
 			// 
 			this.savedctype_label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 			| System.Windows.Forms.AnchorStyles.Right)));
-			this.savedctype_label.Location = new System.Drawing.Point(110, 5);
+			this.savedctype_label.Location = new System.Drawing.Point(5, 60);
 			this.savedctype_label.Margin = new System.Windows.Forms.Padding(0);
 			this.savedctype_label.Name = "savedctype_label";
-			this.savedctype_label.Size = new System.Drawing.Size(337, 60);
+			this.savedctype_label.Size = new System.Drawing.Size(635, 45);
 			this.savedctype_label.TabIndex = 9;
 			this.savedctype_label.Text = resources.GetString("savedctype_label.Text");
 			// 
 			// savedctype2
 			// 
-			this.savedctype2.Location = new System.Drawing.Point(350, 65);
+			this.savedctype2.Location = new System.Drawing.Point(350, 105);
 			this.savedctype2.Margin = new System.Windows.Forms.Padding(0);
 			this.savedctype2.Name = "savedctype2";
 			this.savedctype2.Size = new System.Drawing.Size(95, 20);
@@ -3521,7 +3521,7 @@
 			// 
 			// savedctype1
 			// 
-			this.savedctype1.Location = new System.Drawing.Point(230, 65);
+			this.savedctype1.Location = new System.Drawing.Point(230, 105);
 			this.savedctype1.Margin = new System.Windows.Forms.Padding(0);
 			this.savedctype1.Name = "savedctype1";
 			this.savedctype1.Size = new System.Drawing.Size(110, 20);
@@ -3550,7 +3550,7 @@
 			this.options});
 			this.menuStrip.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip.Name = "menuStrip";
-			this.menuStrip.Size = new System.Drawing.Size(947, 24);
+			this.menuStrip.Size = new System.Drawing.Size(986, 24);
 			this.menuStrip.TabIndex = 1;
 			this.menuStrip.Text = "menuStrip";
 			// 
@@ -3677,7 +3677,7 @@
 			// 
 			this.splitContainer1.Panel2.Controls.Add(this.apply);
 			this.splitContainer1.Panel2.Controls.Add(this.cols_HenchSpells);
-			this.splitContainer1.Size = new System.Drawing.Size(947, 550);
+			this.splitContainer1.Size = new System.Drawing.Size(986, 550);
 			this.splitContainer1.SplitterDistance = 200;
 			this.splitContainer1.SplitterWidth = 3;
 			this.splitContainer1.TabIndex = 3;
@@ -3687,7 +3687,7 @@
 			this.apply.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.apply.Location = new System.Drawing.Point(0, 525);
 			this.apply.Name = "apply";
-			this.apply.Size = new System.Drawing.Size(744, 25);
+			this.apply.Size = new System.Drawing.Size(783, 25);
 			this.apply.TabIndex = 1;
 			this.apply.Text = "apply this spell\'s data";
 			this.apply.UseVisualStyleBackColor = true;
@@ -3697,7 +3697,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(947, 574);
+			this.ClientSize = new System.Drawing.Size(986, 574);
 			this.Controls.Add(this.splitContainer1);
 			this.Controls.Add(this.menuStrip);
 			this.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

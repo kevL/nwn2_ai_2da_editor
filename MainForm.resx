@@ -120,6 +120,9 @@
   <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>120, 17</value>
   </metadata>
+  <data name="armorcheck_info.Text" xml:space="preserve">
+    <value>The ArmorCheckType bit-toggles are disabled if the current savedctype value makes no sense to have bit-flags inserted or removed. This is to say that most of the values for savedctype are full integer CoreAI constants that shouldn't be nibbled. To enable the ArmorCheckType toggles you can start by selecting WeaponBonusType none from the dropdown.</value>
+  </data>
   <data name="savedc_info.Text" xml:space="preserve">
     <value>SaveDCType has 3 basic flavors. Values below 0 are treated as a standard SpellDC that's centered on -1000 (1000 will be added and characteristics of the caster will be considered). Values between 0 and 999 (inclusive) are treated as an exact SaveDC value. Values above 999 are constants defined in the Core AI scripts.</value>
   </data>
@@ -128,12 +131,6 @@
   </data>
   <data name="savedctype_label.Text" xml:space="preserve">
     <value>The SaveDCType for an offensive spell is the means of calculating its SaveDC. But the 2da column has been triple-purposed to otherwise be used for WeaponBonusType OR ArmorCheckType for spells that do not have a SaveDC - ie is a Buff. Choose your poison.</value>
-  </data>
-  <metadata name="toolTip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>120, 17</value>
-  </metadata>
-  <data name="armorcheck_info.Text" xml:space="preserve">
-    <value>The ArmorCheckType bit-toggles are disabled if the current savedctype value makes no sense to have bit-flags inserted or removed. This is to say that most of the values for savedctype are full integer CoreAI constants that shouldn't be nibbled. To enable the ArmorCheckType toggles you can start by selecting WeaponBonusType none from the dropdown.</value>
   </data>
   <metadata name="menuStrip.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
