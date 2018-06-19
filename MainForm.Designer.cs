@@ -238,7 +238,7 @@
 		private System.Windows.Forms.GroupBox di_BenPowerbaseGrp;
 		private System.Windows.Forms.ComboBox cbo_di_BenPowerbase;
 		private System.Windows.Forms.GroupBox di_DetFixedCountGrp;
-		private System.Windows.Forms.TextBox di_DetFixedCount;
+		private System.Windows.Forms.TextBox di_DetFixedcount;
 		private System.Windows.Forms.Label di_lbl_FixedCountPlusOne;
 		private System.Windows.Forms.GroupBox di_BenLeveldecreaseGrp;
 		private System.Windows.Forms.TextBox di_BenLeveldecrease;
@@ -445,7 +445,7 @@
 			this.di_DetLevellimit = new System.Windows.Forms.TextBox();
 			this.di_DetFixedCountGrp = new System.Windows.Forms.GroupBox();
 			this.di_lbl_FixedCountPlusOne = new System.Windows.Forms.Label();
-			this.di_DetFixedCount = new System.Windows.Forms.TextBox();
+			this.di_DetFixedcount = new System.Windows.Forms.TextBox();
 			this.di_DetDamagebaseGrp = new System.Windows.Forms.GroupBox();
 			this.cbo_di_DetDamagebase = new System.Windows.Forms.ComboBox();
 			this.di_DetLeveltypeGrp = new System.Windows.Forms.GroupBox();
@@ -980,11 +980,11 @@
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_hex);
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_text);
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_reset);
-			this.page_TargetInfo.Location = new System.Drawing.Point(4, 24);
+			this.page_TargetInfo.Location = new System.Drawing.Point(4, 23);
 			this.page_TargetInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_TargetInfo.Name = "page_TargetInfo";
 			this.page_TargetInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_TargetInfo.Size = new System.Drawing.Size(777, 497);
+			this.page_TargetInfo.Size = new System.Drawing.Size(777, 498);
 			this.page_TargetInfo.TabIndex = 1;
 			this.page_TargetInfo.Text = "TargetInfo";
 			this.page_TargetInfo.UseVisualStyleBackColor = true;
@@ -1269,11 +1269,11 @@
 			this.page_EffectWeight.Controls.Add(this.f1);
 			this.page_EffectWeight.Controls.Add(this.EffectWeight_reset);
 			this.page_EffectWeight.Controls.Add(this.EffectWeight_text);
-			this.page_EffectWeight.Location = new System.Drawing.Point(4, 24);
+			this.page_EffectWeight.Location = new System.Drawing.Point(4, 23);
 			this.page_EffectWeight.Margin = new System.Windows.Forms.Padding(2);
 			this.page_EffectWeight.Name = "page_EffectWeight";
 			this.page_EffectWeight.Padding = new System.Windows.Forms.Padding(2);
-			this.page_EffectWeight.Size = new System.Drawing.Size(777, 497);
+			this.page_EffectWeight.Size = new System.Drawing.Size(777, 498);
 			this.page_EffectWeight.TabIndex = 2;
 			this.page_EffectWeight.Text = "EffectWeight";
 			this.page_EffectWeight.UseVisualStyleBackColor = true;
@@ -2364,7 +2364,7 @@
 			// di_DetFixedCountGrp
 			// 
 			this.di_DetFixedCountGrp.Controls.Add(this.di_lbl_FixedCountPlusOne);
-			this.di_DetFixedCountGrp.Controls.Add(this.di_DetFixedCount);
+			this.di_DetFixedCountGrp.Controls.Add(this.di_DetFixedcount);
 			this.di_DetFixedCountGrp.Location = new System.Drawing.Point(5, 240);
 			this.di_DetFixedCountGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.di_DetFixedCountGrp.Name = "di_DetFixedCountGrp";
@@ -2384,14 +2384,14 @@
 			this.di_lbl_FixedCountPlusOne.Text = "+ 1";
 			this.di_lbl_FixedCountPlusOne.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
-			// di_DetFixedCount
+			// di_DetFixedcount
 			// 
-			this.di_DetFixedCount.Location = new System.Drawing.Point(5, 15);
-			this.di_DetFixedCount.Margin = new System.Windows.Forms.Padding(0);
-			this.di_DetFixedCount.Name = "di_DetFixedCount";
-			this.di_DetFixedCount.Size = new System.Drawing.Size(85, 20);
-			this.di_DetFixedCount.TabIndex = 4;
-			this.di_DetFixedCount.TextChanged += new System.EventHandler(this.TextChanged_di_det_Fixedcount);
+			this.di_DetFixedcount.Location = new System.Drawing.Point(5, 15);
+			this.di_DetFixedcount.Margin = new System.Windows.Forms.Padding(0);
+			this.di_DetFixedcount.Name = "di_DetFixedcount";
+			this.di_DetFixedcount.Size = new System.Drawing.Size(85, 20);
+			this.di_DetFixedcount.TabIndex = 4;
+			this.di_DetFixedcount.TextChanged += new System.EventHandler(this.TextChanged_di_det_Fixedcount);
 			// 
 			// di_DetDamagebaseGrp
 			// 

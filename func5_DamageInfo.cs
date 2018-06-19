@@ -182,12 +182,6 @@ namespace nwn2_ai_2da_editor
 			cbo_di_DetDamagebase.Items.Add("bard perform");			// 12
 			cbo_di_DetDamagebase.Items.Add("warlock");				// 13
 
-			// populate the dropdown list for DamageInfo - detrimental DamageType
-			// NOTE: These cases are considered in 'hench_i0_spells' GetCurrentSpellDamage()
-			// NOTE: These cases are considered in 'hench_i0_buff'   HenchGetEnergyImmunityWeight()
-			// NOTE: These cases are considered in 'hench_i0_dispel' HenchGetAOEProblem()
-//			cbo_di_DetDamagetype.Items.Add(""); // 0
-
 			// populate the dropdown list for DamageInfo - detrimental LevelType
 			// NOTE: These cases are considered in 'hench_i0_spells' GetCurrentSpellDamage()
 			// NOTE: These are bit-exclusive and so could be checkboxes but ....
@@ -361,15 +355,15 @@ namespace nwn2_ai_2da_editor
 				var cb = sender as CheckBox;
 				if (cb.Equals(di_Breach))
 				{
-					bit = HENCH_SPELL_INFO_DAMAGE_BREACH;
+					bit = HENCH_SPELL_INFO_DAMAGE_BREACH; // 0x00000001;
 				}
 				else if (cb.Equals(di_Dispel))
 				{
-					bit = HENCH_SPELL_INFO_DAMAGE_DISPEL;
+					bit = HENCH_SPELL_INFO_DAMAGE_DISPEL; // 0x00000002;
 				}
 				else //if (cb.Equals(di_Resist))
 				{
-					bit = HENCH_SPELL_INFO_DAMAGE_RESIST;
+					bit = HENCH_SPELL_INFO_DAMAGE_RESIST; // 0x00000004;
 				}
 
 				if (cb.Checked)
@@ -391,6 +385,11 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void MouseClick_di_det_Damagetype(object sender, MouseEventArgs e)
 		{
+			// checkboxes for DamageInfo - detrimental DamageTypes
+			// NOTE: These cases are considered in 'hench_i0_spells' GetCurrentSpellDamage()
+			// NOTE: These cases are considered in 'hench_i0_buff'   HenchGetEnergyImmunityWeight()
+			// NOTE: These cases are considered in 'hench_i0_dispel' HenchGetAOEProblem()
+
 			//logfile.Log("MouseClick_di_Damagetype()");
 			//logfile.Log(". text= " + DamageInfo_text.Text);
 
@@ -692,17 +691,17 @@ namespace nwn2_ai_2da_editor
 		void TextChanged_di_det_Fixedcount(object sender, EventArgs e)
 		{
 			int fixedcount;
-			if (Int32.TryParse(di_DetFixedCount.Text, out fixedcount))
+			if (Int32.TryParse(di_DetFixedcount.Text, out fixedcount))
 			{
 				if (fixedcount < 0)
 				{
 					fixedcount = 0;
-					di_DetFixedCount.Text = fixedcount.ToString(); // re-trigger this funct.
+					di_DetFixedcount.Text = fixedcount.ToString(); // re-trigger this funct.
 				}
 				else if (fixedcount > 15) // 4 bits
 				{
 					fixedcount = 15;
-					di_DetFixedCount.Text = fixedcount.ToString(); // re-trigger this funct.
+					di_DetFixedcount.Text = fixedcount.ToString(); // re-trigger this funct.
 				}
 				else
 				{
@@ -762,7 +761,7 @@ namespace nwn2_ai_2da_editor
 				int val;
 
 				// beneficial PowerBase dropdown
-				switch (damageinfo & HENCH_SPELL_INFO_BUFF_MASK)					// 0x0f000000
+				switch (damageinfo & HENCH_SPELL_INFO_BUFF_MASK) // 0x0f000000
 				{
 					case 0:                                  val =  0; break;
 					case HENCH_SPELL_INFO_BUFF_CASTER_LEVEL: val =  1; break;
@@ -783,7 +782,7 @@ namespace nwn2_ai_2da_editor
 
 
 				// beneficial LevelType dropdown
-				switch (val = (damageinfo & HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_MASK))	// 0x0000c000
+				switch (val = (damageinfo & HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_MASK)) // 0x0000c000
 				{
 					case HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_DICE:  val =  0; break;
 					case HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_ADJ:   val =  1; break;
@@ -801,7 +800,7 @@ namespace nwn2_ai_2da_editor
 
 
 				// detrimental DamageBase dropdown
-				switch (damageinfo & HENCH_SPELL_INFO_DAMAGE_MASK)					// 0xf0000000
+				switch (damageinfo & HENCH_SPELL_INFO_DAMAGE_MASK) // 0xf0000000
 				{
 					case HENCH_SPELL_INFO_DAMAGE_CASTER_LEVEL:  val =  0; break;
 					case HENCH_SPELL_INFO_DAMAGE_HD_LEVEL:      val =  1; break;
@@ -829,7 +828,7 @@ namespace nwn2_ai_2da_editor
 
 
 				// detrimental LevelType dropdown
-				switch (damageinfo & HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_MASK)		// 0x03000000 - overlaps FixedCount
+				switch (damageinfo & HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_MASK) // 0x03000000 - overlaps FixedCount
 				{
 					case HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_DICE:  val =  0; break;
 					case HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_ADJ:   val =  1; break;
@@ -847,44 +846,44 @@ namespace nwn2_ai_2da_editor
 
 
 				// ben Power texbox
-				val = (damageinfo & HENCH_SPELL_INFO_BUFF_AMOUNT_MASK);				// 0x000000ff
+				val = (damageinfo & HENCH_SPELL_INFO_BUFF_AMOUNT_MASK);			// 0x000000ff
 				di_BenPower.Text = val.ToString();
 
 				// ben LevelLimit textbox
-				val = (damageinfo & HENCH_SPELL_INFO_BUFF_LEVEL_LIMIT_MASK);		// 0x00003f00
+				val = (damageinfo & HENCH_SPELL_INFO_BUFF_LEVEL_LIMIT_MASK);	// 0x00003f00
 				val >>= HENCH_SPELL_INFO_BUFF_LEVEL_LIMIT_SHIFT;
 				di_BenLevellimit.Text = val.ToString();
 
 				// ben LevelDivisor textbox
-				val = (damageinfo & HENCH_SPELL_INFO_BUFF_LEVEL_DIV_MASK);			// 0x000f0000
+				val = (damageinfo & HENCH_SPELL_INFO_BUFF_LEVEL_DIV_MASK);		// 0x000f0000
 				val >>= HENCH_SPELL_INFO_BUFF_LEVEL_DIV_SHIFT;
 				di_BenLeveldivisor.Text = val.ToString();
 
 				// ben LevelDecrease textbox
-				val = (damageinfo & HENCH_SPELL_INFO_BUFF_LEVEL_DECR_MASK);			// 0x00f00000
+				val = (damageinfo & HENCH_SPELL_INFO_BUFF_LEVEL_DECR_MASK);		// 0x00f00000
 				val >>= HENCH_SPELL_INFO_BUFF_LEVEL_DECR_SHIFT;
 				di_BenLeveldecrease.Text = val.ToString();
 
 
 				// det Damage textbox
-				val = (damageinfo & HENCH_SPELL_INFO_DAMAGE_AMOUNT_MASK);			// 0x000ff000
+				val = (damageinfo & HENCH_SPELL_INFO_DAMAGE_AMOUNT_MASK);		// 0x000ff000
 				val >>= HENCH_SPELL_INFO_DAMAGE_AMOUNT_SHIFT;
 				di_DetDamage.Text = val.ToString();
 
 				// det LevelLimit textbox
-				val = (damageinfo & HENCH_SPELL_INFO_DAMAGE_LEVEL_LIMIT_MASK);		// 0x00f00000
+				val = (damageinfo & HENCH_SPELL_INFO_DAMAGE_LEVEL_LIMIT_MASK);	// 0x00f00000
 				val >>= HENCH_SPELL_INFO_DAMAGE_LEVEL_LIMIT_SHIFT;
 				di_DetLevellimit.Text = val.ToString();
 
 				// det LevelDivisor textbox
-				val = (damageinfo & HENCH_SPELL_INFO_DAMAGE_LEVEL_DIV_MASK);		// 0x0c000000 - overlaps FixedCount
+				val = (damageinfo & HENCH_SPELL_INFO_DAMAGE_LEVEL_DIV_MASK);	// 0x0c000000 - overlaps FixedCount
 				val >>= HENCH_SPELL_INFO_DAMAGE_LEVEL_DIV_SHIFT;
 				di_DetLeveldivisor.Text = val.ToString();
 
 				// det FixedCount textbox
-				val = (damageinfo & HENCH_SPELL_INFO_DAMAGE_FIXED_COUNT);			// 0x0f000000 - overlaps LevelType and LevelDivisor
+				val = (damageinfo & HENCH_SPELL_INFO_DAMAGE_FIXED_COUNT);		// 0x0f000000 - overlaps LevelType and LevelDivisor
 				val >>= HENCH_SPELL_INFO_DAMAGE_FIXED_COUNT_SHIFT;
-				di_DetFixedCount.Text = val.ToString();
+				di_DetFixedcount.Text = val.ToString();
 			}
 			else
 			{

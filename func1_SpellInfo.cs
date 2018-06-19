@@ -494,7 +494,8 @@ namespace nwn2_ai_2da_editor
 
 
 		/// <summary>
-		/// 
+		/// Toggles the DamageInfo groups between Dispel-type and Beneficial/
+		/// Detrimental-types.
 		/// </summary>
 		/// <param name="spellinfo"></param>
 		void SetSpelltypeDispel(int spellinfo)
@@ -503,7 +504,8 @@ namespace nwn2_ai_2da_editor
 
 			di_DispelTypesGrp.Visible = vis;
 
-			// TODO: Hide/show the other DamageInfo groups.
+			di_BeneficialGrp .Visible =
+			di_DetrimentalGrp.Visible = !vis;
 		}
 	}
 }

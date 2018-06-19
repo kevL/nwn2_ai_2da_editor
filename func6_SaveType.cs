@@ -584,6 +584,7 @@ namespace nwn2_ai_2da_editor
 			}
 		}
 
+
 		/// <summary>
 		/// Sets the checkers on the SaveType page to reflect the current
 		/// savetype value.
