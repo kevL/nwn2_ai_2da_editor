@@ -10,39 +10,6 @@ namespace nwn2_ai_2da_editor
 	partial class MainForm
 	{
 		/// <summary>
-		/// Handles resetting the current spell's effectweight.
-		/// Note that if the Apply-btn has been clicked for the spell then that
-		/// data will be used instead of the data from the HenchSpells.2da file.
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		void Click_ew_reset(object sender, EventArgs e)
-		{
-			if (SpellsChanged.ContainsKey(Id))
-			{
-				Spell spell = Spells[Id];
-				spell.differ &= ~bit_effectweight;
-				Spells[Id] = spell;
-
-				if (spell.differ == bit_clear)
-				{
-					SpellsChanged.Remove(Id);
-
-					if (spell.isChanged) // this is set by the Apply btn only.
-					{
-						SpellTree.SelectedNode.ForeColor = Color.Blue;
-					}
-					else
-						SpellTree.SelectedNode.ForeColor = DefaultForeColor;
-				}
-
-				EffectWeight_reset.ForeColor = DefaultForeColor;
-
-				EffectWeight_text.Text = FormatFloat(spell.effectweight.ToString());
-			}
-		}
-
-		/// <summary>
 		/// Handles TextChanged event on the EffectWeight page.
 		/// </summary>
 		/// <param name="sender"></param>
@@ -108,6 +75,39 @@ namespace nwn2_ai_2da_editor
 						}
 					}
 				}
+			}
+		}
+
+		/// <summary>
+		/// Handles resetting the current spell's effectweight.
+		/// Note that if the Apply-btn has been clicked for the spell then that
+		/// data will be used instead of the data from the HenchSpells.2da file.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void Click_ew_reset(object sender, EventArgs e)
+		{
+			if (SpellsChanged.ContainsKey(Id))
+			{
+				Spell spell = Spells[Id];
+				spell.differ &= ~bit_effectweight;
+				Spells[Id] = spell;
+
+				if (spell.differ == bit_clear)
+				{
+					SpellsChanged.Remove(Id);
+
+					if (spell.isChanged) // this is set by the Apply btn only.
+					{
+						SpellTree.SelectedNode.ForeColor = Color.Blue;
+					}
+					else
+						SpellTree.SelectedNode.ForeColor = DefaultForeColor;
+				}
+
+				EffectWeight_reset.ForeColor = DefaultForeColor;
+
+				EffectWeight_text.Text = FormatFloat(spell.effectweight.ToString());
 			}
 		}
 	}

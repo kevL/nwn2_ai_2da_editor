@@ -121,9 +121,6 @@ namespace nwn2_ai_2da_editor
 				SaveType_reset.ForeColor = DefaultForeColor;
 
 				SaveType_text.Text = spell.savetype.ToString();
-
-//				int savetype = spell.savetype;
-//				CheckSaveTypeChecks(savetype); // <- should be unnecessary. Done in TextChanged ...
 			}
 		}
 

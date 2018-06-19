@@ -136,11 +136,6 @@ namespace nwn2_ai_2da_editor
 				SaveDCType_reset.ForeColor = DefaultForeColor;
 
 				SaveDCType_text.Text = spell.savedctype.ToString();
-
-//				int savedctype = spell.savedctype;
-//				savedc_group3.Enabled = CheckArmorCheckType(savedctype); // <- these should be unnecessary. Done in TextChanged ...
-//				DisplayDcAdjustors(savedctype);
-//				CheckArmorCheckTypeChecks(savedctype);
 			}
 		}
 

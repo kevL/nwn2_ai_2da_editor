@@ -44,38 +44,38 @@
 
 		// not used in editor ->
 		// 'hench_i0_itemsp'
-		const int HENCH_SPELL_INFO_SPELL_TYPE_AC_BUFF           = 0x00000002; //  2
-		const int HENCH_SPELL_INFO_SPELL_TYPE_BUFF              = 0x00000003; //  3
-		const int HENCH_SPELL_INFO_SPELL_TYPE_PERSISTENTAREA    = 0x00000004; //  4
-		const int HENCH_SPELL_INFO_SPELL_TYPE_POLYMORPH         = 0x00000005; //  5
-		const int HENCH_SPELL_INFO_SPELL_TYPE_INVISIBLE         = 0x00000007; //  7
-		const int HENCH_SPELL_INFO_SPELL_TYPE_CURECONDITION     = 0x00000008; //  8
-		const int HENCH_SPELL_INFO_SPELL_TYPE_SUMMON            = 0x00000009; //  9
-		const int HENCH_SPELL_INFO_SPELL_TYPE_HEAL              = 0x0000000a; // 10
-		const int HENCH_SPELL_INFO_SPELL_TYPE_ATTR_BUFF         = 0x0000000c; // 12
-		const int HENCH_SPELL_INFO_SPELL_TYPE_ENGR_PROT         = 0x0000000d; // 13
-		const int HENCH_SPELL_INFO_SPELL_TYPE_MELEE_ATTACK      = 0x0000000e; // 14
-		const int HENCH_SPELL_INFO_SPELL_TYPE_SPELL_PROT        = 0x00000010; // 16
-		const int HENCH_SPELL_INFO_SPELL_TYPE_DETECT_INVIS      = 0x00000012; // 18
-		const int HENCH_SPELL_INFO_SPELL_TYPE_DOMINATE          = 0x00000014; // 20
-		const int HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF       = 0x00000015; // 21
-		const int HENCH_SPELL_INFO_SPELL_TYPE_BUFF_ANIMAL_COMP  = 0x00000016; // 22
-		const int HENCH_SPELL_INFO_SPELL_TYPE_PROT_EVIL         = 0x00000017; // 23
-		const int HENCH_SPELL_INFO_SPELL_TYPE_PROT_GOOD         = 0x00000018; // 24
-		const int HENCH_SPELL_INFO_SPELL_TYPE_REGENERATE        = 0x00000019; // 25
-		const int HENCH_SPELL_INFO_SPELL_TYPE_GUST_OF_WIND      = 0x0000001a; // 26
-		const int HENCH_SPELL_INFO_SPELL_TYPE_ELEMENTAL_SHIELD  = 0x0000001b; // 27
-		const int HENCH_SPELL_INFO_SPELL_TYPE_TURN_UNDEAD       = 0x0000001c; // 28
-		const int HENCH_SPELL_INFO_SPELL_TYPE_DR_BUFF           = 0x0000001d; // 29
-		const int HENCH_SPELL_INFO_SPELL_TYPE_MELEE_ATTACK_BUFF = 0x0000001e; // 30
-		const int HENCH_SPELL_INFO_SPELL_TYPE_RAISE_DEAD        = 0x0000001f; // 31
-		const int HENCH_SPELL_INFO_SPELL_TYPE_CONCEALMENT       = 0x00000020; // 32
-		const int HENCH_SPELL_INFO_SPELL_TYPE_HEAL_SPECIAL      = 0x00000022; // 34
+//		const int HENCH_SPELL_INFO_SPELL_TYPE_AC_BUFF           = 0x00000002; //  2
+//		const int HENCH_SPELL_INFO_SPELL_TYPE_BUFF              = 0x00000003; //  3
+//		const int HENCH_SPELL_INFO_SPELL_TYPE_PERSISTENTAREA    = 0x00000004; //  4
+//		const int HENCH_SPELL_INFO_SPELL_TYPE_POLYMORPH         = 0x00000005; //  5
+//		const int HENCH_SPELL_INFO_SPELL_TYPE_INVISIBLE         = 0x00000007; //  7
+//		const int HENCH_SPELL_INFO_SPELL_TYPE_CURECONDITION     = 0x00000008; //  8
+//		const int HENCH_SPELL_INFO_SPELL_TYPE_SUMMON            = 0x00000009; //  9
+//		const int HENCH_SPELL_INFO_SPELL_TYPE_HEAL              = 0x0000000a; // 10
+//		const int HENCH_SPELL_INFO_SPELL_TYPE_ATTR_BUFF         = 0x0000000c; // 12
+//		const int HENCH_SPELL_INFO_SPELL_TYPE_ENGR_PROT         = 0x0000000d; // 13
+//		const int HENCH_SPELL_INFO_SPELL_TYPE_MELEE_ATTACK      = 0x0000000e; // 14
+//		const int HENCH_SPELL_INFO_SPELL_TYPE_SPELL_PROT        = 0x00000010; // 16
+//		const int HENCH_SPELL_INFO_SPELL_TYPE_DETECT_INVIS      = 0x00000012; // 18
+//		const int HENCH_SPELL_INFO_SPELL_TYPE_DOMINATE          = 0x00000014; // 20
+//		const int HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF       = 0x00000015; // 21
+//		const int HENCH_SPELL_INFO_SPELL_TYPE_BUFF_ANIMAL_COMP  = 0x00000016; // 22
+//		const int HENCH_SPELL_INFO_SPELL_TYPE_PROT_EVIL         = 0x00000017; // 23
+//		const int HENCH_SPELL_INFO_SPELL_TYPE_PROT_GOOD         = 0x00000018; // 24
+//		const int HENCH_SPELL_INFO_SPELL_TYPE_REGENERATE        = 0x00000019; // 25
+//		const int HENCH_SPELL_INFO_SPELL_TYPE_GUST_OF_WIND      = 0x0000001a; // 26
+//		const int HENCH_SPELL_INFO_SPELL_TYPE_ELEMENTAL_SHIELD  = 0x0000001b; // 27
+//		const int HENCH_SPELL_INFO_SPELL_TYPE_TURN_UNDEAD       = 0x0000001c; // 28
+//		const int HENCH_SPELL_INFO_SPELL_TYPE_DR_BUFF           = 0x0000001d; // 29
+//		const int HENCH_SPELL_INFO_SPELL_TYPE_MELEE_ATTACK_BUFF = 0x0000001e; // 30
+//		const int HENCH_SPELL_INFO_SPELL_TYPE_RAISE_DEAD        = 0x0000001f; // 31
+//		const int HENCH_SPELL_INFO_SPELL_TYPE_CONCEALMENT       = 0x00000020; // 32
+//		const int HENCH_SPELL_INFO_SPELL_TYPE_HEAL_SPECIAL      = 0x00000022; // 34
 
 		// TODO: 'hench_i0_itemsp' CheckAOEForSelf() uses the following construction:
 //		int iSpellInfo = GetSpellInfo(iAoeInfo & HENCH_PERSIST_SPELL_MASK);
 //		if ((iSpellInfo & HENCH_SPELL_TARGET_RANGE_MASK) == HENCH_SPELL_TARGET_RANGE_PERSONAL)
-
+		//
 		// but it looks absolutely bogus. Range-type info is a property of TargetInfo not SpellInfo.
 
 		// END not used.
@@ -115,8 +115,8 @@
 //		int SHAPE_CUBE                                    = 2;
 //		int SHAPE_SPELLCONE                               = 3;
 //		int SHAPE_SPHERE                                  = 4;
-		const int HENCH_SHAPE_FACTION                     = 6; // indicates faction targets
-		const int HENCH_SHAPE_NONE                        = 7; // indicates no shape
+//		const int HENCH_SHAPE_FACTION                     = 6; // indicates faction targets
+//		const int HENCH_SHAPE_NONE                        = 7; // indicates no shape
 		// END not used.
 		#endregion TargetInfo
 
@@ -303,7 +303,7 @@
 		// HenchSpellAttack() 'hench_i0_attack' TargetInfo (iTargetInfo & ~HENCH_SPELL_TARGET_SCALE_EFFECT)
 		//    [see above ..]
 
-		const int HENCH_SPELL_INFO_DAMAGE_TYPE_MASK        = 0x00000fff;
+//		const int HENCH_SPELL_INFO_DAMAGE_TYPE_MASK        = 0x00000fff;
 		// END not used.
 		#endregion DamageInfo
 
@@ -313,109 +313,109 @@
 		// Immunity types (not used in editor) - stock NwScript constants:
 //		const int HENCH_SPELL_SAVE_TYPE_IMMUNITY1_MASK       =                       0x00000fc0;
 //		const int HENCH_SPELL_SAVE_TYPE_IMMUNITY2_MASK       =                                     0x0003f000;
-		const int IMMUNITY_TYPE_NONE                         = 0x00000000; //  0; // shift >> 6 // shift >> 12
-		const int IMMUNITY_TYPE_MIND_SPELLS                  = 0x00000001; //  1; // 0x00000040 // 0x00001000 // this overlaps the bit for HENCH_WEAPON_DRUID_FLAG
-		const int IMMUNITY_TYPE_POISON                       = 0x00000002; //  2; // 0x00000080 // 0x00002000
-		const int IMMUNITY_TYPE_DISEASE                      = 0x00000003; //  3; // 0x000000c0 // 0x00003000
-		const int IMMUNITY_TYPE_FEAR                         = 0x00000004; //  4; // 0x00000100 // 0x00004000
-		const int IMMUNITY_TYPE_TRAP                         = 0x00000005; //  5; // 0x00000140 // 0x00005000
-		const int IMMUNITY_TYPE_PARALYSIS                    = 0x00000006; //  6; // 0x00000180 // 0x00006000
-		const int IMMUNITY_TYPE_BLINDNESS                    = 0x00000007; //  7; // 0x000001c0 // 0x00007000
-		const int IMMUNITY_TYPE_DEAFNESS                     = 0x00000008; //  8; // 0x00000200 // 0x00008000
-		const int IMMUNITY_TYPE_SLOW                         = 0x00000009; //  9; // 0x00000240 // 0x00009000
-		const int IMMUNITY_TYPE_ENTANGLE                     = 0x0000000a; // 10; // 0x00000280 // 0x0000a000
-		const int IMMUNITY_TYPE_SILENCE                      = 0x0000000b; // 11; // 0x000002c0 // 0x0000b000
-		const int IMMUNITY_TYPE_STUN                         = 0x0000000c; // 12; // 0x00000300 // 0x0000c000
-		const int IMMUNITY_TYPE_SLEEP                        = 0x0000000d; // 13; // 0x00000340 // 0x0000d000
-		const int IMMUNITY_TYPE_CHARM                        = 0x0000000e; // 14; // 0x00000380 // 0x0000e000
-		const int IMMUNITY_TYPE_DOMINATE                     = 0x0000000f; // 15; // 0x000003c0 // 0x0000f000
-		const int IMMUNITY_TYPE_CONFUSED                     = 0x00000010; // 16; // 0x00000400 // 0x00010000
-		const int IMMUNITY_TYPE_CURSED                       = 0x00000011; // 17; // 0x00000440 // 0x00011000
-		const int IMMUNITY_TYPE_DAZED                        = 0x00000012; // 18; // 0x00000480 // 0x00012000
-		const int IMMUNITY_TYPE_ABILITY_DECREASE             = 0x00000013; // 19; // 0x000004c0 // 0x00013000
-		const int IMMUNITY_TYPE_ATTACK_DECREASE              = 0x00000014; // 20; // 0x00000500 // 0x00014000
-		const int IMMUNITY_TYPE_DAMAGE_DECREASE              = 0x00000015; // 21; // 0x00000540 // 0x00015000
-		const int IMMUNITY_TYPE_DAMAGE_IMMUNITY_DECREASE     = 0x00000016; // 22; // 0x00000580 // 0x00016000
-		const int IMMUNITY_TYPE_AC_DECREASE                  = 0x00000017; // 23; // 0x000005c0 // 0x00017000
-		const int IMMUNITY_TYPE_MOVEMENT_SPEED_DECREASE      = 0x00000018; // 24; // 0x00000600 // 0x00018000
-		const int IMMUNITY_TYPE_SAVING_THROW_DECREASE        = 0x00000019; // 25; // 0x00000640 // 0x00019000
-		const int IMMUNITY_TYPE_SPELL_RESISTANCE_DECREASE    = 0x0000001a; // 26; // 0x00000680 // 0x0001a000
-		const int IMMUNITY_TYPE_SKILL_DECREASE               = 0x0000001b; // 27; // 0x000006c0 // 0x0001b000
-		const int IMMUNITY_TYPE_KNOCKDOWN                    = 0x0000001c; // 28; // 0x00000700 // 0x0001c000
-		const int IMMUNITY_TYPE_NEGATIVE_LEVEL               = 0x0000001d; // 29; // 0x00000740 // 0x0001d000
-		const int IMMUNITY_TYPE_SNEAK_ATTACK                 = 0x0000001e; // 30; // 0x00000780 // 0x0001e000
-		const int IMMUNITY_TYPE_CRITICAL_HIT                 = 0x0000001f; // 31; // 0x000007c0 // 0x0001f000
-		const int IMMUNITY_TYPE_DEATH                        = 0x00000020; // 32; // 0x00000800 // 0x00020000
+//		const int IMMUNITY_TYPE_NONE                         = 0x00000000; //  0; // shift >> 6 // shift >> 12
+//		const int IMMUNITY_TYPE_MIND_SPELLS                  = 0x00000001; //  1; // 0x00000040 // 0x00001000 // this overlaps the bit for HENCH_WEAPON_DRUID_FLAG
+//		const int IMMUNITY_TYPE_POISON                       = 0x00000002; //  2; // 0x00000080 // 0x00002000
+//		const int IMMUNITY_TYPE_DISEASE                      = 0x00000003; //  3; // 0x000000c0 // 0x00003000
+//		const int IMMUNITY_TYPE_FEAR                         = 0x00000004; //  4; // 0x00000100 // 0x00004000
+//		const int IMMUNITY_TYPE_TRAP                         = 0x00000005; //  5; // 0x00000140 // 0x00005000
+//		const int IMMUNITY_TYPE_PARALYSIS                    = 0x00000006; //  6; // 0x00000180 // 0x00006000
+//		const int IMMUNITY_TYPE_BLINDNESS                    = 0x00000007; //  7; // 0x000001c0 // 0x00007000
+//		const int IMMUNITY_TYPE_DEAFNESS                     = 0x00000008; //  8; // 0x00000200 // 0x00008000
+//		const int IMMUNITY_TYPE_SLOW                         = 0x00000009; //  9; // 0x00000240 // 0x00009000
+//		const int IMMUNITY_TYPE_ENTANGLE                     = 0x0000000a; // 10; // 0x00000280 // 0x0000a000
+//		const int IMMUNITY_TYPE_SILENCE                      = 0x0000000b; // 11; // 0x000002c0 // 0x0000b000
+//		const int IMMUNITY_TYPE_STUN                         = 0x0000000c; // 12; // 0x00000300 // 0x0000c000
+//		const int IMMUNITY_TYPE_SLEEP                        = 0x0000000d; // 13; // 0x00000340 // 0x0000d000
+//		const int IMMUNITY_TYPE_CHARM                        = 0x0000000e; // 14; // 0x00000380 // 0x0000e000
+//		const int IMMUNITY_TYPE_DOMINATE                     = 0x0000000f; // 15; // 0x000003c0 // 0x0000f000
+//		const int IMMUNITY_TYPE_CONFUSED                     = 0x00000010; // 16; // 0x00000400 // 0x00010000
+//		const int IMMUNITY_TYPE_CURSED                       = 0x00000011; // 17; // 0x00000440 // 0x00011000
+//		const int IMMUNITY_TYPE_DAZED                        = 0x00000012; // 18; // 0x00000480 // 0x00012000
+//		const int IMMUNITY_TYPE_ABILITY_DECREASE             = 0x00000013; // 19; // 0x000004c0 // 0x00013000
+//		const int IMMUNITY_TYPE_ATTACK_DECREASE              = 0x00000014; // 20; // 0x00000500 // 0x00014000
+//		const int IMMUNITY_TYPE_DAMAGE_DECREASE              = 0x00000015; // 21; // 0x00000540 // 0x00015000
+//		const int IMMUNITY_TYPE_DAMAGE_IMMUNITY_DECREASE     = 0x00000016; // 22; // 0x00000580 // 0x00016000
+//		const int IMMUNITY_TYPE_AC_DECREASE                  = 0x00000017; // 23; // 0x000005c0 // 0x00017000
+//		const int IMMUNITY_TYPE_MOVEMENT_SPEED_DECREASE      = 0x00000018; // 24; // 0x00000600 // 0x00018000
+//		const int IMMUNITY_TYPE_SAVING_THROW_DECREASE        = 0x00000019; // 25; // 0x00000640 // 0x00019000
+//		const int IMMUNITY_TYPE_SPELL_RESISTANCE_DECREASE    = 0x0000001a; // 26; // 0x00000680 // 0x0001a000
+//		const int IMMUNITY_TYPE_SKILL_DECREASE               = 0x0000001b; // 27; // 0x000006c0 // 0x0001b000
+//		const int IMMUNITY_TYPE_KNOCKDOWN                    = 0x0000001c; // 28; // 0x00000700 // 0x0001c000
+//		const int IMMUNITY_TYPE_NEGATIVE_LEVEL               = 0x0000001d; // 29; // 0x00000740 // 0x0001d000
+//		const int IMMUNITY_TYPE_SNEAK_ATTACK                 = 0x0000001e; // 30; // 0x00000780 // 0x0001e000
+//		const int IMMUNITY_TYPE_CRITICAL_HIT                 = 0x0000001f; // 31; // 0x000007c0 // 0x0001f000
+//		const int IMMUNITY_TYPE_DEATH                        = 0x00000020; // 32; // 0x00000800 // 0x00020000
 
 		// Specific types (not used in editor) - CoreAI constants
 		// 'hench_i0_attack'
 //		const int HENCH_SPELL_SAVE_TYPE_CUSTOM_MASK          = 0x0000003f;
-		const int HENCH_ATTACK_NO_CHECK                      = 0x00000000; //  0 // These 50 are iSaveType constants ->
-		const int HENCH_ATTACK_CHECK_HEAL                    = 0x00000001; //  1 // Lovely. It looks like they did it again.
-		const int HENCH_ATTACK_CHECK_NEG_HEALING             = 0x00000002; //  2 // iSaveType appears to be dual-purposed
-		const int HENCH_ATTACK_CHECK_HUMANOID                = 0x00000003; //  3 // with overlapping values between these
-		const int HENCH_ATTACK_CHECK_NOT_ALREADY_EFFECTED    = 0x00000004; //  4 // and SaveType (Weapon-type) values.
-		const int HENCH_ATTACK_CHECK_INCORPOREAL             = 0x00000005; //  5 // cf. HENCH_WEAPON_* in 'hench_i0_buff'
-		const int HENCH_ATTACK_CHECK_DARKNESS                = 0x00000006; //  6
-		const int HENCH_ATTACK_CHECK_PETRIFY                 = 0x00000007; //  7
-		const int HENCH_ATTACK_CHECK_ANIMAL                  = 0x00000008; //  8
-		const int HENCH_ATTACK_CHECK_NOT_CONSTRUCT_OR_UNDEAD = 0x00000009; //  9
-		const int HENCH_ATTACK_CHECK_DROWN                   = 0x0000000a; // 10
-		const int HENCH_ATTACK_CHECK_SLEEP                   = 0x0000000b; // 11
-		const int HENCH_ATTACK_CHECK_BIGBY                   = 0x0000000c; // 12
-		const int HENCH_ATTACK_CHECK_UNDEAD                  = 0x0000000d; // 13
-		const int HENCH_ATTACK_CHECK_NOT_UNDEAD              = 0x0000000e; // 14
-		const int HENCH_ATTACK_CHECK_IMMUNITY_PHANTASMS      = 0x0000000f; // 15
-		const int HENCH_ATTACK_CHECK_MAGIC_MISSLE            = 0x00000010; // 16
-		const int HENCH_ATTACK_CHECK_INFERNO_OR_COMBUST      = 0x00000011; // 17
-		const int HENCH_ATTACK_CHECK_DISMISSAL_OR_BANISHMENT = 0x00000012; // 18
-		const int HENCH_ATTACK_CHECK_SPELLCASTER             = 0x00000013; // 19
-		const int HENCH_ATTACK_CHECK_NOT_ELF                 = 0x00000014; // 20
-		const int HENCH_ATTACK_CHECK_CONSTRUCT               = 0x00000015; // 21
-		const int HENCH_ATTACK_CHECK_SEARING_LIGHT           = 0x00000016; // 22
-		const int HENCH_ATTACK_CHECK_MINDBLAST               = 0x00000017; // 23
-		const int HENCH_ATTACK_CHECK_EVARDS_TENTACLES        = 0x00000018; // 24
-		const int HENCH_ATTACK_CHECK_IRONHORN                = 0x00000019; // 25
-		const int HENCH_ATTACK_CHECK_PRISM                   = 0x0000001a; // 26
-		const int HENCH_ATTACK_CHECK_SPIRIT                  = 0x0000001b; // 27
-		const int HENCH_ATTACK_CHECK_WORDOFFAITH             = 0x0000001c; // 28
-		const int HENCH_ATTACK_CHECK_CLOUDKILL               = 0x0000001d; // 29
-		const int HENCH_ATTACK_CHECK_HUMANOID_OR_ANIMAL      = 0x0000001e; // 30
-		const int HENCH_ATTACK_CHECK_DAZE                    = 0x0000001f; // 31
-		const int HENCH_ATTACK_CHECK_TASHAS                  = 0x00000020; // 32
-		const int HENCH_ATTACK_CHECK_CAUSE_FEAR              = 0x00000021; // 33
-		const int HENCH_ATTACK_CHECK_PERCENTAGE              = 0x00000022; // 34
-		const int HENCH_ATTACK_CHECK_CREEPING_DOOM           = 0x00000023; // 35
-		const int HENCH_ATTACK_CHECK_DEATH_KNELL             = 0x00000024; // 36
-		const int HENCH_ATTACK_CHECK_WARLOCK                 = 0x00000025; // 37 Cf SpellInfo HENCH_SPELL_INFO_SPELL_TYPE_WARLOCK
-		const int HENCH_ATTACK_CHECK_MOONBOLT                = 0x00000026; // 38
-		const int HENCH_ATTACK_CHECK_SWAMPLUNG               = 0x00000027; // 39
-		const int HENCH_ATTACK_CHECK_SEEN                    = 0x00000028; // 40
-		const int HENCH_ATTACK_CHECK_COLOR_SPRAY             = 0x00000029; // 41
-		const int HENCH_ATTACK_CHECK_SUNBEAM                 = 0x0000002a; // 42
-		const int HENCH_ATTACK_CHECK_SUNBURST                = 0x0000002b; // 43
-		const int HENCH_ATTACK_CHECK_MEDIUM                  = 0x0000002c; // 44
-		const int HENCH_ATTACK_CHECK_CASTIGATE               = 0x0000002d; // 45
-		const int HENCH_ATTACK_CHECK_FIGHTER                 = 0x0000002e; // 46
-		const int HENCH_ATTACK_CHECK_NOT_DEAF                = 0x0000002f; // 47
-		const int HENCH_ATTACK_CHECK_HOLY_BLAS               = 0x00000030; // 48
-		const int HENCH_ATTACK_CHECK_EVIL                    = 0x00000031; // 49
+//		const int HENCH_ATTACK_NO_CHECK                      = 0x00000000; //  0 // These 50 are iSaveType constants ->
+//		const int HENCH_ATTACK_CHECK_HEAL                    = 0x00000001; //  1 // Lovely. It looks like they did it again.
+//		const int HENCH_ATTACK_CHECK_NEG_HEALING             = 0x00000002; //  2 // iSaveType appears to be dual-purposed
+//		const int HENCH_ATTACK_CHECK_HUMANOID                = 0x00000003; //  3 // with overlapping values between these
+//		const int HENCH_ATTACK_CHECK_NOT_ALREADY_EFFECTED    = 0x00000004; //  4 // and SaveType (Weapon-type) values.
+//		const int HENCH_ATTACK_CHECK_INCORPOREAL             = 0x00000005; //  5 // cf. HENCH_WEAPON_* in 'hench_i0_buff'
+//		const int HENCH_ATTACK_CHECK_DARKNESS                = 0x00000006; //  6
+//		const int HENCH_ATTACK_CHECK_PETRIFY                 = 0x00000007; //  7
+//		const int HENCH_ATTACK_CHECK_ANIMAL                  = 0x00000008; //  8
+//		const int HENCH_ATTACK_CHECK_NOT_CONSTRUCT_OR_UNDEAD = 0x00000009; //  9
+//		const int HENCH_ATTACK_CHECK_DROWN                   = 0x0000000a; // 10
+//		const int HENCH_ATTACK_CHECK_SLEEP                   = 0x0000000b; // 11
+//		const int HENCH_ATTACK_CHECK_BIGBY                   = 0x0000000c; // 12
+//		const int HENCH_ATTACK_CHECK_UNDEAD                  = 0x0000000d; // 13
+//		const int HENCH_ATTACK_CHECK_NOT_UNDEAD              = 0x0000000e; // 14
+//		const int HENCH_ATTACK_CHECK_IMMUNITY_PHANTASMS      = 0x0000000f; // 15
+//		const int HENCH_ATTACK_CHECK_MAGIC_MISSLE            = 0x00000010; // 16
+//		const int HENCH_ATTACK_CHECK_INFERNO_OR_COMBUST      = 0x00000011; // 17
+//		const int HENCH_ATTACK_CHECK_DISMISSAL_OR_BANISHMENT = 0x00000012; // 18
+//		const int HENCH_ATTACK_CHECK_SPELLCASTER             = 0x00000013; // 19
+//		const int HENCH_ATTACK_CHECK_NOT_ELF                 = 0x00000014; // 20
+//		const int HENCH_ATTACK_CHECK_CONSTRUCT               = 0x00000015; // 21
+//		const int HENCH_ATTACK_CHECK_SEARING_LIGHT           = 0x00000016; // 22
+//		const int HENCH_ATTACK_CHECK_MINDBLAST               = 0x00000017; // 23
+//		const int HENCH_ATTACK_CHECK_EVARDS_TENTACLES        = 0x00000018; // 24
+//		const int HENCH_ATTACK_CHECK_IRONHORN                = 0x00000019; // 25
+//		const int HENCH_ATTACK_CHECK_PRISM                   = 0x0000001a; // 26
+//		const int HENCH_ATTACK_CHECK_SPIRIT                  = 0x0000001b; // 27
+//		const int HENCH_ATTACK_CHECK_WORDOFFAITH             = 0x0000001c; // 28
+//		const int HENCH_ATTACK_CHECK_CLOUDKILL               = 0x0000001d; // 29
+//		const int HENCH_ATTACK_CHECK_HUMANOID_OR_ANIMAL      = 0x0000001e; // 30
+//		const int HENCH_ATTACK_CHECK_DAZE                    = 0x0000001f; // 31
+//		const int HENCH_ATTACK_CHECK_TASHAS                  = 0x00000020; // 32
+//		const int HENCH_ATTACK_CHECK_CAUSE_FEAR              = 0x00000021; // 33
+//		const int HENCH_ATTACK_CHECK_PERCENTAGE              = 0x00000022; // 34
+//		const int HENCH_ATTACK_CHECK_CREEPING_DOOM           = 0x00000023; // 35
+//		const int HENCH_ATTACK_CHECK_DEATH_KNELL             = 0x00000024; // 36
+//		const int HENCH_ATTACK_CHECK_WARLOCK                 = 0x00000025; // 37 Cf SpellInfo HENCH_SPELL_INFO_SPELL_TYPE_WARLOCK
+//		const int HENCH_ATTACK_CHECK_MOONBOLT                = 0x00000026; // 38
+//		const int HENCH_ATTACK_CHECK_SWAMPLUNG               = 0x00000027; // 39
+//		const int HENCH_ATTACK_CHECK_SEEN                    = 0x00000028; // 40
+//		const int HENCH_ATTACK_CHECK_COLOR_SPRAY             = 0x00000029; // 41
+//		const int HENCH_ATTACK_CHECK_SUNBEAM                 = 0x0000002a; // 42
+//		const int HENCH_ATTACK_CHECK_SUNBURST                = 0x0000002b; // 43
+//		const int HENCH_ATTACK_CHECK_MEDIUM                  = 0x0000002c; // 44
+//		const int HENCH_ATTACK_CHECK_CASTIGATE               = 0x0000002d; // 45
+//		const int HENCH_ATTACK_CHECK_FIGHTER                 = 0x0000002e; // 46
+//		const int HENCH_ATTACK_CHECK_NOT_DEAF                = 0x0000002f; // 47
+//		const int HENCH_ATTACK_CHECK_HOLY_BLAS               = 0x00000030; // 48
+//		const int HENCH_ATTACK_CHECK_EVIL                    = 0x00000031; // 49
 
 		// AcBonus types (not used in editor) - stock NwScript constants
 //		int iAcType = (iSaveType & HENCH_SPELL_SAVE_TYPE_SAVES_MASK) >> 18;
-		const int AC_DODGE_BONUS                       = 0; // shift >> 18
-		const int AC_NATURAL_BONUS                     = 1; // 0x00040000 // these overlap the bits for Type1Save ->
-		const int AC_ARMOUR_ENCHANTMENT_BONUS          = 2; // 0x00080000
-		const int AC_SHIELD_ENCHANTMENT_BONUS          = 3; // 0x000c0000
-		const int AC_DEFLECTION_BONUS                  = 4; // 0x00100000 // this overlaps the bit for Type1Damage:half
+//		const int AC_DODGE_BONUS                       = 0; // shift >> 18
+//		const int AC_NATURAL_BONUS                     = 1; // 0x00040000 // these overlap the bits for Type1Save ->
+//		const int AC_ARMOUR_ENCHANTMENT_BONUS          = 2; // 0x00080000
+//		const int AC_SHIELD_ENCHANTMENT_BONUS          = 3; // 0x000c0000
+//		const int AC_DEFLECTION_BONUS                  = 4; // 0x00100000 // this overlaps the bit for Type1Damage:half
 
 
 		// TODO: These say they are in SaveType - 'hench_i0_buff' HenchGetEnergyImmunityWeight()
 		// but I have doubts ....
-		const int HENCH_IMMUNITY_WEIGHT_AMOUNT_MASK          = 0x000ff000;
-		const int HENCH_IMMUNITY_WEIGHT_RESISTANCE           = 0x00100000; // type1damage:half
-		const int HENCH_IMMUNITY_ONLY_ONE                    = 0x00200000; // type1damage:regular
-		const int HENCH_IMMUNITY_GENERAL                     = 0x00400000; // type2save:fort
+//		const int HENCH_IMMUNITY_WEIGHT_AMOUNT_MASK          = 0x000ff000;
+//		const int HENCH_IMMUNITY_WEIGHT_RESISTANCE           = 0x00100000; // type1damage:half
+//		const int HENCH_IMMUNITY_ONLY_ONE                    = 0x00200000; // type1damage:regular
+//		const int HENCH_IMMUNITY_GENERAL                     = 0x00400000; // type2save:fort
 
 		// END not used.
 
