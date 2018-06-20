@@ -665,7 +665,8 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Handles toggling bits by checkboxes on the SaveType page - exclusive DamageTypes group.
+		/// Handles toggling bits by checkboxes/radiobuttons on the SaveType
+		/// page - exclusive Flags group.
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -681,26 +682,37 @@ namespace nwn2_ai_2da_editor
 
 				int bit;
 
-				var cb = sender as CheckBox;
-				if (cb.Equals(st_Excl_Weightresistance))
+				var rb = sender as RadioButton;
+				if (rb != null)
 				{
-					bit = HENCH_IMMUNITY_WEIGHT_RESISTANCE;
-				}
-				else if (cb.Equals(st_Excl_Onlyone))
-				{
-					bit = HENCH_IMMUNITY_ONLY_ONE;
-				}
-				else //if (cb.Equals(st_Excl_General))
-				{
-					bit = HENCH_IMMUNITY_GENERAL;
-				}
-
-				if (cb.Checked)
-				{
-					savetype |= bit;
+					if (rb.Equals(st_Excl_rbImmunity))
+					{
+						savetype &= ~HENCH_IMMUNITY_WEIGHT_RESISTANCE; // 0x00100000
+					}
+					else //if (rb.Equals(st_Excl_Flags_rbResistance))
+					{
+						savetype |= HENCH_IMMUNITY_WEIGHT_RESISTANCE;
+					}
 				}
 				else
-					savetype &= ~bit;
+				{
+					var cb = sender as CheckBox;
+					if (cb.Equals(st_Excl_Onlyone))
+					{
+						bit = HENCH_IMMUNITY_ONLY_ONE; // 0x00200000
+					}
+					else //if (cb.Equals(st_Excl_General))
+					{
+						bit = HENCH_IMMUNITY_GENERAL; // 0x00400000
+					}
+
+					if (cb.Checked)
+					{
+						savetype |= bit;
+					}
+					else
+						savetype &= ~bit;
+				}
 
 //				bypassCheckedChecker = true; // don't do it. This can toggle other checkers.
 				SaveType_text.Text = savetype.ToString();
@@ -866,10 +878,14 @@ namespace nwn2_ai_2da_editor
 				st_Excl_Positive   .Checked = (savetype & DAMAGE_TYPE_POSITIVE)    != 0;
 				st_Excl_Sonic      .Checked = (savetype & DAMAGE_TYPE_SONIC)       != 0;
 
+				// Flags radiobuttons
+				bool isResist = (savetype & HENCH_IMMUNITY_WEIGHT_RESISTANCE) != 0;
+				st_Excl_rbImmunity  .Checked = !isResist;
+				st_Excl_rbResistance.Checked =  isResist;
+
 				// Flags checkboxes
-				st_Excl_Weightresistance.Checked = (savetype & HENCH_IMMUNITY_WEIGHT_RESISTANCE) != 0;
-				st_Excl_Onlyone         .Checked = (savetype & HENCH_IMMUNITY_ONLY_ONE)          != 0;
-				st_Excl_General         .Checked = (savetype & HENCH_IMMUNITY_GENERAL)           != 0;
+				st_Excl_Onlyone.Checked = (savetype & HENCH_IMMUNITY_ONLY_ONE) != 0;
+				st_Excl_General.Checked = (savetype & HENCH_IMMUNITY_GENERAL)  != 0;
 
 				// Weight textbox
 				val = (savetype & HENCH_IMMUNITY_WEIGHT_AMOUNT_MASK); // 0x000ff000

@@ -50,7 +50,7 @@
 		private System.Windows.Forms.GroupBox dc_ArmorCheckGrp;
 		private System.Windows.Forms.Label armorcheck_info;
 		private System.Windows.Forms.GroupBox st_SpecificGrp;
-		private System.Windows.Forms.GroupBox st_GeneralGrp;
+		private System.Windows.Forms.GroupBox st_FlagsGrp;
 		private System.Windows.Forms.CheckBox st_SpellResistance;
 		private System.Windows.Forms.CheckBox st_MindAffecting;
 		private System.Windows.Forms.CheckBox st_AffectsFriendlies;
@@ -293,7 +293,9 @@
 		private System.Windows.Forms.GroupBox st_Excl_FlagsGrp;
 		private System.Windows.Forms.CheckBox st_Excl_General;
 		private System.Windows.Forms.CheckBox st_Excl_Onlyone;
-		private System.Windows.Forms.CheckBox st_Excl_Weightresistance;
+		private System.Windows.Forms.GroupBox st_DetrimentalGrp;
+		private System.Windows.Forms.RadioButton st_Excl_rbResistance;
+		private System.Windows.Forms.RadioButton st_Excl_rbImmunity;
 
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -498,11 +500,46 @@
 			this.DamageInfo_text = new System.Windows.Forms.TextBox();
 			this.DamageInfo_reset = new System.Windows.Forms.Button();
 			this.page_SaveType = new System.Windows.Forms.TabPage();
+			this.st_DetrimentalGrp = new System.Windows.Forms.GroupBox();
+			this.st_SpecificGrp = new System.Windows.Forms.GroupBox();
+			this.cbo_st_Specific = new System.Windows.Forms.ComboBox();
+			this.st_Immunity2Grp = new System.Windows.Forms.GroupBox();
+			this.cbo_st_Immunity2 = new System.Windows.Forms.ComboBox();
+			this.st_Immunity1Grp = new System.Windows.Forms.GroupBox();
+			this.cbo_st_Immunity1 = new System.Windows.Forms.ComboBox();
+			this.st_FlagsGrp = new System.Windows.Forms.GroupBox();
+			this.st_SpellResistance = new System.Windows.Forms.CheckBox();
+			this.st_MindAffecting = new System.Windows.Forms.CheckBox();
+			this.st_AffectsFriendlies = new System.Windows.Forms.CheckBox();
+			this.st_TouchRanged = new System.Windows.Forms.CheckBox();
+			this.st_NotCaster = new System.Windows.Forms.CheckBox();
+			this.st_TouchMelee = new System.Windows.Forms.CheckBox();
+			this.st_Impact2Grp = new System.Windows.Forms.GroupBox();
+			this.st_Impact2rb_damageevasion = new System.Windows.Forms.RadioButton();
+			this.st_Impact2rb_effectdamage = new System.Windows.Forms.RadioButton();
+			this.st_Impact2rb_damagehalf = new System.Windows.Forms.RadioButton();
+			this.st_Impact2rb_effectonly = new System.Windows.Forms.RadioButton();
+			this.st_Impact1Grp = new System.Windows.Forms.GroupBox();
+			this.st_Impact1rb_damageevasion = new System.Windows.Forms.RadioButton();
+			this.st_Impact1rb_effectdamage = new System.Windows.Forms.RadioButton();
+			this.st_Impact1rb_damagehalf = new System.Windows.Forms.RadioButton();
+			this.st_Impact1rb_effectonly = new System.Windows.Forms.RadioButton();
+			this.st_Save2Grp = new System.Windows.Forms.GroupBox();
+			this.st_Save2rb_will = new System.Windows.Forms.RadioButton();
+			this.st_Save2rb_refl = new System.Windows.Forms.RadioButton();
+			this.st_Save2rb_fort = new System.Windows.Forms.RadioButton();
+			this.st_Save2rb_none = new System.Windows.Forms.RadioButton();
+			this.st_Save1Grp = new System.Windows.Forms.GroupBox();
+			this.st_Save1rb_will = new System.Windows.Forms.RadioButton();
+			this.st_Save1rb_refl = new System.Windows.Forms.RadioButton();
+			this.st_Save1rb_fort = new System.Windows.Forms.RadioButton();
+			this.st_Save1rb_none = new System.Windows.Forms.RadioButton();
 			this.st_ExclusiveGrp = new System.Windows.Forms.GroupBox();
 			this.st_Excl_FlagsGrp = new System.Windows.Forms.GroupBox();
+			this.st_Excl_rbResistance = new System.Windows.Forms.RadioButton();
+			this.st_Excl_rbImmunity = new System.Windows.Forms.RadioButton();
 			this.st_Excl_General = new System.Windows.Forms.CheckBox();
 			this.st_Excl_Onlyone = new System.Windows.Forms.CheckBox();
-			this.st_Excl_Weightresistance = new System.Windows.Forms.CheckBox();
 			this.st_Excl_WeightGrp = new System.Windows.Forms.GroupBox();
 			this.st_Excl_Weight = new System.Windows.Forms.TextBox();
 			this.st_Excl_DamagetypesGrp = new System.Windows.Forms.GroupBox();
@@ -523,43 +560,10 @@
 			this.st_Clear = new System.Windows.Forms.Button();
 			this.SaveType_bin = new System.Windows.Forms.TextBox();
 			this.SaveType_hex = new System.Windows.Forms.TextBox();
-			this.st_Immunity2Grp = new System.Windows.Forms.GroupBox();
-			this.cbo_st_Immunity2 = new System.Windows.Forms.ComboBox();
 			this.st_AcBonusGrp = new System.Windows.Forms.GroupBox();
 			this.cbo_st_AcBonus = new System.Windows.Forms.ComboBox();
 			this.st_WeaponGrp = new System.Windows.Forms.GroupBox();
 			this.cbo_st_Weapon = new System.Windows.Forms.ComboBox();
-			this.st_Immunity1Grp = new System.Windows.Forms.GroupBox();
-			this.cbo_st_Immunity1 = new System.Windows.Forms.ComboBox();
-			this.st_Impact2Grp = new System.Windows.Forms.GroupBox();
-			this.st_Impact2rb_damageevasion = new System.Windows.Forms.RadioButton();
-			this.st_Impact2rb_effectdamage = new System.Windows.Forms.RadioButton();
-			this.st_Impact2rb_damagehalf = new System.Windows.Forms.RadioButton();
-			this.st_Impact2rb_effectonly = new System.Windows.Forms.RadioButton();
-			this.st_Impact1Grp = new System.Windows.Forms.GroupBox();
-			this.st_Impact1rb_damageevasion = new System.Windows.Forms.RadioButton();
-			this.st_Impact1rb_effectdamage = new System.Windows.Forms.RadioButton();
-			this.st_Impact1rb_damagehalf = new System.Windows.Forms.RadioButton();
-			this.st_Impact1rb_effectonly = new System.Windows.Forms.RadioButton();
-			this.st_SpecificGrp = new System.Windows.Forms.GroupBox();
-			this.cbo_st_Specific = new System.Windows.Forms.ComboBox();
-			this.st_GeneralGrp = new System.Windows.Forms.GroupBox();
-			this.st_SpellResistance = new System.Windows.Forms.CheckBox();
-			this.st_MindAffecting = new System.Windows.Forms.CheckBox();
-			this.st_AffectsFriendlies = new System.Windows.Forms.CheckBox();
-			this.st_TouchRanged = new System.Windows.Forms.CheckBox();
-			this.st_NotCaster = new System.Windows.Forms.CheckBox();
-			this.st_TouchMelee = new System.Windows.Forms.CheckBox();
-			this.st_Save2Grp = new System.Windows.Forms.GroupBox();
-			this.st_Save2rb_will = new System.Windows.Forms.RadioButton();
-			this.st_Save2rb_refl = new System.Windows.Forms.RadioButton();
-			this.st_Save2rb_fort = new System.Windows.Forms.RadioButton();
-			this.st_Save2rb_none = new System.Windows.Forms.RadioButton();
-			this.st_Save1Grp = new System.Windows.Forms.GroupBox();
-			this.st_Save1rb_will = new System.Windows.Forms.RadioButton();
-			this.st_Save1rb_refl = new System.Windows.Forms.RadioButton();
-			this.st_Save1rb_fort = new System.Windows.Forms.RadioButton();
-			this.st_Save1rb_none = new System.Windows.Forms.RadioButton();
 			this.SaveType_text = new System.Windows.Forms.TextBox();
 			this.SaveType_reset = new System.Windows.Forms.Button();
 			this.page_SaveDCType = new System.Windows.Forms.TabPage();
@@ -639,20 +643,21 @@
 			this.di_BenLeveltypeGrp.SuspendLayout();
 			this.di_DispelTypesGrp.SuspendLayout();
 			this.page_SaveType.SuspendLayout();
+			this.st_DetrimentalGrp.SuspendLayout();
+			this.st_SpecificGrp.SuspendLayout();
+			this.st_Immunity2Grp.SuspendLayout();
+			this.st_Immunity1Grp.SuspendLayout();
+			this.st_FlagsGrp.SuspendLayout();
+			this.st_Impact2Grp.SuspendLayout();
+			this.st_Impact1Grp.SuspendLayout();
+			this.st_Save2Grp.SuspendLayout();
+			this.st_Save1Grp.SuspendLayout();
 			this.st_ExclusiveGrp.SuspendLayout();
 			this.st_Excl_FlagsGrp.SuspendLayout();
 			this.st_Excl_WeightGrp.SuspendLayout();
 			this.st_Excl_DamagetypesGrp.SuspendLayout();
-			this.st_Immunity2Grp.SuspendLayout();
 			this.st_AcBonusGrp.SuspendLayout();
 			this.st_WeaponGrp.SuspendLayout();
-			this.st_Immunity1Grp.SuspendLayout();
-			this.st_Impact2Grp.SuspendLayout();
-			this.st_Impact1Grp.SuspendLayout();
-			this.st_SpecificGrp.SuspendLayout();
-			this.st_GeneralGrp.SuspendLayout();
-			this.st_Save2Grp.SuspendLayout();
-			this.st_Save1Grp.SuspendLayout();
 			this.page_SaveDCType.SuspendLayout();
 			this.dc_ArmorCheckGrp.SuspendLayout();
 			this.dc_WeaponBonusGrp.SuspendLayout();
@@ -665,8 +670,6 @@
 			// 
 			// cols_HenchSpells
 			// 
-			this.cols_HenchSpells.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-			| System.Windows.Forms.AnchorStyles.Left)));
 			this.cols_HenchSpells.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
 			this.cols_HenchSpells.Controls.Add(this.page_SpellInfo);
 			this.cols_HenchSpells.Controls.Add(this.page_TargetInfo);
@@ -680,7 +683,7 @@
 			this.cols_HenchSpells.Name = "cols_HenchSpells";
 			this.cols_HenchSpells.Padding = new System.Drawing.Point(5, 2);
 			this.cols_HenchSpells.SelectedIndex = 0;
-			this.cols_HenchSpells.Size = new System.Drawing.Size(710, 492);
+			this.cols_HenchSpells.Size = new System.Drawing.Size(740, 505);
 			this.cols_HenchSpells.TabIndex = 0;
 			this.cols_HenchSpells.SelectedIndexChanged += new System.EventHandler(this.SelectedIndexChanged_tab);
 			// 
@@ -701,7 +704,7 @@
 			this.page_SpellInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SpellInfo.Name = "page_SpellInfo";
 			this.page_SpellInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SpellInfo.Size = new System.Drawing.Size(702, 464);
+			this.page_SpellInfo.Size = new System.Drawing.Size(732, 502);
 			this.page_SpellInfo.TabIndex = 0;
 			this.page_SpellInfo.Text = "SpellInfo";
 			this.page_SpellInfo.UseVisualStyleBackColor = true;
@@ -1030,11 +1033,11 @@
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_hex);
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_text);
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_reset);
-			this.page_TargetInfo.Location = new System.Drawing.Point(4, 23);
+			this.page_TargetInfo.Location = new System.Drawing.Point(4, 24);
 			this.page_TargetInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_TargetInfo.Name = "page_TargetInfo";
 			this.page_TargetInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_TargetInfo.Size = new System.Drawing.Size(702, 465);
+			this.page_TargetInfo.Size = new System.Drawing.Size(732, 502);
 			this.page_TargetInfo.TabIndex = 1;
 			this.page_TargetInfo.Text = "TargetInfo";
 			this.page_TargetInfo.UseVisualStyleBackColor = true;
@@ -1319,11 +1322,11 @@
 			this.page_EffectWeight.Controls.Add(this.f1);
 			this.page_EffectWeight.Controls.Add(this.EffectWeight_reset);
 			this.page_EffectWeight.Controls.Add(this.EffectWeight_text);
-			this.page_EffectWeight.Location = new System.Drawing.Point(4, 23);
+			this.page_EffectWeight.Location = new System.Drawing.Point(4, 24);
 			this.page_EffectWeight.Margin = new System.Windows.Forms.Padding(2);
 			this.page_EffectWeight.Name = "page_EffectWeight";
 			this.page_EffectWeight.Padding = new System.Windows.Forms.Padding(2);
-			this.page_EffectWeight.Size = new System.Drawing.Size(702, 465);
+			this.page_EffectWeight.Size = new System.Drawing.Size(732, 502);
 			this.page_EffectWeight.TabIndex = 2;
 			this.page_EffectWeight.Text = "EffectWeight";
 			this.page_EffectWeight.UseVisualStyleBackColor = true;
@@ -1389,11 +1392,11 @@
 			this.page_EffectTypes.Controls.Add(this.EffectTypes_hex);
 			this.page_EffectTypes.Controls.Add(this.EffectTypes_text);
 			this.page_EffectTypes.Controls.Add(this.EffectTypes_reset);
-			this.page_EffectTypes.Location = new System.Drawing.Point(4, 23);
+			this.page_EffectTypes.Location = new System.Drawing.Point(4, 24);
 			this.page_EffectTypes.Margin = new System.Windows.Forms.Padding(2);
 			this.page_EffectTypes.Name = "page_EffectTypes";
 			this.page_EffectTypes.Padding = new System.Windows.Forms.Padding(2);
-			this.page_EffectTypes.Size = new System.Drawing.Size(702, 465);
+			this.page_EffectTypes.Size = new System.Drawing.Size(732, 502);
 			this.page_EffectTypes.TabIndex = 3;
 			this.page_EffectTypes.Text = "EffectTypes";
 			this.page_EffectTypes.UseVisualStyleBackColor = true;
@@ -2166,11 +2169,11 @@
 			this.page_DamageInfo.Controls.Add(this.DamageInfo_hex);
 			this.page_DamageInfo.Controls.Add(this.DamageInfo_text);
 			this.page_DamageInfo.Controls.Add(this.DamageInfo_reset);
-			this.page_DamageInfo.Location = new System.Drawing.Point(4, 23);
+			this.page_DamageInfo.Location = new System.Drawing.Point(4, 24);
 			this.page_DamageInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_DamageInfo.Name = "page_DamageInfo";
 			this.page_DamageInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_DamageInfo.Size = new System.Drawing.Size(702, 465);
+			this.page_DamageInfo.Size = new System.Drawing.Size(732, 477);
 			this.page_DamageInfo.TabIndex = 4;
 			this.page_DamageInfo.Text = "DamageInfo";
 			this.page_DamageInfo.UseVisualStyleBackColor = true;
@@ -2751,67 +2754,481 @@
 			// 
 			// page_SaveType
 			// 
+			this.page_SaveType.Controls.Add(this.st_DetrimentalGrp);
 			this.page_SaveType.Controls.Add(this.st_ExclusiveGrp);
 			this.page_SaveType.Controls.Add(this.st_bin);
 			this.page_SaveType.Controls.Add(this.st_hex);
 			this.page_SaveType.Controls.Add(this.st_Clear);
 			this.page_SaveType.Controls.Add(this.SaveType_bin);
 			this.page_SaveType.Controls.Add(this.SaveType_hex);
-			this.page_SaveType.Controls.Add(this.st_Immunity2Grp);
 			this.page_SaveType.Controls.Add(this.st_AcBonusGrp);
 			this.page_SaveType.Controls.Add(this.st_WeaponGrp);
-			this.page_SaveType.Controls.Add(this.st_Immunity1Grp);
-			this.page_SaveType.Controls.Add(this.st_Impact2Grp);
-			this.page_SaveType.Controls.Add(this.st_Impact1Grp);
-			this.page_SaveType.Controls.Add(this.st_SpecificGrp);
-			this.page_SaveType.Controls.Add(this.st_GeneralGrp);
-			this.page_SaveType.Controls.Add(this.st_Save2Grp);
-			this.page_SaveType.Controls.Add(this.st_Save1Grp);
 			this.page_SaveType.Controls.Add(this.SaveType_text);
 			this.page_SaveType.Controls.Add(this.SaveType_reset);
 			this.page_SaveType.Location = new System.Drawing.Point(4, 24);
 			this.page_SaveType.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SaveType.Name = "page_SaveType";
 			this.page_SaveType.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SaveType.Size = new System.Drawing.Size(702, 464);
+			this.page_SaveType.Size = new System.Drawing.Size(729, 477);
 			this.page_SaveType.TabIndex = 5;
 			this.page_SaveType.Text = "SaveType";
 			this.page_SaveType.UseVisualStyleBackColor = true;
+			// 
+			// st_DetrimentalGrp
+			// 
+			this.st_DetrimentalGrp.Controls.Add(this.st_SpecificGrp);
+			this.st_DetrimentalGrp.Controls.Add(this.st_Immunity2Grp);
+			this.st_DetrimentalGrp.Controls.Add(this.st_Immunity1Grp);
+			this.st_DetrimentalGrp.Controls.Add(this.st_FlagsGrp);
+			this.st_DetrimentalGrp.Controls.Add(this.st_Impact2Grp);
+			this.st_DetrimentalGrp.Controls.Add(this.st_Impact1Grp);
+			this.st_DetrimentalGrp.Controls.Add(this.st_Save2Grp);
+			this.st_DetrimentalGrp.Controls.Add(this.st_Save1Grp);
+			this.st_DetrimentalGrp.Location = new System.Drawing.Point(5, 55);
+			this.st_DetrimentalGrp.Name = "st_DetrimentalGrp";
+			this.st_DetrimentalGrp.Size = new System.Drawing.Size(540, 360);
+			this.st_DetrimentalGrp.TabIndex = 37;
+			this.st_DetrimentalGrp.TabStop = false;
+			this.st_DetrimentalGrp.Text = "detrimental";
+			// 
+			// st_SpecificGrp
+			// 
+			this.st_SpecificGrp.Controls.Add(this.cbo_st_Specific);
+			this.st_SpecificGrp.Location = new System.Drawing.Point(235, 115);
+			this.st_SpecificGrp.Margin = new System.Windows.Forms.Padding(0);
+			this.st_SpecificGrp.Name = "st_SpecificGrp";
+			this.st_SpecificGrp.Padding = new System.Windows.Forms.Padding(0);
+			this.st_SpecificGrp.Size = new System.Drawing.Size(300, 50);
+			this.st_SpecificGrp.TabIndex = 32;
+			this.st_SpecificGrp.TabStop = false;
+			this.st_SpecificGrp.Text = "Specific";
+			// 
+			// cbo_st_Specific
+			// 
+			this.cbo_st_Specific.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbo_st_Specific.FormattingEnabled = true;
+			this.cbo_st_Specific.Location = new System.Drawing.Point(5, 15);
+			this.cbo_st_Specific.Margin = new System.Windows.Forms.Padding(0);
+			this.cbo_st_Specific.Name = "cbo_st_Specific";
+			this.cbo_st_Specific.Size = new System.Drawing.Size(290, 22);
+			this.cbo_st_Specific.TabIndex = 0;
+			// 
+			// st_Immunity2Grp
+			// 
+			this.st_Immunity2Grp.Controls.Add(this.cbo_st_Immunity2);
+			this.st_Immunity2Grp.Location = new System.Drawing.Point(235, 65);
+			this.st_Immunity2Grp.Margin = new System.Windows.Forms.Padding(0);
+			this.st_Immunity2Grp.Name = "st_Immunity2Grp";
+			this.st_Immunity2Grp.Padding = new System.Windows.Forms.Padding(0);
+			this.st_Immunity2Grp.Size = new System.Drawing.Size(195, 50);
+			this.st_Immunity2Grp.TabIndex = 31;
+			this.st_Immunity2Grp.TabStop = false;
+			this.st_Immunity2Grp.Text = "Immunity2 type";
+			// 
+			// cbo_st_Immunity2
+			// 
+			this.cbo_st_Immunity2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbo_st_Immunity2.FormattingEnabled = true;
+			this.cbo_st_Immunity2.Location = new System.Drawing.Point(5, 15);
+			this.cbo_st_Immunity2.Margin = new System.Windows.Forms.Padding(0);
+			this.cbo_st_Immunity2.Name = "cbo_st_Immunity2";
+			this.cbo_st_Immunity2.Size = new System.Drawing.Size(185, 22);
+			this.cbo_st_Immunity2.TabIndex = 0;
+			// 
+			// st_Immunity1Grp
+			// 
+			this.st_Immunity1Grp.Controls.Add(this.cbo_st_Immunity1);
+			this.st_Immunity1Grp.Location = new System.Drawing.Point(235, 15);
+			this.st_Immunity1Grp.Margin = new System.Windows.Forms.Padding(0);
+			this.st_Immunity1Grp.Name = "st_Immunity1Grp";
+			this.st_Immunity1Grp.Padding = new System.Windows.Forms.Padding(0);
+			this.st_Immunity1Grp.Size = new System.Drawing.Size(195, 50);
+			this.st_Immunity1Grp.TabIndex = 30;
+			this.st_Immunity1Grp.TabStop = false;
+			this.st_Immunity1Grp.Text = "Immunity1 type";
+			// 
+			// cbo_st_Immunity1
+			// 
+			this.cbo_st_Immunity1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbo_st_Immunity1.FormattingEnabled = true;
+			this.cbo_st_Immunity1.Location = new System.Drawing.Point(5, 15);
+			this.cbo_st_Immunity1.Margin = new System.Windows.Forms.Padding(0);
+			this.cbo_st_Immunity1.Name = "cbo_st_Immunity1";
+			this.cbo_st_Immunity1.Size = new System.Drawing.Size(185, 22);
+			this.cbo_st_Immunity1.TabIndex = 0;
+			// 
+			// st_FlagsGrp
+			// 
+			this.st_FlagsGrp.Controls.Add(this.st_SpellResistance);
+			this.st_FlagsGrp.Controls.Add(this.st_MindAffecting);
+			this.st_FlagsGrp.Controls.Add(this.st_AffectsFriendlies);
+			this.st_FlagsGrp.Controls.Add(this.st_TouchRanged);
+			this.st_FlagsGrp.Controls.Add(this.st_NotCaster);
+			this.st_FlagsGrp.Controls.Add(this.st_TouchMelee);
+			this.st_FlagsGrp.Location = new System.Drawing.Point(5, 215);
+			this.st_FlagsGrp.Margin = new System.Windows.Forms.Padding(0);
+			this.st_FlagsGrp.Name = "st_FlagsGrp";
+			this.st_FlagsGrp.Padding = new System.Windows.Forms.Padding(0);
+			this.st_FlagsGrp.Size = new System.Drawing.Size(235, 140);
+			this.st_FlagsGrp.TabIndex = 28;
+			this.st_FlagsGrp.TabStop = false;
+			this.st_FlagsGrp.Text = "Flags";
+			// 
+			// st_SpellResistance
+			// 
+			this.st_SpellResistance.Location = new System.Drawing.Point(5, 15);
+			this.st_SpellResistance.Margin = new System.Windows.Forms.Padding(0);
+			this.st_SpellResistance.Name = "st_SpellResistance";
+			this.st_SpellResistance.Size = new System.Drawing.Size(225, 20);
+			this.st_SpellResistance.TabIndex = 14;
+			this.st_SpellResistance.Text = "has spell resistance";
+			this.st_SpellResistance.UseVisualStyleBackColor = true;
+			// 
+			// st_MindAffecting
+			// 
+			this.st_MindAffecting.Location = new System.Drawing.Point(5, 35);
+			this.st_MindAffecting.Margin = new System.Windows.Forms.Padding(0);
+			this.st_MindAffecting.Name = "st_MindAffecting";
+			this.st_MindAffecting.Size = new System.Drawing.Size(225, 20);
+			this.st_MindAffecting.TabIndex = 15;
+			this.st_MindAffecting.Text = "is mind-affecting";
+			this.st_MindAffecting.UseVisualStyleBackColor = true;
+			// 
+			// st_AffectsFriendlies
+			// 
+			this.st_AffectsFriendlies.Location = new System.Drawing.Point(5, 55);
+			this.st_AffectsFriendlies.Margin = new System.Windows.Forms.Padding(0);
+			this.st_AffectsFriendlies.Name = "st_AffectsFriendlies";
+			this.st_AffectsFriendlies.Size = new System.Drawing.Size(225, 20);
+			this.st_AffectsFriendlies.TabIndex = 16;
+			this.st_AffectsFriendlies.Text = "can affect allies";
+			this.st_AffectsFriendlies.UseVisualStyleBackColor = true;
+			// 
+			// st_TouchRanged
+			// 
+			this.st_TouchRanged.Location = new System.Drawing.Point(5, 115);
+			this.st_TouchRanged.Margin = new System.Windows.Forms.Padding(0);
+			this.st_TouchRanged.Name = "st_TouchRanged";
+			this.st_TouchRanged.Size = new System.Drawing.Size(225, 20);
+			this.st_TouchRanged.TabIndex = 19;
+			this.st_TouchRanged.Text = "requires ranged touch attack";
+			this.st_TouchRanged.UseVisualStyleBackColor = true;
+			// 
+			// st_NotCaster
+			// 
+			this.st_NotCaster.Location = new System.Drawing.Point(5, 75);
+			this.st_NotCaster.Margin = new System.Windows.Forms.Padding(0);
+			this.st_NotCaster.Name = "st_NotCaster";
+			this.st_NotCaster.Size = new System.Drawing.Size(225, 20);
+			this.st_NotCaster.TabIndex = 17;
+			this.st_NotCaster.Text = "does not affect caster";
+			this.st_NotCaster.UseVisualStyleBackColor = true;
+			// 
+			// st_TouchMelee
+			// 
+			this.st_TouchMelee.Location = new System.Drawing.Point(5, 95);
+			this.st_TouchMelee.Margin = new System.Windows.Forms.Padding(0);
+			this.st_TouchMelee.Name = "st_TouchMelee";
+			this.st_TouchMelee.Size = new System.Drawing.Size(225, 20);
+			this.st_TouchMelee.TabIndex = 18;
+			this.st_TouchMelee.Text = "requires melee touch attack";
+			this.st_TouchMelee.UseVisualStyleBackColor = true;
+			// 
+			// st_Impact2Grp
+			// 
+			this.st_Impact2Grp.Controls.Add(this.st_Impact2rb_damageevasion);
+			this.st_Impact2Grp.Controls.Add(this.st_Impact2rb_effectdamage);
+			this.st_Impact2Grp.Controls.Add(this.st_Impact2rb_damagehalf);
+			this.st_Impact2Grp.Controls.Add(this.st_Impact2rb_effectonly);
+			this.st_Impact2Grp.Location = new System.Drawing.Point(120, 115);
+			this.st_Impact2Grp.Margin = new System.Windows.Forms.Padding(0);
+			this.st_Impact2Grp.Name = "st_Impact2Grp";
+			this.st_Impact2Grp.Padding = new System.Windows.Forms.Padding(0);
+			this.st_Impact2Grp.Size = new System.Drawing.Size(115, 100);
+			this.st_Impact2Grp.TabIndex = 27;
+			this.st_Impact2Grp.TabStop = false;
+			this.st_Impact2Grp.Text = "Type 2 Damage";
+			// 
+			// st_Impact2rb_damageevasion
+			// 
+			this.st_Impact2rb_damageevasion.Location = new System.Drawing.Point(10, 75);
+			this.st_Impact2rb_damageevasion.Margin = new System.Windows.Forms.Padding(0);
+			this.st_Impact2rb_damageevasion.Name = "st_Impact2rb_damageevasion";
+			this.st_Impact2rb_damageevasion.Size = new System.Drawing.Size(75, 20);
+			this.st_Impact2rb_damageevasion.TabIndex = 8;
+			this.st_Impact2rb_damageevasion.TabStop = true;
+			this.st_Impact2rb_damageevasion.Text = "evasion";
+			this.st_Impact2rb_damageevasion.UseVisualStyleBackColor = true;
+			// 
+			// st_Impact2rb_effectdamage
+			// 
+			this.st_Impact2rb_effectdamage.Location = new System.Drawing.Point(10, 55);
+			this.st_Impact2rb_effectdamage.Margin = new System.Windows.Forms.Padding(0);
+			this.st_Impact2rb_effectdamage.Name = "st_Impact2rb_effectdamage";
+			this.st_Impact2rb_effectdamage.Size = new System.Drawing.Size(75, 20);
+			this.st_Impact2rb_effectdamage.TabIndex = 7;
+			this.st_Impact2rb_effectdamage.TabStop = true;
+			this.st_Impact2rb_effectdamage.Text = "regular";
+			this.st_Impact2rb_effectdamage.UseVisualStyleBackColor = true;
+			// 
+			// st_Impact2rb_damagehalf
+			// 
+			this.st_Impact2rb_damagehalf.Location = new System.Drawing.Point(10, 35);
+			this.st_Impact2rb_damagehalf.Margin = new System.Windows.Forms.Padding(0);
+			this.st_Impact2rb_damagehalf.Name = "st_Impact2rb_damagehalf";
+			this.st_Impact2rb_damagehalf.Size = new System.Drawing.Size(75, 20);
+			this.st_Impact2rb_damagehalf.TabIndex = 6;
+			this.st_Impact2rb_damagehalf.TabStop = true;
+			this.st_Impact2rb_damagehalf.Text = "half";
+			this.st_Impact2rb_damagehalf.UseVisualStyleBackColor = true;
+			// 
+			// st_Impact2rb_effectonly
+			// 
+			this.st_Impact2rb_effectonly.Location = new System.Drawing.Point(10, 15);
+			this.st_Impact2rb_effectonly.Margin = new System.Windows.Forms.Padding(0);
+			this.st_Impact2rb_effectonly.Name = "st_Impact2rb_effectonly";
+			this.st_Impact2rb_effectonly.Size = new System.Drawing.Size(75, 20);
+			this.st_Impact2rb_effectonly.TabIndex = 5;
+			this.st_Impact2rb_effectonly.TabStop = true;
+			this.st_Impact2rb_effectonly.Text = "none";
+			this.st_Impact2rb_effectonly.UseVisualStyleBackColor = true;
+			// 
+			// st_Impact1Grp
+			// 
+			this.st_Impact1Grp.Controls.Add(this.st_Impact1rb_damageevasion);
+			this.st_Impact1Grp.Controls.Add(this.st_Impact1rb_effectdamage);
+			this.st_Impact1Grp.Controls.Add(this.st_Impact1rb_damagehalf);
+			this.st_Impact1Grp.Controls.Add(this.st_Impact1rb_effectonly);
+			this.st_Impact1Grp.Location = new System.Drawing.Point(5, 115);
+			this.st_Impact1Grp.Margin = new System.Windows.Forms.Padding(0);
+			this.st_Impact1Grp.Name = "st_Impact1Grp";
+			this.st_Impact1Grp.Padding = new System.Windows.Forms.Padding(0);
+			this.st_Impact1Grp.Size = new System.Drawing.Size(115, 100);
+			this.st_Impact1Grp.TabIndex = 26;
+			this.st_Impact1Grp.TabStop = false;
+			this.st_Impact1Grp.Text = "Type 1 Damage";
+			// 
+			// st_Impact1rb_damageevasion
+			// 
+			this.st_Impact1rb_damageevasion.Location = new System.Drawing.Point(10, 75);
+			this.st_Impact1rb_damageevasion.Margin = new System.Windows.Forms.Padding(0);
+			this.st_Impact1rb_damageevasion.Name = "st_Impact1rb_damageevasion";
+			this.st_Impact1rb_damageevasion.Size = new System.Drawing.Size(75, 20);
+			this.st_Impact1rb_damageevasion.TabIndex = 4;
+			this.st_Impact1rb_damageevasion.TabStop = true;
+			this.st_Impact1rb_damageevasion.Text = "evasion";
+			this.st_Impact1rb_damageevasion.UseVisualStyleBackColor = true;
+			// 
+			// st_Impact1rb_effectdamage
+			// 
+			this.st_Impact1rb_effectdamage.Location = new System.Drawing.Point(10, 55);
+			this.st_Impact1rb_effectdamage.Margin = new System.Windows.Forms.Padding(0);
+			this.st_Impact1rb_effectdamage.Name = "st_Impact1rb_effectdamage";
+			this.st_Impact1rb_effectdamage.Size = new System.Drawing.Size(75, 20);
+			this.st_Impact1rb_effectdamage.TabIndex = 3;
+			this.st_Impact1rb_effectdamage.TabStop = true;
+			this.st_Impact1rb_effectdamage.Text = "regular";
+			this.st_Impact1rb_effectdamage.UseVisualStyleBackColor = true;
+			// 
+			// st_Impact1rb_damagehalf
+			// 
+			this.st_Impact1rb_damagehalf.Location = new System.Drawing.Point(10, 35);
+			this.st_Impact1rb_damagehalf.Margin = new System.Windows.Forms.Padding(0);
+			this.st_Impact1rb_damagehalf.Name = "st_Impact1rb_damagehalf";
+			this.st_Impact1rb_damagehalf.Size = new System.Drawing.Size(75, 20);
+			this.st_Impact1rb_damagehalf.TabIndex = 2;
+			this.st_Impact1rb_damagehalf.TabStop = true;
+			this.st_Impact1rb_damagehalf.Text = "half";
+			this.st_Impact1rb_damagehalf.UseVisualStyleBackColor = true;
+			// 
+			// st_Impact1rb_effectonly
+			// 
+			this.st_Impact1rb_effectonly.Location = new System.Drawing.Point(10, 15);
+			this.st_Impact1rb_effectonly.Margin = new System.Windows.Forms.Padding(0);
+			this.st_Impact1rb_effectonly.Name = "st_Impact1rb_effectonly";
+			this.st_Impact1rb_effectonly.Size = new System.Drawing.Size(75, 20);
+			this.st_Impact1rb_effectonly.TabIndex = 1;
+			this.st_Impact1rb_effectonly.TabStop = true;
+			this.st_Impact1rb_effectonly.Text = "none";
+			this.st_Impact1rb_effectonly.UseVisualStyleBackColor = true;
+			// 
+			// st_Save2Grp
+			// 
+			this.st_Save2Grp.Controls.Add(this.st_Save2rb_will);
+			this.st_Save2Grp.Controls.Add(this.st_Save2rb_refl);
+			this.st_Save2Grp.Controls.Add(this.st_Save2rb_fort);
+			this.st_Save2Grp.Controls.Add(this.st_Save2rb_none);
+			this.st_Save2Grp.Location = new System.Drawing.Point(120, 15);
+			this.st_Save2Grp.Margin = new System.Windows.Forms.Padding(0);
+			this.st_Save2Grp.Name = "st_Save2Grp";
+			this.st_Save2Grp.Padding = new System.Windows.Forms.Padding(0);
+			this.st_Save2Grp.Size = new System.Drawing.Size(115, 100);
+			this.st_Save2Grp.TabIndex = 23;
+			this.st_Save2Grp.TabStop = false;
+			this.st_Save2Grp.Text = "Type 2 Save";
+			// 
+			// st_Save2rb_will
+			// 
+			this.st_Save2rb_will.Location = new System.Drawing.Point(10, 75);
+			this.st_Save2rb_will.Margin = new System.Windows.Forms.Padding(0);
+			this.st_Save2rb_will.Name = "st_Save2rb_will";
+			this.st_Save2rb_will.Size = new System.Drawing.Size(90, 20);
+			this.st_Save2rb_will.TabIndex = 7;
+			this.st_Save2rb_will.TabStop = true;
+			this.st_Save2rb_will.Text = "will";
+			this.st_Save2rb_will.UseVisualStyleBackColor = true;
+			// 
+			// st_Save2rb_refl
+			// 
+			this.st_Save2rb_refl.Location = new System.Drawing.Point(10, 55);
+			this.st_Save2rb_refl.Margin = new System.Windows.Forms.Padding(0);
+			this.st_Save2rb_refl.Name = "st_Save2rb_refl";
+			this.st_Save2rb_refl.Size = new System.Drawing.Size(90, 20);
+			this.st_Save2rb_refl.TabIndex = 6;
+			this.st_Save2rb_refl.TabStop = true;
+			this.st_Save2rb_refl.Text = "reflex";
+			this.st_Save2rb_refl.UseVisualStyleBackColor = true;
+			// 
+			// st_Save2rb_fort
+			// 
+			this.st_Save2rb_fort.Location = new System.Drawing.Point(10, 35);
+			this.st_Save2rb_fort.Margin = new System.Windows.Forms.Padding(0);
+			this.st_Save2rb_fort.Name = "st_Save2rb_fort";
+			this.st_Save2rb_fort.Size = new System.Drawing.Size(90, 20);
+			this.st_Save2rb_fort.TabIndex = 5;
+			this.st_Save2rb_fort.TabStop = true;
+			this.st_Save2rb_fort.Text = "fortitude";
+			this.st_Save2rb_fort.UseVisualStyleBackColor = true;
+			// 
+			// st_Save2rb_none
+			// 
+			this.st_Save2rb_none.Location = new System.Drawing.Point(10, 15);
+			this.st_Save2rb_none.Margin = new System.Windows.Forms.Padding(0);
+			this.st_Save2rb_none.Name = "st_Save2rb_none";
+			this.st_Save2rb_none.Size = new System.Drawing.Size(90, 20);
+			this.st_Save2rb_none.TabIndex = 4;
+			this.st_Save2rb_none.TabStop = true;
+			this.st_Save2rb_none.Text = "none";
+			this.st_Save2rb_none.UseVisualStyleBackColor = true;
+			// 
+			// st_Save1Grp
+			// 
+			this.st_Save1Grp.Controls.Add(this.st_Save1rb_will);
+			this.st_Save1Grp.Controls.Add(this.st_Save1rb_refl);
+			this.st_Save1Grp.Controls.Add(this.st_Save1rb_fort);
+			this.st_Save1Grp.Controls.Add(this.st_Save1rb_none);
+			this.st_Save1Grp.Location = new System.Drawing.Point(5, 15);
+			this.st_Save1Grp.Margin = new System.Windows.Forms.Padding(0);
+			this.st_Save1Grp.Name = "st_Save1Grp";
+			this.st_Save1Grp.Padding = new System.Windows.Forms.Padding(0);
+			this.st_Save1Grp.Size = new System.Drawing.Size(115, 100);
+			this.st_Save1Grp.TabIndex = 22;
+			this.st_Save1Grp.TabStop = false;
+			this.st_Save1Grp.Text = "Type 1 Save";
+			// 
+			// st_Save1rb_will
+			// 
+			this.st_Save1rb_will.Location = new System.Drawing.Point(10, 75);
+			this.st_Save1rb_will.Margin = new System.Windows.Forms.Padding(0);
+			this.st_Save1rb_will.Name = "st_Save1rb_will";
+			this.st_Save1rb_will.Size = new System.Drawing.Size(90, 20);
+			this.st_Save1rb_will.TabIndex = 3;
+			this.st_Save1rb_will.TabStop = true;
+			this.st_Save1rb_will.Text = "will";
+			this.st_Save1rb_will.UseVisualStyleBackColor = true;
+			// 
+			// st_Save1rb_refl
+			// 
+			this.st_Save1rb_refl.Location = new System.Drawing.Point(10, 55);
+			this.st_Save1rb_refl.Margin = new System.Windows.Forms.Padding(0);
+			this.st_Save1rb_refl.Name = "st_Save1rb_refl";
+			this.st_Save1rb_refl.Size = new System.Drawing.Size(90, 20);
+			this.st_Save1rb_refl.TabIndex = 2;
+			this.st_Save1rb_refl.TabStop = true;
+			this.st_Save1rb_refl.Text = "reflex";
+			this.st_Save1rb_refl.UseVisualStyleBackColor = true;
+			// 
+			// st_Save1rb_fort
+			// 
+			this.st_Save1rb_fort.Location = new System.Drawing.Point(10, 35);
+			this.st_Save1rb_fort.Margin = new System.Windows.Forms.Padding(0);
+			this.st_Save1rb_fort.Name = "st_Save1rb_fort";
+			this.st_Save1rb_fort.Size = new System.Drawing.Size(90, 20);
+			this.st_Save1rb_fort.TabIndex = 1;
+			this.st_Save1rb_fort.TabStop = true;
+			this.st_Save1rb_fort.Text = "fortitude";
+			this.st_Save1rb_fort.UseVisualStyleBackColor = true;
+			// 
+			// st_Save1rb_none
+			// 
+			this.st_Save1rb_none.Location = new System.Drawing.Point(10, 15);
+			this.st_Save1rb_none.Margin = new System.Windows.Forms.Padding(0);
+			this.st_Save1rb_none.Name = "st_Save1rb_none";
+			this.st_Save1rb_none.Size = new System.Drawing.Size(90, 20);
+			this.st_Save1rb_none.TabIndex = 0;
+			this.st_Save1rb_none.TabStop = true;
+			this.st_Save1rb_none.Text = "none";
+			this.st_Save1rb_none.UseVisualStyleBackColor = true;
 			// 
 			// st_ExclusiveGrp
 			// 
 			this.st_ExclusiveGrp.Controls.Add(this.st_Excl_FlagsGrp);
 			this.st_ExclusiveGrp.Controls.Add(this.st_Excl_WeightGrp);
 			this.st_ExclusiveGrp.Controls.Add(this.st_Excl_DamagetypesGrp);
-			this.st_ExclusiveGrp.Location = new System.Drawing.Point(535, 60);
+			this.st_ExclusiveGrp.Location = new System.Drawing.Point(545, 55);
 			this.st_ExclusiveGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_ExclusiveGrp.Name = "st_ExclusiveGrp";
 			this.st_ExclusiveGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_ExclusiveGrp.Size = new System.Drawing.Size(165, 400);
+			this.st_ExclusiveGrp.Size = new System.Drawing.Size(140, 420);
 			this.st_ExclusiveGrp.TabIndex = 36;
 			this.st_ExclusiveGrp.TabStop = false;
-			this.st_ExclusiveGrp.Text = "Exclusive";
+			this.st_ExclusiveGrp.Text = "beneficial";
 			// 
 			// st_Excl_FlagsGrp
 			// 
+			this.st_Excl_FlagsGrp.Controls.Add(this.st_Excl_rbResistance);
+			this.st_Excl_FlagsGrp.Controls.Add(this.st_Excl_rbImmunity);
 			this.st_Excl_FlagsGrp.Controls.Add(this.st_Excl_General);
 			this.st_Excl_FlagsGrp.Controls.Add(this.st_Excl_Onlyone);
-			this.st_Excl_FlagsGrp.Controls.Add(this.st_Excl_Weightresistance);
 			this.st_Excl_FlagsGrp.Location = new System.Drawing.Point(5, 315);
 			this.st_Excl_FlagsGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_FlagsGrp.Name = "st_Excl_FlagsGrp";
 			this.st_Excl_FlagsGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_Excl_FlagsGrp.Size = new System.Drawing.Size(155, 80);
+			this.st_Excl_FlagsGrp.Size = new System.Drawing.Size(130, 100);
 			this.st_Excl_FlagsGrp.TabIndex = 11;
 			this.st_Excl_FlagsGrp.TabStop = false;
 			this.st_Excl_FlagsGrp.Text = "Flags";
 			// 
+			// st_Excl_rbResistance
+			// 
+			this.st_Excl_rbResistance.Location = new System.Drawing.Point(5, 35);
+			this.st_Excl_rbResistance.Margin = new System.Windows.Forms.Padding(0);
+			this.st_Excl_rbResistance.Name = "st_Excl_rbResistance";
+			this.st_Excl_rbResistance.Size = new System.Drawing.Size(120, 20);
+			this.st_Excl_rbResistance.TabIndex = 4;
+			this.st_Excl_rbResistance.TabStop = true;
+			this.st_Excl_rbResistance.Text = "is Resistance";
+			this.st_Excl_rbResistance.UseVisualStyleBackColor = true;
+			this.st_Excl_rbResistance.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_excl_Flags);
+			// 
+			// st_Excl_rbImmunity
+			// 
+			this.st_Excl_rbImmunity.Location = new System.Drawing.Point(5, 15);
+			this.st_Excl_rbImmunity.Margin = new System.Windows.Forms.Padding(0);
+			this.st_Excl_rbImmunity.Name = "st_Excl_rbImmunity";
+			this.st_Excl_rbImmunity.Size = new System.Drawing.Size(120, 20);
+			this.st_Excl_rbImmunity.TabIndex = 3;
+			this.st_Excl_rbImmunity.TabStop = true;
+			this.st_Excl_rbImmunity.Text = "is Immunity";
+			this.st_Excl_rbImmunity.UseVisualStyleBackColor = true;
+			this.st_Excl_rbImmunity.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_excl_Flags);
+			// 
 			// st_Excl_General
 			// 
-			this.st_Excl_General.Location = new System.Drawing.Point(5, 55);
+			this.st_Excl_General.Location = new System.Drawing.Point(5, 75);
 			this.st_Excl_General.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_General.Name = "st_Excl_General";
-			this.st_Excl_General.Size = new System.Drawing.Size(145, 20);
+			this.st_Excl_General.Size = new System.Drawing.Size(120, 20);
 			this.st_Excl_General.TabIndex = 2;
 			this.st_Excl_General.Text = "general";
 			this.st_Excl_General.UseVisualStyleBackColor = true;
@@ -2819,25 +3236,14 @@
 			// 
 			// st_Excl_Onlyone
 			// 
-			this.st_Excl_Onlyone.Location = new System.Drawing.Point(5, 35);
+			this.st_Excl_Onlyone.Location = new System.Drawing.Point(5, 55);
 			this.st_Excl_Onlyone.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_Onlyone.Name = "st_Excl_Onlyone";
-			this.st_Excl_Onlyone.Size = new System.Drawing.Size(145, 20);
+			this.st_Excl_Onlyone.Size = new System.Drawing.Size(120, 20);
 			this.st_Excl_Onlyone.TabIndex = 1;
-			this.st_Excl_Onlyone.Text = "only one";
+			this.st_Excl_Onlyone.Text = "only one type";
 			this.st_Excl_Onlyone.UseVisualStyleBackColor = true;
 			this.st_Excl_Onlyone.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_excl_Flags);
-			// 
-			// st_Excl_Weightresistance
-			// 
-			this.st_Excl_Weightresistance.Location = new System.Drawing.Point(5, 15);
-			this.st_Excl_Weightresistance.Margin = new System.Windows.Forms.Padding(0);
-			this.st_Excl_Weightresistance.Name = "st_Excl_Weightresistance";
-			this.st_Excl_Weightresistance.Size = new System.Drawing.Size(145, 20);
-			this.st_Excl_Weightresistance.TabIndex = 0;
-			this.st_Excl_Weightresistance.Text = "weight resistance";
-			this.st_Excl_Weightresistance.UseVisualStyleBackColor = true;
-			this.st_Excl_Weightresistance.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_excl_Flags);
 			// 
 			// st_Excl_WeightGrp
 			// 
@@ -2846,17 +3252,17 @@
 			this.st_Excl_WeightGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_WeightGrp.Name = "st_Excl_WeightGrp";
 			this.st_Excl_WeightGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_Excl_WeightGrp.Size = new System.Drawing.Size(155, 40);
+			this.st_Excl_WeightGrp.Size = new System.Drawing.Size(130, 40);
 			this.st_Excl_WeightGrp.TabIndex = 10;
 			this.st_Excl_WeightGrp.TabStop = false;
-			this.st_Excl_WeightGrp.Text = "Weight";
+			this.st_Excl_WeightGrp.Text = "Power";
 			// 
 			// st_Excl_Weight
 			// 
 			this.st_Excl_Weight.Location = new System.Drawing.Point(5, 15);
 			this.st_Excl_Weight.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_Weight.Name = "st_Excl_Weight";
-			this.st_Excl_Weight.Size = new System.Drawing.Size(145, 20);
+			this.st_Excl_Weight.Size = new System.Drawing.Size(120, 20);
 			this.st_Excl_Weight.TabIndex = 0;
 			this.st_Excl_Weight.TextChanged += new System.EventHandler(this.TextChanged_st_excl_Weight);
 			// 
@@ -2878,7 +3284,7 @@
 			this.st_Excl_DamagetypesGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_DamagetypesGrp.Name = "st_Excl_DamagetypesGrp";
 			this.st_Excl_DamagetypesGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_Excl_DamagetypesGrp.Size = new System.Drawing.Size(120, 260);
+			this.st_Excl_DamagetypesGrp.Size = new System.Drawing.Size(130, 260);
 			this.st_Excl_DamagetypesGrp.TabIndex = 9;
 			this.st_Excl_DamagetypesGrp.TabStop = false;
 			this.st_Excl_DamagetypesGrp.Text = "Damage types";
@@ -3068,37 +3474,14 @@
 			this.SaveType_hex.Size = new System.Drawing.Size(275, 13);
 			this.SaveType_hex.TabIndex = 32;
 			// 
-			// st_Immunity2Grp
-			// 
-			this.st_Immunity2Grp.Controls.Add(this.cbo_st_Immunity2);
-			this.st_Immunity2Grp.Location = new System.Drawing.Point(235, 110);
-			this.st_Immunity2Grp.Margin = new System.Windows.Forms.Padding(0);
-			this.st_Immunity2Grp.Name = "st_Immunity2Grp";
-			this.st_Immunity2Grp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_Immunity2Grp.Size = new System.Drawing.Size(195, 50);
-			this.st_Immunity2Grp.TabIndex = 29;
-			this.st_Immunity2Grp.TabStop = false;
-			this.st_Immunity2Grp.Text = "Immunity2 type";
-			// 
-			// cbo_st_Immunity2
-			// 
-			this.cbo_st_Immunity2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbo_st_Immunity2.FormattingEnabled = true;
-			this.cbo_st_Immunity2.Location = new System.Drawing.Point(5, 15);
-			this.cbo_st_Immunity2.Margin = new System.Windows.Forms.Padding(0);
-			this.cbo_st_Immunity2.Name = "cbo_st_Immunity2";
-			this.cbo_st_Immunity2.Size = new System.Drawing.Size(185, 22);
-			this.cbo_st_Immunity2.TabIndex = 0;
-			this.cbo_st_Immunity2.SelectionChangeCommitted += new System.EventHandler(this.SelectionChangeCommitted_st_cbo_Immunity2);
-			// 
 			// st_AcBonusGrp
 			// 
 			this.st_AcBonusGrp.Controls.Add(this.cbo_st_AcBonus);
-			this.st_AcBonusGrp.Location = new System.Drawing.Point(235, 215);
+			this.st_AcBonusGrp.Location = new System.Drawing.Point(200, 415);
 			this.st_AcBonusGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_AcBonusGrp.Name = "st_AcBonusGrp";
 			this.st_AcBonusGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_AcBonusGrp.Size = new System.Drawing.Size(195, 50);
+			this.st_AcBonusGrp.Size = new System.Drawing.Size(195, 45);
 			this.st_AcBonusGrp.TabIndex = 28;
 			this.st_AcBonusGrp.TabStop = false;
 			this.st_AcBonusGrp.Text = "AcBonus type (if buff)";
@@ -3117,11 +3500,11 @@
 			// st_WeaponGrp
 			// 
 			this.st_WeaponGrp.Controls.Add(this.cbo_st_Weapon);
-			this.st_WeaponGrp.Location = new System.Drawing.Point(235, 165);
+			this.st_WeaponGrp.Location = new System.Drawing.Point(5, 415);
 			this.st_WeaponGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_WeaponGrp.Name = "st_WeaponGrp";
 			this.st_WeaponGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_WeaponGrp.Size = new System.Drawing.Size(195, 50);
+			this.st_WeaponGrp.Size = new System.Drawing.Size(195, 45);
 			this.st_WeaponGrp.TabIndex = 27;
 			this.st_WeaponGrp.TabStop = false;
 			this.st_WeaponGrp.Text = "Weapon type (if buff)";
@@ -3136,387 +3519,6 @@
 			this.cbo_st_Weapon.Size = new System.Drawing.Size(185, 22);
 			this.cbo_st_Weapon.TabIndex = 0;
 			this.cbo_st_Weapon.SelectionChangeCommitted += new System.EventHandler(this.SelectionChangeCommitted_st_cbo_Weapon);
-			// 
-			// st_Immunity1Grp
-			// 
-			this.st_Immunity1Grp.Controls.Add(this.cbo_st_Immunity1);
-			this.st_Immunity1Grp.Location = new System.Drawing.Point(235, 60);
-			this.st_Immunity1Grp.Margin = new System.Windows.Forms.Padding(0);
-			this.st_Immunity1Grp.Name = "st_Immunity1Grp";
-			this.st_Immunity1Grp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_Immunity1Grp.Size = new System.Drawing.Size(195, 50);
-			this.st_Immunity1Grp.TabIndex = 26;
-			this.st_Immunity1Grp.TabStop = false;
-			this.st_Immunity1Grp.Text = "Immunity1 type";
-			// 
-			// cbo_st_Immunity1
-			// 
-			this.cbo_st_Immunity1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbo_st_Immunity1.FormattingEnabled = true;
-			this.cbo_st_Immunity1.Location = new System.Drawing.Point(5, 15);
-			this.cbo_st_Immunity1.Margin = new System.Windows.Forms.Padding(0);
-			this.cbo_st_Immunity1.Name = "cbo_st_Immunity1";
-			this.cbo_st_Immunity1.Size = new System.Drawing.Size(185, 22);
-			this.cbo_st_Immunity1.TabIndex = 0;
-			this.cbo_st_Immunity1.SelectionChangeCommitted += new System.EventHandler(this.SelectionChangeCommitted_st_cbo_Immunity1);
-			// 
-			// st_Impact2Grp
-			// 
-			this.st_Impact2Grp.Controls.Add(this.st_Impact2rb_damageevasion);
-			this.st_Impact2Grp.Controls.Add(this.st_Impact2rb_effectdamage);
-			this.st_Impact2Grp.Controls.Add(this.st_Impact2rb_damagehalf);
-			this.st_Impact2Grp.Controls.Add(this.st_Impact2rb_effectonly);
-			this.st_Impact2Grp.Location = new System.Drawing.Point(120, 165);
-			this.st_Impact2Grp.Margin = new System.Windows.Forms.Padding(0);
-			this.st_Impact2Grp.Name = "st_Impact2Grp";
-			this.st_Impact2Grp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_Impact2Grp.Size = new System.Drawing.Size(115, 100);
-			this.st_Impact2Grp.TabIndex = 25;
-			this.st_Impact2Grp.TabStop = false;
-			this.st_Impact2Grp.Text = "Type 2 Damage";
-			// 
-			// st_Impact2rb_damageevasion
-			// 
-			this.st_Impact2rb_damageevasion.Location = new System.Drawing.Point(10, 75);
-			this.st_Impact2rb_damageevasion.Margin = new System.Windows.Forms.Padding(0);
-			this.st_Impact2rb_damageevasion.Name = "st_Impact2rb_damageevasion";
-			this.st_Impact2rb_damageevasion.Size = new System.Drawing.Size(75, 20);
-			this.st_Impact2rb_damageevasion.TabIndex = 8;
-			this.st_Impact2rb_damageevasion.TabStop = true;
-			this.st_Impact2rb_damageevasion.Text = "evasion";
-			this.st_Impact2rb_damageevasion.UseVisualStyleBackColor = true;
-			this.st_Impact2rb_damageevasion.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type2Damage);
-			// 
-			// st_Impact2rb_effectdamage
-			// 
-			this.st_Impact2rb_effectdamage.Location = new System.Drawing.Point(10, 55);
-			this.st_Impact2rb_effectdamage.Margin = new System.Windows.Forms.Padding(0);
-			this.st_Impact2rb_effectdamage.Name = "st_Impact2rb_effectdamage";
-			this.st_Impact2rb_effectdamage.Size = new System.Drawing.Size(75, 20);
-			this.st_Impact2rb_effectdamage.TabIndex = 7;
-			this.st_Impact2rb_effectdamage.TabStop = true;
-			this.st_Impact2rb_effectdamage.Text = "regular";
-			this.st_Impact2rb_effectdamage.UseVisualStyleBackColor = true;
-			this.st_Impact2rb_effectdamage.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type2Damage);
-			// 
-			// st_Impact2rb_damagehalf
-			// 
-			this.st_Impact2rb_damagehalf.Location = new System.Drawing.Point(10, 35);
-			this.st_Impact2rb_damagehalf.Margin = new System.Windows.Forms.Padding(0);
-			this.st_Impact2rb_damagehalf.Name = "st_Impact2rb_damagehalf";
-			this.st_Impact2rb_damagehalf.Size = new System.Drawing.Size(75, 20);
-			this.st_Impact2rb_damagehalf.TabIndex = 6;
-			this.st_Impact2rb_damagehalf.TabStop = true;
-			this.st_Impact2rb_damagehalf.Text = "half";
-			this.st_Impact2rb_damagehalf.UseVisualStyleBackColor = true;
-			this.st_Impact2rb_damagehalf.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type2Damage);
-			// 
-			// st_Impact2rb_effectonly
-			// 
-			this.st_Impact2rb_effectonly.Location = new System.Drawing.Point(10, 15);
-			this.st_Impact2rb_effectonly.Margin = new System.Windows.Forms.Padding(0);
-			this.st_Impact2rb_effectonly.Name = "st_Impact2rb_effectonly";
-			this.st_Impact2rb_effectonly.Size = new System.Drawing.Size(75, 20);
-			this.st_Impact2rb_effectonly.TabIndex = 5;
-			this.st_Impact2rb_effectonly.TabStop = true;
-			this.st_Impact2rb_effectonly.Text = "none";
-			this.st_Impact2rb_effectonly.UseVisualStyleBackColor = true;
-			this.st_Impact2rb_effectonly.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type2Damage);
-			// 
-			// st_Impact1Grp
-			// 
-			this.st_Impact1Grp.Controls.Add(this.st_Impact1rb_damageevasion);
-			this.st_Impact1Grp.Controls.Add(this.st_Impact1rb_effectdamage);
-			this.st_Impact1Grp.Controls.Add(this.st_Impact1rb_damagehalf);
-			this.st_Impact1Grp.Controls.Add(this.st_Impact1rb_effectonly);
-			this.st_Impact1Grp.Location = new System.Drawing.Point(5, 165);
-			this.st_Impact1Grp.Margin = new System.Windows.Forms.Padding(0);
-			this.st_Impact1Grp.Name = "st_Impact1Grp";
-			this.st_Impact1Grp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_Impact1Grp.Size = new System.Drawing.Size(115, 100);
-			this.st_Impact1Grp.TabIndex = 24;
-			this.st_Impact1Grp.TabStop = false;
-			this.st_Impact1Grp.Text = "Type 1 Damage";
-			// 
-			// st_Impact1rb_damageevasion
-			// 
-			this.st_Impact1rb_damageevasion.Location = new System.Drawing.Point(10, 75);
-			this.st_Impact1rb_damageevasion.Margin = new System.Windows.Forms.Padding(0);
-			this.st_Impact1rb_damageevasion.Name = "st_Impact1rb_damageevasion";
-			this.st_Impact1rb_damageevasion.Size = new System.Drawing.Size(75, 20);
-			this.st_Impact1rb_damageevasion.TabIndex = 4;
-			this.st_Impact1rb_damageevasion.TabStop = true;
-			this.st_Impact1rb_damageevasion.Text = "evasion";
-			this.st_Impact1rb_damageevasion.UseVisualStyleBackColor = true;
-			this.st_Impact1rb_damageevasion.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type1Damage);
-			// 
-			// st_Impact1rb_effectdamage
-			// 
-			this.st_Impact1rb_effectdamage.Location = new System.Drawing.Point(10, 55);
-			this.st_Impact1rb_effectdamage.Margin = new System.Windows.Forms.Padding(0);
-			this.st_Impact1rb_effectdamage.Name = "st_Impact1rb_effectdamage";
-			this.st_Impact1rb_effectdamage.Size = new System.Drawing.Size(75, 20);
-			this.st_Impact1rb_effectdamage.TabIndex = 3;
-			this.st_Impact1rb_effectdamage.TabStop = true;
-			this.st_Impact1rb_effectdamage.Text = "regular";
-			this.st_Impact1rb_effectdamage.UseVisualStyleBackColor = true;
-			this.st_Impact1rb_effectdamage.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type1Damage);
-			// 
-			// st_Impact1rb_damagehalf
-			// 
-			this.st_Impact1rb_damagehalf.Location = new System.Drawing.Point(10, 35);
-			this.st_Impact1rb_damagehalf.Margin = new System.Windows.Forms.Padding(0);
-			this.st_Impact1rb_damagehalf.Name = "st_Impact1rb_damagehalf";
-			this.st_Impact1rb_damagehalf.Size = new System.Drawing.Size(75, 20);
-			this.st_Impact1rb_damagehalf.TabIndex = 2;
-			this.st_Impact1rb_damagehalf.TabStop = true;
-			this.st_Impact1rb_damagehalf.Text = "half";
-			this.st_Impact1rb_damagehalf.UseVisualStyleBackColor = true;
-			this.st_Impact1rb_damagehalf.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type1Damage);
-			// 
-			// st_Impact1rb_effectonly
-			// 
-			this.st_Impact1rb_effectonly.Location = new System.Drawing.Point(10, 15);
-			this.st_Impact1rb_effectonly.Margin = new System.Windows.Forms.Padding(0);
-			this.st_Impact1rb_effectonly.Name = "st_Impact1rb_effectonly";
-			this.st_Impact1rb_effectonly.Size = new System.Drawing.Size(75, 20);
-			this.st_Impact1rb_effectonly.TabIndex = 1;
-			this.st_Impact1rb_effectonly.TabStop = true;
-			this.st_Impact1rb_effectonly.Text = "none";
-			this.st_Impact1rb_effectonly.UseVisualStyleBackColor = true;
-			this.st_Impact1rb_effectonly.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type1Damage);
-			// 
-			// st_SpecificGrp
-			// 
-			this.st_SpecificGrp.Controls.Add(this.cbo_st_Specific);
-			this.st_SpecificGrp.Location = new System.Drawing.Point(235, 270);
-			this.st_SpecificGrp.Margin = new System.Windows.Forms.Padding(0);
-			this.st_SpecificGrp.Name = "st_SpecificGrp";
-			this.st_SpecificGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_SpecificGrp.Size = new System.Drawing.Size(300, 50);
-			this.st_SpecificGrp.TabIndex = 23;
-			this.st_SpecificGrp.TabStop = false;
-			this.st_SpecificGrp.Text = "Specific";
-			// 
-			// cbo_st_Specific
-			// 
-			this.cbo_st_Specific.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbo_st_Specific.FormattingEnabled = true;
-			this.cbo_st_Specific.Location = new System.Drawing.Point(5, 15);
-			this.cbo_st_Specific.Margin = new System.Windows.Forms.Padding(0);
-			this.cbo_st_Specific.Name = "cbo_st_Specific";
-			this.cbo_st_Specific.Size = new System.Drawing.Size(290, 22);
-			this.cbo_st_Specific.TabIndex = 0;
-			this.cbo_st_Specific.SelectionChangeCommitted += new System.EventHandler(this.SelectionChangeCommitted_st_cbo_Specific);
-			// 
-			// st_GeneralGrp
-			// 
-			this.st_GeneralGrp.Controls.Add(this.st_SpellResistance);
-			this.st_GeneralGrp.Controls.Add(this.st_MindAffecting);
-			this.st_GeneralGrp.Controls.Add(this.st_AffectsFriendlies);
-			this.st_GeneralGrp.Controls.Add(this.st_TouchRanged);
-			this.st_GeneralGrp.Controls.Add(this.st_NotCaster);
-			this.st_GeneralGrp.Controls.Add(this.st_TouchMelee);
-			this.st_GeneralGrp.Location = new System.Drawing.Point(5, 270);
-			this.st_GeneralGrp.Margin = new System.Windows.Forms.Padding(0);
-			this.st_GeneralGrp.Name = "st_GeneralGrp";
-			this.st_GeneralGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_GeneralGrp.Size = new System.Drawing.Size(230, 140);
-			this.st_GeneralGrp.TabIndex = 22;
-			this.st_GeneralGrp.TabStop = false;
-			this.st_GeneralGrp.Text = "General";
-			// 
-			// st_SpellResistance
-			// 
-			this.st_SpellResistance.Location = new System.Drawing.Point(5, 15);
-			this.st_SpellResistance.Margin = new System.Windows.Forms.Padding(0);
-			this.st_SpellResistance.Name = "st_SpellResistance";
-			this.st_SpellResistance.Size = new System.Drawing.Size(220, 20);
-			this.st_SpellResistance.TabIndex = 14;
-			this.st_SpellResistance.Text = "has spell resistance";
-			this.st_SpellResistance.UseVisualStyleBackColor = true;
-			this.st_SpellResistance.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_General);
-			// 
-			// st_MindAffecting
-			// 
-			this.st_MindAffecting.Location = new System.Drawing.Point(5, 35);
-			this.st_MindAffecting.Margin = new System.Windows.Forms.Padding(0);
-			this.st_MindAffecting.Name = "st_MindAffecting";
-			this.st_MindAffecting.Size = new System.Drawing.Size(220, 20);
-			this.st_MindAffecting.TabIndex = 15;
-			this.st_MindAffecting.Text = "is mind-affecting";
-			this.st_MindAffecting.UseVisualStyleBackColor = true;
-			this.st_MindAffecting.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_General);
-			// 
-			// st_AffectsFriendlies
-			// 
-			this.st_AffectsFriendlies.Location = new System.Drawing.Point(5, 55);
-			this.st_AffectsFriendlies.Margin = new System.Windows.Forms.Padding(0);
-			this.st_AffectsFriendlies.Name = "st_AffectsFriendlies";
-			this.st_AffectsFriendlies.Size = new System.Drawing.Size(220, 20);
-			this.st_AffectsFriendlies.TabIndex = 16;
-			this.st_AffectsFriendlies.Text = "can affect allies";
-			this.st_AffectsFriendlies.UseVisualStyleBackColor = true;
-			this.st_AffectsFriendlies.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_General);
-			// 
-			// st_TouchRanged
-			// 
-			this.st_TouchRanged.Location = new System.Drawing.Point(5, 115);
-			this.st_TouchRanged.Margin = new System.Windows.Forms.Padding(0);
-			this.st_TouchRanged.Name = "st_TouchRanged";
-			this.st_TouchRanged.Size = new System.Drawing.Size(220, 20);
-			this.st_TouchRanged.TabIndex = 19;
-			this.st_TouchRanged.Text = "requires ranged touch attack";
-			this.st_TouchRanged.UseVisualStyleBackColor = true;
-			this.st_TouchRanged.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_General);
-			// 
-			// st_NotCaster
-			// 
-			this.st_NotCaster.Location = new System.Drawing.Point(5, 75);
-			this.st_NotCaster.Margin = new System.Windows.Forms.Padding(0);
-			this.st_NotCaster.Name = "st_NotCaster";
-			this.st_NotCaster.Size = new System.Drawing.Size(220, 20);
-			this.st_NotCaster.TabIndex = 17;
-			this.st_NotCaster.Text = "does not affect caster";
-			this.st_NotCaster.UseVisualStyleBackColor = true;
-			this.st_NotCaster.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_General);
-			// 
-			// st_TouchMelee
-			// 
-			this.st_TouchMelee.Location = new System.Drawing.Point(5, 95);
-			this.st_TouchMelee.Margin = new System.Windows.Forms.Padding(0);
-			this.st_TouchMelee.Name = "st_TouchMelee";
-			this.st_TouchMelee.Size = new System.Drawing.Size(220, 20);
-			this.st_TouchMelee.TabIndex = 18;
-			this.st_TouchMelee.Text = "requires melee touch attack";
-			this.st_TouchMelee.UseVisualStyleBackColor = true;
-			this.st_TouchMelee.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_General);
-			// 
-			// st_Save2Grp
-			// 
-			this.st_Save2Grp.Controls.Add(this.st_Save2rb_will);
-			this.st_Save2Grp.Controls.Add(this.st_Save2rb_refl);
-			this.st_Save2Grp.Controls.Add(this.st_Save2rb_fort);
-			this.st_Save2Grp.Controls.Add(this.st_Save2rb_none);
-			this.st_Save2Grp.Location = new System.Drawing.Point(120, 60);
-			this.st_Save2Grp.Margin = new System.Windows.Forms.Padding(0);
-			this.st_Save2Grp.Name = "st_Save2Grp";
-			this.st_Save2Grp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_Save2Grp.Size = new System.Drawing.Size(115, 100);
-			this.st_Save2Grp.TabIndex = 21;
-			this.st_Save2Grp.TabStop = false;
-			this.st_Save2Grp.Text = "Type 2 Save";
-			// 
-			// st_Save2rb_will
-			// 
-			this.st_Save2rb_will.Location = new System.Drawing.Point(10, 75);
-			this.st_Save2rb_will.Margin = new System.Windows.Forms.Padding(0);
-			this.st_Save2rb_will.Name = "st_Save2rb_will";
-			this.st_Save2rb_will.Size = new System.Drawing.Size(90, 20);
-			this.st_Save2rb_will.TabIndex = 7;
-			this.st_Save2rb_will.TabStop = true;
-			this.st_Save2rb_will.Text = "will";
-			this.st_Save2rb_will.UseVisualStyleBackColor = true;
-			this.st_Save2rb_will.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type2Save);
-			// 
-			// st_Save2rb_refl
-			// 
-			this.st_Save2rb_refl.Location = new System.Drawing.Point(10, 55);
-			this.st_Save2rb_refl.Margin = new System.Windows.Forms.Padding(0);
-			this.st_Save2rb_refl.Name = "st_Save2rb_refl";
-			this.st_Save2rb_refl.Size = new System.Drawing.Size(90, 20);
-			this.st_Save2rb_refl.TabIndex = 6;
-			this.st_Save2rb_refl.TabStop = true;
-			this.st_Save2rb_refl.Text = "reflex";
-			this.st_Save2rb_refl.UseVisualStyleBackColor = true;
-			this.st_Save2rb_refl.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type2Save);
-			// 
-			// st_Save2rb_fort
-			// 
-			this.st_Save2rb_fort.Location = new System.Drawing.Point(10, 35);
-			this.st_Save2rb_fort.Margin = new System.Windows.Forms.Padding(0);
-			this.st_Save2rb_fort.Name = "st_Save2rb_fort";
-			this.st_Save2rb_fort.Size = new System.Drawing.Size(90, 20);
-			this.st_Save2rb_fort.TabIndex = 5;
-			this.st_Save2rb_fort.TabStop = true;
-			this.st_Save2rb_fort.Text = "fortitude";
-			this.st_Save2rb_fort.UseVisualStyleBackColor = true;
-			this.st_Save2rb_fort.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type2Save);
-			// 
-			// st_Save2rb_none
-			// 
-			this.st_Save2rb_none.Location = new System.Drawing.Point(10, 15);
-			this.st_Save2rb_none.Margin = new System.Windows.Forms.Padding(0);
-			this.st_Save2rb_none.Name = "st_Save2rb_none";
-			this.st_Save2rb_none.Size = new System.Drawing.Size(90, 20);
-			this.st_Save2rb_none.TabIndex = 4;
-			this.st_Save2rb_none.TabStop = true;
-			this.st_Save2rb_none.Text = "none";
-			this.st_Save2rb_none.UseVisualStyleBackColor = true;
-			this.st_Save2rb_none.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type2Save);
-			// 
-			// st_Save1Grp
-			// 
-			this.st_Save1Grp.Controls.Add(this.st_Save1rb_will);
-			this.st_Save1Grp.Controls.Add(this.st_Save1rb_refl);
-			this.st_Save1Grp.Controls.Add(this.st_Save1rb_fort);
-			this.st_Save1Grp.Controls.Add(this.st_Save1rb_none);
-			this.st_Save1Grp.Location = new System.Drawing.Point(5, 60);
-			this.st_Save1Grp.Margin = new System.Windows.Forms.Padding(0);
-			this.st_Save1Grp.Name = "st_Save1Grp";
-			this.st_Save1Grp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_Save1Grp.Size = new System.Drawing.Size(115, 100);
-			this.st_Save1Grp.TabIndex = 20;
-			this.st_Save1Grp.TabStop = false;
-			this.st_Save1Grp.Text = "Type 1 Save";
-			// 
-			// st_Save1rb_will
-			// 
-			this.st_Save1rb_will.Location = new System.Drawing.Point(10, 75);
-			this.st_Save1rb_will.Margin = new System.Windows.Forms.Padding(0);
-			this.st_Save1rb_will.Name = "st_Save1rb_will";
-			this.st_Save1rb_will.Size = new System.Drawing.Size(90, 20);
-			this.st_Save1rb_will.TabIndex = 3;
-			this.st_Save1rb_will.TabStop = true;
-			this.st_Save1rb_will.Text = "will";
-			this.st_Save1rb_will.UseVisualStyleBackColor = true;
-			this.st_Save1rb_will.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type1Save);
-			// 
-			// st_Save1rb_refl
-			// 
-			this.st_Save1rb_refl.Location = new System.Drawing.Point(10, 55);
-			this.st_Save1rb_refl.Margin = new System.Windows.Forms.Padding(0);
-			this.st_Save1rb_refl.Name = "st_Save1rb_refl";
-			this.st_Save1rb_refl.Size = new System.Drawing.Size(90, 20);
-			this.st_Save1rb_refl.TabIndex = 2;
-			this.st_Save1rb_refl.TabStop = true;
-			this.st_Save1rb_refl.Text = "reflex";
-			this.st_Save1rb_refl.UseVisualStyleBackColor = true;
-			this.st_Save1rb_refl.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type1Save);
-			// 
-			// st_Save1rb_fort
-			// 
-			this.st_Save1rb_fort.Location = new System.Drawing.Point(10, 35);
-			this.st_Save1rb_fort.Margin = new System.Windows.Forms.Padding(0);
-			this.st_Save1rb_fort.Name = "st_Save1rb_fort";
-			this.st_Save1rb_fort.Size = new System.Drawing.Size(90, 20);
-			this.st_Save1rb_fort.TabIndex = 1;
-			this.st_Save1rb_fort.TabStop = true;
-			this.st_Save1rb_fort.Text = "fortitude";
-			this.st_Save1rb_fort.UseVisualStyleBackColor = true;
-			this.st_Save1rb_fort.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type1Save);
-			// 
-			// st_Save1rb_none
-			// 
-			this.st_Save1rb_none.Location = new System.Drawing.Point(10, 15);
-			this.st_Save1rb_none.Margin = new System.Windows.Forms.Padding(0);
-			this.st_Save1rb_none.Name = "st_Save1rb_none";
-			this.st_Save1rb_none.Size = new System.Drawing.Size(90, 20);
-			this.st_Save1rb_none.TabIndex = 0;
-			this.st_Save1rb_none.TabStop = true;
-			this.st_Save1rb_none.Text = "none";
-			this.st_Save1rb_none.UseVisualStyleBackColor = true;
-			this.st_Save1rb_none.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type1Save);
 			// 
 			// SaveType_text
 			// 
@@ -3558,7 +3560,7 @@
 			this.page_SaveDCType.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SaveDCType.Name = "page_SaveDCType";
 			this.page_SaveDCType.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SaveDCType.Size = new System.Drawing.Size(702, 465);
+			this.page_SaveDCType.Size = new System.Drawing.Size(732, 503);
 			this.page_SaveDCType.TabIndex = 6;
 			this.page_SaveDCType.Text = "SaveDCType";
 			this.page_SaveDCType.UseVisualStyleBackColor = true;
@@ -3693,7 +3695,7 @@
 			this.dc_WeaponBonusGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.dc_WeaponBonusGrp.Name = "dc_WeaponBonusGrp";
 			this.dc_WeaponBonusGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.dc_WeaponBonusGrp.Size = new System.Drawing.Size(296, 55);
+			this.dc_WeaponBonusGrp.Size = new System.Drawing.Size(296, 94);
 			this.dc_WeaponBonusGrp.TabIndex = 11;
 			this.dc_WeaponBonusGrp.TabStop = false;
 			this.dc_WeaponBonusGrp.Text = "weapon bonus type";
@@ -3724,7 +3726,7 @@
 			this.dc_SaveDCGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.dc_SaveDCGrp.Name = "dc_SaveDCGrp";
 			this.dc_SaveDCGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.dc_SaveDCGrp.Size = new System.Drawing.Size(340, 313);
+			this.dc_SaveDCGrp.Size = new System.Drawing.Size(340, 352);
 			this.dc_SaveDCGrp.TabIndex = 10;
 			this.dc_SaveDCGrp.TabStop = false;
 			this.dc_SaveDCGrp.Text = "save dc type";
@@ -3791,7 +3793,7 @@
 			this.savedctype_label.Location = new System.Drawing.Point(5, 60);
 			this.savedctype_label.Margin = new System.Windows.Forms.Padding(0);
 			this.savedctype_label.Name = "savedctype_label";
-			this.savedctype_label.Size = new System.Drawing.Size(560, 45);
+			this.savedctype_label.Size = new System.Drawing.Size(590, 45);
 			this.savedctype_label.TabIndex = 9;
 			this.savedctype_label.Text = resources.GetString("savedctype_label.Text");
 			// 
@@ -3838,7 +3840,7 @@
 			this.options});
 			this.menuStrip.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip.Name = "menuStrip";
-			this.menuStrip.Size = new System.Drawing.Size(986, 24);
+			this.menuStrip.Size = new System.Drawing.Size(1021, 24);
 			this.menuStrip.TabIndex = 1;
 			this.menuStrip.Text = "menuStrip";
 			// 
@@ -3947,7 +3949,7 @@
 			this.SpellTree.Indent = 15;
 			this.SpellTree.Location = new System.Drawing.Point(0, 30);
 			this.SpellTree.Name = "SpellTree";
-			this.SpellTree.Size = new System.Drawing.Size(275, 487);
+			this.SpellTree.Size = new System.Drawing.Size(275, 496);
 			this.SpellTree.TabIndex = 2;
 			this.SpellTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.AfterSelect_spellnode);
 			this.SpellTree.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress_search);
@@ -3971,13 +3973,14 @@
 			// 
 			this.splitContainer1.Panel2.Controls.Add(this.apply);
 			this.splitContainer1.Panel2.Controls.Add(this.cols_HenchSpells);
-			this.splitContainer1.Size = new System.Drawing.Size(986, 517);
+			this.splitContainer1.Size = new System.Drawing.Size(1021, 528);
 			this.splitContainer1.SplitterDistance = 275;
 			this.splitContainer1.SplitterWidth = 3;
 			this.splitContainer1.TabIndex = 3;
 			// 
 			// btn_Search_u
 			// 
+			this.btn_Search_u.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.btn_Search_u.Location = new System.Drawing.Point(245, 0);
 			this.btn_Search_u.Margin = new System.Windows.Forms.Padding(0);
 			this.btn_Search_u.Name = "btn_Search_u";
@@ -3989,6 +3992,7 @@
 			// 
 			// btn_Search_d
 			// 
+			this.btn_Search_d.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.btn_Search_d.Location = new System.Drawing.Point(215, 0);
 			this.btn_Search_d.Margin = new System.Windows.Forms.Padding(0);
 			this.btn_Search_d.Name = "btn_Search_d";
@@ -4000,6 +4004,8 @@
 			// 
 			// tb_Search
 			// 
+			this.tb_Search.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+			| System.Windows.Forms.AnchorStyles.Right)));
 			this.tb_Search.Location = new System.Drawing.Point(0, 5);
 			this.tb_Search.Margin = new System.Windows.Forms.Padding(0);
 			this.tb_Search.Name = "tb_Search";
@@ -4010,9 +4016,9 @@
 			// apply
 			// 
 			this.apply.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.apply.Location = new System.Drawing.Point(0, 492);
+			this.apply.Location = new System.Drawing.Point(0, 503);
 			this.apply.Name = "apply";
-			this.apply.Size = new System.Drawing.Size(708, 25);
+			this.apply.Size = new System.Drawing.Size(743, 25);
 			this.apply.TabIndex = 1;
 			this.apply.Text = "apply this spell\'s data";
 			this.apply.UseVisualStyleBackColor = true;
@@ -4022,7 +4028,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(986, 541);
+			this.ClientSize = new System.Drawing.Size(1021, 552);
 			this.Controls.Add(this.splitContainer1);
 			this.Controls.Add(this.menuStrip);
 			this.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4078,21 +4084,22 @@
 			this.di_DispelTypesGrp.ResumeLayout(false);
 			this.page_SaveType.ResumeLayout(false);
 			this.page_SaveType.PerformLayout();
+			this.st_DetrimentalGrp.ResumeLayout(false);
+			this.st_SpecificGrp.ResumeLayout(false);
+			this.st_Immunity2Grp.ResumeLayout(false);
+			this.st_Immunity1Grp.ResumeLayout(false);
+			this.st_FlagsGrp.ResumeLayout(false);
+			this.st_Impact2Grp.ResumeLayout(false);
+			this.st_Impact1Grp.ResumeLayout(false);
+			this.st_Save2Grp.ResumeLayout(false);
+			this.st_Save1Grp.ResumeLayout(false);
 			this.st_ExclusiveGrp.ResumeLayout(false);
 			this.st_Excl_FlagsGrp.ResumeLayout(false);
 			this.st_Excl_WeightGrp.ResumeLayout(false);
 			this.st_Excl_WeightGrp.PerformLayout();
 			this.st_Excl_DamagetypesGrp.ResumeLayout(false);
-			this.st_Immunity2Grp.ResumeLayout(false);
 			this.st_AcBonusGrp.ResumeLayout(false);
 			this.st_WeaponGrp.ResumeLayout(false);
-			this.st_Immunity1Grp.ResumeLayout(false);
-			this.st_Impact2Grp.ResumeLayout(false);
-			this.st_Impact1Grp.ResumeLayout(false);
-			this.st_SpecificGrp.ResumeLayout(false);
-			this.st_GeneralGrp.ResumeLayout(false);
-			this.st_Save2Grp.ResumeLayout(false);
-			this.st_Save1Grp.ResumeLayout(false);
 			this.page_SaveDCType.ResumeLayout(false);
 			this.page_SaveDCType.PerformLayout();
 			this.dc_ArmorCheckGrp.ResumeLayout(false);
