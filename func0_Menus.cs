@@ -497,7 +497,6 @@ namespace nwn2_ai_2da_editor
 						SaveType_reset    .ForeColor = DefaultForeColor;
 						SaveDCType_reset  .ForeColor = DefaultForeColor;
 
-						bypassTextChanged = true;
 						AfterSelect_spellnode(null, null); // refresh all displayed data for the current spell jic
 					}
 				}

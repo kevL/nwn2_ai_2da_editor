@@ -267,7 +267,7 @@ namespace nwn2_ai_2da_editor
 //				pb.Step();
 			}
 
-			bypassTextChanged = true; // NOTE: SpellTree.SelectedNode=SpellTree.Nodes[0] is done auto.
+			// NOTE: SpellTree.SelectedNode=SpellTree.Nodes[0] is done auto.
 		}
 		#endregion Load
 
@@ -281,6 +281,8 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void AfterSelect_spellnode(object sender, TreeViewEventArgs e)
 		{
+			bypassTextChanged = true;
+
 			Id = SpellTree.SelectedNode.Index;
 
 			//logfile.Log("AfterSelect_spellnode() selectedNode= " + Id);
@@ -377,11 +379,7 @@ namespace nwn2_ai_2da_editor
 			dc_ArmorCheckGrp .Visible = (savedctype2.Checked = (type == SaveDcTypeType.SDTT_DEFENSIVE));
 
 
-// errata ->
-			bypassTextChanged = false;	// have to do this here instead of in the caller since this is a 'delayed' call.
-										// That is text is updated (events are fired) only after the calling function exits.
-
-//			Text = "nwn2_ai_2da_editor - " + Id; // titlebar text (append currently selected SpellID)
+			bypassTextChanged = false;
 		}
 		#endregion SpellTree node-select
 
@@ -506,8 +504,6 @@ namespace nwn2_ai_2da_editor
 				SaveType_reset    .ForeColor = DefaultForeColor;
 				SaveDCType_reset  .ForeColor = DefaultForeColor;
 
-
-				bypassTextChanged = true;
 				AfterSelect_spellnode(null, null); // refresh all displayed data for the current spell jic
 			}
 			//else logfile.Log(". is NOT in SpellsChanged");
