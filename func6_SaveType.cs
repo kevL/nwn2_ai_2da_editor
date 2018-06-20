@@ -293,7 +293,7 @@ namespace nwn2_ai_2da_editor
 			{
 //				bypassCheckedChecker = true; // don't do that since this can change other bits
 
-				savetype &= ~HENCH_SPELL_SAVE_TYPE_CUSTOM_MASK; // clear specific bits
+				savetype &= ~HENCH_SPELL_SAVE_TYPE_CUSTOM_MASK; // 0x0000003f
 				SaveType_text.Text = (savetype | cbo_st_Specific.SelectedIndex).ToString();
 			}
 		}
@@ -305,7 +305,7 @@ namespace nwn2_ai_2da_editor
 			{
 //				bypassCheckedChecker = true; // don't do that since this can change other bits
 
-				savetype &= ~HENCH_SPELL_SAVE_TYPE_IMMUNITY1_MASK; // clear immunity1 bits
+				savetype &= ~HENCH_SPELL_SAVE_TYPE_IMMUNITY1_MASK; // 0x00000fc0
 				int val = cbo_st_Immunity1.SelectedIndex << 6;
 				SaveType_text.Text = (savetype | val).ToString();
 			}
@@ -318,7 +318,7 @@ namespace nwn2_ai_2da_editor
 			{
 //				bypassCheckedChecker = true; // don't do that since this can change other bits
 
-				savetype &= ~HENCH_SPELL_SAVE_TYPE_IMMUNITY2_MASK; // clear immunity2 bits
+				savetype &= ~HENCH_SPELL_SAVE_TYPE_IMMUNITY2_MASK; // 0x0003f000
 				int val = cbo_st_Immunity2.SelectedIndex << 12;
 				SaveType_text.Text = (savetype | val).ToString();
 			}
@@ -586,6 +586,162 @@ namespace nwn2_ai_2da_editor
 
 
 		/// <summary>
+		/// Handles toggling bits by checkboxes on the SaveType page - exclusive DamageTypes group.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void MouseClick_st_excl_Damagetype(object sender, MouseEventArgs e)
+		{
+			//logfile.Log("MouseClick_st_excl_Damagetype()");
+			//logfile.Log(". text= " + SaveType_text.Text);
+
+			int savetype;
+			if (Int32.TryParse(SaveType_text.Text, out savetype))
+			{
+				//logfile.Log(". . is valid Int32= " + savetype);
+
+				int bit;
+
+				var cb = sender as CheckBox;
+				if (cb.Equals(st_Excl_Bludgeoning))
+				{
+					bit = DAMAGE_TYPE_BLUDGEONING;
+				}
+				else if (cb.Equals(st_Excl_Piercing))
+				{
+					bit = DAMAGE_TYPE_PIERCING;
+				}
+				else if (cb.Equals(st_Excl_Slashing))
+				{
+					bit = DAMAGE_TYPE_SLASHING;
+				}
+				else if (cb.Equals(st_Excl_Magical))
+				{
+					bit = DAMAGE_TYPE_MAGICAL;
+				}
+				else if (cb.Equals(st_Excl_Acid))
+				{
+					bit = DAMAGE_TYPE_ACID;
+				}
+				else if (cb.Equals(st_Excl_Cold))
+				{
+					bit = DAMAGE_TYPE_COLD;
+				}
+				else if (cb.Equals(st_Excl_Divine))
+				{
+					bit = DAMAGE_TYPE_DIVINE;
+				}
+				else if (cb.Equals(st_Excl_Electrical))
+				{
+					bit = DAMAGE_TYPE_ELECTRICAL;
+				}
+				else if (cb.Equals(st_Excl_Fire))
+				{
+					bit = DAMAGE_TYPE_FIRE;
+				}
+				else if (cb.Equals(st_Excl_Negative))
+				{
+					bit = DAMAGE_TYPE_NEGATIVE;
+				}
+				else if (cb.Equals(st_Excl_Positive))
+				{
+					bit = DAMAGE_TYPE_POSITIVE;
+				}
+				else //if (cb.Equals(st_Excl_Sonic))
+				{
+					bit = DAMAGE_TYPE_SONIC;
+				}
+
+				if (cb.Checked)
+				{
+					savetype |= bit;
+				}
+				else
+					savetype &= ~bit;
+
+//				bypassCheckedChecker = true; // don't do it. This can toggle other checkers.
+				SaveType_text.Text = savetype.ToString();
+			}
+		}
+
+		/// <summary>
+		/// Handles toggling bits by checkboxes on the SaveType page - exclusive DamageTypes group.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void MouseClick_st_excl_Flags(object sender, MouseEventArgs e)
+		{
+			//logfile.Log("MouseClick_st_excl_Flags()");
+			//logfile.Log(". text= " + SaveType_text.Text);
+
+			int savetype;
+			if (Int32.TryParse(SaveType_text.Text, out savetype))
+			{
+				//logfile.Log(". . is valid Int32= " + savetype);
+
+				int bit;
+
+				var cb = sender as CheckBox;
+				if (cb.Equals(st_Excl_Weightresistance))
+				{
+					bit = HENCH_IMMUNITY_WEIGHT_RESISTANCE;
+				}
+				else if (cb.Equals(st_Excl_Onlyone))
+				{
+					bit = HENCH_IMMUNITY_ONLY_ONE;
+				}
+				else //if (cb.Equals(st_Excl_General))
+				{
+					bit = HENCH_IMMUNITY_GENERAL;
+				}
+
+				if (cb.Checked)
+				{
+					savetype |= bit;
+				}
+				else
+					savetype &= ~bit;
+
+//				bypassCheckedChecker = true; // don't do it. This can toggle other checkers.
+				SaveType_text.Text = savetype.ToString();
+			}
+		}
+
+		/// <summary>
+		/// Handles changing exclusive Weight in its textbox.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void TextChanged_st_excl_Weight(object sender, EventArgs e)
+		{
+			int weight;
+			if (Int32.TryParse(st_Excl_Weight.Text, out weight))
+			{
+				if (weight < 0)
+				{
+					weight = 0;
+					st_Excl_Weight.Text = weight.ToString(); // re-trigger this funct.
+				}
+				else if (weight > 255) // 8 bits
+				{
+					weight = 255;
+					st_Excl_Weight.Text = weight.ToString(); // re-trigger this funct.
+				}
+				else
+				{
+					int savetype = Int32.Parse(SaveType_text.Text);
+					savetype &= ~HENCH_IMMUNITY_WEIGHT_AMOUNT_MASK; // 0x000ff000
+
+					weight <<= HENCH_IMMUNITY_WEIGHT_AMOUNT_SHIFT;
+					SaveType_text.Text = (savetype | weight).ToString();
+				}
+			}
+		}
+
+
+		const int HENCH_IMMUNITY_WEIGHT_AMOUNT_SHIFT = 12;
+
+		/// <summary>
 		/// Sets the checkers on the SaveType page to reflect the current
 		/// savetype value.
 		/// </summary>
@@ -663,6 +819,7 @@ namespace nwn2_ai_2da_editor
 				//logfile.Log(". immunity2= " + val);
 				cbo_st_Immunity2.SelectedIndex = val;
 
+
 				// AcBonus dropdown-list
 				val = savetype;
 				val &= 0x001c0000; // mask for AcBonus-types
@@ -692,6 +849,32 @@ namespace nwn2_ai_2da_editor
 
 				//logfile.Log(". weapon= " + val);
 				cbo_st_Weapon.SelectedIndex = val;
+
+
+				// Exclusive Group
+				// DamageType checkboxes
+				st_Excl_Bludgeoning.Checked = (savetype & DAMAGE_TYPE_BLUDGEONING) != 0;
+				st_Excl_Piercing   .Checked = (savetype & DAMAGE_TYPE_PIERCING)    != 0;
+				st_Excl_Slashing   .Checked = (savetype & DAMAGE_TYPE_SLASHING)    != 0;
+				st_Excl_Magical    .Checked = (savetype & DAMAGE_TYPE_MAGICAL)     != 0;
+				st_Excl_Acid       .Checked = (savetype & DAMAGE_TYPE_ACID)        != 0;
+				st_Excl_Cold       .Checked = (savetype & DAMAGE_TYPE_COLD)        != 0;
+				st_Excl_Divine     .Checked = (savetype & DAMAGE_TYPE_DIVINE)      != 0;
+				st_Excl_Electrical .Checked = (savetype & DAMAGE_TYPE_ELECTRICAL)  != 0;
+				st_Excl_Fire       .Checked = (savetype & DAMAGE_TYPE_FIRE)        != 0;
+				st_Excl_Negative   .Checked = (savetype & DAMAGE_TYPE_NEGATIVE)    != 0;
+				st_Excl_Positive   .Checked = (savetype & DAMAGE_TYPE_POSITIVE)    != 0;
+				st_Excl_Sonic      .Checked = (savetype & DAMAGE_TYPE_SONIC)       != 0;
+
+				// Flags checkboxes
+				st_Excl_Weightresistance.Checked = (savetype & HENCH_IMMUNITY_WEIGHT_RESISTANCE) != 0;
+				st_Excl_Onlyone         .Checked = (savetype & HENCH_IMMUNITY_ONLY_ONE)          != 0;
+				st_Excl_General         .Checked = (savetype & HENCH_IMMUNITY_GENERAL)           != 0;
+
+				// Weight textbox
+				val = (savetype & HENCH_IMMUNITY_WEIGHT_AMOUNT_MASK); // 0x000ff000
+				val >>= HENCH_IMMUNITY_WEIGHT_AMOUNT_SHIFT;
+				st_Excl_Weight.Text = val.ToString();
 			}
 			else
 			{

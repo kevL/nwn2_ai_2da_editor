@@ -195,82 +195,16 @@
 
 
 		#region DamageInfo
+		// Group 1 - dispel type
 		// These are used by HenchCheckDispel() 'hench_i0_dispel'
 		// by
 		// DispatchSpell() 'hench_i0_itemsp' SpellInfo spelltype = HENCH_SPELL_INFO_SPELL_TYPE_DISPEL
+
 		const int HENCH_SPELL_INFO_DAMAGE_BREACH           = 0x00000001;
 		const int HENCH_SPELL_INFO_DAMAGE_DISPEL           = 0x00000002;
 		const int HENCH_SPELL_INFO_DAMAGE_RESIST           = 0x00000004;
 
-		// NwScript DAMAGE_TYPE_* constants:
-//		const int DAMAGE_TYPE_ALL                          = 0;          // Deprecated.
-		const int DAMAGE_TYPE_BLUDGEONING                  = 0x00000001; //    1
-		const int DAMAGE_TYPE_PIERCING                     = 0x00000002; //    2
-		const int DAMAGE_TYPE_SLASHING                     = 0x00000004; //    4
-		const int DAMAGE_TYPE_MAGICAL                      = 0x00000008; //    8
-		const int DAMAGE_TYPE_ACID                         = 0x00000010; //   16
-		const int DAMAGE_TYPE_COLD                         = 0x00000020; //   32
-		const int DAMAGE_TYPE_DIVINE                       = 0x00000040; //   64
-		const int DAMAGE_TYPE_ELECTRICAL                   = 0x00000080; //  128
-		const int DAMAGE_TYPE_FIRE                         = 0x00000100; //  256
-		const int DAMAGE_TYPE_NEGATIVE                     = 0x00000200; //  512
-		const int DAMAGE_TYPE_POSITIVE                     = 0x00000400; // 1024
-		const int DAMAGE_TYPE_SONIC                        = 0x00000800; // 2048
-
-		const int HENCH_SPELL_INFO_BUFF_MASK               = 0x0f000000;
-
-		const int HENCH_SPELL_INFO_BUFF_CASTER_LEVEL       = 0x01000000;
-		const int HENCH_SPELL_INFO_BUFF_HD_LEVEL           = 0x02000000;
-		const int HENCH_SPELL_INFO_BUFF_FIXED              = 0x03000000;
-		const int HENCH_SPELL_INFO_BUFF_CHARISMA           = 0x0b000000;
-		const int HENCH_SPELL_INFO_BUFF_BARD_LEVEL         = 0x0c000000; // not used in CoreAI.
-		const int HENCH_SPELL_INFO_BUFF_DRAGON             = 0x0d000000;
-
-		const int HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_MASK    = 0x0000c000;
-
-		const int HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_DICE    = 0x00000000;
-		const int HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_ADJ     = 0x00004000;
-		const int HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_COUNT   = 0x00008000; // not used in CoreAI.
-		const int HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_CONST   = 0x0000c000;
-
-		const int HENCH_SPELL_INFO_DAMAGE_MASK             = unchecked((int)0xf0000000);
-
-		const int HENCH_SPELL_INFO_DAMAGE_CASTER_LEVEL     = 0x00000000;
-		const int HENCH_SPELL_INFO_DAMAGE_HD_LEVEL         = 0x10000000;
-		const int HENCH_SPELL_INFO_DAMAGE_FIXED            = 0x20000000;
-		const int HENCH_SPELL_INFO_DAMAGE_CURE             = 0x30000000;
-		const int HENCH_SPELL_INFO_DAMAGE_DRAGON           = 0x40000000;
-		const int HENCH_SPELL_INFO_DAMAGE_SPECIAL_COUNT    = 0x50000000;
-		const int HENCH_SPELL_INFO_DAMAGE_CUSTOM           = 0x60000000;
-		const int HENCH_SPELL_INFO_DAMAGE_DRAG_DISC        = 0x70000000;
-		const int HENCH_SPELL_INFO_DAMAGE_AA_LEVEL         = unchecked((int)0x80000000);
-		const int HENCH_SPELL_INFO_DAMAGE_WP_LEVEL         = unchecked((int)0x90000000); // not used in CoreAI.
-		const int HENCH_SPELL_INFO_DAMAGE_LAY_ON_HANDS     = unchecked((int)0xa0000000);
-		const int HENCH_SPELL_INFO_DAMAGE_CHARISMA         = unchecked((int)0xb0000000);
-		const int HENCH_SPELL_INFO_DAMAGE_BARD_PERFORM     = unchecked((int)0xc0000000);
-		const int HENCH_SPELL_INFO_DAMAGE_WARLOCK          = unchecked((int)0xd0000000);
-
-		const int HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_MASK  = 0x03000000; // NOTE: Overlaps FixedCount
-
-		const int HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_DICE  = 0x00000000;
-		const int HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_ADJ   = 0x01000000;
-		const int HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_COUNT = 0x02000000;
-		const int HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_CONST = 0x03000000;
-
-		const int HENCH_SPELL_INFO_BUFF_AMOUNT_MASK        = 0x000000ff;
-		const int HENCH_SPELL_INFO_BUFF_LEVEL_LIMIT_MASK   = 0x00003f00;
-		const int HENCH_SPELL_INFO_BUFF_LEVEL_DIV_MASK     = 0x000f0000;
-		const int HENCH_SPELL_INFO_BUFF_LEVEL_DECR_MASK    = 0x00f00000;
-
-		const int HENCH_SPELL_INFO_DAMAGE_AMOUNT_MASK      = 0x000ff000;
-		const int HENCH_SPELL_INFO_DAMAGE_LEVEL_LIMIT_MASK = 0x00f00000;
-		const int HENCH_SPELL_INFO_DAMAGE_LEVEL_DIV_MASK   = 0x0c000000; // NOTE: Overlaps FixedCount
-
-		const int HENCH_SPELL_INFO_DAMAGE_FIXED_COUNT      = 0x0f000000; // NOTE: Overlaps LevelType and LevelDivisor
-
-		// not used in editor ->
-
-		// BENEFICIAL-type (Buff)
+		// Group 2 - BENEFICIAL-type (Buff)
 		// These are used by GetCurrentSpellBuffAmount() 'hench_i0_spells'
 		// by
 		// HenchCheckACBuff() 'hench_i0_buff'
@@ -294,7 +228,27 @@
 		//        InitializeWarlockAttackSpells() 'hench_i0_itemsp'
 		//        - needs further investigation
 
-		// DETRIMENTAL-type (Damage)
+		const int HENCH_SPELL_INFO_BUFF_AMOUNT_MASK        = 0x000000ff;
+		const int HENCH_SPELL_INFO_BUFF_LEVEL_LIMIT_MASK   = 0x00003f00;
+		const int HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_MASK    = 0x0000c000;
+
+		const int HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_DICE    = 0x00000000;
+		const int HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_ADJ     = 0x00004000;
+		const int HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_COUNT   = 0x00008000; // not used in CoreAI.
+		const int HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_CONST   = 0x0000c000;
+
+		const int HENCH_SPELL_INFO_BUFF_LEVEL_DIV_MASK     = 0x000f0000;
+		const int HENCH_SPELL_INFO_BUFF_LEVEL_DECR_MASK    = 0x00f00000;
+		const int HENCH_SPELL_INFO_BUFF_MASK               = 0x0f000000;
+
+		const int HENCH_SPELL_INFO_BUFF_CASTER_LEVEL       = 0x01000000;
+		const int HENCH_SPELL_INFO_BUFF_HD_LEVEL           = 0x02000000;
+		const int HENCH_SPELL_INFO_BUFF_FIXED              = 0x03000000;
+		const int HENCH_SPELL_INFO_BUFF_CHARISMA           = 0x0b000000;
+		const int HENCH_SPELL_INFO_BUFF_BARD_LEVEL         = 0x0c000000; // not used in CoreAI.
+		const int HENCH_SPELL_INFO_BUFF_DRAGON             = 0x0d000000;
+
+		// Group 3 - DETRIMENTAL-type (Damage)
 		// These are used by GetCurrentSpellDamage() 'hench_i0_spells'
 		// by
 		// HenchCheckElementalShield() 'hench_i0_buff' - 
@@ -304,7 +258,50 @@
 		//    [see above ..]
 
 //		const int HENCH_SPELL_INFO_DAMAGE_TYPE_MASK        = 0x00000fff;
-		// END not used.
+
+		// NwScript DAMAGE_TYPE_* constants: (also used by SaveType - Exclusive)
+//		const int DAMAGE_TYPE_ALL                          = 0;          // Deprecated.
+		const int DAMAGE_TYPE_BLUDGEONING                  = 0x00000001; //    1
+		const int DAMAGE_TYPE_PIERCING                     = 0x00000002; //    2
+		const int DAMAGE_TYPE_SLASHING                     = 0x00000004; //    4
+		const int DAMAGE_TYPE_MAGICAL                      = 0x00000008; //    8
+		const int DAMAGE_TYPE_ACID                         = 0x00000010; //   16
+		const int DAMAGE_TYPE_COLD                         = 0x00000020; //   32
+		const int DAMAGE_TYPE_DIVINE                       = 0x00000040; //   64
+		const int DAMAGE_TYPE_ELECTRICAL                   = 0x00000080; //  128
+		const int DAMAGE_TYPE_FIRE                         = 0x00000100; //  256
+		const int DAMAGE_TYPE_NEGATIVE                     = 0x00000200; //  512
+		const int DAMAGE_TYPE_POSITIVE                     = 0x00000400; // 1024
+		const int DAMAGE_TYPE_SONIC                        = 0x00000800; // 2048
+
+		const int HENCH_SPELL_INFO_DAMAGE_AMOUNT_MASK      = 0x000ff000;
+		const int HENCH_SPELL_INFO_DAMAGE_LEVEL_LIMIT_MASK = 0x00f00000;
+		const int HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_MASK  = 0x03000000; // NOTE: Overlaps FixedCount
+
+		const int HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_DICE  = 0x00000000;
+		const int HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_ADJ   = 0x01000000;
+		const int HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_COUNT = 0x02000000;
+		const int HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_CONST = 0x03000000;
+
+		const int HENCH_SPELL_INFO_DAMAGE_LEVEL_DIV_MASK   = 0x0c000000; // NOTE: Overlaps FixedCount
+		const int HENCH_SPELL_INFO_DAMAGE_FIXED_COUNT      = 0x0f000000; // NOTE: Overlaps LevelType and LevelDivisor
+
+		const int HENCH_SPELL_INFO_DAMAGE_MASK             = unchecked((int)0xf0000000);
+
+		const int HENCH_SPELL_INFO_DAMAGE_CASTER_LEVEL     = 0x00000000;
+		const int HENCH_SPELL_INFO_DAMAGE_HD_LEVEL         = 0x10000000;
+		const int HENCH_SPELL_INFO_DAMAGE_FIXED            = 0x20000000;
+		const int HENCH_SPELL_INFO_DAMAGE_CURE             = 0x30000000;
+		const int HENCH_SPELL_INFO_DAMAGE_DRAGON           = 0x40000000;
+		const int HENCH_SPELL_INFO_DAMAGE_SPECIAL_COUNT    = 0x50000000;
+		const int HENCH_SPELL_INFO_DAMAGE_CUSTOM           = 0x60000000;
+		const int HENCH_SPELL_INFO_DAMAGE_DRAG_DISC        = 0x70000000;
+		const int HENCH_SPELL_INFO_DAMAGE_AA_LEVEL         = unchecked((int)0x80000000);
+		const int HENCH_SPELL_INFO_DAMAGE_WP_LEVEL         = unchecked((int)0x90000000); // not used in CoreAI.
+		const int HENCH_SPELL_INFO_DAMAGE_LAY_ON_HANDS     = unchecked((int)0xa0000000);
+		const int HENCH_SPELL_INFO_DAMAGE_CHARISMA         = unchecked((int)0xb0000000);
+		const int HENCH_SPELL_INFO_DAMAGE_BARD_PERFORM     = unchecked((int)0xc0000000);
+		const int HENCH_SPELL_INFO_DAMAGE_WARLOCK          = unchecked((int)0xd0000000);
 		#endregion DamageInfo
 
 
@@ -410,14 +407,13 @@
 //		const int AC_DEFLECTION_BONUS                  = 4; // 0x00100000 // this overlaps the bit for Type1Damage:half
 
 
-		// TODO: These say they are in SaveType - 'hench_i0_buff' HenchGetEnergyImmunityWeight()
-		// but I have doubts ....
-//		const int HENCH_IMMUNITY_WEIGHT_AMOUNT_MASK          = 0x000ff000;
-//		const int HENCH_IMMUNITY_WEIGHT_RESISTANCE           = 0x00100000; // type1damage:half
-//		const int HENCH_IMMUNITY_ONLY_ONE                    = 0x00200000; // type1damage:regular
-//		const int HENCH_IMMUNITY_GENERAL                     = 0x00400000; // type2save:fort
-
 		// END not used.
+
+		// These say they are in SaveType - 'hench_i0_buff' HenchGetEnergyImmunityWeight()
+		const int HENCH_IMMUNITY_WEIGHT_AMOUNT_MASK          = 0x000ff000; // NOTE: The first 12 bits are nwscript DamageTypes.
+		const int HENCH_IMMUNITY_WEIGHT_RESISTANCE           = 0x00100000; // overlaps type1damage:half
+		const int HENCH_IMMUNITY_ONLY_ONE                    = 0x00200000; // overlaps type1damage:regular
+		const int HENCH_IMMUNITY_GENERAL                     = 0x00400000; // overlaps type2save:fort
 
 		// Weapon types - CoreAI constants
 		// 'hench_i0_buffs'
