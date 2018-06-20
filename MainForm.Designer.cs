@@ -271,6 +271,8 @@
 		private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
 		private System.Windows.Forms.ToolTip toolTip1;
+		private System.Windows.Forms.Button btn_Search;
+		private System.Windows.Forms.TextBox tb_Search;
 
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -558,6 +560,8 @@
 			this.setCoreAIver = new System.Windows.Forms.ToolStripMenuItem();
 			this.SpellTree = new System.Windows.Forms.TreeView();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+			this.btn_Search = new System.Windows.Forms.Button();
+			this.tb_Search = new System.Windows.Forms.TextBox();
 			this.apply = new System.Windows.Forms.Button();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.cols_HenchSpells.SuspendLayout();
@@ -1339,11 +1343,11 @@
 			this.page_EffectTypes.Controls.Add(this.EffectTypes_hex);
 			this.page_EffectTypes.Controls.Add(this.EffectTypes_text);
 			this.page_EffectTypes.Controls.Add(this.EffectTypes_reset);
-			this.page_EffectTypes.Location = new System.Drawing.Point(4, 24);
+			this.page_EffectTypes.Location = new System.Drawing.Point(4, 23);
 			this.page_EffectTypes.Margin = new System.Windows.Forms.Padding(2);
 			this.page_EffectTypes.Name = "page_EffectTypes";
 			this.page_EffectTypes.Padding = new System.Windows.Forms.Padding(2);
-			this.page_EffectTypes.Size = new System.Drawing.Size(777, 497);
+			this.page_EffectTypes.Size = new System.Drawing.Size(777, 498);
 			this.page_EffectTypes.TabIndex = 3;
 			this.page_EffectTypes.Text = "EffectTypes";
 			this.page_EffectTypes.UseVisualStyleBackColor = true;
@@ -2116,11 +2120,11 @@
 			this.page_DamageInfo.Controls.Add(this.DamageInfo_hex);
 			this.page_DamageInfo.Controls.Add(this.DamageInfo_text);
 			this.page_DamageInfo.Controls.Add(this.DamageInfo_reset);
-			this.page_DamageInfo.Location = new System.Drawing.Point(4, 24);
+			this.page_DamageInfo.Location = new System.Drawing.Point(4, 23);
 			this.page_DamageInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_DamageInfo.Name = "page_DamageInfo";
 			this.page_DamageInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_DamageInfo.Size = new System.Drawing.Size(777, 497);
+			this.page_DamageInfo.Size = new System.Drawing.Size(777, 498);
 			this.page_DamageInfo.TabIndex = 4;
 			this.page_DamageInfo.Text = "DamageInfo";
 			this.page_DamageInfo.UseVisualStyleBackColor = true;
@@ -2718,11 +2722,11 @@
 			this.page_SaveType.Controls.Add(this.st_Save1Grp);
 			this.page_SaveType.Controls.Add(this.SaveType_text);
 			this.page_SaveType.Controls.Add(this.SaveType_reset);
-			this.page_SaveType.Location = new System.Drawing.Point(4, 24);
+			this.page_SaveType.Location = new System.Drawing.Point(4, 23);
 			this.page_SaveType.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SaveType.Name = "page_SaveType";
 			this.page_SaveType.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SaveType.Size = new System.Drawing.Size(777, 497);
+			this.page_SaveType.Size = new System.Drawing.Size(777, 498);
 			this.page_SaveType.TabIndex = 5;
 			this.page_SaveType.Text = "SaveType";
 			this.page_SaveType.UseVisualStyleBackColor = true;
@@ -3266,11 +3270,11 @@
 			this.page_SaveDCType.Controls.Add(this.savedctype2);
 			this.page_SaveDCType.Controls.Add(this.savedctype1);
 			this.page_SaveDCType.Controls.Add(this.SaveDCType_reset);
-			this.page_SaveDCType.Location = new System.Drawing.Point(4, 24);
+			this.page_SaveDCType.Location = new System.Drawing.Point(4, 23);
 			this.page_SaveDCType.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SaveDCType.Name = "page_SaveDCType";
 			this.page_SaveDCType.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SaveDCType.Size = new System.Drawing.Size(777, 497);
+			this.page_SaveDCType.Size = new System.Drawing.Size(777, 498);
 			this.page_SaveDCType.TabIndex = 6;
 			this.page_SaveDCType.Text = "SaveDCType";
 			this.page_SaveDCType.UseVisualStyleBackColor = true;
@@ -3405,7 +3409,7 @@
 			this.dc_WeaponBonusGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.dc_WeaponBonusGrp.Name = "dc_WeaponBonusGrp";
 			this.dc_WeaponBonusGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.dc_WeaponBonusGrp.Size = new System.Drawing.Size(296, 55);
+			this.dc_WeaponBonusGrp.Size = new System.Drawing.Size(296, 56);
 			this.dc_WeaponBonusGrp.TabIndex = 11;
 			this.dc_WeaponBonusGrp.TabStop = false;
 			this.dc_WeaponBonusGrp.Text = "weapon bonus type";
@@ -3436,7 +3440,7 @@
 			this.dc_SaveDCGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.dc_SaveDCGrp.Name = "dc_SaveDCGrp";
 			this.dc_SaveDCGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.dc_SaveDCGrp.Size = new System.Drawing.Size(340, 315);
+			this.dc_SaveDCGrp.Size = new System.Drawing.Size(340, 316);
 			this.dc_SaveDCGrp.TabIndex = 10;
 			this.dc_SaveDCGrp.TabStop = false;
 			this.dc_SaveDCGrp.Text = "save dc type";
@@ -3550,7 +3554,7 @@
 			this.options});
 			this.menuStrip.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip.Name = "menuStrip";
-			this.menuStrip.Size = new System.Drawing.Size(986, 24);
+			this.menuStrip.Size = new System.Drawing.Size(1111, 24);
 			this.menuStrip.TabIndex = 1;
 			this.menuStrip.Text = "menuStrip";
 			// 
@@ -3651,15 +3655,18 @@
 			// 
 			// SpellTree
 			// 
-			this.SpellTree.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.SpellTree.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			| System.Windows.Forms.AnchorStyles.Left) 
+			| System.Windows.Forms.AnchorStyles.Right)));
 			this.SpellTree.FullRowSelect = true;
 			this.SpellTree.HideSelection = false;
 			this.SpellTree.Indent = 15;
-			this.SpellTree.Location = new System.Drawing.Point(0, 0);
+			this.SpellTree.Location = new System.Drawing.Point(0, 30);
 			this.SpellTree.Name = "SpellTree";
-			this.SpellTree.Size = new System.Drawing.Size(200, 550);
+			this.SpellTree.Size = new System.Drawing.Size(275, 520);
 			this.SpellTree.TabIndex = 2;
 			this.SpellTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.AfterSelect_spellnode);
+			this.SpellTree.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress_search);
 			// 
 			// splitContainer1
 			// 
@@ -3670,6 +3677,8 @@
 			// 
 			// splitContainer1.Panel1
 			// 
+			this.splitContainer1.Panel1.Controls.Add(this.btn_Search);
+			this.splitContainer1.Panel1.Controls.Add(this.tb_Search);
 			this.splitContainer1.Panel1.Controls.Add(this.SpellTree);
 			this.splitContainer1.Panel1MinSize = 20;
 			// 
@@ -3677,17 +3686,37 @@
 			// 
 			this.splitContainer1.Panel2.Controls.Add(this.apply);
 			this.splitContainer1.Panel2.Controls.Add(this.cols_HenchSpells);
-			this.splitContainer1.Size = new System.Drawing.Size(986, 550);
-			this.splitContainer1.SplitterDistance = 200;
+			this.splitContainer1.Size = new System.Drawing.Size(1111, 550);
+			this.splitContainer1.SplitterDistance = 275;
 			this.splitContainer1.SplitterWidth = 3;
 			this.splitContainer1.TabIndex = 3;
+			// 
+			// btn_Search
+			// 
+			this.btn_Search.Location = new System.Drawing.Point(215, 0);
+			this.btn_Search.Margin = new System.Windows.Forms.Padding(0);
+			this.btn_Search.Name = "btn_Search";
+			this.btn_Search.Size = new System.Drawing.Size(60, 30);
+			this.btn_Search.TabIndex = 4;
+			this.btn_Search.Text = "search";
+			this.btn_Search.UseVisualStyleBackColor = true;
+			this.btn_Search.Click += new System.EventHandler(this.Click_search);
+			// 
+			// tb_Search
+			// 
+			this.tb_Search.Location = new System.Drawing.Point(0, 5);
+			this.tb_Search.Margin = new System.Windows.Forms.Padding(0);
+			this.tb_Search.Name = "tb_Search";
+			this.tb_Search.Size = new System.Drawing.Size(215, 20);
+			this.tb_Search.TabIndex = 3;
+			this.tb_Search.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress_search);
 			// 
 			// apply
 			// 
 			this.apply.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.apply.Location = new System.Drawing.Point(0, 525);
 			this.apply.Name = "apply";
-			this.apply.Size = new System.Drawing.Size(783, 25);
+			this.apply.Size = new System.Drawing.Size(833, 25);
 			this.apply.TabIndex = 1;
 			this.apply.Text = "apply this spell\'s data";
 			this.apply.UseVisualStyleBackColor = true;
@@ -3697,7 +3726,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(986, 574);
+			this.ClientSize = new System.Drawing.Size(1111, 574);
 			this.Controls.Add(this.splitContainer1);
 			this.Controls.Add(this.menuStrip);
 			this.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -3771,6 +3800,7 @@
 			this.menuStrip.ResumeLayout(false);
 			this.menuStrip.PerformLayout();
 			this.splitContainer1.Panel1.ResumeLayout(false);
+			this.splitContainer1.Panel1.PerformLayout();
 			this.splitContainer1.Panel2.ResumeLayout(false);
 			this.splitContainer1.ResumeLayout(false);
 			this.ResumeLayout(false);

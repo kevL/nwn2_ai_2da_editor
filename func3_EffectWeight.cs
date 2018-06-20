@@ -18,10 +18,10 @@ namespace nwn2_ai_2da_editor
 		{
 			//logfile.Log("TextChanged_effectweight() bypassTextChanged= " + bypassTextChanged);
 
-//			if (!bypassTextChanged)
+			float effectweight;
+			if (float.TryParse(EffectWeight_text.Text, out effectweight))
 			{
-				float effectweight;
-				if (float.TryParse(EffectWeight_text.Text, out effectweight))
+				if (!bypassTextChanged)
 				{
 					var spell = Spells[Id];
 
@@ -76,6 +76,7 @@ namespace nwn2_ai_2da_editor
 					}
 				}
 			}
+			// else TODO: error dialog here.
 		}
 
 		/// <summary>

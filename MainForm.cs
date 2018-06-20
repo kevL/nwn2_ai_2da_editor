@@ -267,8 +267,7 @@ namespace nwn2_ai_2da_editor
 //				pb.Step();
 			}
 
-			bypassTextChanged = true;
-			SpellTree.SelectedNode = SpellTree.Nodes[0]; // pre-select the first node to prevent problems (and cause others)
+			bypassTextChanged = true; // NOTE: SpellTree.SelectedNode=SpellTree.Nodes[0] is done auto.
 		}
 		#endregion Load
 
@@ -607,6 +606,66 @@ namespace nwn2_ai_2da_editor
 			return f;
 		}
 		#endregion Utilities
+
+
+		#region Search
+		/// <summary>
+		/// Handler for pressing the Enter-key when either the search-textbox or
+		/// the spell-tree is focused.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void KeyPress_search(object sender, KeyPressEventArgs e)
+		{
+			if (e.KeyChar == (char)Keys.Enter)
+			{
+				Click_search(null, EventArgs.Empty);
+				e.Handled = true;
+			}
+		}
+
+		/// <summary>
+		/// Handler for clicking the Search btn.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void Click_search(object sender, EventArgs e)
+		{
+			int totalnodes = SpellTree.Nodes.Count;
+			if (totalnodes > 1)
+			{
+				string text = tb_Search.Text;
+				if (!String.IsNullOrEmpty(text))
+				{
+					int idSelected = SpellTree.SelectedNode.Index;
+
+					int id;
+					if (idSelected == totalnodes - 1)
+					{
+						id = 0;
+					}
+					else
+						id = idSelected + 1;
+
+					while (!SpellTree.Nodes[id].Text.ToLower().Contains(text.ToLower()))
+					{
+						if (id == idSelected) // not found.
+						{
+							System.Media.SystemSounds.Beep.Play();
+							break;
+						}
+
+						if (++id == totalnodes) // wrap to first node
+						{
+							id = 0;
+						}
+					}
+
+					SpellTree.SelectedNode = SpellTree.Nodes[id];
+				}
+			}
+		}
+		#endregion Search
 	}
 	#endregion MainForm
 
