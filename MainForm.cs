@@ -633,8 +633,10 @@ namespace nwn2_ai_2da_editor
 				string text = tb_Search.Text;
 				if (!String.IsNullOrEmpty(text))
 				{
+					text = text.ToLower();
+
 					int idSelected = SpellTree.SelectedNode.Index;
-					int id = idSelected;
+					int id;
 
 					var btn = sender as Button;
 					if (btn == btn_Search_d || btn == null)
@@ -646,7 +648,7 @@ namespace nwn2_ai_2da_editor
 						else
 							id = idSelected + 1;
 
-						while (!SpellTree.Nodes[id].Text.ToLower().Contains(text.ToLower()))
+						while (!SpellTree.Nodes[id].Text.ToLower().Contains(text))
 						{
 							if (id == idSelected) // not found.
 							{
@@ -660,7 +662,7 @@ namespace nwn2_ai_2da_editor
 							}
 						}
 					}
-					else if (btn == btn_Search_u)
+					else //if (btn == btn_Search_u)
 					{
 						if (idSelected == 0)
 						{
@@ -669,7 +671,7 @@ namespace nwn2_ai_2da_editor
 						else
 							id = idSelected - 1;
 
-						while (!SpellTree.Nodes[id].Text.ToLower().Contains(text.ToLower()))
+						while (!SpellTree.Nodes[id].Text.ToLower().Contains(text))
 						{
 							if (id == idSelected) // not found.
 							{
