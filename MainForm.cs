@@ -621,7 +621,7 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Handler for clicking the Search btn.
+		/// Handler for clicking the Search btns.
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -634,26 +634,53 @@ namespace nwn2_ai_2da_editor
 				if (!String.IsNullOrEmpty(text))
 				{
 					int idSelected = SpellTree.SelectedNode.Index;
+					int id = idSelected;
 
-					int id;
-					if (idSelected == totalnodes - 1)
+					var btn = sender as Button;
+					if (btn == btn_Search_d || btn == null)
 					{
-						id = 0;
-					}
-					else
-						id = idSelected + 1;
-
-					while (!SpellTree.Nodes[id].Text.ToLower().Contains(text.ToLower()))
-					{
-						if (id == idSelected) // not found.
-						{
-							System.Media.SystemSounds.Beep.Play();
-							break;
-						}
-
-						if (++id == totalnodes) // wrap to first node
+						if (idSelected == totalnodes - 1)
 						{
 							id = 0;
+						}
+						else
+							id = idSelected + 1;
+
+						while (!SpellTree.Nodes[id].Text.ToLower().Contains(text.ToLower()))
+						{
+							if (id == idSelected) // not found.
+							{
+								System.Media.SystemSounds.Beep.Play();
+								break;
+							}
+
+							if (++id == totalnodes) // wrap to first node
+							{
+								id = 0;
+							}
+						}
+					}
+					else if (btn == btn_Search_u)
+					{
+						if (idSelected == 0)
+						{
+							id = totalnodes - 1;
+						}
+						else
+							id = idSelected - 1;
+
+						while (!SpellTree.Nodes[id].Text.ToLower().Contains(text.ToLower()))
+						{
+							if (id == idSelected) // not found.
+							{
+								System.Media.SystemSounds.Beep.Play();
+								break;
+							}
+
+							if (--id == -1) // wrap to last node
+							{
+								id = totalnodes - 1;
+							}
 						}
 					}
 

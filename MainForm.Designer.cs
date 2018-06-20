@@ -271,8 +271,9 @@
 		private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
 		private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
 		private System.Windows.Forms.ToolTip toolTip1;
-		private System.Windows.Forms.Button btn_Search;
+		private System.Windows.Forms.Button btn_Search_d;
 		private System.Windows.Forms.TextBox tb_Search;
+		private System.Windows.Forms.Button btn_Search_u;
 
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -560,10 +561,11 @@
 			this.setCoreAIver = new System.Windows.Forms.ToolStripMenuItem();
 			this.SpellTree = new System.Windows.Forms.TreeView();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-			this.btn_Search = new System.Windows.Forms.Button();
+			this.btn_Search_d = new System.Windows.Forms.Button();
 			this.tb_Search = new System.Windows.Forms.TextBox();
 			this.apply = new System.Windows.Forms.Button();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+			this.btn_Search_u = new System.Windows.Forms.Button();
 			this.cols_HenchSpells.SuspendLayout();
 			this.page_SpellInfo.SuspendLayout();
 			this.si_ChildIDGrp.SuspendLayout();
@@ -3677,7 +3679,8 @@
 			// 
 			// splitContainer1.Panel1
 			// 
-			this.splitContainer1.Panel1.Controls.Add(this.btn_Search);
+			this.splitContainer1.Panel1.Controls.Add(this.btn_Search_u);
+			this.splitContainer1.Panel1.Controls.Add(this.btn_Search_d);
 			this.splitContainer1.Panel1.Controls.Add(this.tb_Search);
 			this.splitContainer1.Panel1.Controls.Add(this.SpellTree);
 			this.splitContainer1.Panel1MinSize = 20;
@@ -3691,16 +3694,16 @@
 			this.splitContainer1.SplitterWidth = 3;
 			this.splitContainer1.TabIndex = 3;
 			// 
-			// btn_Search
+			// btn_Search_d
 			// 
-			this.btn_Search.Location = new System.Drawing.Point(215, 0);
-			this.btn_Search.Margin = new System.Windows.Forms.Padding(0);
-			this.btn_Search.Name = "btn_Search";
-			this.btn_Search.Size = new System.Drawing.Size(60, 30);
-			this.btn_Search.TabIndex = 4;
-			this.btn_Search.Text = "search";
-			this.btn_Search.UseVisualStyleBackColor = true;
-			this.btn_Search.Click += new System.EventHandler(this.Click_search);
+			this.btn_Search_d.Location = new System.Drawing.Point(215, 0);
+			this.btn_Search_d.Margin = new System.Windows.Forms.Padding(0);
+			this.btn_Search_d.Name = "btn_Search_d";
+			this.btn_Search_d.Size = new System.Drawing.Size(30, 30);
+			this.btn_Search_d.TabIndex = 4;
+			this.btn_Search_d.Text = "d";
+			this.btn_Search_d.UseVisualStyleBackColor = true;
+			this.btn_Search_d.Click += new System.EventHandler(this.Click_search);
 			// 
 			// tb_Search
 			// 
@@ -3721,6 +3724,17 @@
 			this.apply.Text = "apply this spell\'s data";
 			this.apply.UseVisualStyleBackColor = true;
 			this.apply.Click += new System.EventHandler(this.Click_apply);
+			// 
+			// btn_Search_u
+			// 
+			this.btn_Search_u.Location = new System.Drawing.Point(245, 0);
+			this.btn_Search_u.Margin = new System.Windows.Forms.Padding(0);
+			this.btn_Search_u.Name = "btn_Search_u";
+			this.btn_Search_u.Size = new System.Drawing.Size(30, 30);
+			this.btn_Search_u.TabIndex = 5;
+			this.btn_Search_u.Text = "u";
+			this.btn_Search_u.UseVisualStyleBackColor = true;
+			this.btn_Search_u.Click += new System.EventHandler(this.Click_search);
 			// 
 			// MainForm
 			// 
