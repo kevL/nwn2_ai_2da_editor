@@ -112,7 +112,7 @@ namespace nwn2_ai_2da_editor
 				CheckSpellInfoCheckers(spellinfo);
 
 				SetDetrimentalBeneficial(spellinfo);
-				SetSpelltypeDispel(spellinfo);
+				SetTypeDispel(spellinfo);
 				ShowChildFields(spellinfo);
 			}
 			// else TODO: error dialog here.
@@ -236,7 +236,7 @@ namespace nwn2_ai_2da_editor
 			{
 				bypassCheckedChecker = true;
 
-				spellinfo &= ~HENCH_SPELL_INFO_SPELL_TYPE_MASK; // clear specific bits
+				spellinfo &= ~HENCH_SPELL_INFO_SPELL_TYPE_MASK; // 0x000000ff
 				SpellInfo_text.Text = (spellinfo | cbo_si_Spelltype.SelectedIndex).ToString();
 			}
 		}
@@ -255,7 +255,7 @@ namespace nwn2_ai_2da_editor
 			{
 				bypassCheckedChecker = true;
 
-				spellinfo &= ~HENCH_SPELL_INFO_SPELL_LEVEL_MASK; // clear specific bits
+				spellinfo &= ~HENCH_SPELL_INFO_SPELL_LEVEL_MASK; // 0x0001e000
 				int val = cbo_si_Spelllevel.SelectedIndex << HENCH_SPELL_INFO_SPELL_LEVEL_SHIFT;
 				SpellInfo_text.Text = (spellinfo | val).ToString();
 			}
@@ -281,39 +281,39 @@ namespace nwn2_ai_2da_editor
 				var cb = sender as CheckBox;
 				if (cb.Equals(si_IsMaster))
 				{
-					bit = HENCH_SPELL_INFO_MASTER_FLAG;
+					bit = HENCH_SPELL_INFO_MASTER_FLAG;			// 0x00000100
 				}
 				else if (cb.Equals(si_Ignore))
 				{
-					bit = HENCH_SPELL_INFO_IGNORE_FLAG;
+					bit = HENCH_SPELL_INFO_IGNORE_FLAG;			// 0x00000200
 				}
 				else if (cb.Equals(si_Concentration))
 				{
-					bit = HENCH_SPELL_INFO_CONCENTRATION_FLAG;
+					bit = HENCH_SPELL_INFO_CONCENTRATION_FLAG;	// 0x00000400
 				}
 				else if (cb.Equals(si_Unlimited))
 				{
-					bit = HENCH_SPELL_INFO_UNLIMITED_FLAG;
+					bit = HENCH_SPELL_INFO_UNLIMITED_FLAG;		// 0x00000800
 				}
 				else if (cb.Equals(si_HealOrCure))
 				{
-					bit = HENCH_SPELL_INFO_HEAL_OR_CURE;
+					bit = HENCH_SPELL_INFO_HEAL_OR_CURE;		// 0x00020000
 				}
 				else if (cb.Equals(si_ShortDurBuff))
 				{
-					bit = HENCH_SPELL_INFO_SHORT_DUR_BUFF;
+					bit = HENCH_SPELL_INFO_SHORT_DUR_BUFF;		// 0x00040000
 				}
 				else if (cb.Equals(si_MediumDurBuff))
 				{
-					bit = HENCH_SPELL_INFO_MEDIUM_DUR_BUFF;
+					bit = HENCH_SPELL_INFO_MEDIUM_DUR_BUFF;		// 0x00080000
 				}
 				else if (cb.Equals(si_LongDurBuff))
 				{
-					bit = HENCH_SPELL_INFO_LONG_DUR_BUFF;
+					bit = HENCH_SPELL_INFO_LONG_DUR_BUFF;		// 0x00100000
 				}
 				else //if (cb.Equals(si_ItemCast))
 				{
-					bit = HENCH_SPELL_INFO_ITEM_FLAG;
+					bit = HENCH_SPELL_INFO_ITEM_FLAG;			// 0x00800000
 				}
 
 				if (cb.Checked)
@@ -498,9 +498,9 @@ namespace nwn2_ai_2da_editor
 		/// Detrimental-types.
 		/// </summary>
 		/// <param name="spellinfo"></param>
-		void SetSpelltypeDispel(int spellinfo)
+		void SetTypeDispel(int spellinfo)
 		{
-			bool vis = ((spellinfo & HENCH_SPELL_INFO_SPELL_TYPE_DISPEL) == HENCH_SPELL_INFO_SPELL_TYPE_DISPEL);
+			bool vis = ((spellinfo & HENCH_SPELL_INFO_SPELL_TYPE_MASK) == HENCH_SPELL_INFO_SPELL_TYPE_DISPEL);
 
 			di_DispelTypesGrp.Visible = vis;
 
