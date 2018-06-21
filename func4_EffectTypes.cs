@@ -63,19 +63,11 @@ namespace nwn2_ai_2da_editor
 					if (differ != bit_clear)
 					{
 						SpellsChanged[Id] = spellchanged;
-
-						if ((differ & bit_effecttypes) != 0)
-						{
-							EffectTypes_reset.ForeColor = Color.Crimson;
-						}
-
 						SpellTree.SelectedNode.ForeColor = Color.Crimson;
 					}
 					else
 					{
 						SpellsChanged.Remove(Id);
-
-						EffectTypes_reset.ForeColor = DefaultForeColor;
 
 						if (!spell.isChanged) // this is set by the Apply btn only.
 						{
@@ -85,6 +77,13 @@ namespace nwn2_ai_2da_editor
 
 					PrintCurrent(effecttypes, null, EffectTypes_hex, EffectTypes_bin);
 				}
+
+				if ((Spells[Id].differ & bit_effecttypes) != 0)
+				{
+					EffectTypes_reset.ForeColor = Color.Crimson;
+				}
+				else
+					EffectTypes_reset.ForeColor = DefaultForeColor;
 
 				CheckEffectTypesCheckers(effecttypes);
 
@@ -130,6 +129,7 @@ namespace nwn2_ai_2da_editor
 				EffectTypes_text.Text = spell.spellinfo.ToString();
 			}
 		}
+
 
 		/// <summary>
 		/// Handles toggling bits by checkboxes on the EffectTypes page - PositiveEffects group.
@@ -415,6 +415,7 @@ namespace nwn2_ai_2da_editor
 				EffectTypes_text.Text = effecttypes.ToString();
 			}
 		}
+
 
 		/// <summary>
 		/// Sets the checkers on the EffectTypes page to reflect the current

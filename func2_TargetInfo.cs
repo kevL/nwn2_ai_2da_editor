@@ -61,19 +61,11 @@ namespace nwn2_ai_2da_editor
 					if (differ != bit_clear)
 					{
 						SpellsChanged[Id] = spellchanged;
-
-						if ((differ & bit_targetinfo) != 0)
-						{
-							TargetInfo_reset.ForeColor = Color.Crimson;
-						}
-
 						SpellTree.SelectedNode.ForeColor = Color.Crimson;
 					}
 					else
 					{
 						SpellsChanged.Remove(Id);
-
-						TargetInfo_reset.ForeColor = DefaultForeColor;
 
 						if (!spell.isChanged) // this is set by the Apply btn only.
 						{
@@ -83,6 +75,13 @@ namespace nwn2_ai_2da_editor
 
 					PrintCurrent(targetinfo, null, TargetInfo_hex, TargetInfo_bin);
 				}
+
+				if ((Spells[Id].differ & bit_targetinfo) != 0)
+				{
+					TargetInfo_reset.ForeColor = Color.Crimson;
+				}
+				else
+					TargetInfo_reset.ForeColor = DefaultForeColor;
 
 				CheckTargetInfoCheckers(targetinfo);
 
@@ -128,6 +127,7 @@ namespace nwn2_ai_2da_editor
 				TargetInfo_text.Text = spell.targetinfo.ToString();
 			}
 		}
+
 
 		/// <summary>
 		/// Populates the TargetInfo dropdown-lists.
@@ -340,7 +340,7 @@ namespace nwn2_ai_2da_editor
 			{
 				//logfile.Log(". targetinfo= " + targetinfo);
 
-				// Flags checkboxes
+// Flags checkboxes
 				ti_ShapeLoop          .Checked = (targetinfo & HENCH_SPELL_TARGET_SHAPE_LOOP)           != 0;
 				ti_CheckCount         .Checked = (targetinfo & HENCH_SPELL_TARGET_CHECK_COUNT)          != 0;
 				ti_MissileTargets     .Checked = (targetinfo & HENCH_SPELL_TARGET_MISSILE_TARGETS)      != 0;
@@ -353,16 +353,20 @@ namespace nwn2_ai_2da_editor
 				ti_Necromancy         .Checked = (targetinfo & HENCH_SPELL_TARGET_NECROMANCY_SPELL)     != 0;
 				ti_Regular            .Checked = (targetinfo & HENCH_SPELL_TARGET_REGULAR_SPELL)        != 0;
 
-				// Shape dropdown
+// Shape dropdown
 				int val = (targetinfo & HENCH_SPELL_TARGET_SHAPE_MASK); // 0x00000007
 				if (val >= cbo_ti_Shape.Items.Count)
 				{
 					val = -1;
+					cbo_ti_Shape.ForeColor = Color.Red;
+//					cbo_ti_Shape.Text = "invalid";
 				}
-				//logfile.Log(". shape= " + val);
+				else
+					cbo_ti_Shape.ForeColor = DefaultForeColor;
+
 				cbo_ti_Shape.SelectedIndex = val;
 
-				// Range dropdown
+// Range dropdown
 				cbo_ti_Range.ForeColor = DefaultForeColor;
 
 				switch (targetinfo & HENCH_SPELL_TARGET_RANGE_MASK) // 0x00000038
@@ -374,15 +378,15 @@ namespace nwn2_ai_2da_editor
 					case HENCH_SPELL_TARGET_RANGE_LONG:     val = 4; break;
 					case HENCH_SPELL_TARGET_RANGE_INFINITE: val = 5; break;
 
-					default: // if user has set an invalid Range via the Text-field
+					default:
 						val = -1;
 						cbo_ti_Range.ForeColor = Color.Red;
-						cbo_ti_Range.Text = "invalid";
+//						cbo_ti_Range.Text = "invalid";
 						break;
 				}
 				cbo_ti_Range.SelectedIndex = val;
 
-				// Radius textbox
+// Radius textbox
 				val = targetinfo;
 				val &= HENCH_SPELL_TARGET_RADIUS_MASK;
 				val >>= HENCH_SPELL_TARGET_RADIUS_SHIFT;

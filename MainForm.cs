@@ -268,6 +268,8 @@ namespace nwn2_ai_2da_editor
 			}
 
 			// NOTE: SpellTree.SelectedNode=SpellTree.Nodes[0] is done auto.
+			// Not necessarily ...
+			SpellTree.SelectedNode = SpellTree.Nodes[0];
 		}
 		#endregion Load
 

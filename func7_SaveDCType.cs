@@ -56,19 +56,11 @@ namespace nwn2_ai_2da_editor
 					if (differ != bit_clear)
 					{
 						SpellsChanged[Id] = spellchanged;
-
-						if ((differ & bit_savedctype) != 0)
-						{
-							SaveDCType_reset.ForeColor = Color.Crimson;
-						}
-
 						SpellTree.SelectedNode.ForeColor = Color.Crimson;
 					}
 					else
 					{
 						SpellsChanged.Remove(Id);
-
-						SaveDCType_reset.ForeColor = DefaultForeColor;
 
 						if (!spell.isChanged) // this is set by the Apply btn only.
 						{
@@ -78,6 +70,13 @@ namespace nwn2_ai_2da_editor
 
 					PrintCurrent(savedctype, null, SaveDCType_hex, SaveDCType_bin);
 				}
+
+				if ((Spells[Id].differ & bit_savedctype) != 0)
+				{
+					SaveDCType_reset.ForeColor = Color.Crimson;
+				}
+				else
+					SaveDCType_reset.ForeColor = DefaultForeColor;
 
 
 //				var type = spell.savedctypetype;
@@ -139,6 +138,7 @@ namespace nwn2_ai_2da_editor
 			}
 		}
 
+
 		/// <summary>
 		/// Populates the SaveDCType dropdown-lists.
 		/// </summary>
@@ -172,6 +172,7 @@ namespace nwn2_ai_2da_editor
 			cbo_dc_WeaponBonus.Items.Add("weapon bonus - (casterlevel + 1) / 3");	// 101
 			cbo_dc_WeaponBonus.Items.Add("weapon bonus - (casterlevel / 3) - 1");	// 102
 		}
+
 
 		/// <summary>
 		/// Handler for SaveDCType radiobuttons.

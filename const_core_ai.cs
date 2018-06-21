@@ -42,7 +42,6 @@
 
 		const int HENCH_SPELL_INFO_SPELL_TYPE_DISPEL            = 0x00000006; //  6
 
-		// not used in editor ->
 		// 'hench_i0_itemsp'
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_AC_BUFF           = 0x00000002; //  2
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_BUFF              = 0x00000003; //  3
@@ -77,8 +76,6 @@
 //		if ((iSpellInfo & HENCH_SPELL_TARGET_RANGE_MASK) == HENCH_SPELL_TARGET_RANGE_PERSONAL)
 		//
 		// but it looks absolutely bogus. Range-type info is a property of TargetInfo not SpellInfo.
-
-		// END not used.
 		#endregion SpellInfo
 
 
@@ -108,24 +105,22 @@
 
 		const int HENCH_SPELL_TARGET_RADIUS_MASK          = 0x0000ffc0; // shift >> 6 / 10 bits, radius * 10
 
-		// not used in editor ->
 		// 'hench_i0_spells'
+		// stock NwScript constants:
 //		int SHAPE_SPELLCYLINDER                           = 0; // standard spell shapes in nwscript.nss ->
 //		int SHAPE_CONE                                    = 1;
 //		int SHAPE_CUBE                                    = 2;
 //		int SHAPE_SPELLCONE                               = 3;
 //		int SHAPE_SPHERE                                  = 4;
+
 //		const int HENCH_SHAPE_FACTION                     = 6; // indicates faction targets
 //		const int HENCH_SHAPE_NONE                        = 7; // indicates no shape
-		// END not used.
 		#endregion TargetInfo
 
 
 
 		#region EffectTypes
-		// not used in editor ->
 //		const int HENCH_EFFECT_TYPE_NONE                    = 0x00000000;
-		// END not used.
 
 		// PositiveEffects
 		const int HENCH_EFFECT_TYPE_AC_INCREASE             = 0x00000001;
@@ -307,9 +302,10 @@
 
 
 		#region SaveType
-		// Immunity types (not used in editor) - stock NwScript constants:
+		// Immunity types
 //		const int HENCH_SPELL_SAVE_TYPE_IMMUNITY1_MASK       =                       0x00000fc0;
 //		const int HENCH_SPELL_SAVE_TYPE_IMMUNITY2_MASK       =                                     0x0003f000;
+		// stock NwScript constants:
 //		const int IMMUNITY_TYPE_NONE                         = 0x00000000; //  0; // shift >> 6 // shift >> 12
 //		const int IMMUNITY_TYPE_MIND_SPELLS                  = 0x00000001; //  1; // 0x00000040 // 0x00001000 // this overlaps the bit for HENCH_WEAPON_DRUID_FLAG
 //		const int IMMUNITY_TYPE_POISON                       = 0x00000002; //  2; // 0x00000080 // 0x00002000
@@ -344,9 +340,10 @@
 //		const int IMMUNITY_TYPE_CRITICAL_HIT                 = 0x0000001f; // 31; // 0x000007c0 // 0x0001f000
 //		const int IMMUNITY_TYPE_DEATH                        = 0x00000020; // 32; // 0x00000800 // 0x00020000
 
-		// Specific types (not used in editor) - CoreAI constants
+		// Specific types - CoreAI constants
 		// 'hench_i0_attack'
 //		const int HENCH_SPELL_SAVE_TYPE_CUSTOM_MASK          = 0x0000003f;
+
 //		const int HENCH_ATTACK_NO_CHECK                      = 0x00000000; //  0 // These 50 are iSaveType constants ->
 //		const int HENCH_ATTACK_CHECK_HEAL                    = 0x00000001; //  1 // Lovely. It looks like they did it again.
 //		const int HENCH_ATTACK_CHECK_NEG_HEALING             = 0x00000002; //  2 // iSaveType appears to be dual-purposed
@@ -398,16 +395,14 @@
 //		const int HENCH_ATTACK_CHECK_HOLY_BLAS               = 0x00000030; // 48
 //		const int HENCH_ATTACK_CHECK_EVIL                    = 0x00000031; // 49
 
-		// AcBonus types (not used in editor) - stock NwScript constants
+		// AcBonus types
 //		int iAcType = (iSaveType & HENCH_SPELL_SAVE_TYPE_SAVES_MASK) >> 18;
+		// stock NwScript constants:
 //		const int AC_DODGE_BONUS                       = 0; // shift >> 18
 //		const int AC_NATURAL_BONUS                     = 1; // 0x00040000 // these overlap the bits for Type1Save ->
 //		const int AC_ARMOUR_ENCHANTMENT_BONUS          = 2; // 0x00080000
 //		const int AC_SHIELD_ENCHANTMENT_BONUS          = 3; // 0x000c0000
 //		const int AC_DEFLECTION_BONUS                  = 4; // 0x00100000 // this overlaps the bit for Type1Damage:half
-
-
-		// END not used.
 
 		// These say they are in SaveType - 'hench_i0_buff' HenchGetEnergyImmunityWeight()
 		const int HENCH_IMMUNITY_WEIGHT_AMOUNT_MASK          = 0x000ff000; // NOTE: The first 12 bits are nwscript DamageTypes.

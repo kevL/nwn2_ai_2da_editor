@@ -55,26 +55,25 @@ namespace nwn2_ai_2da_editor
 					if (differ != bit_clear)
 					{
 						SpellsChanged[Id] = spellchanged;
-
-						if ((differ & bit_effectweight) != 0)
-						{
-							EffectWeight_reset.ForeColor = Color.Crimson;
-						}
-
 						SpellTree.SelectedNode.ForeColor = Color.Crimson;
 					}
 					else
 					{
 						SpellsChanged.Remove(Id);
 
-						EffectWeight_reset.ForeColor = DefaultForeColor;
-						
 						if (!spell.isChanged) // this is set by the Apply btn only.
 						{
 							SpellTree.SelectedNode.ForeColor = DefaultForeColor;
 						}
 					}
 				}
+
+				if ((Spells[Id].differ & bit_effectweight) != 0)
+				{
+					EffectWeight_reset.ForeColor = Color.Crimson;
+				}
+				else
+					EffectWeight_reset.ForeColor = DefaultForeColor;
 			}
 			// else TODO: error dialog here.
 		}

@@ -86,19 +86,11 @@ namespace nwn2_ai_2da_editor
 					if (differ != bit_clear)
 					{
 						SpellsChanged[Id] = spellchanged;
-
-						if ((differ & bit_spellinfo) != 0)
-						{
-							SpellInfo_reset.ForeColor = Color.Crimson;
-						}
-
 						SpellTree.SelectedNode.ForeColor = Color.Crimson;
 					}
 					else
 					{
 						SpellsChanged.Remove(Id);
-
-						SpellInfo_reset.ForeColor = DefaultForeColor;
 
 						if (!spell.isChanged) // this is set by the Apply btn only.
 						{
@@ -108,6 +100,13 @@ namespace nwn2_ai_2da_editor
 
 					PrintCurrent(spellinfo, null, SpellInfo_hex, SpellInfo_bin);
 				}
+
+				if ((Spells[Id].differ & bit_spellinfo) != 0)
+				{
+					SpellInfo_reset.ForeColor = Color.Crimson;
+				}
+				else
+					SpellInfo_reset.ForeColor = DefaultForeColor;
 
 				CheckSpellInfoCheckers(spellinfo);
 
@@ -164,6 +163,7 @@ namespace nwn2_ai_2da_editor
 			}
 			//else logfile.Log(". is NOT in SpellsChanged");
 		}
+
 
 		/// <summary>
 		/// Populates the SpellInfo dropdown-lists.
@@ -329,6 +329,40 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
+		/// Sends the text in the ChildID boxes to where they should go.
+		/// Note that the EffectWeight field is skipped since it ought be a
+		/// float-value while the ChildIDs convert to ints.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void TextChanged_si_ChildFields(object sender, EventArgs e)
+		{
+			// NOTE: this doesn't result in an infinite loop.
+			var tb = sender as TextBox;
+			if (tb.Equals(si_Child1))
+			{
+				TargetInfo_text.Text = tb.Text;
+			}
+			else if (tb.Equals(si_Child2))
+			{
+				EffectTypes_text.Text = tb.Text;
+			}
+			else if (tb.Equals(si_Child3))
+			{
+				DamageInfo_text.Text = tb.Text;
+			}
+			else if (tb.Equals(si_Child4))
+			{
+				SaveType_text.Text = tb.Text;
+			}
+			else //if (tb.Equals(si_Child5))
+			{
+				SaveDCType_text.Text = tb.Text;
+			}
+		}
+
+
+		/// <summary>
 		/// Sets the checkers on the SpellInfo page to reflect the current
 		/// spellinfo value.
 		/// </summary>
@@ -341,7 +375,7 @@ namespace nwn2_ai_2da_editor
 			{
 				//logfile.Log(". spellinfo= " + spellinfo);
 
-				// Flags checkboxes
+// Flags checkboxes
 				si_IsMaster     .Checked = (spellinfo & HENCH_SPELL_INFO_MASTER_FLAG)        != 0;
 				si_Ignore       .Checked = (spellinfo & HENCH_SPELL_INFO_IGNORE_FLAG)        != 0;
 				si_Concentration.Checked = (spellinfo & HENCH_SPELL_INFO_CONCENTRATION_FLAG) != 0;
@@ -352,25 +386,33 @@ namespace nwn2_ai_2da_editor
 				si_LongDurBuff  .Checked = (spellinfo & HENCH_SPELL_INFO_LONG_DUR_BUFF)      != 0;
 				si_ItemCast     .Checked = (spellinfo & HENCH_SPELL_INFO_ITEM_FLAG)          != 0;
 
-				// Spelltype dropdown-list
+// Spelltype dropdown-list
 				int val = spellinfo;
 				val &= HENCH_SPELL_INFO_SPELL_TYPE_MASK;
 				if (val >= cbo_si_Spelltype.Items.Count)
 				{
 					val = -1;
+					cbo_si_Spelltype.ForeColor = Color.Red;
+//					cbo_si_Spelltype.Text = "invalid";
 				}
-				//logfile.Log(". spelltype= " + val);
+				else
+					cbo_si_Spelltype.ForeColor = DefaultForeColor;
+
 				cbo_si_Spelltype.SelectedIndex = val;
 
-				// Spelllevel dropdown-list
+// Spelllevel dropdown-list
 				val = spellinfo;
 				val &= HENCH_SPELL_INFO_SPELL_LEVEL_MASK;
 				val >>= HENCH_SPELL_INFO_SPELL_LEVEL_SHIFT;
 				if (val >= cbo_si_Spelllevel.Items.Count)
 				{
 					val = -1;
+					cbo_si_Spelllevel.ForeColor = Color.Red;
+//					cbo_si_Spelllevel.Text = "invalid";
 				}
-				//logfile.Log(". spelllevel= " + val);
+				else
+					cbo_si_Spelllevel.ForeColor = DefaultForeColor;
+
 				cbo_si_Spelllevel.SelectedIndex = val;
 			}
 			else
@@ -379,6 +421,7 @@ namespace nwn2_ai_2da_editor
 				bypassCheckedChecker = false;
 			}
 		}
+
 
 		/// <summary>
 		/// Sets the spell-display as hostile or beneficial based on the
@@ -424,14 +467,29 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
+		/// Toggles the DamageInfo groups between Dispel-type and Beneficial/
+		/// Detrimental-types.
+		/// </summary>
+		/// <param name="spellinfo"></param>
+		void SetTypeDispel(int spellinfo)
+		{
+			bool vis = ((spellinfo & HENCH_SPELL_INFO_SPELL_TYPE_MASK) == HENCH_SPELL_INFO_SPELL_TYPE_DISPEL);
+
+			di_DispelTypesGrp.Visible = vis;
+
+			di_BeneficialGrp .Visible =
+			di_DetrimentalGrp.Visible = !vis;
+		}
+
+		/// <summary>
 		/// Shows the ChildIDs group if the MasterID bit is flagged.
 		/// </summary>
 		/// <param name="spellinfo"></param>
 		void ShowChildFields(int spellinfo)
 		{
-			bool vis = (spellinfo & HENCH_SPELL_INFO_MASTER_FLAG) != 0;
+			si_ChildIDGrp.Visible = (spellinfo & HENCH_SPELL_INFO_MASTER_FLAG) != 0;
 
-			si_ChildIDGrp.Visible = vis;
+//			bool vis = (spellinfo & HENCH_SPELL_INFO_MASTER_FLAG) != 0;
 
 //			page_TargetInfo  .Visible = // doesn't work.
 //			page_EffectWeight.Visible =
@@ -457,55 +515,6 @@ namespace nwn2_ai_2da_editor
 
 			// basically it looks like you'd have to iterate through the controls
 			// on each tab-page and toggle their visibilities individually.
-		}
-
-		/// <summary>
-		/// Sends the text in the ChildID boxes to where they should go.
-		/// Note that the EffectWeight field is skipped since it ought be a
-		/// float-value while the ChildIDs convert to ints.
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		void TextChanged_si_ChildFields(object sender, EventArgs e)
-		{
-			// NOTE: this doesn't result in an infinite loop.
-			var tb = sender as TextBox;
-			if (tb.Equals(si_Child1))
-			{
-				TargetInfo_text.Text = tb.Text;
-			}
-			else if (tb.Equals(si_Child2))
-			{
-				EffectTypes_text.Text = tb.Text;
-			}
-			else if (tb.Equals(si_Child3))
-			{
-				DamageInfo_text.Text = tb.Text;
-			}
-			else if (tb.Equals(si_Child4))
-			{
-				SaveType_text.Text = tb.Text;
-			}
-			else //if (tb.Equals(si_Child5))
-			{
-				SaveDCType_text.Text = tb.Text;
-			}
-		}
-
-
-		/// <summary>
-		/// Toggles the DamageInfo groups between Dispel-type and Beneficial/
-		/// Detrimental-types.
-		/// </summary>
-		/// <param name="spellinfo"></param>
-		void SetTypeDispel(int spellinfo)
-		{
-			bool vis = ((spellinfo & HENCH_SPELL_INFO_SPELL_TYPE_MASK) == HENCH_SPELL_INFO_SPELL_TYPE_DISPEL);
-
-			di_DispelTypesGrp.Visible = vis;
-
-			di_BeneficialGrp .Visible =
-			di_DetrimentalGrp.Visible = !vis;
 		}
 	}
 }

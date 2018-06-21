@@ -56,19 +56,11 @@ namespace nwn2_ai_2da_editor
 					if (differ != bit_clear)
 					{
 						SpellsChanged[Id] = spellchanged;
-
-						if ((differ & bit_savetype) != 0)
-						{
-							SaveType_reset.ForeColor = Color.Crimson;
-						}
-
 						SpellTree.SelectedNode.ForeColor = Color.Crimson;
 					}
 					else
 					{
 						SpellsChanged.Remove(Id);
-
-						SaveType_reset.ForeColor = DefaultForeColor;
 
 						if (!spell.isChanged) // this is set by the Apply btn only.
 						{
@@ -78,6 +70,13 @@ namespace nwn2_ai_2da_editor
 
 					PrintCurrent(savetype, null, SaveType_hex, SaveType_bin);
 				}
+
+				if ((Spells[Id].differ & bit_savetype) != 0)
+				{
+					SaveType_reset.ForeColor = Color.Crimson;
+				}
+				else
+					SaveType_reset.ForeColor = DefaultForeColor;
 
 				CheckSaveTypeCheckers(savetype);
 
@@ -123,6 +122,7 @@ namespace nwn2_ai_2da_editor
 				SaveType_text.Text = spell.savetype.ToString();
 			}
 		}
+
 
 		/// <summary>
 		/// Populates the SaveType dropdown-lists.
@@ -279,6 +279,7 @@ namespace nwn2_ai_2da_editor
 			// TODO: There are further issues in 'hench_i0_buff'.
 		}
 
+
 		/// <summary>
 		/// Handles toggling bits by combobox on the SaveType page - Specific group.
 		/// </summary>
@@ -306,7 +307,8 @@ namespace nwn2_ai_2da_editor
 //				bypassCheckedChecker = true; // don't do that since this can change other bits
 
 				savetype &= ~HENCH_SPELL_SAVE_TYPE_IMMUNITY1_MASK; // 0x00000fc0
-				int val = cbo_st_Immunity1.SelectedIndex << 6;
+
+				int val = (cbo_st_Immunity1.SelectedIndex << HENCH_SPELL_SAVE_TYPE_IMMUNITY1_SHIFT);
 				SaveType_text.Text = (savetype | val).ToString();
 			}
 		}
@@ -319,7 +321,8 @@ namespace nwn2_ai_2da_editor
 //				bypassCheckedChecker = true; // don't do that since this can change other bits
 
 				savetype &= ~HENCH_SPELL_SAVE_TYPE_IMMUNITY2_MASK; // 0x0003f000
-				int val = cbo_st_Immunity2.SelectedIndex << 12;
+
+				int val = cbo_st_Immunity2.SelectedIndex << HENCH_SPELL_SAVE_TYPE_IMMUNITY2_SHIFT;
 				SaveType_text.Text = (savetype | val).ToString();
 			}
 		}
@@ -363,7 +366,8 @@ namespace nwn2_ai_2da_editor
 				// TODO: could also clear bits for Immunity1- and Immunity2-types ...
 
 				savetype &= ~HENCH_SPELL_SAVE_TYPE_SAVES_MASK; // clear all type1 and type2 save- and damage-types incl/ AcBonus-types
-				int val = cbo_st_AcBonus.SelectedIndex << 18;
+
+				int val = (cbo_st_AcBonus.SelectedIndex << HENCH_SPELL_SAVE_TYPE_ACBONUS_SHIFT);
 				SaveType_text.Text = (savetype | val).ToString();
 			}
 		}
@@ -380,7 +384,7 @@ namespace nwn2_ai_2da_editor
 			int savetype;
 			if (Int32.TryParse(SaveType_text.Text, out savetype))
 			{
-				savetype &= ~HENCH_SPELL_SAVE_TYPE_SAVE1_WILL; // mask
+				savetype &= ~HENCH_SPELL_SAVE_TYPE_SAVE1_WILL; // 0x000c0000 - acts as mask also
 
 				var rb = sender as RadioButton;
 				if (rb.Equals(st_Save1rb_fort))
@@ -415,7 +419,7 @@ namespace nwn2_ai_2da_editor
 			int savetype;
 			if (Int32.TryParse(SaveType_text.Text, out savetype))
 			{
-				savetype &= ~HENCH_SPELL_SAVE_TYPE_SAVE1_DAMAGE_EVASION; // mask
+				savetype &= ~HENCH_SPELL_SAVE_TYPE_SAVE1_DAMAGE_EVASION; // 0x00300000 - acts as mask also
 
 				var rb = sender as RadioButton;
 				if (rb.Equals(st_Impact1rb_damagehalf))
@@ -450,7 +454,7 @@ namespace nwn2_ai_2da_editor
 			int savetype;
 			if (Int32.TryParse(SaveType_text.Text, out savetype))
 			{
-				savetype &= ~HENCH_SPELL_SAVE_TYPE_SAVE2_WILL; // mask
+				savetype &= ~HENCH_SPELL_SAVE_TYPE_SAVE2_WILL; // 0x00c00000 - acts as mask also
 
 				var rb = sender as RadioButton;
 				if (rb.Equals(st_Save2rb_fort))
@@ -485,7 +489,7 @@ namespace nwn2_ai_2da_editor
 			int savetype;
 			if (Int32.TryParse(SaveType_text.Text, out savetype))
 			{
-				savetype &= ~HENCH_SPELL_SAVE_TYPE_SAVE2_DAMAGE_EVASION; // mask
+				savetype &= ~HENCH_SPELL_SAVE_TYPE_SAVE2_DAMAGE_EVASION; // 0x03000000 - acts as mask also
 
 				var rb = sender as RadioButton;
 				if (rb.Equals(st_Impact2rb_damagehalf))
@@ -751,7 +755,11 @@ namespace nwn2_ai_2da_editor
 		}
 
 
-		const int HENCH_IMMUNITY_WEIGHT_AMOUNT_SHIFT = 12;
+		const int HENCH_SPELL_SAVE_TYPE_IMMUNITY1_SHIFT = 6;
+		const int HENCH_SPELL_SAVE_TYPE_IMMUNITY2_SHIFT = 12;
+		const int HENCH_SPELL_SAVE_TYPE_ACBONUS_MASK    = 0x001c0000;
+		const int HENCH_SPELL_SAVE_TYPE_ACBONUS_SHIFT   = 18;
+		const int HENCH_IMMUNITY_WEIGHT_AMOUNT_SHIFT    = 12;
 
 		/// <summary>
 		/// Sets the checkers on the SaveType page to reflect the current
@@ -766,105 +774,150 @@ namespace nwn2_ai_2da_editor
 			{
 				//logfile.Log(". savetype= " + savetype);
 
-				// Type 1 Save radiobuttons
-				st_Save1rb_none.Checked = (savetype & HENCH_SPELL_SAVE_TYPE_SAVE1_WILL)   == 0;
-				st_Save1rb_fort.Checked = (savetype & HENCH_SPELL_SAVE_TYPE_SAVE1_FORT)   != 0;
-				st_Save1rb_refl.Checked = (savetype & HENCH_SPELL_SAVE_TYPE_SAVE1_REFLEX) != 0;
-				st_Save1rb_will.Checked = (savetype & HENCH_SPELL_SAVE_TYPE_SAVE1_WILL)   == HENCH_SPELL_SAVE_TYPE_SAVE1_WILL;
+				int val;
 
-				// Type 2 Save radiobuttons
-				st_Save2rb_none.Checked = (savetype & HENCH_SPELL_SAVE_TYPE_SAVE2_WILL)   == 0;
-				st_Save2rb_fort.Checked = (savetype & HENCH_SPELL_SAVE_TYPE_SAVE2_FORT)   != 0;
-				st_Save2rb_refl.Checked = (savetype & HENCH_SPELL_SAVE_TYPE_SAVE2_REFLEX) != 0;
-				st_Save2rb_will.Checked = (savetype & HENCH_SPELL_SAVE_TYPE_SAVE2_WILL)   == HENCH_SPELL_SAVE_TYPE_SAVE2_WILL;
+// Type 1 Save radiobuttons
+				val = (savetype & HENCH_SPELL_SAVE_TYPE_SAVE1_WILL);
+				st_Save1rb_none.Checked = (val == 0);
+				st_Save1rb_fort.Checked = (val == HENCH_SPELL_SAVE_TYPE_SAVE1_FORT);
+				st_Save1rb_refl.Checked = (val == HENCH_SPELL_SAVE_TYPE_SAVE1_REFLEX);
+				st_Save1rb_will.Checked = (val == HENCH_SPELL_SAVE_TYPE_SAVE1_WILL);
 
-				// Type 1 Damage radiobuttons
-				st_Impact1rb_effectonly.Checked    = (savetype & HENCH_SPELL_SAVE_TYPE_SAVE1_DAMAGE_EVASION) == 0;
-				st_Impact1rb_damagehalf.Checked    = (savetype & HENCH_SPELL_SAVE_TYPE_SAVE1_DAMAGE_HALF)    != 0;
-				st_Impact1rb_effectdamage.Checked  = (savetype & HENCH_SPELL_SAVE_TYPE_SAVE1_EFFECT_DAMAGE)  != 0;
-				st_Impact1rb_damageevasion.Checked = (savetype & HENCH_SPELL_SAVE_TYPE_SAVE1_DAMAGE_EVASION) == HENCH_SPELL_SAVE_TYPE_SAVE1_DAMAGE_EVASION;
+// Type 2 Save radiobuttons
+				val = (savetype & HENCH_SPELL_SAVE_TYPE_SAVE2_WILL);
+				st_Save2rb_none.Checked = (val == 0);
+				st_Save2rb_fort.Checked = (val == HENCH_SPELL_SAVE_TYPE_SAVE2_FORT);
+				st_Save2rb_refl.Checked = (val == HENCH_SPELL_SAVE_TYPE_SAVE2_REFLEX);
+				st_Save2rb_will.Checked = (val == HENCH_SPELL_SAVE_TYPE_SAVE2_WILL);
 
-				// Type 2 Damage radiobuttons
-				st_Impact2rb_effectonly.Checked    = (savetype & HENCH_SPELL_SAVE_TYPE_SAVE2_DAMAGE_EVASION) == 0;
-				st_Impact2rb_damagehalf.Checked    = (savetype & HENCH_SPELL_SAVE_TYPE_SAVE2_DAMAGE_HALF)    != 0;
-				st_Impact2rb_effectdamage.Checked  = (savetype & HENCH_SPELL_SAVE_TYPE_SAVE2_EFFECT_DAMAGE)  != 0;
-				st_Impact2rb_damageevasion.Checked = (savetype & HENCH_SPELL_SAVE_TYPE_SAVE2_DAMAGE_EVASION) == HENCH_SPELL_SAVE_TYPE_SAVE2_DAMAGE_EVASION;
+// Type 1 Damage radiobuttons
+				val = (savetype & HENCH_SPELL_SAVE_TYPE_SAVE1_DAMAGE_EVASION);
+				st_Impact1rb_effectonly   .Checked = (val == 0);
+				st_Impact1rb_damagehalf   .Checked = (val == HENCH_SPELL_SAVE_TYPE_SAVE1_DAMAGE_HALF);
+				st_Impact1rb_effectdamage .Checked = (val == HENCH_SPELL_SAVE_TYPE_SAVE1_EFFECT_DAMAGE);
+				st_Impact1rb_damageevasion.Checked = (val == HENCH_SPELL_SAVE_TYPE_SAVE1_DAMAGE_EVASION);
 
-				// General checkboxes
-				st_SpellResistance.Checked   = (savetype & HENCH_SPELL_SAVE_TYPE_SR_FLAG)             != 0;
-				st_MindAffecting.Checked     = (savetype & HENCH_SPELL_SAVE_TYPE_MIND_SPELL_FLAG)     != 0;
+// Type 2 Damage radiobuttons
+				val = (savetype & HENCH_SPELL_SAVE_TYPE_SAVE2_DAMAGE_EVASION);
+				st_Impact2rb_effectonly   .Checked = (val == 0);
+				st_Impact2rb_damagehalf   .Checked = (val == HENCH_SPELL_SAVE_TYPE_SAVE2_DAMAGE_HALF);
+				st_Impact2rb_effectdamage .Checked = (val == HENCH_SPELL_SAVE_TYPE_SAVE2_EFFECT_DAMAGE);
+				st_Impact2rb_damageevasion.Checked = (val == HENCH_SPELL_SAVE_TYPE_SAVE2_DAMAGE_EVASION);
+
+// General checkboxes
+				st_SpellResistance  .Checked = (savetype & HENCH_SPELL_SAVE_TYPE_SR_FLAG)             != 0;
+				st_MindAffecting    .Checked = (savetype & HENCH_SPELL_SAVE_TYPE_MIND_SPELL_FLAG)     != 0;
 				st_AffectsFriendlies.Checked = (savetype & HENCH_SPELL_SAVE_TYPE_CHECK_FRIENDLY_FLAG) != 0;
-				st_NotCaster.Checked         = (savetype & HENCH_SPELL_SAVE_TYPE_NOTSELF_FLAG)        != 0;
-				st_TouchMelee.Checked        = (savetype & HENCH_SPELL_SAVE_TYPE_TOUCH_MELEE_FLAG)    != 0;
-				st_TouchRanged.Checked       = (savetype & HENCH_SPELL_SAVE_TYPE_TOUCH_RANGE_FLAG)    != 0;
+				st_NotCaster        .Checked = (savetype & HENCH_SPELL_SAVE_TYPE_NOTSELF_FLAG)        != 0;
+				st_TouchMelee       .Checked = (savetype & HENCH_SPELL_SAVE_TYPE_TOUCH_MELEE_FLAG)    != 0;
+				st_TouchRanged      .Checked = (savetype & HENCH_SPELL_SAVE_TYPE_TOUCH_RANGE_FLAG)    != 0;
 
 
-				// Specific dropdown-list
-				int val = savetype;
+// Specific dropdown-list
+				val = savetype;
 				val &= HENCH_SPELL_SAVE_TYPE_CUSTOM_MASK;
 				if (val >= cbo_st_Specific.Items.Count)
 				{
 					val = -1;
+					cbo_st_Specific.ForeColor = Color.Red;
+//					cbo_st_Specific.Text = "invalid";
 				}
-				//logfile.Log(". specific= " + val);
+				else
+					cbo_st_Specific.ForeColor = DefaultForeColor;
+
 				cbo_st_Specific.SelectedIndex = val;
 
-				// Immunity1 dropdown-list
+// Immunity1 dropdown-list
 				val = savetype;
 				val &= HENCH_SPELL_SAVE_TYPE_IMMUNITY1_MASK;
-				val >>= 6;
+				val >>= HENCH_SPELL_SAVE_TYPE_IMMUNITY1_SHIFT;
 				if (val >= cbo_st_Immunity1.Items.Count)
 				{
 					val = -1;
+					cbo_st_Immunity1.ForeColor = Color.Red;
+//					cbo_st_Immunity1.Text = "invalid";
 				}
-				//logfile.Log(". immunity1= " + val);
+				else
+					cbo_st_Immunity1.ForeColor = DefaultForeColor;
+
 				cbo_st_Immunity1.SelectedIndex = val;
 
-				// Immunity2 dropdown-list
+// Immunity2 dropdown-list
 				val = savetype;
 				val &= HENCH_SPELL_SAVE_TYPE_IMMUNITY2_MASK;
-				val >>= 12;
+				val >>= HENCH_SPELL_SAVE_TYPE_IMMUNITY2_SHIFT;
 				if (val >= cbo_st_Immunity2.Items.Count)
 				{
 					val = -1;
+					cbo_st_Immunity2.ForeColor = Color.Red;
+//					cbo_st_Immunity2.Text = "invalid";
 				}
-				//logfile.Log(". immunity2= " + val);
+				else
+					cbo_st_Immunity2.ForeColor = DefaultForeColor;
+
 				cbo_st_Immunity2.SelectedIndex = val;
 
 
-				// AcBonus dropdown-list
+// AcBonus dropdown-list
 				val = savetype;
-				val &= 0x001c0000; // mask for AcBonus-types
-				val >>= 18;
+				val &= HENCH_SPELL_SAVE_TYPE_ACBONUS_MASK;
+				val >>= HENCH_SPELL_SAVE_TYPE_ACBONUS_SHIFT;
 				if (val >= cbo_st_AcBonus.Items.Count)
 				{
 					val = -1;
+					cbo_st_AcBonus.ForeColor = Color.Red;
+//					cbo_st_AcBonus.Text = "invalid";
 				}
-				//logfile.Log(". acbonus= " + val);
+				else
+					cbo_st_AcBonus.ForeColor = DefaultForeColor;
+
 				cbo_st_AcBonus.SelectedIndex = val;
 
-				// Weapon dropdown-list - TODO: better this
-				if      ((savetype & HENCH_WEAPON_STAFF_FLAG)  != 0) // 1
-					val = 1;
-				else if ((savetype & HENCH_WEAPON_SLASH_FLAG)  != 0) // 2
-					val = 2;
-				else if ((savetype & HENCH_WEAPON_HOLY_SWORD)  != 0) // 4
-					val = 3;
-				else if ((savetype & HENCH_WEAPON_BLUNT_FLAG)  != 0) // 8
-					val = 4;
-				else if ((savetype & HENCH_WEAPON_UNDEAD_FLAG) != 0) // 16
-					val = 5;
-				else if ((savetype & HENCH_WEAPON_DRUID_FLAG)  != 0) // 4096
-					val = 6;
-				else
-					val = 0;
+// Weapon dropdown-list
+				val = savetype;
+				val &= 0x0001fff;
 
-				//logfile.Log(". weapon= " + val);
+				if      ((savetype & HENCH_WEAPON_STAFF_FLAG)  != 0) // 1
+				{
+					val = 1;
+				}
+				else if ((savetype & HENCH_WEAPON_SLASH_FLAG)  != 0) // 2
+				{
+					val = 2;
+				}
+				else if ((savetype & HENCH_WEAPON_HOLY_SWORD)  != 0) // 4
+				{
+					val = 3;
+				}
+				else if ((savetype & HENCH_WEAPON_BLUNT_FLAG)  != 0) // 8
+				{
+					val = 4;
+				}
+				else if ((savetype & HENCH_WEAPON_UNDEAD_FLAG) != 0) // 16
+				{
+					val = 5;
+				}
+				else if ((savetype & HENCH_WEAPON_DRUID_FLAG)  != 0) // 4096
+				{
+					val = 6;
+				}
+				else if (val != 0) // ie. let val==0 fallthrough
+				{
+					val = -1;
+					cbo_st_Weapon.ForeColor = Color.Red;
+//					cbo_st_Weapon.Text = "invalid";
+				}
+
+				if (val != -1)
+				{
+					cbo_st_Weapon.ForeColor = DefaultForeColor;
+				}
+
 				cbo_st_Weapon.SelectedIndex = val;
 
 
-				// Exclusive Group
-				// DamageType checkboxes
+// Exclusive Group
+// DamageType checkboxes
 				st_Excl_Bludgeoning.Checked = (savetype & DAMAGE_TYPE_BLUDGEONING) != 0;
 				st_Excl_Piercing   .Checked = (savetype & DAMAGE_TYPE_PIERCING)    != 0;
 				st_Excl_Slashing   .Checked = (savetype & DAMAGE_TYPE_SLASHING)    != 0;
@@ -878,16 +931,16 @@ namespace nwn2_ai_2da_editor
 				st_Excl_Positive   .Checked = (savetype & DAMAGE_TYPE_POSITIVE)    != 0;
 				st_Excl_Sonic      .Checked = (savetype & DAMAGE_TYPE_SONIC)       != 0;
 
-				// Flags radiobuttons
+// Flags radiobuttons
 				bool isResist = (savetype & HENCH_IMMUNITY_WEIGHT_RESISTANCE) != 0;
 				st_Excl_rbImmunity  .Checked = !isResist;
 				st_Excl_rbResistance.Checked =  isResist;
 
-				// Flags checkboxes
+// Flags checkboxes
 				st_Excl_Onlyone.Checked = (savetype & HENCH_IMMUNITY_ONLY_ONE) != 0;
 				st_Excl_General.Checked = (savetype & HENCH_IMMUNITY_GENERAL)  != 0;
 
-				// Weight textbox
+// Weight textbox
 				val = (savetype & HENCH_IMMUNITY_WEIGHT_AMOUNT_MASK); // 0x000ff000
 				val >>= HENCH_IMMUNITY_WEIGHT_AMOUNT_SHIFT;
 				st_Excl_Weight.Text = val.ToString();
