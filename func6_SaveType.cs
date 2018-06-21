@@ -408,41 +408,6 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Handles toggling bits by radiobuttons on the SaveType page - Type1Damage group.
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		void MouseClick_st_Type1Damage(object sender, MouseEventArgs e)
-		{
-			//logfile.Log("MouseClick_st_Type1Damage()");
-
-			int savetype;
-			if (Int32.TryParse(SaveType_text.Text, out savetype))
-			{
-				savetype &= ~HENCH_SPELL_SAVE_TYPE_SAVE1_DAMAGE_EVASION; // 0x00300000 - acts as mask also
-
-				var rb = sender as RadioButton;
-				if (rb.Equals(st_Impact1rb_damagehalf))
-				{
-					savetype |= HENCH_SPELL_SAVE_TYPE_SAVE1_DAMAGE_HALF; // NOTE: This bit overlaps AC_DEFLECTION_BONUS
-				}
-				else if (rb.Equals(st_Impact1rb_effectdamage))
-				{
-					savetype |= HENCH_SPELL_SAVE_TYPE_SAVE1_EFFECT_DAMAGE;
-				}
-				else if (rb.Equals(st_Impact1rb_damageevasion))
-				{
-					savetype |= HENCH_SPELL_SAVE_TYPE_SAVE1_DAMAGE_EVASION;
-				}
-//				else if (rb.Equals(st_Impact1rb_effectonly))
-//				{}
-
-//				bypassCheckedChecker = true; // don't do that since this can change other bits
-				SaveType_text.Text = savetype.ToString();
-			}
-		}
-
-		/// <summary>
 		/// Handles toggling bits by radiobuttons on the SaveType page - Type2Save group.
 		/// </summary>
 		/// <param name="sender"></param>
@@ -470,6 +435,41 @@ namespace nwn2_ai_2da_editor
 					savetype |= HENCH_SPELL_SAVE_TYPE_SAVE2_WILL;
 				}
 //				else if (rb.Equals(st_Save2rb_none))
+//				{}
+
+//				bypassCheckedChecker = true; // don't do that since this can change other bits
+				SaveType_text.Text = savetype.ToString();
+			}
+		}
+
+		/// <summary>
+		/// Handles toggling bits by radiobuttons on the SaveType page - Type1Damage group.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void MouseClick_st_Type1Damage(object sender, MouseEventArgs e)
+		{
+			//logfile.Log("MouseClick_st_Type1Damage()");
+
+			int savetype;
+			if (Int32.TryParse(SaveType_text.Text, out savetype))
+			{
+				savetype &= ~HENCH_SPELL_SAVE_TYPE_SAVE1_DAMAGE_EVASION; // 0x00300000 - acts as mask also
+
+				var rb = sender as RadioButton;
+				if (rb.Equals(st_Impact1rb_damagehalf))
+				{
+					savetype |= HENCH_SPELL_SAVE_TYPE_SAVE1_DAMAGE_HALF; // NOTE: This bit overlaps AC_DEFLECTION_BONUS
+				}
+				else if (rb.Equals(st_Impact1rb_effectdamage))
+				{
+					savetype |= HENCH_SPELL_SAVE_TYPE_SAVE1_EFFECT_DAMAGE;
+				}
+				else if (rb.Equals(st_Impact1rb_damageevasion))
+				{
+					savetype |= HENCH_SPELL_SAVE_TYPE_SAVE1_DAMAGE_EVASION;
+				}
+//				else if (rb.Equals(st_Impact1rb_effectonly))
 //				{}
 
 //				bypassCheckedChecker = true; // don't do that since this can change other bits

@@ -2767,11 +2767,11 @@
 			this.page_SaveType.Controls.Add(this.st_WeaponGrp);
 			this.page_SaveType.Controls.Add(this.SaveType_text);
 			this.page_SaveType.Controls.Add(this.SaveType_reset);
-			this.page_SaveType.Location = new System.Drawing.Point(4, 23);
+			this.page_SaveType.Location = new System.Drawing.Point(4, 24);
 			this.page_SaveType.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SaveType.Name = "page_SaveType";
 			this.page_SaveType.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SaveType.Size = new System.Drawing.Size(732, 478);
+			this.page_SaveType.Size = new System.Drawing.Size(732, 477);
 			this.page_SaveType.TabIndex = 5;
 			this.page_SaveType.Text = "SaveType";
 			this.page_SaveType.UseVisualStyleBackColor = true;
@@ -2814,6 +2814,7 @@
 			this.cbo_st_Specific.Name = "cbo_st_Specific";
 			this.cbo_st_Specific.Size = new System.Drawing.Size(290, 22);
 			this.cbo_st_Specific.TabIndex = 0;
+			this.cbo_st_Specific.SelectionChangeCommitted += new System.EventHandler(this.SelectionChangeCommitted_st_cbo_Specific);
 			// 
 			// st_Immunity2Grp
 			// 
@@ -2836,6 +2837,7 @@
 			this.cbo_st_Immunity2.Name = "cbo_st_Immunity2";
 			this.cbo_st_Immunity2.Size = new System.Drawing.Size(185, 22);
 			this.cbo_st_Immunity2.TabIndex = 0;
+			this.cbo_st_Immunity2.SelectionChangeCommitted += new System.EventHandler(this.SelectionChangeCommitted_st_cbo_Immunity2);
 			// 
 			// st_Immunity1Grp
 			// 
@@ -2858,6 +2860,7 @@
 			this.cbo_st_Immunity1.Name = "cbo_st_Immunity1";
 			this.cbo_st_Immunity1.Size = new System.Drawing.Size(185, 22);
 			this.cbo_st_Immunity1.TabIndex = 0;
+			this.cbo_st_Immunity1.SelectionChangeCommitted += new System.EventHandler(this.SelectionChangeCommitted_st_cbo_Immunity1);
 			// 
 			// st_FlagsGrp
 			// 
@@ -2885,6 +2888,7 @@
 			this.st_SpellResistance.TabIndex = 14;
 			this.st_SpellResistance.Text = "has spell resistance";
 			this.st_SpellResistance.UseVisualStyleBackColor = true;
+			this.st_SpellResistance.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_General);
 			// 
 			// st_MindAffecting
 			// 
@@ -2895,6 +2899,7 @@
 			this.st_MindAffecting.TabIndex = 15;
 			this.st_MindAffecting.Text = "is mind-affecting";
 			this.st_MindAffecting.UseVisualStyleBackColor = true;
+			this.st_MindAffecting.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_General);
 			// 
 			// st_AffectsFriendlies
 			// 
@@ -2905,6 +2910,7 @@
 			this.st_AffectsFriendlies.TabIndex = 16;
 			this.st_AffectsFriendlies.Text = "can affect allies";
 			this.st_AffectsFriendlies.UseVisualStyleBackColor = true;
+			this.st_AffectsFriendlies.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_General);
 			// 
 			// st_TouchRanged
 			// 
@@ -2915,6 +2921,7 @@
 			this.st_TouchRanged.TabIndex = 19;
 			this.st_TouchRanged.Text = "requires ranged touch attack";
 			this.st_TouchRanged.UseVisualStyleBackColor = true;
+			this.st_TouchRanged.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_General);
 			// 
 			// st_NotCaster
 			// 
@@ -2925,6 +2932,7 @@
 			this.st_NotCaster.TabIndex = 17;
 			this.st_NotCaster.Text = "does not affect caster";
 			this.st_NotCaster.UseVisualStyleBackColor = true;
+			this.st_NotCaster.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_General);
 			// 
 			// st_TouchMelee
 			// 
@@ -2935,6 +2943,7 @@
 			this.st_TouchMelee.TabIndex = 18;
 			this.st_TouchMelee.Text = "requires melee touch attack";
 			this.st_TouchMelee.UseVisualStyleBackColor = true;
+			this.st_TouchMelee.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_General);
 			// 
 			// st_Impact2Grp
 			// 
@@ -2961,6 +2970,7 @@
 			this.st_Impact2rb_damageevasion.TabStop = true;
 			this.st_Impact2rb_damageevasion.Text = "evasion";
 			this.st_Impact2rb_damageevasion.UseVisualStyleBackColor = true;
+			this.st_Impact2rb_damageevasion.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type2Damage);
 			// 
 			// st_Impact2rb_effectdamage
 			// 
@@ -2972,6 +2982,7 @@
 			this.st_Impact2rb_effectdamage.TabStop = true;
 			this.st_Impact2rb_effectdamage.Text = "regular";
 			this.st_Impact2rb_effectdamage.UseVisualStyleBackColor = true;
+			this.st_Impact2rb_effectdamage.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type2Damage);
 			// 
 			// st_Impact2rb_damagehalf
 			// 
@@ -2983,6 +2994,7 @@
 			this.st_Impact2rb_damagehalf.TabStop = true;
 			this.st_Impact2rb_damagehalf.Text = "half";
 			this.st_Impact2rb_damagehalf.UseVisualStyleBackColor = true;
+			this.st_Impact2rb_damagehalf.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type2Damage);
 			// 
 			// st_Impact2rb_effectonly
 			// 
@@ -2994,6 +3006,7 @@
 			this.st_Impact2rb_effectonly.TabStop = true;
 			this.st_Impact2rb_effectonly.Text = "none";
 			this.st_Impact2rb_effectonly.UseVisualStyleBackColor = true;
+			this.st_Impact2rb_effectonly.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type2Damage);
 			// 
 			// st_Impact1Grp
 			// 
@@ -3020,6 +3033,7 @@
 			this.st_Impact1rb_damageevasion.TabStop = true;
 			this.st_Impact1rb_damageevasion.Text = "evasion";
 			this.st_Impact1rb_damageevasion.UseVisualStyleBackColor = true;
+			this.st_Impact1rb_damageevasion.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type1Damage);
 			// 
 			// st_Impact1rb_effectdamage
 			// 
@@ -3031,6 +3045,7 @@
 			this.st_Impact1rb_effectdamage.TabStop = true;
 			this.st_Impact1rb_effectdamage.Text = "regular";
 			this.st_Impact1rb_effectdamage.UseVisualStyleBackColor = true;
+			this.st_Impact1rb_effectdamage.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type1Damage);
 			// 
 			// st_Impact1rb_damagehalf
 			// 
@@ -3042,6 +3057,7 @@
 			this.st_Impact1rb_damagehalf.TabStop = true;
 			this.st_Impact1rb_damagehalf.Text = "half";
 			this.st_Impact1rb_damagehalf.UseVisualStyleBackColor = true;
+			this.st_Impact1rb_damagehalf.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type1Damage);
 			// 
 			// st_Impact1rb_effectonly
 			// 
@@ -3053,6 +3069,7 @@
 			this.st_Impact1rb_effectonly.TabStop = true;
 			this.st_Impact1rb_effectonly.Text = "none";
 			this.st_Impact1rb_effectonly.UseVisualStyleBackColor = true;
+			this.st_Impact1rb_effectonly.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type1Damage);
 			// 
 			// st_Save2Grp
 			// 
@@ -3079,6 +3096,7 @@
 			this.st_Save2rb_will.TabStop = true;
 			this.st_Save2rb_will.Text = "will";
 			this.st_Save2rb_will.UseVisualStyleBackColor = true;
+			this.st_Save2rb_will.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type2Save);
 			// 
 			// st_Save2rb_refl
 			// 
@@ -3090,6 +3108,7 @@
 			this.st_Save2rb_refl.TabStop = true;
 			this.st_Save2rb_refl.Text = "reflex";
 			this.st_Save2rb_refl.UseVisualStyleBackColor = true;
+			this.st_Save2rb_refl.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type2Save);
 			// 
 			// st_Save2rb_fort
 			// 
@@ -3101,6 +3120,7 @@
 			this.st_Save2rb_fort.TabStop = true;
 			this.st_Save2rb_fort.Text = "fortitude";
 			this.st_Save2rb_fort.UseVisualStyleBackColor = true;
+			this.st_Save2rb_fort.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type2Save);
 			// 
 			// st_Save2rb_none
 			// 
@@ -3112,6 +3132,7 @@
 			this.st_Save2rb_none.TabStop = true;
 			this.st_Save2rb_none.Text = "none";
 			this.st_Save2rb_none.UseVisualStyleBackColor = true;
+			this.st_Save2rb_none.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type2Save);
 			// 
 			// st_Save1Grp
 			// 
@@ -3138,6 +3159,7 @@
 			this.st_Save1rb_will.TabStop = true;
 			this.st_Save1rb_will.Text = "will";
 			this.st_Save1rb_will.UseVisualStyleBackColor = true;
+			this.st_Save1rb_will.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type1Save);
 			// 
 			// st_Save1rb_refl
 			// 
@@ -3149,6 +3171,7 @@
 			this.st_Save1rb_refl.TabStop = true;
 			this.st_Save1rb_refl.Text = "reflex";
 			this.st_Save1rb_refl.UseVisualStyleBackColor = true;
+			this.st_Save1rb_refl.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type1Save);
 			// 
 			// st_Save1rb_fort
 			// 
@@ -3160,6 +3183,7 @@
 			this.st_Save1rb_fort.TabStop = true;
 			this.st_Save1rb_fort.Text = "fortitude";
 			this.st_Save1rb_fort.UseVisualStyleBackColor = true;
+			this.st_Save1rb_fort.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type1Save);
 			// 
 			// st_Save1rb_none
 			// 
@@ -3171,6 +3195,7 @@
 			this.st_Save1rb_none.TabStop = true;
 			this.st_Save1rb_none.Text = "none";
 			this.st_Save1rb_none.UseVisualStyleBackColor = true;
+			this.st_Save1rb_none.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type1Save);
 			// 
 			// st_ExclusiveGrp
 			// 
