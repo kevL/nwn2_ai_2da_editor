@@ -80,8 +80,9 @@ namespace nwn2_ai_2da_editor
 			//
 			// The logfile ought appear in the directory with the executable.
 
-			et_NegEffectsGrp.Location = et_PosEffectsGrp.Location;	// move the NegativeEffects group over to overlay the PositiveEffects group.
-																	// They're kept distinct in the editor so, you know, you can see them both.
+
+			et_NegEffectsGrp.Location = et_PosEffectsGrp.Location;	// overlap exclusive groups
+			st_ExclusiveGrp.Location  = st_DetrimentalGrp.Location; // (they're kept separate in the designer)
 
 			SpellInfo_hex  .BackColor = BackColor; // set the backgrounds of the hexadecimal and binary
 			SpellInfo_bin  .BackColor = BackColor; // textboxes to blend in with the Form's background

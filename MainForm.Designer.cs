@@ -685,7 +685,7 @@
 			this.cols_HenchSpells.Name = "cols_HenchSpells";
 			this.cols_HenchSpells.Padding = new System.Drawing.Point(5, 2);
 			this.cols_HenchSpells.SelectedIndex = 0;
-			this.cols_HenchSpells.Size = new System.Drawing.Size(740, 505);
+			this.cols_HenchSpells.Size = new System.Drawing.Size(835, 505);
 			this.cols_HenchSpells.TabIndex = 0;
 			this.cols_HenchSpells.SelectedIndexChanged += new System.EventHandler(this.SelectedIndexChanged_tab);
 			// 
@@ -2171,11 +2171,11 @@
 			this.page_DamageInfo.Controls.Add(this.DamageInfo_hex);
 			this.page_DamageInfo.Controls.Add(this.DamageInfo_text);
 			this.page_DamageInfo.Controls.Add(this.DamageInfo_reset);
-			this.page_DamageInfo.Location = new System.Drawing.Point(4, 23);
+			this.page_DamageInfo.Location = new System.Drawing.Point(4, 24);
 			this.page_DamageInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_DamageInfo.Name = "page_DamageInfo";
 			this.page_DamageInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_DamageInfo.Size = new System.Drawing.Size(732, 478);
+			this.page_DamageInfo.Size = new System.Drawing.Size(957, 477);
 			this.page_DamageInfo.TabIndex = 4;
 			this.page_DamageInfo.Text = "DamageInfo";
 			this.page_DamageInfo.UseVisualStyleBackColor = true;
@@ -2771,7 +2771,7 @@
 			this.page_SaveType.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SaveType.Name = "page_SaveType";
 			this.page_SaveType.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SaveType.Size = new System.Drawing.Size(732, 477);
+			this.page_SaveType.Size = new System.Drawing.Size(827, 477);
 			this.page_SaveType.TabIndex = 5;
 			this.page_SaveType.Text = "SaveType";
 			this.page_SaveType.UseVisualStyleBackColor = true;
@@ -2782,8 +2782,8 @@
 			this.st_DetrimentalGrp.Controls.Add(this.st_Immunity2Grp);
 			this.st_DetrimentalGrp.Controls.Add(this.st_Immunity1Grp);
 			this.st_DetrimentalGrp.Controls.Add(this.st_FlagsGrp);
-			this.st_DetrimentalGrp.Controls.Add(this.st_Impact2Grp);
 			this.st_DetrimentalGrp.Controls.Add(this.st_Impact1Grp);
+			this.st_DetrimentalGrp.Controls.Add(this.st_Impact2Grp);
 			this.st_DetrimentalGrp.Controls.Add(this.st_Save2Grp);
 			this.st_DetrimentalGrp.Controls.Add(this.st_Save1Grp);
 			this.st_DetrimentalGrp.Location = new System.Drawing.Point(5, 55);
@@ -2791,12 +2791,12 @@
 			this.st_DetrimentalGrp.Size = new System.Drawing.Size(550, 360);
 			this.st_DetrimentalGrp.TabIndex = 37;
 			this.st_DetrimentalGrp.TabStop = false;
-			this.st_DetrimentalGrp.Text = "detrimental";
+			this.st_DetrimentalGrp.Text = "Attack spell";
 			// 
 			// st_SpecificGrp
 			// 
 			this.st_SpecificGrp.Controls.Add(this.cbo_st_Specific);
-			this.st_SpecificGrp.Location = new System.Drawing.Point(245, 115);
+			this.st_SpecificGrp.Location = new System.Drawing.Point(245, 215);
 			this.st_SpecificGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_SpecificGrp.Name = "st_SpecificGrp";
 			this.st_SpecificGrp.Padding = new System.Windows.Forms.Padding(0);
@@ -2819,7 +2819,7 @@
 			// st_Immunity2Grp
 			// 
 			this.st_Immunity2Grp.Controls.Add(this.cbo_st_Immunity2);
-			this.st_Immunity2Grp.Location = new System.Drawing.Point(245, 65);
+			this.st_Immunity2Grp.Location = new System.Drawing.Point(245, 115);
 			this.st_Immunity2Grp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Immunity2Grp.Name = "st_Immunity2Grp";
 			this.st_Immunity2Grp.Padding = new System.Windows.Forms.Padding(0);
@@ -2888,7 +2888,7 @@
 			this.st_SpellResistance.TabIndex = 14;
 			this.st_SpellResistance.Text = "has spell resistance";
 			this.st_SpellResistance.UseVisualStyleBackColor = true;
-			this.st_SpellResistance.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_General);
+			this.st_SpellResistance.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Flags);
 			// 
 			// st_MindAffecting
 			// 
@@ -2899,7 +2899,7 @@
 			this.st_MindAffecting.TabIndex = 15;
 			this.st_MindAffecting.Text = "is mind-affecting";
 			this.st_MindAffecting.UseVisualStyleBackColor = true;
-			this.st_MindAffecting.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_General);
+			this.st_MindAffecting.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Flags);
 			// 
 			// st_AffectsFriendlies
 			// 
@@ -2910,7 +2910,7 @@
 			this.st_AffectsFriendlies.TabIndex = 16;
 			this.st_AffectsFriendlies.Text = "can affect allies";
 			this.st_AffectsFriendlies.UseVisualStyleBackColor = true;
-			this.st_AffectsFriendlies.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_General);
+			this.st_AffectsFriendlies.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Flags);
 			// 
 			// st_TouchRanged
 			// 
@@ -2921,7 +2921,7 @@
 			this.st_TouchRanged.TabIndex = 19;
 			this.st_TouchRanged.Text = "requires ranged touch attack";
 			this.st_TouchRanged.UseVisualStyleBackColor = true;
-			this.st_TouchRanged.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_General);
+			this.st_TouchRanged.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Flags);
 			// 
 			// st_NotCaster
 			// 
@@ -2932,7 +2932,7 @@
 			this.st_NotCaster.TabIndex = 17;
 			this.st_NotCaster.Text = "does not affect caster";
 			this.st_NotCaster.UseVisualStyleBackColor = true;
-			this.st_NotCaster.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_General);
+			this.st_NotCaster.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Flags);
 			// 
 			// st_TouchMelee
 			// 
@@ -2943,7 +2943,7 @@
 			this.st_TouchMelee.TabIndex = 18;
 			this.st_TouchMelee.Text = "requires melee touch attack";
 			this.st_TouchMelee.UseVisualStyleBackColor = true;
-			this.st_TouchMelee.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_General);
+			this.st_TouchMelee.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Flags);
 			// 
 			// st_Impact2Grp
 			// 
@@ -3014,7 +3014,7 @@
 			this.st_Impact1Grp.Controls.Add(this.st_Impact1rb_effectdamage);
 			this.st_Impact1Grp.Controls.Add(this.st_Impact1rb_damagehalf);
 			this.st_Impact1Grp.Controls.Add(this.st_Impact1rb_effectonly);
-			this.st_Impact1Grp.Location = new System.Drawing.Point(5, 115);
+			this.st_Impact1Grp.Location = new System.Drawing.Point(125, 15);
 			this.st_Impact1Grp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Impact1Grp.Name = "st_Impact1Grp";
 			this.st_Impact1Grp.Padding = new System.Windows.Forms.Padding(0);
@@ -3077,7 +3077,7 @@
 			this.st_Save2Grp.Controls.Add(this.st_Save2rb_refl);
 			this.st_Save2Grp.Controls.Add(this.st_Save2rb_fort);
 			this.st_Save2Grp.Controls.Add(this.st_Save2rb_none);
-			this.st_Save2Grp.Location = new System.Drawing.Point(125, 15);
+			this.st_Save2Grp.Location = new System.Drawing.Point(5, 115);
 			this.st_Save2Grp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Save2Grp.Name = "st_Save2Grp";
 			this.st_Save2Grp.Padding = new System.Windows.Forms.Padding(0);
@@ -3206,10 +3206,10 @@
 			this.st_ExclusiveGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_ExclusiveGrp.Name = "st_ExclusiveGrp";
 			this.st_ExclusiveGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_ExclusiveGrp.Size = new System.Drawing.Size(140, 420);
+			this.st_ExclusiveGrp.Size = new System.Drawing.Size(270, 280);
 			this.st_ExclusiveGrp.TabIndex = 36;
 			this.st_ExclusiveGrp.TabStop = false;
-			this.st_ExclusiveGrp.Text = "beneficial";
+			this.st_ExclusiveGrp.Text = "Buff spell";
 			// 
 			// st_Excl_FlagsGrp
 			// 
@@ -3217,7 +3217,7 @@
 			this.st_Excl_FlagsGrp.Controls.Add(this.st_Excl_rbImmunity);
 			this.st_Excl_FlagsGrp.Controls.Add(this.st_Excl_General);
 			this.st_Excl_FlagsGrp.Controls.Add(this.st_Excl_Onlyone);
-			this.st_Excl_FlagsGrp.Location = new System.Drawing.Point(5, 315);
+			this.st_Excl_FlagsGrp.Location = new System.Drawing.Point(135, 55);
 			this.st_Excl_FlagsGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_FlagsGrp.Name = "st_Excl_FlagsGrp";
 			this.st_Excl_FlagsGrp.Padding = new System.Windows.Forms.Padding(0);
@@ -3275,7 +3275,7 @@
 			// st_Excl_WeightGrp
 			// 
 			this.st_Excl_WeightGrp.Controls.Add(this.st_Excl_Weight);
-			this.st_Excl_WeightGrp.Location = new System.Drawing.Point(5, 275);
+			this.st_Excl_WeightGrp.Location = new System.Drawing.Point(135, 15);
 			this.st_Excl_WeightGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_WeightGrp.Name = "st_Excl_WeightGrp";
 			this.st_Excl_WeightGrp.Padding = new System.Windows.Forms.Padding(0);
@@ -3867,7 +3867,7 @@
 			this.options});
 			this.menuStrip.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip.Name = "menuStrip";
-			this.menuStrip.Size = new System.Drawing.Size(1021, 24);
+			this.menuStrip.Size = new System.Drawing.Size(1112, 24);
 			this.menuStrip.TabIndex = 1;
 			this.menuStrip.Text = "menuStrip";
 			// 
@@ -4006,7 +4006,7 @@
 			// 
 			this.splitContainer1.Panel2.Controls.Add(this.apply);
 			this.splitContainer1.Panel2.Controls.Add(this.cols_HenchSpells);
-			this.splitContainer1.Size = new System.Drawing.Size(1021, 528);
+			this.splitContainer1.Size = new System.Drawing.Size(1112, 528);
 			this.splitContainer1.SplitterDistance = 275;
 			this.splitContainer1.SplitterWidth = 3;
 			this.splitContainer1.TabIndex = 3;
@@ -4051,7 +4051,7 @@
 			this.apply.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.apply.Location = new System.Drawing.Point(0, 503);
 			this.apply.Name = "apply";
-			this.apply.Size = new System.Drawing.Size(743, 25);
+			this.apply.Size = new System.Drawing.Size(834, 25);
 			this.apply.TabIndex = 1;
 			this.apply.Text = "apply this spell\'s data";
 			this.apply.UseVisualStyleBackColor = true;
@@ -4061,7 +4061,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1021, 552);
+			this.ClientSize = new System.Drawing.Size(1112, 552);
 			this.Controls.Add(this.splitContainer1);
 			this.Controls.Add(this.menuStrip);
 			this.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

@@ -33,14 +33,17 @@
 		const int HENCH_SPELL_INFO_ITEM_FLAG                    = 0x00800000;
 
 
-		const int HENCH_SPELL_INFO_SPELL_TYPE_ATTACK            = 0x00000001; //  1 (hostile)
-		const int HENCH_SPELL_INFO_SPELL_TYPE_HARM              = 0x0000000b; // 11 (hostile)
-		const int HENCH_SPELL_INFO_SPELL_TYPE_ARCANE_ARCHER     = 0x0000000f; // 15 (hostile)
-		const int HENCH_SPELL_INFO_SPELL_TYPE_DRAGON_BREATH     = 0x00000011; // 17 (hostile)
-		const int HENCH_SPELL_INFO_SPELL_TYPE_WARLOCK           = 0x00000013; // 19 (hostile) // not used by the AI. Cf SaveType HENCH_ATTACK_CHECK_WARLOCK
-		const int HENCH_SPELL_INFO_SPELL_TYPE_ATTACK_SPECIAL    = 0x00000021; // 33 (hostile)
+		const int HENCH_SPELL_INFO_SPELL_TYPE_ATTACK            = 0x00000001; //  1 (hostile-type) on EffectTypes page ->
+		const int HENCH_SPELL_INFO_SPELL_TYPE_HARM              = 0x0000000b; // 11
+		const int HENCH_SPELL_INFO_SPELL_TYPE_ARCANE_ARCHER     = 0x0000000f; // 15
+		const int HENCH_SPELL_INFO_SPELL_TYPE_DRAGON_BREATH     = 0x00000011; // 17
+		const int HENCH_SPELL_INFO_SPELL_TYPE_WARLOCK           = 0x00000013; // 19 - not used by the AI. Cf SaveType HENCH_ATTACK_CHECK_WARLOCK
+		const int HENCH_SPELL_INFO_SPELL_TYPE_ATTACK_SPECIAL    = 0x00000021; // 33
 
-		const int HENCH_SPELL_INFO_SPELL_TYPE_DISPEL            = 0x00000006; //  6
+		const int HENCH_SPELL_INFO_SPELL_TYPE_DISPEL            = 0x00000006; //  6 (dispel-type) on DamageInfo page
+
+		const int HENCH_SPELL_INFO_SPELL_TYPE_ENGR_PROT         = 0x0000000d; // 13 (energy immunity/resistance type) on SaveType page ->
+		const int HENCH_SPELL_INFO_SPELL_TYPE_ELEMENTAL_SHIELD  = 0x0000001b; // 27 (energy immunity/resistance type)
 
 		// 'hench_i0_itemsp'
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_AC_BUFF           = 0x00000002; //  2
@@ -52,7 +55,6 @@
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_SUMMON            = 0x00000009; //  9
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_HEAL              = 0x0000000a; // 10
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_ATTR_BUFF         = 0x0000000c; // 12
-//		const int HENCH_SPELL_INFO_SPELL_TYPE_ENGR_PROT         = 0x0000000d; // 13
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_MELEE_ATTACK      = 0x0000000e; // 14
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_SPELL_PROT        = 0x00000010; // 16
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_DETECT_INVIS      = 0x00000012; // 18
@@ -63,7 +65,6 @@
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_PROT_GOOD         = 0x00000018; // 24
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_REGENERATE        = 0x00000019; // 25
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_GUST_OF_WIND      = 0x0000001a; // 26
-//		const int HENCH_SPELL_INFO_SPELL_TYPE_ELEMENTAL_SHIELD  = 0x0000001b; // 27
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_TURN_UNDEAD       = 0x0000001c; // 28
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_DR_BUFF           = 0x0000001d; // 29
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_MELEE_ATTACK_BUFF = 0x0000001e; // 30

@@ -513,11 +513,11 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Handles toggling bits by checkboxes on the SaveType page - General group.
+		/// Handles toggling bits by checkboxes on the SaveType page - Flags group.
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		void MouseClick_st_General(object sender, MouseEventArgs e)
+		void MouseClick_st_Flags(object sender, MouseEventArgs e)
 		{
 			//logfile.Log("MouseClick_st_General()");
 			//logfile.Log(". text= " + SaveType_text.Text);

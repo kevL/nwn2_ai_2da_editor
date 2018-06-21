@@ -111,7 +111,7 @@ namespace nwn2_ai_2da_editor
 				CheckSpellInfoCheckers(spellinfo);
 
 				SetDetrimentalBeneficial(spellinfo);
-				SetTypeDispel(spellinfo);
+				SetGroupVisibility(spellinfo);
 				ShowChildFields(spellinfo);
 			}
 			// else TODO: error dialog here.
@@ -471,14 +471,23 @@ namespace nwn2_ai_2da_editor
 		/// Detrimental-types.
 		/// </summary>
 		/// <param name="spellinfo"></param>
-		void SetTypeDispel(int spellinfo)
+		void SetGroupVisibility(int spellinfo)
 		{
-			bool vis = ((spellinfo & HENCH_SPELL_INFO_SPELL_TYPE_MASK) == HENCH_SPELL_INFO_SPELL_TYPE_DISPEL);
+			int spelltype = (spellinfo & HENCH_SPELL_INFO_SPELL_TYPE_MASK);
 
-			di_DispelTypesGrp.Visible = vis;
+// toggle the DamageInfo groups between Dispel-type and Beneficial/Detrimental-types
+			bool vis = (spelltype == HENCH_SPELL_INFO_SPELL_TYPE_DISPEL);
 
+			di_DispelTypesGrp.Visible =  vis;
 			di_BeneficialGrp .Visible =
 			di_DetrimentalGrp.Visible = !vis;
+
+// toggle the SaveType groups between Detrimental-type and Beneficial(aka Exclusive)-type
+			vis = spelltype == HENCH_SPELL_INFO_SPELL_TYPE_ELEMENTAL_SHIELD
+			   || spelltype == HENCH_SPELL_INFO_SPELL_TYPE_ENGR_PROT;
+
+			st_ExclusiveGrp.Visible   =  vis;
+			st_DetrimentalGrp.Visible = !vis;
 		}
 
 		/// <summary>
