@@ -594,8 +594,10 @@
 			this.menuStrip = new System.Windows.Forms.MenuStrip();
 			this.file = new System.Windows.Forms.ToolStripMenuItem();
 			this.Open = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.Quit = new System.Windows.Forms.ToolStripMenuItem();
 			this.edit = new System.Windows.Forms.ToolStripMenuItem();
 			this.Copy_decimal = new System.Windows.Forms.ToolStripMenuItem();
@@ -610,8 +612,6 @@
 			this.tb_Search = new System.Windows.Forms.TextBox();
 			this.apply = new System.Windows.Forms.Button();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.cols_HenchSpells.SuspendLayout();
 			this.page_SpellInfo.SuspendLayout();
 			this.si_ChildIDGrp.SuspendLayout();
@@ -2171,11 +2171,11 @@
 			this.page_DamageInfo.Controls.Add(this.DamageInfo_hex);
 			this.page_DamageInfo.Controls.Add(this.DamageInfo_text);
 			this.page_DamageInfo.Controls.Add(this.DamageInfo_reset);
-			this.page_DamageInfo.Location = new System.Drawing.Point(4, 24);
+			this.page_DamageInfo.Location = new System.Drawing.Point(4, 23);
 			this.page_DamageInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_DamageInfo.Name = "page_DamageInfo";
 			this.page_DamageInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_DamageInfo.Size = new System.Drawing.Size(732, 477);
+			this.page_DamageInfo.Size = new System.Drawing.Size(732, 478);
 			this.page_DamageInfo.TabIndex = 4;
 			this.page_DamageInfo.Text = "DamageInfo";
 			this.page_DamageInfo.UseVisualStyleBackColor = true;
@@ -2767,11 +2767,11 @@
 			this.page_SaveType.Controls.Add(this.st_WeaponGrp);
 			this.page_SaveType.Controls.Add(this.SaveType_text);
 			this.page_SaveType.Controls.Add(this.SaveType_reset);
-			this.page_SaveType.Location = new System.Drawing.Point(4, 24);
+			this.page_SaveType.Location = new System.Drawing.Point(4, 23);
 			this.page_SaveType.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SaveType.Name = "page_SaveType";
 			this.page_SaveType.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SaveType.Size = new System.Drawing.Size(732, 477);
+			this.page_SaveType.Size = new System.Drawing.Size(732, 478);
 			this.page_SaveType.TabIndex = 5;
 			this.page_SaveType.Text = "SaveType";
 			this.page_SaveType.UseVisualStyleBackColor = true;
@@ -3867,6 +3867,11 @@
 			this.Open.Text = "Open ...";
 			this.Open.Click += new System.EventHandler(this.Click_open);
 			// 
+			// toolStripSeparator1
+			// 
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
+			// 
 			// saveToolStripMenuItem
 			// 
 			this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
@@ -3882,6 +3887,11 @@
 			this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
 			this.saveAsToolStripMenuItem.Text = "Save As ...";
 			this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.Click_saveas);
+			// 
+			// toolStripSeparator2
+			// 
+			this.toolStripSeparator2.Name = "toolStripSeparator2";
+			this.toolStripSeparator2.Size = new System.Drawing.Size(157, 6);
 			// 
 			// Quit
 			// 
@@ -3945,9 +3955,9 @@
 			this.SpellTree.FullRowSelect = true;
 			this.SpellTree.HideSelection = false;
 			this.SpellTree.Indent = 15;
-			this.SpellTree.Location = new System.Drawing.Point(0, 30);
+			this.SpellTree.Location = new System.Drawing.Point(0, 20);
 			this.SpellTree.Name = "SpellTree";
-			this.SpellTree.Size = new System.Drawing.Size(275, 496);
+			this.SpellTree.Size = new System.Drawing.Size(275, 506);
 			this.SpellTree.TabIndex = 2;
 			this.SpellTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.AfterSelect_spellnode);
 			this.SpellTree.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress_search);
@@ -3982,7 +3992,7 @@
 			this.btn_Search_u.Location = new System.Drawing.Point(245, 0);
 			this.btn_Search_u.Margin = new System.Windows.Forms.Padding(0);
 			this.btn_Search_u.Name = "btn_Search_u";
-			this.btn_Search_u.Size = new System.Drawing.Size(30, 30);
+			this.btn_Search_u.Size = new System.Drawing.Size(30, 20);
 			this.btn_Search_u.TabIndex = 5;
 			this.btn_Search_u.Text = "u";
 			this.btn_Search_u.UseVisualStyleBackColor = true;
@@ -3994,7 +4004,7 @@
 			this.btn_Search_d.Location = new System.Drawing.Point(215, 0);
 			this.btn_Search_d.Margin = new System.Windows.Forms.Padding(0);
 			this.btn_Search_d.Name = "btn_Search_d";
-			this.btn_Search_d.Size = new System.Drawing.Size(30, 30);
+			this.btn_Search_d.Size = new System.Drawing.Size(30, 20);
 			this.btn_Search_d.TabIndex = 4;
 			this.btn_Search_d.Text = "d";
 			this.btn_Search_d.UseVisualStyleBackColor = true;
@@ -4004,7 +4014,7 @@
 			// 
 			this.tb_Search.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
 			| System.Windows.Forms.AnchorStyles.Right)));
-			this.tb_Search.Location = new System.Drawing.Point(0, 5);
+			this.tb_Search.Location = new System.Drawing.Point(0, 0);
 			this.tb_Search.Margin = new System.Windows.Forms.Padding(0);
 			this.tb_Search.Name = "tb_Search";
 			this.tb_Search.Size = new System.Drawing.Size(215, 20);
@@ -4021,16 +4031,6 @@
 			this.apply.Text = "apply this spell\'s data";
 			this.apply.UseVisualStyleBackColor = true;
 			this.apply.Click += new System.EventHandler(this.Click_apply);
-			// 
-			// toolStripSeparator1
-			// 
-			this.toolStripSeparator1.Name = "toolStripSeparator1";
-			this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
-			// 
-			// toolStripSeparator2
-			// 
-			this.toolStripSeparator2.Name = "toolStripSeparator2";
-			this.toolStripSeparator2.Size = new System.Drawing.Size(157, 6);
 			// 
 			// MainForm
 			// 

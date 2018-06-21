@@ -104,6 +104,11 @@ namespace nwn2_ai_2da_editor
 			PopulateSaveDcTypeComboboxes();
 
 
+			// set unicode text on the up/down Search btns.
+			btn_Search_d.Text = "\u25bc"; // down triangle
+			btn_Search_u.Text = "\u25b2"; // up triangle
+
+
 			// NOTE: quickload the 2da for testing ONLY.
 			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchspells.2da";
 			Load_HenchSpells();
