@@ -782,7 +782,7 @@ namespace nwn2_ai_2da_editor
 
 				if (val == -1)
 				{
-					cbo_di_BenPowerbase.ForeColor = Color.Red;
+					cbo_di_BenPowerbase.ForeColor = Color.Crimson;
 //					cbo_di_BenPowerbase.Text = "invalid";
 				}
 				else
@@ -811,7 +811,7 @@ namespace nwn2_ai_2da_editor
 
 				if (val == -1)
 				{
-					cbo_di_BenLeveltype.ForeColor = Color.Red;
+					cbo_di_BenLeveltype.ForeColor = Color.Crimson;
 //					cbo_di_BenLeveltype.Text = "invalid";
 				}
 				else
@@ -850,7 +850,7 @@ namespace nwn2_ai_2da_editor
 
 				if (val == -1)
 				{
-					cbo_di_DetDamagebase.ForeColor = Color.Red;
+					cbo_di_DetDamagebase.ForeColor = Color.Crimson;
 //					cbo_di_DetDamagebase.Text = "invalid";
 				}
 				else
@@ -879,7 +879,7 @@ namespace nwn2_ai_2da_editor
 
 				if (val == -1)
 				{
-					cbo_di_DetLeveltype.ForeColor = Color.Red;
+					cbo_di_DetLeveltype.ForeColor = Color.Crimson;
 //					cbo_di_DetLeveltype.Text = "invalid";
 				}
 				else

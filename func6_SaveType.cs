@@ -819,7 +819,7 @@ namespace nwn2_ai_2da_editor
 				if (val >= cbo_st_Specific.Items.Count)
 				{
 					val = -1;
-					cbo_st_Specific.ForeColor = Color.Red;
+					cbo_st_Specific.ForeColor = Color.Crimson;
 //					cbo_st_Specific.Text = "invalid";
 				}
 				else
@@ -834,7 +834,7 @@ namespace nwn2_ai_2da_editor
 				if (val >= cbo_st_Immunity1.Items.Count)
 				{
 					val = -1;
-					cbo_st_Immunity1.ForeColor = Color.Red;
+					cbo_st_Immunity1.ForeColor = Color.Crimson;
 //					cbo_st_Immunity1.Text = "invalid";
 				}
 				else
@@ -849,7 +849,7 @@ namespace nwn2_ai_2da_editor
 				if (val >= cbo_st_Immunity2.Items.Count)
 				{
 					val = -1;
-					cbo_st_Immunity2.ForeColor = Color.Red;
+					cbo_st_Immunity2.ForeColor = Color.Crimson;
 //					cbo_st_Immunity2.Text = "invalid";
 				}
 				else
@@ -865,7 +865,7 @@ namespace nwn2_ai_2da_editor
 				if (val >= cbo_st_AcBonus.Items.Count)
 				{
 					val = -1;
-					cbo_st_AcBonus.ForeColor = Color.Red;
+					cbo_st_AcBonus.ForeColor = Color.Crimson;
 //					cbo_st_AcBonus.Text = "invalid";
 				}
 				else
@@ -904,7 +904,7 @@ namespace nwn2_ai_2da_editor
 				else if (val != 0) // ie. let val==0 fallthrough
 				{
 					val = -1;
-					cbo_st_Weapon.ForeColor = Color.Red;
+					cbo_st_Weapon.ForeColor = Color.Crimson;
 //					cbo_st_Weapon.Text = "invalid";
 				}
 

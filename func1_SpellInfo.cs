@@ -392,7 +392,7 @@ namespace nwn2_ai_2da_editor
 				if (val >= cbo_si_Spelltype.Items.Count)
 				{
 					val = -1;
-					cbo_si_Spelltype.ForeColor = Color.Red;
+					cbo_si_Spelltype.ForeColor = Color.Crimson;
 //					cbo_si_Spelltype.Text = "invalid";
 				}
 				else
@@ -407,7 +407,7 @@ namespace nwn2_ai_2da_editor
 				if (val >= cbo_si_Spelllevel.Items.Count)
 				{
 					val = -1;
-					cbo_si_Spelllevel.ForeColor = Color.Red;
+					cbo_si_Spelllevel.ForeColor = Color.Crimson;
 //					cbo_si_Spelllevel.Text = "invalid";
 				}
 				else

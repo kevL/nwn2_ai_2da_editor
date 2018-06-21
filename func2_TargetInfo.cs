@@ -358,7 +358,7 @@ namespace nwn2_ai_2da_editor
 				if (val >= cbo_ti_Shape.Items.Count)
 				{
 					val = -1;
-					cbo_ti_Shape.ForeColor = Color.Red;
+					cbo_ti_Shape.ForeColor = Color.Crimson;
 //					cbo_ti_Shape.Text = "invalid";
 				}
 				else
@@ -380,7 +380,7 @@ namespace nwn2_ai_2da_editor
 
 					default:
 						val = -1;
-						cbo_ti_Range.ForeColor = Color.Red;
+						cbo_ti_Range.ForeColor = Color.Crimson;
 //						cbo_ti_Range.Text = "invalid";
 						break;
 				}
