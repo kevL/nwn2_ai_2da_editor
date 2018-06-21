@@ -680,8 +680,6 @@ namespace nwn2_ai_2da_editor
 			{
 				//logfile.Log(". . is valid Int32= " + savetype);
 
-				int bit;
-
 				var rb = sender as RadioButton;
 				if (rb != null)
 				{
@@ -696,6 +694,8 @@ namespace nwn2_ai_2da_editor
 				}
 				else
 				{
+					int bit;
+
 					var cb = sender as CheckBox;
 					if (cb.Equals(st_Excl_Onlyone))
 					{

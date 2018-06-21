@@ -269,7 +269,6 @@
 		private System.Windows.Forms.CheckBox di_Piercing;
 		private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
-		private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
 		private System.Windows.Forms.ToolTip toolTip1;
 		private System.Windows.Forms.Button btn_Search_d;
 		private System.Windows.Forms.TextBox tb_Search;
@@ -296,6 +295,8 @@
 		private System.Windows.Forms.GroupBox st_DetrimentalGrp;
 		private System.Windows.Forms.RadioButton st_Excl_rbResistance;
 		private System.Windows.Forms.RadioButton st_Excl_rbImmunity;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
 
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -596,7 +597,6 @@
 			this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.Quit = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
 			this.edit = new System.Windows.Forms.ToolStripMenuItem();
 			this.Copy_decimal = new System.Windows.Forms.ToolStripMenuItem();
 			this.Copy_hexadecimal = new System.Windows.Forms.ToolStripMenuItem();
@@ -610,6 +610,8 @@
 			this.tb_Search = new System.Windows.Forms.TextBox();
 			this.apply = new System.Windows.Forms.Button();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.cols_HenchSpells.SuspendLayout();
 			this.page_SpellInfo.SuspendLayout();
 			this.si_ChildIDGrp.SuspendLayout();
@@ -704,7 +706,7 @@
 			this.page_SpellInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SpellInfo.Name = "page_SpellInfo";
 			this.page_SpellInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SpellInfo.Size = new System.Drawing.Size(732, 502);
+			this.page_SpellInfo.Size = new System.Drawing.Size(732, 477);
 			this.page_SpellInfo.TabIndex = 0;
 			this.page_SpellInfo.Text = "SpellInfo";
 			this.page_SpellInfo.UseVisualStyleBackColor = true;
@@ -1033,11 +1035,11 @@
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_hex);
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_text);
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_reset);
-			this.page_TargetInfo.Location = new System.Drawing.Point(4, 24);
+			this.page_TargetInfo.Location = new System.Drawing.Point(4, 23);
 			this.page_TargetInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_TargetInfo.Name = "page_TargetInfo";
 			this.page_TargetInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_TargetInfo.Size = new System.Drawing.Size(732, 502);
+			this.page_TargetInfo.Size = new System.Drawing.Size(732, 478);
 			this.page_TargetInfo.TabIndex = 1;
 			this.page_TargetInfo.Text = "TargetInfo";
 			this.page_TargetInfo.UseVisualStyleBackColor = true;
@@ -1322,11 +1324,11 @@
 			this.page_EffectWeight.Controls.Add(this.f1);
 			this.page_EffectWeight.Controls.Add(this.EffectWeight_reset);
 			this.page_EffectWeight.Controls.Add(this.EffectWeight_text);
-			this.page_EffectWeight.Location = new System.Drawing.Point(4, 24);
+			this.page_EffectWeight.Location = new System.Drawing.Point(4, 23);
 			this.page_EffectWeight.Margin = new System.Windows.Forms.Padding(2);
 			this.page_EffectWeight.Name = "page_EffectWeight";
 			this.page_EffectWeight.Padding = new System.Windows.Forms.Padding(2);
-			this.page_EffectWeight.Size = new System.Drawing.Size(732, 502);
+			this.page_EffectWeight.Size = new System.Drawing.Size(732, 478);
 			this.page_EffectWeight.TabIndex = 2;
 			this.page_EffectWeight.Text = "EffectWeight";
 			this.page_EffectWeight.UseVisualStyleBackColor = true;
@@ -1392,11 +1394,11 @@
 			this.page_EffectTypes.Controls.Add(this.EffectTypes_hex);
 			this.page_EffectTypes.Controls.Add(this.EffectTypes_text);
 			this.page_EffectTypes.Controls.Add(this.EffectTypes_reset);
-			this.page_EffectTypes.Location = new System.Drawing.Point(4, 24);
+			this.page_EffectTypes.Location = new System.Drawing.Point(4, 23);
 			this.page_EffectTypes.Margin = new System.Windows.Forms.Padding(2);
 			this.page_EffectTypes.Name = "page_EffectTypes";
 			this.page_EffectTypes.Padding = new System.Windows.Forms.Padding(2);
-			this.page_EffectTypes.Size = new System.Drawing.Size(732, 502);
+			this.page_EffectTypes.Size = new System.Drawing.Size(732, 478);
 			this.page_EffectTypes.TabIndex = 3;
 			this.page_EffectTypes.Text = "EffectTypes";
 			this.page_EffectTypes.UseVisualStyleBackColor = true;
@@ -2769,7 +2771,7 @@
 			this.page_SaveType.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SaveType.Name = "page_SaveType";
 			this.page_SaveType.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SaveType.Size = new System.Drawing.Size(729, 477);
+			this.page_SaveType.Size = new System.Drawing.Size(732, 477);
 			this.page_SaveType.TabIndex = 5;
 			this.page_SaveType.Text = "SaveType";
 			this.page_SaveType.UseVisualStyleBackColor = true;
@@ -2786,7 +2788,7 @@
 			this.st_DetrimentalGrp.Controls.Add(this.st_Save1Grp);
 			this.st_DetrimentalGrp.Location = new System.Drawing.Point(5, 55);
 			this.st_DetrimentalGrp.Name = "st_DetrimentalGrp";
-			this.st_DetrimentalGrp.Size = new System.Drawing.Size(540, 360);
+			this.st_DetrimentalGrp.Size = new System.Drawing.Size(550, 360);
 			this.st_DetrimentalGrp.TabIndex = 37;
 			this.st_DetrimentalGrp.TabStop = false;
 			this.st_DetrimentalGrp.Text = "detrimental";
@@ -2794,11 +2796,11 @@
 			// st_SpecificGrp
 			// 
 			this.st_SpecificGrp.Controls.Add(this.cbo_st_Specific);
-			this.st_SpecificGrp.Location = new System.Drawing.Point(235, 115);
+			this.st_SpecificGrp.Location = new System.Drawing.Point(245, 115);
 			this.st_SpecificGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_SpecificGrp.Name = "st_SpecificGrp";
 			this.st_SpecificGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_SpecificGrp.Size = new System.Drawing.Size(300, 50);
+			this.st_SpecificGrp.Size = new System.Drawing.Size(300, 45);
 			this.st_SpecificGrp.TabIndex = 32;
 			this.st_SpecificGrp.TabStop = false;
 			this.st_SpecificGrp.Text = "Specific";
@@ -2816,11 +2818,11 @@
 			// st_Immunity2Grp
 			// 
 			this.st_Immunity2Grp.Controls.Add(this.cbo_st_Immunity2);
-			this.st_Immunity2Grp.Location = new System.Drawing.Point(235, 65);
+			this.st_Immunity2Grp.Location = new System.Drawing.Point(245, 65);
 			this.st_Immunity2Grp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Immunity2Grp.Name = "st_Immunity2Grp";
 			this.st_Immunity2Grp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_Immunity2Grp.Size = new System.Drawing.Size(195, 50);
+			this.st_Immunity2Grp.Size = new System.Drawing.Size(195, 45);
 			this.st_Immunity2Grp.TabIndex = 31;
 			this.st_Immunity2Grp.TabStop = false;
 			this.st_Immunity2Grp.Text = "Immunity2 type";
@@ -2838,11 +2840,11 @@
 			// st_Immunity1Grp
 			// 
 			this.st_Immunity1Grp.Controls.Add(this.cbo_st_Immunity1);
-			this.st_Immunity1Grp.Location = new System.Drawing.Point(235, 15);
+			this.st_Immunity1Grp.Location = new System.Drawing.Point(245, 15);
 			this.st_Immunity1Grp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Immunity1Grp.Name = "st_Immunity1Grp";
 			this.st_Immunity1Grp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_Immunity1Grp.Size = new System.Drawing.Size(195, 50);
+			this.st_Immunity1Grp.Size = new System.Drawing.Size(195, 45);
 			this.st_Immunity1Grp.TabIndex = 30;
 			this.st_Immunity1Grp.TabStop = false;
 			this.st_Immunity1Grp.Text = "Immunity1 type";
@@ -2869,7 +2871,7 @@
 			this.st_FlagsGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_FlagsGrp.Name = "st_FlagsGrp";
 			this.st_FlagsGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_FlagsGrp.Size = new System.Drawing.Size(235, 140);
+			this.st_FlagsGrp.Size = new System.Drawing.Size(240, 140);
 			this.st_FlagsGrp.TabIndex = 28;
 			this.st_FlagsGrp.TabStop = false;
 			this.st_FlagsGrp.Text = "Flags";
@@ -2940,18 +2942,18 @@
 			this.st_Impact2Grp.Controls.Add(this.st_Impact2rb_effectdamage);
 			this.st_Impact2Grp.Controls.Add(this.st_Impact2rb_damagehalf);
 			this.st_Impact2Grp.Controls.Add(this.st_Impact2rb_effectonly);
-			this.st_Impact2Grp.Location = new System.Drawing.Point(120, 115);
+			this.st_Impact2Grp.Location = new System.Drawing.Point(125, 115);
 			this.st_Impact2Grp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Impact2Grp.Name = "st_Impact2Grp";
 			this.st_Impact2Grp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_Impact2Grp.Size = new System.Drawing.Size(115, 100);
+			this.st_Impact2Grp.Size = new System.Drawing.Size(120, 100);
 			this.st_Impact2Grp.TabIndex = 27;
 			this.st_Impact2Grp.TabStop = false;
-			this.st_Impact2Grp.Text = "Type 2 Damage";
+			this.st_Impact2Grp.Text = "Damage2 type";
 			// 
 			// st_Impact2rb_damageevasion
 			// 
-			this.st_Impact2rb_damageevasion.Location = new System.Drawing.Point(10, 75);
+			this.st_Impact2rb_damageevasion.Location = new System.Drawing.Point(5, 75);
 			this.st_Impact2rb_damageevasion.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Impact2rb_damageevasion.Name = "st_Impact2rb_damageevasion";
 			this.st_Impact2rb_damageevasion.Size = new System.Drawing.Size(75, 20);
@@ -2962,7 +2964,7 @@
 			// 
 			// st_Impact2rb_effectdamage
 			// 
-			this.st_Impact2rb_effectdamage.Location = new System.Drawing.Point(10, 55);
+			this.st_Impact2rb_effectdamage.Location = new System.Drawing.Point(5, 55);
 			this.st_Impact2rb_effectdamage.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Impact2rb_effectdamage.Name = "st_Impact2rb_effectdamage";
 			this.st_Impact2rb_effectdamage.Size = new System.Drawing.Size(75, 20);
@@ -2973,7 +2975,7 @@
 			// 
 			// st_Impact2rb_damagehalf
 			// 
-			this.st_Impact2rb_damagehalf.Location = new System.Drawing.Point(10, 35);
+			this.st_Impact2rb_damagehalf.Location = new System.Drawing.Point(5, 35);
 			this.st_Impact2rb_damagehalf.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Impact2rb_damagehalf.Name = "st_Impact2rb_damagehalf";
 			this.st_Impact2rb_damagehalf.Size = new System.Drawing.Size(75, 20);
@@ -2984,7 +2986,7 @@
 			// 
 			// st_Impact2rb_effectonly
 			// 
-			this.st_Impact2rb_effectonly.Location = new System.Drawing.Point(10, 15);
+			this.st_Impact2rb_effectonly.Location = new System.Drawing.Point(5, 15);
 			this.st_Impact2rb_effectonly.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Impact2rb_effectonly.Name = "st_Impact2rb_effectonly";
 			this.st_Impact2rb_effectonly.Size = new System.Drawing.Size(75, 20);
@@ -3003,14 +3005,14 @@
 			this.st_Impact1Grp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Impact1Grp.Name = "st_Impact1Grp";
 			this.st_Impact1Grp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_Impact1Grp.Size = new System.Drawing.Size(115, 100);
+			this.st_Impact1Grp.Size = new System.Drawing.Size(120, 100);
 			this.st_Impact1Grp.TabIndex = 26;
 			this.st_Impact1Grp.TabStop = false;
-			this.st_Impact1Grp.Text = "Type 1 Damage";
+			this.st_Impact1Grp.Text = "Damage1 type";
 			// 
 			// st_Impact1rb_damageevasion
 			// 
-			this.st_Impact1rb_damageevasion.Location = new System.Drawing.Point(10, 75);
+			this.st_Impact1rb_damageevasion.Location = new System.Drawing.Point(5, 75);
 			this.st_Impact1rb_damageevasion.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Impact1rb_damageevasion.Name = "st_Impact1rb_damageevasion";
 			this.st_Impact1rb_damageevasion.Size = new System.Drawing.Size(75, 20);
@@ -3021,7 +3023,7 @@
 			// 
 			// st_Impact1rb_effectdamage
 			// 
-			this.st_Impact1rb_effectdamage.Location = new System.Drawing.Point(10, 55);
+			this.st_Impact1rb_effectdamage.Location = new System.Drawing.Point(5, 55);
 			this.st_Impact1rb_effectdamage.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Impact1rb_effectdamage.Name = "st_Impact1rb_effectdamage";
 			this.st_Impact1rb_effectdamage.Size = new System.Drawing.Size(75, 20);
@@ -3032,7 +3034,7 @@
 			// 
 			// st_Impact1rb_damagehalf
 			// 
-			this.st_Impact1rb_damagehalf.Location = new System.Drawing.Point(10, 35);
+			this.st_Impact1rb_damagehalf.Location = new System.Drawing.Point(5, 35);
 			this.st_Impact1rb_damagehalf.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Impact1rb_damagehalf.Name = "st_Impact1rb_damagehalf";
 			this.st_Impact1rb_damagehalf.Size = new System.Drawing.Size(75, 20);
@@ -3043,7 +3045,7 @@
 			// 
 			// st_Impact1rb_effectonly
 			// 
-			this.st_Impact1rb_effectonly.Location = new System.Drawing.Point(10, 15);
+			this.st_Impact1rb_effectonly.Location = new System.Drawing.Point(5, 15);
 			this.st_Impact1rb_effectonly.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Impact1rb_effectonly.Name = "st_Impact1rb_effectonly";
 			this.st_Impact1rb_effectonly.Size = new System.Drawing.Size(75, 20);
@@ -3058,18 +3060,18 @@
 			this.st_Save2Grp.Controls.Add(this.st_Save2rb_refl);
 			this.st_Save2Grp.Controls.Add(this.st_Save2rb_fort);
 			this.st_Save2Grp.Controls.Add(this.st_Save2rb_none);
-			this.st_Save2Grp.Location = new System.Drawing.Point(120, 15);
+			this.st_Save2Grp.Location = new System.Drawing.Point(125, 15);
 			this.st_Save2Grp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Save2Grp.Name = "st_Save2Grp";
 			this.st_Save2Grp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_Save2Grp.Size = new System.Drawing.Size(115, 100);
+			this.st_Save2Grp.Size = new System.Drawing.Size(120, 100);
 			this.st_Save2Grp.TabIndex = 23;
 			this.st_Save2Grp.TabStop = false;
-			this.st_Save2Grp.Text = "Type 2 Save";
+			this.st_Save2Grp.Text = "Save2 type";
 			// 
 			// st_Save2rb_will
 			// 
-			this.st_Save2rb_will.Location = new System.Drawing.Point(10, 75);
+			this.st_Save2rb_will.Location = new System.Drawing.Point(5, 75);
 			this.st_Save2rb_will.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Save2rb_will.Name = "st_Save2rb_will";
 			this.st_Save2rb_will.Size = new System.Drawing.Size(90, 20);
@@ -3080,7 +3082,7 @@
 			// 
 			// st_Save2rb_refl
 			// 
-			this.st_Save2rb_refl.Location = new System.Drawing.Point(10, 55);
+			this.st_Save2rb_refl.Location = new System.Drawing.Point(5, 55);
 			this.st_Save2rb_refl.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Save2rb_refl.Name = "st_Save2rb_refl";
 			this.st_Save2rb_refl.Size = new System.Drawing.Size(90, 20);
@@ -3091,7 +3093,7 @@
 			// 
 			// st_Save2rb_fort
 			// 
-			this.st_Save2rb_fort.Location = new System.Drawing.Point(10, 35);
+			this.st_Save2rb_fort.Location = new System.Drawing.Point(5, 35);
 			this.st_Save2rb_fort.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Save2rb_fort.Name = "st_Save2rb_fort";
 			this.st_Save2rb_fort.Size = new System.Drawing.Size(90, 20);
@@ -3102,7 +3104,7 @@
 			// 
 			// st_Save2rb_none
 			// 
-			this.st_Save2rb_none.Location = new System.Drawing.Point(10, 15);
+			this.st_Save2rb_none.Location = new System.Drawing.Point(5, 15);
 			this.st_Save2rb_none.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Save2rb_none.Name = "st_Save2rb_none";
 			this.st_Save2rb_none.Size = new System.Drawing.Size(90, 20);
@@ -3121,14 +3123,14 @@
 			this.st_Save1Grp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Save1Grp.Name = "st_Save1Grp";
 			this.st_Save1Grp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_Save1Grp.Size = new System.Drawing.Size(115, 100);
+			this.st_Save1Grp.Size = new System.Drawing.Size(120, 100);
 			this.st_Save1Grp.TabIndex = 22;
 			this.st_Save1Grp.TabStop = false;
-			this.st_Save1Grp.Text = "Type 1 Save";
+			this.st_Save1Grp.Text = "Save1 type";
 			// 
 			// st_Save1rb_will
 			// 
-			this.st_Save1rb_will.Location = new System.Drawing.Point(10, 75);
+			this.st_Save1rb_will.Location = new System.Drawing.Point(5, 75);
 			this.st_Save1rb_will.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Save1rb_will.Name = "st_Save1rb_will";
 			this.st_Save1rb_will.Size = new System.Drawing.Size(90, 20);
@@ -3139,7 +3141,7 @@
 			// 
 			// st_Save1rb_refl
 			// 
-			this.st_Save1rb_refl.Location = new System.Drawing.Point(10, 55);
+			this.st_Save1rb_refl.Location = new System.Drawing.Point(5, 55);
 			this.st_Save1rb_refl.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Save1rb_refl.Name = "st_Save1rb_refl";
 			this.st_Save1rb_refl.Size = new System.Drawing.Size(90, 20);
@@ -3150,7 +3152,7 @@
 			// 
 			// st_Save1rb_fort
 			// 
-			this.st_Save1rb_fort.Location = new System.Drawing.Point(10, 35);
+			this.st_Save1rb_fort.Location = new System.Drawing.Point(5, 35);
 			this.st_Save1rb_fort.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Save1rb_fort.Name = "st_Save1rb_fort";
 			this.st_Save1rb_fort.Size = new System.Drawing.Size(90, 20);
@@ -3161,7 +3163,7 @@
 			// 
 			// st_Save1rb_none
 			// 
-			this.st_Save1rb_none.Location = new System.Drawing.Point(10, 15);
+			this.st_Save1rb_none.Location = new System.Drawing.Point(5, 15);
 			this.st_Save1rb_none.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Save1rb_none.Name = "st_Save1rb_none";
 			this.st_Save1rb_none.Size = new System.Drawing.Size(90, 20);
@@ -3175,7 +3177,7 @@
 			this.st_ExclusiveGrp.Controls.Add(this.st_Excl_FlagsGrp);
 			this.st_ExclusiveGrp.Controls.Add(this.st_Excl_WeightGrp);
 			this.st_ExclusiveGrp.Controls.Add(this.st_Excl_DamagetypesGrp);
-			this.st_ExclusiveGrp.Location = new System.Drawing.Point(545, 55);
+			this.st_ExclusiveGrp.Location = new System.Drawing.Point(555, 55);
 			this.st_ExclusiveGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_ExclusiveGrp.Name = "st_ExclusiveGrp";
 			this.st_ExclusiveGrp.Padding = new System.Windows.Forms.Padding(0);
@@ -3291,7 +3293,7 @@
 			// 
 			// st_Excl_Sonic
 			// 
-			this.st_Excl_Sonic.Location = new System.Drawing.Point(10, 235);
+			this.st_Excl_Sonic.Location = new System.Drawing.Point(5, 235);
 			this.st_Excl_Sonic.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_Sonic.Name = "st_Excl_Sonic";
 			this.st_Excl_Sonic.Size = new System.Drawing.Size(105, 20);
@@ -3302,7 +3304,7 @@
 			// 
 			// st_Excl_Positive
 			// 
-			this.st_Excl_Positive.Location = new System.Drawing.Point(10, 215);
+			this.st_Excl_Positive.Location = new System.Drawing.Point(5, 215);
 			this.st_Excl_Positive.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_Positive.Name = "st_Excl_Positive";
 			this.st_Excl_Positive.Size = new System.Drawing.Size(105, 20);
@@ -3313,7 +3315,7 @@
 			// 
 			// st_Excl_Negative
 			// 
-			this.st_Excl_Negative.Location = new System.Drawing.Point(10, 195);
+			this.st_Excl_Negative.Location = new System.Drawing.Point(5, 195);
 			this.st_Excl_Negative.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_Negative.Name = "st_Excl_Negative";
 			this.st_Excl_Negative.Size = new System.Drawing.Size(105, 20);
@@ -3324,7 +3326,7 @@
 			// 
 			// st_Excl_Fire
 			// 
-			this.st_Excl_Fire.Location = new System.Drawing.Point(10, 175);
+			this.st_Excl_Fire.Location = new System.Drawing.Point(5, 175);
 			this.st_Excl_Fire.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_Fire.Name = "st_Excl_Fire";
 			this.st_Excl_Fire.Size = new System.Drawing.Size(105, 20);
@@ -3335,7 +3337,7 @@
 			// 
 			// st_Excl_Electrical
 			// 
-			this.st_Excl_Electrical.Location = new System.Drawing.Point(10, 155);
+			this.st_Excl_Electrical.Location = new System.Drawing.Point(5, 155);
 			this.st_Excl_Electrical.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_Electrical.Name = "st_Excl_Electrical";
 			this.st_Excl_Electrical.Size = new System.Drawing.Size(105, 20);
@@ -3346,7 +3348,7 @@
 			// 
 			// st_Excl_Divine
 			// 
-			this.st_Excl_Divine.Location = new System.Drawing.Point(10, 135);
+			this.st_Excl_Divine.Location = new System.Drawing.Point(5, 135);
 			this.st_Excl_Divine.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_Divine.Name = "st_Excl_Divine";
 			this.st_Excl_Divine.Size = new System.Drawing.Size(105, 20);
@@ -3357,7 +3359,7 @@
 			// 
 			// st_Excl_Cold
 			// 
-			this.st_Excl_Cold.Location = new System.Drawing.Point(10, 115);
+			this.st_Excl_Cold.Location = new System.Drawing.Point(5, 115);
 			this.st_Excl_Cold.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_Cold.Name = "st_Excl_Cold";
 			this.st_Excl_Cold.Size = new System.Drawing.Size(105, 20);
@@ -3368,7 +3370,7 @@
 			// 
 			// st_Excl_Acid
 			// 
-			this.st_Excl_Acid.Location = new System.Drawing.Point(10, 95);
+			this.st_Excl_Acid.Location = new System.Drawing.Point(5, 95);
 			this.st_Excl_Acid.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_Acid.Name = "st_Excl_Acid";
 			this.st_Excl_Acid.Size = new System.Drawing.Size(105, 20);
@@ -3379,7 +3381,7 @@
 			// 
 			// st_Excl_Magical
 			// 
-			this.st_Excl_Magical.Location = new System.Drawing.Point(10, 75);
+			this.st_Excl_Magical.Location = new System.Drawing.Point(5, 75);
 			this.st_Excl_Magical.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_Magical.Name = "st_Excl_Magical";
 			this.st_Excl_Magical.Size = new System.Drawing.Size(105, 20);
@@ -3390,7 +3392,7 @@
 			// 
 			// st_Excl_Slashing
 			// 
-			this.st_Excl_Slashing.Location = new System.Drawing.Point(10, 55);
+			this.st_Excl_Slashing.Location = new System.Drawing.Point(5, 55);
 			this.st_Excl_Slashing.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_Slashing.Name = "st_Excl_Slashing";
 			this.st_Excl_Slashing.Size = new System.Drawing.Size(105, 20);
@@ -3401,7 +3403,7 @@
 			// 
 			// st_Excl_Piercing
 			// 
-			this.st_Excl_Piercing.Location = new System.Drawing.Point(10, 35);
+			this.st_Excl_Piercing.Location = new System.Drawing.Point(5, 35);
 			this.st_Excl_Piercing.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_Piercing.Name = "st_Excl_Piercing";
 			this.st_Excl_Piercing.Size = new System.Drawing.Size(105, 20);
@@ -3412,7 +3414,7 @@
 			// 
 			// st_Excl_Bludgeoning
 			// 
-			this.st_Excl_Bludgeoning.Location = new System.Drawing.Point(10, 15);
+			this.st_Excl_Bludgeoning.Location = new System.Drawing.Point(5, 15);
 			this.st_Excl_Bludgeoning.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_Bludgeoning.Name = "st_Excl_Bludgeoning";
 			this.st_Excl_Bludgeoning.Size = new System.Drawing.Size(105, 20);
@@ -3477,7 +3479,7 @@
 			// st_AcBonusGrp
 			// 
 			this.st_AcBonusGrp.Controls.Add(this.cbo_st_AcBonus);
-			this.st_AcBonusGrp.Location = new System.Drawing.Point(200, 415);
+			this.st_AcBonusGrp.Location = new System.Drawing.Point(200, 430);
 			this.st_AcBonusGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_AcBonusGrp.Name = "st_AcBonusGrp";
 			this.st_AcBonusGrp.Padding = new System.Windows.Forms.Padding(0);
@@ -3500,7 +3502,7 @@
 			// st_WeaponGrp
 			// 
 			this.st_WeaponGrp.Controls.Add(this.cbo_st_Weapon);
-			this.st_WeaponGrp.Location = new System.Drawing.Point(5, 415);
+			this.st_WeaponGrp.Location = new System.Drawing.Point(5, 430);
 			this.st_WeaponGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_WeaponGrp.Name = "st_WeaponGrp";
 			this.st_WeaponGrp.Padding = new System.Windows.Forms.Padding(0);
@@ -3560,7 +3562,7 @@
 			this.page_SaveDCType.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SaveDCType.Name = "page_SaveDCType";
 			this.page_SaveDCType.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SaveDCType.Size = new System.Drawing.Size(732, 503);
+			this.page_SaveDCType.Size = new System.Drawing.Size(732, 478);
 			this.page_SaveDCType.TabIndex = 6;
 			this.page_SaveDCType.Text = "SaveDCType";
 			this.page_SaveDCType.UseVisualStyleBackColor = true;
@@ -3695,7 +3697,7 @@
 			this.dc_WeaponBonusGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.dc_WeaponBonusGrp.Name = "dc_WeaponBonusGrp";
 			this.dc_WeaponBonusGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.dc_WeaponBonusGrp.Size = new System.Drawing.Size(296, 94);
+			this.dc_WeaponBonusGrp.Size = new System.Drawing.Size(296, 69);
 			this.dc_WeaponBonusGrp.TabIndex = 11;
 			this.dc_WeaponBonusGrp.TabStop = false;
 			this.dc_WeaponBonusGrp.Text = "weapon bonus type";
@@ -3726,7 +3728,7 @@
 			this.dc_SaveDCGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.dc_SaveDCGrp.Name = "dc_SaveDCGrp";
 			this.dc_SaveDCGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.dc_SaveDCGrp.Size = new System.Drawing.Size(340, 352);
+			this.dc_SaveDCGrp.Size = new System.Drawing.Size(340, 327);
 			this.dc_SaveDCGrp.TabIndex = 10;
 			this.dc_SaveDCGrp.TabStop = false;
 			this.dc_SaveDCGrp.Text = "save dc type";
@@ -3848,10 +3850,11 @@
 			// 
 			this.file.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
 			this.Open,
+			this.toolStripSeparator1,
 			this.saveToolStripMenuItem,
 			this.saveAsToolStripMenuItem,
-			this.Quit,
-			this.toolStripMenuItem1});
+			this.toolStripSeparator2,
+			this.Quit});
 			this.file.Name = "file";
 			this.file.Size = new System.Drawing.Size(37, 20);
 			this.file.Text = "File";
@@ -3887,11 +3890,6 @@
 			this.Quit.Size = new System.Drawing.Size(160, 22);
 			this.Quit.Text = "Quit";
 			this.Quit.Click += new System.EventHandler(this.Click_quit);
-			// 
-			// toolStripMenuItem1
-			// 
-			this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-			this.toolStripMenuItem1.Size = new System.Drawing.Size(157, 6);
 			// 
 			// edit
 			// 
@@ -4023,6 +4021,16 @@
 			this.apply.Text = "apply this spell\'s data";
 			this.apply.UseVisualStyleBackColor = true;
 			this.apply.Click += new System.EventHandler(this.Click_apply);
+			// 
+			// toolStripSeparator1
+			// 
+			this.toolStripSeparator1.Name = "toolStripSeparator1";
+			this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
+			// 
+			// toolStripSeparator2
+			// 
+			this.toolStripSeparator2.Name = "toolStripSeparator2";
+			this.toolStripSeparator2.Size = new System.Drawing.Size(157, 6);
 			// 
 			// MainForm
 			// 
