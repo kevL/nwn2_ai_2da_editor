@@ -131,56 +131,56 @@ namespace nwn2_ai_2da_editor
 		{
 			// populate the dropdown list for SaveType - Special type
 			// NOTE: These special cases are considered in 'hench_i0_attack' HenchSpellAttack()
-			cbo_st_Specific.Items.Add("none");										//  0
-			cbo_st_Specific.Items.Add("heal");										//  1
-			cbo_st_Specific.Items.Add("negative heal");								//  2
-			cbo_st_Specific.Items.Add("target must be humanoid");					//  3
-			cbo_st_Specific.Items.Add("not already affected");						//  4
-			cbo_st_Specific.Items.Add("target must be incorporeal");				//  5
-			cbo_st_Specific.Items.Add("darkness");									//  6
-			cbo_st_Specific.Items.Add("petrify");									//  7
-			cbo_st_Specific.Items.Add("target must be animal");						//  8
-			cbo_st_Specific.Items.Add("target must not be construct or undead");	//  9
-			cbo_st_Specific.Items.Add("drown");										// 10
-			cbo_st_Specific.Items.Add("sleep");										// 11
-			cbo_st_Specific.Items.Add("bigby's hand");								// 12
-			cbo_st_Specific.Items.Add("target must be undead");						// 13
-			cbo_st_Specific.Items.Add("target must not be undead");					// 14
-			cbo_st_Specific.Items.Add("target must not be immune to phantasms");	// 15
-			cbo_st_Specific.Items.Add("magic missile");								// 16
-			cbo_st_Specific.Items.Add("inferno or combust");						// 17
-			cbo_st_Specific.Items.Add("dismissal or banishment");					// 18
-			cbo_st_Specific.Items.Add("target must be spellcaster");				// 19
-			cbo_st_Specific.Items.Add("does not affect elf");						// 20
-			cbo_st_Specific.Items.Add("target must be construct");					// 21
-			cbo_st_Specific.Items.Add("searing light");								// 22
-			cbo_st_Specific.Items.Add("mindflayer's mindblast");					// 23
-			cbo_st_Specific.Items.Add("evard's tentacles");							// 24
-			cbo_st_Specific.Items.Add("ironhorn");									// 25
-			cbo_st_Specific.Items.Add("prism");										// 26
-			cbo_st_Specific.Items.Add("target must be spirit");						// 27
-			cbo_st_Specific.Items.Add("word of faith");								// 28
-			cbo_st_Specific.Items.Add("cloudkill");									// 29
-			cbo_st_Specific.Items.Add("target must be humanoid or animal");			// 30
-			cbo_st_Specific.Items.Add("daze");										// 31
-			cbo_st_Specific.Items.Add("tasha's");									// 32
-			cbo_st_Specific.Items.Add("cause fear");								// 33
-			cbo_st_Specific.Items.Add("reduce damage-weight by target's hp%");		// 34
-			cbo_st_Specific.Items.Add("creeping doom");								// 35
-			cbo_st_Specific.Items.Add("deathknell");								// 36
-			cbo_st_Specific.Items.Add("caster is warlock");							// 37
-			cbo_st_Specific.Items.Add("moonbolt");									// 38
-			cbo_st_Specific.Items.Add("swamplung");									// 39
-			cbo_st_Specific.Items.Add("target must be seen");						// 40
-			cbo_st_Specific.Items.Add("color spray");								// 41
-			cbo_st_Specific.Items.Add("sunbeam");									// 42
-			cbo_st_Specific.Items.Add("sunburst");									// 43
-			cbo_st_Specific.Items.Add("target must be medium or smaller");			// 44
-			cbo_st_Specific.Items.Add("castigate");									// 45
-			cbo_st_Specific.Items.Add("target is doing fighter-like actions");		// 46
-			cbo_st_Specific.Items.Add("target must not be deaf");					// 47
-			cbo_st_Specific.Items.Add("holy blas");									// 48
-			cbo_st_Specific.Items.Add("target must be evil");						// 49
+			cbo_st_Specific.Items.Add("none");											//  0
+			cbo_st_Specific.Items.Add("heal");											//  1
+			cbo_st_Specific.Items.Add("negative heal");									//  2
+			cbo_st_Specific.Items.Add("targets humanoid");								//  3
+			cbo_st_Specific.Items.Add("not already affected");							//  4
+			cbo_st_Specific.Items.Add("does not affect incorporeal");					//  5
+			cbo_st_Specific.Items.Add("darkness");										//  6
+			cbo_st_Specific.Items.Add("petrify");										//  7
+			cbo_st_Specific.Items.Add("targets animal");								//  8
+			cbo_st_Specific.Items.Add("does not affect construct or undead");			//  9
+			cbo_st_Specific.Items.Add("drown");											// 10
+			cbo_st_Specific.Items.Add("sleep");											// 11
+			cbo_st_Specific.Items.Add("bigby's hand");									// 12
+			cbo_st_Specific.Items.Add("targets undead");								// 13
+			cbo_st_Specific.Items.Add("does not affect undead");						// 14
+			cbo_st_Specific.Items.Add("does not affect creatures immune to phantasms");	// 15
+			cbo_st_Specific.Items.Add("magic missile");									// 16
+			cbo_st_Specific.Items.Add("inferno or combust");							// 17
+			cbo_st_Specific.Items.Add("dismissal or banishment");						// 18
+			cbo_st_Specific.Items.Add("targets spellcasters");							// 19
+			cbo_st_Specific.Items.Add("does not affect elf");							// 20
+			cbo_st_Specific.Items.Add("targets construct");								// 21
+			cbo_st_Specific.Items.Add("searing light");									// 22
+			cbo_st_Specific.Items.Add("mindflayer's mindblast");						// 23
+			cbo_st_Specific.Items.Add("evard's tentacles");								// 24
+			cbo_st_Specific.Items.Add("ironhorn");										// 25
+			cbo_st_Specific.Items.Add("prism");											// 26
+			cbo_st_Specific.Items.Add("targets spirit");								// 27
+			cbo_st_Specific.Items.Add("word of faith");									// 28
+			cbo_st_Specific.Items.Add("cloudkill");										// 29
+			cbo_st_Specific.Items.Add("targets humanoid or animal");					// 30
+			cbo_st_Specific.Items.Add("daze");											// 31
+			cbo_st_Specific.Items.Add("tasha's");										// 32
+			cbo_st_Specific.Items.Add("cause fear");									// 33
+			cbo_st_Specific.Items.Add("reduce damage-weight by target's hp%");			// 34
+			cbo_st_Specific.Items.Add("creeping doom");									// 35
+			cbo_st_Specific.Items.Add("deathknell");									// 36
+			cbo_st_Specific.Items.Add("caster is warlock");								// 37
+			cbo_st_Specific.Items.Add("moonbolt");										// 38
+			cbo_st_Specific.Items.Add("swamplung");										// 39
+			cbo_st_Specific.Items.Add("targets seen only");								// 40
+			cbo_st_Specific.Items.Add("color spray");									// 41
+			cbo_st_Specific.Items.Add("sunbeam");										// 42
+			cbo_st_Specific.Items.Add("sunburst");										// 43
+			cbo_st_Specific.Items.Add("target medium or smaller creatures");			// 44
+			cbo_st_Specific.Items.Add("castigate");										// 45
+			cbo_st_Specific.Items.Add("target is doing fighter-like actions");			// 46
+			cbo_st_Specific.Items.Add("does not affect deaf creatures");				// 47
+			cbo_st_Specific.Items.Add("holy blas");										// 48
+			cbo_st_Specific.Items.Add("target evil");									// 49
 
 			// populate the dropdown list for SaveType - Immunity1 type
 			// NOTE: These immunity cases are considered in 'hench_i0_attack' HenchSpellAttack()
@@ -260,9 +260,9 @@ namespace nwn2_ai_2da_editor
 
 			// populate the dropdown list for SaveType - Weapon type
 			// NOTE: These weapon cases are considered in 'hench_i0_buff' HenchCheckWeaponBuff()
-			cbo_st_WeaponRestriction.Items.Add("none");																	//    0
+			cbo_st_WeaponRestriction.Items.Add("none");																		//    0
 			cbo_st_WeaponRestriction.Items.Add("target must be a staff");													//    1
-			cbo_st_WeaponRestriction.Items.Add("target must be a slashing weapon");										//    2
+			cbo_st_WeaponRestriction.Items.Add("target must be a slashing weapon");											//    2
 			cbo_st_WeaponRestriction.Items.Add("target must be usable by a Paladin (holy sword)");							//    4
 			cbo_st_WeaponRestriction.Items.Add("target must be a bludgeoning weapon");										//    8
 			cbo_st_WeaponRestriction.Items.Add("damage increase is vs undead only");										//   16

@@ -47,14 +47,16 @@
 
 		const int HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF       = 0x00000015; // 21
 
+		const int HENCH_SPELL_INFO_SPELL_TYPE_AC_BUFF           = 0x00000002; //  2
+		const int HENCH_SPELL_INFO_SPELL_TYPE_BUFF              = 0x00000003; //  3
+
+		const int HENCH_SPELL_INFO_SPELL_TYPE_SUMMON            = 0x00000009; //  9
+
 		// 'hench_i0_itemsp'
-//		const int HENCH_SPELL_INFO_SPELL_TYPE_AC_BUFF           = 0x00000002; //  2
-//		const int HENCH_SPELL_INFO_SPELL_TYPE_BUFF              = 0x00000003; //  3
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_PERSISTENTAREA    = 0x00000004; //  4
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_POLYMORPH         = 0x00000005; //  5
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_INVISIBLE         = 0x00000007; //  7
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_CURECONDITION     = 0x00000008; //  8
-//		const int HENCH_SPELL_INFO_SPELL_TYPE_SUMMON            = 0x00000009; //  9
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_HEAL              = 0x0000000a; // 10
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_ATTR_BUFF         = 0x0000000c; // 12
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_MELEE_ATTACK      = 0x0000000e; // 14
@@ -400,6 +402,8 @@
 		// AcBonus types
 //		int iAcType = (iSaveType & HENCH_SPELL_SAVE_TYPE_SAVES_MASK) >> 18;
 		// stock NwScript constants:
+		// These are in 'hench_i0_buff' HenchCheckACBuff()
+		// spelltype - HENCH_SPELL_INFO_SPELL_TYPE_AC_BUFF
 //		const int AC_DODGE_BONUS                       = 0; // shift >> 18
 //		const int AC_NATURAL_BONUS                     = 1; // 0x00040000 // these overlap the bits for Type1Save ->
 //		const int AC_ARMOUR_ENCHANTMENT_BONUS          = 2; // 0x00080000

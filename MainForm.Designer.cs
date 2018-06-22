@@ -513,7 +513,6 @@
 			this.st_MindAffecting = new System.Windows.Forms.CheckBox();
 			this.st_AffectsFriendlies = new System.Windows.Forms.CheckBox();
 			this.st_TouchRanged = new System.Windows.Forms.CheckBox();
-			this.st_NotCaster = new System.Windows.Forms.CheckBox();
 			this.st_TouchMelee = new System.Windows.Forms.CheckBox();
 			this.st_Impact1Grp = new System.Windows.Forms.GroupBox();
 			this.st_Impact1rb_damageevasion = new System.Windows.Forms.RadioButton();
@@ -558,6 +557,7 @@
 			this.st_Excl_Bludgeoning = new System.Windows.Forms.CheckBox();
 			this.st_bin = new System.Windows.Forms.Label();
 			this.st_hex = new System.Windows.Forms.Label();
+			this.st_NotCaster = new System.Windows.Forms.CheckBox();
 			this.st_Clear = new System.Windows.Forms.Button();
 			this.SaveType_bin = new System.Windows.Forms.TextBox();
 			this.SaveType_hex = new System.Windows.Forms.TextBox();
@@ -1035,11 +1035,11 @@
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_hex);
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_text);
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_reset);
-			this.page_TargetInfo.Location = new System.Drawing.Point(4, 24);
+			this.page_TargetInfo.Location = new System.Drawing.Point(4, 23);
 			this.page_TargetInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_TargetInfo.Name = "page_TargetInfo";
 			this.page_TargetInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_TargetInfo.Size = new System.Drawing.Size(827, 477);
+			this.page_TargetInfo.Size = new System.Drawing.Size(827, 478);
 			this.page_TargetInfo.TabIndex = 1;
 			this.page_TargetInfo.Text = "TargetInfo";
 			this.page_TargetInfo.UseVisualStyleBackColor = true;
@@ -1324,11 +1324,11 @@
 			this.page_EffectWeight.Controls.Add(this.f1);
 			this.page_EffectWeight.Controls.Add(this.EffectWeight_reset);
 			this.page_EffectWeight.Controls.Add(this.EffectWeight_text);
-			this.page_EffectWeight.Location = new System.Drawing.Point(4, 24);
+			this.page_EffectWeight.Location = new System.Drawing.Point(4, 23);
 			this.page_EffectWeight.Margin = new System.Windows.Forms.Padding(2);
 			this.page_EffectWeight.Name = "page_EffectWeight";
 			this.page_EffectWeight.Padding = new System.Windows.Forms.Padding(2);
-			this.page_EffectWeight.Size = new System.Drawing.Size(827, 477);
+			this.page_EffectWeight.Size = new System.Drawing.Size(827, 478);
 			this.page_EffectWeight.TabIndex = 2;
 			this.page_EffectWeight.Text = "EffectWeight";
 			this.page_EffectWeight.UseVisualStyleBackColor = true;
@@ -1394,11 +1394,11 @@
 			this.page_EffectTypes.Controls.Add(this.EffectTypes_hex);
 			this.page_EffectTypes.Controls.Add(this.EffectTypes_text);
 			this.page_EffectTypes.Controls.Add(this.EffectTypes_reset);
-			this.page_EffectTypes.Location = new System.Drawing.Point(4, 24);
+			this.page_EffectTypes.Location = new System.Drawing.Point(4, 23);
 			this.page_EffectTypes.Margin = new System.Windows.Forms.Padding(2);
 			this.page_EffectTypes.Name = "page_EffectTypes";
 			this.page_EffectTypes.Padding = new System.Windows.Forms.Padding(2);
-			this.page_EffectTypes.Size = new System.Drawing.Size(827, 477);
+			this.page_EffectTypes.Size = new System.Drawing.Size(827, 478);
 			this.page_EffectTypes.TabIndex = 3;
 			this.page_EffectTypes.Text = "EffectTypes";
 			this.page_EffectTypes.UseVisualStyleBackColor = true;
@@ -2171,11 +2171,11 @@
 			this.page_DamageInfo.Controls.Add(this.DamageInfo_hex);
 			this.page_DamageInfo.Controls.Add(this.DamageInfo_text);
 			this.page_DamageInfo.Controls.Add(this.DamageInfo_reset);
-			this.page_DamageInfo.Location = new System.Drawing.Point(4, 24);
+			this.page_DamageInfo.Location = new System.Drawing.Point(4, 23);
 			this.page_DamageInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_DamageInfo.Name = "page_DamageInfo";
 			this.page_DamageInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_DamageInfo.Size = new System.Drawing.Size(827, 477);
+			this.page_DamageInfo.Size = new System.Drawing.Size(827, 478);
 			this.page_DamageInfo.TabIndex = 4;
 			this.page_DamageInfo.Text = "DamageInfo";
 			this.page_DamageInfo.UseVisualStyleBackColor = true;
@@ -2760,6 +2760,7 @@
 			this.page_SaveType.Controls.Add(this.st_ExclusiveGrp);
 			this.page_SaveType.Controls.Add(this.st_bin);
 			this.page_SaveType.Controls.Add(this.st_hex);
+			this.page_SaveType.Controls.Add(this.st_NotCaster);
 			this.page_SaveType.Controls.Add(this.st_Clear);
 			this.page_SaveType.Controls.Add(this.SaveType_bin);
 			this.page_SaveType.Controls.Add(this.SaveType_hex);
@@ -2767,11 +2768,11 @@
 			this.page_SaveType.Controls.Add(this.st_WeaponGrp);
 			this.page_SaveType.Controls.Add(this.SaveType_text);
 			this.page_SaveType.Controls.Add(this.SaveType_reset);
-			this.page_SaveType.Location = new System.Drawing.Point(4, 24);
+			this.page_SaveType.Location = new System.Drawing.Point(4, 23);
 			this.page_SaveType.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SaveType.Name = "page_SaveType";
 			this.page_SaveType.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SaveType.Size = new System.Drawing.Size(827, 477);
+			this.page_SaveType.Size = new System.Drawing.Size(827, 478);
 			this.page_SaveType.TabIndex = 5;
 			this.page_SaveType.Text = "SaveType";
 			this.page_SaveType.UseVisualStyleBackColor = true;
@@ -2788,10 +2789,10 @@
 			this.st_DetrimentalGrp.Controls.Add(this.st_Save1Grp);
 			this.st_DetrimentalGrp.Location = new System.Drawing.Point(5, 60);
 			this.st_DetrimentalGrp.Name = "st_DetrimentalGrp";
-			this.st_DetrimentalGrp.Size = new System.Drawing.Size(550, 360);
+			this.st_DetrimentalGrp.Size = new System.Drawing.Size(550, 340);
 			this.st_DetrimentalGrp.TabIndex = 37;
 			this.st_DetrimentalGrp.TabStop = false;
-			this.st_DetrimentalGrp.Text = "Attack spell";
+			this.st_DetrimentalGrp.Text = "Attack";
 			// 
 			// st_SpecificGrp
 			// 
@@ -2819,7 +2820,7 @@
 			// st_Immunity2Grp
 			// 
 			this.st_Immunity2Grp.Controls.Add(this.cbo_st_Immunity2);
-			this.st_Immunity2Grp.Location = new System.Drawing.Point(245, 115);
+			this.st_Immunity2Grp.Location = new System.Drawing.Point(350, 60);
 			this.st_Immunity2Grp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Immunity2Grp.Name = "st_Immunity2Grp";
 			this.st_Immunity2Grp.Padding = new System.Windows.Forms.Padding(0);
@@ -2842,7 +2843,7 @@
 			// st_Immunity1Grp
 			// 
 			this.st_Immunity1Grp.Controls.Add(this.cbo_st_Immunity1);
-			this.st_Immunity1Grp.Location = new System.Drawing.Point(245, 15);
+			this.st_Immunity1Grp.Location = new System.Drawing.Point(350, 15);
 			this.st_Immunity1Grp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Immunity1Grp.Name = "st_Immunity1Grp";
 			this.st_Immunity1Grp.Padding = new System.Windows.Forms.Padding(0);
@@ -2868,13 +2869,12 @@
 			this.st_FlagsGrp.Controls.Add(this.st_MindAffecting);
 			this.st_FlagsGrp.Controls.Add(this.st_AffectsFriendlies);
 			this.st_FlagsGrp.Controls.Add(this.st_TouchRanged);
-			this.st_FlagsGrp.Controls.Add(this.st_NotCaster);
 			this.st_FlagsGrp.Controls.Add(this.st_TouchMelee);
 			this.st_FlagsGrp.Location = new System.Drawing.Point(5, 215);
 			this.st_FlagsGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_FlagsGrp.Name = "st_FlagsGrp";
 			this.st_FlagsGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_FlagsGrp.Size = new System.Drawing.Size(240, 140);
+			this.st_FlagsGrp.Size = new System.Drawing.Size(240, 120);
 			this.st_FlagsGrp.TabIndex = 28;
 			this.st_FlagsGrp.TabStop = false;
 			this.st_FlagsGrp.Text = "Flags";
@@ -2914,7 +2914,7 @@
 			// 
 			// st_TouchRanged
 			// 
-			this.st_TouchRanged.Location = new System.Drawing.Point(5, 115);
+			this.st_TouchRanged.Location = new System.Drawing.Point(5, 95);
 			this.st_TouchRanged.Margin = new System.Windows.Forms.Padding(0);
 			this.st_TouchRanged.Name = "st_TouchRanged";
 			this.st_TouchRanged.Size = new System.Drawing.Size(225, 20);
@@ -2923,20 +2923,9 @@
 			this.st_TouchRanged.UseVisualStyleBackColor = true;
 			this.st_TouchRanged.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Flags);
 			// 
-			// st_NotCaster
-			// 
-			this.st_NotCaster.Location = new System.Drawing.Point(5, 75);
-			this.st_NotCaster.Margin = new System.Windows.Forms.Padding(0);
-			this.st_NotCaster.Name = "st_NotCaster";
-			this.st_NotCaster.Size = new System.Drawing.Size(225, 20);
-			this.st_NotCaster.TabIndex = 17;
-			this.st_NotCaster.Text = "does not affect caster";
-			this.st_NotCaster.UseVisualStyleBackColor = true;
-			this.st_NotCaster.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Flags);
-			// 
 			// st_TouchMelee
 			// 
-			this.st_TouchMelee.Location = new System.Drawing.Point(5, 95);
+			this.st_TouchMelee.Location = new System.Drawing.Point(5, 75);
 			this.st_TouchMelee.Margin = new System.Windows.Forms.Padding(0);
 			this.st_TouchMelee.Name = "st_TouchMelee";
 			this.st_TouchMelee.Size = new System.Drawing.Size(225, 20);
@@ -3209,7 +3198,7 @@
 			this.st_ExclusiveGrp.Size = new System.Drawing.Size(270, 280);
 			this.st_ExclusiveGrp.TabIndex = 36;
 			this.st_ExclusiveGrp.TabStop = false;
-			this.st_ExclusiveGrp.Text = "Energy Buff spell";
+			this.st_ExclusiveGrp.Text = "Energy buff";
 			// 
 			// st_Excl_FlagsGrp
 			// 
@@ -3468,6 +3457,17 @@
 			this.st_hex.Text = "- hex";
 			this.st_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
+			// st_NotCaster
+			// 
+			this.st_NotCaster.Location = new System.Drawing.Point(15, 405);
+			this.st_NotCaster.Margin = new System.Windows.Forms.Padding(0);
+			this.st_NotCaster.Name = "st_NotCaster";
+			this.st_NotCaster.Size = new System.Drawing.Size(225, 20);
+			this.st_NotCaster.TabIndex = 17;
+			this.st_NotCaster.Text = "does not affect caster";
+			this.st_NotCaster.UseVisualStyleBackColor = true;
+			this.st_NotCaster.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Flags);
+			// 
 			// st_Clear
 			// 
 			this.st_Clear.Location = new System.Drawing.Point(445, 5);
@@ -3504,14 +3504,14 @@
 			// st_AcBonusGrp
 			// 
 			this.st_AcBonusGrp.Controls.Add(this.cbo_st_AcBonus);
-			this.st_AcBonusGrp.Location = new System.Drawing.Point(560, 425);
+			this.st_AcBonusGrp.Location = new System.Drawing.Point(555, 340);
 			this.st_AcBonusGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_AcBonusGrp.Name = "st_AcBonusGrp";
 			this.st_AcBonusGrp.Padding = new System.Windows.Forms.Padding(0);
 			this.st_AcBonusGrp.Size = new System.Drawing.Size(200, 45);
 			this.st_AcBonusGrp.TabIndex = 28;
 			this.st_AcBonusGrp.TabStop = false;
-			this.st_AcBonusGrp.Text = "AcBonus type (if buff)";
+			this.st_AcBonusGrp.Text = "AcBonus type";
 			// 
 			// cbo_st_AcBonus
 			// 
@@ -3527,14 +3527,14 @@
 			// st_WeaponGrp
 			// 
 			this.st_WeaponGrp.Controls.Add(this.cbo_st_WeaponRestriction);
-			this.st_WeaponGrp.Location = new System.Drawing.Point(5, 425);
+			this.st_WeaponGrp.Location = new System.Drawing.Point(240, 400);
 			this.st_WeaponGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_WeaponGrp.Name = "st_WeaponGrp";
 			this.st_WeaponGrp.Padding = new System.Windows.Forms.Padding(0);
 			this.st_WeaponGrp.Size = new System.Drawing.Size(520, 45);
 			this.st_WeaponGrp.TabIndex = 27;
 			this.st_WeaponGrp.TabStop = false;
-			this.st_WeaponGrp.Text = "Weapon restriction (if buff)";
+			this.st_WeaponGrp.Text = "Weapon restriction";
 			// 
 			// cbo_st_WeaponRestriction
 			// 

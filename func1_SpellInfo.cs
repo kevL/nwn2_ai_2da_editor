@@ -435,31 +435,22 @@ namespace nwn2_ai_2da_editor
 			{
 				case 0:
 					text = "INVALID";
-
 					si_hostile.ForeColor = Color.Crimson;
-					et_PosEffectsGrp.Visible =
-					et_NegEffectsGrp.Visible = false;
 					break;
 
 				case HENCH_SPELL_INFO_SPELL_TYPE_ATTACK:	// TODO: Look into these and how they trace through
-				case HENCH_SPELL_INFO_SPELL_TYPE_HARM: 		// to the effect-types etc in the CoreAI scripts.
+				case HENCH_SPELL_INFO_SPELL_TYPE_HARM:		// to the effect-types etc in the CoreAI scripts.
 				case HENCH_SPELL_INFO_SPELL_TYPE_ARCANE_ARCHER:
 				case HENCH_SPELL_INFO_SPELL_TYPE_DRAGON_BREATH:
 				case HENCH_SPELL_INFO_SPELL_TYPE_WARLOCK:
 				case HENCH_SPELL_INFO_SPELL_TYPE_ATTACK_SPECIAL:
 					text = "DETRIMENTAL";
-
 					si_hostile.ForeColor = DefaultForeColor;
-					et_PosEffectsGrp.Visible = false;
-					et_NegEffectsGrp.Visible = true;
 					break;
 
 				default:									// TODO: Investigate exactly which spelltypes
 					text = "BENEFICIAL";					// should show the PositiveEffects group.
-
 					si_hostile.ForeColor = DefaultForeColor;
-					et_PosEffectsGrp.Visible = true;
-					et_NegEffectsGrp.Visible = false;
 					break;
 			}
 
@@ -469,14 +460,41 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Toggles the DamageInfo groups between Dispel-type and Beneficial/
 		/// Detrimental-types.
+		/// NOTE: Set all groups false then toggle the one that's supposed to show on.
+		/// This works around a .Net anomaly in which assigning a true-value to a group
+		/// can leave its visibility false regardless (see commented code below).
 		/// </summary>
 		/// <param name="spellinfo"></param>
 		void SetGroupVisibility(int spellinfo)
 		{
-			//logfile.Log("SetGroupVisibility()");
-
 			int spelltype = (spellinfo & HENCH_SPELL_INFO_SPELL_TYPE_MASK);
-			//logfile.Log(". spelltype= " + spelltype);
+
+// EffectTypes groups
+			et_PosEffectsGrp.Visible =
+			et_NegEffectsGrp.Visible = false;
+
+			switch (spelltype)
+			{
+				default:
+					et_PosEffectsGrp.Visible = true;
+					break;
+
+				case HENCH_SPELL_INFO_SPELL_TYPE_ATTACK:
+				case HENCH_SPELL_INFO_SPELL_TYPE_HARM:
+				case HENCH_SPELL_INFO_SPELL_TYPE_ARCANE_ARCHER:
+				case HENCH_SPELL_INFO_SPELL_TYPE_DRAGON_BREATH:
+				case HENCH_SPELL_INFO_SPELL_TYPE_WARLOCK:
+				case HENCH_SPELL_INFO_SPELL_TYPE_ATTACK_SPECIAL:
+					et_NegEffectsGrp.Visible = true;
+					break;
+
+				case 0:
+				case HENCH_SPELL_INFO_SPELL_TYPE_SUMMON:
+				case HENCH_SPELL_INFO_SPELL_TYPE_DISPEL:
+					// hide all groups
+					break;
+			}
+
 
 // DamageInfo groups
 			di_DispelTypesGrp.Visible =
@@ -493,50 +511,90 @@ namespace nwn2_ai_2da_editor
 				case HENCH_SPELL_INFO_SPELL_TYPE_DISPEL:
 					di_DispelTypesGrp.Visible = true;
 					break;
+
+				case 0:
+				case HENCH_SPELL_INFO_SPELL_TYPE_SUMMON:
+					// hide all groups
+					break;
 			}
 
 // SaveType groups
-			st_ExclusiveGrp.Visible   =			// NOTE: Set all groups false then toggle the one that's supposed to show on.
-			st_WeaponGrp.Visible      =			// This works around a .Net anomaly in which assigning a true-value to a group
-			st_DetrimentalGrp.Visible = false;	// can leave its visibility false regardless (see commented code below).
+			st_ExclusiveGrp  .Visible =
+			st_WeaponGrp     .Visible =
+			st_AcBonusGrp    .Visible =
+			st_DetrimentalGrp.Visible = false;
+
+			st_NotCaster.Visible = false; // this is not in a group since it can be used for several types.
 
 			switch (spelltype)
 			{
 				default:
-					//logfile.Log(". . st_DetrimentalGrp");
-					st_DetrimentalGrp.Visible = true;
+					st_DetrimentalGrp.Visible =
+					st_NotCaster     .Visible = true;
 					break;
 
 				case HENCH_SPELL_INFO_SPELL_TYPE_ELEMENTAL_SHIELD:
 				case HENCH_SPELL_INFO_SPELL_TYPE_ENGR_PROT: // "engry" - coders sheesh.
-					//logfile.Log(". . st_ExclusiveGrp");
 					st_ExclusiveGrp.Visible = true;
 					break;
 
 				case HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF:
-					//logfile.Log(". . st_WeaponGrp");
 					st_WeaponGrp.Visible = true;
 					break;
 
-				// TODO: figure in the AcBonus-type group
+				case HENCH_SPELL_INFO_SPELL_TYPE_AC_BUFF:
+					st_AcBonusGrp.Visible =
+					st_NotCaster .Visible = true;
+					break;
+
+				case HENCH_SPELL_INFO_SPELL_TYPE_BUFF:
+					st_NotCaster.Visible = true;
+					break;
+
+				case 0:
+				case HENCH_SPELL_INFO_SPELL_TYPE_SUMMON:
+				case HENCH_SPELL_INFO_SPELL_TYPE_DISPEL:
+					// hide all groups
+					break;
 			}
 
-//			st_ExclusiveGrp.Visible = spelltype == HENCH_SPELL_INFO_SPELL_TYPE_ELEMENTAL_SHIELD
-//								   || spelltype == HENCH_SPELL_INFO_SPELL_TYPE_ENGR_PROT;
-//			logfile.Log(". st_ExclusiveGrp.Visible= " + st_ExclusiveGrp.Visible);
+// SaveDCType groups
+/*			dc_SaveDCGrp     .Visible = // TODO: The SaveDCType page's visibility is
+			dc_WeaponBonusGrp.Visible = // handled elsewhere but needs to be redone.
+			dc_ArmorCheckGrp .Visible =
+			savedctype1      .Visible =
+			savedctype2      .Visible =
+			savedctype_label .Visible = false;
+
+			switch (spelltype)
+			{
+				default:
+					dc_SaveDCGrp     .Visible =
+					dc_WeaponBonusGrp.Visible =
+					dc_ArmorCheckGrp .Visible =
+					savedctype1      .Visible =
+					savedctype2      .Visible =
+					savedctype_label .Visible = true;
+					break;
+
+//				case :
+//					break;
+
+				case 0:
+				case HENCH_SPELL_INFO_SPELL_TYPE_SUMMON:
+					// hide all groups
+					break;
+			} */
+		}
 
 // DOES NOT (always) WORK AS ADVERTISED:
-//			logfile.Log(". (spelltype == HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF)= "
-//					+ (spelltype == HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF));				// This can be True
-//			st_WeaponGrp.Visible = (spelltype == HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF);
-//			logfile.Log(". st_WeaponGrp.Visible= " + st_WeaponGrp.Visible);					// But this can be False
+//		logfile.Log(". (spelltype == HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF)= "
+//				+ (spelltype == HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF));				// This can be True
+//		st_WeaponGrp.Visible = (spelltype == HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF);
+//		logfile.Log(". st_WeaponGrp.Visible= " + st_WeaponGrp.Visible);					// But this can be False
 // note: It has been observed to bork after program start. After clicking through
 // a few tree-nodes it will then work fine. But that's not good enough is it.
 
-//			st_DetrimentalGrp.Visible = !st_ExclusiveGrp.Visible
-//									 && !st_WeaponGrp.Visible;
-//			logfile.Log(". st_DetrimentalGrp.Visible= " + st_DetrimentalGrp.Visible);
-		}
 
 		/// <summary>
 		/// Shows the ChildIDs group if the MasterID bit is flagged.
