@@ -112,6 +112,8 @@ namespace nwn2_ai_2da_editor
 			btn_Search_d.Text = "\u25bc"; // down triangle
 			btn_Search_u.Text = "\u25b2"; // up triangle
 
+			ActiveControl = tb_Search; // focus the Search-box
+
 
 			// NOTE: quickload the 2da for testing ONLY.
 			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchspells.2da";

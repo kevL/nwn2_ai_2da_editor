@@ -478,16 +478,24 @@ namespace nwn2_ai_2da_editor
 			int spelltype = (spellinfo & HENCH_SPELL_INFO_SPELL_TYPE_MASK);
 			//logfile.Log(". spelltype= " + spelltype);
 
-// toggle the DamageInfo groups between Dispel-type and Beneficial/Detrimental-types
-			bool vis = (spelltype == HENCH_SPELL_INFO_SPELL_TYPE_DISPEL);
-
-			di_DispelTypesGrp.Visible =  vis;
-
+// DamageInfo groups
+			di_DispelTypesGrp.Visible =
 			di_BeneficialGrp .Visible =
-			di_DetrimentalGrp.Visible = !vis;
+			di_DetrimentalGrp.Visible = false;
 
+			switch (spelltype)
+			{
+				default: // TODO: sort these two out ...
+					di_BeneficialGrp .Visible =
+					di_DetrimentalGrp.Visible = true;
+					break;
 
-// toggle the SaveType groups
+				case HENCH_SPELL_INFO_SPELL_TYPE_DISPEL:
+					di_DispelTypesGrp.Visible = true;
+					break;
+			}
+
+// SaveType groups
 			st_ExclusiveGrp.Visible   =			// NOTE: Set all groups false then toggle the one that's supposed to show on.
 			st_WeaponGrp.Visible      =			// This works around a .Net anomaly in which assigning a true-value to a group
 			st_DetrimentalGrp.Visible = false;	// can leave its visibility false regardless (see commented code below).
@@ -500,7 +508,7 @@ namespace nwn2_ai_2da_editor
 					break;
 
 				case HENCH_SPELL_INFO_SPELL_TYPE_ELEMENTAL_SHIELD:
-				case HENCH_SPELL_INFO_SPELL_TYPE_ENGR_PROT:
+				case HENCH_SPELL_INFO_SPELL_TYPE_ENGR_PROT: // "engry" - coders sheesh.
 					//logfile.Log(". . st_ExclusiveGrp");
 					st_ExclusiveGrp.Visible = true;
 					break;
@@ -509,6 +517,8 @@ namespace nwn2_ai_2da_editor
 					//logfile.Log(". . st_WeaponGrp");
 					st_WeaponGrp.Visible = true;
 					break;
+
+				// TODO: figure in the AcBonus-type group
 			}
 
 //			st_ExclusiveGrp.Visible = spelltype == HENCH_SPELL_INFO_SPELL_TYPE_ELEMENTAL_SHIELD
