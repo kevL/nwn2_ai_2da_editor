@@ -83,7 +83,7 @@
 		private System.Windows.Forms.GroupBox st_AcBonusGrp;
 		private System.Windows.Forms.ComboBox cbo_st_AcBonus;
 		private System.Windows.Forms.GroupBox st_WeaponGrp;
-		private System.Windows.Forms.ComboBox cbo_st_Weapon;
+		private System.Windows.Forms.ComboBox cbo_st_WeaponRestriction;
 		private System.Windows.Forms.GroupBox st_Immunity2Grp;
 		private System.Windows.Forms.ComboBox cbo_st_Immunity2;
 		private System.Windows.Forms.ToolStripMenuItem edit;
@@ -515,16 +515,16 @@
 			this.st_TouchRanged = new System.Windows.Forms.CheckBox();
 			this.st_NotCaster = new System.Windows.Forms.CheckBox();
 			this.st_TouchMelee = new System.Windows.Forms.CheckBox();
-			this.st_Impact2Grp = new System.Windows.Forms.GroupBox();
-			this.st_Impact2rb_damageevasion = new System.Windows.Forms.RadioButton();
-			this.st_Impact2rb_effectdamage = new System.Windows.Forms.RadioButton();
-			this.st_Impact2rb_damagehalf = new System.Windows.Forms.RadioButton();
-			this.st_Impact2rb_effectonly = new System.Windows.Forms.RadioButton();
 			this.st_Impact1Grp = new System.Windows.Forms.GroupBox();
 			this.st_Impact1rb_damageevasion = new System.Windows.Forms.RadioButton();
 			this.st_Impact1rb_effectdamage = new System.Windows.Forms.RadioButton();
 			this.st_Impact1rb_damagehalf = new System.Windows.Forms.RadioButton();
 			this.st_Impact1rb_effectonly = new System.Windows.Forms.RadioButton();
+			this.st_Impact2Grp = new System.Windows.Forms.GroupBox();
+			this.st_Impact2rb_damageevasion = new System.Windows.Forms.RadioButton();
+			this.st_Impact2rb_effectdamage = new System.Windows.Forms.RadioButton();
+			this.st_Impact2rb_damagehalf = new System.Windows.Forms.RadioButton();
+			this.st_Impact2rb_effectonly = new System.Windows.Forms.RadioButton();
 			this.st_Save2Grp = new System.Windows.Forms.GroupBox();
 			this.st_Save2rb_will = new System.Windows.Forms.RadioButton();
 			this.st_Save2rb_refl = new System.Windows.Forms.RadioButton();
@@ -564,7 +564,7 @@
 			this.st_AcBonusGrp = new System.Windows.Forms.GroupBox();
 			this.cbo_st_AcBonus = new System.Windows.Forms.ComboBox();
 			this.st_WeaponGrp = new System.Windows.Forms.GroupBox();
-			this.cbo_st_Weapon = new System.Windows.Forms.ComboBox();
+			this.cbo_st_WeaponRestriction = new System.Windows.Forms.ComboBox();
 			this.SaveType_text = new System.Windows.Forms.TextBox();
 			this.SaveType_reset = new System.Windows.Forms.Button();
 			this.page_SaveDCType = new System.Windows.Forms.TabPage();
@@ -650,8 +650,8 @@
 			this.st_Immunity2Grp.SuspendLayout();
 			this.st_Immunity1Grp.SuspendLayout();
 			this.st_FlagsGrp.SuspendLayout();
-			this.st_Impact2Grp.SuspendLayout();
 			this.st_Impact1Grp.SuspendLayout();
+			this.st_Impact2Grp.SuspendLayout();
 			this.st_Save2Grp.SuspendLayout();
 			this.st_Save1Grp.SuspendLayout();
 			this.st_ExclusiveGrp.SuspendLayout();
@@ -706,7 +706,7 @@
 			this.page_SpellInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SpellInfo.Name = "page_SpellInfo";
 			this.page_SpellInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SpellInfo.Size = new System.Drawing.Size(732, 477);
+			this.page_SpellInfo.Size = new System.Drawing.Size(827, 477);
 			this.page_SpellInfo.TabIndex = 0;
 			this.page_SpellInfo.Text = "SpellInfo";
 			this.page_SpellInfo.UseVisualStyleBackColor = true;
@@ -1035,11 +1035,11 @@
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_hex);
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_text);
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_reset);
-			this.page_TargetInfo.Location = new System.Drawing.Point(4, 23);
+			this.page_TargetInfo.Location = new System.Drawing.Point(4, 24);
 			this.page_TargetInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_TargetInfo.Name = "page_TargetInfo";
 			this.page_TargetInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_TargetInfo.Size = new System.Drawing.Size(732, 478);
+			this.page_TargetInfo.Size = new System.Drawing.Size(827, 477);
 			this.page_TargetInfo.TabIndex = 1;
 			this.page_TargetInfo.Text = "TargetInfo";
 			this.page_TargetInfo.UseVisualStyleBackColor = true;
@@ -1324,11 +1324,11 @@
 			this.page_EffectWeight.Controls.Add(this.f1);
 			this.page_EffectWeight.Controls.Add(this.EffectWeight_reset);
 			this.page_EffectWeight.Controls.Add(this.EffectWeight_text);
-			this.page_EffectWeight.Location = new System.Drawing.Point(4, 23);
+			this.page_EffectWeight.Location = new System.Drawing.Point(4, 24);
 			this.page_EffectWeight.Margin = new System.Windows.Forms.Padding(2);
 			this.page_EffectWeight.Name = "page_EffectWeight";
 			this.page_EffectWeight.Padding = new System.Windows.Forms.Padding(2);
-			this.page_EffectWeight.Size = new System.Drawing.Size(732, 478);
+			this.page_EffectWeight.Size = new System.Drawing.Size(827, 477);
 			this.page_EffectWeight.TabIndex = 2;
 			this.page_EffectWeight.Text = "EffectWeight";
 			this.page_EffectWeight.UseVisualStyleBackColor = true;
@@ -1394,11 +1394,11 @@
 			this.page_EffectTypes.Controls.Add(this.EffectTypes_hex);
 			this.page_EffectTypes.Controls.Add(this.EffectTypes_text);
 			this.page_EffectTypes.Controls.Add(this.EffectTypes_reset);
-			this.page_EffectTypes.Location = new System.Drawing.Point(4, 23);
+			this.page_EffectTypes.Location = new System.Drawing.Point(4, 24);
 			this.page_EffectTypes.Margin = new System.Windows.Forms.Padding(2);
 			this.page_EffectTypes.Name = "page_EffectTypes";
 			this.page_EffectTypes.Padding = new System.Windows.Forms.Padding(2);
-			this.page_EffectTypes.Size = new System.Drawing.Size(732, 478);
+			this.page_EffectTypes.Size = new System.Drawing.Size(827, 477);
 			this.page_EffectTypes.TabIndex = 3;
 			this.page_EffectTypes.Text = "EffectTypes";
 			this.page_EffectTypes.UseVisualStyleBackColor = true;
@@ -2175,7 +2175,7 @@
 			this.page_DamageInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_DamageInfo.Name = "page_DamageInfo";
 			this.page_DamageInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_DamageInfo.Size = new System.Drawing.Size(957, 477);
+			this.page_DamageInfo.Size = new System.Drawing.Size(827, 477);
 			this.page_DamageInfo.TabIndex = 4;
 			this.page_DamageInfo.Text = "DamageInfo";
 			this.page_DamageInfo.UseVisualStyleBackColor = true;
@@ -2786,7 +2786,7 @@
 			this.st_DetrimentalGrp.Controls.Add(this.st_Impact2Grp);
 			this.st_DetrimentalGrp.Controls.Add(this.st_Save2Grp);
 			this.st_DetrimentalGrp.Controls.Add(this.st_Save1Grp);
-			this.st_DetrimentalGrp.Location = new System.Drawing.Point(5, 55);
+			this.st_DetrimentalGrp.Location = new System.Drawing.Point(5, 60);
 			this.st_DetrimentalGrp.Name = "st_DetrimentalGrp";
 			this.st_DetrimentalGrp.Size = new System.Drawing.Size(550, 360);
 			this.st_DetrimentalGrp.TabIndex = 37;
@@ -2945,69 +2945,6 @@
 			this.st_TouchMelee.UseVisualStyleBackColor = true;
 			this.st_TouchMelee.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Flags);
 			// 
-			// st_Impact2Grp
-			// 
-			this.st_Impact2Grp.Controls.Add(this.st_Impact2rb_damageevasion);
-			this.st_Impact2Grp.Controls.Add(this.st_Impact2rb_effectdamage);
-			this.st_Impact2Grp.Controls.Add(this.st_Impact2rb_damagehalf);
-			this.st_Impact2Grp.Controls.Add(this.st_Impact2rb_effectonly);
-			this.st_Impact2Grp.Location = new System.Drawing.Point(125, 115);
-			this.st_Impact2Grp.Margin = new System.Windows.Forms.Padding(0);
-			this.st_Impact2Grp.Name = "st_Impact2Grp";
-			this.st_Impact2Grp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_Impact2Grp.Size = new System.Drawing.Size(120, 100);
-			this.st_Impact2Grp.TabIndex = 27;
-			this.st_Impact2Grp.TabStop = false;
-			this.st_Impact2Grp.Text = "Damage2 type";
-			// 
-			// st_Impact2rb_damageevasion
-			// 
-			this.st_Impact2rb_damageevasion.Location = new System.Drawing.Point(5, 75);
-			this.st_Impact2rb_damageevasion.Margin = new System.Windows.Forms.Padding(0);
-			this.st_Impact2rb_damageevasion.Name = "st_Impact2rb_damageevasion";
-			this.st_Impact2rb_damageevasion.Size = new System.Drawing.Size(75, 20);
-			this.st_Impact2rb_damageevasion.TabIndex = 8;
-			this.st_Impact2rb_damageevasion.TabStop = true;
-			this.st_Impact2rb_damageevasion.Text = "evasion";
-			this.st_Impact2rb_damageevasion.UseVisualStyleBackColor = true;
-			this.st_Impact2rb_damageevasion.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type2Damage);
-			// 
-			// st_Impact2rb_effectdamage
-			// 
-			this.st_Impact2rb_effectdamage.Location = new System.Drawing.Point(5, 55);
-			this.st_Impact2rb_effectdamage.Margin = new System.Windows.Forms.Padding(0);
-			this.st_Impact2rb_effectdamage.Name = "st_Impact2rb_effectdamage";
-			this.st_Impact2rb_effectdamage.Size = new System.Drawing.Size(75, 20);
-			this.st_Impact2rb_effectdamage.TabIndex = 7;
-			this.st_Impact2rb_effectdamage.TabStop = true;
-			this.st_Impact2rb_effectdamage.Text = "regular";
-			this.st_Impact2rb_effectdamage.UseVisualStyleBackColor = true;
-			this.st_Impact2rb_effectdamage.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type2Damage);
-			// 
-			// st_Impact2rb_damagehalf
-			// 
-			this.st_Impact2rb_damagehalf.Location = new System.Drawing.Point(5, 35);
-			this.st_Impact2rb_damagehalf.Margin = new System.Windows.Forms.Padding(0);
-			this.st_Impact2rb_damagehalf.Name = "st_Impact2rb_damagehalf";
-			this.st_Impact2rb_damagehalf.Size = new System.Drawing.Size(75, 20);
-			this.st_Impact2rb_damagehalf.TabIndex = 6;
-			this.st_Impact2rb_damagehalf.TabStop = true;
-			this.st_Impact2rb_damagehalf.Text = "half";
-			this.st_Impact2rb_damagehalf.UseVisualStyleBackColor = true;
-			this.st_Impact2rb_damagehalf.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type2Damage);
-			// 
-			// st_Impact2rb_effectonly
-			// 
-			this.st_Impact2rb_effectonly.Location = new System.Drawing.Point(5, 15);
-			this.st_Impact2rb_effectonly.Margin = new System.Windows.Forms.Padding(0);
-			this.st_Impact2rb_effectonly.Name = "st_Impact2rb_effectonly";
-			this.st_Impact2rb_effectonly.Size = new System.Drawing.Size(75, 20);
-			this.st_Impact2rb_effectonly.TabIndex = 5;
-			this.st_Impact2rb_effectonly.TabStop = true;
-			this.st_Impact2rb_effectonly.Text = "none";
-			this.st_Impact2rb_effectonly.UseVisualStyleBackColor = true;
-			this.st_Impact2rb_effectonly.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type2Damage);
-			// 
 			// st_Impact1Grp
 			// 
 			this.st_Impact1Grp.Controls.Add(this.st_Impact1rb_damageevasion);
@@ -3070,6 +3007,69 @@
 			this.st_Impact1rb_effectonly.Text = "none";
 			this.st_Impact1rb_effectonly.UseVisualStyleBackColor = true;
 			this.st_Impact1rb_effectonly.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type1Damage);
+			// 
+			// st_Impact2Grp
+			// 
+			this.st_Impact2Grp.Controls.Add(this.st_Impact2rb_damageevasion);
+			this.st_Impact2Grp.Controls.Add(this.st_Impact2rb_effectdamage);
+			this.st_Impact2Grp.Controls.Add(this.st_Impact2rb_damagehalf);
+			this.st_Impact2Grp.Controls.Add(this.st_Impact2rb_effectonly);
+			this.st_Impact2Grp.Location = new System.Drawing.Point(125, 115);
+			this.st_Impact2Grp.Margin = new System.Windows.Forms.Padding(0);
+			this.st_Impact2Grp.Name = "st_Impact2Grp";
+			this.st_Impact2Grp.Padding = new System.Windows.Forms.Padding(0);
+			this.st_Impact2Grp.Size = new System.Drawing.Size(120, 100);
+			this.st_Impact2Grp.TabIndex = 27;
+			this.st_Impact2Grp.TabStop = false;
+			this.st_Impact2Grp.Text = "Damage2 type";
+			// 
+			// st_Impact2rb_damageevasion
+			// 
+			this.st_Impact2rb_damageevasion.Location = new System.Drawing.Point(5, 75);
+			this.st_Impact2rb_damageevasion.Margin = new System.Windows.Forms.Padding(0);
+			this.st_Impact2rb_damageevasion.Name = "st_Impact2rb_damageevasion";
+			this.st_Impact2rb_damageevasion.Size = new System.Drawing.Size(75, 20);
+			this.st_Impact2rb_damageevasion.TabIndex = 8;
+			this.st_Impact2rb_damageevasion.TabStop = true;
+			this.st_Impact2rb_damageevasion.Text = "evasion";
+			this.st_Impact2rb_damageevasion.UseVisualStyleBackColor = true;
+			this.st_Impact2rb_damageevasion.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type2Damage);
+			// 
+			// st_Impact2rb_effectdamage
+			// 
+			this.st_Impact2rb_effectdamage.Location = new System.Drawing.Point(5, 55);
+			this.st_Impact2rb_effectdamage.Margin = new System.Windows.Forms.Padding(0);
+			this.st_Impact2rb_effectdamage.Name = "st_Impact2rb_effectdamage";
+			this.st_Impact2rb_effectdamage.Size = new System.Drawing.Size(75, 20);
+			this.st_Impact2rb_effectdamage.TabIndex = 7;
+			this.st_Impact2rb_effectdamage.TabStop = true;
+			this.st_Impact2rb_effectdamage.Text = "regular";
+			this.st_Impact2rb_effectdamage.UseVisualStyleBackColor = true;
+			this.st_Impact2rb_effectdamage.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type2Damage);
+			// 
+			// st_Impact2rb_damagehalf
+			// 
+			this.st_Impact2rb_damagehalf.Location = new System.Drawing.Point(5, 35);
+			this.st_Impact2rb_damagehalf.Margin = new System.Windows.Forms.Padding(0);
+			this.st_Impact2rb_damagehalf.Name = "st_Impact2rb_damagehalf";
+			this.st_Impact2rb_damagehalf.Size = new System.Drawing.Size(75, 20);
+			this.st_Impact2rb_damagehalf.TabIndex = 6;
+			this.st_Impact2rb_damagehalf.TabStop = true;
+			this.st_Impact2rb_damagehalf.Text = "half";
+			this.st_Impact2rb_damagehalf.UseVisualStyleBackColor = true;
+			this.st_Impact2rb_damagehalf.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type2Damage);
+			// 
+			// st_Impact2rb_effectonly
+			// 
+			this.st_Impact2rb_effectonly.Location = new System.Drawing.Point(5, 15);
+			this.st_Impact2rb_effectonly.Margin = new System.Windows.Forms.Padding(0);
+			this.st_Impact2rb_effectonly.Name = "st_Impact2rb_effectonly";
+			this.st_Impact2rb_effectonly.Size = new System.Drawing.Size(75, 20);
+			this.st_Impact2rb_effectonly.TabIndex = 5;
+			this.st_Impact2rb_effectonly.TabStop = true;
+			this.st_Impact2rb_effectonly.Text = "none";
+			this.st_Impact2rb_effectonly.UseVisualStyleBackColor = true;
+			this.st_Impact2rb_effectonly.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_Type2Damage);
 			// 
 			// st_Save2Grp
 			// 
@@ -3202,14 +3202,14 @@
 			this.st_ExclusiveGrp.Controls.Add(this.st_Excl_FlagsGrp);
 			this.st_ExclusiveGrp.Controls.Add(this.st_Excl_WeightGrp);
 			this.st_ExclusiveGrp.Controls.Add(this.st_Excl_DamagetypesGrp);
-			this.st_ExclusiveGrp.Location = new System.Drawing.Point(555, 55);
+			this.st_ExclusiveGrp.Location = new System.Drawing.Point(555, 60);
 			this.st_ExclusiveGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_ExclusiveGrp.Name = "st_ExclusiveGrp";
 			this.st_ExclusiveGrp.Padding = new System.Windows.Forms.Padding(0);
 			this.st_ExclusiveGrp.Size = new System.Drawing.Size(270, 280);
 			this.st_ExclusiveGrp.TabIndex = 36;
 			this.st_ExclusiveGrp.TabStop = false;
-			this.st_ExclusiveGrp.Text = "Buff spell";
+			this.st_ExclusiveGrp.Text = "Energy Buff spell";
 			// 
 			// st_Excl_FlagsGrp
 			// 
@@ -3504,11 +3504,11 @@
 			// st_AcBonusGrp
 			// 
 			this.st_AcBonusGrp.Controls.Add(this.cbo_st_AcBonus);
-			this.st_AcBonusGrp.Location = new System.Drawing.Point(200, 430);
+			this.st_AcBonusGrp.Location = new System.Drawing.Point(560, 425);
 			this.st_AcBonusGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_AcBonusGrp.Name = "st_AcBonusGrp";
 			this.st_AcBonusGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_AcBonusGrp.Size = new System.Drawing.Size(195, 45);
+			this.st_AcBonusGrp.Size = new System.Drawing.Size(200, 45);
 			this.st_AcBonusGrp.TabIndex = 28;
 			this.st_AcBonusGrp.TabStop = false;
 			this.st_AcBonusGrp.Text = "AcBonus type (if buff)";
@@ -3526,26 +3526,27 @@
 			// 
 			// st_WeaponGrp
 			// 
-			this.st_WeaponGrp.Controls.Add(this.cbo_st_Weapon);
-			this.st_WeaponGrp.Location = new System.Drawing.Point(5, 430);
+			this.st_WeaponGrp.Controls.Add(this.cbo_st_WeaponRestriction);
+			this.st_WeaponGrp.Location = new System.Drawing.Point(5, 425);
 			this.st_WeaponGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_WeaponGrp.Name = "st_WeaponGrp";
 			this.st_WeaponGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_WeaponGrp.Size = new System.Drawing.Size(195, 45);
+			this.st_WeaponGrp.Size = new System.Drawing.Size(520, 45);
 			this.st_WeaponGrp.TabIndex = 27;
 			this.st_WeaponGrp.TabStop = false;
-			this.st_WeaponGrp.Text = "Weapon type (if buff)";
+			this.st_WeaponGrp.Text = "Weapon restriction (if buff)";
 			// 
-			// cbo_st_Weapon
+			// cbo_st_WeaponRestriction
 			// 
-			this.cbo_st_Weapon.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbo_st_Weapon.FormattingEnabled = true;
-			this.cbo_st_Weapon.Location = new System.Drawing.Point(5, 15);
-			this.cbo_st_Weapon.Margin = new System.Windows.Forms.Padding(0);
-			this.cbo_st_Weapon.Name = "cbo_st_Weapon";
-			this.cbo_st_Weapon.Size = new System.Drawing.Size(185, 22);
-			this.cbo_st_Weapon.TabIndex = 0;
-			this.cbo_st_Weapon.SelectionChangeCommitted += new System.EventHandler(this.SelectionChangeCommitted_st_cbo_Weapon);
+			this.cbo_st_WeaponRestriction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbo_st_WeaponRestriction.DropDownWidth = 510;
+			this.cbo_st_WeaponRestriction.FormattingEnabled = true;
+			this.cbo_st_WeaponRestriction.Location = new System.Drawing.Point(5, 15);
+			this.cbo_st_WeaponRestriction.Margin = new System.Windows.Forms.Padding(0);
+			this.cbo_st_WeaponRestriction.Name = "cbo_st_WeaponRestriction";
+			this.cbo_st_WeaponRestriction.Size = new System.Drawing.Size(510, 22);
+			this.cbo_st_WeaponRestriction.TabIndex = 0;
+			this.cbo_st_WeaponRestriction.SelectionChangeCommitted += new System.EventHandler(this.SelectionChangeCommitted_st_cbo_Weapon);
 			// 
 			// SaveType_text
 			// 
@@ -3583,11 +3584,11 @@
 			this.page_SaveDCType.Controls.Add(this.savedctype2);
 			this.page_SaveDCType.Controls.Add(this.savedctype1);
 			this.page_SaveDCType.Controls.Add(this.SaveDCType_reset);
-			this.page_SaveDCType.Location = new System.Drawing.Point(4, 23);
+			this.page_SaveDCType.Location = new System.Drawing.Point(4, 24);
 			this.page_SaveDCType.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SaveDCType.Name = "page_SaveDCType";
 			this.page_SaveDCType.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SaveDCType.Size = new System.Drawing.Size(732, 478);
+			this.page_SaveDCType.Size = new System.Drawing.Size(827, 477);
 			this.page_SaveDCType.TabIndex = 6;
 			this.page_SaveDCType.Text = "SaveDCType";
 			this.page_SaveDCType.UseVisualStyleBackColor = true;
@@ -3655,26 +3656,26 @@
 			this.dc_ArmorCheckGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.dc_ArmorCheckGrp.Name = "dc_ArmorCheckGrp";
 			this.dc_ArmorCheckGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.dc_ArmorCheckGrp.Size = new System.Drawing.Size(295, 255);
+			this.dc_ArmorCheckGrp.Size = new System.Drawing.Size(315, 255);
 			this.dc_ArmorCheckGrp.TabIndex = 13;
 			this.dc_ArmorCheckGrp.TabStop = false;
 			this.dc_ArmorCheckGrp.Text = "armor check type";
 			// 
 			// armorcheck_info
 			// 
-			this.armorcheck_info.Location = new System.Drawing.Point(10, 105);
+			this.armorcheck_info.Location = new System.Drawing.Point(10, 80);
 			this.armorcheck_info.Margin = new System.Windows.Forms.Padding(0);
 			this.armorcheck_info.Name = "armorcheck_info";
-			this.armorcheck_info.Size = new System.Drawing.Size(275, 140);
+			this.armorcheck_info.Size = new System.Drawing.Size(300, 140);
 			this.armorcheck_info.TabIndex = 5;
 			this.armorcheck_info.Text = resources.GetString("armorcheck_info.Text");
 			// 
 			// savedc_ac3
 			// 
-			this.savedc_ac3.Location = new System.Drawing.Point(10, 65);
+			this.savedc_ac3.Location = new System.Drawing.Point(10, 55);
 			this.savedc_ac3.Margin = new System.Windows.Forms.Padding(0);
 			this.savedc_ac3.Name = "savedc_ac3";
-			this.savedc_ac3.Size = new System.Drawing.Size(275, 35);
+			this.savedc_ac3.Size = new System.Drawing.Size(300, 20);
 			this.savedc_ac3.TabIndex = 4;
 			this.savedc_ac3.Text = "target must be immune to speed decrease";
 			this.savedc_ac3.UseVisualStyleBackColor = true;
@@ -3682,10 +3683,10 @@
 			// 
 			// savedc_ac1
 			// 
-			this.savedc_ac1.Location = new System.Drawing.Point(10, 20);
+			this.savedc_ac1.Location = new System.Drawing.Point(10, 15);
 			this.savedc_ac1.Margin = new System.Windows.Forms.Padding(0);
 			this.savedc_ac1.Name = "savedc_ac1";
-			this.savedc_ac1.Size = new System.Drawing.Size(275, 20);
+			this.savedc_ac1.Size = new System.Drawing.Size(300, 20);
 			this.savedc_ac1.TabIndex = 2;
 			this.savedc_ac1.Text = "target must be wearing armor";
 			this.savedc_ac1.UseVisualStyleBackColor = true;
@@ -3693,10 +3694,10 @@
 			// 
 			// savedc_ac2
 			// 
-			this.savedc_ac2.Location = new System.Drawing.Point(10, 45);
+			this.savedc_ac2.Location = new System.Drawing.Point(10, 35);
 			this.savedc_ac2.Margin = new System.Windows.Forms.Padding(0);
 			this.savedc_ac2.Name = "savedc_ac2";
-			this.savedc_ac2.Size = new System.Drawing.Size(275, 20);
+			this.savedc_ac2.Size = new System.Drawing.Size(300, 20);
 			this.savedc_ac2.TabIndex = 3;
 			this.savedc_ac2.Text = "target must be using a shield";
 			this.savedc_ac2.UseVisualStyleBackColor = true;
@@ -3722,7 +3723,7 @@
 			this.dc_WeaponBonusGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.dc_WeaponBonusGrp.Name = "dc_WeaponBonusGrp";
 			this.dc_WeaponBonusGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.dc_WeaponBonusGrp.Size = new System.Drawing.Size(296, 69);
+			this.dc_WeaponBonusGrp.Size = new System.Drawing.Size(315, 55);
 			this.dc_WeaponBonusGrp.TabIndex = 11;
 			this.dc_WeaponBonusGrp.TabStop = false;
 			this.dc_WeaponBonusGrp.Text = "weapon bonus type";
@@ -3735,7 +3736,7 @@
 			this.cbo_dc_WeaponBonus.Location = new System.Drawing.Point(5, 20);
 			this.cbo_dc_WeaponBonus.Margin = new System.Windows.Forms.Padding(0);
 			this.cbo_dc_WeaponBonus.Name = "cbo_dc_WeaponBonus";
-			this.cbo_dc_WeaponBonus.Size = new System.Drawing.Size(283, 22);
+			this.cbo_dc_WeaponBonus.Size = new System.Drawing.Size(305, 22);
 			this.cbo_dc_WeaponBonus.TabIndex = 1;
 			this.cbo_dc_WeaponBonus.SelectionChangeCommitted += new System.EventHandler(this.SelectionChangeCommitted_dc_weaponbonustype);
 			// 
@@ -3753,7 +3754,7 @@
 			this.dc_SaveDCGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.dc_SaveDCGrp.Name = "dc_SaveDCGrp";
 			this.dc_SaveDCGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.dc_SaveDCGrp.Size = new System.Drawing.Size(340, 327);
+			this.dc_SaveDCGrp.Size = new System.Drawing.Size(340, 315);
 			this.dc_SaveDCGrp.TabIndex = 10;
 			this.dc_SaveDCGrp.TabStop = false;
 			this.dc_SaveDCGrp.Text = "save dc type";
@@ -3820,7 +3821,7 @@
 			this.savedctype_label.Location = new System.Drawing.Point(5, 60);
 			this.savedctype_label.Margin = new System.Windows.Forms.Padding(0);
 			this.savedctype_label.Name = "savedctype_label";
-			this.savedctype_label.Size = new System.Drawing.Size(590, 45);
+			this.savedctype_label.Size = new System.Drawing.Size(685, 45);
 			this.savedctype_label.TabIndex = 9;
 			this.savedctype_label.Text = resources.GetString("savedctype_label.Text");
 			// 
@@ -4122,8 +4123,8 @@
 			this.st_Immunity2Grp.ResumeLayout(false);
 			this.st_Immunity1Grp.ResumeLayout(false);
 			this.st_FlagsGrp.ResumeLayout(false);
-			this.st_Impact2Grp.ResumeLayout(false);
 			this.st_Impact1Grp.ResumeLayout(false);
+			this.st_Impact2Grp.ResumeLayout(false);
 			this.st_Save2Grp.ResumeLayout(false);
 			this.st_Save1Grp.ResumeLayout(false);
 			this.st_ExclusiveGrp.ResumeLayout(false);

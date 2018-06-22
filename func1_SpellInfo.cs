@@ -473,21 +473,59 @@ namespace nwn2_ai_2da_editor
 		/// <param name="spellinfo"></param>
 		void SetGroupVisibility(int spellinfo)
 		{
+			//logfile.Log("SetGroupVisibility()");
+
 			int spelltype = (spellinfo & HENCH_SPELL_INFO_SPELL_TYPE_MASK);
+			//logfile.Log(". spelltype= " + spelltype);
 
 // toggle the DamageInfo groups between Dispel-type and Beneficial/Detrimental-types
 			bool vis = (spelltype == HENCH_SPELL_INFO_SPELL_TYPE_DISPEL);
 
 			di_DispelTypesGrp.Visible =  vis;
+
 			di_BeneficialGrp .Visible =
 			di_DetrimentalGrp.Visible = !vis;
 
-// toggle the SaveType groups between Detrimental-type and Beneficial(aka Exclusive)-type
-			vis = spelltype == HENCH_SPELL_INFO_SPELL_TYPE_ELEMENTAL_SHIELD
-			   || spelltype == HENCH_SPELL_INFO_SPELL_TYPE_ENGR_PROT;
 
-			st_ExclusiveGrp.Visible   =  vis;
-			st_DetrimentalGrp.Visible = !vis;
+// toggle the SaveType groups
+			st_ExclusiveGrp.Visible   =			// NOTE: Set all groups false then toggle the one that's supposed to show on.
+			st_WeaponGrp.Visible      =			// This works around a .Net anomaly in which assigning a true-value to a group
+			st_DetrimentalGrp.Visible = false;	// can leave its visibility false regardless (see commented code below).
+
+			switch (spelltype)
+			{
+				default:
+					//logfile.Log(". . st_DetrimentalGrp");
+					st_DetrimentalGrp.Visible = true;
+					break;
+
+				case HENCH_SPELL_INFO_SPELL_TYPE_ELEMENTAL_SHIELD:
+				case HENCH_SPELL_INFO_SPELL_TYPE_ENGR_PROT:
+					//logfile.Log(". . st_ExclusiveGrp");
+					st_ExclusiveGrp.Visible = true;
+					break;
+
+				case HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF:
+					//logfile.Log(". . st_WeaponGrp");
+					st_WeaponGrp.Visible = true;
+					break;
+			}
+
+//			st_ExclusiveGrp.Visible = spelltype == HENCH_SPELL_INFO_SPELL_TYPE_ELEMENTAL_SHIELD
+//								   || spelltype == HENCH_SPELL_INFO_SPELL_TYPE_ENGR_PROT;
+//			logfile.Log(". st_ExclusiveGrp.Visible= " + st_ExclusiveGrp.Visible);
+
+// DOES NOT (always) WORK AS ADVERTISED:
+//			logfile.Log(". (spelltype == HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF)= "
+//					+ (spelltype == HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF));				// This can be True
+//			st_WeaponGrp.Visible = (spelltype == HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF);
+//			logfile.Log(". st_WeaponGrp.Visible= " + st_WeaponGrp.Visible);					// But this can be False
+// note: It has been observed to bork after program start. After clicking through
+// a few tree-nodes it will then work fine. But that's not good enough is it.
+
+//			st_DetrimentalGrp.Visible = !st_ExclusiveGrp.Visible
+//									 && !st_WeaponGrp.Visible;
+//			logfile.Log(". st_DetrimentalGrp.Visible= " + st_DetrimentalGrp.Visible);
 		}
 
 		/// <summary>

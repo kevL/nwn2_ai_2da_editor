@@ -295,13 +295,15 @@ namespace nwn2_ai_2da_editor
 					--savedctype;
 				}
 
-				// NOTE: allow the text-changed event to update checks
+				// NOTE: allow the text-changed event to update checkers
 				SaveDCType_text.Text = savedctype.ToString();
 			}
 		}
 
 		/// <summary>
 		/// Handler for the WeaponBonusType (group 2) combobox.
+		/// The values represent specific formula in the CoreAI for calculating
+		/// casterlevel for a weapon-bonus.
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -310,17 +312,13 @@ namespace nwn2_ai_2da_editor
 			// NOTE: current val doesn't have to be tested for validity since
 			// this is a direct assignment.
 
-			int sel = cbo_dc_WeaponBonus.SelectedIndex;
-
-			//logfile.Log("SelectionChangeCommitted_dc_weaponbonustype() selectedId= " + sel);
-
 			string text = String.Empty;
-			switch (sel)
+			switch (cbo_dc_WeaponBonus.SelectedIndex)
 			{
 				case 0: text = "0";   break;
 				case 1: text = "100"; break; // no constants defined in CoreAI ->
-				case 2: text = "101"; break;
-				case 3: text = "102"; break;
+				case 2: text = "101"; break; // See 'hench_i0_buff' HenchCheckWeaponBuff()
+				case 3: text = "102"; break; // spelltype - HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF
 			}
 
 			bypassCheckedChecker = true;
@@ -338,8 +336,6 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void MouseClick_dc_armorchecktype(object sender, MouseEventArgs e)
 		{
-			//logfile.Log("MouseClick_dc_armorchecktype()");
-
 			int savedctype;
 			if (Int32.TryParse(SaveDCType_text.Text, out savedctype))
 			{

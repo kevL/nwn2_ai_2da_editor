@@ -260,13 +260,13 @@ namespace nwn2_ai_2da_editor
 
 			// populate the dropdown list for SaveType - Weapon type
 			// NOTE: These weapon cases are considered in 'hench_i0_buff' HenchCheckWeaponBuff()
-			cbo_st_Weapon.Items.Add("none");		//    0
-			cbo_st_Weapon.Items.Add("staff");		//    1
-			cbo_st_Weapon.Items.Add("slashing");	//    2
-			cbo_st_Weapon.Items.Add("holy sword");	//    4
-			cbo_st_Weapon.Items.Add("bludgeoning");	//    8
-			cbo_st_Weapon.Items.Add("undead");		//   16
-			cbo_st_Weapon.Items.Add("druid");		// 4096
+			cbo_st_WeaponRestriction.Items.Add("none");																	//    0
+			cbo_st_WeaponRestriction.Items.Add("target must be a staff");													//    1
+			cbo_st_WeaponRestriction.Items.Add("target must be a slashing weapon");										//    2
+			cbo_st_WeaponRestriction.Items.Add("target must be usable by a Paladin (holy sword)");							//    4
+			cbo_st_WeaponRestriction.Items.Add("target must be a bludgeoning weapon");										//    8
+			cbo_st_WeaponRestriction.Items.Add("damage increase is vs undead only");										//   16
+			cbo_st_WeaponRestriction.Items.Add("target must be an animal-like creature (self or animal companion only)");	// 4096
 
 			// populate the dropdown list for SaveType - AcBonus type
 			// NOTE: These ac-bonus cases are considered in 'hench_i0_buff' HenchCheckACBuff()
@@ -340,10 +340,10 @@ namespace nwn2_ai_2da_editor
 				savetype &= ~HENCH_SPELL_SAVE_TYPE_IMMUNITY2_MASK;
 				savetype &= ~HENCH_SPELL_SAVE_TYPE_CUSTOM_MASK;		// and specific-types
 
-				int val = cbo_st_Weapon.SelectedIndex;
+				int val = cbo_st_WeaponRestriction.SelectedIndex;
 				switch (val)
 				{
-					default: val = 0;                       break;
+//					default: val = 0;                       break; // let "0" fallthrough
 
 					case 1: val = HENCH_WEAPON_STAFF_FLAG;  break; // 1
 					case 2: val = HENCH_WEAPON_SLASH_FLAG;  break; // 2
@@ -904,16 +904,16 @@ namespace nwn2_ai_2da_editor
 				else if (val != 0) // ie. let val==0 fallthrough
 				{
 					val = -1;
-					cbo_st_Weapon.ForeColor = Color.Crimson;
+					cbo_st_WeaponRestriction.ForeColor = Color.Crimson;
 //					cbo_st_Weapon.Text = "invalid";
 				}
 
 				if (val != -1)
 				{
-					cbo_st_Weapon.ForeColor = DefaultForeColor;
+					cbo_st_WeaponRestriction.ForeColor = DefaultForeColor;
 				}
 
-				cbo_st_Weapon.SelectedIndex = val;
+				cbo_st_WeaponRestriction.SelectedIndex = val;
 
 
 // Exclusive Group

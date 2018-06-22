@@ -43,7 +43,9 @@
 		const int HENCH_SPELL_INFO_SPELL_TYPE_DISPEL            = 0x00000006; //  6 (dispel-type) on DamageInfo page
 
 		const int HENCH_SPELL_INFO_SPELL_TYPE_ENGR_PROT         = 0x0000000d; // 13 (energy immunity/resistance type) on SaveType page ->
-		const int HENCH_SPELL_INFO_SPELL_TYPE_ELEMENTAL_SHIELD  = 0x0000001b; // 27 (energy immunity/resistance type)
+		const int HENCH_SPELL_INFO_SPELL_TYPE_ELEMENTAL_SHIELD  = 0x0000001b; // 27
+
+		const int HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF       = 0x00000015; // 21
 
 		// 'hench_i0_itemsp'
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_AC_BUFF           = 0x00000002; //  2
@@ -59,7 +61,6 @@
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_SPELL_PROT        = 0x00000010; // 16
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_DETECT_INVIS      = 0x00000012; // 18
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_DOMINATE          = 0x00000014; // 20
-//		const int HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF       = 0x00000015; // 21
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_BUFF_ANIMAL_COMP  = 0x00000016; // 22
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_PROT_EVIL         = 0x00000017; // 23
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_PROT_GOOD         = 0x00000018; // 24
@@ -413,6 +414,8 @@
 
 		// Weapon types - CoreAI constants
 		// 'hench_i0_buffs'
+		// These are used in 'hench_i0_buff' HenchCheckWeaponBuff()
+		// spelltype - HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF
 		const int HENCH_WEAPON_STAFF_FLAG                    = 0x00000001; //    1	// Lovely. It looks like they did it again.
 		const int HENCH_WEAPON_SLASH_FLAG                    = 0x00000002; //    2	// iSaveType appears to be dual-purposed
 		const int HENCH_WEAPON_HOLY_SWORD                    = 0x00000004; //    4	// with overlapping values between these
