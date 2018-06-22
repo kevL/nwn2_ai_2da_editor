@@ -142,7 +142,7 @@ namespace nwn2_ai_2da_editor
 			cbo_ti_Shape.Items.Add("cube");				// 2
 			cbo_ti_Shape.Items.Add("spellcone");		// 3
 			cbo_ti_Shape.Items.Add("sphere");			// 4
-			cbo_ti_Shape.Items.Add("not used");			// 5
+			cbo_ti_Shape.Items.Add("[not used]");		// 5
 			cbo_ti_Shape.Items.Add("faction");			// 6
 			cbo_ti_Shape.Items.Add("none");				// 7
 

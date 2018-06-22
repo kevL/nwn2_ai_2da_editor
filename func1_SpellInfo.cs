@@ -191,7 +191,7 @@ namespace nwn2_ai_2da_editor
 			cbo_si_Spelltype.Items.Add("spell protection");			// 16
 			cbo_si_Spelltype.Items.Add("dragon breath");			// 17
 			cbo_si_Spelltype.Items.Add("detect invisible");			// 18
-			cbo_si_Spelltype.Items.Add("warlock (not used)");		// 19
+			cbo_si_Spelltype.Items.Add("warlock [not used]");		// 19
 			cbo_si_Spelltype.Items.Add("dominate");					// 20
 			cbo_si_Spelltype.Items.Add("weapon buff");				// 21
 			cbo_si_Spelltype.Items.Add("animal companion buff");	// 22
@@ -458,16 +458,18 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Toggles the DamageInfo groups between Dispel-type and Beneficial/
-		/// Detrimental-types.
-		/// NOTE: Set all groups false then toggle the one that's supposed to show on.
-		/// This works around a .Net anomaly in which assigning a true-value to a group
-		/// can leave its visibility false regardless (see commented code below).
+		/// Toggles the bit-groupings on the various pages between visible/non-
+		/// visible.
+		/// NOTE: Set all groups false then toggle the one(s) that's supposed to
+		/// show on. This works around a .NET anomaly in which assigning a
+		/// true-value to a group can leave its visibility false regardless
+		/// (see commented code below).
 		/// </summary>
 		/// <param name="spellinfo"></param>
 		void SetGroupVisibility(int spellinfo)
 		{
 			int spelltype = (spellinfo & HENCH_SPELL_INFO_SPELL_TYPE_MASK);
+
 
 // EffectTypes groups
 			et_PosEffectsGrp.Visible =
@@ -518,13 +520,14 @@ namespace nwn2_ai_2da_editor
 					break;
 			}
 
+
 // SaveType groups
 			st_ExclusiveGrp  .Visible =
 			st_WeaponGrp     .Visible =
 			st_AcBonusGrp    .Visible =
 			st_DetrimentalGrp.Visible = false;
 
-			st_NotCaster.Visible = false; // this is not in a group since it can be used for several types.
+			st_NotCaster.Visible = false; // this is not in a group since it can be used by several types.
 
 			switch (spelltype)
 			{
@@ -558,6 +561,7 @@ namespace nwn2_ai_2da_editor
 					break;
 			}
 
+
 // SaveDCType groups
 /*			dc_SaveDCGrp     .Visible = // TODO: The SaveDCType page's visibility is
 			dc_WeaponBonusGrp.Visible = // handled elsewhere but needs to be redone.
@@ -587,6 +591,7 @@ namespace nwn2_ai_2da_editor
 			} */
 		}
 
+
 // DOES NOT (always) WORK AS ADVERTISED:
 //		logfile.Log(". (spelltype == HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF)= "
 //				+ (spelltype == HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF));				// This can be True
@@ -594,6 +599,7 @@ namespace nwn2_ai_2da_editor
 //		logfile.Log(". st_WeaponGrp.Visible= " + st_WeaponGrp.Visible);					// But this can be False
 // note: It has been observed to bork after program start. After clicking through
 // a few tree-nodes it will then work fine. But that's not good enough is it.
+
 
 
 		/// <summary>

@@ -152,7 +152,7 @@ namespace nwn2_ai_2da_editor
 			cbo_di_BenPowerbase.Items.Add("hd");					// 2
 			cbo_di_BenPowerbase.Items.Add("fixed");					// 3
 			cbo_di_BenPowerbase.Items.Add("charisma");				// 4
-			cbo_di_BenPowerbase.Items.Add("bard level (not used)");	// 5
+			cbo_di_BenPowerbase.Items.Add("bard level [not used]");	// 5
 			cbo_di_BenPowerbase.Items.Add("dragon");				// 6
 
 			// populate the dropdown list for DamageInfo - beneficial LevelType
@@ -160,7 +160,7 @@ namespace nwn2_ai_2da_editor
 			// NOTE: These are bit-exclusive and so could be checkboxes but ....
 			cbo_di_BenLeveltype.Items.Add("dice");				// 0
 			cbo_di_BenLeveltype.Items.Add("adjust");			// 1
-			cbo_di_BenLeveltype.Items.Add("count (not used)");	// 2
+			cbo_di_BenLeveltype.Items.Add("count [not used]");	// 2
 			cbo_di_BenLeveltype.Items.Add("const");				// 3
 
 
@@ -175,7 +175,7 @@ namespace nwn2_ai_2da_editor
 			cbo_di_DetDamagebase.Items.Add("custom");				//  6
 			cbo_di_DetDamagebase.Items.Add("dragon disciple");		//  7
 			cbo_di_DetDamagebase.Items.Add("arcane archer");		//  8
-			cbo_di_DetDamagebase.Items.Add("warpriest (not used)");	//  9
+			cbo_di_DetDamagebase.Items.Add("warpriest [not used]");	//  9
 			cbo_di_DetDamagebase.Items.Add("lay on hands");			// 10
 			cbo_di_DetDamagebase.Items.Add("charisma");				// 11
 			cbo_di_DetDamagebase.Items.Add("bard perform");			// 12
