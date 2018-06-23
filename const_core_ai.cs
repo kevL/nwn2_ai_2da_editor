@@ -195,28 +195,28 @@
 
 		#region DamageInfo
 		// Group 1 - dispel type
-		// These are used by HenchCheckDispel() 'hench_i0_dispel'
+		// These are used by 'hench_i0_dispel' HenchCheckDispel()
 		// by
-		// DispatchSpell() 'hench_i0_itemsp' SpellInfo spelltype = HENCH_SPELL_INFO_SPELL_TYPE_DISPEL
+		// DispatchSpell() 'hench_i0_itemsp' SpellInfo spelltype - HENCH_SPELL_INFO_SPELL_TYPE_DISPEL
 
 		const int HENCH_SPELL_INFO_DAMAGE_BREACH           = 0x00000001;
 		const int HENCH_SPELL_INFO_DAMAGE_DISPEL           = 0x00000002;
 		const int HENCH_SPELL_INFO_DAMAGE_RESIST           = 0x00000004;
 
 		// Group 2 - BENEFICIAL-type (Buff)
-		// These are used by GetCurrentSpellBuffAmount() 'hench_i0_spells'
+		// These are used by 'hench_i0_spells' GetCurrentSpellBuffAmount()
 		// by
 		// HenchCheckACBuff() 'hench_i0_buff'
 		//    DispatchSpell() 'hench_i0_itemsp' SpellInfo
-		//      spelltype = HENCH_SPELL_INFO_SPELL_TYPE_AC_BUFF
+		//      spelltype - HENCH_SPELL_INFO_SPELL_TYPE_AC_BUFF
 		// HenchSpellAttack() 'hench_i0_attack' TargetInfo (iTargetInfo & HENCH_SPELL_TARGET_SCALE_EFFECT)
 		//    DispatchSpell() 'hench_i0_itemsp' SpellInfo
-		//      spelltype = HENCH_SPELL_INFO_SPELL_TYPE_ATTACK
-		//      spelltype = HENCH_SPELL_INFO_SPELL_TYPE_HEAL
-		//      spelltype = HENCH_SPELL_INFO_SPELL_TYPE_HARM
-		//      spelltype = HENCH_SPELL_INFO_SPELL_TYPE_ARCANE_ARCHER
-		//      spelltype = HENCH_SPELL_INFO_SPELL_TYPE_DRAGON_BREATH
-		//      spelltype = HENCH_SPELL_INFO_SPELL_TYPE_DOMINATE
+		//      spelltype - HENCH_SPELL_INFO_SPELL_TYPE_ATTACK
+		//      spelltype - HENCH_SPELL_INFO_SPELL_TYPE_HEAL
+		//      spelltype - HENCH_SPELL_INFO_SPELL_TYPE_HARM
+		//      spelltype - HENCH_SPELL_INFO_SPELL_TYPE_ARCANE_ARCHER
+		//      spelltype - HENCH_SPELL_INFO_SPELL_TYPE_DRAGON_BREATH
+		//      spelltype - HENCH_SPELL_INFO_SPELL_TYPE_DOMINATE
 		//    CheckSpontaneousCureOrInflictSpell() 'hench_i0_itemsp'
 		//        InitializeSpellTalents() 'hench_i0_itemsp'
 		//        - needs further investigation
@@ -248,18 +248,18 @@
 		const int HENCH_SPELL_INFO_BUFF_DRAGON             = 0x0d000000;
 
 		// Group 3 - DETRIMENTAL-type (Damage)
-		// These are used by GetCurrentSpellDamage() 'hench_i0_spells'
+		// These are used by 'hench_i0_spells' GetCurrentSpellDamage()
 		// by
 		// HenchCheckElementalShield() 'hench_i0_buff' - 
 		//    DispatchSpell() 'hench_i0_itemsp' SpellInfo
-		//      spelltype = HENCH_SPELL_INFO_SPELL_TYPE_ELEMENTAL_SHIELD
+		//      spelltype - HENCH_SPELL_INFO_SPELL_TYPE_ELEMENTAL_SHIELD
 		// HenchSpellAttack() 'hench_i0_attack' TargetInfo (iTargetInfo & ~HENCH_SPELL_TARGET_SCALE_EFFECT)
 		//    [see above ..]
 
 //		const int HENCH_SPELL_INFO_DAMAGE_TYPE_MASK        = 0x00000fff;
 
 		// NwScript DAMAGE_TYPE_* constants: (also used by SaveType - Exclusive)
-//		const int DAMAGE_TYPE_ALL                          = 0;          // Deprecated.
+//		const int DAMAGE_TYPE_ALL                          = 0;          //    Deprecated.
 		const int DAMAGE_TYPE_BLUDGEONING                  = 0x00000001; //    1
 		const int DAMAGE_TYPE_PIERCING                     = 0x00000002; //    2
 		const int DAMAGE_TYPE_SLASHING                     = 0x00000004; //    4

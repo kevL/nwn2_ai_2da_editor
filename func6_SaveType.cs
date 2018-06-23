@@ -260,21 +260,21 @@ namespace nwn2_ai_2da_editor
 
 			// populate the dropdown list for SaveType - Weapon type
 			// NOTE: These weapon cases are considered in 'hench_i0_buff' HenchCheckWeaponBuff()
-			cbo_st_WeaponRestriction.Items.Add("none");																		//    0
-			cbo_st_WeaponRestriction.Items.Add("target must be a staff");													//    1
-			cbo_st_WeaponRestriction.Items.Add("target must be a slashing weapon");											//    2
-			cbo_st_WeaponRestriction.Items.Add("target must be usable by a Paladin (holy sword)");							//    4
-			cbo_st_WeaponRestriction.Items.Add("target must be a bludgeoning weapon");										//    8
-			cbo_st_WeaponRestriction.Items.Add("damage increase is vs undead only");										//   16
-			cbo_st_WeaponRestriction.Items.Add("target must be an animal-like creature (self or animal companion only)");	// 4096
+			cbo_st_TargetRestriction.Items.Add("none");																		//    0
+			cbo_st_TargetRestriction.Items.Add("target must be a staff");													//    1
+			cbo_st_TargetRestriction.Items.Add("target must be a slashing weapon");											//    2
+			cbo_st_TargetRestriction.Items.Add("target must be usable by a Paladin (holy sword)");							//    4
+			cbo_st_TargetRestriction.Items.Add("target must be a bludgeoning weapon");										//    8
+			cbo_st_TargetRestriction.Items.Add("damage increase is vs undead only");										//   16
+			cbo_st_TargetRestriction.Items.Add("target must be an animal-like creature (self or animal companion only)");	// 4096
 
 			// populate the dropdown list for SaveType - AcBonus type
 			// NOTE: These ac-bonus cases are considered in 'hench_i0_buff' HenchCheckACBuff()
-			cbo_st_AcBonus.Items.Add("dodge (or none)");	// 0
-			cbo_st_AcBonus.Items.Add("natural");			// 1 // these need to be shifted << 18
-			cbo_st_AcBonus.Items.Add("armor");				// 2
-			cbo_st_AcBonus.Items.Add("shield");				// 3
-			cbo_st_AcBonus.Items.Add("deflection");			// 4
+			cbo_st_AcBonus.Items.Add("dodge or none");	// 0
+			cbo_st_AcBonus.Items.Add("natural");		// 1 // these need to be shifted << 18
+			cbo_st_AcBonus.Items.Add("armor");			// 2
+			cbo_st_AcBonus.Items.Add("shield");			// 3
+			cbo_st_AcBonus.Items.Add("deflection");		// 4
 
 			// TODO: There are further issues in 'hench_i0_buff'.
 		}
@@ -340,7 +340,7 @@ namespace nwn2_ai_2da_editor
 				savetype &= ~HENCH_SPELL_SAVE_TYPE_IMMUNITY2_MASK;
 				savetype &= ~HENCH_SPELL_SAVE_TYPE_CUSTOM_MASK;		// and specific-types
 
-				int val = cbo_st_WeaponRestriction.SelectedIndex;
+				int val = cbo_st_TargetRestriction.SelectedIndex;
 				switch (val)
 				{
 //					default: val = 0;                       break; // let "0" fallthrough
@@ -904,16 +904,16 @@ namespace nwn2_ai_2da_editor
 				else if (val != 0) // ie. let val==0 fallthrough
 				{
 					val = -1;
-					cbo_st_WeaponRestriction.ForeColor = Color.Crimson;
-//					cbo_st_Weapon.Text = "invalid";
+					cbo_st_TargetRestriction.ForeColor = Color.Crimson;
+//					cbo_st_TargetRestriction.Text = "invalid";
 				}
 
 				if (val != -1)
 				{
-					cbo_st_WeaponRestriction.ForeColor = DefaultForeColor;
+					cbo_st_TargetRestriction.ForeColor = DefaultForeColor;
 				}
 
-				cbo_st_WeaponRestriction.SelectedIndex = val;
+				cbo_st_TargetRestriction.SelectedIndex = val;
 
 
 // Exclusive Group

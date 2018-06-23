@@ -82,8 +82,8 @@
 		private System.Windows.Forms.ComboBox cbo_st_Immunity1;
 		private System.Windows.Forms.GroupBox st_AcBonusGrp;
 		private System.Windows.Forms.ComboBox cbo_st_AcBonus;
-		private System.Windows.Forms.GroupBox st_WeaponGrp;
-		private System.Windows.Forms.ComboBox cbo_st_WeaponRestriction;
+		private System.Windows.Forms.GroupBox st_TargetRestrictionGrp;
+		private System.Windows.Forms.ComboBox cbo_st_TargetRestriction;
 		private System.Windows.Forms.GroupBox st_Immunity2Grp;
 		private System.Windows.Forms.ComboBox cbo_st_Immunity2;
 		private System.Windows.Forms.ToolStripMenuItem edit;
@@ -563,8 +563,8 @@
 			this.SaveType_hex = new System.Windows.Forms.TextBox();
 			this.st_AcBonusGrp = new System.Windows.Forms.GroupBox();
 			this.cbo_st_AcBonus = new System.Windows.Forms.ComboBox();
-			this.st_WeaponGrp = new System.Windows.Forms.GroupBox();
-			this.cbo_st_WeaponRestriction = new System.Windows.Forms.ComboBox();
+			this.st_TargetRestrictionGrp = new System.Windows.Forms.GroupBox();
+			this.cbo_st_TargetRestriction = new System.Windows.Forms.ComboBox();
 			this.SaveType_text = new System.Windows.Forms.TextBox();
 			this.SaveType_reset = new System.Windows.Forms.Button();
 			this.page_SaveDCType = new System.Windows.Forms.TabPage();
@@ -659,7 +659,7 @@
 			this.st_Excl_WeightGrp.SuspendLayout();
 			this.st_Excl_DamagetypesGrp.SuspendLayout();
 			this.st_AcBonusGrp.SuspendLayout();
-			this.st_WeaponGrp.SuspendLayout();
+			this.st_TargetRestrictionGrp.SuspendLayout();
 			this.page_SaveDCType.SuspendLayout();
 			this.dc_ArmorCheckGrp.SuspendLayout();
 			this.dc_WeaponBonusGrp.SuspendLayout();
@@ -685,7 +685,7 @@
 			this.cols_HenchSpells.Name = "cols_HenchSpells";
 			this.cols_HenchSpells.Padding = new System.Drawing.Point(5, 2);
 			this.cols_HenchSpells.SelectedIndex = 0;
-			this.cols_HenchSpells.Size = new System.Drawing.Size(785, 475);
+			this.cols_HenchSpells.Size = new System.Drawing.Size(785, 450);
 			this.cols_HenchSpells.TabIndex = 0;
 			this.cols_HenchSpells.SelectedIndexChanged += new System.EventHandler(this.SelectedIndexChanged_tab);
 			// 
@@ -706,7 +706,7 @@
 			this.page_SpellInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SpellInfo.Name = "page_SpellInfo";
 			this.page_SpellInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SpellInfo.Size = new System.Drawing.Size(777, 447);
+			this.page_SpellInfo.Size = new System.Drawing.Size(792, 447);
 			this.page_SpellInfo.TabIndex = 0;
 			this.page_SpellInfo.Text = "SpellInfo";
 			this.page_SpellInfo.UseVisualStyleBackColor = true;
@@ -718,7 +718,7 @@
 			this.si_ChildIDGrp.Controls.Add(this.si_Child3);
 			this.si_ChildIDGrp.Controls.Add(this.si_Child2);
 			this.si_ChildIDGrp.Controls.Add(this.si_Child1);
-			this.si_ChildIDGrp.Location = new System.Drawing.Point(305, 160);
+			this.si_ChildIDGrp.Location = new System.Drawing.Point(305, 155);
 			this.si_ChildIDGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.si_ChildIDGrp.Name = "si_ChildIDGrp";
 			this.si_ChildIDGrp.Padding = new System.Windows.Forms.Padding(0);
@@ -784,7 +784,7 @@
 			this.si_FlagsGrp.Controls.Add(this.si_MediumDurBuff);
 			this.si_FlagsGrp.Controls.Add(this.si_HealOrCure);
 			this.si_FlagsGrp.Controls.Add(this.si_ShortDurBuff);
-			this.si_FlagsGrp.Location = new System.Drawing.Point(5, 110);
+			this.si_FlagsGrp.Location = new System.Drawing.Point(5, 105);
 			this.si_FlagsGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.si_FlagsGrp.Name = "si_FlagsGrp";
 			this.si_FlagsGrp.Padding = new System.Windows.Forms.Padding(0);
@@ -895,7 +895,7 @@
 			// si_SpelllevelGrp
 			// 
 			this.si_SpelllevelGrp.Controls.Add(this.cbo_si_Spelllevel);
-			this.si_SpelllevelGrp.Location = new System.Drawing.Point(305, 110);
+			this.si_SpelllevelGrp.Location = new System.Drawing.Point(305, 105);
 			this.si_SpelllevelGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.si_SpelllevelGrp.Name = "si_SpelllevelGrp";
 			this.si_SpelllevelGrp.Padding = new System.Windows.Forms.Padding(0);
@@ -923,7 +923,7 @@
 			this.si_SpelltypeGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.si_SpelltypeGrp.Name = "si_SpelltypeGrp";
 			this.si_SpelltypeGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.si_SpelltypeGrp.Size = new System.Drawing.Size(405, 50);
+			this.si_SpelltypeGrp.Size = new System.Drawing.Size(405, 45);
 			this.si_SpelltypeGrp.TabIndex = 41;
 			this.si_SpelltypeGrp.TabStop = false;
 			this.si_SpelltypeGrp.Text = "Spell type";
@@ -970,7 +970,7 @@
 			// 
 			// si_Clear
 			// 
-			this.si_Clear.Location = new System.Drawing.Point(445, 5);
+			this.si_Clear.Location = new System.Drawing.Point(450, 5);
 			this.si_Clear.Margin = new System.Windows.Forms.Padding(0);
 			this.si_Clear.Name = "si_Clear";
 			this.si_Clear.Size = new System.Drawing.Size(65, 50);
@@ -1035,11 +1035,11 @@
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_hex);
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_text);
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_reset);
-			this.page_TargetInfo.Location = new System.Drawing.Point(4, 24);
+			this.page_TargetInfo.Location = new System.Drawing.Point(4, 23);
 			this.page_TargetInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_TargetInfo.Name = "page_TargetInfo";
 			this.page_TargetInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_TargetInfo.Size = new System.Drawing.Size(777, 447);
+			this.page_TargetInfo.Size = new System.Drawing.Size(792, 448);
 			this.page_TargetInfo.TabIndex = 1;
 			this.page_TargetInfo.Text = "TargetInfo";
 			this.page_TargetInfo.UseVisualStyleBackColor = true;
@@ -1047,11 +1047,11 @@
 			// ti_RadiusGrp
 			// 
 			this.ti_RadiusGrp.Controls.Add(this.ti_Radius);
-			this.ti_RadiusGrp.Location = new System.Drawing.Point(195, 160);
+			this.ti_RadiusGrp.Location = new System.Drawing.Point(195, 150);
 			this.ti_RadiusGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.ti_RadiusGrp.Name = "ti_RadiusGrp";
 			this.ti_RadiusGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.ti_RadiusGrp.Size = new System.Drawing.Size(225, 45);
+			this.ti_RadiusGrp.Size = new System.Drawing.Size(225, 40);
 			this.ti_RadiusGrp.TabIndex = 49;
 			this.ti_RadiusGrp.TabStop = false;
 			this.ti_RadiusGrp.Text = "Radius";
@@ -1068,11 +1068,11 @@
 			// ti_RangeGrp
 			// 
 			this.ti_RangeGrp.Controls.Add(this.cbo_ti_Range);
-			this.ti_RangeGrp.Location = new System.Drawing.Point(195, 110);
+			this.ti_RangeGrp.Location = new System.Drawing.Point(195, 105);
 			this.ti_RangeGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.ti_RangeGrp.Name = "ti_RangeGrp";
 			this.ti_RangeGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.ti_RangeGrp.Size = new System.Drawing.Size(225, 50);
+			this.ti_RangeGrp.Size = new System.Drawing.Size(225, 45);
 			this.ti_RangeGrp.TabIndex = 48;
 			this.ti_RangeGrp.TabStop = false;
 			this.ti_RangeGrp.Text = "Range";
@@ -1095,7 +1095,7 @@
 			this.ti_ShapeGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.ti_ShapeGrp.Name = "ti_ShapeGrp";
 			this.ti_ShapeGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.ti_ShapeGrp.Size = new System.Drawing.Size(225, 50);
+			this.ti_ShapeGrp.Size = new System.Drawing.Size(225, 45);
 			this.ti_ShapeGrp.TabIndex = 47;
 			this.ti_ShapeGrp.TabStop = false;
 			this.ti_ShapeGrp.Text = "Shape";
@@ -1265,7 +1265,7 @@
 			// 
 			// ti_Clear
 			// 
-			this.ti_Clear.Location = new System.Drawing.Point(445, 5);
+			this.ti_Clear.Location = new System.Drawing.Point(450, 5);
 			this.ti_Clear.Margin = new System.Windows.Forms.Padding(0);
 			this.ti_Clear.Name = "ti_Clear";
 			this.ti_Clear.Size = new System.Drawing.Size(65, 50);
@@ -1324,18 +1324,18 @@
 			this.page_EffectWeight.Controls.Add(this.f1);
 			this.page_EffectWeight.Controls.Add(this.EffectWeight_reset);
 			this.page_EffectWeight.Controls.Add(this.EffectWeight_text);
-			this.page_EffectWeight.Location = new System.Drawing.Point(4, 24);
+			this.page_EffectWeight.Location = new System.Drawing.Point(4, 23);
 			this.page_EffectWeight.Margin = new System.Windows.Forms.Padding(2);
 			this.page_EffectWeight.Name = "page_EffectWeight";
 			this.page_EffectWeight.Padding = new System.Windows.Forms.Padding(2);
-			this.page_EffectWeight.Size = new System.Drawing.Size(777, 447);
+			this.page_EffectWeight.Size = new System.Drawing.Size(792, 448);
 			this.page_EffectWeight.TabIndex = 2;
 			this.page_EffectWeight.Text = "EffectWeight";
 			this.page_EffectWeight.UseVisualStyleBackColor = true;
 			// 
 			// ew_Clear
 			// 
-			this.ew_Clear.Location = new System.Drawing.Point(130, 5);
+			this.ew_Clear.Location = new System.Drawing.Point(135, 5);
 			this.ew_Clear.Margin = new System.Windows.Forms.Padding(0);
 			this.ew_Clear.Name = "ew_Clear";
 			this.ew_Clear.Size = new System.Drawing.Size(65, 50);
@@ -1435,7 +1435,7 @@
 			this.et_NegEffectsGrp.Controls.Add(this.et_Deafness);
 			this.et_NegEffectsGrp.Controls.Add(this.et_Paralyze);
 			this.et_NegEffectsGrp.Controls.Add(this.et_Entangle);
-			this.et_NegEffectsGrp.Location = new System.Drawing.Point(390, 60);
+			this.et_NegEffectsGrp.Location = new System.Drawing.Point(5, 60);
 			this.et_NegEffectsGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.et_NegEffectsGrp.Name = "et_NegEffectsGrp";
 			this.et_NegEffectsGrp.Padding = new System.Windows.Forms.Padding(0);
@@ -1801,7 +1801,7 @@
 			this.et_PosEffectsGrp.Controls.Add(this.et_AttackIncrease);
 			this.et_PosEffectsGrp.Controls.Add(this.et_Regenerate);
 			this.et_PosEffectsGrp.Controls.Add(this.et_AcIncrease);
-			this.et_PosEffectsGrp.Location = new System.Drawing.Point(5, 60);
+			this.et_PosEffectsGrp.Location = new System.Drawing.Point(390, 60);
 			this.et_PosEffectsGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.et_PosEffectsGrp.Name = "et_PosEffectsGrp";
 			this.et_PosEffectsGrp.Padding = new System.Windows.Forms.Padding(0);
@@ -2107,7 +2107,7 @@
 			// 
 			// et_Clear
 			// 
-			this.et_Clear.Location = new System.Drawing.Point(445, 5);
+			this.et_Clear.Location = new System.Drawing.Point(450, 5);
 			this.et_Clear.Margin = new System.Windows.Forms.Padding(0);
 			this.et_Clear.Name = "et_Clear";
 			this.et_Clear.Size = new System.Drawing.Size(65, 50);
@@ -2175,7 +2175,7 @@
 			this.page_DamageInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_DamageInfo.Name = "page_DamageInfo";
 			this.page_DamageInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_DamageInfo.Size = new System.Drawing.Size(777, 447);
+			this.page_DamageInfo.Size = new System.Drawing.Size(777, 422);
 			this.page_DamageInfo.TabIndex = 4;
 			this.page_DamageInfo.Text = "DamageInfo";
 			this.page_DamageInfo.UseVisualStyleBackColor = true;
@@ -2189,11 +2189,11 @@
 			this.di_DetrimentalGrp.Controls.Add(this.di_DetFixedCountGrp);
 			this.di_DetrimentalGrp.Controls.Add(this.di_DetDamagebaseGrp);
 			this.di_DetrimentalGrp.Controls.Add(this.di_DetLeveltypeGrp);
-			this.di_DetrimentalGrp.Location = new System.Drawing.Point(360, 60);
+			this.di_DetrimentalGrp.Location = new System.Drawing.Point(5, 60);
 			this.di_DetrimentalGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.di_DetrimentalGrp.Name = "di_DetrimentalGrp";
 			this.di_DetrimentalGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.di_DetrimentalGrp.Size = new System.Drawing.Size(370, 285);
+			this.di_DetrimentalGrp.Size = new System.Drawing.Size(380, 280);
 			this.di_DetrimentalGrp.TabIndex = 48;
 			this.di_DetrimentalGrp.TabStop = false;
 			this.di_DetrimentalGrp.Text = "detrimental";
@@ -2201,14 +2201,14 @@
 			// di_DetDamageGrp
 			// 
 			this.di_DetDamageGrp.Controls.Add(this.di_DetDamage);
-			this.di_DetDamageGrp.Location = new System.Drawing.Point(5, 65);
+			this.di_DetDamageGrp.Location = new System.Drawing.Point(5, 60);
 			this.di_DetDamageGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.di_DetDamageGrp.Name = "di_DetDamageGrp";
 			this.di_DetDamageGrp.Padding = new System.Windows.Forms.Padding(0);
 			this.di_DetDamageGrp.Size = new System.Drawing.Size(240, 40);
 			this.di_DetDamageGrp.TabIndex = 9;
 			this.di_DetDamageGrp.TabStop = false;
-			this.di_DetDamageGrp.Text = "Damage";
+			this.di_DetDamageGrp.Text = "000F F000 damage";
 			// 
 			// di_DetDamage
 			// 
@@ -2237,10 +2237,10 @@
 			this.di_DetDamagetypeGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.di_DetDamagetypeGrp.Name = "di_DetDamagetypeGrp";
 			this.di_DetDamagetypeGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.di_DetDamagetypeGrp.Size = new System.Drawing.Size(120, 265);
+			this.di_DetDamagetypeGrp.Size = new System.Drawing.Size(130, 260);
 			this.di_DetDamagetypeGrp.TabIndex = 8;
 			this.di_DetDamagetypeGrp.TabStop = false;
-			this.di_DetDamagetypeGrp.Text = "Damage types";
+			this.di_DetDamagetypeGrp.Text = "0000 0FFF types";
 			// 
 			// di_Sonic
 			// 
@@ -2377,14 +2377,14 @@
 			// di_DetLeveldivisorGrp
 			// 
 			this.di_DetLeveldivisorGrp.Controls.Add(this.di_DetLeveldivisor);
-			this.di_DetLeveldivisorGrp.Location = new System.Drawing.Point(5, 200);
+			this.di_DetLeveldivisorGrp.Location = new System.Drawing.Point(5, 185);
 			this.di_DetLeveldivisorGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.di_DetLeveldivisorGrp.Name = "di_DetLeveldivisorGrp";
 			this.di_DetLeveldivisorGrp.Padding = new System.Windows.Forms.Padding(0);
 			this.di_DetLeveldivisorGrp.Size = new System.Drawing.Size(240, 40);
 			this.di_DetLeveldivisorGrp.TabIndex = 7;
 			this.di_DetLeveldivisorGrp.TabStop = false;
-			this.di_DetLeveldivisorGrp.Text = "Level divisor";
+			this.di_DetLeveldivisorGrp.Text = "0C00 0000 leveldivisor";
 			// 
 			// di_DetLeveldivisor
 			// 
@@ -2398,14 +2398,14 @@
 			// di_DetLevellimitGrp
 			// 
 			this.di_DetLevellimitGrp.Controls.Add(this.di_DetLevellimit);
-			this.di_DetLevellimitGrp.Location = new System.Drawing.Point(5, 160);
+			this.di_DetLevellimitGrp.Location = new System.Drawing.Point(5, 145);
 			this.di_DetLevellimitGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.di_DetLevellimitGrp.Name = "di_DetLevellimitGrp";
 			this.di_DetLevellimitGrp.Padding = new System.Windows.Forms.Padding(0);
 			this.di_DetLevellimitGrp.Size = new System.Drawing.Size(240, 40);
 			this.di_DetLevellimitGrp.TabIndex = 6;
 			this.di_DetLevellimitGrp.TabStop = false;
-			this.di_DetLevellimitGrp.Text = "Level limit";
+			this.di_DetLevellimitGrp.Text = "00F0 0000 levellimit";
 			// 
 			// di_DetLevellimit
 			// 
@@ -2420,14 +2420,14 @@
 			// 
 			this.di_DetFixedCountGrp.Controls.Add(this.di_lbl_FixedCountPlusOne);
 			this.di_DetFixedCountGrp.Controls.Add(this.di_DetFixedcount);
-			this.di_DetFixedCountGrp.Location = new System.Drawing.Point(5, 240);
+			this.di_DetFixedCountGrp.Location = new System.Drawing.Point(5, 225);
 			this.di_DetFixedCountGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.di_DetFixedCountGrp.Name = "di_DetFixedCountGrp";
 			this.di_DetFixedCountGrp.Padding = new System.Windows.Forms.Padding(0);
 			this.di_DetFixedCountGrp.Size = new System.Drawing.Size(240, 40);
 			this.di_DetFixedCountGrp.TabIndex = 5;
 			this.di_DetFixedCountGrp.TabStop = false;
-			this.di_DetFixedCountGrp.Text = "Fixed count";
+			this.di_DetFixedCountGrp.Text = "0F00 0000 fixedcount";
 			// 
 			// di_lbl_FixedCountPlusOne
 			// 
@@ -2453,10 +2453,10 @@
 			this.di_DetDamagebaseGrp.Controls.Add(this.cbo_di_DetDamagebase);
 			this.di_DetDamagebaseGrp.Location = new System.Drawing.Point(5, 15);
 			this.di_DetDamagebaseGrp.Name = "di_DetDamagebaseGrp";
-			this.di_DetDamagebaseGrp.Size = new System.Drawing.Size(240, 50);
+			this.di_DetDamagebaseGrp.Size = new System.Drawing.Size(240, 45);
 			this.di_DetDamagebaseGrp.TabIndex = 3;
 			this.di_DetDamagebaseGrp.TabStop = false;
-			this.di_DetDamagebaseGrp.Text = "Damage base";
+			this.di_DetDamagebaseGrp.Text = "F000 0000 damagebase";
 			// 
 			// cbo_di_DetDamagebase
 			// 
@@ -2472,12 +2472,12 @@
 			// di_DetLeveltypeGrp
 			// 
 			this.di_DetLeveltypeGrp.Controls.Add(this.cbo_di_DetLeveltype);
-			this.di_DetLeveltypeGrp.Location = new System.Drawing.Point(5, 110);
+			this.di_DetLeveltypeGrp.Location = new System.Drawing.Point(5, 100);
 			this.di_DetLeveltypeGrp.Name = "di_DetLeveltypeGrp";
-			this.di_DetLeveltypeGrp.Size = new System.Drawing.Size(240, 50);
+			this.di_DetLeveltypeGrp.Size = new System.Drawing.Size(240, 45);
 			this.di_DetLeveltypeGrp.TabIndex = 2;
 			this.di_DetLeveltypeGrp.TabStop = false;
-			this.di_DetLeveltypeGrp.Text = "Level type";
+			this.di_DetLeveltypeGrp.Text = "0300 0000 leveltype";
 			// 
 			// cbo_di_DetLeveltype
 			// 
@@ -2498,11 +2498,11 @@
 			this.di_BeneficialGrp.Controls.Add(this.di_BenLeveldivisorGrp);
 			this.di_BeneficialGrp.Controls.Add(this.di_BenLevellimitGrp);
 			this.di_BeneficialGrp.Controls.Add(this.di_BenLeveltypeGrp);
-			this.di_BeneficialGrp.Location = new System.Drawing.Point(110, 60);
+			this.di_BeneficialGrp.Location = new System.Drawing.Point(385, 60);
 			this.di_BeneficialGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.di_BeneficialGrp.Name = "di_BeneficialGrp";
 			this.di_BeneficialGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.di_BeneficialGrp.Size = new System.Drawing.Size(250, 285);
+			this.di_BeneficialGrp.Size = new System.Drawing.Size(250, 280);
 			this.di_BeneficialGrp.TabIndex = 47;
 			this.di_BeneficialGrp.TabStop = false;
 			this.di_BeneficialGrp.Text = "beneficial";
@@ -2510,14 +2510,14 @@
 			// di_BenLeveldecreaseGrp
 			// 
 			this.di_BenLeveldecreaseGrp.Controls.Add(this.di_BenLeveldecrease);
-			this.di_BenLeveldecreaseGrp.Location = new System.Drawing.Point(5, 240);
+			this.di_BenLeveldecreaseGrp.Location = new System.Drawing.Point(5, 225);
 			this.di_BenLeveldecreaseGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.di_BenLeveldecreaseGrp.Name = "di_BenLeveldecreaseGrp";
 			this.di_BenLeveldecreaseGrp.Padding = new System.Windows.Forms.Padding(0);
 			this.di_BenLeveldecreaseGrp.Size = new System.Drawing.Size(240, 40);
 			this.di_BenLeveldecreaseGrp.TabIndex = 6;
 			this.di_BenLeveldecreaseGrp.TabStop = false;
-			this.di_BenLeveldecreaseGrp.Text = "Level decrease";
+			this.di_BenLeveldecreaseGrp.Text = "00F0 0000 leveldecrease";
 			// 
 			// di_BenLeveldecrease
 			// 
@@ -2533,10 +2533,10 @@
 			this.di_BenPowerbaseGrp.Controls.Add(this.cbo_di_BenPowerbase);
 			this.di_BenPowerbaseGrp.Location = new System.Drawing.Point(5, 15);
 			this.di_BenPowerbaseGrp.Name = "di_BenPowerbaseGrp";
-			this.di_BenPowerbaseGrp.Size = new System.Drawing.Size(240, 50);
+			this.di_BenPowerbaseGrp.Size = new System.Drawing.Size(240, 45);
 			this.di_BenPowerbaseGrp.TabIndex = 2;
 			this.di_BenPowerbaseGrp.TabStop = false;
-			this.di_BenPowerbaseGrp.Text = "Power base";
+			this.di_BenPowerbaseGrp.Text = "0F00 0000 powerbase";
 			// 
 			// cbo_di_BenPowerbase
 			// 
@@ -2552,14 +2552,14 @@
 			// di_BenPowerGrp
 			// 
 			this.di_BenPowerGrp.Controls.Add(this.di_BenPower);
-			this.di_BenPowerGrp.Location = new System.Drawing.Point(5, 65);
+			this.di_BenPowerGrp.Location = new System.Drawing.Point(5, 60);
 			this.di_BenPowerGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.di_BenPowerGrp.Name = "di_BenPowerGrp";
 			this.di_BenPowerGrp.Padding = new System.Windows.Forms.Padding(0);
 			this.di_BenPowerGrp.Size = new System.Drawing.Size(240, 40);
 			this.di_BenPowerGrp.TabIndex = 3;
 			this.di_BenPowerGrp.TabStop = false;
-			this.di_BenPowerGrp.Text = "Power";
+			this.di_BenPowerGrp.Text = "0000 00FF power";
 			// 
 			// di_BenPower
 			// 
@@ -2573,14 +2573,14 @@
 			// di_BenLeveldivisorGrp
 			// 
 			this.di_BenLeveldivisorGrp.Controls.Add(this.di_BenLeveldivisor);
-			this.di_BenLeveldivisorGrp.Location = new System.Drawing.Point(5, 200);
+			this.di_BenLeveldivisorGrp.Location = new System.Drawing.Point(5, 185);
 			this.di_BenLeveldivisorGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.di_BenLeveldivisorGrp.Name = "di_BenLeveldivisorGrp";
 			this.di_BenLeveldivisorGrp.Padding = new System.Windows.Forms.Padding(0);
 			this.di_BenLeveldivisorGrp.Size = new System.Drawing.Size(240, 40);
 			this.di_BenLeveldivisorGrp.TabIndex = 5;
 			this.di_BenLeveldivisorGrp.TabStop = false;
-			this.di_BenLeveldivisorGrp.Text = "Level divisor";
+			this.di_BenLeveldivisorGrp.Text = "000F 0000 leveldivisor";
 			// 
 			// di_BenLeveldivisor
 			// 
@@ -2594,14 +2594,14 @@
 			// di_BenLevellimitGrp
 			// 
 			this.di_BenLevellimitGrp.Controls.Add(this.di_BenLevellimit);
-			this.di_BenLevellimitGrp.Location = new System.Drawing.Point(5, 160);
+			this.di_BenLevellimitGrp.Location = new System.Drawing.Point(5, 145);
 			this.di_BenLevellimitGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.di_BenLevellimitGrp.Name = "di_BenLevellimitGrp";
 			this.di_BenLevellimitGrp.Padding = new System.Windows.Forms.Padding(0);
 			this.di_BenLevellimitGrp.Size = new System.Drawing.Size(240, 40);
 			this.di_BenLevellimitGrp.TabIndex = 4;
 			this.di_BenLevellimitGrp.TabStop = false;
-			this.di_BenLevellimitGrp.Text = "Level limit";
+			this.di_BenLevellimitGrp.Text = "0000 3F00 levellimit";
 			// 
 			// di_BenLevellimit
 			// 
@@ -2615,12 +2615,12 @@
 			// di_BenLeveltypeGrp
 			// 
 			this.di_BenLeveltypeGrp.Controls.Add(this.cbo_di_BenLeveltype);
-			this.di_BenLeveltypeGrp.Location = new System.Drawing.Point(5, 110);
+			this.di_BenLeveltypeGrp.Location = new System.Drawing.Point(5, 100);
 			this.di_BenLeveltypeGrp.Name = "di_BenLeveltypeGrp";
-			this.di_BenLeveltypeGrp.Size = new System.Drawing.Size(240, 50);
+			this.di_BenLeveltypeGrp.Size = new System.Drawing.Size(240, 45);
 			this.di_BenLeveltypeGrp.TabIndex = 1;
 			this.di_BenLeveltypeGrp.TabStop = false;
-			this.di_BenLeveltypeGrp.Text = "Level type";
+			this.di_BenLeveltypeGrp.Text = "0000 C000 leveltype";
 			// 
 			// cbo_di_BenLeveltype
 			// 
@@ -2638,14 +2638,14 @@
 			this.di_DispelTypesGrp.Controls.Add(this.di_Resist);
 			this.di_DispelTypesGrp.Controls.Add(this.di_Dispel);
 			this.di_DispelTypesGrp.Controls.Add(this.di_Breach);
-			this.di_DispelTypesGrp.Location = new System.Drawing.Point(5, 60);
+			this.di_DispelTypesGrp.Location = new System.Drawing.Point(5, 340);
 			this.di_DispelTypesGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.di_DispelTypesGrp.Name = "di_DispelTypesGrp";
 			this.di_DispelTypesGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.di_DispelTypesGrp.Size = new System.Drawing.Size(105, 80);
+			this.di_DispelTypesGrp.Size = new System.Drawing.Size(170, 80);
 			this.di_DispelTypesGrp.TabIndex = 46;
 			this.di_DispelTypesGrp.TabStop = false;
-			this.di_DispelTypesGrp.Text = "Dispel types";
+			this.di_DispelTypesGrp.Text = "0000 0007 dispeltypes";
 			// 
 			// di_Resist
 			// 
@@ -2702,7 +2702,7 @@
 			// 
 			// di_Clear
 			// 
-			this.di_Clear.Location = new System.Drawing.Point(445, 5);
+			this.di_Clear.Location = new System.Drawing.Point(450, 5);
 			this.di_Clear.Margin = new System.Windows.Forms.Padding(0);
 			this.di_Clear.Name = "di_Clear";
 			this.di_Clear.Size = new System.Drawing.Size(65, 50);
@@ -2765,14 +2765,14 @@
 			this.page_SaveType.Controls.Add(this.SaveType_bin);
 			this.page_SaveType.Controls.Add(this.SaveType_hex);
 			this.page_SaveType.Controls.Add(this.st_AcBonusGrp);
-			this.page_SaveType.Controls.Add(this.st_WeaponGrp);
+			this.page_SaveType.Controls.Add(this.st_TargetRestrictionGrp);
 			this.page_SaveType.Controls.Add(this.SaveType_text);
 			this.page_SaveType.Controls.Add(this.SaveType_reset);
-			this.page_SaveType.Location = new System.Drawing.Point(4, 24);
+			this.page_SaveType.Location = new System.Drawing.Point(4, 23);
 			this.page_SaveType.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SaveType.Name = "page_SaveType";
 			this.page_SaveType.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SaveType.Size = new System.Drawing.Size(777, 447);
+			this.page_SaveType.Size = new System.Drawing.Size(792, 448);
 			this.page_SaveType.TabIndex = 5;
 			this.page_SaveType.Text = "SaveType";
 			this.page_SaveType.UseVisualStyleBackColor = true;
@@ -3459,7 +3459,7 @@
 			// 
 			// st_NotCaster
 			// 
-			this.st_NotCaster.Location = new System.Drawing.Point(10, 335);
+			this.st_NotCaster.Location = new System.Drawing.Point(10, 340);
 			this.st_NotCaster.Margin = new System.Windows.Forms.Padding(0);
 			this.st_NotCaster.Name = "st_NotCaster";
 			this.st_NotCaster.Size = new System.Drawing.Size(225, 20);
@@ -3470,7 +3470,7 @@
 			// 
 			// st_Clear
 			// 
-			this.st_Clear.Location = new System.Drawing.Point(445, 5);
+			this.st_Clear.Location = new System.Drawing.Point(450, 5);
 			this.st_Clear.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Clear.Name = "st_Clear";
 			this.st_Clear.Size = new System.Drawing.Size(65, 50);
@@ -3504,11 +3504,11 @@
 			// st_AcBonusGrp
 			// 
 			this.st_AcBonusGrp.Controls.Add(this.cbo_st_AcBonus);
-			this.st_AcBonusGrp.Location = new System.Drawing.Point(525, 355);
+			this.st_AcBonusGrp.Location = new System.Drawing.Point(525, 360);
 			this.st_AcBonusGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_AcBonusGrp.Name = "st_AcBonusGrp";
 			this.st_AcBonusGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_AcBonusGrp.Size = new System.Drawing.Size(200, 45);
+			this.st_AcBonusGrp.Size = new System.Drawing.Size(195, 45);
 			this.st_AcBonusGrp.TabIndex = 28;
 			this.st_AcBonusGrp.TabStop = false;
 			this.st_AcBonusGrp.Text = "AcBonus type";
@@ -3524,29 +3524,29 @@
 			this.cbo_st_AcBonus.TabIndex = 0;
 			this.cbo_st_AcBonus.SelectionChangeCommitted += new System.EventHandler(this.SelectionChangeCommitted_st_cbo_AcBonus);
 			// 
-			// st_WeaponGrp
+			// st_TargetRestrictionGrp
 			// 
-			this.st_WeaponGrp.Controls.Add(this.cbo_st_WeaponRestriction);
-			this.st_WeaponGrp.Location = new System.Drawing.Point(5, 355);
-			this.st_WeaponGrp.Margin = new System.Windows.Forms.Padding(0);
-			this.st_WeaponGrp.Name = "st_WeaponGrp";
-			this.st_WeaponGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_WeaponGrp.Size = new System.Drawing.Size(520, 45);
-			this.st_WeaponGrp.TabIndex = 27;
-			this.st_WeaponGrp.TabStop = false;
-			this.st_WeaponGrp.Text = "Weapon restriction";
+			this.st_TargetRestrictionGrp.Controls.Add(this.cbo_st_TargetRestriction);
+			this.st_TargetRestrictionGrp.Location = new System.Drawing.Point(5, 360);
+			this.st_TargetRestrictionGrp.Margin = new System.Windows.Forms.Padding(0);
+			this.st_TargetRestrictionGrp.Name = "st_TargetRestrictionGrp";
+			this.st_TargetRestrictionGrp.Padding = new System.Windows.Forms.Padding(0);
+			this.st_TargetRestrictionGrp.Size = new System.Drawing.Size(520, 45);
+			this.st_TargetRestrictionGrp.TabIndex = 27;
+			this.st_TargetRestrictionGrp.TabStop = false;
+			this.st_TargetRestrictionGrp.Text = "Target restriction";
 			// 
-			// cbo_st_WeaponRestriction
+			// cbo_st_TargetRestriction
 			// 
-			this.cbo_st_WeaponRestriction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbo_st_WeaponRestriction.DropDownWidth = 510;
-			this.cbo_st_WeaponRestriction.FormattingEnabled = true;
-			this.cbo_st_WeaponRestriction.Location = new System.Drawing.Point(5, 15);
-			this.cbo_st_WeaponRestriction.Margin = new System.Windows.Forms.Padding(0);
-			this.cbo_st_WeaponRestriction.Name = "cbo_st_WeaponRestriction";
-			this.cbo_st_WeaponRestriction.Size = new System.Drawing.Size(510, 22);
-			this.cbo_st_WeaponRestriction.TabIndex = 0;
-			this.cbo_st_WeaponRestriction.SelectionChangeCommitted += new System.EventHandler(this.SelectionChangeCommitted_st_cbo_Weapon);
+			this.cbo_st_TargetRestriction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbo_st_TargetRestriction.DropDownWidth = 510;
+			this.cbo_st_TargetRestriction.FormattingEnabled = true;
+			this.cbo_st_TargetRestriction.Location = new System.Drawing.Point(5, 15);
+			this.cbo_st_TargetRestriction.Margin = new System.Windows.Forms.Padding(0);
+			this.cbo_st_TargetRestriction.Name = "cbo_st_TargetRestriction";
+			this.cbo_st_TargetRestriction.Size = new System.Drawing.Size(510, 22);
+			this.cbo_st_TargetRestriction.TabIndex = 0;
+			this.cbo_st_TargetRestriction.SelectionChangeCommitted += new System.EventHandler(this.SelectionChangeCommitted_st_cbo_Weapon);
 			// 
 			// SaveType_text
 			// 
@@ -3584,11 +3584,11 @@
 			this.page_SaveDCType.Controls.Add(this.savedctype2);
 			this.page_SaveDCType.Controls.Add(this.savedctype1);
 			this.page_SaveDCType.Controls.Add(this.SaveDCType_reset);
-			this.page_SaveDCType.Location = new System.Drawing.Point(4, 24);
+			this.page_SaveDCType.Location = new System.Drawing.Point(4, 23);
 			this.page_SaveDCType.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SaveDCType.Name = "page_SaveDCType";
 			this.page_SaveDCType.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SaveDCType.Size = new System.Drawing.Size(777, 447);
+			this.page_SaveDCType.Size = new System.Drawing.Size(792, 448);
 			this.page_SaveDCType.TabIndex = 6;
 			this.page_SaveDCType.Text = "SaveDCType";
 			this.page_SaveDCType.UseVisualStyleBackColor = true;
@@ -3615,7 +3615,7 @@
 			// 
 			// dc_Clear
 			// 
-			this.dc_Clear.Location = new System.Drawing.Point(445, 5);
+			this.dc_Clear.Location = new System.Drawing.Point(450, 5);
 			this.dc_Clear.Margin = new System.Windows.Forms.Padding(0);
 			this.dc_Clear.Name = "dc_Clear";
 			this.dc_Clear.Size = new System.Drawing.Size(65, 50);
@@ -3652,21 +3652,21 @@
 			this.dc_ArmorCheckGrp.Controls.Add(this.savedc_ac3);
 			this.dc_ArmorCheckGrp.Controls.Add(this.savedc_ac1);
 			this.dc_ArmorCheckGrp.Controls.Add(this.savedc_ac2);
-			this.dc_ArmorCheckGrp.Location = new System.Drawing.Point(345, 185);
+			this.dc_ArmorCheckGrp.Location = new System.Drawing.Point(345, 170);
 			this.dc_ArmorCheckGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.dc_ArmorCheckGrp.Name = "dc_ArmorCheckGrp";
 			this.dc_ArmorCheckGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.dc_ArmorCheckGrp.Size = new System.Drawing.Size(315, 255);
+			this.dc_ArmorCheckGrp.Size = new System.Drawing.Size(315, 260);
 			this.dc_ArmorCheckGrp.TabIndex = 13;
 			this.dc_ArmorCheckGrp.TabStop = false;
 			this.dc_ArmorCheckGrp.Text = "armor check type";
 			// 
 			// armorcheck_info
 			// 
-			this.armorcheck_info.Location = new System.Drawing.Point(10, 80);
+			this.armorcheck_info.Location = new System.Drawing.Point(5, 85);
 			this.armorcheck_info.Margin = new System.Windows.Forms.Padding(0);
 			this.armorcheck_info.Name = "armorcheck_info";
-			this.armorcheck_info.Size = new System.Drawing.Size(300, 140);
+			this.armorcheck_info.Size = new System.Drawing.Size(305, 140);
 			this.armorcheck_info.TabIndex = 5;
 			this.armorcheck_info.Text = resources.GetString("armorcheck_info.Text");
 			// 
@@ -3715,15 +3715,12 @@
 			// 
 			// dc_WeaponBonusGrp
 			// 
-			this.dc_WeaponBonusGrp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-			| System.Windows.Forms.AnchorStyles.Left)));
-			this.dc_WeaponBonusGrp.AutoSize = true;
 			this.dc_WeaponBonusGrp.Controls.Add(this.cbo_dc_WeaponBonus);
 			this.dc_WeaponBonusGrp.Location = new System.Drawing.Point(345, 125);
 			this.dc_WeaponBonusGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.dc_WeaponBonusGrp.Name = "dc_WeaponBonusGrp";
 			this.dc_WeaponBonusGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.dc_WeaponBonusGrp.Size = new System.Drawing.Size(315, 55);
+			this.dc_WeaponBonusGrp.Size = new System.Drawing.Size(315, 45);
 			this.dc_WeaponBonusGrp.TabIndex = 11;
 			this.dc_WeaponBonusGrp.TabStop = false;
 			this.dc_WeaponBonusGrp.Text = "weapon bonus type";
@@ -3733,7 +3730,7 @@
 			// 
 			this.cbo_dc_WeaponBonus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbo_dc_WeaponBonus.FormattingEnabled = true;
-			this.cbo_dc_WeaponBonus.Location = new System.Drawing.Point(5, 20);
+			this.cbo_dc_WeaponBonus.Location = new System.Drawing.Point(5, 15);
 			this.cbo_dc_WeaponBonus.Margin = new System.Windows.Forms.Padding(0);
 			this.cbo_dc_WeaponBonus.Name = "cbo_dc_WeaponBonus";
 			this.cbo_dc_WeaponBonus.Size = new System.Drawing.Size(305, 22);
@@ -3742,9 +3739,6 @@
 			// 
 			// dc_SaveDCGrp
 			// 
-			this.dc_SaveDCGrp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-			| System.Windows.Forms.AnchorStyles.Left)));
-			this.dc_SaveDCGrp.AutoSize = true;
 			this.dc_SaveDCGrp.Controls.Add(this.savedc_info);
 			this.dc_SaveDCGrp.Controls.Add(this.savedc_adjustor_info);
 			this.dc_SaveDCGrp.Controls.Add(this.savedc_dn);
@@ -3754,7 +3748,7 @@
 			this.dc_SaveDCGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.dc_SaveDCGrp.Name = "dc_SaveDCGrp";
 			this.dc_SaveDCGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.dc_SaveDCGrp.Size = new System.Drawing.Size(340, 315);
+			this.dc_SaveDCGrp.Size = new System.Drawing.Size(340, 305);
 			this.dc_SaveDCGrp.TabIndex = 10;
 			this.dc_SaveDCGrp.TabStop = false;
 			this.dc_SaveDCGrp.Text = "save dc type";
@@ -3781,7 +3775,7 @@
 			// 
 			// savedc_dn
 			// 
-			this.savedc_dn.Location = new System.Drawing.Point(5, 80);
+			this.savedc_dn.Location = new System.Drawing.Point(5, 75);
 			this.savedc_dn.Margin = new System.Windows.Forms.Padding(0);
 			this.savedc_dn.Name = "savedc_dn";
 			this.savedc_dn.Size = new System.Drawing.Size(30, 25);
@@ -3793,7 +3787,7 @@
 			// 
 			// savedc_up
 			// 
-			this.savedc_up.Location = new System.Drawing.Point(5, 50);
+			this.savedc_up.Location = new System.Drawing.Point(5, 45);
 			this.savedc_up.Margin = new System.Windows.Forms.Padding(0);
 			this.savedc_up.Name = "savedc_up";
 			this.savedc_up.Size = new System.Drawing.Size(30, 25);
@@ -3807,7 +3801,7 @@
 			// 
 			this.cbo_dc_SaveDC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
 			this.cbo_dc_SaveDC.FormattingEnabled = true;
-			this.cbo_dc_SaveDC.Location = new System.Drawing.Point(5, 20);
+			this.cbo_dc_SaveDC.Location = new System.Drawing.Point(5, 15);
 			this.cbo_dc_SaveDC.Margin = new System.Windows.Forms.Padding(0);
 			this.cbo_dc_SaveDC.Name = "cbo_dc_SaveDC";
 			this.cbo_dc_SaveDC.Size = new System.Drawing.Size(330, 22);
@@ -3816,12 +3810,10 @@
 			// 
 			// savedctype_label
 			// 
-			this.savedctype_label.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-			| System.Windows.Forms.AnchorStyles.Right)));
 			this.savedctype_label.Location = new System.Drawing.Point(5, 60);
 			this.savedctype_label.Margin = new System.Windows.Forms.Padding(0);
 			this.savedctype_label.Name = "savedctype_label";
-			this.savedctype_label.Size = new System.Drawing.Size(635, 45);
+			this.savedctype_label.Size = new System.Drawing.Size(650, 45);
 			this.savedctype_label.TabIndex = 9;
 			this.savedctype_label.Text = resources.GetString("savedctype_label.Text");
 			// 
@@ -3868,7 +3860,7 @@
 			this.options});
 			this.menuStrip.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip.Name = "menuStrip";
-			this.menuStrip.Size = new System.Drawing.Size(1064, 24);
+			this.menuStrip.Size = new System.Drawing.Size(1062, 24);
 			this.menuStrip.TabIndex = 1;
 			this.menuStrip.Text = "menuStrip";
 			// 
@@ -3983,7 +3975,7 @@
 			this.SpellTree.Indent = 15;
 			this.SpellTree.Location = new System.Drawing.Point(0, 20);
 			this.SpellTree.Name = "SpellTree";
-			this.SpellTree.Size = new System.Drawing.Size(275, 477);
+			this.SpellTree.Size = new System.Drawing.Size(275, 448);
 			this.SpellTree.TabIndex = 2;
 			this.SpellTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.AfterSelect_spellnode);
 			this.SpellTree.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress_search);
@@ -4007,7 +3999,7 @@
 			// 
 			this.splitContainer1.Panel2.Controls.Add(this.apply);
 			this.splitContainer1.Panel2.Controls.Add(this.cols_HenchSpells);
-			this.splitContainer1.Size = new System.Drawing.Size(1064, 499);
+			this.splitContainer1.Size = new System.Drawing.Size(1062, 470);
 			this.splitContainer1.SplitterDistance = 275;
 			this.splitContainer1.SplitterWidth = 3;
 			this.splitContainer1.TabIndex = 3;
@@ -4050,9 +4042,9 @@
 			// apply
 			// 
 			this.apply.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.apply.Location = new System.Drawing.Point(0, 474);
+			this.apply.Location = new System.Drawing.Point(0, 445);
 			this.apply.Name = "apply";
-			this.apply.Size = new System.Drawing.Size(786, 25);
+			this.apply.Size = new System.Drawing.Size(784, 25);
 			this.apply.TabIndex = 1;
 			this.apply.Text = "apply this spell\'s data";
 			this.apply.UseVisualStyleBackColor = true;
@@ -4062,7 +4054,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1064, 523);
+			this.ClientSize = new System.Drawing.Size(1062, 494);
 			this.Controls.Add(this.splitContainer1);
 			this.Controls.Add(this.menuStrip);
 			this.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4133,7 +4125,7 @@
 			this.st_Excl_WeightGrp.PerformLayout();
 			this.st_Excl_DamagetypesGrp.ResumeLayout(false);
 			this.st_AcBonusGrp.ResumeLayout(false);
-			this.st_WeaponGrp.ResumeLayout(false);
+			this.st_TargetRestrictionGrp.ResumeLayout(false);
 			this.page_SaveDCType.ResumeLayout(false);
 			this.page_SaveDCType.PerformLayout();
 			this.dc_ArmorCheckGrp.ResumeLayout(false);
