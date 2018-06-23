@@ -11,10 +11,10 @@ This application exposes all the bits that are available to the CoreAI via
 HenchSpells.2da. At least I think it does; if it doesn't please let me know and
 I'll expose those also.
 
-The CoreAI scripts determine what uncontrolled characters are going to do. By
-far the most complicated routines deal with deciding what spells to cast. Data
-about spells and, by extension, feats is stored in HenchSpells.2da -- the data
-is stored in integers that are composed of bitwise values.
+The CoreAI scripts determine what uncontrolled characters/creatures are going to
+do. By far the most complicated routines deal with deciding what spells to cast.
+Data about spells and, by extension, feats is stored in HenchSpells.2da -- the
+data is stored in integers that are composed of bitwise values.
 
 This allows a lot of data to be stored in little space, and operations can be
 performed quickly.

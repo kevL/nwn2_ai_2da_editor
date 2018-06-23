@@ -518,7 +518,7 @@ namespace nwn2_ai_2da_editor
 			if (Spells[Id].isChanged) // this goes outside the SpellsChanged check above because uh color goes screwy if not.
 			{
 				//logfile.Log(". isChanged TRUE - set node to Blue");
-				SpellTree.SelectedNode.ForeColor = Color.Blue;
+				SpellTree.SelectedNode.ForeColor = Color.MediumBlue;
 			}
 			else // I doubt this ever *needs* to run ... but safety.
 			{

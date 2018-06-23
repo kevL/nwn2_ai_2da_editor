@@ -147,7 +147,7 @@ namespace nwn2_ai_2da_editor
 					if (spell.isChanged) // this is set by the Apply btn only.
 					{
 						//logfile.Log(". . . isChanged TRUE - set node to Blue");
-						SpellTree.SelectedNode.ForeColor = Color.Blue;
+						SpellTree.SelectedNode.ForeColor = Color.MediumBlue;
 					}
 					else
 					{
