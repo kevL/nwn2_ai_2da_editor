@@ -111,7 +111,7 @@ namespace nwn2_ai_2da_editor
 				CheckSpellInfoCheckers(spellinfo);
 
 				SetDetrimentalBeneficial(spellinfo);
-				SetGroupVisibility(spellinfo);
+				SetGroupColors(spellinfo);
 				ShowChildFields(spellinfo);
 			}
 			// else TODO: error dialog here.
@@ -445,12 +445,12 @@ namespace nwn2_ai_2da_editor
 				case HENCH_SPELL_INFO_SPELL_TYPE_WARLOCK:
 				case HENCH_SPELL_INFO_SPELL_TYPE_ATTACK_SPECIAL:
 					text = "DETRIMENTAL";
-					si_hostile.ForeColor = Color.Crimson;
+					si_hostile.ForeColor = DefaultForeColor;// Color.Crimson;
 					break;
 
 				default:									// TODO: Investigate exactly which spelltypes
 					text = "BENEFICIAL";					// should show the PositiveEffects group.
-					si_hostile.ForeColor = Color.LimeGreen;
+					si_hostile.ForeColor = DefaultForeColor;// Color.LimeGreen;
 					break;
 			}
 
@@ -466,25 +466,17 @@ namespace nwn2_ai_2da_editor
 		/// (see commented code below).
 		/// </summary>
 		/// <param name="spellinfo"></param>
-		void SetGroupVisibility(int spellinfo)
+		void SetGroupColors(int spellinfo)
 		{
 			int spelltype = (spellinfo & HENCH_SPELL_INFO_SPELL_TYPE_MASK);
-
 
 // EffectTypes groups
 			GroupColor(et_PosEffectsGrp, Color.Crimson);
 			GroupColor(et_NegEffectsGrp, Color.Crimson);
 
-//			et_PosEffectsGrp.Visible =
-//			et_NegEffectsGrp.Visible = false;
-//			et_PosEffectsGrp.ForeColor =
-//			et_NegEffectsGrp.ForeColor = Color.Crimson;
-
 			switch (spelltype)
 			{
 				default:
-//					et_PosEffectsGrp.Visible = true;
-//					et_PosEffectsGrp.ForeColor = Color.LimeGreen;
 					GroupColor(et_PosEffectsGrp, Color.LimeGreen);
 					break;
 
@@ -494,27 +486,16 @@ namespace nwn2_ai_2da_editor
 				case HENCH_SPELL_INFO_SPELL_TYPE_DRAGON_BREATH:
 				case HENCH_SPELL_INFO_SPELL_TYPE_WARLOCK:
 				case HENCH_SPELL_INFO_SPELL_TYPE_ATTACK_SPECIAL:
-//					et_NegEffectsGrp.Visible = true;
-//					et_NegEffectsGrp.ForeColor = Color.LimeGreen;
 					GroupColor(et_NegEffectsGrp, Color.LimeGreen);
 					break;
 
 				case 0:
 				case HENCH_SPELL_INFO_SPELL_TYPE_SUMMON:
 				case HENCH_SPELL_INFO_SPELL_TYPE_DISPEL:
-					// hide all groups
 					break;
 			}
 
-
 // DamageInfo groups
-//			di_DispelTypesGrp.Visible =
-//			di_BeneficialGrp .Visible =
-//			di_DetrimentalGrp.Visible = false;
-//			di_DispelTypesGrp.ForeColor =
-//			di_BeneficialGrp .ForeColor =
-//			di_DetrimentalGrp.ForeColor = Color.Crimson;
-
 			GroupColor(di_DispelTypesGrp, Color.Crimson);
 			GroupColor(di_BeneficialGrp,  Color.Crimson);
 			GroupColor(di_DetrimentalGrp, Color.Crimson);
@@ -522,40 +503,20 @@ namespace nwn2_ai_2da_editor
 			switch (spelltype)
 			{
 				default: // TODO: sort these two out ...
-//					di_BeneficialGrp .Visible =
-//					di_DetrimentalGrp.Visible = true;
-//					di_BeneficialGrp .ForeColor =
-//					di_DetrimentalGrp.ForeColor = Color.LimeGreen;
 					GroupColor(di_BeneficialGrp,  Color.LimeGreen);
 					GroupColor(di_DetrimentalGrp, Color.LimeGreen);
 					break;
 
 				case HENCH_SPELL_INFO_SPELL_TYPE_DISPEL:
-//					di_DispelTypesGrp.Visible = true;
-//					di_DispelTypesGrp.ForeColor = Color.LimeGreen;
 					GroupColor(di_DispelTypesGrp, Color.LimeGreen);
 					break;
 
 				case 0:
 				case HENCH_SPELL_INFO_SPELL_TYPE_SUMMON:
-					// hide all groups
 					break;
 			}
 
-
 // SaveType groups
-//			st_ExclusiveGrp        .Visible =
-//			st_TargetRestrictionGrp.Visible =
-//			st_AcBonusGrp          .Visible =
-//			st_DetrimentalGrp      .Visible = false;
-//			st_ExclusiveGrp        .ForeColor =
-//			st_TargetRestrictionGrp.ForeColor =
-//			st_AcBonusGrp          .ForeColor =
-//			st_DetrimentalGrp      .ForeColor = Color.Crimson;
-
-//			st_NotCaster.Visible = false; // this is not in a group since it can be used by several types.
-//			st_NotCaster.ForeColor = Color.Crimson;
-
 			GroupColor(st_ExclusiveGrp,         Color.Crimson);
 			GroupColor(st_TargetRestrictionGrp, Color.Crimson);
 			GroupColor(st_AcBonusGrp,           Color.Crimson);
@@ -565,46 +526,31 @@ namespace nwn2_ai_2da_editor
 			switch (spelltype)
 			{
 				default:
-//					st_DetrimentalGrp.Visible =
-//					st_NotCaster     .Visible = true;
-//					st_DetrimentalGrp.ForeColor =
-//					st_NotCaster     .ForeColor = Color.LimeGreen;
 					GroupColor(st_DetrimentalGrp, Color.LimeGreen);
 					GroupColor(st_NotCaster,      Color.LimeGreen);
 					break;
 
 				case HENCH_SPELL_INFO_SPELL_TYPE_ELEMENTAL_SHIELD:
 				case HENCH_SPELL_INFO_SPELL_TYPE_ENGR_PROT: // "engry" - coders sheesh.
-//					st_ExclusiveGrp.Visible = true;
-//					st_ExclusiveGrp.ForeColor = Color.LimeGreen;
 					GroupColor(st_ExclusiveGrp, Color.LimeGreen);
 					break;
 
 				case HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF:
-//					st_TargetRestrictionGrp.Visible = true;
-//					st_TargetRestrictionGrp.ForeColor = Color.LimeGreen;
 					GroupColor(st_TargetRestrictionGrp, Color.LimeGreen);
 					break;
 
 				case HENCH_SPELL_INFO_SPELL_TYPE_AC_BUFF:
-//					st_AcBonusGrp.Visible =
-//					st_NotCaster .Visible = true;
-//					st_AcBonusGrp.ForeColor =
-//					st_NotCaster .ForeColor = Color.LimeGreen;
 					GroupColor(st_AcBonusGrp, Color.LimeGreen);
 					GroupColor(st_NotCaster,  Color.LimeGreen);
 					break;
 
 				case HENCH_SPELL_INFO_SPELL_TYPE_BUFF:
-//					st_NotCaster.Visible = true;
-//					st_NotCaster.ForeColor = Color.LimeGreen;
 					GroupColor(st_NotCaster, Color.LimeGreen);
 					break;
 
 				case 0:
 				case HENCH_SPELL_INFO_SPELL_TYPE_SUMMON:
 				case HENCH_SPELL_INFO_SPELL_TYPE_DISPEL:
-					// hide all groups
 					break;
 			}
 
@@ -647,6 +593,12 @@ namespace nwn2_ai_2da_editor
 // note: It has been observed to bork after program start. After clicking through
 // a few tree-nodes it will then work fine. But that's not good enough is it.
 
+		/// <summary>
+		/// Sets color for the child-controls of a parent-control.
+		/// NOTE: Helper for SetGroupColors()
+		/// </summary>
+		/// <param name="group"></param>
+		/// <param name="color"></param>
 		void GroupColor(Control group, Color color)
 		{
 			group.ForeColor = color;
