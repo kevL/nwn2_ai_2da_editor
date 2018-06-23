@@ -1047,7 +1047,7 @@
 			// ti_RadiusGrp
 			// 
 			this.ti_RadiusGrp.Controls.Add(this.ti_Radius);
-			this.ti_RadiusGrp.Location = new System.Drawing.Point(285, 150);
+			this.ti_RadiusGrp.Location = new System.Drawing.Point(350, 150);
 			this.ti_RadiusGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.ti_RadiusGrp.Name = "ti_RadiusGrp";
 			this.ti_RadiusGrp.Padding = new System.Windows.Forms.Padding(0);
@@ -1068,7 +1068,7 @@
 			// ti_RangeGrp
 			// 
 			this.ti_RangeGrp.Controls.Add(this.cbo_ti_Range);
-			this.ti_RangeGrp.Location = new System.Drawing.Point(285, 105);
+			this.ti_RangeGrp.Location = new System.Drawing.Point(350, 105);
 			this.ti_RangeGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.ti_RangeGrp.Name = "ti_RangeGrp";
 			this.ti_RangeGrp.Padding = new System.Windows.Forms.Padding(0);
@@ -1091,7 +1091,7 @@
 			// ti_ShapeGrp
 			// 
 			this.ti_ShapeGrp.Controls.Add(this.cbo_ti_Shape);
-			this.ti_ShapeGrp.Location = new System.Drawing.Point(285, 60);
+			this.ti_ShapeGrp.Location = new System.Drawing.Point(350, 60);
 			this.ti_ShapeGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.ti_ShapeGrp.Name = "ti_ShapeGrp";
 			this.ti_ShapeGrp.Padding = new System.Windows.Forms.Padding(0);
@@ -1128,7 +1128,7 @@
 			this.ti_FlagsGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.ti_FlagsGrp.Name = "ti_FlagsGrp";
 			this.ti_FlagsGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.ti_FlagsGrp.Size = new System.Drawing.Size(280, 240);
+			this.ti_FlagsGrp.Size = new System.Drawing.Size(345, 240);
 			this.ti_FlagsGrp.TabIndex = 46;
 			this.ti_FlagsGrp.TabStop = false;
 			this.ti_FlagsGrp.Text = "07FF 0000 flags";
@@ -1137,7 +1137,7 @@
 			// 
 			this.ti_Regular.Location = new System.Drawing.Point(10, 215);
 			this.ti_Regular.Name = "ti_Regular";
-			this.ti_Regular.Size = new System.Drawing.Size(265, 20);
+			this.ti_Regular.Size = new System.Drawing.Size(330, 20);
 			this.ti_Regular.TabIndex = 10;
 			this.ti_Regular.Text = "regular";
 			this.ti_Regular.UseVisualStyleBackColor = true;
@@ -1147,7 +1147,7 @@
 			// 
 			this.ti_Necromancy.Location = new System.Drawing.Point(10, 195);
 			this.ti_Necromancy.Name = "ti_Necromancy";
-			this.ti_Necromancy.Size = new System.Drawing.Size(265, 20);
+			this.ti_Necromancy.Size = new System.Drawing.Size(330, 20);
 			this.ti_Necromancy.TabIndex = 9;
 			this.ti_Necromancy.Text = "check immunity to necromancy";
 			this.ti_Necromancy.UseVisualStyleBackColor = true;
@@ -1157,9 +1157,11 @@
 			// 
 			this.ti_ScaledEffect.Location = new System.Drawing.Point(10, 175);
 			this.ti_ScaledEffect.Name = "ti_ScaledEffect";
-			this.ti_ScaledEffect.Size = new System.Drawing.Size(265, 20);
+			this.ti_ScaledEffect.Size = new System.Drawing.Size(330, 20);
 			this.ti_ScaledEffect.TabIndex = 8;
-			this.ti_ScaledEffect.Text = "scaled effect";
+			this.ti_ScaledEffect.Text = "scale effectweight by DamageInfo buff power";
+			this.toolTip1.SetToolTip(this.ti_ScaledEffect, "Forces an attack spell to use the beneficial bit-group on the DamageInfo page. Us" +
+		"ed by some attack spells that decrease attributes (and bardic Curse Song)");
 			this.ti_ScaledEffect.UseVisualStyleBackColor = true;
 			this.ti_ScaledEffect.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_ti_Flags);
 			// 
@@ -1167,7 +1169,7 @@
 			// 
 			this.ti_PersistentAoe.Location = new System.Drawing.Point(10, 155);
 			this.ti_PersistentAoe.Name = "ti_PersistentAoe";
-			this.ti_PersistentAoe.Size = new System.Drawing.Size(265, 20);
+			this.ti_PersistentAoe.Size = new System.Drawing.Size(330, 20);
 			this.ti_PersistentAoe.TabIndex = 7;
 			this.ti_PersistentAoe.Text = "persistent aoe";
 			this.ti_PersistentAoe.UseVisualStyleBackColor = true;
@@ -1177,7 +1179,7 @@
 			// 
 			this.ti_RangedSelectedArea.Location = new System.Drawing.Point(10, 135);
 			this.ti_RangedSelectedArea.Name = "ti_RangedSelectedArea";
-			this.ti_RangedSelectedArea.Size = new System.Drawing.Size(265, 20);
+			this.ti_RangedSelectedArea.Size = new System.Drawing.Size(330, 20);
 			this.ti_RangedSelectedArea.TabIndex = 6;
 			this.ti_RangedSelectedArea.Text = "ranged selected area";
 			this.ti_RangedSelectedArea.UseVisualStyleBackColor = true;
@@ -1187,7 +1189,7 @@
 			// 
 			this.ti_SeenRequired.Location = new System.Drawing.Point(10, 115);
 			this.ti_SeenRequired.Name = "ti_SeenRequired";
-			this.ti_SeenRequired.Size = new System.Drawing.Size(265, 20);
+			this.ti_SeenRequired.Size = new System.Drawing.Size(330, 20);
 			this.ti_SeenRequired.TabIndex = 5;
 			this.ti_SeenRequired.Text = "perception seen required";
 			this.ti_SeenRequired.UseVisualStyleBackColor = true;
@@ -1197,7 +1199,7 @@
 			// 
 			this.ti_SecondaryHalfDamage.Location = new System.Drawing.Point(10, 95);
 			this.ti_SecondaryHalfDamage.Name = "ti_SecondaryHalfDamage";
-			this.ti_SecondaryHalfDamage.Size = new System.Drawing.Size(265, 20);
+			this.ti_SecondaryHalfDamage.Size = new System.Drawing.Size(330, 20);
 			this.ti_SecondaryHalfDamage.TabIndex = 4;
 			this.ti_SecondaryHalfDamage.Text = "secondary targets take half damage";
 			this.ti_SecondaryHalfDamage.UseVisualStyleBackColor = true;
@@ -1207,7 +1209,7 @@
 			// 
 			this.ti_SecondaryTargets.Location = new System.Drawing.Point(10, 75);
 			this.ti_SecondaryTargets.Name = "ti_SecondaryTargets";
-			this.ti_SecondaryTargets.Size = new System.Drawing.Size(265, 20);
+			this.ti_SecondaryTargets.Size = new System.Drawing.Size(330, 20);
 			this.ti_SecondaryTargets.TabIndex = 3;
 			this.ti_SecondaryTargets.Text = "secondary targets";
 			this.ti_SecondaryTargets.UseVisualStyleBackColor = true;
@@ -1217,7 +1219,7 @@
 			// 
 			this.ti_MissileTargets.Location = new System.Drawing.Point(10, 55);
 			this.ti_MissileTargets.Name = "ti_MissileTargets";
-			this.ti_MissileTargets.Size = new System.Drawing.Size(265, 20);
+			this.ti_MissileTargets.Size = new System.Drawing.Size(330, 20);
 			this.ti_MissileTargets.TabIndex = 2;
 			this.ti_MissileTargets.Text = "missile targets";
 			this.ti_MissileTargets.UseVisualStyleBackColor = true;
@@ -1227,7 +1229,7 @@
 			// 
 			this.ti_CheckCount.Location = new System.Drawing.Point(10, 35);
 			this.ti_CheckCount.Name = "ti_CheckCount";
-			this.ti_CheckCount.Size = new System.Drawing.Size(265, 20);
+			this.ti_CheckCount.Size = new System.Drawing.Size(330, 20);
 			this.ti_CheckCount.TabIndex = 1;
 			this.ti_CheckCount.Text = "check count";
 			this.ti_CheckCount.UseVisualStyleBackColor = true;
@@ -1237,7 +1239,7 @@
 			// 
 			this.ti_ShapeLoop.Location = new System.Drawing.Point(10, 15);
 			this.ti_ShapeLoop.Name = "ti_ShapeLoop";
-			this.ti_ShapeLoop.Size = new System.Drawing.Size(265, 20);
+			this.ti_ShapeLoop.Size = new System.Drawing.Size(330, 20);
 			this.ti_ShapeLoop.TabIndex = 0;
 			this.ti_ShapeLoop.Text = "shape loop";
 			this.ti_ShapeLoop.UseVisualStyleBackColor = true;
@@ -2768,11 +2770,11 @@
 			this.page_SaveType.Controls.Add(this.st_TargetRestrictionGrp);
 			this.page_SaveType.Controls.Add(this.SaveType_text);
 			this.page_SaveType.Controls.Add(this.SaveType_reset);
-			this.page_SaveType.Location = new System.Drawing.Point(4, 24);
+			this.page_SaveType.Location = new System.Drawing.Point(4, 23);
 			this.page_SaveType.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SaveType.Name = "page_SaveType";
 			this.page_SaveType.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SaveType.Size = new System.Drawing.Size(812, 422);
+			this.page_SaveType.Size = new System.Drawing.Size(812, 423);
 			this.page_SaveType.TabIndex = 5;
 			this.page_SaveType.Text = "SaveType";
 			this.page_SaveType.UseVisualStyleBackColor = true;
@@ -3584,11 +3586,11 @@
 			this.page_SaveDCType.Controls.Add(this.savedctype2);
 			this.page_SaveDCType.Controls.Add(this.savedctype1);
 			this.page_SaveDCType.Controls.Add(this.SaveDCType_reset);
-			this.page_SaveDCType.Location = new System.Drawing.Point(4, 24);
+			this.page_SaveDCType.Location = new System.Drawing.Point(4, 23);
 			this.page_SaveDCType.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SaveDCType.Name = "page_SaveDCType";
 			this.page_SaveDCType.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SaveDCType.Size = new System.Drawing.Size(812, 422);
+			this.page_SaveDCType.Size = new System.Drawing.Size(812, 423);
 			this.page_SaveDCType.TabIndex = 6;
 			this.page_SaveDCType.Text = "SaveDCType";
 			this.page_SaveDCType.UseVisualStyleBackColor = true;
@@ -4049,6 +4051,12 @@
 			this.apply.Text = "apply this spell\'s data";
 			this.apply.UseVisualStyleBackColor = true;
 			this.apply.Click += new System.EventHandler(this.Click_apply);
+			// 
+			// toolTip1
+			// 
+			this.toolTip1.AutoPopDelay = 10000;
+			this.toolTip1.InitialDelay = 500;
+			this.toolTip1.ReshowDelay = 100;
 			// 
 			// MainForm
 			// 

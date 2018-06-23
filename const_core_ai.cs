@@ -253,7 +253,7 @@
 		// HenchCheckElementalShield() 'hench_i0_buff' - 
 		//    DispatchSpell() 'hench_i0_itemsp' SpellInfo
 		//      spelltype - HENCH_SPELL_INFO_SPELL_TYPE_ELEMENTAL_SHIELD
-		// HenchSpellAttack() 'hench_i0_attack' TargetInfo (iTargetInfo & ~HENCH_SPELL_TARGET_SCALE_EFFECT)
+		// HenchSpellAttack() 'hench_i0_attack' TargetInfo !(iTargetInfo & HENCH_SPELL_TARGET_SCALE_EFFECT)
 		//    [see above ..]
 
 //		const int HENCH_SPELL_INFO_DAMAGE_TYPE_MASK        = 0x00000fff;
