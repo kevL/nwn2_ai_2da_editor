@@ -685,7 +685,7 @@
 			this.cols_HenchSpells.Name = "cols_HenchSpells";
 			this.cols_HenchSpells.Padding = new System.Drawing.Point(5, 2);
 			this.cols_HenchSpells.SelectedIndex = 0;
-			this.cols_HenchSpells.Size = new System.Drawing.Size(785, 450);
+			this.cols_HenchSpells.Size = new System.Drawing.Size(820, 450);
 			this.cols_HenchSpells.TabIndex = 0;
 			this.cols_HenchSpells.SelectedIndexChanged += new System.EventHandler(this.SelectedIndexChanged_tab);
 			// 
@@ -706,7 +706,7 @@
 			this.page_SpellInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SpellInfo.Name = "page_SpellInfo";
 			this.page_SpellInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SpellInfo.Size = new System.Drawing.Size(792, 447);
+			this.page_SpellInfo.Size = new System.Drawing.Size(812, 422);
 			this.page_SpellInfo.TabIndex = 0;
 			this.page_SpellInfo.Text = "SpellInfo";
 			this.page_SpellInfo.UseVisualStyleBackColor = true;
@@ -718,11 +718,11 @@
 			this.si_ChildIDGrp.Controls.Add(this.si_Child3);
 			this.si_ChildIDGrp.Controls.Add(this.si_Child2);
 			this.si_ChildIDGrp.Controls.Add(this.si_Child1);
-			this.si_ChildIDGrp.Location = new System.Drawing.Point(305, 155);
+			this.si_ChildIDGrp.Location = new System.Drawing.Point(305, 150);
 			this.si_ChildIDGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.si_ChildIDGrp.Name = "si_ChildIDGrp";
 			this.si_ChildIDGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.si_ChildIDGrp.Size = new System.Drawing.Size(105, 150);
+			this.si_ChildIDGrp.Size = new System.Drawing.Size(105, 155);
 			this.si_ChildIDGrp.TabIndex = 54;
 			this.si_ChildIDGrp.TabStop = false;
 			this.si_ChildIDGrp.Text = "Child IDs";
@@ -791,7 +791,7 @@
 			this.si_FlagsGrp.Size = new System.Drawing.Size(300, 200);
 			this.si_FlagsGrp.TabIndex = 53;
 			this.si_FlagsGrp.TabStop = false;
-			this.si_FlagsGrp.Text = "flags";
+			this.si_FlagsGrp.Text = "009E 0F00 flags";
 			// 
 			// si_IsMaster
 			// 
@@ -899,10 +899,10 @@
 			this.si_SpelllevelGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.si_SpelllevelGrp.Name = "si_SpelllevelGrp";
 			this.si_SpelllevelGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.si_SpelllevelGrp.Size = new System.Drawing.Size(105, 50);
+			this.si_SpelllevelGrp.Size = new System.Drawing.Size(165, 45);
 			this.si_SpelllevelGrp.TabIndex = 52;
 			this.si_SpelllevelGrp.TabStop = false;
-			this.si_SpelllevelGrp.Text = "Spell level";
+			this.si_SpelllevelGrp.Text = "0001 E000 spelllevel";
 			// 
 			// cbo_si_Spelllevel
 			// 
@@ -911,7 +911,7 @@
 			this.cbo_si_Spelllevel.Location = new System.Drawing.Point(5, 15);
 			this.cbo_si_Spelllevel.Margin = new System.Windows.Forms.Padding(0);
 			this.cbo_si_Spelllevel.Name = "cbo_si_Spelllevel";
-			this.cbo_si_Spelllevel.Size = new System.Drawing.Size(95, 22);
+			this.cbo_si_Spelllevel.Size = new System.Drawing.Size(155, 22);
 			this.cbo_si_Spelllevel.TabIndex = 51;
 			this.cbo_si_Spelllevel.SelectionChangeCommitted += new System.EventHandler(this.SelectionChangeCommitted_si_cbo_Spelllevel);
 			// 
@@ -926,7 +926,7 @@
 			this.si_SpelltypeGrp.Size = new System.Drawing.Size(405, 45);
 			this.si_SpelltypeGrp.TabIndex = 41;
 			this.si_SpelltypeGrp.TabStop = false;
-			this.si_SpelltypeGrp.Text = "Spell type";
+			this.si_SpelltypeGrp.Text = "0000 00FF spelltype";
 			// 
 			// si_hostile
 			// 
@@ -1035,11 +1035,11 @@
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_hex);
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_text);
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_reset);
-			this.page_TargetInfo.Location = new System.Drawing.Point(4, 23);
+			this.page_TargetInfo.Location = new System.Drawing.Point(4, 24);
 			this.page_TargetInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_TargetInfo.Name = "page_TargetInfo";
 			this.page_TargetInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_TargetInfo.Size = new System.Drawing.Size(792, 448);
+			this.page_TargetInfo.Size = new System.Drawing.Size(812, 422);
 			this.page_TargetInfo.TabIndex = 1;
 			this.page_TargetInfo.Text = "TargetInfo";
 			this.page_TargetInfo.UseVisualStyleBackColor = true;
@@ -1047,14 +1047,14 @@
 			// ti_RadiusGrp
 			// 
 			this.ti_RadiusGrp.Controls.Add(this.ti_Radius);
-			this.ti_RadiusGrp.Location = new System.Drawing.Point(195, 150);
+			this.ti_RadiusGrp.Location = new System.Drawing.Point(285, 150);
 			this.ti_RadiusGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.ti_RadiusGrp.Name = "ti_RadiusGrp";
 			this.ti_RadiusGrp.Padding = new System.Windows.Forms.Padding(0);
 			this.ti_RadiusGrp.Size = new System.Drawing.Size(225, 40);
 			this.ti_RadiusGrp.TabIndex = 49;
 			this.ti_RadiusGrp.TabStop = false;
-			this.ti_RadiusGrp.Text = "Radius";
+			this.ti_RadiusGrp.Text = "0000 FFC0 radius";
 			// 
 			// ti_Radius
 			// 
@@ -1068,14 +1068,14 @@
 			// ti_RangeGrp
 			// 
 			this.ti_RangeGrp.Controls.Add(this.cbo_ti_Range);
-			this.ti_RangeGrp.Location = new System.Drawing.Point(195, 105);
+			this.ti_RangeGrp.Location = new System.Drawing.Point(285, 105);
 			this.ti_RangeGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.ti_RangeGrp.Name = "ti_RangeGrp";
 			this.ti_RangeGrp.Padding = new System.Windows.Forms.Padding(0);
 			this.ti_RangeGrp.Size = new System.Drawing.Size(225, 45);
 			this.ti_RangeGrp.TabIndex = 48;
 			this.ti_RangeGrp.TabStop = false;
-			this.ti_RangeGrp.Text = "Range";
+			this.ti_RangeGrp.Text = "0000 0038 range";
 			// 
 			// cbo_ti_Range
 			// 
@@ -1091,14 +1091,14 @@
 			// ti_ShapeGrp
 			// 
 			this.ti_ShapeGrp.Controls.Add(this.cbo_ti_Shape);
-			this.ti_ShapeGrp.Location = new System.Drawing.Point(195, 60);
+			this.ti_ShapeGrp.Location = new System.Drawing.Point(285, 60);
 			this.ti_ShapeGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.ti_ShapeGrp.Name = "ti_ShapeGrp";
 			this.ti_ShapeGrp.Padding = new System.Windows.Forms.Padding(0);
 			this.ti_ShapeGrp.Size = new System.Drawing.Size(225, 45);
 			this.ti_ShapeGrp.TabIndex = 47;
 			this.ti_ShapeGrp.TabStop = false;
-			this.ti_ShapeGrp.Text = "Shape";
+			this.ti_ShapeGrp.Text = "0000 0007 shape";
 			// 
 			// cbo_ti_Shape
 			// 
@@ -1128,16 +1128,16 @@
 			this.ti_FlagsGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.ti_FlagsGrp.Name = "ti_FlagsGrp";
 			this.ti_FlagsGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.ti_FlagsGrp.Size = new System.Drawing.Size(190, 240);
+			this.ti_FlagsGrp.Size = new System.Drawing.Size(280, 240);
 			this.ti_FlagsGrp.TabIndex = 46;
 			this.ti_FlagsGrp.TabStop = false;
-			this.ti_FlagsGrp.Text = "flags";
+			this.ti_FlagsGrp.Text = "07FF 0000 flags";
 			// 
 			// ti_Regular
 			// 
 			this.ti_Regular.Location = new System.Drawing.Point(10, 215);
 			this.ti_Regular.Name = "ti_Regular";
-			this.ti_Regular.Size = new System.Drawing.Size(175, 20);
+			this.ti_Regular.Size = new System.Drawing.Size(265, 20);
 			this.ti_Regular.TabIndex = 10;
 			this.ti_Regular.Text = "regular";
 			this.ti_Regular.UseVisualStyleBackColor = true;
@@ -1147,9 +1147,9 @@
 			// 
 			this.ti_Necromancy.Location = new System.Drawing.Point(10, 195);
 			this.ti_Necromancy.Name = "ti_Necromancy";
-			this.ti_Necromancy.Size = new System.Drawing.Size(175, 20);
+			this.ti_Necromancy.Size = new System.Drawing.Size(265, 20);
 			this.ti_Necromancy.TabIndex = 9;
-			this.ti_Necromancy.Text = "necromancy";
+			this.ti_Necromancy.Text = "check immunity to necromancy";
 			this.ti_Necromancy.UseVisualStyleBackColor = true;
 			this.ti_Necromancy.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_ti_Flags);
 			// 
@@ -1157,7 +1157,7 @@
 			// 
 			this.ti_ScaledEffect.Location = new System.Drawing.Point(10, 175);
 			this.ti_ScaledEffect.Name = "ti_ScaledEffect";
-			this.ti_ScaledEffect.Size = new System.Drawing.Size(175, 20);
+			this.ti_ScaledEffect.Size = new System.Drawing.Size(265, 20);
 			this.ti_ScaledEffect.TabIndex = 8;
 			this.ti_ScaledEffect.Text = "scaled effect";
 			this.ti_ScaledEffect.UseVisualStyleBackColor = true;
@@ -1167,7 +1167,7 @@
 			// 
 			this.ti_PersistentAoe.Location = new System.Drawing.Point(10, 155);
 			this.ti_PersistentAoe.Name = "ti_PersistentAoe";
-			this.ti_PersistentAoe.Size = new System.Drawing.Size(175, 20);
+			this.ti_PersistentAoe.Size = new System.Drawing.Size(265, 20);
 			this.ti_PersistentAoe.TabIndex = 7;
 			this.ti_PersistentAoe.Text = "persistent aoe";
 			this.ti_PersistentAoe.UseVisualStyleBackColor = true;
@@ -1177,7 +1177,7 @@
 			// 
 			this.ti_RangedSelectedArea.Location = new System.Drawing.Point(10, 135);
 			this.ti_RangedSelectedArea.Name = "ti_RangedSelectedArea";
-			this.ti_RangedSelectedArea.Size = new System.Drawing.Size(175, 20);
+			this.ti_RangedSelectedArea.Size = new System.Drawing.Size(265, 20);
 			this.ti_RangedSelectedArea.TabIndex = 6;
 			this.ti_RangedSelectedArea.Text = "ranged selected area";
 			this.ti_RangedSelectedArea.UseVisualStyleBackColor = true;
@@ -1187,9 +1187,9 @@
 			// 
 			this.ti_SeenRequired.Location = new System.Drawing.Point(10, 115);
 			this.ti_SeenRequired.Name = "ti_SeenRequired";
-			this.ti_SeenRequired.Size = new System.Drawing.Size(175, 20);
+			this.ti_SeenRequired.Size = new System.Drawing.Size(265, 20);
 			this.ti_SeenRequired.TabIndex = 5;
-			this.ti_SeenRequired.Text = "seen required";
+			this.ti_SeenRequired.Text = "perception seen required";
 			this.ti_SeenRequired.UseVisualStyleBackColor = true;
 			this.ti_SeenRequired.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_ti_Flags);
 			// 
@@ -1197,9 +1197,9 @@
 			// 
 			this.ti_SecondaryHalfDamage.Location = new System.Drawing.Point(10, 95);
 			this.ti_SecondaryHalfDamage.Name = "ti_SecondaryHalfDamage";
-			this.ti_SecondaryHalfDamage.Size = new System.Drawing.Size(175, 20);
+			this.ti_SecondaryHalfDamage.Size = new System.Drawing.Size(265, 20);
 			this.ti_SecondaryHalfDamage.TabIndex = 4;
-			this.ti_SecondaryHalfDamage.Text = "secondary half damage";
+			this.ti_SecondaryHalfDamage.Text = "secondary targets take half damage";
 			this.ti_SecondaryHalfDamage.UseVisualStyleBackColor = true;
 			this.ti_SecondaryHalfDamage.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_ti_Flags);
 			// 
@@ -1207,7 +1207,7 @@
 			// 
 			this.ti_SecondaryTargets.Location = new System.Drawing.Point(10, 75);
 			this.ti_SecondaryTargets.Name = "ti_SecondaryTargets";
-			this.ti_SecondaryTargets.Size = new System.Drawing.Size(175, 20);
+			this.ti_SecondaryTargets.Size = new System.Drawing.Size(265, 20);
 			this.ti_SecondaryTargets.TabIndex = 3;
 			this.ti_SecondaryTargets.Text = "secondary targets";
 			this.ti_SecondaryTargets.UseVisualStyleBackColor = true;
@@ -1217,7 +1217,7 @@
 			// 
 			this.ti_MissileTargets.Location = new System.Drawing.Point(10, 55);
 			this.ti_MissileTargets.Name = "ti_MissileTargets";
-			this.ti_MissileTargets.Size = new System.Drawing.Size(175, 20);
+			this.ti_MissileTargets.Size = new System.Drawing.Size(265, 20);
 			this.ti_MissileTargets.TabIndex = 2;
 			this.ti_MissileTargets.Text = "missile targets";
 			this.ti_MissileTargets.UseVisualStyleBackColor = true;
@@ -1227,7 +1227,7 @@
 			// 
 			this.ti_CheckCount.Location = new System.Drawing.Point(10, 35);
 			this.ti_CheckCount.Name = "ti_CheckCount";
-			this.ti_CheckCount.Size = new System.Drawing.Size(175, 20);
+			this.ti_CheckCount.Size = new System.Drawing.Size(265, 20);
 			this.ti_CheckCount.TabIndex = 1;
 			this.ti_CheckCount.Text = "check count";
 			this.ti_CheckCount.UseVisualStyleBackColor = true;
@@ -1237,7 +1237,7 @@
 			// 
 			this.ti_ShapeLoop.Location = new System.Drawing.Point(10, 15);
 			this.ti_ShapeLoop.Name = "ti_ShapeLoop";
-			this.ti_ShapeLoop.Size = new System.Drawing.Size(175, 20);
+			this.ti_ShapeLoop.Size = new System.Drawing.Size(265, 20);
 			this.ti_ShapeLoop.TabIndex = 0;
 			this.ti_ShapeLoop.Text = "shape loop";
 			this.ti_ShapeLoop.UseVisualStyleBackColor = true;
@@ -1324,11 +1324,11 @@
 			this.page_EffectWeight.Controls.Add(this.f1);
 			this.page_EffectWeight.Controls.Add(this.EffectWeight_reset);
 			this.page_EffectWeight.Controls.Add(this.EffectWeight_text);
-			this.page_EffectWeight.Location = new System.Drawing.Point(4, 23);
+			this.page_EffectWeight.Location = new System.Drawing.Point(4, 24);
 			this.page_EffectWeight.Margin = new System.Windows.Forms.Padding(2);
 			this.page_EffectWeight.Name = "page_EffectWeight";
 			this.page_EffectWeight.Padding = new System.Windows.Forms.Padding(2);
-			this.page_EffectWeight.Size = new System.Drawing.Size(792, 448);
+			this.page_EffectWeight.Size = new System.Drawing.Size(812, 422);
 			this.page_EffectWeight.TabIndex = 2;
 			this.page_EffectWeight.Text = "EffectWeight";
 			this.page_EffectWeight.UseVisualStyleBackColor = true;
@@ -1398,7 +1398,7 @@
 			this.page_EffectTypes.Margin = new System.Windows.Forms.Padding(2);
 			this.page_EffectTypes.Name = "page_EffectTypes";
 			this.page_EffectTypes.Padding = new System.Windows.Forms.Padding(2);
-			this.page_EffectTypes.Size = new System.Drawing.Size(777, 447);
+			this.page_EffectTypes.Size = new System.Drawing.Size(812, 422);
 			this.page_EffectTypes.TabIndex = 3;
 			this.page_EffectTypes.Text = "EffectTypes";
 			this.page_EffectTypes.UseVisualStyleBackColor = true;
@@ -2175,7 +2175,7 @@
 			this.page_DamageInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_DamageInfo.Name = "page_DamageInfo";
 			this.page_DamageInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_DamageInfo.Size = new System.Drawing.Size(777, 422);
+			this.page_DamageInfo.Size = new System.Drawing.Size(812, 422);
 			this.page_DamageInfo.TabIndex = 4;
 			this.page_DamageInfo.Text = "DamageInfo";
 			this.page_DamageInfo.UseVisualStyleBackColor = true;
@@ -2768,11 +2768,11 @@
 			this.page_SaveType.Controls.Add(this.st_TargetRestrictionGrp);
 			this.page_SaveType.Controls.Add(this.SaveType_text);
 			this.page_SaveType.Controls.Add(this.SaveType_reset);
-			this.page_SaveType.Location = new System.Drawing.Point(4, 23);
+			this.page_SaveType.Location = new System.Drawing.Point(4, 24);
 			this.page_SaveType.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SaveType.Name = "page_SaveType";
 			this.page_SaveType.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SaveType.Size = new System.Drawing.Size(792, 448);
+			this.page_SaveType.Size = new System.Drawing.Size(812, 422);
 			this.page_SaveType.TabIndex = 5;
 			this.page_SaveType.Text = "SaveType";
 			this.page_SaveType.UseVisualStyleBackColor = true;
@@ -2789,7 +2789,7 @@
 			this.st_DetrimentalGrp.Controls.Add(this.st_Save1Grp);
 			this.st_DetrimentalGrp.Location = new System.Drawing.Point(5, 60);
 			this.st_DetrimentalGrp.Name = "st_DetrimentalGrp";
-			this.st_DetrimentalGrp.Size = new System.Drawing.Size(485, 275);
+			this.st_DetrimentalGrp.Size = new System.Drawing.Size(535, 275);
 			this.st_DetrimentalGrp.TabIndex = 37;
 			this.st_DetrimentalGrp.TabStop = false;
 			this.st_DetrimentalGrp.Text = "Attack";
@@ -2804,7 +2804,7 @@
 			this.st_SpecificGrp.Size = new System.Drawing.Size(475, 45);
 			this.st_SpecificGrp.TabIndex = 32;
 			this.st_SpecificGrp.TabStop = false;
-			this.st_SpecificGrp.Text = "Specific";
+			this.st_SpecificGrp.Text = "0000 003F specific";
 			// 
 			// cbo_st_Specific
 			// 
@@ -2820,14 +2820,14 @@
 			// st_Immunity2Grp
 			// 
 			this.st_Immunity2Grp.Controls.Add(this.cbo_st_Immunity2);
-			this.st_Immunity2Grp.Location = new System.Drawing.Point(245, 180);
+			this.st_Immunity2Grp.Location = new System.Drawing.Point(295, 180);
 			this.st_Immunity2Grp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Immunity2Grp.Name = "st_Immunity2Grp";
 			this.st_Immunity2Grp.Padding = new System.Windows.Forms.Padding(0);
 			this.st_Immunity2Grp.Size = new System.Drawing.Size(235, 45);
 			this.st_Immunity2Grp.TabIndex = 31;
 			this.st_Immunity2Grp.TabStop = false;
-			this.st_Immunity2Grp.Text = "Immunity2 type";
+			this.st_Immunity2Grp.Text = "0003 F000 immunity2";
 			// 
 			// cbo_st_Immunity2
 			// 
@@ -2843,14 +2843,14 @@
 			// st_Immunity1Grp
 			// 
 			this.st_Immunity1Grp.Controls.Add(this.cbo_st_Immunity1);
-			this.st_Immunity1Grp.Location = new System.Drawing.Point(245, 135);
+			this.st_Immunity1Grp.Location = new System.Drawing.Point(295, 135);
 			this.st_Immunity1Grp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Immunity1Grp.Name = "st_Immunity1Grp";
 			this.st_Immunity1Grp.Padding = new System.Windows.Forms.Padding(0);
 			this.st_Immunity1Grp.Size = new System.Drawing.Size(235, 45);
 			this.st_Immunity1Grp.TabIndex = 30;
 			this.st_Immunity1Grp.TabStop = false;
-			this.st_Immunity1Grp.Text = "Immunity1 type";
+			this.st_Immunity1Grp.Text = "0000 0FC0 immunity1";
 			// 
 			// cbo_st_Immunity1
 			// 
@@ -2870,14 +2870,14 @@
 			this.st_FlagsGrp.Controls.Add(this.st_AffectsFriendlies);
 			this.st_FlagsGrp.Controls.Add(this.st_TouchRanged);
 			this.st_FlagsGrp.Controls.Add(this.st_TouchMelee);
-			this.st_FlagsGrp.Location = new System.Drawing.Point(245, 15);
+			this.st_FlagsGrp.Location = new System.Drawing.Point(295, 15);
 			this.st_FlagsGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_FlagsGrp.Name = "st_FlagsGrp";
 			this.st_FlagsGrp.Padding = new System.Windows.Forms.Padding(0);
 			this.st_FlagsGrp.Size = new System.Drawing.Size(235, 120);
 			this.st_FlagsGrp.TabIndex = 28;
 			this.st_FlagsGrp.TabStop = false;
-			this.st_FlagsGrp.Text = "Flags";
+			this.st_FlagsGrp.Text = "FC00 0000 flags";
 			// 
 			// st_SpellResistance
 			// 
@@ -2940,14 +2940,14 @@
 			this.st_Impact1Grp.Controls.Add(this.st_Impact1rb_effectdamage);
 			this.st_Impact1Grp.Controls.Add(this.st_Impact1rb_damagehalf);
 			this.st_Impact1Grp.Controls.Add(this.st_Impact1rb_effectonly);
-			this.st_Impact1Grp.Location = new System.Drawing.Point(125, 15);
+			this.st_Impact1Grp.Location = new System.Drawing.Point(145, 15);
 			this.st_Impact1Grp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Impact1Grp.Name = "st_Impact1Grp";
 			this.st_Impact1Grp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_Impact1Grp.Size = new System.Drawing.Size(120, 105);
+			this.st_Impact1Grp.Size = new System.Drawing.Size(140, 105);
 			this.st_Impact1Grp.TabIndex = 26;
 			this.st_Impact1Grp.TabStop = false;
-			this.st_Impact1Grp.Text = "Damage1 type";
+			this.st_Impact1Grp.Text = "0030 0000 damage1";
 			// 
 			// st_Impact1rb_damageevasion
 			// 
@@ -3003,14 +3003,14 @@
 			this.st_Impact2Grp.Controls.Add(this.st_Impact2rb_effectdamage);
 			this.st_Impact2Grp.Controls.Add(this.st_Impact2rb_damagehalf);
 			this.st_Impact2Grp.Controls.Add(this.st_Impact2rb_effectonly);
-			this.st_Impact2Grp.Location = new System.Drawing.Point(125, 120);
+			this.st_Impact2Grp.Location = new System.Drawing.Point(145, 120);
 			this.st_Impact2Grp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Impact2Grp.Name = "st_Impact2Grp";
 			this.st_Impact2Grp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_Impact2Grp.Size = new System.Drawing.Size(120, 105);
+			this.st_Impact2Grp.Size = new System.Drawing.Size(140, 105);
 			this.st_Impact2Grp.TabIndex = 27;
 			this.st_Impact2Grp.TabStop = false;
-			this.st_Impact2Grp.Text = "Damage2 type";
+			this.st_Impact2Grp.Text = "0300 0000 damage2";
 			// 
 			// st_Impact2rb_damageevasion
 			// 
@@ -3070,10 +3070,10 @@
 			this.st_Save2Grp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Save2Grp.Name = "st_Save2Grp";
 			this.st_Save2Grp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_Save2Grp.Size = new System.Drawing.Size(120, 105);
+			this.st_Save2Grp.Size = new System.Drawing.Size(130, 105);
 			this.st_Save2Grp.TabIndex = 23;
 			this.st_Save2Grp.TabStop = false;
-			this.st_Save2Grp.Text = "Save2 type";
+			this.st_Save2Grp.Text = "00C0 0000 save2";
 			// 
 			// st_Save2rb_will
 			// 
@@ -3133,10 +3133,10 @@
 			this.st_Save1Grp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Save1Grp.Name = "st_Save1Grp";
 			this.st_Save1Grp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_Save1Grp.Size = new System.Drawing.Size(120, 105);
+			this.st_Save1Grp.Size = new System.Drawing.Size(130, 105);
 			this.st_Save1Grp.TabIndex = 22;
 			this.st_Save1Grp.TabStop = false;
-			this.st_Save1Grp.Text = "Save1 type";
+			this.st_Save1Grp.Text = "000C 0000 save1";
 			// 
 			// st_Save1rb_will
 			// 
@@ -3191,7 +3191,7 @@
 			this.st_ExclusiveGrp.Controls.Add(this.st_Excl_FlagsGrp);
 			this.st_ExclusiveGrp.Controls.Add(this.st_Excl_WeightGrp);
 			this.st_ExclusiveGrp.Controls.Add(this.st_Excl_DamagetypesGrp);
-			this.st_ExclusiveGrp.Location = new System.Drawing.Point(490, 60);
+			this.st_ExclusiveGrp.Location = new System.Drawing.Point(540, 60);
 			this.st_ExclusiveGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_ExclusiveGrp.Name = "st_ExclusiveGrp";
 			this.st_ExclusiveGrp.Padding = new System.Windows.Forms.Padding(0);
@@ -3213,7 +3213,7 @@
 			this.st_Excl_FlagsGrp.Size = new System.Drawing.Size(130, 100);
 			this.st_Excl_FlagsGrp.TabIndex = 11;
 			this.st_Excl_FlagsGrp.TabStop = false;
-			this.st_Excl_FlagsGrp.Text = "Flags";
+			this.st_Excl_FlagsGrp.Text = "0070 0000 flags";
 			// 
 			// st_Excl_rbResistance
 			// 
@@ -3271,7 +3271,7 @@
 			this.st_Excl_WeightGrp.Size = new System.Drawing.Size(130, 40);
 			this.st_Excl_WeightGrp.TabIndex = 10;
 			this.st_Excl_WeightGrp.TabStop = false;
-			this.st_Excl_WeightGrp.Text = "Power";
+			this.st_Excl_WeightGrp.Text = "000F F000 power";
 			// 
 			// st_Excl_Weight
 			// 
@@ -3303,7 +3303,7 @@
 			this.st_Excl_DamagetypesGrp.Size = new System.Drawing.Size(130, 260);
 			this.st_Excl_DamagetypesGrp.TabIndex = 9;
 			this.st_Excl_DamagetypesGrp.TabStop = false;
-			this.st_Excl_DamagetypesGrp.Text = "Damage types";
+			this.st_Excl_DamagetypesGrp.Text = "0000 0FFF type";
 			// 
 			// st_Excl_Sonic
 			// 
@@ -3511,7 +3511,7 @@
 			this.st_AcBonusGrp.Size = new System.Drawing.Size(195, 45);
 			this.st_AcBonusGrp.TabIndex = 28;
 			this.st_AcBonusGrp.TabStop = false;
-			this.st_AcBonusGrp.Text = "AcBonus type";
+			this.st_AcBonusGrp.Text = "001C 0000 ac";
 			// 
 			// cbo_st_AcBonus
 			// 
@@ -3534,7 +3534,7 @@
 			this.st_TargetRestrictionGrp.Size = new System.Drawing.Size(520, 45);
 			this.st_TargetRestrictionGrp.TabIndex = 27;
 			this.st_TargetRestrictionGrp.TabStop = false;
-			this.st_TargetRestrictionGrp.Text = "Target restriction";
+			this.st_TargetRestrictionGrp.Text = "0000 101F targetrestriction";
 			// 
 			// cbo_st_TargetRestriction
 			// 
@@ -3584,11 +3584,11 @@
 			this.page_SaveDCType.Controls.Add(this.savedctype2);
 			this.page_SaveDCType.Controls.Add(this.savedctype1);
 			this.page_SaveDCType.Controls.Add(this.SaveDCType_reset);
-			this.page_SaveDCType.Location = new System.Drawing.Point(4, 23);
+			this.page_SaveDCType.Location = new System.Drawing.Point(4, 24);
 			this.page_SaveDCType.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SaveDCType.Name = "page_SaveDCType";
 			this.page_SaveDCType.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SaveDCType.Size = new System.Drawing.Size(792, 448);
+			this.page_SaveDCType.Size = new System.Drawing.Size(812, 422);
 			this.page_SaveDCType.TabIndex = 6;
 			this.page_SaveDCType.Text = "SaveDCType";
 			this.page_SaveDCType.UseVisualStyleBackColor = true;
@@ -3756,7 +3756,7 @@
 			// 
 			// savedc_info
 			// 
-			this.savedc_info.Location = new System.Drawing.Point(5, 185);
+			this.savedc_info.Location = new System.Drawing.Point(5, 180);
 			this.savedc_info.Margin = new System.Windows.Forms.Padding(0);
 			this.savedc_info.Name = "savedc_info";
 			this.savedc_info.Size = new System.Drawing.Size(330, 115);
@@ -3860,7 +3860,7 @@
 			this.options});
 			this.menuStrip.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip.Name = "menuStrip";
-			this.menuStrip.Size = new System.Drawing.Size(1062, 24);
+			this.menuStrip.Size = new System.Drawing.Size(1101, 24);
 			this.menuStrip.TabIndex = 1;
 			this.menuStrip.Text = "menuStrip";
 			// 
@@ -3999,7 +3999,7 @@
 			// 
 			this.splitContainer1.Panel2.Controls.Add(this.apply);
 			this.splitContainer1.Panel2.Controls.Add(this.cols_HenchSpells);
-			this.splitContainer1.Size = new System.Drawing.Size(1062, 470);
+			this.splitContainer1.Size = new System.Drawing.Size(1101, 470);
 			this.splitContainer1.SplitterDistance = 275;
 			this.splitContainer1.SplitterWidth = 3;
 			this.splitContainer1.TabIndex = 3;
@@ -4044,7 +4044,7 @@
 			this.apply.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.apply.Location = new System.Drawing.Point(0, 445);
 			this.apply.Name = "apply";
-			this.apply.Size = new System.Drawing.Size(784, 25);
+			this.apply.Size = new System.Drawing.Size(823, 25);
 			this.apply.TabIndex = 1;
 			this.apply.Text = "apply this spell\'s data";
 			this.apply.UseVisualStyleBackColor = true;
@@ -4054,7 +4054,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1062, 494);
+			this.ClientSize = new System.Drawing.Size(1101, 494);
 			this.Controls.Add(this.splitContainer1);
 			this.Controls.Add(this.menuStrip);
 			this.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
