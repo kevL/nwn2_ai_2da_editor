@@ -70,7 +70,11 @@ namespace nwn2_ai_2da_editor
 							+ Environment.NewLine
 							+ "\tignore : Save currently applied data only";
 
-				switch (MessageBox.Show(info, "  Attention", MessageBoxButtons.AbortRetryIgnore))
+				switch (MessageBox.Show(info,
+										"  Attention",
+										MessageBoxButtons.AbortRetryIgnore,
+										MessageBoxIcon.Asterisk,
+										MessageBoxDefaultButton.Button1))
 				{
 					case DialogResult.Abort:
 						_pfeT = String.Empty;
@@ -127,6 +131,12 @@ namespace nwn2_ai_2da_editor
 
 
 		#region Edit
+		void GotoChanged(object sender, EventArgs e)
+		{
+			//FindNextChanged
+		}
+
+
 		void Click_copy_decimal(object sender, EventArgs e)
 		{
 //			if (cols_HenchSpells.SelectedTab == cols_HenchSpells.TabPages["page_SpellInfo"])

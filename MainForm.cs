@@ -110,8 +110,8 @@ namespace nwn2_ai_2da_editor
 
 
 			// NOTE: quickload the 2da for testing ONLY.
-			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchspells.2da";
-			Load_HenchSpells();
+//			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchspells.2da";
+//			Load_HenchSpells();
 		}
 		#endregion cTor
 
@@ -148,6 +148,30 @@ namespace nwn2_ai_2da_editor
 
 				string[] rows = File.ReadAllLines(_pfe);
 
+				// WARNING: This editor does *not* handle quotation marks around 2da fields.
+				foreach (string row in rows) // test for double-quote character and exit if found.
+				{
+					foreach(char character in row)
+					{
+						if (character == '"')
+						{
+							const string info = "The 2da-file contains double-quotes. Although that can be"
+											  + " valid in a 2da-file this editor is not coded to cope."
+											  + " Format the 2da-file to not use double-quotes if you want"
+											  + " to open it here.";
+							if (MessageBox.Show(info,
+												"  ERROR",
+												MessageBoxButtons.OK,
+												MessageBoxIcon.Error,
+												MessageBoxDefaultButton.Button1) == DialogResult.OK)
+							{
+								return;
+							}
+						}
+					}
+				}
+
+
 //				var pb = ProgBarF.Instance;
 //				pb.SetInfo("loading ...");
 //				pb.SetTotal(rows.Length);
@@ -157,8 +181,6 @@ namespace nwn2_ai_2da_editor
 					if (!String.IsNullOrEmpty(row))
 					{
 						//logfile.Log(row);
-
-						// WARNING: This does *not* handle quotation marks around 2da fields.
 
 						string[] cols = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
 

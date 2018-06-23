@@ -297,6 +297,8 @@
 		private System.Windows.Forms.RadioButton st_Excl_rbImmunity;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+		private System.Windows.Forms.ToolStripMenuItem FindNextChanged;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
 
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -600,6 +602,8 @@
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.Quit = new System.Windows.Forms.ToolStripMenuItem();
 			this.edit = new System.Windows.Forms.ToolStripMenuItem();
+			this.FindNextChanged = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.Copy_decimal = new System.Windows.Forms.ToolStripMenuItem();
 			this.Copy_hexadecimal = new System.Windows.Forms.ToolStripMenuItem();
 			this.Copy_binary = new System.Windows.Forms.ToolStripMenuItem();
@@ -1035,11 +1039,11 @@
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_hex);
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_text);
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_reset);
-			this.page_TargetInfo.Location = new System.Drawing.Point(4, 24);
+			this.page_TargetInfo.Location = new System.Drawing.Point(4, 23);
 			this.page_TargetInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_TargetInfo.Name = "page_TargetInfo";
 			this.page_TargetInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_TargetInfo.Size = new System.Drawing.Size(812, 422);
+			this.page_TargetInfo.Size = new System.Drawing.Size(812, 423);
 			this.page_TargetInfo.TabIndex = 1;
 			this.page_TargetInfo.Text = "TargetInfo";
 			this.page_TargetInfo.UseVisualStyleBackColor = true;
@@ -1326,11 +1330,11 @@
 			this.page_EffectWeight.Controls.Add(this.f1);
 			this.page_EffectWeight.Controls.Add(this.EffectWeight_reset);
 			this.page_EffectWeight.Controls.Add(this.EffectWeight_text);
-			this.page_EffectWeight.Location = new System.Drawing.Point(4, 24);
+			this.page_EffectWeight.Location = new System.Drawing.Point(4, 23);
 			this.page_EffectWeight.Margin = new System.Windows.Forms.Padding(2);
 			this.page_EffectWeight.Name = "page_EffectWeight";
 			this.page_EffectWeight.Padding = new System.Windows.Forms.Padding(2);
-			this.page_EffectWeight.Size = new System.Drawing.Size(812, 422);
+			this.page_EffectWeight.Size = new System.Drawing.Size(812, 423);
 			this.page_EffectWeight.TabIndex = 2;
 			this.page_EffectWeight.Text = "EffectWeight";
 			this.page_EffectWeight.UseVisualStyleBackColor = true;
@@ -1396,11 +1400,11 @@
 			this.page_EffectTypes.Controls.Add(this.EffectTypes_hex);
 			this.page_EffectTypes.Controls.Add(this.EffectTypes_text);
 			this.page_EffectTypes.Controls.Add(this.EffectTypes_reset);
-			this.page_EffectTypes.Location = new System.Drawing.Point(4, 24);
+			this.page_EffectTypes.Location = new System.Drawing.Point(4, 23);
 			this.page_EffectTypes.Margin = new System.Windows.Forms.Padding(2);
 			this.page_EffectTypes.Name = "page_EffectTypes";
 			this.page_EffectTypes.Padding = new System.Windows.Forms.Padding(2);
-			this.page_EffectTypes.Size = new System.Drawing.Size(812, 422);
+			this.page_EffectTypes.Size = new System.Drawing.Size(812, 423);
 			this.page_EffectTypes.TabIndex = 3;
 			this.page_EffectTypes.Text = "EffectTypes";
 			this.page_EffectTypes.UseVisualStyleBackColor = true;
@@ -2173,11 +2177,11 @@
 			this.page_DamageInfo.Controls.Add(this.DamageInfo_hex);
 			this.page_DamageInfo.Controls.Add(this.DamageInfo_text);
 			this.page_DamageInfo.Controls.Add(this.DamageInfo_reset);
-			this.page_DamageInfo.Location = new System.Drawing.Point(4, 24);
+			this.page_DamageInfo.Location = new System.Drawing.Point(4, 23);
 			this.page_DamageInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_DamageInfo.Name = "page_DamageInfo";
 			this.page_DamageInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_DamageInfo.Size = new System.Drawing.Size(812, 422);
+			this.page_DamageInfo.Size = new System.Drawing.Size(812, 423);
 			this.page_DamageInfo.TabIndex = 4;
 			this.page_DamageInfo.Text = "DamageInfo";
 			this.page_DamageInfo.UseVisualStyleBackColor = true;
@@ -3924,6 +3928,8 @@
 			// edit
 			// 
 			this.edit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.FindNextChanged,
+			this.toolStripSeparator3,
 			this.Copy_decimal,
 			this.Copy_hexadecimal,
 			this.Copy_binary});
@@ -3931,24 +3937,36 @@
 			this.edit.Size = new System.Drawing.Size(37, 20);
 			this.edit.Text = "Edit";
 			// 
+			// FindNextChanged
+			// 
+			this.FindNextChanged.Name = "FindNextChanged";
+			this.FindNextChanged.Size = new System.Drawing.Size(155, 22);
+			this.FindNextChanged.Text = "Find next changed";
+			this.FindNextChanged.Click += new System.EventHandler(this.GotoChanged);
+			// 
+			// toolStripSeparator3
+			// 
+			this.toolStripSeparator3.Name = "toolStripSeparator3";
+			this.toolStripSeparator3.Size = new System.Drawing.Size(152, 6);
+			// 
 			// Copy_decimal
 			// 
 			this.Copy_decimal.Name = "Copy_decimal";
-			this.Copy_decimal.Size = new System.Drawing.Size(150, 22);
+			this.Copy_decimal.Size = new System.Drawing.Size(155, 22);
 			this.Copy_decimal.Text = "Copy decimal";
 			this.Copy_decimal.Click += new System.EventHandler(this.Click_copy_decimal);
 			// 
 			// Copy_hexadecimal
 			// 
 			this.Copy_hexadecimal.Name = "Copy_hexadecimal";
-			this.Copy_hexadecimal.Size = new System.Drawing.Size(150, 22);
+			this.Copy_hexadecimal.Size = new System.Drawing.Size(155, 22);
 			this.Copy_hexadecimal.Text = "Copy hexadecimal";
 			this.Copy_hexadecimal.Click += new System.EventHandler(this.Click_copy_hexadecimal);
 			// 
 			// Copy_binary
 			// 
 			this.Copy_binary.Name = "Copy_binary";
-			this.Copy_binary.Size = new System.Drawing.Size(150, 22);
+			this.Copy_binary.Size = new System.Drawing.Size(155, 22);
 			this.Copy_binary.Text = "Copy binary";
 			this.Copy_binary.Click += new System.EventHandler(this.Click_copy_binary);
 			// 

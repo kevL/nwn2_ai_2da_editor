@@ -24,7 +24,7 @@ part I dread -- several of the integers have been multi-purposed, so that
 'DamageInfo' isn't necessarily about damage-info, nor are 'SaveType' and
 'SaveDCType' necessarily about saves or save-DCs. 'EffectTypes' is also
 multi-purposed into beneficial and detrimental effects, and like the other
-integers they can cause conflicts when accessed by the CoreAI scripts.
+integers this can cause conflicts when accessed by the CoreAI scripts.
 
 Since resolving potential issues would involve tracing every bit through the
 CoreAI scripts, I adopted a policy of exposing every bit that's possible even
