@@ -137,7 +137,7 @@
 		private System.Windows.Forms.ComboBox cbo_si_Spelllevel;
 		private System.Windows.Forms.CheckBox si_ItemCast;
 		private System.Windows.Forms.GroupBox si_FlagsGrp;
-		private System.Windows.Forms.GroupBox et_PosEffectsGrp;
+		private System.Windows.Forms.GroupBox et_BenEffectsGrp;
 		private System.Windows.Forms.CheckBox et_AcIncrease;
 		private System.Windows.Forms.CheckBox et_Regenerate;
 		private System.Windows.Forms.CheckBox et_ImmunityNecromancy;
@@ -164,7 +164,7 @@
 		private System.Windows.Forms.CheckBox et_DamageReduction;
 		private System.Windows.Forms.CheckBox et_AttackIncrease;
 		private System.Windows.Forms.Label si_hostile;
-		private System.Windows.Forms.GroupBox et_NegEffectsGrp;
+		private System.Windows.Forms.GroupBox et_DetEffectsGrp;
 		private System.Windows.Forms.CheckBox et_AcDecrease;
 		private System.Windows.Forms.CheckBox et_NegativeLevel;
 		private System.Windows.Forms.CheckBox et_Death;
@@ -384,7 +384,7 @@
 			this.EffectWeight_reset = new System.Windows.Forms.Button();
 			this.EffectWeight_text = new System.Windows.Forms.TextBox();
 			this.page_EffectTypes = new System.Windows.Forms.TabPage();
-			this.et_NegEffectsGrp = new System.Windows.Forms.GroupBox();
+			this.et_DetEffectsGrp = new System.Windows.Forms.GroupBox();
 			this.et_CutsceneParalyze = new System.Windows.Forms.CheckBox();
 			this.et_Mesmerize = new System.Windows.Forms.CheckBox();
 			this.et_Dying = new System.Windows.Forms.CheckBox();
@@ -415,7 +415,7 @@
 			this.et_Deafness = new System.Windows.Forms.CheckBox();
 			this.et_Paralyze = new System.Windows.Forms.CheckBox();
 			this.et_Entangle = new System.Windows.Forms.CheckBox();
-			this.et_PosEffectsGrp = new System.Windows.Forms.GroupBox();
+			this.et_BenEffectsGrp = new System.Windows.Forms.GroupBox();
 			this.et_ImmunityNecromancy = new System.Windows.Forms.CheckBox();
 			this.et_SpellShield = new System.Windows.Forms.CheckBox();
 			this.et_SeeInvisible = new System.Windows.Forms.CheckBox();
@@ -625,8 +625,8 @@
 			this.ti_FlagsGrp.SuspendLayout();
 			this.page_EffectWeight.SuspendLayout();
 			this.page_EffectTypes.SuspendLayout();
-			this.et_NegEffectsGrp.SuspendLayout();
-			this.et_PosEffectsGrp.SuspendLayout();
+			this.et_DetEffectsGrp.SuspendLayout();
+			this.et_BenEffectsGrp.SuspendLayout();
 			this.page_DamageInfo.SuspendLayout();
 			this.di_DetrimentalGrp.SuspendLayout();
 			this.di_DetDamageGrp.SuspendLayout();
@@ -1387,8 +1387,8 @@
 			// 
 			// page_EffectTypes
 			// 
-			this.page_EffectTypes.Controls.Add(this.et_NegEffectsGrp);
-			this.page_EffectTypes.Controls.Add(this.et_PosEffectsGrp);
+			this.page_EffectTypes.Controls.Add(this.et_DetEffectsGrp);
+			this.page_EffectTypes.Controls.Add(this.et_BenEffectsGrp);
 			this.page_EffectTypes.Controls.Add(this.et_bin);
 			this.page_EffectTypes.Controls.Add(this.et_hex);
 			this.page_EffectTypes.Controls.Add(this.et_Clear);
@@ -1405,46 +1405,46 @@
 			this.page_EffectTypes.Text = "EffectTypes";
 			this.page_EffectTypes.UseVisualStyleBackColor = true;
 			// 
-			// et_NegEffectsGrp
+			// et_DetEffectsGrp
 			// 
-			this.et_NegEffectsGrp.Controls.Add(this.et_CutsceneParalyze);
-			this.et_NegEffectsGrp.Controls.Add(this.et_Mesmerize);
-			this.et_NegEffectsGrp.Controls.Add(this.et_Dying);
-			this.et_NegEffectsGrp.Controls.Add(this.et_Knockdown);
-			this.et_NegEffectsGrp.Controls.Add(this.et_SavingThrowDecrease);
-			this.et_NegEffectsGrp.Controls.Add(this.et_AcDecrease);
-			this.et_NegEffectsGrp.Controls.Add(this.et_NegativeLevel);
-			this.et_NegEffectsGrp.Controls.Add(this.et_Death);
-			this.et_NegEffectsGrp.Controls.Add(this.et_SpeedDecrease);
-			this.et_NegEffectsGrp.Controls.Add(this.et_Petrify);
-			this.et_NegEffectsGrp.Controls.Add(this.et_Stun);
-			this.et_NegEffectsGrp.Controls.Add(this.et_SkillDecrease);
-			this.et_NegEffectsGrp.Controls.Add(this.et_AttackDecrease);
-			this.et_NegEffectsGrp.Controls.Add(this.et_DamageDecrease);
-			this.et_NegEffectsGrp.Controls.Add(this.et_AbilityDecrease);
-			this.et_NegEffectsGrp.Controls.Add(this.et_Slow);
-			this.et_NegEffectsGrp.Controls.Add(this.et_Silence);
-			this.et_NegEffectsGrp.Controls.Add(this.et_Disease);
-			this.et_NegEffectsGrp.Controls.Add(this.et_Poison);
-			this.et_NegEffectsGrp.Controls.Add(this.et_Daze);
-			this.et_NegEffectsGrp.Controls.Add(this.et_Dominate);
-			this.et_NegEffectsGrp.Controls.Add(this.et_Frighten);
-			this.et_NegEffectsGrp.Controls.Add(this.et_Confuse);
-			this.et_NegEffectsGrp.Controls.Add(this.et_Charm);
-			this.et_NegEffectsGrp.Controls.Add(this.et_Sleep);
-			this.et_NegEffectsGrp.Controls.Add(this.et_Curse);
-			this.et_NegEffectsGrp.Controls.Add(this.et_Blindness);
-			this.et_NegEffectsGrp.Controls.Add(this.et_Deafness);
-			this.et_NegEffectsGrp.Controls.Add(this.et_Paralyze);
-			this.et_NegEffectsGrp.Controls.Add(this.et_Entangle);
-			this.et_NegEffectsGrp.Location = new System.Drawing.Point(5, 60);
-			this.et_NegEffectsGrp.Margin = new System.Windows.Forms.Padding(0);
-			this.et_NegEffectsGrp.Name = "et_NegEffectsGrp";
-			this.et_NegEffectsGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.et_NegEffectsGrp.Size = new System.Drawing.Size(385, 320);
-			this.et_NegEffectsGrp.TabIndex = 52;
-			this.et_NegEffectsGrp.TabStop = false;
-			this.et_NegEffectsGrp.Text = "Negative effects";
+			this.et_DetEffectsGrp.Controls.Add(this.et_CutsceneParalyze);
+			this.et_DetEffectsGrp.Controls.Add(this.et_Mesmerize);
+			this.et_DetEffectsGrp.Controls.Add(this.et_Dying);
+			this.et_DetEffectsGrp.Controls.Add(this.et_Knockdown);
+			this.et_DetEffectsGrp.Controls.Add(this.et_SavingThrowDecrease);
+			this.et_DetEffectsGrp.Controls.Add(this.et_AcDecrease);
+			this.et_DetEffectsGrp.Controls.Add(this.et_NegativeLevel);
+			this.et_DetEffectsGrp.Controls.Add(this.et_Death);
+			this.et_DetEffectsGrp.Controls.Add(this.et_SpeedDecrease);
+			this.et_DetEffectsGrp.Controls.Add(this.et_Petrify);
+			this.et_DetEffectsGrp.Controls.Add(this.et_Stun);
+			this.et_DetEffectsGrp.Controls.Add(this.et_SkillDecrease);
+			this.et_DetEffectsGrp.Controls.Add(this.et_AttackDecrease);
+			this.et_DetEffectsGrp.Controls.Add(this.et_DamageDecrease);
+			this.et_DetEffectsGrp.Controls.Add(this.et_AbilityDecrease);
+			this.et_DetEffectsGrp.Controls.Add(this.et_Slow);
+			this.et_DetEffectsGrp.Controls.Add(this.et_Silence);
+			this.et_DetEffectsGrp.Controls.Add(this.et_Disease);
+			this.et_DetEffectsGrp.Controls.Add(this.et_Poison);
+			this.et_DetEffectsGrp.Controls.Add(this.et_Daze);
+			this.et_DetEffectsGrp.Controls.Add(this.et_Dominate);
+			this.et_DetEffectsGrp.Controls.Add(this.et_Frighten);
+			this.et_DetEffectsGrp.Controls.Add(this.et_Confuse);
+			this.et_DetEffectsGrp.Controls.Add(this.et_Charm);
+			this.et_DetEffectsGrp.Controls.Add(this.et_Sleep);
+			this.et_DetEffectsGrp.Controls.Add(this.et_Curse);
+			this.et_DetEffectsGrp.Controls.Add(this.et_Blindness);
+			this.et_DetEffectsGrp.Controls.Add(this.et_Deafness);
+			this.et_DetEffectsGrp.Controls.Add(this.et_Paralyze);
+			this.et_DetEffectsGrp.Controls.Add(this.et_Entangle);
+			this.et_DetEffectsGrp.Location = new System.Drawing.Point(5, 60);
+			this.et_DetEffectsGrp.Margin = new System.Windows.Forms.Padding(0);
+			this.et_DetEffectsGrp.Name = "et_DetEffectsGrp";
+			this.et_DetEffectsGrp.Padding = new System.Windows.Forms.Padding(0);
+			this.et_DetEffectsGrp.Size = new System.Drawing.Size(385, 320);
+			this.et_DetEffectsGrp.TabIndex = 52;
+			this.et_DetEffectsGrp.TabStop = false;
+			this.et_DetEffectsGrp.Text = "FFF7 FFFF detrimental";
 			// 
 			// et_CutsceneParalyze
 			// 
@@ -1776,41 +1776,41 @@
 			this.et_Entangle.UseVisualStyleBackColor = true;
 			this.et_Entangle.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_et_negativeeffects);
 			// 
-			// et_PosEffectsGrp
+			// et_BenEffectsGrp
 			// 
-			this.et_PosEffectsGrp.Controls.Add(this.et_ImmunityNecromancy);
-			this.et_PosEffectsGrp.Controls.Add(this.et_SpellShield);
-			this.et_PosEffectsGrp.Controls.Add(this.et_SeeInvisible);
-			this.et_PosEffectsGrp.Controls.Add(this.et_AbilityIncrease);
-			this.et_PosEffectsGrp.Controls.Add(this.et_ElementalShield);
-			this.et_PosEffectsGrp.Controls.Add(this.et_GreaterInvisibility);
-			this.et_PosEffectsGrp.Controls.Add(this.et_Wildshape);
-			this.et_PosEffectsGrp.Controls.Add(this.et_TrueSeeing);
-			this.et_PosEffectsGrp.Controls.Add(this.et_Ultravision);
-			this.et_PosEffectsGrp.Controls.Add(this.et_Polymorph);
-			this.et_PosEffectsGrp.Controls.Add(this.et_Invisibility);
-			this.et_PosEffectsGrp.Controls.Add(this.et_Ethereal);
-			this.et_PosEffectsGrp.Controls.Add(this.et_AbsorbDamage);
-			this.et_PosEffectsGrp.Controls.Add(this.et_DamageIncrease);
-			this.et_PosEffectsGrp.Controls.Add(this.et_Concealment);
-			this.et_PosEffectsGrp.Controls.Add(this.et_SavingThrowIncrease);
-			this.et_PosEffectsGrp.Controls.Add(this.et_SpellAbsorption);
-			this.et_PosEffectsGrp.Controls.Add(this.et_Timestop);
-			this.et_PosEffectsGrp.Controls.Add(this.et_Sanctuary);
-			this.et_PosEffectsGrp.Controls.Add(this.et_TempHitpoints);
-			this.et_PosEffectsGrp.Controls.Add(this.et_Haste);
-			this.et_PosEffectsGrp.Controls.Add(this.et_DamageReduction);
-			this.et_PosEffectsGrp.Controls.Add(this.et_AttackIncrease);
-			this.et_PosEffectsGrp.Controls.Add(this.et_Regenerate);
-			this.et_PosEffectsGrp.Controls.Add(this.et_AcIncrease);
-			this.et_PosEffectsGrp.Location = new System.Drawing.Point(390, 60);
-			this.et_PosEffectsGrp.Margin = new System.Windows.Forms.Padding(0);
-			this.et_PosEffectsGrp.Name = "et_PosEffectsGrp";
-			this.et_PosEffectsGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.et_PosEffectsGrp.Size = new System.Drawing.Size(385, 320);
-			this.et_PosEffectsGrp.TabIndex = 51;
-			this.et_PosEffectsGrp.TabStop = false;
-			this.et_PosEffectsGrp.Text = "Positive effects";
+			this.et_BenEffectsGrp.Controls.Add(this.et_ImmunityNecromancy);
+			this.et_BenEffectsGrp.Controls.Add(this.et_SpellShield);
+			this.et_BenEffectsGrp.Controls.Add(this.et_SeeInvisible);
+			this.et_BenEffectsGrp.Controls.Add(this.et_AbilityIncrease);
+			this.et_BenEffectsGrp.Controls.Add(this.et_ElementalShield);
+			this.et_BenEffectsGrp.Controls.Add(this.et_GreaterInvisibility);
+			this.et_BenEffectsGrp.Controls.Add(this.et_Wildshape);
+			this.et_BenEffectsGrp.Controls.Add(this.et_TrueSeeing);
+			this.et_BenEffectsGrp.Controls.Add(this.et_Ultravision);
+			this.et_BenEffectsGrp.Controls.Add(this.et_Polymorph);
+			this.et_BenEffectsGrp.Controls.Add(this.et_Invisibility);
+			this.et_BenEffectsGrp.Controls.Add(this.et_Ethereal);
+			this.et_BenEffectsGrp.Controls.Add(this.et_AbsorbDamage);
+			this.et_BenEffectsGrp.Controls.Add(this.et_DamageIncrease);
+			this.et_BenEffectsGrp.Controls.Add(this.et_Concealment);
+			this.et_BenEffectsGrp.Controls.Add(this.et_SavingThrowIncrease);
+			this.et_BenEffectsGrp.Controls.Add(this.et_SpellAbsorption);
+			this.et_BenEffectsGrp.Controls.Add(this.et_Timestop);
+			this.et_BenEffectsGrp.Controls.Add(this.et_Sanctuary);
+			this.et_BenEffectsGrp.Controls.Add(this.et_TempHitpoints);
+			this.et_BenEffectsGrp.Controls.Add(this.et_Haste);
+			this.et_BenEffectsGrp.Controls.Add(this.et_DamageReduction);
+			this.et_BenEffectsGrp.Controls.Add(this.et_AttackIncrease);
+			this.et_BenEffectsGrp.Controls.Add(this.et_Regenerate);
+			this.et_BenEffectsGrp.Controls.Add(this.et_AcIncrease);
+			this.et_BenEffectsGrp.Location = new System.Drawing.Point(390, 60);
+			this.et_BenEffectsGrp.Margin = new System.Windows.Forms.Padding(0);
+			this.et_BenEffectsGrp.Name = "et_BenEffectsGrp";
+			this.et_BenEffectsGrp.Padding = new System.Windows.Forms.Padding(0);
+			this.et_BenEffectsGrp.Size = new System.Drawing.Size(385, 320);
+			this.et_BenEffectsGrp.TabIndex = 51;
+			this.et_BenEffectsGrp.TabStop = false;
+			this.et_BenEffectsGrp.Text = "C0FF FFFF beneficial";
 			// 
 			// et_ImmunityNecromancy
 			// 
@@ -2173,11 +2173,11 @@
 			this.page_DamageInfo.Controls.Add(this.DamageInfo_hex);
 			this.page_DamageInfo.Controls.Add(this.DamageInfo_text);
 			this.page_DamageInfo.Controls.Add(this.DamageInfo_reset);
-			this.page_DamageInfo.Location = new System.Drawing.Point(4, 24);
+			this.page_DamageInfo.Location = new System.Drawing.Point(4, 23);
 			this.page_DamageInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_DamageInfo.Name = "page_DamageInfo";
 			this.page_DamageInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_DamageInfo.Size = new System.Drawing.Size(812, 427);
+			this.page_DamageInfo.Size = new System.Drawing.Size(812, 428);
 			this.page_DamageInfo.TabIndex = 4;
 			this.page_DamageInfo.Text = "DamageInfo";
 			this.page_DamageInfo.UseVisualStyleBackColor = true;
@@ -2794,7 +2794,7 @@
 			this.st_DetrimentalGrp.Size = new System.Drawing.Size(535, 275);
 			this.st_DetrimentalGrp.TabIndex = 37;
 			this.st_DetrimentalGrp.TabStop = false;
-			this.st_DetrimentalGrp.Text = "Attack";
+			this.st_DetrimentalGrp.Text = "attack";
 			// 
 			// st_SpecificGrp
 			// 
@@ -3200,7 +3200,7 @@
 			this.st_ExclusiveGrp.Size = new System.Drawing.Size(270, 280);
 			this.st_ExclusiveGrp.TabIndex = 36;
 			this.st_ExclusiveGrp.TabStop = false;
-			this.st_ExclusiveGrp.Text = "Energy buff";
+			this.st_ExclusiveGrp.Text = "buff - energy resistance/immunity";
 			// 
 			// st_Excl_FlagsGrp
 			// 
@@ -3249,6 +3249,7 @@
 			this.st_Excl_General.Size = new System.Drawing.Size(120, 20);
 			this.st_Excl_General.TabIndex = 2;
 			this.st_Excl_General.Text = "general";
+			this.toolTip1.SetToolTip(this.st_Excl_General, "base the spell-weight on the threat-weight rather than (adjusted) effect-weight");
 			this.st_Excl_General.UseVisualStyleBackColor = true;
 			this.st_Excl_General.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_excl_Flags);
 			// 
@@ -3260,6 +3261,7 @@
 			this.st_Excl_Onlyone.Size = new System.Drawing.Size(120, 20);
 			this.st_Excl_Onlyone.TabIndex = 1;
 			this.st_Excl_Onlyone.Text = "only one type";
+			this.toolTip1.SetToolTip(this.st_Excl_Onlyone, "is NOT Multi-energy damage Resistance/Immunity buff");
 			this.st_Excl_Onlyone.UseVisualStyleBackColor = true;
 			this.st_Excl_Onlyone.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_st_excl_Flags);
 			// 
@@ -3584,11 +3586,11 @@
 			this.page_SaveDCType.Controls.Add(this.dc_SaveDCGrp);
 			this.page_SaveDCType.Controls.Add(this.savedctype_label);
 			this.page_SaveDCType.Controls.Add(this.SaveDCType_reset);
-			this.page_SaveDCType.Location = new System.Drawing.Point(4, 24);
+			this.page_SaveDCType.Location = new System.Drawing.Point(4, 23);
 			this.page_SaveDCType.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SaveDCType.Name = "page_SaveDCType";
 			this.page_SaveDCType.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SaveDCType.Size = new System.Drawing.Size(812, 427);
+			this.page_SaveDCType.Size = new System.Drawing.Size(812, 428);
 			this.page_SaveDCType.TabIndex = 6;
 			this.page_SaveDCType.Text = "SaveDCType";
 			this.page_SaveDCType.UseVisualStyleBackColor = true;
@@ -3656,7 +3658,7 @@
 			this.dc_ArmorCheckGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.dc_ArmorCheckGrp.Name = "dc_ArmorCheckGrp";
 			this.dc_ArmorCheckGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.dc_ArmorCheckGrp.Size = new System.Drawing.Size(315, 255);
+			this.dc_ArmorCheckGrp.Size = new System.Drawing.Size(315, 270);
 			this.dc_ArmorCheckGrp.TabIndex = 13;
 			this.dc_ArmorCheckGrp.TabStop = false;
 			this.dc_ArmorCheckGrp.Text = "1000 0003 armorcheck";
@@ -3747,7 +3749,7 @@
 			this.dc_SaveDCGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.dc_SaveDCGrp.Name = "dc_SaveDCGrp";
 			this.dc_SaveDCGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.dc_SaveDCGrp.Size = new System.Drawing.Size(340, 300);
+			this.dc_SaveDCGrp.Size = new System.Drawing.Size(340, 315);
 			this.dc_SaveDCGrp.TabIndex = 10;
 			this.dc_SaveDCGrp.TabStop = false;
 			this.dc_SaveDCGrp.Text = "FFFF FFFF savedc";
@@ -3757,7 +3759,7 @@
 			this.savedc_info.Location = new System.Drawing.Point(5, 180);
 			this.savedc_info.Margin = new System.Windows.Forms.Padding(0);
 			this.savedc_info.Name = "savedc_info";
-			this.savedc_info.Size = new System.Drawing.Size(330, 115);
+			this.savedc_info.Size = new System.Drawing.Size(330, 130);
 			this.savedc_info.TabIndex = 4;
 			this.savedc_info.Text = resources.GetString("savedc_info.Text");
 			// 
@@ -3807,7 +3809,7 @@
 			// 
 			// savedctype_label
 			// 
-			this.savedctype_label.Location = new System.Drawing.Point(5, 365);
+			this.savedctype_label.Location = new System.Drawing.Point(5, 380);
 			this.savedctype_label.Margin = new System.Windows.Forms.Padding(0);
 			this.savedctype_label.Name = "savedctype_label";
 			this.savedctype_label.Size = new System.Drawing.Size(655, 45);
@@ -4077,8 +4079,8 @@
 			this.page_EffectWeight.PerformLayout();
 			this.page_EffectTypes.ResumeLayout(false);
 			this.page_EffectTypes.PerformLayout();
-			this.et_NegEffectsGrp.ResumeLayout(false);
-			this.et_PosEffectsGrp.ResumeLayout(false);
+			this.et_DetEffectsGrp.ResumeLayout(false);
+			this.et_BenEffectsGrp.ResumeLayout(false);
 			this.page_DamageInfo.ResumeLayout(false);
 			this.page_DamageInfo.PerformLayout();
 			this.di_DetrimentalGrp.ResumeLayout(false);

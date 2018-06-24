@@ -326,8 +326,6 @@ namespace nwn2_ai_2da_editor
 		/// <param name="savedctype"></param>
 		void CheckSaveDcTypeCheckers(int savedctype)
 		{
-			//logfile.Log("CheckSaveDcTypeCheckers() savedctype= " + savedctype);
-
 			if (!bypassCheckedChecker)
 			{
 // ArmorCheck checkboxes

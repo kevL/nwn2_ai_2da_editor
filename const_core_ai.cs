@@ -52,6 +52,8 @@
 
 		const int HENCH_SPELL_INFO_SPELL_TYPE_SUMMON            = 0x00000009; //  9
 
+		const int HENCH_SPELL_INFO_SPELL_TYPE_SPELL_PROT        = 0x00000010; // 16
+
 		// 'hench_i0_itemsp'
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_PERSISTENTAREA    = 0x00000004; //  4
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_POLYMORPH         = 0x00000005; //  5
@@ -60,7 +62,6 @@
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_HEAL              = 0x0000000a; // 10
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_ATTR_BUFF         = 0x0000000c; // 12
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_MELEE_ATTACK      = 0x0000000e; // 14
-//		const int HENCH_SPELL_INFO_SPELL_TYPE_SPELL_PROT        = 0x00000010; // 16
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_DETECT_INVIS      = 0x00000012; // 18
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_DOMINATE          = 0x00000014; // 20
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_BUFF_ANIMAL_COMP  = 0x00000016; // 22
@@ -126,7 +127,7 @@
 		#region EffectTypes
 //		const int HENCH_EFFECT_TYPE_NONE                    = 0x00000000;
 
-		// PositiveEffects
+		// Beneficial effects
 		const int HENCH_EFFECT_TYPE_AC_INCREASE             = 0x00000001;
 		const int HENCH_EFFECT_TYPE_REGENERATE              = 0x00000002;
 		const int HENCH_EFFECT_TYPE_ATTACK_INCREASE         = 0x00000004;
@@ -156,7 +157,7 @@
 		const int HENCH_EFFECT_TYPE_IMMUNE_NECROMANCY       = unchecked((int)0x80000000); // -2147483648 fu.net
 
 
-		// NegativeEffects
+		// Detrimental effects
 		const int HENCH_EFFECT_TYPE_ENTANGLE                = 0x00000001;
 		const int HENCH_EFFECT_TYPE_PARALYZE                = 0x00000002;
 		const int HENCH_EFFECT_TYPE_DEAF                    = 0x00000004;

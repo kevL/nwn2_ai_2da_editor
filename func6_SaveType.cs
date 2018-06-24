@@ -265,7 +265,7 @@ namespace nwn2_ai_2da_editor
 			cbo_st_TargetRestriction.Items.Add("target must be a slashing weapon");											//    2
 			cbo_st_TargetRestriction.Items.Add("target must be usable by a Paladin (holy sword)");							//    4
 			cbo_st_TargetRestriction.Items.Add("target must be a bludgeoning weapon");										//    8
-			cbo_st_TargetRestriction.Items.Add("damage increase is vs undead only");										//   16
+			cbo_st_TargetRestriction.Items.Add("damage increase vs undead only");											//   16
 			cbo_st_TargetRestriction.Items.Add("target must be an animal-like creature (self or animal companion only)");	// 4096
 
 			// populate the dropdown list for SaveType - AcBonus type
@@ -768,12 +768,8 @@ namespace nwn2_ai_2da_editor
 		/// <param name="savetype"></param>
 		void CheckSaveTypeCheckers(int savetype)
 		{
-			//logfile.Log("CheckSaveTypeCheckers()");
-
 			if (!bypassCheckedChecker)
 			{
-				//logfile.Log(". savetype= " + savetype);
-
 				int val;
 
 // Type 1 Save radiobuttons
@@ -812,7 +808,6 @@ namespace nwn2_ai_2da_editor
 				st_TouchMelee       .Checked = (savetype & HENCH_SPELL_SAVE_TYPE_TOUCH_MELEE_FLAG)    != 0;
 				st_TouchRanged      .Checked = (savetype & HENCH_SPELL_SAVE_TYPE_TOUCH_RANGE_FLAG)    != 0;
 
-
 // Specific dropdown-list
 				val = savetype;
 				val &= HENCH_SPELL_SAVE_TYPE_CUSTOM_MASK;
@@ -820,7 +815,6 @@ namespace nwn2_ai_2da_editor
 				{
 					val = -1;
 					cbo_st_Specific.ForeColor = Color.Crimson;
-//					cbo_st_Specific.Text = "invalid";
 				}
 				else
 					cbo_st_Specific.ForeColor = DefaultForeColor;
@@ -835,7 +829,6 @@ namespace nwn2_ai_2da_editor
 				{
 					val = -1;
 					cbo_st_Immunity1.ForeColor = Color.Crimson;
-//					cbo_st_Immunity1.Text = "invalid";
 				}
 				else
 					cbo_st_Immunity1.ForeColor = DefaultForeColor;
@@ -850,7 +843,6 @@ namespace nwn2_ai_2da_editor
 				{
 					val = -1;
 					cbo_st_Immunity2.ForeColor = Color.Crimson;
-//					cbo_st_Immunity2.Text = "invalid";
 				}
 				else
 					cbo_st_Immunity2.ForeColor = DefaultForeColor;
@@ -866,7 +858,6 @@ namespace nwn2_ai_2da_editor
 				{
 					val = -1;
 					cbo_st_AcBonus.ForeColor = Color.Crimson;
-//					cbo_st_AcBonus.Text = "invalid";
 				}
 				else
 					cbo_st_AcBonus.ForeColor = DefaultForeColor;
@@ -905,7 +896,6 @@ namespace nwn2_ai_2da_editor
 				{
 					val = -1;
 					cbo_st_TargetRestriction.ForeColor = Color.Crimson;
-//					cbo_st_TargetRestriction.Text = "invalid";
 				}
 
 				if (val != -1)
@@ -914,7 +904,6 @@ namespace nwn2_ai_2da_editor
 				}
 
 				cbo_st_TargetRestriction.SelectedIndex = val;
-
 
 // Exclusive Group
 // DamageType checkboxes
@@ -946,10 +935,7 @@ namespace nwn2_ai_2da_editor
 				st_Excl_Weight.Text = val.ToString();
 			}
 			else
-			{
-				//logfile.Log(". bypassed");
 				bypassCheckedChecker = false;
-			}
 		}
 	}
 }

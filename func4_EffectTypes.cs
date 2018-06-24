@@ -424,13 +424,9 @@ namespace nwn2_ai_2da_editor
 		/// <param name="effecttypes"></param>
 		void CheckEffectTypesCheckers(int effecttypes)
 		{
-			//logfile.Log("CheckEffectTypesCheckers()");
-
 			if (!bypassCheckedChecker)
 			{
-				//logfile.Log(". effecttypes= " + effecttypes);
-
-				// PositiveEffects checkboxes
+// PositiveEffects checkboxes
 				et_AcIncrease         .Checked = (effecttypes & HENCH_EFFECT_TYPE_AC_INCREASE)           != 0;
 				et_Regenerate         .Checked = (effecttypes & HENCH_EFFECT_TYPE_REGENERATE)            != 0;
 				et_AttackIncrease     .Checked = (effecttypes & HENCH_EFFECT_TYPE_ATTACK_INCREASE)       != 0;
@@ -457,7 +453,7 @@ namespace nwn2_ai_2da_editor
 				et_SpellShield        .Checked = (effecttypes & HENCH_EFFECT_TYPE_SPELL_SHIELD)          != 0;
 				et_ImmunityNecromancy .Checked = (effecttypes & HENCH_EFFECT_TYPE_IMMUNE_NECROMANCY)     != 0;
 
-				// NegativeEffects checkboxes
+// NegativeEffects checkboxes
 				et_Entangle           .Checked = (effecttypes & HENCH_EFFECT_TYPE_ENTANGLE)                != 0;
 				et_Paralyze           .Checked = (effecttypes & HENCH_EFFECT_TYPE_PARALYZE)                != 0;
 				et_Deafness           .Checked = (effecttypes & HENCH_EFFECT_TYPE_DEAF)                    != 0;
@@ -490,10 +486,7 @@ namespace nwn2_ai_2da_editor
 				et_CutsceneParalyze   .Checked = (effecttypes & HENCH_EFFECT_TYPE_CUTSCENE_PARALYZE)       != 0;
 			}
 			else
-			{
-				//logfile.Log(". bypassed");
 				bypassCheckedChecker = false;
-			}
 		}
 	}
 }

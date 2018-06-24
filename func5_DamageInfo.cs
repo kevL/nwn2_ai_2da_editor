@@ -731,12 +731,8 @@ namespace nwn2_ai_2da_editor
 		/// <param name="damageinfo"></param>
 		void CheckDamageInfoCheckers(int damageinfo)
 		{
-			//logfile.Log("CheckDamageInfoCheckers()");
-
 			if (!bypassCheckedChecker)
 			{
-				//logfile.Log(". damageinfo= " + damageinfo);
-
 // DispelTypes checkboxes
 				di_Breach.Checked = (damageinfo & HENCH_SPELL_INFO_DAMAGE_BREACH) != 0;
 				di_Dispel.Checked = (damageinfo & HENCH_SPELL_INFO_DAMAGE_DISPEL) != 0;
@@ -755,7 +751,6 @@ namespace nwn2_ai_2da_editor
 				di_Negative   .Checked = (damageinfo & DAMAGE_TYPE_NEGATIVE)    != 0;
 				di_Positive   .Checked = (damageinfo & DAMAGE_TYPE_POSITIVE)    != 0;
 				di_Sonic      .Checked = (damageinfo & DAMAGE_TYPE_SONIC)       != 0;
-
 
 				int val;
 
@@ -783,13 +778,11 @@ namespace nwn2_ai_2da_editor
 				if (val == -1)
 				{
 					cbo_di_BenPowerbase.ForeColor = Color.Crimson;
-//					cbo_di_BenPowerbase.Text = "invalid";
 				}
 				else
 					cbo_di_BenPowerbase.ForeColor = DefaultForeColor;
 
 				cbo_di_BenPowerbase.SelectedIndex = val;
-
 
 // beneficial LevelType dropdown
 				switch (val = (damageinfo & HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_MASK)) // 0x0000c000
@@ -812,13 +805,11 @@ namespace nwn2_ai_2da_editor
 				if (val == -1)
 				{
 					cbo_di_BenLeveltype.ForeColor = Color.Crimson;
-//					cbo_di_BenLeveltype.Text = "invalid";
 				}
 				else
 					cbo_di_BenLeveltype.ForeColor = DefaultForeColor;
 
 				cbo_di_BenLeveltype.SelectedIndex = val;
-
 
 // detrimental DamageBase dropdown
 				switch (damageinfo & HENCH_SPELL_INFO_DAMAGE_MASK) // 0xf0000000
@@ -851,13 +842,11 @@ namespace nwn2_ai_2da_editor
 				if (val == -1)
 				{
 					cbo_di_DetDamagebase.ForeColor = Color.Crimson;
-//					cbo_di_DetDamagebase.Text = "invalid";
 				}
 				else
 					cbo_di_DetDamagebase.ForeColor = DefaultForeColor;
 
 				cbo_di_DetDamagebase.SelectedIndex = val;
-
 
 // detrimental LevelType dropdown
 				switch (damageinfo & HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_MASK) // 0x03000000 - overlaps FixedCount
@@ -880,13 +869,11 @@ namespace nwn2_ai_2da_editor
 				if (val == -1)
 				{
 					cbo_di_DetLeveltype.ForeColor = Color.Crimson;
-//					cbo_di_DetLeveltype.Text = "invalid";
 				}
 				else
 					cbo_di_DetLeveltype.ForeColor = DefaultForeColor;
 
 				cbo_di_DetLeveltype.SelectedIndex = val;
-
 
 // ben Power texbox
 				val = (damageinfo & HENCH_SPELL_INFO_BUFF_AMOUNT_MASK);			// 0x000000ff
@@ -906,7 +893,6 @@ namespace nwn2_ai_2da_editor
 				val = (damageinfo & HENCH_SPELL_INFO_BUFF_LEVEL_DECR_MASK);		// 0x00f00000
 				val >>= HENCH_SPELL_INFO_BUFF_LEVEL_DECR_SHIFT;
 				di_BenLeveldecrease.Text = val.ToString();
-
 
 // det Damage textbox
 				val = (damageinfo & HENCH_SPELL_INFO_DAMAGE_AMOUNT_MASK);		// 0x000ff000
@@ -929,10 +915,7 @@ namespace nwn2_ai_2da_editor
 				di_DetFixedcount.Text = val.ToString();
 			}
 			else
-			{
-				//logfile.Log(". bypassed");
 				bypassCheckedChecker = false;
-			}
 		}
 	}
 }

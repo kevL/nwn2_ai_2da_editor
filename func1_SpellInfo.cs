@@ -127,41 +127,28 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_si_reset(object sender, EventArgs e)
 		{
-			//logfile.Log("Click_si_reset");
-
 			if (SpellsChanged.ContainsKey(Id))
 			{
-				//logfile.Log(". is in SpellsChanged");
-
 				Spell spell = Spells[Id];
 				spell.differ &= ~bit_spellinfo;
 				Spells[Id] = spell;
 
-				//logfile.Log(". differ= " + spell.differ);
-
 				if (spell.differ == bit_clear)
 				{
-					//logfile.Log(". . bit_clear");
 					SpellsChanged.Remove(Id);
 
 					if (spell.isChanged) // this is set by the Apply btn only.
 					{
-						//logfile.Log(". . . isChanged TRUE - set node to Blue");
 						SpellTree.SelectedNode.ForeColor = Color.MediumBlue;
 					}
 					else
-					{
-						//logfile.Log(". . . isChanged FALSE - set node to DefaultColor");
 						SpellTree.SelectedNode.ForeColor = DefaultForeColor;
-					}
 				}
-				//else logfile.Log(". . NOT bit_clear");
 
 				SpellInfo_reset.ForeColor = DefaultForeColor;
 
 				SpellInfo_text.Text = spell.spellinfo.ToString();
 			}
-			//else logfile.Log(". is NOT in SpellsChanged");
 		}
 
 
@@ -172,7 +159,7 @@ namespace nwn2_ai_2da_editor
 		{
 			// populate the dropdown list for SpellInfo - SpellType
 			// NOTE: These cases are considered in 'hench_i0_itemsp' DispatchSpell()
-			cbo_si_Spelltype.Items.Add("none or Master");			//  0
+			cbo_si_Spelltype.Items.Add("none or MasterID");			//  0
 			cbo_si_Spelltype.Items.Add("attack");					//  1
 			cbo_si_Spelltype.Items.Add("ac buff");					//  2
 			cbo_si_Spelltype.Items.Add("buff");						//  3
@@ -369,12 +356,8 @@ namespace nwn2_ai_2da_editor
 		/// <param name="spellinfo"></param>
 		void CheckSpellInfoCheckers(int spellinfo)
 		{
-			//logfile.Log("CheckSpellInfoCheckers()");
-
 			if (!bypassCheckedChecker)
 			{
-				//logfile.Log(". spellinfo= " + spellinfo);
-
 // Flags checkboxes
 				si_IsMaster     .Checked = (spellinfo & HENCH_SPELL_INFO_MASTER_FLAG)        != 0;
 				si_Ignore       .Checked = (spellinfo & HENCH_SPELL_INFO_IGNORE_FLAG)        != 0;
@@ -393,7 +376,6 @@ namespace nwn2_ai_2da_editor
 				{
 					val = -1;
 					cbo_si_Spelltype.ForeColor = Color.Crimson;
-//					cbo_si_Spelltype.Text = "invalid";
 				}
 				else
 					cbo_si_Spelltype.ForeColor = DefaultForeColor;
@@ -408,7 +390,6 @@ namespace nwn2_ai_2da_editor
 				{
 					val = -1;
 					cbo_si_Spelllevel.ForeColor = Color.Crimson;
-//					cbo_si_Spelllevel.Text = "invalid";
 				}
 				else
 					cbo_si_Spelllevel.ForeColor = DefaultForeColor;
@@ -416,10 +397,7 @@ namespace nwn2_ai_2da_editor
 				cbo_si_Spelllevel.SelectedIndex = val;
 			}
 			else
-			{
-				//logfile.Log(". bypassed");
 				bypassCheckedChecker = false;
-			}
 		}
 
 
@@ -458,12 +436,9 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Toggles the bit-groupings on the various pages between visible/non-
-		/// visible.
-		/// OBSOLETE: Set all groups false then toggle the one(s) that's
-		/// supposed to show on. This works around a .NET anomaly in which
-		/// assigning a true-value to a group can leave its visibility false
-		/// regardless (see commented code below).
+		/// Toggles the colors of bit-groupings on the various pages between
+		/// green and red (roughly: isUsed by the current spelltype and
+		/// isNotUsed by the current spelltype).
 		/// </summary>
 		/// <param name="spellinfo"></param>
 		void SetGroupColors(int spellinfo)
@@ -471,13 +446,14 @@ namespace nwn2_ai_2da_editor
 			int spelltype = (spellinfo & HENCH_SPELL_INFO_SPELL_TYPE_MASK);
 
 // EffectTypes groups
-			GroupColor(et_PosEffectsGrp, Color.Crimson);
-			GroupColor(et_NegEffectsGrp, Color.Crimson);
+			GroupColor(et_BenEffectsGrp, Color.Crimson);
+			GroupColor(et_DetEffectsGrp, Color.Crimson);
 
 			switch (spelltype)
 			{
 				default:
-					GroupColor(et_PosEffectsGrp, Color.LimeGreen);
+//				case HENCH_SPELL_INFO_SPELL_TYPE_SPELL_PROT:
+					GroupColor(et_BenEffectsGrp, Color.LimeGreen);
 					break;
 
 				case HENCH_SPELL_INFO_SPELL_TYPE_ATTACK:
@@ -486,7 +462,7 @@ namespace nwn2_ai_2da_editor
 				case HENCH_SPELL_INFO_SPELL_TYPE_DRAGON_BREATH:
 				case HENCH_SPELL_INFO_SPELL_TYPE_WARLOCK:
 				case HENCH_SPELL_INFO_SPELL_TYPE_ATTACK_SPECIAL:
-					GroupColor(et_NegEffectsGrp, Color.LimeGreen);
+					GroupColor(et_DetEffectsGrp, Color.LimeGreen);
 					break;
 
 				case 0:
@@ -507,12 +483,17 @@ namespace nwn2_ai_2da_editor
 					GroupColor(di_DetrimentalGrp, Color.LimeGreen);
 					break;
 
+//				case :
+//					GroupColor(di_BeneficialGrp,  Color.LimeGreen);
+//					break;
+
 				case HENCH_SPELL_INFO_SPELL_TYPE_DISPEL:
 					GroupColor(di_DispelTypesGrp, Color.LimeGreen);
 					break;
 
 				case 0:
 				case HENCH_SPELL_INFO_SPELL_TYPE_SUMMON:
+				case HENCH_SPELL_INFO_SPELL_TYPE_SPELL_PROT:
 					break;
 			}
 
@@ -551,6 +532,7 @@ namespace nwn2_ai_2da_editor
 				case 0:
 				case HENCH_SPELL_INFO_SPELL_TYPE_SUMMON:
 				case HENCH_SPELL_INFO_SPELL_TYPE_DISPEL:
+				case HENCH_SPELL_INFO_SPELL_TYPE_SPELL_PROT:
 					break;
 			}
 
@@ -576,10 +558,15 @@ namespace nwn2_ai_2da_editor
 				case 0:
 				case HENCH_SPELL_INFO_SPELL_TYPE_SUMMON:
 				case HENCH_SPELL_INFO_SPELL_TYPE_DISPEL:
+				case HENCH_SPELL_INFO_SPELL_TYPE_SPELL_PROT:
 					break;
 			}
 		}
 
+		// OBSOLETE: Set all groups false then toggle the one(s) that's
+		// supposed to show on. This works around a .NET anomaly in which
+		// assigning a true-value to a group can leave its visibility false
+		// regardless (see commented code below).
 // DOES NOT (always) WORK AS ADVERTISED:
 //		logfile.Log(". (spelltype == HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF)= "
 //				+ (spelltype == HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF));				// This can be True

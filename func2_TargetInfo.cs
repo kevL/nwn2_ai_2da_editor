@@ -334,12 +334,8 @@ namespace nwn2_ai_2da_editor
 		/// <param name="targetinfo"></param>
 		void CheckTargetInfoCheckers(int targetinfo)
 		{
-			//logfile.Log("CheckTargetInfoCheckers()");
-
 			if (!bypassCheckedChecker)
 			{
-				//logfile.Log(". targetinfo= " + targetinfo);
-
 // Flags checkboxes
 				ti_ShapeLoop          .Checked = (targetinfo & HENCH_SPELL_TARGET_SHAPE_LOOP)           != 0;
 				ti_CheckCount         .Checked = (targetinfo & HENCH_SPELL_TARGET_CHECK_COUNT)          != 0;
@@ -359,7 +355,6 @@ namespace nwn2_ai_2da_editor
 				{
 					val = -1;
 					cbo_ti_Shape.ForeColor = Color.Crimson;
-//					cbo_ti_Shape.Text = "invalid";
 				}
 				else
 					cbo_ti_Shape.ForeColor = DefaultForeColor;
@@ -381,7 +376,6 @@ namespace nwn2_ai_2da_editor
 					default:
 						val = -1;
 						cbo_ti_Range.ForeColor = Color.Crimson;
-//						cbo_ti_Range.Text = "invalid";
 						break;
 				}
 				cbo_ti_Range.SelectedIndex = val;
@@ -394,10 +388,7 @@ namespace nwn2_ai_2da_editor
 				ti_Radius.Text = FormatFloat(fval.ToString());
 			}
 			else
-			{
-				//logfile.Log(". bypassed");
 				bypassCheckedChecker = false;
-			}
 		}
 	}
 }

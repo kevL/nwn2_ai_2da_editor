@@ -266,8 +266,21 @@ namespace nwn2_ai_2da_editor
 
 				if (Spells.Count != 0)
 				{
-					ToggleMenuitems(true);
 					PopulateSpellTree();
+
+					ToggleMenuitems(true);
+
+					// Groups on SpellInfo and TargetInfo generally stay green
+					// TODO: unless SpellInfo is flagged as a MasterID
+					GroupColor(si_SpelltypeGrp,  Color.LimeGreen);
+					GroupColor(si_FlagsGrp,      Color.LimeGreen);
+					GroupColor(si_SpelllevelGrp, Color.LimeGreen);
+					GroupColor(si_ChildIDGrp,    Color.LimeGreen);
+
+					GroupColor(ti_FlagsGrp,  Color.LimeGreen);
+					GroupColor(ti_ShapeGrp,  Color.LimeGreen);
+					GroupColor(ti_RangeGrp,  Color.LimeGreen);
+					GroupColor(ti_RadiusGrp, Color.LimeGreen);
 				}
 				else
 					MessageBox.Show("The 2da-file contains no valid rows.",
@@ -773,7 +786,7 @@ namespace nwn2_ai_2da_editor
 		// NOTE: The following fields are not saved to file ->
 
 		public int differ;		// bitwise int that holds flags for changed fields
-		public bool isChanged;	// boolean used to warn the user if there is modified data when exiting the app.
+		public bool isChanged;	// boolean used to warn if there is modified data when exiting the app.
 	}
 
 	/// <summary>
