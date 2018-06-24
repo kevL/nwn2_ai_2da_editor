@@ -78,26 +78,22 @@ namespace nwn2_ai_2da_editor
 				else
 					SaveDCType_reset.ForeColor = DefaultForeColor;
 
+				CheckSaveDcTypeCheckers(savedctype);
 
-//				var type = spell.savedctypetype;
-//
-//				dc_SaveDCGrp.Visible = (savedctype1.Checked = (type == SaveDcTypeType.SDTT_OFFENSIVE));
-//				dc_WeaponBonusGrp.Visible =
-//				dc_ArmorCheckGrp.Visible = (savedctype2.Checked = (type == SaveDcTypeType.SDTT_DEFENSIVE));
-
-				DisplayDcAdjustors(savedctype);
-				CheckArmorCheckTypeCheckers(savedctype);
-
-				dc_ArmorCheckGrp.Enabled = EnableArmorCheckType(savedctype);
-
-				cbo_dc_SaveDC.SelectedIndex      = -1;	// clear the combobox fields. Just do it.
-				cbo_dc_WeaponBonus.SelectedIndex = -1;	// leaving the text in place when the dc-value can be changed
-														// other ways would be misleading ... and I don't want to weave
-				if (si_IsMaster.Checked)				// in yet more extra code to sort out the mess they made by.
-				{										// triple-purposing the SaveDCType field. So just clear the text
+				if (si_IsMaster.Checked)
+				{
 					// NOTE: this doesn't result in an infinite loop.
 					si_Child5.Text = SaveDCType_text.Text;
 				}
+
+
+				// The DC must be less than 1000 for the adjustor-buttons to appear.
+				// 1000+ thar be AI-constants that are set using the DC-combobox.
+				savedc_up.Enabled = (savedctype <  999); // disallow incrementing up to 1000
+				savedc_dn.Enabled = (savedctype < 1000); // 1000 is a CoreAI constant that shall be accessed in the dropdown
+
+				// TODO: should probably disable if savedctype is negative.
+				dc_ArmorCheckGrp.Enabled = (savedctype & ~HENCH_SAVEDCTYPE_ARMORCHECK_MASK) == 0;
 			}
 			// else TODO: error dialog here.
 		}
@@ -175,43 +171,7 @@ namespace nwn2_ai_2da_editor
 
 
 		/// <summary>
-		/// Handler for SaveDCType radiobuttons.
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		void CheckedChanged_dc_type(object sender, EventArgs e)
-		{
-			var rb = sender as RadioButton;
-			if (rb.Equals(savedctype1)) // SaveDCType (group 1)
-			{
-				if (rb.Checked)
-				{
-					dc_SaveDCGrp.Visible      = true;
-					dc_WeaponBonusGrp.Visible =
-					dc_ArmorCheckGrp.Visible  = false;
-	
-					var spell = Spells[Id];
-					spell.savedctypetype = SaveDcTypeType.SDTT_OFFENSIVE;
-					Spells[Id] = spell;
-				}
-			}
-			else //if (rb.Equals(savedctype2)) // WeaponBonusType and ArmorCheckType (group 2/3 - buffs)
-			{
-				if (rb.Checked)
-				{
-					dc_SaveDCGrp.Visible      = false;
-					dc_WeaponBonusGrp.Visible =
-					dc_ArmorCheckGrp.Visible  = true;
-	
-					var spell = Spells[Id];
-					spell.savedctypetype = SaveDcTypeType.SDTT_DEFENSIVE;
-					Spells[Id] = spell;
-				}
-			}
-		}
-
-		/// <summary>
-		/// Handler for SaveDCType-type (group 1) combobox.
+		/// Handler for SaveDCType-type combobox.
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -254,28 +214,12 @@ namespace nwn2_ai_2da_editor
 				case 19: text = HENCH_SAVEDC_BARD_FASCINATE.ToString();         break; // 1025
 			}
 
-			bypassCheckedChecker = true;
+//			bypassCheckedChecker = true;
 			SaveDCType_text.Text = text;
 		}
 
 		/// <summary>
-		/// Decides whether to display the DC-adjustors (group 1).
-		/// note: The DC must be less than 1000 for the buttons to appear. 1000+
-		/// thar be AI-constants that can be set using the DC-combobox.
-		/// </summary>
-		/// <param name="savedctype"></param>
-		void DisplayDcAdjustors(int savedctype)
-		{
-			bool vis = (savedctype < 1000); // show +/- adjustor iff val < 1000
-
-			savedc_up.Visible =
-			savedc_dn.Visible = vis;
-
-			savedc_adjustor_info.Visible = vis;
-		}
-
-		/// <summary>
-		/// Handler for the +/- buttons on the SaveDCType page (group 1).
+		/// Handler for the +/- buttons on the SaveDCType page.
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -285,12 +229,11 @@ namespace nwn2_ai_2da_editor
 			if (Int32.TryParse(SaveDCType_text.Text, out savedctype))
 			{
 				var btn = sender as Button;
-				if (btn.Equals(savedc_up)) // increment
+				if (btn.Equals(savedc_up))
 				{
-					if (savedctype != 999)	// disallow incrementing up to 1000 (1000 is a CoreAI
-						++savedctype;		// constant that can be accessed in the dropdown)
+					++savedctype;
 				}
-				else //if (rb.Equals(savedc_dn)) // decrement
+				else //if (rb.Equals(savedc_dn))
 				{
 					--savedctype;
 				}
@@ -301,7 +244,7 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Handler for the WeaponBonusType (group 2) combobox.
+		/// Handler for the WeaponBonusType combobox.
 		/// The values represent specific formula in the CoreAI for calculating
 		/// casterlevel for a weapon-bonus.
 		/// </summary>
@@ -321,12 +264,18 @@ namespace nwn2_ai_2da_editor
 				case 3: text = "102"; break; // spelltype - HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF
 			}
 
-			bypassCheckedChecker = true;
+//			bypassCheckedChecker = true;
 			SaveDCType_text.Text = text;
 		}
 
+
 		/// <summary>
-		/// Handler for the SaveDCType - ArmorCheckType (group 3) checkboxes.
+		/// Mask for all allowable ArmorCheckType bits.
+		/// </summary>
+		const int HENCH_SAVEDCTYPE_ARMORCHECK_MASK = 0x10000003;
+
+		/// <summary>
+		/// Handler for the SaveDCType - ArmorCheckType checkboxes.
 		/// NOTE: Had to change this from the CheckChanged events to the
 		/// MouseClick events. Else the repeated firings are a nightmare when
 		/// trying to keep state straight. Fortunately any CheckChanged happens
@@ -339,20 +288,22 @@ namespace nwn2_ai_2da_editor
 			int savedctype;
 			if (Int32.TryParse(SaveDCType_text.Text, out savedctype))
 			{
+				savedctype &= HENCH_SAVEDCTYPE_ARMORCHECK_MASK; // clear the other bit-groups.
+
 				int bit;
 
 				var cb = sender as CheckBox;
 				if (cb.Equals(savedc_ac1))
 				{
-					bit = HENCH_AC_CHECK_ARMOR;
+					bit = HENCH_AC_CHECK_ARMOR; // 0x00000001
 				}
 				else if (cb.Equals(savedc_ac2))
 				{
-					bit = HENCH_AC_CHECK_SHIELD;
+					bit = HENCH_AC_CHECK_SHIELD; // 0x00000002
 				}
 				else //if (cb.Equals(savedc_ac3))
 				{
-					bit = HENCH_AC_CHECK_MOVEMENT_SPEED_DECREASE;
+					bit = HENCH_AC_CHECK_MOVEMENT_SPEED_DECREASE; // 0x10000000
 				}
 
 				if (cb.Checked)
@@ -362,42 +313,96 @@ namespace nwn2_ai_2da_editor
 				else
 					savedctype &= ~bit;
 
-				bypassCheckedChecker = true;
+//				bypassCheckedChecker = true;
 				SaveDCType_text.Text = savedctype.ToString();
 			}
 		}
 
+
 		/// <summary>
-		/// Sets the checkboxes on the SaveDCType page (group3) to reflect the
-		/// current savedctype value.
+		/// Sets the checkers on the SaveDCType page to reflect the current
+		/// savedctype value.
 		/// </summary>
 		/// <param name="savedctype"></param>
-		void CheckArmorCheckTypeCheckers(int savedctype)
+		void CheckSaveDcTypeCheckers(int savedctype)
 		{
-			//logfile.Log("CheckArmorCheckTypeCheckers() savedctype= " + savedctype);
+			//logfile.Log("CheckSaveDcTypeCheckers() savedctype= " + savedctype);
 
 			if (!bypassCheckedChecker)
 			{
+// ArmorCheck checkboxes
 				bool b = (savedctype > -1); // a negative value wreaks havoc on the speed-decrease bit ...
+
 				savedc_ac1.Checked = b && (savedctype & HENCH_AC_CHECK_ARMOR)                   != 0;
 				savedc_ac2.Checked = b && (savedctype & HENCH_AC_CHECK_SHIELD)                  != 0;
 				savedc_ac3.Checked = b && (savedctype & HENCH_AC_CHECK_MOVEMENT_SPEED_DECREASE) != 0;
+
+				int val;
+
+// WeaponBonus dropdown-list
+				switch (savedctype)
+				{
+					case   0: val = 0; break;
+					case 100: val = 1; break;
+					case 101: val = 2; break;
+					case 102: val = 3; break;
+
+					default:
+						val = -1;
+						cbo_dc_WeaponBonus.ForeColor = Color.Crimson;
+						break;
+				}
+
+				if (val != -1)
+				{
+					cbo_dc_WeaponBonus.ForeColor = DefaultForeColor;
+				}
+
+				cbo_dc_WeaponBonus.SelectedIndex = val;
+
+// SaveDc dropdown-list
+				switch (savedctype)
+				{
+					case -1000: val = 0; break;
+					case     0: val = 1; break;
+
+					case  1000:
+					case  1001:
+					case  1002:
+					case  1003:
+					case  1004:
+					case  1005:
+					case  1006:
+					case  1007: val = savedctype -  998; break;
+
+					case  1010:
+					case  1011:
+					case  1012:
+					case  1013:
+					case  1014: val = savedctype - 1000; break;
+
+					case  1020:
+					case  1021:
+					case  1022: val = savedctype - 1005; break;
+
+					case  1024:
+					case  1025: val = savedctype - 1006; break;
+
+					default:
+						val = -1;
+						cbo_dc_SaveDC.ForeColor = Color.Crimson;
+						break;
+				}
+
+				if (val != -1)
+				{
+					cbo_dc_SaveDC.ForeColor = DefaultForeColor;
+				}
+
+				cbo_dc_SaveDC.SelectedIndex = val;
 			}
 			else
 				bypassCheckedChecker = false;
-		}
-
-		/// <summary>
-		/// Checks if the ArmorCheckType checkboxes should be enabled.
-		/// </summary>
-		/// <param name="savedctype"></param>
-		/// <returns></returns>
-		bool EnableArmorCheckType(int savedctype)
-		{
-			// TODO: should probably disable if savedctype is negative.
-
-			const int actypes = 0x10000003; // mask of all allowable ArmorCheckType bits.
-			return (savedctype & ~actypes) == 0;
 		}
 	}
 }

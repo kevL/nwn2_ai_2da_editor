@@ -460,10 +460,10 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Toggles the bit-groupings on the various pages between visible/non-
 		/// visible.
-		/// NOTE: Set all groups false then toggle the one(s) that's supposed to
-		/// show on. This works around a .NET anomaly in which assigning a
-		/// true-value to a group can leave its visibility false regardless
-		/// (see commented code below).
+		/// OBSOLETE: Set all groups false then toggle the one(s) that's
+		/// supposed to show on. This works around a .NET anomaly in which
+		/// assigning a true-value to a group can leave its visibility false
+		/// regardless (see commented code below).
 		/// </summary>
 		/// <param name="spellinfo"></param>
 		void SetGroupColors(int spellinfo)
@@ -554,36 +554,31 @@ namespace nwn2_ai_2da_editor
 					break;
 			}
 
-
 // SaveDCType groups
-/*			dc_SaveDCGrp     .Visible = // TODO: The SaveDCType page's visibility is
-			dc_WeaponBonusGrp.Visible = // handled elsewhere but needs to be redone.
-			dc_ArmorCheckGrp .Visible =
-			savedctype1      .Visible =
-			savedctype2      .Visible =
-			savedctype_label .Visible = false;
+			GroupColor(dc_SaveDCGrp,      Color.Crimson);
+			GroupColor(dc_WeaponBonusGrp, Color.Crimson);
+			GroupColor(dc_ArmorCheckGrp,  Color.Crimson);
 
 			switch (spelltype)
 			{
 				default:
-					dc_SaveDCGrp     .Visible =
-					dc_WeaponBonusGrp.Visible =
-					dc_ArmorCheckGrp .Visible =
-					savedctype1      .Visible =
-					savedctype2      .Visible =
-					savedctype_label .Visible = true;
+					GroupColor(dc_SaveDCGrp, Color.LimeGreen);
 					break;
 
-//				case :
-//					break;
+				case HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF:		// TODO: Check this in the CoreAI scripts.
+					GroupColor(dc_WeaponBonusGrp, Color.LimeGreen);	// Ie. what exactly uses the weaponbonus group
+					break;
+
+				case HENCH_SPELL_INFO_SPELL_TYPE_AC_BUFF:
+					GroupColor(dc_ArmorCheckGrp, Color.LimeGreen);	// TODO: Check this in the CoreAI scripts.
+					break;											// Ie. what exactly uses the armorcheck group
 
 				case 0:
 				case HENCH_SPELL_INFO_SPELL_TYPE_SUMMON:
-					// hide all groups
+				case HENCH_SPELL_INFO_SPELL_TYPE_DISPEL:
 					break;
-			} */
+			}
 		}
-
 
 // DOES NOT (always) WORK AS ADVERTISED:
 //		logfile.Log(". (spelltype == HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF)= "
@@ -592,6 +587,7 @@ namespace nwn2_ai_2da_editor
 //		logfile.Log(". st_WeaponGrp.Visible= " + st_WeaponGrp.Visible);					// But this can be False
 // note: It has been observed to bork after program start. After clicking through
 // a few tree-nodes it will then work fine. But that's not good enough is it.
+
 
 		/// <summary>
 		/// Sets color for the child-controls of a parent-control.

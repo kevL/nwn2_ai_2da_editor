@@ -66,6 +66,15 @@ all possibilities have been kept exposed for tinkering -- but I suggest that you
 actually look through the CoreAI scripts to see how a particular bit-value is
 used before doing anything haphazard ....
 
+AT PRESENT THE COLORS ARE MERELY GUIDELINES. They are still inaccurate and I
+hope to put further efforts toward this aspect of the editor. The most egregious
+case is the 'DamageInfo' page: the Detrimental and Beneficial groups often show
+both green, which is a contradiction on the face of it. Further, groups that do
+not make sense to use at all are often displayed in green ....
+
+So play around until you can weave your way though it -- just don't take the
+colors too seriously yet.
+
 --
 General Description and Use
 
@@ -126,3 +135,28 @@ data will remain red however.
 
 --
 TODO: Describe exactly what all the bits do.
+
+--
+Tips
+
+A spell does not have to be described exactly for the AI to use it (many are in
+fact not exactly detailed by HenchSpells.2da -- and it wouldn't be hard to
+design a new spell that actually can't be detailed exactly). The spells Stone
+Body and Iron Body, for example, are given the spelltype
+
+HENCH_SPELL_INFO_SPELL_TYPE_POLYMORPH
+
+but of course neither is a real Polymorph spell -- I don't know why, you'd have
+to trace the spelltype through the core scripts and get a gist of why those
+spells should be treated as Polymorphs (it could be related to the increased
+spell-failure which might hint to the AI not to try to cast spells). Further,
+neither has the bit flagged
+
+HENCH_AC_CHECK_MOVEMENT_SPEED_DECREASE
+
+yet both spells impose a 50% speed reduction. So, rather, think that what you're
+doing in the editor is -- not describing a spell exactly -- but simply making
+suggestions about how it ought be used.
+
+You could even get clever and deliberately misrepresent a spell to induce the AI
+to use it differently.

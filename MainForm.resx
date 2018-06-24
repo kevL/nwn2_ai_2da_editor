@@ -121,10 +121,10 @@
     <value>120, 17</value>
   </metadata>
   <data name="armorcheck_info.Text" xml:space="preserve">
-    <value>The ArmorCheckType bit-toggles are disabled if the current savedctype value makes no sense to have bit-flags inserted or removed. This is to say that most of the values for savedctype are full integer CoreAI constants that shouldn't be nibbled. To enable the ArmorCheckType toggles you can start by selecting WeaponBonusType none from the dropdown.</value>
+    <value>The ArmorCheck bit-toggles are disabled if the current integer value makes no sense to have bit-flags inserted or removed. This is to say that most of the values for SaveDCType are full integer CoreAI constants that shouldn't be nibbled. To enable the ArmorCheck bits you can start by selecting WeaponBonus none from the dropdown.</value>
   </data>
   <data name="savedc_info.Text" xml:space="preserve">
-    <value>SaveDCType has 3 basic flavors. Values below 0 are treated as a standard SpellDC that's centered on -1000 (1000 will be added and characteristics of the caster will be considered). Values between 0 and 999 (inclusive) are treated as an exact SaveDC value. Values above 999 are constants defined in the Core AI scripts.</value>
+    <value>SaveDC has 3 basic flavors. Values below 0 are treated as a standard SpellDC that's centered on -1000 (1000 will be added and characteristics of the caster will be considered). Values between 0 and 999 (inclusive) are treated as an exact SaveDC value. Values above 999 are constants defined in the CoreAI scripts.</value>
   </data>
   <data name="savedc_adjustor_info.Text" xml:space="preserve">
     <value>If the DC is based on either (a) a standard spell-save or (b) no save then its value can be adjusted in single-pips. In the former case the AI will treat any adjustment as a +/- offset (after adding 1000 to account for the -1000). In the latter case the AI will treat a value between 0 and 999 inclusive as an exact SaveDC.</value>

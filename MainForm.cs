@@ -115,8 +115,8 @@ namespace nwn2_ai_2da_editor
 
 
 			// NOTE: quickload the 2da for testing ONLY.
-//			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchspells.2da";
-//			Load_HenchSpells();
+			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchspells.2da";
+			Load_HenchSpells();
 		}
 		#endregion cTor
 
@@ -255,8 +255,6 @@ namespace nwn2_ai_2da_editor
 							spell.differ = bit_clear;
 							spell.isChanged = false;
 
-							spell.savedctypetype = SaveDcTypeType.SDTT_NOTINITED;	// the "SaveDCType" col was dual-purposed
-																					// resulting in this confusion/ambiguity.
 
 							Spells.Add(spell);	// spell-structs can now be referenced in the list by their
 						}						// - Spells[id]
@@ -435,11 +433,6 @@ namespace nwn2_ai_2da_editor
 			}
 
 			PrintCurrent(val, SaveDCType_text, SaveDCType_hex, SaveDCType_bin);
-
-			var type = spell.savedctypetype; // TODO: Obsolete this.
-			dc_SaveDCGrp     .Visible = (savedctype1.Checked = (type == SaveDcTypeType.SDTT_OFFENSIVE));
-			dc_WeaponBonusGrp.Visible =
-			dc_ArmorCheckGrp .Visible = (savedctype2.Checked = (type == SaveDcTypeType.SDTT_DEFENSIVE));
 
 
 			bypassTextChanged = false;
@@ -779,10 +772,8 @@ namespace nwn2_ai_2da_editor
 
 		// NOTE: The following fields are not saved to file ->
 
-		public int differ;		// bitwise master that holds flags for changed fields
-		public bool isChanged;	// TODO: flag to prompt user for Save-confirmation
-
-		public SaveDcTypeType savedctypetype; // TODO: obsolete that
+		public int differ;		// bitwise int that holds flags for changed fields
+		public bool isChanged;	// boolean used to warn the user if there is modified data when exiting the app.
 	}
 
 	/// <summary>
@@ -800,19 +791,5 @@ namespace nwn2_ai_2da_editor
 		public int   damageinfo;
 		public int   savetype;
 		public int   savedctype;
-	}
-
-
-	/// <summary>
-	/// yep The type of SaveDCType.
-	/// Can be SaveDCType-type or WeaponBonusType-type/ArmorCheckType-type.
-	/// note: [censored]
-	/// note: The type is tracked in each spell-struct but is not saved to file.
-	/// </summary>
-	enum SaveDcTypeType
-	{
-		SDTT_NOTINITED,	// 0 - show neither group before the user decides
-		SDTT_OFFENSIVE,	// 1 - show the SaveDCType group
-		SDTT_DEFENSIVE	// 2 - show the WeaponBonusType/ArmorCheckType groups
 	}
 }
