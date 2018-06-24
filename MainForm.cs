@@ -261,7 +261,16 @@ namespace nwn2_ai_2da_editor
 //					pb.Step();
 				}
 
-				PopulateSpellTree();
+				if (Spells.Count != 0)
+				{
+					PopulateSpellTree();
+				}
+				else
+					MessageBox.Show("The 2da-file contains no valid rows.",
+									"  ERROR",
+									MessageBoxButtons.OK,
+									MessageBoxIcon.Error,
+									MessageBoxDefaultButton.Button1);
 			}
 		}
 
