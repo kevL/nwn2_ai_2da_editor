@@ -426,7 +426,7 @@ namespace nwn2_ai_2da_editor
 		{
 			if (!bypassCheckedChecker)
 			{
-// PositiveEffects checkboxes
+// Beneficial Effects checkboxes
 				et_AcIncrease         .Checked = (effecttypes & HENCH_EFFECT_TYPE_AC_INCREASE)           != 0;
 				et_Regenerate         .Checked = (effecttypes & HENCH_EFFECT_TYPE_REGENERATE)            != 0;
 				et_AttackIncrease     .Checked = (effecttypes & HENCH_EFFECT_TYPE_ATTACK_INCREASE)       != 0;
@@ -453,7 +453,7 @@ namespace nwn2_ai_2da_editor
 				et_SpellShield        .Checked = (effecttypes & HENCH_EFFECT_TYPE_SPELL_SHIELD)          != 0;
 				et_ImmunityNecromancy .Checked = (effecttypes & HENCH_EFFECT_TYPE_IMMUNE_NECROMANCY)     != 0;
 
-// NegativeEffects checkboxes
+// Detrimental Effects checkboxes
 				et_Entangle           .Checked = (effecttypes & HENCH_EFFECT_TYPE_ENTANGLE)                != 0;
 				et_Paralyze           .Checked = (effecttypes & HENCH_EFFECT_TYPE_PARALYZE)                != 0;
 				et_Deafness           .Checked = (effecttypes & HENCH_EFFECT_TYPE_DEAF)                    != 0;

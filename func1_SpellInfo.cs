@@ -110,6 +110,7 @@ namespace nwn2_ai_2da_editor
 
 				CheckSpellInfoCheckers(spellinfo);
 
+
 				SetDetrimentalBeneficial(spellinfo);
 				SetGroupColors(spellinfo);
 				ShowChildFields(spellinfo);
@@ -445,30 +446,47 @@ namespace nwn2_ai_2da_editor
 		{
 			int spelltype = (spellinfo & HENCH_SPELL_INFO_SPELL_TYPE_MASK);
 
+// TargetInfo groups
+			Color color;
+			if (si_IsMaster.Checked)
+			{
+				color = Color.Crimson;
+			}
+			else
+				color = Color.LimeGreen;
+
+			GroupColor(ti_FlagsGrp,  color);
+			GroupColor(ti_ShapeGrp,  color);
+			GroupColor(ti_RangeGrp,  color);
+			GroupColor(ti_RadiusGrp, color);
+
 // EffectTypes groups
 			GroupColor(et_BenEffectsGrp, Color.Crimson);
 			GroupColor(et_DetEffectsGrp, Color.Crimson);
 
-			switch (spelltype)
+			if (!si_IsMaster.Checked)
 			{
-				default:
-//				case HENCH_SPELL_INFO_SPELL_TYPE_SPELL_PROT:
-					GroupColor(et_BenEffectsGrp, Color.LimeGreen);
-					break;
+				switch (spelltype)
+				{
+					default:
+//					case HENCH_SPELL_INFO_SPELL_TYPE_SPELL_PROT:
+						GroupColor(et_BenEffectsGrp, Color.LimeGreen);
+						break;
 
-				case HENCH_SPELL_INFO_SPELL_TYPE_ATTACK:
-				case HENCH_SPELL_INFO_SPELL_TYPE_HARM:
-				case HENCH_SPELL_INFO_SPELL_TYPE_ARCANE_ARCHER:
-				case HENCH_SPELL_INFO_SPELL_TYPE_DRAGON_BREATH:
-				case HENCH_SPELL_INFO_SPELL_TYPE_WARLOCK:
-				case HENCH_SPELL_INFO_SPELL_TYPE_ATTACK_SPECIAL:
-					GroupColor(et_DetEffectsGrp, Color.LimeGreen);
-					break;
+					case HENCH_SPELL_INFO_SPELL_TYPE_ATTACK:
+					case HENCH_SPELL_INFO_SPELL_TYPE_HARM:
+					case HENCH_SPELL_INFO_SPELL_TYPE_ARCANE_ARCHER:
+					case HENCH_SPELL_INFO_SPELL_TYPE_DRAGON_BREATH:
+					case HENCH_SPELL_INFO_SPELL_TYPE_WARLOCK:
+					case HENCH_SPELL_INFO_SPELL_TYPE_ATTACK_SPECIAL:
+						GroupColor(et_DetEffectsGrp, Color.LimeGreen);
+						break;
 
-				case 0:
-				case HENCH_SPELL_INFO_SPELL_TYPE_SUMMON:
-				case HENCH_SPELL_INFO_SPELL_TYPE_DISPEL:
-					break;
+					case 0:
+					case HENCH_SPELL_INFO_SPELL_TYPE_SUMMON:
+					case HENCH_SPELL_INFO_SPELL_TYPE_DISPEL:
+						break;
+				}
 			}
 
 // DamageInfo groups
@@ -476,25 +494,28 @@ namespace nwn2_ai_2da_editor
 			GroupColor(di_BeneficialGrp,  Color.Crimson);
 			GroupColor(di_DetrimentalGrp, Color.Crimson);
 
-			switch (spelltype)
+			if (!si_IsMaster.Checked)
 			{
-				default: // TODO: sort these two out ...
-					GroupColor(di_BeneficialGrp,  Color.LimeGreen);
-					GroupColor(di_DetrimentalGrp, Color.LimeGreen);
-					break;
+				switch (spelltype)
+				{
+					default: // TODO: sort these two out ...
+						GroupColor(di_BeneficialGrp,  Color.LimeGreen);
+						GroupColor(di_DetrimentalGrp, Color.LimeGreen);
+						break;
 
-//				case :
-//					GroupColor(di_BeneficialGrp,  Color.LimeGreen);
-//					break;
+//					case :
+//						GroupColor(di_BeneficialGrp,  Color.LimeGreen);
+//						break;
 
-				case HENCH_SPELL_INFO_SPELL_TYPE_DISPEL:
-					GroupColor(di_DispelTypesGrp, Color.LimeGreen);
-					break;
+					case HENCH_SPELL_INFO_SPELL_TYPE_DISPEL:
+						GroupColor(di_DispelTypesGrp, Color.LimeGreen);
+						break;
 
-				case 0:
-				case HENCH_SPELL_INFO_SPELL_TYPE_SUMMON:
-				case HENCH_SPELL_INFO_SPELL_TYPE_SPELL_PROT:
-					break;
+					case 0:
+					case HENCH_SPELL_INFO_SPELL_TYPE_SUMMON:
+					case HENCH_SPELL_INFO_SPELL_TYPE_SPELL_PROT:
+						break;
+				}
 			}
 
 // SaveType groups
@@ -504,36 +525,39 @@ namespace nwn2_ai_2da_editor
 			GroupColor(st_DetrimentalGrp,       Color.Crimson);
 			GroupColor(st_NotCaster,            Color.Crimson);
 
-			switch (spelltype)
+			if (!si_IsMaster.Checked)
 			{
-				default:
-					GroupColor(st_DetrimentalGrp, Color.LimeGreen);
-					GroupColor(st_NotCaster,      Color.LimeGreen);
-					break;
+				switch (spelltype)
+				{
+					default:
+						GroupColor(st_DetrimentalGrp, Color.LimeGreen);
+						GroupColor(st_NotCaster,      Color.LimeGreen);
+						break;
 
-				case HENCH_SPELL_INFO_SPELL_TYPE_ELEMENTAL_SHIELD:
-				case HENCH_SPELL_INFO_SPELL_TYPE_ENGR_PROT: // "engry" - coders sheesh.
-					GroupColor(st_ExclusiveGrp, Color.LimeGreen);
-					break;
+					case HENCH_SPELL_INFO_SPELL_TYPE_ELEMENTAL_SHIELD:
+					case HENCH_SPELL_INFO_SPELL_TYPE_ENGR_PROT: // "engry" - coders sheesh.
+						GroupColor(st_ExclusiveGrp, Color.LimeGreen);
+						break;
 
-				case HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF:
-					GroupColor(st_TargetRestrictionGrp, Color.LimeGreen);
-					break;
+					case HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF:
+						GroupColor(st_TargetRestrictionGrp, Color.LimeGreen);
+						break;
 
-				case HENCH_SPELL_INFO_SPELL_TYPE_AC_BUFF:
-					GroupColor(st_AcBonusGrp, Color.LimeGreen);
-					GroupColor(st_NotCaster,  Color.LimeGreen);
-					break;
+					case HENCH_SPELL_INFO_SPELL_TYPE_AC_BUFF:
+						GroupColor(st_AcBonusGrp, Color.LimeGreen);
+						GroupColor(st_NotCaster,  Color.LimeGreen);
+						break;
 
-				case HENCH_SPELL_INFO_SPELL_TYPE_BUFF:
-					GroupColor(st_NotCaster, Color.LimeGreen);
-					break;
+					case HENCH_SPELL_INFO_SPELL_TYPE_BUFF:
+						GroupColor(st_NotCaster, Color.LimeGreen);
+						break;
 
-				case 0:
-				case HENCH_SPELL_INFO_SPELL_TYPE_SUMMON:
-				case HENCH_SPELL_INFO_SPELL_TYPE_DISPEL:
-				case HENCH_SPELL_INFO_SPELL_TYPE_SPELL_PROT:
-					break;
+					case 0:
+					case HENCH_SPELL_INFO_SPELL_TYPE_SUMMON:
+					case HENCH_SPELL_INFO_SPELL_TYPE_DISPEL:
+					case HENCH_SPELL_INFO_SPELL_TYPE_SPELL_PROT:
+						break;
+				}
 			}
 
 // SaveDCType groups
@@ -541,25 +565,28 @@ namespace nwn2_ai_2da_editor
 			GroupColor(dc_WeaponBonusGrp, Color.Crimson);
 			GroupColor(dc_ArmorCheckGrp,  Color.Crimson);
 
-			switch (spelltype)
+			if (!si_IsMaster.Checked)
 			{
-				default:
-					GroupColor(dc_SaveDCGrp, Color.LimeGreen);
-					break;
+				switch (spelltype)
+				{
+					default:
+						GroupColor(dc_SaveDCGrp, Color.LimeGreen);
+						break;
 
-				case HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF:		// TODO: Check this in the CoreAI scripts.
-					GroupColor(dc_WeaponBonusGrp, Color.LimeGreen);	// Ie. what exactly uses the weaponbonus group
-					break;
+					case HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF:		// TODO: Check this in the CoreAI scripts.
+						GroupColor(dc_WeaponBonusGrp, Color.LimeGreen);	// Ie. what exactly uses the weaponbonus group
+						break;
 
-				case HENCH_SPELL_INFO_SPELL_TYPE_AC_BUFF:
-					GroupColor(dc_ArmorCheckGrp, Color.LimeGreen);	// TODO: Check this in the CoreAI scripts.
-					break;											// Ie. what exactly uses the armorcheck group
+					case HENCH_SPELL_INFO_SPELL_TYPE_AC_BUFF:
+						GroupColor(dc_ArmorCheckGrp, Color.LimeGreen);	// TODO: Check this in the CoreAI scripts.
+						break;											// Ie. what exactly uses the armorcheck group
 
-				case 0:
-				case HENCH_SPELL_INFO_SPELL_TYPE_SUMMON:
-				case HENCH_SPELL_INFO_SPELL_TYPE_DISPEL:
-				case HENCH_SPELL_INFO_SPELL_TYPE_SPELL_PROT:
-					break;
+					case 0:
+					case HENCH_SPELL_INFO_SPELL_TYPE_SUMMON:
+					case HENCH_SPELL_INFO_SPELL_TYPE_DISPEL:
+					case HENCH_SPELL_INFO_SPELL_TYPE_SPELL_PROT:
+						break;
+				}
 			}
 		}
 

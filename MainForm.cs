@@ -271,7 +271,7 @@ namespace nwn2_ai_2da_editor
 					ToggleMenuitems(true);
 
 					// Groups on SpellInfo and TargetInfo generally stay green
-					// TODO: unless SpellInfo is flagged as a MasterID
+					// (unless SpellInfo is flagged as a MasterID)
 					GroupColor(si_SpelltypeGrp,  Color.LimeGreen);
 					GroupColor(si_FlagsGrp,      Color.LimeGreen);
 					GroupColor(si_SpelllevelGrp, Color.LimeGreen);
