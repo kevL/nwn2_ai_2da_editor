@@ -3940,33 +3940,37 @@
 			// FindNextChanged
 			// 
 			this.FindNextChanged.Name = "FindNextChanged";
-			this.FindNextChanged.Size = new System.Drawing.Size(155, 22);
+			this.FindNextChanged.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+			this.FindNextChanged.Size = new System.Drawing.Size(190, 22);
 			this.FindNextChanged.Text = "Find next changed";
 			this.FindNextChanged.Click += new System.EventHandler(this.GotoChanged);
 			// 
 			// toolStripSeparator3
 			// 
 			this.toolStripSeparator3.Name = "toolStripSeparator3";
-			this.toolStripSeparator3.Size = new System.Drawing.Size(152, 6);
+			this.toolStripSeparator3.Size = new System.Drawing.Size(187, 6);
 			// 
 			// Copy_decimal
 			// 
 			this.Copy_decimal.Name = "Copy_decimal";
-			this.Copy_decimal.Size = new System.Drawing.Size(155, 22);
+			this.Copy_decimal.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+			this.Copy_decimal.Size = new System.Drawing.Size(190, 22);
 			this.Copy_decimal.Text = "Copy decimal";
 			this.Copy_decimal.Click += new System.EventHandler(this.Click_copy_decimal);
 			// 
 			// Copy_hexadecimal
 			// 
 			this.Copy_hexadecimal.Name = "Copy_hexadecimal";
-			this.Copy_hexadecimal.Size = new System.Drawing.Size(155, 22);
+			this.Copy_hexadecimal.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
+			this.Copy_hexadecimal.Size = new System.Drawing.Size(190, 22);
 			this.Copy_hexadecimal.Text = "Copy hexadecimal";
 			this.Copy_hexadecimal.Click += new System.EventHandler(this.Click_copy_hexadecimal);
 			// 
 			// Copy_binary
 			// 
 			this.Copy_binary.Name = "Copy_binary";
-			this.Copy_binary.Size = new System.Drawing.Size(155, 22);
+			this.Copy_binary.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
+			this.Copy_binary.Size = new System.Drawing.Size(190, 22);
 			this.Copy_binary.Text = "Copy binary";
 			this.Copy_binary.Click += new System.EventHandler(this.Click_copy_binary);
 			// 

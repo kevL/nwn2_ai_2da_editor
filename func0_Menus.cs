@@ -133,7 +133,33 @@ namespace nwn2_ai_2da_editor
 		#region Edit
 		void GotoChanged(object sender, EventArgs e)
 		{
-			//FindNextChanged
+			int totalnodes = SpellTree.Nodes.Count;
+			if (totalnodes > 1)
+			{
+				int id;
+				if (Id == totalnodes - 1)
+				{
+					id = 0;
+				}
+				else
+					id = Id + 1;
+
+				while (!Spells[id].isChanged && Spells[id].differ == bit_clear)
+				{
+					if (id == Id) // not found.
+					{
+						System.Media.SystemSounds.Beep.Play();
+						break;
+					}
+
+					if (++id == totalnodes) // wrap to first node
+					{
+						id = 0;
+					}
+				}
+
+				SpellTree.SelectedNode = SpellTree.Nodes[id];
+			}
 		}
 
 
@@ -480,7 +506,7 @@ namespace nwn2_ai_2da_editor
 
 					Spell spell = Spells[id];
 
-					spell.isChanged = false;
+					spell.isChanged = false; // a Save will happen after this so clear the isChanged flag.
 					spell.differ = bit_clear;
 
 					spell.spellinfo    = spellchanged.spellinfo;

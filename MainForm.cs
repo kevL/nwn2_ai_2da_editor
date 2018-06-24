@@ -110,8 +110,8 @@ namespace nwn2_ai_2da_editor
 
 
 			// NOTE: quickload the 2da for testing ONLY.
-//			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchspells.2da";
-//			Load_HenchSpells();
+			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchspells.2da";
+			Load_HenchSpells();
 		}
 		#endregion cTor
 
