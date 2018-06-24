@@ -19,8 +19,25 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_quit(object sender, EventArgs e)
 		{
-			// TODO: show confirmation dialog if any spellstructs have been changed.
-			Close();
+			bool warn = false;
+
+			foreach (var spell in Spells)
+			{
+				if (spell.isChanged || spell.differ != bit_clear)
+				{
+					warn = true;
+					break;
+				}
+			}
+
+			if (!warn || MessageBox.Show("Data has changed." + Environment.NewLine + "Okay to exit ...",
+										 "  Warning",
+										 MessageBoxButtons.OKCancel,
+										 MessageBoxIcon.Warning,
+										 MessageBoxDefaultButton.Button2) == DialogResult.OK)
+			{
+				Close();
+			}
 		}
 
 		/// <summary>
@@ -493,20 +510,16 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void ApplyDirtyData()
 		{
-			//logfile.Log("ApplyDirtyData()");
-
 			int spellstotal = Spells.Count;
 			for (int id = 0; id != spellstotal; ++id)
 			{
 				if (SpellsChanged.ContainsKey(id))
 				{
-					//logfile.Log(". is in SpellsChanged");
-
 					var spellchanged = SpellsChanged[id];
 
 					Spell spell = Spells[id];
 
-					spell.isChanged = false; // a Save will happen after this so clear the isChanged flag.
+					spell.isChanged = true; // this flag causes Write2daFile() to reset the node-color
 					spell.differ = bit_clear;
 
 					spell.spellinfo    = spellchanged.spellinfo;
@@ -536,9 +549,6 @@ namespace nwn2_ai_2da_editor
 						AfterSelect_spellnode(null, null); // refresh all displayed data for the current spell jic
 					}
 				}
-				//else logfile.Log(". is NOT in SpellsChanged");
-
-				SpellTree.SelectedNode.ForeColor = DefaultForeColor;
 			}
 		}
 
@@ -551,6 +561,22 @@ namespace nwn2_ai_2da_editor
 			//logfile.Log("Write2daFile() " + _pfe);
 
 			Text = "nwn2_ai_2da_editor - " + _pfe; // titlebar text (append path of saved file)
+
+			Spell spellclear;
+
+			int spellstotal = Spells.Count; // clear any isChanged flags
+			for (int id = 0; id != spellstotal; ++id)
+			{
+				spellclear = Spells[id];
+				if (spellclear.isChanged)
+				{
+					spellclear.isChanged = false;
+					Spells[id] = spellclear;
+
+					SpellTree.Nodes[id].ForeColor = DefaultForeColor;
+				}
+			}
+
 
 			using (var sw = new StreamWriter(_pfe))
 			{
