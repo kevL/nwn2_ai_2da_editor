@@ -111,9 +111,10 @@ namespace nwn2_ai_2da_editor
 				CheckSpellInfoCheckers(spellinfo);
 
 
-				SetDetrimentalBeneficial(spellinfo);
-				SetGroupColors(spellinfo);
-				ShowChildFields(spellinfo);
+				SetDetrimentalBeneficial();
+				SetGroupColors();
+
+				si_ChildIDGrp.Visible = si_IsMaster.Checked;
 			}
 			// else TODO: error dialog here.
 		}
@@ -403,16 +404,16 @@ namespace nwn2_ai_2da_editor
 
 
 		/// <summary>
-		/// Sets the spell-display as hostile or beneficial based on the
+		/// Sets the spell-display as detrimental or beneficial based on the
 		/// spell-type field.
 		/// </summary>
-		/// <param name="spellinfo"></param>
-		void SetDetrimentalBeneficial(int spellinfo)
+		void SetDetrimentalBeneficial()
 		{
 			string text;
-			switch (spellinfo & HENCH_SPELL_INFO_SPELL_TYPE_MASK)
+			switch (cbo_si_Spelltype.SelectedIndex) // (spellinfo & HENCH_SPELL_INFO_SPELL_TYPE_MASK);
 			{
-				case 0:
+				case -1: // safety.
+				case  0:
 					text = "INVALID";
 					si_hostile.ForeColor = Color.MediumBlue;
 					break;
@@ -424,12 +425,12 @@ namespace nwn2_ai_2da_editor
 				case HENCH_SPELL_INFO_SPELL_TYPE_WARLOCK:
 				case HENCH_SPELL_INFO_SPELL_TYPE_ATTACK_SPECIAL:
 					text = "DETRIMENTAL";
-					si_hostile.ForeColor = DefaultForeColor;// Color.Crimson;
+					si_hostile.ForeColor = DefaultForeColor;
 					break;
 
 				default:									// TODO: Investigate exactly which spelltypes
 					text = "BENEFICIAL";					// should show the PositiveEffects group.
-					si_hostile.ForeColor = DefaultForeColor;// Color.LimeGreen;
+					si_hostile.ForeColor = DefaultForeColor;
 					break;
 			}
 
@@ -438,13 +439,12 @@ namespace nwn2_ai_2da_editor
 
 		/// <summary>
 		/// Toggles the colors of bit-groupings on the various pages between
-		/// green and red (roughly: isUsed by the current spelltype and
-		/// isNotUsed by the current spelltype).
+		/// green and red (roughly: isUsed by the current spelltype or isNotUsed
+		/// by the current spelltype).
 		/// </summary>
-		/// <param name="spellinfo"></param>
-		void SetGroupColors(int spellinfo)
+		void SetGroupColors()
 		{
-			int spelltype = (spellinfo & HENCH_SPELL_INFO_SPELL_TYPE_MASK);
+			int spelltype = cbo_si_Spelltype.SelectedIndex; // (spellinfo & HENCH_SPELL_INFO_SPELL_TYPE_MASK);
 
 // TargetInfo groups
 			Color color;
@@ -482,7 +482,8 @@ namespace nwn2_ai_2da_editor
 						GroupColor(et_DetEffectsGrp, Color.LimeGreen);
 						break;
 
-					case 0:
+					case -1: // safety.
+					case  0:
 					case HENCH_SPELL_INFO_SPELL_TYPE_SUMMON:
 					case HENCH_SPELL_INFO_SPELL_TYPE_DISPEL:
 						break;
@@ -511,7 +512,8 @@ namespace nwn2_ai_2da_editor
 						GroupColor(di_DispelTypesGrp, Color.LimeGreen);
 						break;
 
-					case 0:
+					case -1: // safety.
+					case  0:
 					case HENCH_SPELL_INFO_SPELL_TYPE_SUMMON:
 					case HENCH_SPELL_INFO_SPELL_TYPE_SPELL_PROT:
 						break;
@@ -552,7 +554,8 @@ namespace nwn2_ai_2da_editor
 						GroupColor(st_NotCaster, Color.LimeGreen);
 						break;
 
-					case 0:
+					case -1: // safety.
+					case  0:
 					case HENCH_SPELL_INFO_SPELL_TYPE_SUMMON:
 					case HENCH_SPELL_INFO_SPELL_TYPE_DISPEL:
 					case HENCH_SPELL_INFO_SPELL_TYPE_SPELL_PROT:
@@ -581,7 +584,8 @@ namespace nwn2_ai_2da_editor
 						GroupColor(dc_ArmorCheckGrp, Color.LimeGreen);	// TODO: Check this in the CoreAI scripts.
 						break;											// Ie. what exactly uses the armorcheck group
 
-					case 0:
+					case -1: // safety.
+					case  0:
 					case HENCH_SPELL_INFO_SPELL_TYPE_SUMMON:
 					case HENCH_SPELL_INFO_SPELL_TYPE_DISPEL:
 					case HENCH_SPELL_INFO_SPELL_TYPE_SPELL_PROT:

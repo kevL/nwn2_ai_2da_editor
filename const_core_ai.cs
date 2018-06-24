@@ -15,8 +15,6 @@
 		const int HENCH_SPELL_INFO_VERSION                      = 0x16000000;
 
 		// 'hench_i0_itemsp'
-		const int HENCH_SPELL_INFO_SPELL_TYPE_MASK              = 0x000000ff;
-
 		const int HENCH_SPELL_INFO_SPELL_LEVEL_MASK             = 0x0001e000; // shift >> 13
 		const int HENCH_SPELL_INFO_SPELL_LEVEL_SHIFT            = 13;
 
@@ -33,7 +31,9 @@
 		const int HENCH_SPELL_INFO_ITEM_FLAG                    = 0x00800000;
 
 
-		const int HENCH_SPELL_INFO_SPELL_TYPE_ATTACK            = 0x00000001; //  1 (hostile-type) on EffectTypes page ->
+		const int HENCH_SPELL_INFO_SPELL_TYPE_MASK              = 0x000000ff; // actually 0x0000003f
+
+		const int HENCH_SPELL_INFO_SPELL_TYPE_ATTACK            = 0x00000001; //  1 (detrimental-type) on EffectTypes page ->
 		const int HENCH_SPELL_INFO_SPELL_TYPE_HARM              = 0x0000000b; // 11
 		const int HENCH_SPELL_INFO_SPELL_TYPE_ARCANE_ARCHER     = 0x0000000f; // 15
 		const int HENCH_SPELL_INFO_SPELL_TYPE_DRAGON_BREATH     = 0x00000011; // 17
