@@ -267,8 +267,8 @@
 		private System.Windows.Forms.CheckBox di_Magical;
 		private System.Windows.Forms.CheckBox di_Slashing;
 		private System.Windows.Forms.CheckBox di_Piercing;
-		private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-		private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
+		private System.Windows.Forms.ToolStripMenuItem Save;
+		private System.Windows.Forms.ToolStripMenuItem Saveas;
 		private System.Windows.Forms.ToolTip toolTip1;
 		private System.Windows.Forms.Button btn_Search_d;
 		private System.Windows.Forms.TextBox tb_Search;
@@ -597,8 +597,8 @@
 			this.file = new System.Windows.Forms.ToolStripMenuItem();
 			this.Open = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-			this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-			this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+			this.Save = new System.Windows.Forms.ToolStripMenuItem();
+			this.Saveas = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.Quit = new System.Windows.Forms.ToolStripMenuItem();
 			this.edit = new System.Windows.Forms.ToolStripMenuItem();
@@ -3875,8 +3875,8 @@
 			this.file.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
 			this.Open,
 			this.toolStripSeparator1,
-			this.saveToolStripMenuItem,
-			this.saveAsToolStripMenuItem,
+			this.Save,
+			this.Saveas,
 			this.toolStripSeparator2,
 			this.Quit});
 			this.file.Name = "file";
@@ -3896,21 +3896,21 @@
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
 			this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
 			// 
-			// saveToolStripMenuItem
+			// Save
 			// 
-			this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-			this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-			this.saveToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-			this.saveToolStripMenuItem.Text = "Save";
-			this.saveToolStripMenuItem.Click += new System.EventHandler(this.Click_save);
+			this.Save.Name = "Save";
+			this.Save.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+			this.Save.Size = new System.Drawing.Size(160, 22);
+			this.Save.Text = "Save";
+			this.Save.Click += new System.EventHandler(this.Click_save);
 			// 
-			// saveAsToolStripMenuItem
+			// Saveas
 			// 
-			this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-			this.saveAsToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-			this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-			this.saveAsToolStripMenuItem.Text = "Save As ...";
-			this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.Click_saveas);
+			this.Saveas.Name = "Saveas";
+			this.Saveas.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+			this.Saveas.Size = new System.Drawing.Size(160, 22);
+			this.Saveas.Text = "Save As ...";
+			this.Saveas.Click += new System.EventHandler(this.Click_saveas);
 			// 
 			// toolStripSeparator2
 			// 

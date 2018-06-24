@@ -109,9 +109,14 @@ namespace nwn2_ai_2da_editor
 			ActiveControl = tb_Search; // focus the Search-box
 
 
+			// disable menu-items till they become legitimate
+			// TODO: Set these false in the designer.
+			ToggleMenuitems(false);
+
+
 			// NOTE: quickload the 2da for testing ONLY.
-			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchspells.2da";
-			Load_HenchSpells();
+//			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchspells.2da";
+//			Load_HenchSpells();
 		}
 		#endregion cTor
 
@@ -172,9 +177,9 @@ namespace nwn2_ai_2da_editor
 				}
 
 
-//				var pb = ProgBarF.Instance;
-//				pb.SetInfo("loading ...");
-//				pb.SetTotal(rows.Length);
+//				var pb = ProgBarF.Instance;	// the ProgressBar slows loading on my Win7 machine.
+//				pb.SetInfo("loading ...");	// It appears to be an issue on Win7 generally.
+//				pb.SetTotal(rows.Length);	// TODO: write a progress-bar w/ custom graphic
 
 				foreach (string row in rows)
 				{
@@ -263,6 +268,7 @@ namespace nwn2_ai_2da_editor
 
 				if (Spells.Count != 0)
 				{
+					ToggleMenuitems(true);
 					PopulateSpellTree();
 				}
 				else
@@ -272,6 +278,25 @@ namespace nwn2_ai_2da_editor
 									MessageBoxIcon.Error,
 									MessageBoxDefaultButton.Button1);
 			}
+		}
+
+		/// <summary>
+		/// Enables/disables several menu-items.
+		/// NOTE: Calls to this need to be adjusted if a Close 2da function is
+		/// added - and perhaps if a 2da fails to load leaving a blank spell-tree.
+		/// </summary>
+		/// <param name="enable"></param>
+		void ToggleMenuitems(bool enable)
+		{
+			Save            .Enabled =			// file ->
+			Saveas          .Enabled =
+
+			FindNextChanged .Enabled =			// edit ->
+			Copy_decimal    .Enabled =
+			Copy_hexadecimal.Enabled =
+			Copy_binary     .Enabled =
+
+			setCoreAIver    .Enabled = enable;	// options.
 		}
 
 
