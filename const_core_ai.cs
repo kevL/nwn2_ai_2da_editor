@@ -54,16 +54,17 @@
 
 		const int HENCH_SPELL_INFO_SPELL_TYPE_SPELL_PROT        = 0x00000010; // 16
 
+		const int HENCH_SPELL_INFO_SPELL_TYPE_HEAL              = 0x0000000a; // 10
+		const int HENCH_SPELL_INFO_SPELL_TYPE_DOMINATE          = 0x00000014; // 20
+
 		// 'hench_i0_itemsp'
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_PERSISTENTAREA    = 0x00000004; //  4
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_POLYMORPH         = 0x00000005; //  5
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_INVISIBLE         = 0x00000007; //  7
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_CURECONDITION     = 0x00000008; //  8
-//		const int HENCH_SPELL_INFO_SPELL_TYPE_HEAL              = 0x0000000a; // 10
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_ATTR_BUFF         = 0x0000000c; // 12
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_MELEE_ATTACK      = 0x0000000e; // 14
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_DETECT_INVIS      = 0x00000012; // 18
-//		const int HENCH_SPELL_INFO_SPELL_TYPE_DOMINATE          = 0x00000014; // 20
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_BUFF_ANIMAL_COMP  = 0x00000016; // 22
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_PROT_EVIL         = 0x00000017; // 23
 //		const int HENCH_SPELL_INFO_SPELL_TYPE_PROT_GOOD         = 0x00000018; // 24
@@ -207,26 +208,25 @@
 		// Group 2 - BENEFICIAL-type (Buff)
 		// These are used by 'hench_i0_spells' GetCurrentSpellBuffAmount()
 		// by
-		// HenchCheckACBuff() 'hench_i0_buff'
-		//    DispatchSpell() 'hench_i0_itemsp' SpellInfo
-		//      spelltype - HENCH_SPELL_INFO_SPELL_TYPE_AC_BUFF
-		// HenchSpellAttack() 'hench_i0_attack' TargetInfo (iTargetInfo & HENCH_SPELL_TARGET_SCALE_EFFECT)
-		//    DispatchSpell() 'hench_i0_itemsp' SpellInfo
-		//      spelltype - HENCH_SPELL_INFO_SPELL_TYPE_ATTACK
-		//      spelltype - HENCH_SPELL_INFO_SPELL_TYPE_HEAL
-		//      spelltype - HENCH_SPELL_INFO_SPELL_TYPE_HARM
-		//      spelltype - HENCH_SPELL_INFO_SPELL_TYPE_ARCANE_ARCHER
-		//      spelltype - HENCH_SPELL_INFO_SPELL_TYPE_DRAGON_BREATH
-		//      spelltype - HENCH_SPELL_INFO_SPELL_TYPE_DOMINATE
-		//    CheckSpontaneousCureOrInflictSpell() 'hench_i0_itemsp'
-		//        InitializeSpellTalents() 'hench_i0_itemsp'
-		//        - needs further investigation
-		//    CheckSpontaneousMassCureOrInflictSpell() 'hench_i0_itemsp'
-		//        InitializeSpellTalents() 'hench_i0_itemsp'
-		//        - needs further investigation
-		//    InitializeWarlockAttackSpell() 'hench_i0_itemsp'
-		//        InitializeWarlockAttackSpells() 'hench_i0_itemsp'
-		//        - needs further investigation
+		//
+		// DispatchSpell() 'hench_i0_itemsp'
+		//     spelltype - HENCH_SPELL_INFO_SPELL_TYPE_ATTACK
+		//     spelltype - HENCH_SPELL_INFO_SPELL_TYPE_HEAL
+		//     spelltype - HENCH_SPELL_INFO_SPELL_TYPE_HARM
+		//     spelltype - HENCH_SPELL_INFO_SPELL_TYPE_ARCANE_ARCHER
+		//     spelltype - HENCH_SPELL_INFO_SPELL_TYPE_DRAGON_BREATH
+		//     spelltype - HENCH_SPELL_INFO_SPELL_TYPE_DOMINATE
+		//   HenchSpellAttack() 'hench_i0_attack' TargetInfo (iTargetInfo & HENCH_SPELL_TARGET_SCALE_EFFECT)
+		//
+		//     spelltype - HENCH_SPELL_INFO_SPELL_TYPE_AC_BUFF
+		//   HenchCheckACBuff() 'hench_i0_buff'
+
+		// InitializeSpellTalents() 'hench_i0_itemsp'
+		//   CheckSpontaneousCureOrInflictSpell() 'hench_i0_itemsp'
+		//   CheckSpontaneousMassCureOrInflictSpell() 'hench_i0_itemsp'
+
+		// InitializeWarlockAttackSpells() 'hench_i0_itemsp'
+		//   InitializeWarlockAttackSpell() 'hench_i0_itemsp'
 
 		const int HENCH_SPELL_INFO_BUFF_AMOUNT_MASK        = 0x000000ff;
 		const int HENCH_SPELL_INFO_BUFF_LEVEL_LIMIT_MASK   = 0x00003f00;
@@ -251,11 +251,20 @@
 		// Group 3 - DETRIMENTAL-type (Damage)
 		// These are used by 'hench_i0_spells' GetCurrentSpellDamage()
 		// by
-		// HenchCheckElementalShield() 'hench_i0_buff' - 
-		//    DispatchSpell() 'hench_i0_itemsp' SpellInfo
-		//      spelltype - HENCH_SPELL_INFO_SPELL_TYPE_ELEMENTAL_SHIELD
-		// HenchSpellAttack() 'hench_i0_attack' TargetInfo !(iTargetInfo & HENCH_SPELL_TARGET_SCALE_EFFECT)
-		//    [see above ..]
+		//
+		// DispatchSpell() 'hench_i0_itemsp'
+		//     spelltype - HENCH_SPELL_INFO_SPELL_TYPE_ATTACK
+		//     spelltype - HENCH_SPELL_INFO_SPELL_TYPE_HEAL
+		//     spelltype - HENCH_SPELL_INFO_SPELL_TYPE_HARM
+		//     spelltype - HENCH_SPELL_INFO_SPELL_TYPE_ARCANE_ARCHER
+		//     spelltype - HENCH_SPELL_INFO_SPELL_TYPE_DRAGON_BREATH
+		//     spelltype - HENCH_SPELL_INFO_SPELL_TYPE_DOMINATE
+		//   HenchSpellAttack() 'hench_i0_attack' TargetInfo !(iTargetInfo & HENCH_SPELL_TARGET_SCALE_EFFECT)
+		//       [see above ..]
+		//
+		//     spelltype - HENCH_SPELL_INFO_SPELL_TYPE_ELEMENTAL_SHIELD
+		//   HenchCheckElementalShield() 'hench_i0_buff'
+		//
 
 //		const int HENCH_SPELL_INFO_DAMAGE_TYPE_MASK        = 0x00000fff;
 

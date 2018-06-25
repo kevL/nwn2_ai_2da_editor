@@ -508,6 +508,35 @@ namespace nwn2_ai_2da_editor
 //						GroupColor(di_BeneficialGrp,  Color.LimeGreen);
 //						break;
 
+					// set DamageInfo colors based on SpellInfo spelltype and TargetInfo scaledeffect
+					case HENCH_SPELL_INFO_SPELL_TYPE_ATTACK:
+					case HENCH_SPELL_INFO_SPELL_TYPE_HEAL:
+					case HENCH_SPELL_INFO_SPELL_TYPE_HARM:
+					case HENCH_SPELL_INFO_SPELL_TYPE_ARCANE_ARCHER:
+					case HENCH_SPELL_INFO_SPELL_TYPE_DRAGON_BREATH:
+					case HENCH_SPELL_INFO_SPELL_TYPE_DOMINATE:
+					{
+						int targetinfo; // (targetinfo & HENCH_SPELL_TARGET_SCALE_EFFECT)
+						if (Int32.TryParse(TargetInfo_text.Text, out targetinfo))	// bypass if the 2da is initially loading ...
+						{															// there's code on the TargetInfo-page that catches
+							if (ti_ScaledEffect.Checked)							// DamageInfo group-colors there also.
+							{
+								GroupColor(di_BeneficialGrp,  Color.LimeGreen);
+							}
+							else
+								GroupColor(di_DetrimentalGrp, Color.LimeGreen);
+						}
+						break;
+					}
+
+					case HENCH_SPELL_INFO_SPELL_TYPE_AC_BUFF:
+						GroupColor(di_BeneficialGrp,  Color.LimeGreen);
+						break;
+
+					case HENCH_SPELL_INFO_SPELL_TYPE_ELEMENTAL_SHIELD:
+						GroupColor(di_DetrimentalGrp, Color.LimeGreen);
+						break;
+
 					case HENCH_SPELL_INFO_SPELL_TYPE_DISPEL:
 						GroupColor(di_DispelTypesGrp, Color.LimeGreen);
 						break;

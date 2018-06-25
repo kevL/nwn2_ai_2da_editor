@@ -3,7 +3,30 @@ A HenchSpells.2da editor for TonyK's Companion and Monster AI 2.2
 
 --
 ver 1
-2018 jun 23
+2018 jun 24
+
+--
+Requirements
+
+Windows w/ .NET 3.5 (installed and enabled)
+See: https://docs.microsoft.com/en-us/dotnet/framework/install/dotnet-35-windows-10
+If you're running the toolset okay then there should be no worries about that.
+Although the toolset technically uses .NET 2.0, a computer that's not a relic
+ought have it covered w/ .NET 3.5 already.
+
+This is a standalone application. It requires no ini-files nor does it read or
+write to the Windows Registry.
+
+Note for developers: A logfile.txt will be created by debug-builds only.
+
+--
+Manifest
+
+nwn2_ai_2da_editor.exe - the executable
+ReadMe.txt - this doc
+
+--
+Prologue
 
 I dread trying to write this.
 

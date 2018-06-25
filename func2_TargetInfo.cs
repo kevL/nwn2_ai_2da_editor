@@ -90,6 +90,31 @@ namespace nwn2_ai_2da_editor
 					// NOTE: this doesn't result in an infinite loop.
 					si_Child1.Text = TargetInfo_text.Text;
 				}
+
+
+				// set DamageInfo colors based on SpellInfo spelltype and TargetInfo scaledeffect
+				switch (cbo_si_Spelltype.SelectedIndex) // (spellinfo & HENCH_SPELL_INFO_SPELL_TYPE_MASK)
+				{
+					case HENCH_SPELL_INFO_SPELL_TYPE_ATTACK:
+					case HENCH_SPELL_INFO_SPELL_TYPE_HEAL:
+					case HENCH_SPELL_INFO_SPELL_TYPE_HARM:
+					case HENCH_SPELL_INFO_SPELL_TYPE_ARCANE_ARCHER:
+					case HENCH_SPELL_INFO_SPELL_TYPE_DRAGON_BREATH:
+					case HENCH_SPELL_INFO_SPELL_TYPE_DOMINATE:
+						if (ti_ScaledEffect.Checked)
+						{
+							GroupColor(di_BeneficialGrp,  Color.LimeGreen);
+							GroupColor(di_DetrimentalGrp, Color.Crimson);
+						}
+						else
+						{
+							GroupColor(di_BeneficialGrp,  Color.Crimson);
+							GroupColor(di_DetrimentalGrp, Color.LimeGreen);
+						}
+
+						break;
+				}
+//				}
 			}
 			// else TODO: error dialog here.
 		}
