@@ -93,7 +93,7 @@ AT PRESENT THE COLORS ARE MERELY GUIDELINES. They are still inaccurate and I
 hope to put further efforts toward this aspect of the editor. The most egregious
 case is the 'DamageInfo' page: the Detrimental and Beneficial groups often show
 both green, which is a contradiction on the face of it. Further, groups that do
-not make sense to use at all are often displayed in green ....
+not make sense to use at all are often still displayed in green ....
 
 So play around until you can weave your way though it -- just don't take the
 colors too seriously yet.

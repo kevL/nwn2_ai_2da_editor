@@ -297,6 +297,8 @@
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
 		private System.Windows.Forms.ToolStripMenuItem FindNextChanged;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
+		private System.Windows.Forms.ToolStripMenuItem help;
+		private System.Windows.Forms.ToolStripMenuItem About;
 
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -605,6 +607,8 @@
 			this.Copy_binary = new System.Windows.Forms.ToolStripMenuItem();
 			this.options = new System.Windows.Forms.ToolStripMenuItem();
 			this.setCoreAIver = new System.Windows.Forms.ToolStripMenuItem();
+			this.help = new System.Windows.Forms.ToolStripMenuItem();
+			this.About = new System.Windows.Forms.ToolStripMenuItem();
 			this.SpellTree = new System.Windows.Forms.TreeView();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.btn_Search_u = new System.Windows.Forms.Button();
@@ -2770,11 +2774,11 @@
 			this.page_SaveType.Controls.Add(this.st_TargetRestrictionGrp);
 			this.page_SaveType.Controls.Add(this.SaveType_text);
 			this.page_SaveType.Controls.Add(this.SaveType_reset);
-			this.page_SaveType.Location = new System.Drawing.Point(4, 24);
+			this.page_SaveType.Location = new System.Drawing.Point(4, 23);
 			this.page_SaveType.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SaveType.Name = "page_SaveType";
 			this.page_SaveType.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SaveType.Size = new System.Drawing.Size(812, 427);
+			this.page_SaveType.Size = new System.Drawing.Size(812, 428);
 			this.page_SaveType.TabIndex = 5;
 			this.page_SaveType.Text = "SaveType";
 			this.page_SaveType.UseVisualStyleBackColor = true;
@@ -3832,7 +3836,8 @@
 			this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
 			this.file,
 			this.edit,
-			this.options});
+			this.options,
+			this.help});
 			this.menuStrip.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip.Name = "menuStrip";
 			this.menuStrip.Size = new System.Drawing.Size(1102, 24);
@@ -3912,7 +3917,7 @@
 			this.FindNextChanged.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
 			this.FindNextChanged.Size = new System.Drawing.Size(190, 22);
 			this.FindNextChanged.Text = "Find next changed";
-			this.FindNextChanged.Click += new System.EventHandler(this.GotoChanged);
+			this.FindNextChanged.Click += new System.EventHandler(this.Click_findnextchanged);
 			// 
 			// toolStripSeparator3
 			// 
@@ -3957,6 +3962,21 @@
 			this.setCoreAIver.Size = new System.Drawing.Size(160, 22);
 			this.setCoreAIver.Text = "Set CoreAI version";
 			this.setCoreAIver.Click += new System.EventHandler(this.Click_setCoreAiVersion);
+			// 
+			// help
+			// 
+			this.help.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.About});
+			this.help.Name = "help";
+			this.help.Size = new System.Drawing.Size(37, 20);
+			this.help.Text = "Help";
+			// 
+			// About
+			// 
+			this.About.Name = "About";
+			this.About.Size = new System.Drawing.Size(152, 22);
+			this.About.Text = "About";
+			this.About.Click += new System.EventHandler(this.Click_about);
 			// 
 			// SpellTree
 			// 

@@ -148,7 +148,7 @@ namespace nwn2_ai_2da_editor
 
 
 		#region Edit
-		void GotoChanged(object sender, EventArgs e)
+		void Click_findnextchanged(object sender, EventArgs e)
 		{
 			int totalnodes = SpellTree.Nodes.Count;
 			if (totalnodes > 1)
@@ -488,6 +488,28 @@ namespace nwn2_ai_2da_editor
 		#endregion Options
 
 
+		#region Help
+		void Click_about(object sender, EventArgs e)
+		{
+/*			DateTime dt = DateTime.Now;
+			DateTime dt = Assembly.GetExecutingAssembly().GetLinkerTime();
+			string info = "build date" + Environment.NewLine + Environment.NewLine
+						+ String.Format(System.Globalization.CultureInfo.CurrentCulture,
+										"{0:yyyy MMM d}  {0:HH}:{0:mm}:{0:ss} {0:zzz}",
+										dt);
+*/
+			// what a fucking pain in the ass.
+			const string info = "built - 2018 jun 24";
+
+			MessageBox.Show(info,
+							"  About",
+							MessageBoxButtons.OK,
+							MessageBoxIcon.Information,
+							MessageBoxDefaultButton.Button1);
+		}
+		#endregion Help
+
+
 		/// <summary>
 		/// Checks if all modified spell-data has been Applied with the Apply-btn.
 		/// </summary>
@@ -665,4 +687,32 @@ namespace nwn2_ai_2da_editor
 			}
 		}
 	}
+
+
+
+/*	public static class DateTimeExtension
+	{
+		public static DateTime GetLinkerTime(this Assembly assembly, TimeZoneInfo target = null)
+		{
+			var filePath = assembly.Location;
+			const int c_PeHeaderOffset = 60;
+			const int c_LinkerTimestampOffset = 8;
+
+			var buffer = new byte[2048];
+
+			using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.Read))
+				stream.Read(buffer, 0, 2048);
+
+			var offset = BitConverter.ToInt32(buffer, c_PeHeaderOffset);
+			var secondsSince1970 = BitConverter.ToInt32(buffer, offset + c_LinkerTimestampOffset);
+			var epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+
+			var linkTimeUtc = epoch.AddSeconds(secondsSince1970);
+
+			var tz = target ?? TimeZoneInfo.Local;
+			var localTime = TimeZoneInfo.ConvertTimeFromUtc(linkTimeUtc, tz);
+
+			return localTime;
+		}
+	} */
 }
