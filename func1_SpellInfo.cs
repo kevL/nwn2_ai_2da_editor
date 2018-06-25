@@ -622,42 +622,5 @@ namespace nwn2_ai_2da_editor
 				control.ForeColor = color;
 			}
 		}
-
-
-		/// <summary>
-		/// Shows the ChildIDs group if the MasterID bit is flagged.
-		/// </summary>
-		/// <param name="spellinfo"></param>
-		void ShowChildFields(int spellinfo)
-		{
-			si_ChildIDGrp.Visible = (spellinfo & HENCH_SPELL_INFO_MASTER_FLAG) != 0;
-
-//			bool vis = (spellinfo & HENCH_SPELL_INFO_MASTER_FLAG) != 0;
-
-//			page_TargetInfo  .Visible = // doesn't work.
-//			page_EffectWeight.Visible =
-//			page_EffectTypes .Visible =
-//			page_DamageInfo  .Visible =
-//			page_SaveType    .Visible =
-//			page_SaveDCType  .Visible = !vis;
-
-//			Color color;
-//			if (vis)
-//			{
-//				color = Color.Crimson;
-//			}
-//			else
-//				color = DefaultForeColor;
-
-//			page_TargetInfo  .ForeColor = // doesn't work.
-//			page_EffectWeight.ForeColor =
-//			page_EffectTypes .ForeColor =
-//			page_DamageInfo  .ForeColor =
-//			page_SaveType    .ForeColor =
-//			page_SaveDCType  .ForeColor = color;
-
-			// basically it looks like you'd have to iterate through the controls
-			// on each tab-page and toggle their visibilities individually.
-		}
 	}
 }
