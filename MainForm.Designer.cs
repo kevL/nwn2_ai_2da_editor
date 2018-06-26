@@ -17,7 +17,7 @@
 		private System.Windows.Forms.TabPage page_DamageInfo;
 		private System.Windows.Forms.TabPage page_SaveType;
 		private System.Windows.Forms.TabPage page_SaveDCType;
-		private System.Windows.Forms.TreeView SpellTree;
+		private System.Windows.Forms.TreeView Tree;
 		private System.Windows.Forms.SplitContainer splitContainer1;
 		private System.Windows.Forms.ToolStripMenuItem Open;
 		private System.Windows.Forms.TextBox EffectWeight_text;
@@ -299,6 +299,152 @@
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
 		private System.Windows.Forms.ToolStripMenuItem help;
 		private System.Windows.Forms.ToolStripMenuItem About;
+		private System.Windows.Forms.TabControl cols_HenchRacial;
+		private System.Windows.Forms.TabPage page_RacialFlags;
+		private System.Windows.Forms.TabPage page_RacialFeat1;
+		private System.Windows.Forms.TabPage page_RacialFeat2;
+		private System.Windows.Forms.TabPage page_RacialFeat3;
+		private System.Windows.Forms.TabPage page_RacialFeat4;
+		private System.Windows.Forms.TabPage page_RacialFeat5;
+		private System.Windows.Forms.TabControl cols_HenchClasses;
+		private System.Windows.Forms.TabPage page_ClassFlags;
+		private System.Windows.Forms.TabPage page_ClassFeat1;
+		private System.Windows.Forms.TabPage page_ClassFeat2;
+		private System.Windows.Forms.TabPage page_ClassFeat3;
+		private System.Windows.Forms.TabPage page_ClassFeat4;
+		private System.Windows.Forms.TabPage page_ClassFeat5;
+		private System.Windows.Forms.TabPage page_ClassFeat6;
+		private System.Windows.Forms.TabPage page_ClassFeat7;
+		private System.Windows.Forms.TabPage page_ClassFeat8;
+		private System.Windows.Forms.TabPage page_ClassFeat9;
+		private System.Windows.Forms.TabPage page_ClassFeat10;
+		private System.Windows.Forms.TabPage page_ClassFeat11;
+		private System.Windows.Forms.Label rf_bin;
+		private System.Windows.Forms.Label rf_hex;
+		private System.Windows.Forms.Button rf_Clear;
+		private System.Windows.Forms.TextBox RacialFlags_bin;
+		private System.Windows.Forms.TextBox RacialFlags_hex;
+		private System.Windows.Forms.TextBox RacialFlags_text;
+		private System.Windows.Forms.Button RacialFlags_reset;
+		private System.Windows.Forms.Label rf1_bin;
+		private System.Windows.Forms.Label rf1_hex;
+		private System.Windows.Forms.Button rf1_Clear;
+		private System.Windows.Forms.TextBox RacialFeat1_bin;
+		private System.Windows.Forms.TextBox RacialFeat1_hex;
+		private System.Windows.Forms.TextBox RacialFeat1_text;
+		private System.Windows.Forms.Button RacialFeat1_reset;
+		private System.Windows.Forms.Label rf2_bin;
+		private System.Windows.Forms.Label rf2_hex;
+		private System.Windows.Forms.Button rf2_Clear;
+		private System.Windows.Forms.TextBox RacialFeat2_bin;
+		private System.Windows.Forms.TextBox RacialFeat2_hex;
+		private System.Windows.Forms.TextBox RacialFeat2_text;
+		private System.Windows.Forms.Button RacialFeat2_reset;
+		private System.Windows.Forms.Label rf3_bin;
+		private System.Windows.Forms.Label rf3_hex;
+		private System.Windows.Forms.Button rf3_Clear;
+		private System.Windows.Forms.TextBox RacialFeat3_bin;
+		private System.Windows.Forms.TextBox RacialFeat3_hex;
+		private System.Windows.Forms.TextBox RacialFeat3_text;
+		private System.Windows.Forms.Button RacialFeat3_reset;
+		private System.Windows.Forms.Label rf4_bin;
+		private System.Windows.Forms.Label rf4_hex;
+		private System.Windows.Forms.Button rf4_Clear;
+		private System.Windows.Forms.TextBox RacialFeat4_bin;
+		private System.Windows.Forms.TextBox RacialFeat4_hex;
+		private System.Windows.Forms.TextBox RacialFeat4_text;
+		private System.Windows.Forms.Button RacialFeat4_reset;
+		private System.Windows.Forms.Label rf5_bin;
+		private System.Windows.Forms.Label rf5_hex;
+		private System.Windows.Forms.Button rf5_Clear;
+		private System.Windows.Forms.TextBox RacialFeat5_bin;
+		private System.Windows.Forms.TextBox RacialFeat5_hex;
+		private System.Windows.Forms.TextBox RacialFeat5_text;
+		private System.Windows.Forms.Button RacialFeat5_reset;
+		private System.Windows.Forms.Label cf_bin;
+		private System.Windows.Forms.Label cf_hex;
+		private System.Windows.Forms.Button cf_Clear;
+		private System.Windows.Forms.TextBox ClassFlags_bin;
+		private System.Windows.Forms.TextBox ClassFlags_hex;
+		private System.Windows.Forms.TextBox ClassFlags_text;
+		private System.Windows.Forms.Button ClassFlags_reset;
+		private System.Windows.Forms.Label cf1_bin;
+		private System.Windows.Forms.Label cf1_hex;
+		private System.Windows.Forms.Button cf1_Clear;
+		private System.Windows.Forms.TextBox ClassFeat1_bin;
+		private System.Windows.Forms.TextBox ClassFeat1_hex;
+		private System.Windows.Forms.TextBox ClassFeat1_text;
+		private System.Windows.Forms.Button ClassFeat1_reset;
+		private System.Windows.Forms.Label cf2_bin;
+		private System.Windows.Forms.Label cf2_hex;
+		private System.Windows.Forms.Button cf2_Clear;
+		private System.Windows.Forms.TextBox ClassFeat2_bin;
+		private System.Windows.Forms.TextBox ClassFeat2_hex;
+		private System.Windows.Forms.TextBox ClassFeat2_text;
+		private System.Windows.Forms.Button ClassFeat2_reset;
+		private System.Windows.Forms.Label cf3_bin;
+		private System.Windows.Forms.Label cf3_hex;
+		private System.Windows.Forms.Button cf3_Clear;
+		private System.Windows.Forms.TextBox ClassFeat3_bin;
+		private System.Windows.Forms.TextBox ClassFeat3_hex;
+		private System.Windows.Forms.TextBox ClassFeat3_text;
+		private System.Windows.Forms.Button ClassFeat3_reset;
+		private System.Windows.Forms.Label cf4_bin;
+		private System.Windows.Forms.Label cf4_hex;
+		private System.Windows.Forms.Button cf4_Clear;
+		private System.Windows.Forms.TextBox ClassFeat4_bin;
+		private System.Windows.Forms.TextBox ClassFeat4_hex;
+		private System.Windows.Forms.TextBox ClassFeat4_text;
+		private System.Windows.Forms.Button ClassFeat4_reset;
+		private System.Windows.Forms.Label cf5_bin;
+		private System.Windows.Forms.Label cf5_hex;
+		private System.Windows.Forms.Button cf5_Clear;
+		private System.Windows.Forms.TextBox ClassFeat5_bin;
+		private System.Windows.Forms.TextBox ClassFeat5_hex;
+		private System.Windows.Forms.TextBox ClassFeat5_text;
+		private System.Windows.Forms.Button ClassFeat5_reset;
+		private System.Windows.Forms.Label cf6_bin;
+		private System.Windows.Forms.Label cf6_hex;
+		private System.Windows.Forms.Button cf6_Clear;
+		private System.Windows.Forms.TextBox ClassFeat6_bin;
+		private System.Windows.Forms.TextBox ClassFeat6_hex;
+		private System.Windows.Forms.TextBox ClassFeat6_text;
+		private System.Windows.Forms.Button ClassFeat6_reset;
+		private System.Windows.Forms.Label cf7_bin;
+		private System.Windows.Forms.Label cf7_hex;
+		private System.Windows.Forms.Button cf7_Clear;
+		private System.Windows.Forms.TextBox ClassFeat7_bin;
+		private System.Windows.Forms.TextBox ClassFeat7_hex;
+		private System.Windows.Forms.TextBox ClassFeat7_text;
+		private System.Windows.Forms.Button ClassFeat7_reset;
+		private System.Windows.Forms.Label cf8_bin;
+		private System.Windows.Forms.Label cf8_hex;
+		private System.Windows.Forms.Button cf8_Clear;
+		private System.Windows.Forms.TextBox ClassFeat8_bin;
+		private System.Windows.Forms.TextBox ClassFeat8_hex;
+		private System.Windows.Forms.TextBox ClassFeat8_text;
+		private System.Windows.Forms.Button ClassFeat8_reset;
+		private System.Windows.Forms.Label cf9_bin;
+		private System.Windows.Forms.Label cf9_hex;
+		private System.Windows.Forms.Button cf9_Clear;
+		private System.Windows.Forms.TextBox ClassFeat9_bin;
+		private System.Windows.Forms.TextBox ClassFeat9_hex;
+		private System.Windows.Forms.TextBox ClassFeat9_text;
+		private System.Windows.Forms.Button ClassFeat9_reset;
+		private System.Windows.Forms.Label cf10_bin;
+		private System.Windows.Forms.Label cf10_hex;
+		private System.Windows.Forms.Button cf10_Clear;
+		private System.Windows.Forms.TextBox ClassFeat10_bin;
+		private System.Windows.Forms.TextBox ClassFeat10_hex;
+		private System.Windows.Forms.TextBox ClassFeat10_text;
+		private System.Windows.Forms.Button ClassFeat10_reset;
+		private System.Windows.Forms.Label cf11_bin;
+		private System.Windows.Forms.Label cf11_hex;
+		private System.Windows.Forms.Button cf11_Clear;
+		private System.Windows.Forms.TextBox ClassFeat11_bin;
+		private System.Windows.Forms.TextBox ClassFeat11_hex;
+		private System.Windows.Forms.TextBox ClassFeat11_text;
+		private System.Windows.Forms.Button ClassFeat11_reset;
 
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -609,11 +755,157 @@
 			this.setCoreAIver = new System.Windows.Forms.ToolStripMenuItem();
 			this.help = new System.Windows.Forms.ToolStripMenuItem();
 			this.About = new System.Windows.Forms.ToolStripMenuItem();
-			this.SpellTree = new System.Windows.Forms.TreeView();
+			this.Tree = new System.Windows.Forms.TreeView();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.btn_Search_u = new System.Windows.Forms.Button();
 			this.btn_Search_d = new System.Windows.Forms.Button();
 			this.tb_Search = new System.Windows.Forms.TextBox();
+			this.cols_HenchClasses = new System.Windows.Forms.TabControl();
+			this.page_ClassFlags = new System.Windows.Forms.TabPage();
+			this.cf_bin = new System.Windows.Forms.Label();
+			this.cf_hex = new System.Windows.Forms.Label();
+			this.cf_Clear = new System.Windows.Forms.Button();
+			this.ClassFlags_bin = new System.Windows.Forms.TextBox();
+			this.ClassFlags_hex = new System.Windows.Forms.TextBox();
+			this.ClassFlags_text = new System.Windows.Forms.TextBox();
+			this.ClassFlags_reset = new System.Windows.Forms.Button();
+			this.page_ClassFeat1 = new System.Windows.Forms.TabPage();
+			this.cf1_bin = new System.Windows.Forms.Label();
+			this.cf1_hex = new System.Windows.Forms.Label();
+			this.cf1_Clear = new System.Windows.Forms.Button();
+			this.ClassFeat1_bin = new System.Windows.Forms.TextBox();
+			this.ClassFeat1_hex = new System.Windows.Forms.TextBox();
+			this.ClassFeat1_text = new System.Windows.Forms.TextBox();
+			this.ClassFeat1_reset = new System.Windows.Forms.Button();
+			this.page_ClassFeat2 = new System.Windows.Forms.TabPage();
+			this.cf2_bin = new System.Windows.Forms.Label();
+			this.cf2_hex = new System.Windows.Forms.Label();
+			this.cf2_Clear = new System.Windows.Forms.Button();
+			this.ClassFeat2_bin = new System.Windows.Forms.TextBox();
+			this.ClassFeat2_hex = new System.Windows.Forms.TextBox();
+			this.ClassFeat2_text = new System.Windows.Forms.TextBox();
+			this.ClassFeat2_reset = new System.Windows.Forms.Button();
+			this.page_ClassFeat3 = new System.Windows.Forms.TabPage();
+			this.cf3_bin = new System.Windows.Forms.Label();
+			this.cf3_hex = new System.Windows.Forms.Label();
+			this.cf3_Clear = new System.Windows.Forms.Button();
+			this.ClassFeat3_bin = new System.Windows.Forms.TextBox();
+			this.ClassFeat3_hex = new System.Windows.Forms.TextBox();
+			this.ClassFeat3_text = new System.Windows.Forms.TextBox();
+			this.ClassFeat3_reset = new System.Windows.Forms.Button();
+			this.page_ClassFeat4 = new System.Windows.Forms.TabPage();
+			this.cf4_bin = new System.Windows.Forms.Label();
+			this.cf4_hex = new System.Windows.Forms.Label();
+			this.cf4_Clear = new System.Windows.Forms.Button();
+			this.ClassFeat4_bin = new System.Windows.Forms.TextBox();
+			this.ClassFeat4_hex = new System.Windows.Forms.TextBox();
+			this.ClassFeat4_text = new System.Windows.Forms.TextBox();
+			this.ClassFeat4_reset = new System.Windows.Forms.Button();
+			this.page_ClassFeat5 = new System.Windows.Forms.TabPage();
+			this.cf5_bin = new System.Windows.Forms.Label();
+			this.cf5_hex = new System.Windows.Forms.Label();
+			this.cf5_Clear = new System.Windows.Forms.Button();
+			this.ClassFeat5_bin = new System.Windows.Forms.TextBox();
+			this.ClassFeat5_hex = new System.Windows.Forms.TextBox();
+			this.ClassFeat5_text = new System.Windows.Forms.TextBox();
+			this.ClassFeat5_reset = new System.Windows.Forms.Button();
+			this.page_ClassFeat6 = new System.Windows.Forms.TabPage();
+			this.cf6_bin = new System.Windows.Forms.Label();
+			this.cf6_hex = new System.Windows.Forms.Label();
+			this.cf6_Clear = new System.Windows.Forms.Button();
+			this.ClassFeat6_bin = new System.Windows.Forms.TextBox();
+			this.ClassFeat6_hex = new System.Windows.Forms.TextBox();
+			this.ClassFeat6_text = new System.Windows.Forms.TextBox();
+			this.ClassFeat6_reset = new System.Windows.Forms.Button();
+			this.page_ClassFeat7 = new System.Windows.Forms.TabPage();
+			this.cf7_bin = new System.Windows.Forms.Label();
+			this.cf7_hex = new System.Windows.Forms.Label();
+			this.cf7_Clear = new System.Windows.Forms.Button();
+			this.ClassFeat7_bin = new System.Windows.Forms.TextBox();
+			this.ClassFeat7_hex = new System.Windows.Forms.TextBox();
+			this.ClassFeat7_text = new System.Windows.Forms.TextBox();
+			this.ClassFeat7_reset = new System.Windows.Forms.Button();
+			this.page_ClassFeat8 = new System.Windows.Forms.TabPage();
+			this.cf8_bin = new System.Windows.Forms.Label();
+			this.cf8_hex = new System.Windows.Forms.Label();
+			this.cf8_Clear = new System.Windows.Forms.Button();
+			this.ClassFeat8_bin = new System.Windows.Forms.TextBox();
+			this.ClassFeat8_hex = new System.Windows.Forms.TextBox();
+			this.ClassFeat8_text = new System.Windows.Forms.TextBox();
+			this.ClassFeat8_reset = new System.Windows.Forms.Button();
+			this.page_ClassFeat9 = new System.Windows.Forms.TabPage();
+			this.cf9_bin = new System.Windows.Forms.Label();
+			this.cf9_hex = new System.Windows.Forms.Label();
+			this.cf9_Clear = new System.Windows.Forms.Button();
+			this.ClassFeat9_bin = new System.Windows.Forms.TextBox();
+			this.ClassFeat9_hex = new System.Windows.Forms.TextBox();
+			this.ClassFeat9_text = new System.Windows.Forms.TextBox();
+			this.ClassFeat9_reset = new System.Windows.Forms.Button();
+			this.page_ClassFeat10 = new System.Windows.Forms.TabPage();
+			this.cf10_bin = new System.Windows.Forms.Label();
+			this.cf10_hex = new System.Windows.Forms.Label();
+			this.cf10_Clear = new System.Windows.Forms.Button();
+			this.ClassFeat10_bin = new System.Windows.Forms.TextBox();
+			this.ClassFeat10_hex = new System.Windows.Forms.TextBox();
+			this.ClassFeat10_text = new System.Windows.Forms.TextBox();
+			this.ClassFeat10_reset = new System.Windows.Forms.Button();
+			this.page_ClassFeat11 = new System.Windows.Forms.TabPage();
+			this.cf11_bin = new System.Windows.Forms.Label();
+			this.cf11_hex = new System.Windows.Forms.Label();
+			this.cf11_Clear = new System.Windows.Forms.Button();
+			this.ClassFeat11_bin = new System.Windows.Forms.TextBox();
+			this.ClassFeat11_hex = new System.Windows.Forms.TextBox();
+			this.ClassFeat11_text = new System.Windows.Forms.TextBox();
+			this.ClassFeat11_reset = new System.Windows.Forms.Button();
+			this.cols_HenchRacial = new System.Windows.Forms.TabControl();
+			this.page_RacialFlags = new System.Windows.Forms.TabPage();
+			this.rf_bin = new System.Windows.Forms.Label();
+			this.rf_hex = new System.Windows.Forms.Label();
+			this.rf_Clear = new System.Windows.Forms.Button();
+			this.RacialFlags_bin = new System.Windows.Forms.TextBox();
+			this.RacialFlags_hex = new System.Windows.Forms.TextBox();
+			this.RacialFlags_text = new System.Windows.Forms.TextBox();
+			this.RacialFlags_reset = new System.Windows.Forms.Button();
+			this.page_RacialFeat1 = new System.Windows.Forms.TabPage();
+			this.rf1_bin = new System.Windows.Forms.Label();
+			this.rf1_hex = new System.Windows.Forms.Label();
+			this.rf1_Clear = new System.Windows.Forms.Button();
+			this.RacialFeat1_bin = new System.Windows.Forms.TextBox();
+			this.RacialFeat1_hex = new System.Windows.Forms.TextBox();
+			this.RacialFeat1_text = new System.Windows.Forms.TextBox();
+			this.RacialFeat1_reset = new System.Windows.Forms.Button();
+			this.page_RacialFeat2 = new System.Windows.Forms.TabPage();
+			this.rf2_bin = new System.Windows.Forms.Label();
+			this.rf2_hex = new System.Windows.Forms.Label();
+			this.rf2_Clear = new System.Windows.Forms.Button();
+			this.RacialFeat2_bin = new System.Windows.Forms.TextBox();
+			this.RacialFeat2_hex = new System.Windows.Forms.TextBox();
+			this.RacialFeat2_text = new System.Windows.Forms.TextBox();
+			this.RacialFeat2_reset = new System.Windows.Forms.Button();
+			this.page_RacialFeat3 = new System.Windows.Forms.TabPage();
+			this.rf3_bin = new System.Windows.Forms.Label();
+			this.rf3_hex = new System.Windows.Forms.Label();
+			this.rf3_Clear = new System.Windows.Forms.Button();
+			this.RacialFeat3_bin = new System.Windows.Forms.TextBox();
+			this.RacialFeat3_hex = new System.Windows.Forms.TextBox();
+			this.RacialFeat3_text = new System.Windows.Forms.TextBox();
+			this.RacialFeat3_reset = new System.Windows.Forms.Button();
+			this.page_RacialFeat4 = new System.Windows.Forms.TabPage();
+			this.rf4_bin = new System.Windows.Forms.Label();
+			this.rf4_hex = new System.Windows.Forms.Label();
+			this.rf4_Clear = new System.Windows.Forms.Button();
+			this.RacialFeat4_bin = new System.Windows.Forms.TextBox();
+			this.RacialFeat4_hex = new System.Windows.Forms.TextBox();
+			this.RacialFeat4_text = new System.Windows.Forms.TextBox();
+			this.RacialFeat4_reset = new System.Windows.Forms.Button();
+			this.page_RacialFeat5 = new System.Windows.Forms.TabPage();
+			this.rf5_bin = new System.Windows.Forms.Label();
+			this.rf5_hex = new System.Windows.Forms.Label();
+			this.rf5_Clear = new System.Windows.Forms.Button();
+			this.RacialFeat5_bin = new System.Windows.Forms.TextBox();
+			this.RacialFeat5_hex = new System.Windows.Forms.TextBox();
+			this.RacialFeat5_text = new System.Windows.Forms.TextBox();
+			this.RacialFeat5_reset = new System.Windows.Forms.Button();
 			this.apply = new System.Windows.Forms.Button();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.cols_HenchSpells.SuspendLayout();
@@ -672,6 +964,26 @@
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
 			this.splitContainer1.SuspendLayout();
+			this.cols_HenchClasses.SuspendLayout();
+			this.page_ClassFlags.SuspendLayout();
+			this.page_ClassFeat1.SuspendLayout();
+			this.page_ClassFeat2.SuspendLayout();
+			this.page_ClassFeat3.SuspendLayout();
+			this.page_ClassFeat4.SuspendLayout();
+			this.page_ClassFeat5.SuspendLayout();
+			this.page_ClassFeat6.SuspendLayout();
+			this.page_ClassFeat7.SuspendLayout();
+			this.page_ClassFeat8.SuspendLayout();
+			this.page_ClassFeat9.SuspendLayout();
+			this.page_ClassFeat10.SuspendLayout();
+			this.page_ClassFeat11.SuspendLayout();
+			this.cols_HenchRacial.SuspendLayout();
+			this.page_RacialFlags.SuspendLayout();
+			this.page_RacialFeat1.SuspendLayout();
+			this.page_RacialFeat2.SuspendLayout();
+			this.page_RacialFeat3.SuspendLayout();
+			this.page_RacialFeat4.SuspendLayout();
+			this.page_RacialFeat5.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// cols_HenchSpells
@@ -3840,7 +4152,7 @@
 			this.help});
 			this.menuStrip.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip.Name = "menuStrip";
-			this.menuStrip.Size = new System.Drawing.Size(1102, 24);
+			this.menuStrip.Size = new System.Drawing.Size(1352, 24);
 			this.menuStrip.TabIndex = 1;
 			this.menuStrip.Text = "menuStrip";
 			// 
@@ -3974,24 +4286,24 @@
 			// About
 			// 
 			this.About.Name = "About";
-			this.About.Size = new System.Drawing.Size(152, 22);
+			this.About.Size = new System.Drawing.Size(95, 22);
 			this.About.Text = "About";
 			this.About.Click += new System.EventHandler(this.Click_about);
 			// 
-			// SpellTree
+			// Tree
 			// 
-			this.SpellTree.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+			this.Tree.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
 			| System.Windows.Forms.AnchorStyles.Left) 
 			| System.Windows.Forms.AnchorStyles.Right)));
-			this.SpellTree.FullRowSelect = true;
-			this.SpellTree.HideSelection = false;
-			this.SpellTree.Indent = 15;
-			this.SpellTree.Location = new System.Drawing.Point(0, 20);
-			this.SpellTree.Name = "SpellTree";
-			this.SpellTree.Size = new System.Drawing.Size(275, 458);
-			this.SpellTree.TabIndex = 2;
-			this.SpellTree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.AfterSelect_spellnode);
-			this.SpellTree.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress_search);
+			this.Tree.FullRowSelect = true;
+			this.Tree.HideSelection = false;
+			this.Tree.Indent = 15;
+			this.Tree.Location = new System.Drawing.Point(0, 20);
+			this.Tree.Name = "Tree";
+			this.Tree.Size = new System.Drawing.Size(275, 947);
+			this.Tree.TabIndex = 2;
+			this.Tree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.AfterSelect_node);
+			this.Tree.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress_search);
 			// 
 			// splitContainer1
 			// 
@@ -4005,14 +4317,16 @@
 			this.splitContainer1.Panel1.Controls.Add(this.btn_Search_u);
 			this.splitContainer1.Panel1.Controls.Add(this.btn_Search_d);
 			this.splitContainer1.Panel1.Controls.Add(this.tb_Search);
-			this.splitContainer1.Panel1.Controls.Add(this.SpellTree);
+			this.splitContainer1.Panel1.Controls.Add(this.Tree);
 			this.splitContainer1.Panel1MinSize = 20;
 			// 
 			// splitContainer1.Panel2
 			// 
+			this.splitContainer1.Panel2.Controls.Add(this.cols_HenchClasses);
+			this.splitContainer1.Panel2.Controls.Add(this.cols_HenchRacial);
 			this.splitContainer1.Panel2.Controls.Add(this.apply);
 			this.splitContainer1.Panel2.Controls.Add(this.cols_HenchSpells);
-			this.splitContainer1.Size = new System.Drawing.Size(1102, 480);
+			this.splitContainer1.Size = new System.Drawing.Size(1352, 969);
 			this.splitContainer1.SplitterDistance = 275;
 			this.splitContainer1.SplitterWidth = 3;
 			this.splitContainer1.TabIndex = 3;
@@ -4052,14 +4366,1710 @@
 			this.tb_Search.TabIndex = 3;
 			this.tb_Search.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress_search);
 			// 
+			// cols_HenchClasses
+			// 
+			this.cols_HenchClasses.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+			this.cols_HenchClasses.Controls.Add(this.page_ClassFlags);
+			this.cols_HenchClasses.Controls.Add(this.page_ClassFeat1);
+			this.cols_HenchClasses.Controls.Add(this.page_ClassFeat2);
+			this.cols_HenchClasses.Controls.Add(this.page_ClassFeat3);
+			this.cols_HenchClasses.Controls.Add(this.page_ClassFeat4);
+			this.cols_HenchClasses.Controls.Add(this.page_ClassFeat5);
+			this.cols_HenchClasses.Controls.Add(this.page_ClassFeat6);
+			this.cols_HenchClasses.Controls.Add(this.page_ClassFeat7);
+			this.cols_HenchClasses.Controls.Add(this.page_ClassFeat8);
+			this.cols_HenchClasses.Controls.Add(this.page_ClassFeat9);
+			this.cols_HenchClasses.Controls.Add(this.page_ClassFeat10);
+			this.cols_HenchClasses.Controls.Add(this.page_ClassFeat11);
+			this.cols_HenchClasses.Location = new System.Drawing.Point(0, 730);
+			this.cols_HenchClasses.Margin = new System.Windows.Forms.Padding(0);
+			this.cols_HenchClasses.Name = "cols_HenchClasses";
+			this.cols_HenchClasses.Padding = new System.Drawing.Point(5, 2);
+			this.cols_HenchClasses.SelectedIndex = 0;
+			this.cols_HenchClasses.Size = new System.Drawing.Size(1070, 168);
+			this.cols_HenchClasses.TabIndex = 3;
+			// 
+			// page_ClassFlags
+			// 
+			this.page_ClassFlags.Controls.Add(this.cf_bin);
+			this.page_ClassFlags.Controls.Add(this.cf_hex);
+			this.page_ClassFlags.Controls.Add(this.cf_Clear);
+			this.page_ClassFlags.Controls.Add(this.ClassFlags_bin);
+			this.page_ClassFlags.Controls.Add(this.ClassFlags_hex);
+			this.page_ClassFlags.Controls.Add(this.ClassFlags_text);
+			this.page_ClassFlags.Controls.Add(this.ClassFlags_reset);
+			this.page_ClassFlags.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFlags.Margin = new System.Windows.Forms.Padding(2);
+			this.page_ClassFlags.Name = "page_ClassFlags";
+			this.page_ClassFlags.Padding = new System.Windows.Forms.Padding(2);
+			this.page_ClassFlags.Size = new System.Drawing.Size(1062, 140);
+			this.page_ClassFlags.TabIndex = 0;
+			this.page_ClassFlags.Text = "Flags";
+			this.page_ClassFlags.UseVisualStyleBackColor = true;
+			// 
+			// cf_bin
+			// 
+			this.cf_bin.Location = new System.Drawing.Point(395, 35);
+			this.cf_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.cf_bin.Name = "cf_bin";
+			this.cf_bin.Size = new System.Drawing.Size(45, 15);
+			this.cf_bin.TabIndex = 54;
+			this.cf_bin.Text = "- bin";
+			this.cf_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf_hex
+			// 
+			this.cf_hex.Location = new System.Drawing.Point(395, 15);
+			this.cf_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.cf_hex.Name = "cf_hex";
+			this.cf_hex.Size = new System.Drawing.Size(45, 15);
+			this.cf_hex.TabIndex = 53;
+			this.cf_hex.Text = "- hex";
+			this.cf_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf_Clear
+			// 
+			this.cf_Clear.Location = new System.Drawing.Point(450, 5);
+			this.cf_Clear.Margin = new System.Windows.Forms.Padding(0);
+			this.cf_Clear.Name = "cf_Clear";
+			this.cf_Clear.Size = new System.Drawing.Size(65, 50);
+			this.cf_Clear.TabIndex = 52;
+			this.cf_Clear.Text = "zero\r\nall\r\nbits";
+			this.cf_Clear.UseVisualStyleBackColor = true;
+			this.cf_Clear.Click += new System.EventHandler(this.Click_clear);
+			// 
+			// ClassFlags_bin
+			// 
+			this.ClassFlags_bin.BackColor = System.Drawing.SystemColors.Window;
+			this.ClassFlags_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFlags_bin.Location = new System.Drawing.Point(115, 35);
+			this.ClassFlags_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFlags_bin.Name = "ClassFlags_bin";
+			this.ClassFlags_bin.ReadOnly = true;
+			this.ClassFlags_bin.Size = new System.Drawing.Size(275, 13);
+			this.ClassFlags_bin.TabIndex = 50;
+			// 
+			// ClassFlags_hex
+			// 
+			this.ClassFlags_hex.BackColor = System.Drawing.SystemColors.Window;
+			this.ClassFlags_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFlags_hex.Location = new System.Drawing.Point(115, 15);
+			this.ClassFlags_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFlags_hex.Name = "ClassFlags_hex";
+			this.ClassFlags_hex.ReadOnly = true;
+			this.ClassFlags_hex.Size = new System.Drawing.Size(275, 13);
+			this.ClassFlags_hex.TabIndex = 51;
+			// 
+			// ClassFlags_text
+			// 
+			this.ClassFlags_text.Location = new System.Drawing.Point(5, 35);
+			this.ClassFlags_text.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFlags_text.Name = "ClassFlags_text";
+			this.ClassFlags_text.Size = new System.Drawing.Size(100, 20);
+			this.ClassFlags_text.TabIndex = 49;
+			this.ClassFlags_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.ClassFlags_text.TextChanged += new System.EventHandler(this.TextChanged_classes);
+			// 
+			// ClassFlags_reset
+			// 
+			this.ClassFlags_reset.Location = new System.Drawing.Point(5, 5);
+			this.ClassFlags_reset.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFlags_reset.Name = "ClassFlags_reset";
+			this.ClassFlags_reset.Size = new System.Drawing.Size(100, 25);
+			this.ClassFlags_reset.TabIndex = 48;
+			this.toolTip1.SetToolTip(this.ClassFlags_reset, "reset");
+			this.ClassFlags_reset.UseVisualStyleBackColor = true;
+			this.ClassFlags_reset.Click += new System.EventHandler(this.Click_classes_reset);
+			// 
+			// page_ClassFeat1
+			// 
+			this.page_ClassFeat1.Controls.Add(this.cf1_bin);
+			this.page_ClassFeat1.Controls.Add(this.cf1_hex);
+			this.page_ClassFeat1.Controls.Add(this.cf1_Clear);
+			this.page_ClassFeat1.Controls.Add(this.ClassFeat1_bin);
+			this.page_ClassFeat1.Controls.Add(this.ClassFeat1_hex);
+			this.page_ClassFeat1.Controls.Add(this.ClassFeat1_text);
+			this.page_ClassFeat1.Controls.Add(this.ClassFeat1_reset);
+			this.page_ClassFeat1.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat1.Margin = new System.Windows.Forms.Padding(2);
+			this.page_ClassFeat1.Name = "page_ClassFeat1";
+			this.page_ClassFeat1.Padding = new System.Windows.Forms.Padding(2);
+			this.page_ClassFeat1.Size = new System.Drawing.Size(1062, 140);
+			this.page_ClassFeat1.TabIndex = 1;
+			this.page_ClassFeat1.Text = "FeatSpell1";
+			this.page_ClassFeat1.UseVisualStyleBackColor = true;
+			// 
+			// cf1_bin
+			// 
+			this.cf1_bin.Location = new System.Drawing.Point(395, 35);
+			this.cf1_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.cf1_bin.Name = "cf1_bin";
+			this.cf1_bin.Size = new System.Drawing.Size(45, 15);
+			this.cf1_bin.TabIndex = 54;
+			this.cf1_bin.Text = "- bin";
+			this.cf1_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf1_hex
+			// 
+			this.cf1_hex.Location = new System.Drawing.Point(395, 15);
+			this.cf1_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.cf1_hex.Name = "cf1_hex";
+			this.cf1_hex.Size = new System.Drawing.Size(45, 15);
+			this.cf1_hex.TabIndex = 53;
+			this.cf1_hex.Text = "- hex";
+			this.cf1_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf1_Clear
+			// 
+			this.cf1_Clear.Location = new System.Drawing.Point(450, 5);
+			this.cf1_Clear.Margin = new System.Windows.Forms.Padding(0);
+			this.cf1_Clear.Name = "cf1_Clear";
+			this.cf1_Clear.Size = new System.Drawing.Size(65, 50);
+			this.cf1_Clear.TabIndex = 52;
+			this.cf1_Clear.Text = "zero\r\nall\r\nbits";
+			this.cf1_Clear.UseVisualStyleBackColor = true;
+			this.cf1_Clear.Click += new System.EventHandler(this.Click_clear);
+			// 
+			// ClassFeat1_bin
+			// 
+			this.ClassFeat1_bin.BackColor = System.Drawing.SystemColors.Window;
+			this.ClassFeat1_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat1_bin.Location = new System.Drawing.Point(115, 35);
+			this.ClassFeat1_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat1_bin.Name = "ClassFeat1_bin";
+			this.ClassFeat1_bin.ReadOnly = true;
+			this.ClassFeat1_bin.Size = new System.Drawing.Size(275, 13);
+			this.ClassFeat1_bin.TabIndex = 50;
+			// 
+			// ClassFeat1_hex
+			// 
+			this.ClassFeat1_hex.BackColor = System.Drawing.SystemColors.Window;
+			this.ClassFeat1_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat1_hex.Location = new System.Drawing.Point(115, 15);
+			this.ClassFeat1_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat1_hex.Name = "ClassFeat1_hex";
+			this.ClassFeat1_hex.ReadOnly = true;
+			this.ClassFeat1_hex.Size = new System.Drawing.Size(275, 13);
+			this.ClassFeat1_hex.TabIndex = 51;
+			// 
+			// ClassFeat1_text
+			// 
+			this.ClassFeat1_text.Location = new System.Drawing.Point(5, 35);
+			this.ClassFeat1_text.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat1_text.Name = "ClassFeat1_text";
+			this.ClassFeat1_text.Size = new System.Drawing.Size(100, 20);
+			this.ClassFeat1_text.TabIndex = 49;
+			this.ClassFeat1_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.ClassFeat1_text.TextChanged += new System.EventHandler(this.TextChanged_classes);
+			// 
+			// ClassFeat1_reset
+			// 
+			this.ClassFeat1_reset.Location = new System.Drawing.Point(5, 5);
+			this.ClassFeat1_reset.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat1_reset.Name = "ClassFeat1_reset";
+			this.ClassFeat1_reset.Size = new System.Drawing.Size(100, 25);
+			this.ClassFeat1_reset.TabIndex = 48;
+			this.toolTip1.SetToolTip(this.ClassFeat1_reset, "reset");
+			this.ClassFeat1_reset.UseVisualStyleBackColor = true;
+			this.ClassFeat1_reset.Click += new System.EventHandler(this.Click_classes_reset);
+			// 
+			// page_ClassFeat2
+			// 
+			this.page_ClassFeat2.Controls.Add(this.cf2_bin);
+			this.page_ClassFeat2.Controls.Add(this.cf2_hex);
+			this.page_ClassFeat2.Controls.Add(this.cf2_Clear);
+			this.page_ClassFeat2.Controls.Add(this.ClassFeat2_bin);
+			this.page_ClassFeat2.Controls.Add(this.ClassFeat2_hex);
+			this.page_ClassFeat2.Controls.Add(this.ClassFeat2_text);
+			this.page_ClassFeat2.Controls.Add(this.ClassFeat2_reset);
+			this.page_ClassFeat2.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat2.Margin = new System.Windows.Forms.Padding(2);
+			this.page_ClassFeat2.Name = "page_ClassFeat2";
+			this.page_ClassFeat2.Padding = new System.Windows.Forms.Padding(2);
+			this.page_ClassFeat2.Size = new System.Drawing.Size(1062, 140);
+			this.page_ClassFeat2.TabIndex = 2;
+			this.page_ClassFeat2.Text = "FeatSpell2";
+			this.page_ClassFeat2.UseVisualStyleBackColor = true;
+			// 
+			// cf2_bin
+			// 
+			this.cf2_bin.Location = new System.Drawing.Point(395, 35);
+			this.cf2_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.cf2_bin.Name = "cf2_bin";
+			this.cf2_bin.Size = new System.Drawing.Size(45, 15);
+			this.cf2_bin.TabIndex = 54;
+			this.cf2_bin.Text = "- bin";
+			this.cf2_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf2_hex
+			// 
+			this.cf2_hex.Location = new System.Drawing.Point(395, 15);
+			this.cf2_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.cf2_hex.Name = "cf2_hex";
+			this.cf2_hex.Size = new System.Drawing.Size(45, 15);
+			this.cf2_hex.TabIndex = 53;
+			this.cf2_hex.Text = "- hex";
+			this.cf2_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf2_Clear
+			// 
+			this.cf2_Clear.Location = new System.Drawing.Point(450, 5);
+			this.cf2_Clear.Margin = new System.Windows.Forms.Padding(0);
+			this.cf2_Clear.Name = "cf2_Clear";
+			this.cf2_Clear.Size = new System.Drawing.Size(65, 50);
+			this.cf2_Clear.TabIndex = 52;
+			this.cf2_Clear.Text = "zero\r\nall\r\nbits";
+			this.cf2_Clear.UseVisualStyleBackColor = true;
+			this.cf2_Clear.Click += new System.EventHandler(this.Click_clear);
+			// 
+			// ClassFeat2_bin
+			// 
+			this.ClassFeat2_bin.BackColor = System.Drawing.SystemColors.Window;
+			this.ClassFeat2_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat2_bin.Location = new System.Drawing.Point(115, 35);
+			this.ClassFeat2_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat2_bin.Name = "ClassFeat2_bin";
+			this.ClassFeat2_bin.ReadOnly = true;
+			this.ClassFeat2_bin.Size = new System.Drawing.Size(275, 13);
+			this.ClassFeat2_bin.TabIndex = 50;
+			// 
+			// ClassFeat2_hex
+			// 
+			this.ClassFeat2_hex.BackColor = System.Drawing.SystemColors.Window;
+			this.ClassFeat2_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat2_hex.Location = new System.Drawing.Point(115, 15);
+			this.ClassFeat2_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat2_hex.Name = "ClassFeat2_hex";
+			this.ClassFeat2_hex.ReadOnly = true;
+			this.ClassFeat2_hex.Size = new System.Drawing.Size(275, 13);
+			this.ClassFeat2_hex.TabIndex = 51;
+			// 
+			// ClassFeat2_text
+			// 
+			this.ClassFeat2_text.Location = new System.Drawing.Point(5, 35);
+			this.ClassFeat2_text.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat2_text.Name = "ClassFeat2_text";
+			this.ClassFeat2_text.Size = new System.Drawing.Size(100, 20);
+			this.ClassFeat2_text.TabIndex = 49;
+			this.ClassFeat2_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.ClassFeat2_text.TextChanged += new System.EventHandler(this.TextChanged_classes);
+			// 
+			// ClassFeat2_reset
+			// 
+			this.ClassFeat2_reset.Location = new System.Drawing.Point(5, 5);
+			this.ClassFeat2_reset.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat2_reset.Name = "ClassFeat2_reset";
+			this.ClassFeat2_reset.Size = new System.Drawing.Size(100, 25);
+			this.ClassFeat2_reset.TabIndex = 48;
+			this.toolTip1.SetToolTip(this.ClassFeat2_reset, "reset");
+			this.ClassFeat2_reset.UseVisualStyleBackColor = true;
+			this.ClassFeat2_reset.Click += new System.EventHandler(this.Click_classes_reset);
+			// 
+			// page_ClassFeat3
+			// 
+			this.page_ClassFeat3.Controls.Add(this.cf3_bin);
+			this.page_ClassFeat3.Controls.Add(this.cf3_hex);
+			this.page_ClassFeat3.Controls.Add(this.cf3_Clear);
+			this.page_ClassFeat3.Controls.Add(this.ClassFeat3_bin);
+			this.page_ClassFeat3.Controls.Add(this.ClassFeat3_hex);
+			this.page_ClassFeat3.Controls.Add(this.ClassFeat3_text);
+			this.page_ClassFeat3.Controls.Add(this.ClassFeat3_reset);
+			this.page_ClassFeat3.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat3.Margin = new System.Windows.Forms.Padding(2);
+			this.page_ClassFeat3.Name = "page_ClassFeat3";
+			this.page_ClassFeat3.Padding = new System.Windows.Forms.Padding(2);
+			this.page_ClassFeat3.Size = new System.Drawing.Size(1062, 140);
+			this.page_ClassFeat3.TabIndex = 3;
+			this.page_ClassFeat3.Text = "FeatSpell3";
+			this.page_ClassFeat3.UseVisualStyleBackColor = true;
+			// 
+			// cf3_bin
+			// 
+			this.cf3_bin.Location = new System.Drawing.Point(395, 35);
+			this.cf3_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.cf3_bin.Name = "cf3_bin";
+			this.cf3_bin.Size = new System.Drawing.Size(45, 15);
+			this.cf3_bin.TabIndex = 54;
+			this.cf3_bin.Text = "- bin";
+			this.cf3_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf3_hex
+			// 
+			this.cf3_hex.Location = new System.Drawing.Point(395, 15);
+			this.cf3_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.cf3_hex.Name = "cf3_hex";
+			this.cf3_hex.Size = new System.Drawing.Size(45, 15);
+			this.cf3_hex.TabIndex = 53;
+			this.cf3_hex.Text = "- hex";
+			this.cf3_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf3_Clear
+			// 
+			this.cf3_Clear.Location = new System.Drawing.Point(450, 5);
+			this.cf3_Clear.Margin = new System.Windows.Forms.Padding(0);
+			this.cf3_Clear.Name = "cf3_Clear";
+			this.cf3_Clear.Size = new System.Drawing.Size(65, 50);
+			this.cf3_Clear.TabIndex = 52;
+			this.cf3_Clear.Text = "zero\r\nall\r\nbits";
+			this.cf3_Clear.UseVisualStyleBackColor = true;
+			this.cf3_Clear.Click += new System.EventHandler(this.Click_clear);
+			// 
+			// ClassFeat3_bin
+			// 
+			this.ClassFeat3_bin.BackColor = System.Drawing.SystemColors.Window;
+			this.ClassFeat3_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat3_bin.Location = new System.Drawing.Point(115, 35);
+			this.ClassFeat3_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat3_bin.Name = "ClassFeat3_bin";
+			this.ClassFeat3_bin.ReadOnly = true;
+			this.ClassFeat3_bin.Size = new System.Drawing.Size(275, 13);
+			this.ClassFeat3_bin.TabIndex = 50;
+			// 
+			// ClassFeat3_hex
+			// 
+			this.ClassFeat3_hex.BackColor = System.Drawing.SystemColors.Window;
+			this.ClassFeat3_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat3_hex.Location = new System.Drawing.Point(115, 15);
+			this.ClassFeat3_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat3_hex.Name = "ClassFeat3_hex";
+			this.ClassFeat3_hex.ReadOnly = true;
+			this.ClassFeat3_hex.Size = new System.Drawing.Size(275, 13);
+			this.ClassFeat3_hex.TabIndex = 51;
+			// 
+			// ClassFeat3_text
+			// 
+			this.ClassFeat3_text.Location = new System.Drawing.Point(5, 35);
+			this.ClassFeat3_text.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat3_text.Name = "ClassFeat3_text";
+			this.ClassFeat3_text.Size = new System.Drawing.Size(100, 20);
+			this.ClassFeat3_text.TabIndex = 49;
+			this.ClassFeat3_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.ClassFeat3_text.TextChanged += new System.EventHandler(this.TextChanged_classes);
+			// 
+			// ClassFeat3_reset
+			// 
+			this.ClassFeat3_reset.Location = new System.Drawing.Point(5, 5);
+			this.ClassFeat3_reset.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat3_reset.Name = "ClassFeat3_reset";
+			this.ClassFeat3_reset.Size = new System.Drawing.Size(100, 25);
+			this.ClassFeat3_reset.TabIndex = 48;
+			this.toolTip1.SetToolTip(this.ClassFeat3_reset, "reset");
+			this.ClassFeat3_reset.UseVisualStyleBackColor = true;
+			this.ClassFeat3_reset.Click += new System.EventHandler(this.Click_classes_reset);
+			// 
+			// page_ClassFeat4
+			// 
+			this.page_ClassFeat4.Controls.Add(this.cf4_bin);
+			this.page_ClassFeat4.Controls.Add(this.cf4_hex);
+			this.page_ClassFeat4.Controls.Add(this.cf4_Clear);
+			this.page_ClassFeat4.Controls.Add(this.ClassFeat4_bin);
+			this.page_ClassFeat4.Controls.Add(this.ClassFeat4_hex);
+			this.page_ClassFeat4.Controls.Add(this.ClassFeat4_text);
+			this.page_ClassFeat4.Controls.Add(this.ClassFeat4_reset);
+			this.page_ClassFeat4.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat4.Margin = new System.Windows.Forms.Padding(2);
+			this.page_ClassFeat4.Name = "page_ClassFeat4";
+			this.page_ClassFeat4.Padding = new System.Windows.Forms.Padding(2);
+			this.page_ClassFeat4.Size = new System.Drawing.Size(1062, 140);
+			this.page_ClassFeat4.TabIndex = 4;
+			this.page_ClassFeat4.Text = "FeatSpell4";
+			this.page_ClassFeat4.UseVisualStyleBackColor = true;
+			// 
+			// cf4_bin
+			// 
+			this.cf4_bin.Location = new System.Drawing.Point(395, 35);
+			this.cf4_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.cf4_bin.Name = "cf4_bin";
+			this.cf4_bin.Size = new System.Drawing.Size(45, 15);
+			this.cf4_bin.TabIndex = 54;
+			this.cf4_bin.Text = "- bin";
+			this.cf4_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf4_hex
+			// 
+			this.cf4_hex.Location = new System.Drawing.Point(395, 15);
+			this.cf4_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.cf4_hex.Name = "cf4_hex";
+			this.cf4_hex.Size = new System.Drawing.Size(45, 15);
+			this.cf4_hex.TabIndex = 53;
+			this.cf4_hex.Text = "- hex";
+			this.cf4_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf4_Clear
+			// 
+			this.cf4_Clear.Location = new System.Drawing.Point(450, 5);
+			this.cf4_Clear.Margin = new System.Windows.Forms.Padding(0);
+			this.cf4_Clear.Name = "cf4_Clear";
+			this.cf4_Clear.Size = new System.Drawing.Size(65, 50);
+			this.cf4_Clear.TabIndex = 52;
+			this.cf4_Clear.Text = "zero\r\nall\r\nbits";
+			this.cf4_Clear.UseVisualStyleBackColor = true;
+			this.cf4_Clear.Click += new System.EventHandler(this.Click_clear);
+			// 
+			// ClassFeat4_bin
+			// 
+			this.ClassFeat4_bin.BackColor = System.Drawing.SystemColors.Window;
+			this.ClassFeat4_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat4_bin.Location = new System.Drawing.Point(115, 35);
+			this.ClassFeat4_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat4_bin.Name = "ClassFeat4_bin";
+			this.ClassFeat4_bin.ReadOnly = true;
+			this.ClassFeat4_bin.Size = new System.Drawing.Size(275, 13);
+			this.ClassFeat4_bin.TabIndex = 50;
+			// 
+			// ClassFeat4_hex
+			// 
+			this.ClassFeat4_hex.BackColor = System.Drawing.SystemColors.Window;
+			this.ClassFeat4_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat4_hex.Location = new System.Drawing.Point(115, 15);
+			this.ClassFeat4_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat4_hex.Name = "ClassFeat4_hex";
+			this.ClassFeat4_hex.ReadOnly = true;
+			this.ClassFeat4_hex.Size = new System.Drawing.Size(275, 13);
+			this.ClassFeat4_hex.TabIndex = 51;
+			// 
+			// ClassFeat4_text
+			// 
+			this.ClassFeat4_text.Location = new System.Drawing.Point(5, 35);
+			this.ClassFeat4_text.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat4_text.Name = "ClassFeat4_text";
+			this.ClassFeat4_text.Size = new System.Drawing.Size(100, 20);
+			this.ClassFeat4_text.TabIndex = 49;
+			this.ClassFeat4_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.ClassFeat4_text.TextChanged += new System.EventHandler(this.TextChanged_classes);
+			// 
+			// ClassFeat4_reset
+			// 
+			this.ClassFeat4_reset.Location = new System.Drawing.Point(5, 5);
+			this.ClassFeat4_reset.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat4_reset.Name = "ClassFeat4_reset";
+			this.ClassFeat4_reset.Size = new System.Drawing.Size(100, 25);
+			this.ClassFeat4_reset.TabIndex = 48;
+			this.toolTip1.SetToolTip(this.ClassFeat4_reset, "reset");
+			this.ClassFeat4_reset.UseVisualStyleBackColor = true;
+			this.ClassFeat4_reset.Click += new System.EventHandler(this.Click_classes_reset);
+			// 
+			// page_ClassFeat5
+			// 
+			this.page_ClassFeat5.Controls.Add(this.cf5_bin);
+			this.page_ClassFeat5.Controls.Add(this.cf5_hex);
+			this.page_ClassFeat5.Controls.Add(this.cf5_Clear);
+			this.page_ClassFeat5.Controls.Add(this.ClassFeat5_bin);
+			this.page_ClassFeat5.Controls.Add(this.ClassFeat5_hex);
+			this.page_ClassFeat5.Controls.Add(this.ClassFeat5_text);
+			this.page_ClassFeat5.Controls.Add(this.ClassFeat5_reset);
+			this.page_ClassFeat5.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat5.Margin = new System.Windows.Forms.Padding(2);
+			this.page_ClassFeat5.Name = "page_ClassFeat5";
+			this.page_ClassFeat5.Padding = new System.Windows.Forms.Padding(2);
+			this.page_ClassFeat5.Size = new System.Drawing.Size(1062, 140);
+			this.page_ClassFeat5.TabIndex = 5;
+			this.page_ClassFeat5.Text = "FeatSpell5";
+			this.page_ClassFeat5.UseVisualStyleBackColor = true;
+			// 
+			// cf5_bin
+			// 
+			this.cf5_bin.Location = new System.Drawing.Point(395, 35);
+			this.cf5_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.cf5_bin.Name = "cf5_bin";
+			this.cf5_bin.Size = new System.Drawing.Size(45, 15);
+			this.cf5_bin.TabIndex = 54;
+			this.cf5_bin.Text = "- bin";
+			this.cf5_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf5_hex
+			// 
+			this.cf5_hex.Location = new System.Drawing.Point(395, 15);
+			this.cf5_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.cf5_hex.Name = "cf5_hex";
+			this.cf5_hex.Size = new System.Drawing.Size(45, 15);
+			this.cf5_hex.TabIndex = 53;
+			this.cf5_hex.Text = "- hex";
+			this.cf5_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf5_Clear
+			// 
+			this.cf5_Clear.Location = new System.Drawing.Point(450, 5);
+			this.cf5_Clear.Margin = new System.Windows.Forms.Padding(0);
+			this.cf5_Clear.Name = "cf5_Clear";
+			this.cf5_Clear.Size = new System.Drawing.Size(65, 50);
+			this.cf5_Clear.TabIndex = 52;
+			this.cf5_Clear.Text = "zero\r\nall\r\nbits";
+			this.cf5_Clear.UseVisualStyleBackColor = true;
+			this.cf5_Clear.Click += new System.EventHandler(this.Click_clear);
+			// 
+			// ClassFeat5_bin
+			// 
+			this.ClassFeat5_bin.BackColor = System.Drawing.SystemColors.Window;
+			this.ClassFeat5_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat5_bin.Location = new System.Drawing.Point(115, 35);
+			this.ClassFeat5_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat5_bin.Name = "ClassFeat5_bin";
+			this.ClassFeat5_bin.ReadOnly = true;
+			this.ClassFeat5_bin.Size = new System.Drawing.Size(275, 13);
+			this.ClassFeat5_bin.TabIndex = 50;
+			// 
+			// ClassFeat5_hex
+			// 
+			this.ClassFeat5_hex.BackColor = System.Drawing.SystemColors.Window;
+			this.ClassFeat5_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat5_hex.Location = new System.Drawing.Point(115, 15);
+			this.ClassFeat5_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat5_hex.Name = "ClassFeat5_hex";
+			this.ClassFeat5_hex.ReadOnly = true;
+			this.ClassFeat5_hex.Size = new System.Drawing.Size(275, 13);
+			this.ClassFeat5_hex.TabIndex = 51;
+			// 
+			// ClassFeat5_text
+			// 
+			this.ClassFeat5_text.Location = new System.Drawing.Point(5, 35);
+			this.ClassFeat5_text.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat5_text.Name = "ClassFeat5_text";
+			this.ClassFeat5_text.Size = new System.Drawing.Size(100, 20);
+			this.ClassFeat5_text.TabIndex = 49;
+			this.ClassFeat5_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.ClassFeat5_text.TextChanged += new System.EventHandler(this.TextChanged_classes);
+			// 
+			// ClassFeat5_reset
+			// 
+			this.ClassFeat5_reset.Location = new System.Drawing.Point(5, 5);
+			this.ClassFeat5_reset.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat5_reset.Name = "ClassFeat5_reset";
+			this.ClassFeat5_reset.Size = new System.Drawing.Size(100, 25);
+			this.ClassFeat5_reset.TabIndex = 48;
+			this.toolTip1.SetToolTip(this.ClassFeat5_reset, "reset");
+			this.ClassFeat5_reset.UseVisualStyleBackColor = true;
+			this.ClassFeat5_reset.Click += new System.EventHandler(this.Click_classes_reset);
+			// 
+			// page_ClassFeat6
+			// 
+			this.page_ClassFeat6.Controls.Add(this.cf6_bin);
+			this.page_ClassFeat6.Controls.Add(this.cf6_hex);
+			this.page_ClassFeat6.Controls.Add(this.cf6_Clear);
+			this.page_ClassFeat6.Controls.Add(this.ClassFeat6_bin);
+			this.page_ClassFeat6.Controls.Add(this.ClassFeat6_hex);
+			this.page_ClassFeat6.Controls.Add(this.ClassFeat6_text);
+			this.page_ClassFeat6.Controls.Add(this.ClassFeat6_reset);
+			this.page_ClassFeat6.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat6.Margin = new System.Windows.Forms.Padding(2);
+			this.page_ClassFeat6.Name = "page_ClassFeat6";
+			this.page_ClassFeat6.Padding = new System.Windows.Forms.Padding(2);
+			this.page_ClassFeat6.Size = new System.Drawing.Size(1062, 140);
+			this.page_ClassFeat6.TabIndex = 6;
+			this.page_ClassFeat6.Text = "FeatSpell6";
+			this.page_ClassFeat6.UseVisualStyleBackColor = true;
+			// 
+			// cf6_bin
+			// 
+			this.cf6_bin.Location = new System.Drawing.Point(395, 35);
+			this.cf6_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.cf6_bin.Name = "cf6_bin";
+			this.cf6_bin.Size = new System.Drawing.Size(45, 15);
+			this.cf6_bin.TabIndex = 54;
+			this.cf6_bin.Text = "- bin";
+			this.cf6_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf6_hex
+			// 
+			this.cf6_hex.Location = new System.Drawing.Point(395, 15);
+			this.cf6_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.cf6_hex.Name = "cf6_hex";
+			this.cf6_hex.Size = new System.Drawing.Size(45, 15);
+			this.cf6_hex.TabIndex = 53;
+			this.cf6_hex.Text = "- hex";
+			this.cf6_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf6_Clear
+			// 
+			this.cf6_Clear.Location = new System.Drawing.Point(450, 5);
+			this.cf6_Clear.Margin = new System.Windows.Forms.Padding(0);
+			this.cf6_Clear.Name = "cf6_Clear";
+			this.cf6_Clear.Size = new System.Drawing.Size(65, 50);
+			this.cf6_Clear.TabIndex = 52;
+			this.cf6_Clear.Text = "zero\r\nall\r\nbits";
+			this.cf6_Clear.UseVisualStyleBackColor = true;
+			this.cf6_Clear.Click += new System.EventHandler(this.Click_clear);
+			// 
+			// ClassFeat6_bin
+			// 
+			this.ClassFeat6_bin.BackColor = System.Drawing.SystemColors.Window;
+			this.ClassFeat6_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat6_bin.Location = new System.Drawing.Point(115, 35);
+			this.ClassFeat6_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat6_bin.Name = "ClassFeat6_bin";
+			this.ClassFeat6_bin.ReadOnly = true;
+			this.ClassFeat6_bin.Size = new System.Drawing.Size(275, 13);
+			this.ClassFeat6_bin.TabIndex = 50;
+			// 
+			// ClassFeat6_hex
+			// 
+			this.ClassFeat6_hex.BackColor = System.Drawing.SystemColors.Window;
+			this.ClassFeat6_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat6_hex.Location = new System.Drawing.Point(115, 15);
+			this.ClassFeat6_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat6_hex.Name = "ClassFeat6_hex";
+			this.ClassFeat6_hex.ReadOnly = true;
+			this.ClassFeat6_hex.Size = new System.Drawing.Size(275, 13);
+			this.ClassFeat6_hex.TabIndex = 51;
+			// 
+			// ClassFeat6_text
+			// 
+			this.ClassFeat6_text.Location = new System.Drawing.Point(5, 35);
+			this.ClassFeat6_text.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat6_text.Name = "ClassFeat6_text";
+			this.ClassFeat6_text.Size = new System.Drawing.Size(100, 20);
+			this.ClassFeat6_text.TabIndex = 49;
+			this.ClassFeat6_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.ClassFeat6_text.TextChanged += new System.EventHandler(this.TextChanged_classes);
+			// 
+			// ClassFeat6_reset
+			// 
+			this.ClassFeat6_reset.Location = new System.Drawing.Point(5, 5);
+			this.ClassFeat6_reset.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat6_reset.Name = "ClassFeat6_reset";
+			this.ClassFeat6_reset.Size = new System.Drawing.Size(100, 25);
+			this.ClassFeat6_reset.TabIndex = 48;
+			this.toolTip1.SetToolTip(this.ClassFeat6_reset, "reset");
+			this.ClassFeat6_reset.UseVisualStyleBackColor = true;
+			this.ClassFeat6_reset.Click += new System.EventHandler(this.Click_classes_reset);
+			// 
+			// page_ClassFeat7
+			// 
+			this.page_ClassFeat7.Controls.Add(this.cf7_bin);
+			this.page_ClassFeat7.Controls.Add(this.cf7_hex);
+			this.page_ClassFeat7.Controls.Add(this.cf7_Clear);
+			this.page_ClassFeat7.Controls.Add(this.ClassFeat7_bin);
+			this.page_ClassFeat7.Controls.Add(this.ClassFeat7_hex);
+			this.page_ClassFeat7.Controls.Add(this.ClassFeat7_text);
+			this.page_ClassFeat7.Controls.Add(this.ClassFeat7_reset);
+			this.page_ClassFeat7.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat7.Margin = new System.Windows.Forms.Padding(2);
+			this.page_ClassFeat7.Name = "page_ClassFeat7";
+			this.page_ClassFeat7.Padding = new System.Windows.Forms.Padding(2);
+			this.page_ClassFeat7.Size = new System.Drawing.Size(1062, 140);
+			this.page_ClassFeat7.TabIndex = 7;
+			this.page_ClassFeat7.Text = "FeatSpell7";
+			this.page_ClassFeat7.UseVisualStyleBackColor = true;
+			// 
+			// cf7_bin
+			// 
+			this.cf7_bin.Location = new System.Drawing.Point(395, 35);
+			this.cf7_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.cf7_bin.Name = "cf7_bin";
+			this.cf7_bin.Size = new System.Drawing.Size(45, 15);
+			this.cf7_bin.TabIndex = 54;
+			this.cf7_bin.Text = "- bin";
+			this.cf7_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf7_hex
+			// 
+			this.cf7_hex.Location = new System.Drawing.Point(395, 15);
+			this.cf7_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.cf7_hex.Name = "cf7_hex";
+			this.cf7_hex.Size = new System.Drawing.Size(45, 15);
+			this.cf7_hex.TabIndex = 53;
+			this.cf7_hex.Text = "- hex";
+			this.cf7_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf7_Clear
+			// 
+			this.cf7_Clear.Location = new System.Drawing.Point(450, 5);
+			this.cf7_Clear.Margin = new System.Windows.Forms.Padding(0);
+			this.cf7_Clear.Name = "cf7_Clear";
+			this.cf7_Clear.Size = new System.Drawing.Size(65, 50);
+			this.cf7_Clear.TabIndex = 52;
+			this.cf7_Clear.Text = "zero\r\nall\r\nbits";
+			this.cf7_Clear.UseVisualStyleBackColor = true;
+			this.cf7_Clear.Click += new System.EventHandler(this.Click_clear);
+			// 
+			// ClassFeat7_bin
+			// 
+			this.ClassFeat7_bin.BackColor = System.Drawing.SystemColors.Window;
+			this.ClassFeat7_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat7_bin.Location = new System.Drawing.Point(115, 35);
+			this.ClassFeat7_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat7_bin.Name = "ClassFeat7_bin";
+			this.ClassFeat7_bin.ReadOnly = true;
+			this.ClassFeat7_bin.Size = new System.Drawing.Size(275, 13);
+			this.ClassFeat7_bin.TabIndex = 50;
+			// 
+			// ClassFeat7_hex
+			// 
+			this.ClassFeat7_hex.BackColor = System.Drawing.SystemColors.Window;
+			this.ClassFeat7_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat7_hex.Location = new System.Drawing.Point(115, 15);
+			this.ClassFeat7_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat7_hex.Name = "ClassFeat7_hex";
+			this.ClassFeat7_hex.ReadOnly = true;
+			this.ClassFeat7_hex.Size = new System.Drawing.Size(275, 13);
+			this.ClassFeat7_hex.TabIndex = 51;
+			// 
+			// ClassFeat7_text
+			// 
+			this.ClassFeat7_text.Location = new System.Drawing.Point(5, 35);
+			this.ClassFeat7_text.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat7_text.Name = "ClassFeat7_text";
+			this.ClassFeat7_text.Size = new System.Drawing.Size(100, 20);
+			this.ClassFeat7_text.TabIndex = 49;
+			this.ClassFeat7_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.ClassFeat7_text.TextChanged += new System.EventHandler(this.TextChanged_classes);
+			// 
+			// ClassFeat7_reset
+			// 
+			this.ClassFeat7_reset.Location = new System.Drawing.Point(5, 5);
+			this.ClassFeat7_reset.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat7_reset.Name = "ClassFeat7_reset";
+			this.ClassFeat7_reset.Size = new System.Drawing.Size(100, 25);
+			this.ClassFeat7_reset.TabIndex = 48;
+			this.toolTip1.SetToolTip(this.ClassFeat7_reset, "reset");
+			this.ClassFeat7_reset.UseVisualStyleBackColor = true;
+			this.ClassFeat7_reset.Click += new System.EventHandler(this.Click_classes_reset);
+			// 
+			// page_ClassFeat8
+			// 
+			this.page_ClassFeat8.Controls.Add(this.cf8_bin);
+			this.page_ClassFeat8.Controls.Add(this.cf8_hex);
+			this.page_ClassFeat8.Controls.Add(this.cf8_Clear);
+			this.page_ClassFeat8.Controls.Add(this.ClassFeat8_bin);
+			this.page_ClassFeat8.Controls.Add(this.ClassFeat8_hex);
+			this.page_ClassFeat8.Controls.Add(this.ClassFeat8_text);
+			this.page_ClassFeat8.Controls.Add(this.ClassFeat8_reset);
+			this.page_ClassFeat8.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat8.Margin = new System.Windows.Forms.Padding(2);
+			this.page_ClassFeat8.Name = "page_ClassFeat8";
+			this.page_ClassFeat8.Padding = new System.Windows.Forms.Padding(2);
+			this.page_ClassFeat8.Size = new System.Drawing.Size(1062, 140);
+			this.page_ClassFeat8.TabIndex = 8;
+			this.page_ClassFeat8.Text = "FeatSpell8";
+			this.page_ClassFeat8.UseVisualStyleBackColor = true;
+			// 
+			// cf8_bin
+			// 
+			this.cf8_bin.Location = new System.Drawing.Point(395, 35);
+			this.cf8_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.cf8_bin.Name = "cf8_bin";
+			this.cf8_bin.Size = new System.Drawing.Size(45, 15);
+			this.cf8_bin.TabIndex = 54;
+			this.cf8_bin.Text = "- bin";
+			this.cf8_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf8_hex
+			// 
+			this.cf8_hex.Location = new System.Drawing.Point(395, 15);
+			this.cf8_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.cf8_hex.Name = "cf8_hex";
+			this.cf8_hex.Size = new System.Drawing.Size(45, 15);
+			this.cf8_hex.TabIndex = 53;
+			this.cf8_hex.Text = "- hex";
+			this.cf8_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf8_Clear
+			// 
+			this.cf8_Clear.Location = new System.Drawing.Point(450, 5);
+			this.cf8_Clear.Margin = new System.Windows.Forms.Padding(0);
+			this.cf8_Clear.Name = "cf8_Clear";
+			this.cf8_Clear.Size = new System.Drawing.Size(65, 50);
+			this.cf8_Clear.TabIndex = 52;
+			this.cf8_Clear.Text = "zero\r\nall\r\nbits";
+			this.cf8_Clear.UseVisualStyleBackColor = true;
+			this.cf8_Clear.Click += new System.EventHandler(this.Click_clear);
+			// 
+			// ClassFeat8_bin
+			// 
+			this.ClassFeat8_bin.BackColor = System.Drawing.SystemColors.Window;
+			this.ClassFeat8_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat8_bin.Location = new System.Drawing.Point(115, 35);
+			this.ClassFeat8_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat8_bin.Name = "ClassFeat8_bin";
+			this.ClassFeat8_bin.ReadOnly = true;
+			this.ClassFeat8_bin.Size = new System.Drawing.Size(275, 13);
+			this.ClassFeat8_bin.TabIndex = 50;
+			// 
+			// ClassFeat8_hex
+			// 
+			this.ClassFeat8_hex.BackColor = System.Drawing.SystemColors.Window;
+			this.ClassFeat8_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat8_hex.Location = new System.Drawing.Point(115, 15);
+			this.ClassFeat8_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat8_hex.Name = "ClassFeat8_hex";
+			this.ClassFeat8_hex.ReadOnly = true;
+			this.ClassFeat8_hex.Size = new System.Drawing.Size(275, 13);
+			this.ClassFeat8_hex.TabIndex = 51;
+			// 
+			// ClassFeat8_text
+			// 
+			this.ClassFeat8_text.Location = new System.Drawing.Point(5, 35);
+			this.ClassFeat8_text.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat8_text.Name = "ClassFeat8_text";
+			this.ClassFeat8_text.Size = new System.Drawing.Size(100, 20);
+			this.ClassFeat8_text.TabIndex = 49;
+			this.ClassFeat8_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.ClassFeat8_text.TextChanged += new System.EventHandler(this.TextChanged_classes);
+			// 
+			// ClassFeat8_reset
+			// 
+			this.ClassFeat8_reset.Location = new System.Drawing.Point(5, 5);
+			this.ClassFeat8_reset.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat8_reset.Name = "ClassFeat8_reset";
+			this.ClassFeat8_reset.Size = new System.Drawing.Size(100, 25);
+			this.ClassFeat8_reset.TabIndex = 48;
+			this.toolTip1.SetToolTip(this.ClassFeat8_reset, "reset");
+			this.ClassFeat8_reset.UseVisualStyleBackColor = true;
+			this.ClassFeat8_reset.Click += new System.EventHandler(this.Click_classes_reset);
+			// 
+			// page_ClassFeat9
+			// 
+			this.page_ClassFeat9.Controls.Add(this.cf9_bin);
+			this.page_ClassFeat9.Controls.Add(this.cf9_hex);
+			this.page_ClassFeat9.Controls.Add(this.cf9_Clear);
+			this.page_ClassFeat9.Controls.Add(this.ClassFeat9_bin);
+			this.page_ClassFeat9.Controls.Add(this.ClassFeat9_hex);
+			this.page_ClassFeat9.Controls.Add(this.ClassFeat9_text);
+			this.page_ClassFeat9.Controls.Add(this.ClassFeat9_reset);
+			this.page_ClassFeat9.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat9.Margin = new System.Windows.Forms.Padding(2);
+			this.page_ClassFeat9.Name = "page_ClassFeat9";
+			this.page_ClassFeat9.Padding = new System.Windows.Forms.Padding(2);
+			this.page_ClassFeat9.Size = new System.Drawing.Size(1062, 140);
+			this.page_ClassFeat9.TabIndex = 9;
+			this.page_ClassFeat9.Text = "FeatSpell9";
+			this.page_ClassFeat9.UseVisualStyleBackColor = true;
+			// 
+			// cf9_bin
+			// 
+			this.cf9_bin.Location = new System.Drawing.Point(395, 35);
+			this.cf9_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.cf9_bin.Name = "cf9_bin";
+			this.cf9_bin.Size = new System.Drawing.Size(45, 15);
+			this.cf9_bin.TabIndex = 54;
+			this.cf9_bin.Text = "- bin";
+			this.cf9_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf9_hex
+			// 
+			this.cf9_hex.Location = new System.Drawing.Point(395, 15);
+			this.cf9_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.cf9_hex.Name = "cf9_hex";
+			this.cf9_hex.Size = new System.Drawing.Size(45, 15);
+			this.cf9_hex.TabIndex = 53;
+			this.cf9_hex.Text = "- hex";
+			this.cf9_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf9_Clear
+			// 
+			this.cf9_Clear.Location = new System.Drawing.Point(450, 5);
+			this.cf9_Clear.Margin = new System.Windows.Forms.Padding(0);
+			this.cf9_Clear.Name = "cf9_Clear";
+			this.cf9_Clear.Size = new System.Drawing.Size(65, 50);
+			this.cf9_Clear.TabIndex = 52;
+			this.cf9_Clear.Text = "zero\r\nall\r\nbits";
+			this.cf9_Clear.UseVisualStyleBackColor = true;
+			this.cf9_Clear.Click += new System.EventHandler(this.Click_clear);
+			// 
+			// ClassFeat9_bin
+			// 
+			this.ClassFeat9_bin.BackColor = System.Drawing.SystemColors.Window;
+			this.ClassFeat9_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat9_bin.Location = new System.Drawing.Point(115, 35);
+			this.ClassFeat9_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat9_bin.Name = "ClassFeat9_bin";
+			this.ClassFeat9_bin.ReadOnly = true;
+			this.ClassFeat9_bin.Size = new System.Drawing.Size(275, 13);
+			this.ClassFeat9_bin.TabIndex = 50;
+			// 
+			// ClassFeat9_hex
+			// 
+			this.ClassFeat9_hex.BackColor = System.Drawing.SystemColors.Window;
+			this.ClassFeat9_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat9_hex.Location = new System.Drawing.Point(115, 15);
+			this.ClassFeat9_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat9_hex.Name = "ClassFeat9_hex";
+			this.ClassFeat9_hex.ReadOnly = true;
+			this.ClassFeat9_hex.Size = new System.Drawing.Size(275, 13);
+			this.ClassFeat9_hex.TabIndex = 51;
+			// 
+			// ClassFeat9_text
+			// 
+			this.ClassFeat9_text.Location = new System.Drawing.Point(5, 35);
+			this.ClassFeat9_text.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat9_text.Name = "ClassFeat9_text";
+			this.ClassFeat9_text.Size = new System.Drawing.Size(100, 20);
+			this.ClassFeat9_text.TabIndex = 49;
+			this.ClassFeat9_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.ClassFeat9_text.TextChanged += new System.EventHandler(this.TextChanged_classes);
+			// 
+			// ClassFeat9_reset
+			// 
+			this.ClassFeat9_reset.Location = new System.Drawing.Point(5, 5);
+			this.ClassFeat9_reset.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat9_reset.Name = "ClassFeat9_reset";
+			this.ClassFeat9_reset.Size = new System.Drawing.Size(100, 25);
+			this.ClassFeat9_reset.TabIndex = 48;
+			this.toolTip1.SetToolTip(this.ClassFeat9_reset, "reset");
+			this.ClassFeat9_reset.UseVisualStyleBackColor = true;
+			this.ClassFeat9_reset.Click += new System.EventHandler(this.Click_classes_reset);
+			// 
+			// page_ClassFeat10
+			// 
+			this.page_ClassFeat10.Controls.Add(this.cf10_bin);
+			this.page_ClassFeat10.Controls.Add(this.cf10_hex);
+			this.page_ClassFeat10.Controls.Add(this.cf10_Clear);
+			this.page_ClassFeat10.Controls.Add(this.ClassFeat10_bin);
+			this.page_ClassFeat10.Controls.Add(this.ClassFeat10_hex);
+			this.page_ClassFeat10.Controls.Add(this.ClassFeat10_text);
+			this.page_ClassFeat10.Controls.Add(this.ClassFeat10_reset);
+			this.page_ClassFeat10.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat10.Margin = new System.Windows.Forms.Padding(2);
+			this.page_ClassFeat10.Name = "page_ClassFeat10";
+			this.page_ClassFeat10.Padding = new System.Windows.Forms.Padding(2);
+			this.page_ClassFeat10.Size = new System.Drawing.Size(1062, 140);
+			this.page_ClassFeat10.TabIndex = 10;
+			this.page_ClassFeat10.Text = "FeatSpell10";
+			this.page_ClassFeat10.UseVisualStyleBackColor = true;
+			// 
+			// cf10_bin
+			// 
+			this.cf10_bin.Location = new System.Drawing.Point(395, 35);
+			this.cf10_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.cf10_bin.Name = "cf10_bin";
+			this.cf10_bin.Size = new System.Drawing.Size(45, 15);
+			this.cf10_bin.TabIndex = 54;
+			this.cf10_bin.Text = "- bin";
+			this.cf10_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf10_hex
+			// 
+			this.cf10_hex.Location = new System.Drawing.Point(395, 15);
+			this.cf10_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.cf10_hex.Name = "cf10_hex";
+			this.cf10_hex.Size = new System.Drawing.Size(45, 15);
+			this.cf10_hex.TabIndex = 53;
+			this.cf10_hex.Text = "- hex";
+			this.cf10_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf10_Clear
+			// 
+			this.cf10_Clear.Location = new System.Drawing.Point(450, 5);
+			this.cf10_Clear.Margin = new System.Windows.Forms.Padding(0);
+			this.cf10_Clear.Name = "cf10_Clear";
+			this.cf10_Clear.Size = new System.Drawing.Size(65, 50);
+			this.cf10_Clear.TabIndex = 52;
+			this.cf10_Clear.Text = "zero\r\nall\r\nbits";
+			this.cf10_Clear.UseVisualStyleBackColor = true;
+			this.cf10_Clear.Click += new System.EventHandler(this.Click_clear);
+			// 
+			// ClassFeat10_bin
+			// 
+			this.ClassFeat10_bin.BackColor = System.Drawing.SystemColors.Window;
+			this.ClassFeat10_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat10_bin.Location = new System.Drawing.Point(115, 35);
+			this.ClassFeat10_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat10_bin.Name = "ClassFeat10_bin";
+			this.ClassFeat10_bin.ReadOnly = true;
+			this.ClassFeat10_bin.Size = new System.Drawing.Size(275, 13);
+			this.ClassFeat10_bin.TabIndex = 50;
+			// 
+			// ClassFeat10_hex
+			// 
+			this.ClassFeat10_hex.BackColor = System.Drawing.SystemColors.Window;
+			this.ClassFeat10_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat10_hex.Location = new System.Drawing.Point(115, 15);
+			this.ClassFeat10_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat10_hex.Name = "ClassFeat10_hex";
+			this.ClassFeat10_hex.ReadOnly = true;
+			this.ClassFeat10_hex.Size = new System.Drawing.Size(275, 13);
+			this.ClassFeat10_hex.TabIndex = 51;
+			// 
+			// ClassFeat10_text
+			// 
+			this.ClassFeat10_text.Location = new System.Drawing.Point(5, 35);
+			this.ClassFeat10_text.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat10_text.Name = "ClassFeat10_text";
+			this.ClassFeat10_text.Size = new System.Drawing.Size(100, 20);
+			this.ClassFeat10_text.TabIndex = 49;
+			this.ClassFeat10_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.ClassFeat10_text.TextChanged += new System.EventHandler(this.TextChanged_classes);
+			// 
+			// ClassFeat10_reset
+			// 
+			this.ClassFeat10_reset.Location = new System.Drawing.Point(5, 5);
+			this.ClassFeat10_reset.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat10_reset.Name = "ClassFeat10_reset";
+			this.ClassFeat10_reset.Size = new System.Drawing.Size(100, 25);
+			this.ClassFeat10_reset.TabIndex = 48;
+			this.toolTip1.SetToolTip(this.ClassFeat10_reset, "reset");
+			this.ClassFeat10_reset.UseVisualStyleBackColor = true;
+			this.ClassFeat10_reset.Click += new System.EventHandler(this.Click_classes_reset);
+			// 
+			// page_ClassFeat11
+			// 
+			this.page_ClassFeat11.Controls.Add(this.cf11_bin);
+			this.page_ClassFeat11.Controls.Add(this.cf11_hex);
+			this.page_ClassFeat11.Controls.Add(this.cf11_Clear);
+			this.page_ClassFeat11.Controls.Add(this.ClassFeat11_bin);
+			this.page_ClassFeat11.Controls.Add(this.ClassFeat11_hex);
+			this.page_ClassFeat11.Controls.Add(this.ClassFeat11_text);
+			this.page_ClassFeat11.Controls.Add(this.ClassFeat11_reset);
+			this.page_ClassFeat11.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat11.Margin = new System.Windows.Forms.Padding(2);
+			this.page_ClassFeat11.Name = "page_ClassFeat11";
+			this.page_ClassFeat11.Padding = new System.Windows.Forms.Padding(2);
+			this.page_ClassFeat11.Size = new System.Drawing.Size(1062, 140);
+			this.page_ClassFeat11.TabIndex = 11;
+			this.page_ClassFeat11.Text = "FeatSpell11";
+			this.page_ClassFeat11.UseVisualStyleBackColor = true;
+			// 
+			// cf11_bin
+			// 
+			this.cf11_bin.Location = new System.Drawing.Point(395, 35);
+			this.cf11_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.cf11_bin.Name = "cf11_bin";
+			this.cf11_bin.Size = new System.Drawing.Size(45, 15);
+			this.cf11_bin.TabIndex = 54;
+			this.cf11_bin.Text = "- bin";
+			this.cf11_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf11_hex
+			// 
+			this.cf11_hex.Location = new System.Drawing.Point(395, 15);
+			this.cf11_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.cf11_hex.Name = "cf11_hex";
+			this.cf11_hex.Size = new System.Drawing.Size(45, 15);
+			this.cf11_hex.TabIndex = 53;
+			this.cf11_hex.Text = "- hex";
+			this.cf11_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf11_Clear
+			// 
+			this.cf11_Clear.Location = new System.Drawing.Point(450, 5);
+			this.cf11_Clear.Margin = new System.Windows.Forms.Padding(0);
+			this.cf11_Clear.Name = "cf11_Clear";
+			this.cf11_Clear.Size = new System.Drawing.Size(65, 50);
+			this.cf11_Clear.TabIndex = 52;
+			this.cf11_Clear.Text = "zero\r\nall\r\nbits";
+			this.cf11_Clear.UseVisualStyleBackColor = true;
+			this.cf11_Clear.Click += new System.EventHandler(this.Click_clear);
+			// 
+			// ClassFeat11_bin
+			// 
+			this.ClassFeat11_bin.BackColor = System.Drawing.SystemColors.Window;
+			this.ClassFeat11_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat11_bin.Location = new System.Drawing.Point(115, 35);
+			this.ClassFeat11_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat11_bin.Name = "ClassFeat11_bin";
+			this.ClassFeat11_bin.ReadOnly = true;
+			this.ClassFeat11_bin.Size = new System.Drawing.Size(275, 13);
+			this.ClassFeat11_bin.TabIndex = 50;
+			// 
+			// ClassFeat11_hex
+			// 
+			this.ClassFeat11_hex.BackColor = System.Drawing.SystemColors.Window;
+			this.ClassFeat11_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat11_hex.Location = new System.Drawing.Point(115, 15);
+			this.ClassFeat11_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat11_hex.Name = "ClassFeat11_hex";
+			this.ClassFeat11_hex.ReadOnly = true;
+			this.ClassFeat11_hex.Size = new System.Drawing.Size(275, 13);
+			this.ClassFeat11_hex.TabIndex = 51;
+			// 
+			// ClassFeat11_text
+			// 
+			this.ClassFeat11_text.Location = new System.Drawing.Point(5, 35);
+			this.ClassFeat11_text.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat11_text.Name = "ClassFeat11_text";
+			this.ClassFeat11_text.Size = new System.Drawing.Size(100, 20);
+			this.ClassFeat11_text.TabIndex = 49;
+			this.ClassFeat11_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.ClassFeat11_text.TextChanged += new System.EventHandler(this.TextChanged_classes);
+			// 
+			// ClassFeat11_reset
+			// 
+			this.ClassFeat11_reset.Location = new System.Drawing.Point(5, 5);
+			this.ClassFeat11_reset.Margin = new System.Windows.Forms.Padding(0);
+			this.ClassFeat11_reset.Name = "ClassFeat11_reset";
+			this.ClassFeat11_reset.Size = new System.Drawing.Size(100, 25);
+			this.ClassFeat11_reset.TabIndex = 48;
+			this.toolTip1.SetToolTip(this.ClassFeat11_reset, "reset");
+			this.ClassFeat11_reset.UseVisualStyleBackColor = true;
+			this.ClassFeat11_reset.Click += new System.EventHandler(this.Click_classes_reset);
+			// 
+			// cols_HenchRacial
+			// 
+			this.cols_HenchRacial.Appearance = System.Windows.Forms.TabAppearance.FlatButtons;
+			this.cols_HenchRacial.Controls.Add(this.page_RacialFlags);
+			this.cols_HenchRacial.Controls.Add(this.page_RacialFeat1);
+			this.cols_HenchRacial.Controls.Add(this.page_RacialFeat2);
+			this.cols_HenchRacial.Controls.Add(this.page_RacialFeat3);
+			this.cols_HenchRacial.Controls.Add(this.page_RacialFeat4);
+			this.cols_HenchRacial.Controls.Add(this.page_RacialFeat5);
+			this.cols_HenchRacial.Location = new System.Drawing.Point(0, 460);
+			this.cols_HenchRacial.Margin = new System.Windows.Forms.Padding(0);
+			this.cols_HenchRacial.Name = "cols_HenchRacial";
+			this.cols_HenchRacial.Padding = new System.Drawing.Point(5, 2);
+			this.cols_HenchRacial.SelectedIndex = 0;
+			this.cols_HenchRacial.Size = new System.Drawing.Size(820, 265);
+			this.cols_HenchRacial.TabIndex = 2;
+			// 
+			// page_RacialFlags
+			// 
+			this.page_RacialFlags.Controls.Add(this.rf_bin);
+			this.page_RacialFlags.Controls.Add(this.rf_hex);
+			this.page_RacialFlags.Controls.Add(this.rf_Clear);
+			this.page_RacialFlags.Controls.Add(this.RacialFlags_bin);
+			this.page_RacialFlags.Controls.Add(this.RacialFlags_hex);
+			this.page_RacialFlags.Controls.Add(this.RacialFlags_text);
+			this.page_RacialFlags.Controls.Add(this.RacialFlags_reset);
+			this.page_RacialFlags.Location = new System.Drawing.Point(4, 24);
+			this.page_RacialFlags.Margin = new System.Windows.Forms.Padding(2);
+			this.page_RacialFlags.Name = "page_RacialFlags";
+			this.page_RacialFlags.Padding = new System.Windows.Forms.Padding(2);
+			this.page_RacialFlags.Size = new System.Drawing.Size(812, 237);
+			this.page_RacialFlags.TabIndex = 0;
+			this.page_RacialFlags.Text = "Flags";
+			this.page_RacialFlags.UseVisualStyleBackColor = true;
+			// 
+			// rf_bin
+			// 
+			this.rf_bin.Location = new System.Drawing.Point(395, 35);
+			this.rf_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.rf_bin.Name = "rf_bin";
+			this.rf_bin.Size = new System.Drawing.Size(45, 15);
+			this.rf_bin.TabIndex = 47;
+			this.rf_bin.Text = "- bin";
+			this.rf_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// rf_hex
+			// 
+			this.rf_hex.Location = new System.Drawing.Point(395, 15);
+			this.rf_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.rf_hex.Name = "rf_hex";
+			this.rf_hex.Size = new System.Drawing.Size(45, 15);
+			this.rf_hex.TabIndex = 46;
+			this.rf_hex.Text = "- hex";
+			this.rf_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// rf_Clear
+			// 
+			this.rf_Clear.Location = new System.Drawing.Point(450, 5);
+			this.rf_Clear.Margin = new System.Windows.Forms.Padding(0);
+			this.rf_Clear.Name = "rf_Clear";
+			this.rf_Clear.Size = new System.Drawing.Size(65, 50);
+			this.rf_Clear.TabIndex = 45;
+			this.rf_Clear.Text = "zero\r\nall\r\nbits";
+			this.rf_Clear.UseVisualStyleBackColor = true;
+			this.rf_Clear.Click += new System.EventHandler(this.Click_clear);
+			// 
+			// RacialFlags_bin
+			// 
+			this.RacialFlags_bin.BackColor = System.Drawing.SystemColors.Window;
+			this.RacialFlags_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.RacialFlags_bin.Location = new System.Drawing.Point(115, 35);
+			this.RacialFlags_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.RacialFlags_bin.Name = "RacialFlags_bin";
+			this.RacialFlags_bin.ReadOnly = true;
+			this.RacialFlags_bin.Size = new System.Drawing.Size(275, 13);
+			this.RacialFlags_bin.TabIndex = 43;
+			// 
+			// RacialFlags_hex
+			// 
+			this.RacialFlags_hex.BackColor = System.Drawing.SystemColors.Window;
+			this.RacialFlags_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.RacialFlags_hex.Location = new System.Drawing.Point(115, 15);
+			this.RacialFlags_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.RacialFlags_hex.Name = "RacialFlags_hex";
+			this.RacialFlags_hex.ReadOnly = true;
+			this.RacialFlags_hex.Size = new System.Drawing.Size(275, 13);
+			this.RacialFlags_hex.TabIndex = 44;
+			// 
+			// RacialFlags_text
+			// 
+			this.RacialFlags_text.Location = new System.Drawing.Point(5, 35);
+			this.RacialFlags_text.Margin = new System.Windows.Forms.Padding(0);
+			this.RacialFlags_text.Name = "RacialFlags_text";
+			this.RacialFlags_text.Size = new System.Drawing.Size(100, 20);
+			this.RacialFlags_text.TabIndex = 42;
+			this.RacialFlags_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.RacialFlags_text.TextChanged += new System.EventHandler(this.TextChanged_racial);
+			// 
+			// RacialFlags_reset
+			// 
+			this.RacialFlags_reset.Location = new System.Drawing.Point(5, 5);
+			this.RacialFlags_reset.Margin = new System.Windows.Forms.Padding(0);
+			this.RacialFlags_reset.Name = "RacialFlags_reset";
+			this.RacialFlags_reset.Size = new System.Drawing.Size(100, 25);
+			this.RacialFlags_reset.TabIndex = 41;
+			this.toolTip1.SetToolTip(this.RacialFlags_reset, "reset");
+			this.RacialFlags_reset.UseVisualStyleBackColor = true;
+			this.RacialFlags_reset.Click += new System.EventHandler(this.Click_racial_reset);
+			// 
+			// page_RacialFeat1
+			// 
+			this.page_RacialFeat1.Controls.Add(this.rf1_bin);
+			this.page_RacialFeat1.Controls.Add(this.rf1_hex);
+			this.page_RacialFeat1.Controls.Add(this.rf1_Clear);
+			this.page_RacialFeat1.Controls.Add(this.RacialFeat1_bin);
+			this.page_RacialFeat1.Controls.Add(this.RacialFeat1_hex);
+			this.page_RacialFeat1.Controls.Add(this.RacialFeat1_text);
+			this.page_RacialFeat1.Controls.Add(this.RacialFeat1_reset);
+			this.page_RacialFeat1.Location = new System.Drawing.Point(4, 23);
+			this.page_RacialFeat1.Margin = new System.Windows.Forms.Padding(2);
+			this.page_RacialFeat1.Name = "page_RacialFeat1";
+			this.page_RacialFeat1.Padding = new System.Windows.Forms.Padding(2);
+			this.page_RacialFeat1.Size = new System.Drawing.Size(812, 238);
+			this.page_RacialFeat1.TabIndex = 1;
+			this.page_RacialFeat1.Text = "FeatSpell1";
+			this.page_RacialFeat1.UseVisualStyleBackColor = true;
+			// 
+			// rf1_bin
+			// 
+			this.rf1_bin.Location = new System.Drawing.Point(395, 35);
+			this.rf1_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.rf1_bin.Name = "rf1_bin";
+			this.rf1_bin.Size = new System.Drawing.Size(45, 15);
+			this.rf1_bin.TabIndex = 54;
+			this.rf1_bin.Text = "- bin";
+			this.rf1_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// rf1_hex
+			// 
+			this.rf1_hex.Location = new System.Drawing.Point(395, 15);
+			this.rf1_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.rf1_hex.Name = "rf1_hex";
+			this.rf1_hex.Size = new System.Drawing.Size(45, 15);
+			this.rf1_hex.TabIndex = 53;
+			this.rf1_hex.Text = "- hex";
+			this.rf1_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// rf1_Clear
+			// 
+			this.rf1_Clear.Location = new System.Drawing.Point(450, 5);
+			this.rf1_Clear.Margin = new System.Windows.Forms.Padding(0);
+			this.rf1_Clear.Name = "rf1_Clear";
+			this.rf1_Clear.Size = new System.Drawing.Size(65, 50);
+			this.rf1_Clear.TabIndex = 52;
+			this.rf1_Clear.Text = "zero\r\nall\r\nbits";
+			this.rf1_Clear.UseVisualStyleBackColor = true;
+			this.rf1_Clear.Click += new System.EventHandler(this.Click_clear);
+			// 
+			// RacialFeat1_bin
+			// 
+			this.RacialFeat1_bin.BackColor = System.Drawing.SystemColors.Window;
+			this.RacialFeat1_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.RacialFeat1_bin.Location = new System.Drawing.Point(115, 35);
+			this.RacialFeat1_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.RacialFeat1_bin.Name = "RacialFeat1_bin";
+			this.RacialFeat1_bin.ReadOnly = true;
+			this.RacialFeat1_bin.Size = new System.Drawing.Size(275, 13);
+			this.RacialFeat1_bin.TabIndex = 50;
+			// 
+			// RacialFeat1_hex
+			// 
+			this.RacialFeat1_hex.BackColor = System.Drawing.SystemColors.Window;
+			this.RacialFeat1_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.RacialFeat1_hex.Location = new System.Drawing.Point(115, 15);
+			this.RacialFeat1_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.RacialFeat1_hex.Name = "RacialFeat1_hex";
+			this.RacialFeat1_hex.ReadOnly = true;
+			this.RacialFeat1_hex.Size = new System.Drawing.Size(275, 13);
+			this.RacialFeat1_hex.TabIndex = 51;
+			// 
+			// RacialFeat1_text
+			// 
+			this.RacialFeat1_text.Location = new System.Drawing.Point(5, 35);
+			this.RacialFeat1_text.Margin = new System.Windows.Forms.Padding(0);
+			this.RacialFeat1_text.Name = "RacialFeat1_text";
+			this.RacialFeat1_text.Size = new System.Drawing.Size(100, 20);
+			this.RacialFeat1_text.TabIndex = 49;
+			this.RacialFeat1_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.RacialFeat1_text.TextChanged += new System.EventHandler(this.TextChanged_racial);
+			// 
+			// RacialFeat1_reset
+			// 
+			this.RacialFeat1_reset.Location = new System.Drawing.Point(5, 5);
+			this.RacialFeat1_reset.Margin = new System.Windows.Forms.Padding(0);
+			this.RacialFeat1_reset.Name = "RacialFeat1_reset";
+			this.RacialFeat1_reset.Size = new System.Drawing.Size(100, 25);
+			this.RacialFeat1_reset.TabIndex = 48;
+			this.toolTip1.SetToolTip(this.RacialFeat1_reset, "reset");
+			this.RacialFeat1_reset.UseVisualStyleBackColor = true;
+			this.RacialFeat1_reset.Click += new System.EventHandler(this.Click_racial_reset);
+			// 
+			// page_RacialFeat2
+			// 
+			this.page_RacialFeat2.Controls.Add(this.rf2_bin);
+			this.page_RacialFeat2.Controls.Add(this.rf2_hex);
+			this.page_RacialFeat2.Controls.Add(this.rf2_Clear);
+			this.page_RacialFeat2.Controls.Add(this.RacialFeat2_bin);
+			this.page_RacialFeat2.Controls.Add(this.RacialFeat2_hex);
+			this.page_RacialFeat2.Controls.Add(this.RacialFeat2_text);
+			this.page_RacialFeat2.Controls.Add(this.RacialFeat2_reset);
+			this.page_RacialFeat2.Location = new System.Drawing.Point(4, 23);
+			this.page_RacialFeat2.Margin = new System.Windows.Forms.Padding(2);
+			this.page_RacialFeat2.Name = "page_RacialFeat2";
+			this.page_RacialFeat2.Padding = new System.Windows.Forms.Padding(2);
+			this.page_RacialFeat2.Size = new System.Drawing.Size(812, 238);
+			this.page_RacialFeat2.TabIndex = 2;
+			this.page_RacialFeat2.Text = "FeatSpell2";
+			this.page_RacialFeat2.UseVisualStyleBackColor = true;
+			// 
+			// rf2_bin
+			// 
+			this.rf2_bin.Location = new System.Drawing.Point(395, 35);
+			this.rf2_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.rf2_bin.Name = "rf2_bin";
+			this.rf2_bin.Size = new System.Drawing.Size(45, 15);
+			this.rf2_bin.TabIndex = 61;
+			this.rf2_bin.Text = "- bin";
+			this.rf2_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// rf2_hex
+			// 
+			this.rf2_hex.Location = new System.Drawing.Point(395, 15);
+			this.rf2_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.rf2_hex.Name = "rf2_hex";
+			this.rf2_hex.Size = new System.Drawing.Size(45, 15);
+			this.rf2_hex.TabIndex = 60;
+			this.rf2_hex.Text = "- hex";
+			this.rf2_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// rf2_Clear
+			// 
+			this.rf2_Clear.Location = new System.Drawing.Point(450, 5);
+			this.rf2_Clear.Margin = new System.Windows.Forms.Padding(0);
+			this.rf2_Clear.Name = "rf2_Clear";
+			this.rf2_Clear.Size = new System.Drawing.Size(65, 50);
+			this.rf2_Clear.TabIndex = 59;
+			this.rf2_Clear.Text = "zero\r\nall\r\nbits";
+			this.rf2_Clear.UseVisualStyleBackColor = true;
+			this.rf2_Clear.Click += new System.EventHandler(this.Click_clear);
+			// 
+			// RacialFeat2_bin
+			// 
+			this.RacialFeat2_bin.BackColor = System.Drawing.SystemColors.Window;
+			this.RacialFeat2_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.RacialFeat2_bin.Location = new System.Drawing.Point(115, 35);
+			this.RacialFeat2_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.RacialFeat2_bin.Name = "RacialFeat2_bin";
+			this.RacialFeat2_bin.ReadOnly = true;
+			this.RacialFeat2_bin.Size = new System.Drawing.Size(275, 13);
+			this.RacialFeat2_bin.TabIndex = 57;
+			// 
+			// RacialFeat2_hex
+			// 
+			this.RacialFeat2_hex.BackColor = System.Drawing.SystemColors.Window;
+			this.RacialFeat2_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.RacialFeat2_hex.Location = new System.Drawing.Point(115, 15);
+			this.RacialFeat2_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.RacialFeat2_hex.Name = "RacialFeat2_hex";
+			this.RacialFeat2_hex.ReadOnly = true;
+			this.RacialFeat2_hex.Size = new System.Drawing.Size(275, 13);
+			this.RacialFeat2_hex.TabIndex = 58;
+			// 
+			// RacialFeat2_text
+			// 
+			this.RacialFeat2_text.Location = new System.Drawing.Point(5, 35);
+			this.RacialFeat2_text.Margin = new System.Windows.Forms.Padding(0);
+			this.RacialFeat2_text.Name = "RacialFeat2_text";
+			this.RacialFeat2_text.Size = new System.Drawing.Size(100, 20);
+			this.RacialFeat2_text.TabIndex = 56;
+			this.RacialFeat2_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.RacialFeat2_text.TextChanged += new System.EventHandler(this.TextChanged_racial);
+			// 
+			// RacialFeat2_reset
+			// 
+			this.RacialFeat2_reset.Location = new System.Drawing.Point(5, 5);
+			this.RacialFeat2_reset.Margin = new System.Windows.Forms.Padding(0);
+			this.RacialFeat2_reset.Name = "RacialFeat2_reset";
+			this.RacialFeat2_reset.Size = new System.Drawing.Size(100, 25);
+			this.RacialFeat2_reset.TabIndex = 55;
+			this.toolTip1.SetToolTip(this.RacialFeat2_reset, "reset");
+			this.RacialFeat2_reset.UseVisualStyleBackColor = true;
+			this.RacialFeat2_reset.Click += new System.EventHandler(this.Click_racial_reset);
+			// 
+			// page_RacialFeat3
+			// 
+			this.page_RacialFeat3.Controls.Add(this.rf3_bin);
+			this.page_RacialFeat3.Controls.Add(this.rf3_hex);
+			this.page_RacialFeat3.Controls.Add(this.rf3_Clear);
+			this.page_RacialFeat3.Controls.Add(this.RacialFeat3_bin);
+			this.page_RacialFeat3.Controls.Add(this.RacialFeat3_hex);
+			this.page_RacialFeat3.Controls.Add(this.RacialFeat3_text);
+			this.page_RacialFeat3.Controls.Add(this.RacialFeat3_reset);
+			this.page_RacialFeat3.Location = new System.Drawing.Point(4, 23);
+			this.page_RacialFeat3.Margin = new System.Windows.Forms.Padding(2);
+			this.page_RacialFeat3.Name = "page_RacialFeat3";
+			this.page_RacialFeat3.Padding = new System.Windows.Forms.Padding(2);
+			this.page_RacialFeat3.Size = new System.Drawing.Size(812, 238);
+			this.page_RacialFeat3.TabIndex = 3;
+			this.page_RacialFeat3.Text = "FeatSpell3";
+			this.page_RacialFeat3.UseVisualStyleBackColor = true;
+			// 
+			// rf3_bin
+			// 
+			this.rf3_bin.Location = new System.Drawing.Point(395, 35);
+			this.rf3_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.rf3_bin.Name = "rf3_bin";
+			this.rf3_bin.Size = new System.Drawing.Size(45, 15);
+			this.rf3_bin.TabIndex = 68;
+			this.rf3_bin.Text = "- bin";
+			this.rf3_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// rf3_hex
+			// 
+			this.rf3_hex.Location = new System.Drawing.Point(395, 15);
+			this.rf3_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.rf3_hex.Name = "rf3_hex";
+			this.rf3_hex.Size = new System.Drawing.Size(45, 15);
+			this.rf3_hex.TabIndex = 67;
+			this.rf3_hex.Text = "- hex";
+			this.rf3_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// rf3_Clear
+			// 
+			this.rf3_Clear.Location = new System.Drawing.Point(450, 5);
+			this.rf3_Clear.Margin = new System.Windows.Forms.Padding(0);
+			this.rf3_Clear.Name = "rf3_Clear";
+			this.rf3_Clear.Size = new System.Drawing.Size(65, 50);
+			this.rf3_Clear.TabIndex = 66;
+			this.rf3_Clear.Text = "zero\r\nall\r\nbits";
+			this.rf3_Clear.UseVisualStyleBackColor = true;
+			this.rf3_Clear.Click += new System.EventHandler(this.Click_clear);
+			// 
+			// RacialFeat3_bin
+			// 
+			this.RacialFeat3_bin.BackColor = System.Drawing.SystemColors.Window;
+			this.RacialFeat3_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.RacialFeat3_bin.Location = new System.Drawing.Point(115, 35);
+			this.RacialFeat3_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.RacialFeat3_bin.Name = "RacialFeat3_bin";
+			this.RacialFeat3_bin.ReadOnly = true;
+			this.RacialFeat3_bin.Size = new System.Drawing.Size(275, 13);
+			this.RacialFeat3_bin.TabIndex = 64;
+			// 
+			// RacialFeat3_hex
+			// 
+			this.RacialFeat3_hex.BackColor = System.Drawing.SystemColors.Window;
+			this.RacialFeat3_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.RacialFeat3_hex.Location = new System.Drawing.Point(115, 15);
+			this.RacialFeat3_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.RacialFeat3_hex.Name = "RacialFeat3_hex";
+			this.RacialFeat3_hex.ReadOnly = true;
+			this.RacialFeat3_hex.Size = new System.Drawing.Size(275, 13);
+			this.RacialFeat3_hex.TabIndex = 65;
+			// 
+			// RacialFeat3_text
+			// 
+			this.RacialFeat3_text.Location = new System.Drawing.Point(5, 35);
+			this.RacialFeat3_text.Margin = new System.Windows.Forms.Padding(0);
+			this.RacialFeat3_text.Name = "RacialFeat3_text";
+			this.RacialFeat3_text.Size = new System.Drawing.Size(100, 20);
+			this.RacialFeat3_text.TabIndex = 63;
+			this.RacialFeat3_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.RacialFeat3_text.TextChanged += new System.EventHandler(this.TextChanged_racial);
+			// 
+			// RacialFeat3_reset
+			// 
+			this.RacialFeat3_reset.Location = new System.Drawing.Point(5, 5);
+			this.RacialFeat3_reset.Margin = new System.Windows.Forms.Padding(0);
+			this.RacialFeat3_reset.Name = "RacialFeat3_reset";
+			this.RacialFeat3_reset.Size = new System.Drawing.Size(100, 25);
+			this.RacialFeat3_reset.TabIndex = 62;
+			this.toolTip1.SetToolTip(this.RacialFeat3_reset, "reset");
+			this.RacialFeat3_reset.UseVisualStyleBackColor = true;
+			this.RacialFeat3_reset.Click += new System.EventHandler(this.Click_racial_reset);
+			// 
+			// page_RacialFeat4
+			// 
+			this.page_RacialFeat4.Controls.Add(this.rf4_bin);
+			this.page_RacialFeat4.Controls.Add(this.rf4_hex);
+			this.page_RacialFeat4.Controls.Add(this.rf4_Clear);
+			this.page_RacialFeat4.Controls.Add(this.RacialFeat4_bin);
+			this.page_RacialFeat4.Controls.Add(this.RacialFeat4_hex);
+			this.page_RacialFeat4.Controls.Add(this.RacialFeat4_text);
+			this.page_RacialFeat4.Controls.Add(this.RacialFeat4_reset);
+			this.page_RacialFeat4.Location = new System.Drawing.Point(4, 23);
+			this.page_RacialFeat4.Margin = new System.Windows.Forms.Padding(2);
+			this.page_RacialFeat4.Name = "page_RacialFeat4";
+			this.page_RacialFeat4.Padding = new System.Windows.Forms.Padding(2);
+			this.page_RacialFeat4.Size = new System.Drawing.Size(812, 238);
+			this.page_RacialFeat4.TabIndex = 4;
+			this.page_RacialFeat4.Text = "FeatSpell4";
+			this.page_RacialFeat4.UseVisualStyleBackColor = true;
+			// 
+			// rf4_bin
+			// 
+			this.rf4_bin.Location = new System.Drawing.Point(395, 35);
+			this.rf4_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.rf4_bin.Name = "rf4_bin";
+			this.rf4_bin.Size = new System.Drawing.Size(45, 15);
+			this.rf4_bin.TabIndex = 68;
+			this.rf4_bin.Text = "- bin";
+			this.rf4_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// rf4_hex
+			// 
+			this.rf4_hex.Location = new System.Drawing.Point(395, 15);
+			this.rf4_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.rf4_hex.Name = "rf4_hex";
+			this.rf4_hex.Size = new System.Drawing.Size(45, 15);
+			this.rf4_hex.TabIndex = 67;
+			this.rf4_hex.Text = "- hex";
+			this.rf4_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// rf4_Clear
+			// 
+			this.rf4_Clear.Location = new System.Drawing.Point(450, 5);
+			this.rf4_Clear.Margin = new System.Windows.Forms.Padding(0);
+			this.rf4_Clear.Name = "rf4_Clear";
+			this.rf4_Clear.Size = new System.Drawing.Size(65, 50);
+			this.rf4_Clear.TabIndex = 66;
+			this.rf4_Clear.Text = "zero\r\nall\r\nbits";
+			this.rf4_Clear.UseVisualStyleBackColor = true;
+			this.rf4_Clear.Click += new System.EventHandler(this.Click_clear);
+			// 
+			// RacialFeat4_bin
+			// 
+			this.RacialFeat4_bin.BackColor = System.Drawing.SystemColors.Window;
+			this.RacialFeat4_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.RacialFeat4_bin.Location = new System.Drawing.Point(115, 35);
+			this.RacialFeat4_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.RacialFeat4_bin.Name = "RacialFeat4_bin";
+			this.RacialFeat4_bin.ReadOnly = true;
+			this.RacialFeat4_bin.Size = new System.Drawing.Size(275, 13);
+			this.RacialFeat4_bin.TabIndex = 64;
+			// 
+			// RacialFeat4_hex
+			// 
+			this.RacialFeat4_hex.BackColor = System.Drawing.SystemColors.Window;
+			this.RacialFeat4_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.RacialFeat4_hex.Location = new System.Drawing.Point(115, 15);
+			this.RacialFeat4_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.RacialFeat4_hex.Name = "RacialFeat4_hex";
+			this.RacialFeat4_hex.ReadOnly = true;
+			this.RacialFeat4_hex.Size = new System.Drawing.Size(275, 13);
+			this.RacialFeat4_hex.TabIndex = 65;
+			// 
+			// RacialFeat4_text
+			// 
+			this.RacialFeat4_text.Location = new System.Drawing.Point(5, 35);
+			this.RacialFeat4_text.Margin = new System.Windows.Forms.Padding(0);
+			this.RacialFeat4_text.Name = "RacialFeat4_text";
+			this.RacialFeat4_text.Size = new System.Drawing.Size(100, 20);
+			this.RacialFeat4_text.TabIndex = 63;
+			this.RacialFeat4_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.RacialFeat4_text.TextChanged += new System.EventHandler(this.TextChanged_racial);
+			// 
+			// RacialFeat4_reset
+			// 
+			this.RacialFeat4_reset.Location = new System.Drawing.Point(5, 5);
+			this.RacialFeat4_reset.Margin = new System.Windows.Forms.Padding(0);
+			this.RacialFeat4_reset.Name = "RacialFeat4_reset";
+			this.RacialFeat4_reset.Size = new System.Drawing.Size(100, 25);
+			this.RacialFeat4_reset.TabIndex = 62;
+			this.toolTip1.SetToolTip(this.RacialFeat4_reset, "reset");
+			this.RacialFeat4_reset.UseVisualStyleBackColor = true;
+			this.RacialFeat4_reset.Click += new System.EventHandler(this.Click_racial_reset);
+			// 
+			// page_RacialFeat5
+			// 
+			this.page_RacialFeat5.Controls.Add(this.rf5_bin);
+			this.page_RacialFeat5.Controls.Add(this.rf5_hex);
+			this.page_RacialFeat5.Controls.Add(this.rf5_Clear);
+			this.page_RacialFeat5.Controls.Add(this.RacialFeat5_bin);
+			this.page_RacialFeat5.Controls.Add(this.RacialFeat5_hex);
+			this.page_RacialFeat5.Controls.Add(this.RacialFeat5_text);
+			this.page_RacialFeat5.Controls.Add(this.RacialFeat5_reset);
+			this.page_RacialFeat5.Location = new System.Drawing.Point(4, 23);
+			this.page_RacialFeat5.Margin = new System.Windows.Forms.Padding(2);
+			this.page_RacialFeat5.Name = "page_RacialFeat5";
+			this.page_RacialFeat5.Padding = new System.Windows.Forms.Padding(2);
+			this.page_RacialFeat5.Size = new System.Drawing.Size(812, 238);
+			this.page_RacialFeat5.TabIndex = 5;
+			this.page_RacialFeat5.Text = "FeatSpell5";
+			this.page_RacialFeat5.UseVisualStyleBackColor = true;
+			// 
+			// rf5_bin
+			// 
+			this.rf5_bin.Location = new System.Drawing.Point(395, 35);
+			this.rf5_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.rf5_bin.Name = "rf5_bin";
+			this.rf5_bin.Size = new System.Drawing.Size(45, 15);
+			this.rf5_bin.TabIndex = 68;
+			this.rf5_bin.Text = "- bin";
+			this.rf5_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// rf5_hex
+			// 
+			this.rf5_hex.Location = new System.Drawing.Point(395, 15);
+			this.rf5_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.rf5_hex.Name = "rf5_hex";
+			this.rf5_hex.Size = new System.Drawing.Size(45, 15);
+			this.rf5_hex.TabIndex = 67;
+			this.rf5_hex.Text = "- hex";
+			this.rf5_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// rf5_Clear
+			// 
+			this.rf5_Clear.Location = new System.Drawing.Point(450, 5);
+			this.rf5_Clear.Margin = new System.Windows.Forms.Padding(0);
+			this.rf5_Clear.Name = "rf5_Clear";
+			this.rf5_Clear.Size = new System.Drawing.Size(65, 50);
+			this.rf5_Clear.TabIndex = 66;
+			this.rf5_Clear.Text = "zero\r\nall\r\nbits";
+			this.rf5_Clear.UseVisualStyleBackColor = true;
+			this.rf5_Clear.Click += new System.EventHandler(this.Click_clear);
+			// 
+			// RacialFeat5_bin
+			// 
+			this.RacialFeat5_bin.BackColor = System.Drawing.SystemColors.Window;
+			this.RacialFeat5_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.RacialFeat5_bin.Location = new System.Drawing.Point(115, 35);
+			this.RacialFeat5_bin.Margin = new System.Windows.Forms.Padding(0);
+			this.RacialFeat5_bin.Name = "RacialFeat5_bin";
+			this.RacialFeat5_bin.ReadOnly = true;
+			this.RacialFeat5_bin.Size = new System.Drawing.Size(275, 13);
+			this.RacialFeat5_bin.TabIndex = 64;
+			// 
+			// RacialFeat5_hex
+			// 
+			this.RacialFeat5_hex.BackColor = System.Drawing.SystemColors.Window;
+			this.RacialFeat5_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.RacialFeat5_hex.Location = new System.Drawing.Point(115, 15);
+			this.RacialFeat5_hex.Margin = new System.Windows.Forms.Padding(0);
+			this.RacialFeat5_hex.Name = "RacialFeat5_hex";
+			this.RacialFeat5_hex.ReadOnly = true;
+			this.RacialFeat5_hex.Size = new System.Drawing.Size(275, 13);
+			this.RacialFeat5_hex.TabIndex = 65;
+			// 
+			// RacialFeat5_text
+			// 
+			this.RacialFeat5_text.Location = new System.Drawing.Point(5, 35);
+			this.RacialFeat5_text.Margin = new System.Windows.Forms.Padding(0);
+			this.RacialFeat5_text.Name = "RacialFeat5_text";
+			this.RacialFeat5_text.Size = new System.Drawing.Size(100, 20);
+			this.RacialFeat5_text.TabIndex = 63;
+			this.RacialFeat5_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.RacialFeat5_text.TextChanged += new System.EventHandler(this.TextChanged_racial);
+			// 
+			// RacialFeat5_reset
+			// 
+			this.RacialFeat5_reset.Location = new System.Drawing.Point(5, 5);
+			this.RacialFeat5_reset.Margin = new System.Windows.Forms.Padding(0);
+			this.RacialFeat5_reset.Name = "RacialFeat5_reset";
+			this.RacialFeat5_reset.Size = new System.Drawing.Size(100, 25);
+			this.RacialFeat5_reset.TabIndex = 62;
+			this.toolTip1.SetToolTip(this.RacialFeat5_reset, "reset");
+			this.RacialFeat5_reset.UseVisualStyleBackColor = true;
+			this.RacialFeat5_reset.Click += new System.EventHandler(this.Click_racial_reset);
+			// 
 			// apply
 			// 
 			this.apply.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.apply.Location = new System.Drawing.Point(0, 455);
+			this.apply.Location = new System.Drawing.Point(0, 944);
 			this.apply.Name = "apply";
-			this.apply.Size = new System.Drawing.Size(824, 25);
+			this.apply.Size = new System.Drawing.Size(1074, 25);
 			this.apply.TabIndex = 1;
-			this.apply.Text = "apply this spell\'s data";
+			this.apply.Text = "apply this tree-node\'s data";
 			this.apply.UseVisualStyleBackColor = true;
 			this.apply.Click += new System.EventHandler(this.Click_apply);
 			// 
@@ -4073,7 +6083,7 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 14F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(1102, 504);
+			this.ClientSize = new System.Drawing.Size(1352, 993);
 			this.Controls.Add(this.splitContainer1);
 			this.Controls.Add(this.menuStrip);
 			this.Font = new System.Drawing.Font("Courier New", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -4156,6 +6166,44 @@
 			this.splitContainer1.Panel1.PerformLayout();
 			this.splitContainer1.Panel2.ResumeLayout(false);
 			this.splitContainer1.ResumeLayout(false);
+			this.cols_HenchClasses.ResumeLayout(false);
+			this.page_ClassFlags.ResumeLayout(false);
+			this.page_ClassFlags.PerformLayout();
+			this.page_ClassFeat1.ResumeLayout(false);
+			this.page_ClassFeat1.PerformLayout();
+			this.page_ClassFeat2.ResumeLayout(false);
+			this.page_ClassFeat2.PerformLayout();
+			this.page_ClassFeat3.ResumeLayout(false);
+			this.page_ClassFeat3.PerformLayout();
+			this.page_ClassFeat4.ResumeLayout(false);
+			this.page_ClassFeat4.PerformLayout();
+			this.page_ClassFeat5.ResumeLayout(false);
+			this.page_ClassFeat5.PerformLayout();
+			this.page_ClassFeat6.ResumeLayout(false);
+			this.page_ClassFeat6.PerformLayout();
+			this.page_ClassFeat7.ResumeLayout(false);
+			this.page_ClassFeat7.PerformLayout();
+			this.page_ClassFeat8.ResumeLayout(false);
+			this.page_ClassFeat8.PerformLayout();
+			this.page_ClassFeat9.ResumeLayout(false);
+			this.page_ClassFeat9.PerformLayout();
+			this.page_ClassFeat10.ResumeLayout(false);
+			this.page_ClassFeat10.PerformLayout();
+			this.page_ClassFeat11.ResumeLayout(false);
+			this.page_ClassFeat11.PerformLayout();
+			this.cols_HenchRacial.ResumeLayout(false);
+			this.page_RacialFlags.ResumeLayout(false);
+			this.page_RacialFlags.PerformLayout();
+			this.page_RacialFeat1.ResumeLayout(false);
+			this.page_RacialFeat1.PerformLayout();
+			this.page_RacialFeat2.ResumeLayout(false);
+			this.page_RacialFeat2.PerformLayout();
+			this.page_RacialFeat3.ResumeLayout(false);
+			this.page_RacialFeat3.PerformLayout();
+			this.page_RacialFeat4.ResumeLayout(false);
+			this.page_RacialFeat4.PerformLayout();
+			this.page_RacialFeat5.ResumeLayout(false);
+			this.page_RacialFeat5.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 

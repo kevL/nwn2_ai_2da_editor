@@ -55,7 +55,7 @@ namespace nwn2_ai_2da_editor
 				if (ofd.ShowDialog() == DialogResult.OK)
 				{
 					_pfe = ofd.FileName;
-					Load_HenchSpells();
+					Load_file();
 				}
 			}
 		}
@@ -150,7 +150,7 @@ namespace nwn2_ai_2da_editor
 		#region Edit
 		void Click_findnextchanged(object sender, EventArgs e)
 		{
-			int totalnodes = SpellTree.Nodes.Count;
+			int totalnodes = Tree.Nodes.Count;
 			if (totalnodes > 1)
 			{
 				int id;
@@ -175,7 +175,7 @@ namespace nwn2_ai_2da_editor
 					}
 				}
 
-				SpellTree.SelectedNode = SpellTree.Nodes[id];
+				Tree.SelectedNode = Tree.Nodes[id];
 			}
 		}
 
@@ -461,7 +461,7 @@ namespace nwn2_ai_2da_editor
 										if (differ != bit_clear)
 										{
 											SpellsChanged[id] = spellchanged;
-											SpellTree.Nodes[id].ForeColor = Color.Crimson;
+											Tree.Nodes[id].ForeColor = Color.Crimson;
 										}
 										else
 										{
@@ -469,7 +469,7 @@ namespace nwn2_ai_2da_editor
 
 											if (!spell.isChanged) // this is set by the Apply btn only.
 											{
-												SpellTree.Nodes[id].ForeColor = DefaultForeColor;
+												Tree.Nodes[id].ForeColor = DefaultForeColor;
 											}
 										}
 									}
@@ -568,7 +568,7 @@ namespace nwn2_ai_2da_editor
 						SaveType_reset    .ForeColor = DefaultForeColor;
 						SaveDCType_reset  .ForeColor = DefaultForeColor;
 
-						AfterSelect_spellnode(null, null); // refresh all displayed data for the current spell jic
+						AfterSelect_node(null, null); // refresh all displayed data for the current spell jic
 					}
 				}
 			}
@@ -595,7 +595,7 @@ namespace nwn2_ai_2da_editor
 					spellclear.isChanged = false;
 					Spells[id] = spellclear;
 
-					SpellTree.Nodes[id].ForeColor = DefaultForeColor;
+					Tree.Nodes[id].ForeColor = DefaultForeColor;
 				}
 			}
 

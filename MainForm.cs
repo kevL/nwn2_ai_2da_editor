@@ -21,6 +21,16 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		const string blank = "****";
 
+		enum Type2da
+		{
+			TYPE_SPELLS, // 0
+			TYPE_RACIAL, // 1
+			TYPE_CLASSES // 2
+		}
+
+		Type2da Type
+		{ get; set; }
+
 		/// <summary>
 		/// A list-object that contains structs of all spells currently in
 		/// HenchSpells.2da.
@@ -34,7 +44,31 @@ namespace nwn2_ai_2da_editor
 		Dictionary<int, SpellChanged> SpellsChanged = new Dictionary<int, SpellChanged>();
 
 		/// <summary>
-		/// The currently selected node in the SpellTree.
+		/// A list-object that contains structs of all spells currently in
+		/// HenchSpells.2da.
+		/// </summary>
+		List<Race> Races = new List<Race>();
+
+		/// <summary>
+		/// A dictionary-object that contains structs of any spell that has been
+		/// changed by the editor.
+		/// </summary>
+		Dictionary<int, RaceChanged> RacesChanged = new Dictionary<int, RaceChanged>();
+
+		/// <summary>
+		/// A list-object that contains structs of all spells currently in
+		/// HenchSpells.2da.
+		/// </summary>
+		List<Class> Classes = new List<Class>();
+
+		/// <summary>
+		/// A dictionary-object that contains structs of any spell that has been
+		/// changed by the editor.
+		/// </summary>
+		Dictionary<int, ClassChanged> ClassesChanged = new Dictionary<int, ClassChanged>();
+
+		/// <summary>
+		/// The currently selected node in the Tree.
 		/// </summary>
 		int Id
 		{ get; set; }
@@ -56,7 +90,7 @@ namespace nwn2_ai_2da_editor
 		bool bypassCheckedChecker;
 
 		/// <summary>
-		/// The fullpath of the currently opened HenchSpells.2da file.
+		/// The fullpath of the currently opened 2da file.
 		/// </summary>
 		string _pfe  = String.Empty;
 		string _pfeT = String.Empty;
@@ -81,6 +115,7 @@ namespace nwn2_ai_2da_editor
 			// The logfile ought appear in the directory with the executable.
 
 
+// HenchSpells
 			SpellInfo_hex  .BackColor = BackColor; // set the backgrounds of the hexadecimal and binary
 			SpellInfo_bin  .BackColor = BackColor; // textboxes to blend in with the Form's background
 			TargetInfo_hex .BackColor = BackColor;
@@ -93,6 +128,46 @@ namespace nwn2_ai_2da_editor
 			SaveType_bin   .BackColor = BackColor;
 			SaveDCType_hex .BackColor = BackColor;
 			SaveDCType_bin .BackColor = BackColor;
+
+// HenchRacial
+			RacialFlags_hex.BackColor = BackColor;
+			RacialFlags_bin.BackColor = BackColor;
+			RacialFeat1_hex.BackColor = BackColor;
+			RacialFeat1_bin.BackColor = BackColor;
+			RacialFeat2_hex.BackColor = BackColor;
+			RacialFeat2_bin.BackColor = BackColor;
+			RacialFeat3_hex.BackColor = BackColor;
+			RacialFeat3_bin.BackColor = BackColor;
+			RacialFeat4_hex.BackColor = BackColor;
+			RacialFeat4_bin.BackColor = BackColor;
+			RacialFeat5_hex.BackColor = BackColor;
+			RacialFeat5_bin.BackColor = BackColor;
+
+// HenchClasses
+			ClassFlags_hex .BackColor = BackColor;
+			ClassFlags_bin .BackColor = BackColor;
+			ClassFeat1_hex .BackColor = BackColor;
+			ClassFeat1_bin .BackColor = BackColor;
+			ClassFeat2_hex .BackColor = BackColor;
+			ClassFeat2_bin .BackColor = BackColor;
+			ClassFeat3_hex .BackColor = BackColor;
+			ClassFeat3_bin .BackColor = BackColor;
+			ClassFeat4_hex .BackColor = BackColor;
+			ClassFeat4_bin .BackColor = BackColor;
+			ClassFeat5_hex .BackColor = BackColor;
+			ClassFeat5_bin .BackColor = BackColor;
+			ClassFeat6_hex .BackColor = BackColor;
+			ClassFeat6_bin .BackColor = BackColor;
+			ClassFeat7_hex .BackColor = BackColor;
+			ClassFeat7_bin .BackColor = BackColor;
+			ClassFeat8_hex .BackColor = BackColor;
+			ClassFeat8_bin .BackColor = BackColor;
+			ClassFeat9_hex .BackColor = BackColor;
+			ClassFeat9_bin .BackColor = BackColor;
+			ClassFeat10_hex.BackColor = BackColor;
+			ClassFeat10_bin.BackColor = BackColor;
+			ClassFeat11_hex.BackColor = BackColor;
+			ClassFeat11_bin.BackColor = BackColor;
 
 
 			PopulateSpellInfoComboboxes();
@@ -115,42 +190,25 @@ namespace nwn2_ai_2da_editor
 
 
 			// NOTE: quickload the 2da for testing ONLY.
-			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchspells.2da";
-			Load_HenchSpells();
+//			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchspells.2da";
+//			Load_HenchSpells();
 		}
 		#endregion cTor
 
 
 		#region Load
 		/// <summary>
-		/// Loads a HenchSpells.2da file.
-		/// If the file is not a valid HenchSpells.2da then this should
-		/// hopefully throw an exception at the user. If it doesn't all bets are
-		/// off.
+		/// Determines which file to load: HenchSpells, HenchRacial, or
+		/// HenchClasses.
 		/// The fullpath of the file must be stored in '_pfe'.
 		/// NOTE: "pfe" stands for "path_file_extension"
 		/// </summary>
-		void Load_HenchSpells()
+		void Load_file()
 		{
-			//logfile.Log(_pfe);
+			logfile.Log(_pfe);
 
 			if (File.Exists(_pfe))
 			{
-				Text = "nwn2_ai_2da_editor - " + _pfe; // titlebar text (append path of current file)
-
-				SpellsChanged.Clear();
-
-				SpellInfo_reset   .ForeColor = DefaultForeColor;
-				TargetInfo_reset  .ForeColor = DefaultForeColor;
-				EffectWeight_reset.ForeColor = DefaultForeColor;
-				EffectTypes_reset .ForeColor = DefaultForeColor;
-				DamageInfo_reset  .ForeColor = DefaultForeColor;
-				SaveType_reset    .ForeColor = DefaultForeColor;
-				SaveDCType_reset  .ForeColor = DefaultForeColor;
-
-
-				Spells.Clear();
-
 				string[] rows = File.ReadAllLines(_pfe);
 
 				// WARNING: This editor does *not* handle quotation marks around 2da fields.
@@ -177,124 +235,459 @@ namespace nwn2_ai_2da_editor
 				}
 
 
-//				var pb = ProgBarF.Instance;	// the ProgressBar slows loading on my Win7 machine.
-//				pb.SetInfo("loading ...");	// It appears to be an issue on Win7 generally.
-//				pb.SetTotal(rows.Length);	// TODO: write a progress-bar w/ custom graphic
-
+				bool stop = false;
 				foreach (string row in rows)
 				{
+					if (stop) break;
+
 					if (!String.IsNullOrEmpty(row))
 					{
-						//logfile.Log(row);
-
 						string[] cols = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
-
-						//logfile.Log(cols[0]);
 
 						int id;
 						if (Int32.TryParse(cols[0], out id)) // is a valid 2da row
 						{
-//							for (int i = 1; i != 9; ++i) // 9 cols in HenchSpells.2da
-//							{
-								//logfile.Log(cols[i]);
-//							}
+							switch (cols.Length)
+							{
+								case 9: // henchspells
+									logfile.Log("load henchspells");
+									Load_HenchSpells(rows);
+									stop = true;
+									break;
 
-							var spell = new Spell();
+								case 7: // henchracial
+									logfile.Log("load henchracial");
+									Load_HenchRacial(rows);
+									stop = true;
+									break;
 
-							spell.id = id;
+								case 13: // henchclasses
+									logfile.Log("load henchclasses");
+									Load_HenchClasses(rows);
+									stop = true;
+									break;
 
+								default:
+									logfile.Log("load ERROR");
+									if (MessageBox.Show("That file does not appear to be HenchSpells, HenchRacial, or HenchClasses.2da",
+														"  ERROR",
+														MessageBoxButtons.OK,
+														MessageBoxIcon.Error,
+														MessageBoxDefaultButton.Button1) == DialogResult.OK)
+									{
+										return;
+									}
+									break;
+							}
 
-							string field = cols[1];
-							if (field != blank)
-								spell.label = field;
-							else
-								spell.label = String.Empty;
-
-							field = cols[2];
-							if (field != blank)
-								spell.spellinfo = Int32.Parse(field);
-							else
-								spell.spellinfo = 0;
-
-							field = cols[3];
-							if (field != blank)
-								spell.targetinfo = Int32.Parse(field);
-							else
-								spell.targetinfo = 0;
-
-							field = cols[4];
-							if (field != blank)
-								spell.effectweight = float.Parse(field);
-							else
-								spell.effectweight = 0.0f;
-
-							field = cols[5];
-							if (field != blank)
-								spell.effecttypes = Int32.Parse(field);
-							else
-								spell.effecttypes = 0;
-
-							field = cols[6];
-							if (field != blank)
-								spell.damageinfo = Int32.Parse(field);
-							else
-								spell.damageinfo = 0;
-
-							field = cols[7];
-							if (field != blank)
-								spell.savetype = Int32.Parse(field);
-							else
-								spell.savetype = 0;
-
-							field = cols[8];
-							if (field != blank)
-								spell.savedctype = Int32.Parse(field);
-							else
-								spell.savedctype = 0;
-
-							spell.differ = bit_clear;
-							spell.isChanged = false;
-
-
-							Spells.Add(spell);	// spell-structs can now be referenced in the list by their
-						}						// - Spells[id]
-					}							// - HenchSpells.2da row#
-												// - SpellID (Spells.2da row#)
-
-//					pb.Step();
+							Text = "nwn2_ai_2da_editor - " + _pfe; // titlebar text (append path of current file)
+						}
+					}
 				}
-
-				if (Spells.Count != 0)
-				{
-					PopulateSpellTree();
-
-					ToggleMenuitems(true);
-
-					// Groups on SpellInfo and TargetInfo generally stay green
-					// (unless SpellInfo is flagged as a MasterID)
-					GroupColor(si_SpelltypeGrp,  Color.LimeGreen);
-					GroupColor(si_FlagsGrp,      Color.LimeGreen);
-					GroupColor(si_SpelllevelGrp, Color.LimeGreen);
-					GroupColor(si_ChildIDGrp,    Color.LimeGreen);
-
-					GroupColor(ti_FlagsGrp,  Color.LimeGreen);
-					GroupColor(ti_ShapeGrp,  Color.LimeGreen);
-					GroupColor(ti_RangeGrp,  Color.LimeGreen);
-					GroupColor(ti_RadiusGrp, Color.LimeGreen);
-				}
-				else
-					MessageBox.Show("The 2da-file contains no valid rows.",
-									"  ERROR",
-									MessageBoxButtons.OK,
-									MessageBoxIcon.Error,
-									MessageBoxDefaultButton.Button1);
 			}
+		}
+
+		/// <summary>
+		/// Clears all lists and dictionaries.
+		/// </summary>
+		void ClearData()
+		{
+			Spells.Clear();
+			SpellsChanged.Clear();
+
+			Races.Clear();
+			RacesChanged.Clear();
+
+			Classes.Clear();
+			ClassesChanged.Clear();
+		}
+
+		/// <summary>
+		/// Loads a HenchSpells.2da file.
+		/// If the file is not a valid HenchSpells.2da then this should
+		/// hopefully throw an exception at the user. If it doesn't all bets are
+		/// off.
+		/// </summary>
+		void Load_HenchSpells(string[] rows)
+		{
+			Type = Type2da.TYPE_SPELLS;
+
+			ClearData();
+
+			SpellInfo_reset   .ForeColor = DefaultForeColor;
+			TargetInfo_reset  .ForeColor = DefaultForeColor;
+			EffectWeight_reset.ForeColor = DefaultForeColor;
+			EffectTypes_reset .ForeColor = DefaultForeColor;
+			DamageInfo_reset  .ForeColor = DefaultForeColor;
+			SaveType_reset    .ForeColor = DefaultForeColor;
+			SaveDCType_reset  .ForeColor = DefaultForeColor;
+
+
+//			var pb = ProgBarF.Instance;	// the ProgressBar slows loading on my Win7 machine.
+//			pb.SetInfo("loading ...");	// It appears to be an issue on Win7 generally.
+//			pb.SetTotal(rows.Length);	// TODO: write a progress-bar w/ custom graphic
+
+			foreach (string row in rows)
+			{
+				if (!String.IsNullOrEmpty(row))
+				{
+					string[] cols = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
+
+					int id;
+					if (Int32.TryParse(cols[0], out id)) // is a valid 2da row
+					{
+						var spell = new Spell();
+
+						spell.id = id;
+
+
+						string field = cols[1];
+						if (field != blank)
+							spell.label = field;
+						else
+							spell.label = String.Empty;
+
+						field = cols[2];
+						if (field != blank)
+							spell.spellinfo = Int32.Parse(field);
+						else
+							spell.spellinfo = 0;
+
+						field = cols[3];
+						if (field != blank)
+							spell.targetinfo = Int32.Parse(field);
+						else
+							spell.targetinfo = 0;
+
+						field = cols[4];
+						if (field != blank)
+							spell.effectweight = float.Parse(field);
+						else
+							spell.effectweight = 0.0f;
+
+						field = cols[5];
+						if (field != blank)
+							spell.effecttypes = Int32.Parse(field);
+						else
+							spell.effecttypes = 0;
+
+						field = cols[6];
+						if (field != blank)
+							spell.damageinfo = Int32.Parse(field);
+						else
+							spell.damageinfo = 0;
+
+						field = cols[7];
+						if (field != blank)
+							spell.savetype = Int32.Parse(field);
+						else
+							spell.savetype = 0;
+
+						field = cols[8];
+						if (field != blank)
+							spell.savedctype = Int32.Parse(field);
+						else
+							spell.savedctype = 0;
+
+						spell.differ = bit_clear;
+						spell.isChanged = false;
+
+
+						Spells.Add(spell);	// spell-structs can now be referenced in the list by their
+					}						// - Spells[id]
+				}							// - HenchSpells.2da row#
+											// - SpellID (Spells.2da row#)
+//				pb.Step();
+			}
+
+			PopTree();
+
+			ToggleMenuitems(true);
+
+			// Groups on SpellInfo and TargetInfo generally stay green
+			// (unless SpellInfo is flagged as a MasterID)
+			GroupColor(si_SpelltypeGrp,  Color.LimeGreen);
+			GroupColor(si_FlagsGrp,      Color.LimeGreen);
+			GroupColor(si_SpelllevelGrp, Color.LimeGreen);
+			GroupColor(si_ChildIDGrp,    Color.LimeGreen);
+
+			GroupColor(ti_FlagsGrp,  Color.LimeGreen);
+			GroupColor(ti_ShapeGrp,  Color.LimeGreen);
+			GroupColor(ti_RangeGrp,  Color.LimeGreen);
+			GroupColor(ti_RadiusGrp, Color.LimeGreen);
+		}
+
+		/// <summary>
+		/// Loads a HenchRacial.2da file.
+		/// If the file is not a valid HenchRacial.2da then this should
+		/// hopefully throw an exception at the user. If it doesn't all bets are
+		/// off.
+		/// </summary>
+		void Load_HenchRacial(string[] rows)
+		{
+			Type = Type2da.TYPE_RACIAL;
+
+			ClearData();
+
+			RacialFlags_reset.ForeColor = DefaultForeColor;
+			RacialFeat1_reset.ForeColor = DefaultForeColor;
+			RacialFeat2_reset.ForeColor = DefaultForeColor;
+			RacialFeat3_reset.ForeColor = DefaultForeColor;
+			RacialFeat4_reset.ForeColor = DefaultForeColor;
+			RacialFeat5_reset.ForeColor = DefaultForeColor;
+
+			foreach (string row in rows)
+			{
+				if (!String.IsNullOrEmpty(row))
+				{
+					string[] cols = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
+
+					int id;
+					if (Int32.TryParse(cols[0], out id)) // is a valid 2da row
+					{
+						var race = new Race();
+
+						race.id = id;
+
+
+						string field = cols[1];
+						if (field != blank)
+							race.flags = Int32.Parse(field);
+						else
+							race.flags = 0;
+
+						field = cols[2];
+						if (field != blank)
+							race.feat1 = Int32.Parse(field);
+						else
+							race.feat1 = 0;
+
+						field = cols[3];
+						if (field != blank)
+							race.feat2 = Int32.Parse(field);
+						else
+							race.feat2 = 0;
+
+						field = cols[4];
+						if (field != blank)
+							race.feat3 = Int32.Parse(field);
+						else
+							race.feat3 = 0;
+
+						field = cols[5];
+						if (field != blank)
+							race.feat4 = Int32.Parse(field);
+						else
+							race.feat4 = 0;
+
+						field = cols[6];
+						if (field != blank)
+							race.feat5 = Int32.Parse(field);
+						else
+							race.feat5 = 0;
+
+						race.differ = bit_clear;
+						race.isChanged = false;
+
+
+						Races.Add(race);	// race-structs can now be referenced in the list by their
+					}						// - Races[id]
+				}							// - HenchRacial.2da row#
+											// - RaceID (Subraces.2da row#)
+//				pb.Step();
+			}
+
+			PopTree();
+
+			ToggleMenuitems(true);
+		}
+
+		/// <summary>
+		/// Loads a HenchClasses.2da file.
+		/// If the file is not a valid HenchClasses.2da then this should
+		/// hopefully throw an exception at the user. If it doesn't all bets are
+		/// off.
+		/// </summary>
+		void Load_HenchClasses(string[] rows)
+		{
+			Type = Type2da.TYPE_CLASSES;
+
+			ClearData();
+
+			ClassFlags_reset .ForeColor = DefaultForeColor;
+			ClassFeat1_reset .ForeColor = DefaultForeColor;
+			ClassFeat2_reset .ForeColor = DefaultForeColor;
+			ClassFeat3_reset .ForeColor = DefaultForeColor;
+			ClassFeat4_reset .ForeColor = DefaultForeColor;
+			ClassFeat5_reset .ForeColor = DefaultForeColor;
+			ClassFeat6_reset .ForeColor = DefaultForeColor;
+			ClassFeat7_reset .ForeColor = DefaultForeColor;
+			ClassFeat8_reset .ForeColor = DefaultForeColor;
+			ClassFeat9_reset .ForeColor = DefaultForeColor;
+			ClassFeat10_reset.ForeColor = DefaultForeColor;
+			ClassFeat11_reset.ForeColor = DefaultForeColor;
+
+			foreach (string row in rows)
+			{
+				if (!String.IsNullOrEmpty(row))
+				{
+					string[] cols = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
+
+					int id;
+					if (Int32.TryParse(cols[0], out id)) // is a valid 2da row
+					{
+						var clas = new Class();
+
+						clas.id = id;
+
+
+						string field = cols[1];
+						if (field != blank)
+							clas.flags = Int32.Parse(field);
+						else
+							clas.flags = 0;
+
+						field = cols[2];
+						if (field != blank)
+							clas.feat1 = Int32.Parse(field);
+						else
+							clas.feat1 = 0;
+
+						field = cols[3];
+						if (field != blank)
+							clas.feat2 = Int32.Parse(field);
+						else
+							clas.feat2 = 0;
+
+						field = cols[4];
+						if (field != blank)
+							clas.feat3 = Int32.Parse(field);
+						else
+							clas.feat3 = 0;
+
+						field = cols[5];
+						if (field != blank)
+							clas.feat4 = Int32.Parse(field);
+						else
+							clas.feat4 = 0;
+
+						field = cols[6];
+						if (field != blank)
+							clas.feat5 = Int32.Parse(field);
+						else
+							clas.feat5 = 0;
+
+						field = cols[7];
+						if (field != blank)
+							clas.feat6 = Int32.Parse(field);
+						else
+							clas.feat6 = 0;
+
+						field = cols[8];
+						if (field != blank)
+							clas.feat7 = Int32.Parse(field);
+						else
+							clas.feat7 = 0;
+
+						field = cols[9];
+						if (field != blank)
+							clas.feat8 = Int32.Parse(field);
+						else
+							clas.feat8 = 0;
+
+						field = cols[10];
+						if (field != blank)
+							clas.feat9 = Int32.Parse(field);
+						else
+							clas.feat9 = 0;
+
+						field = cols[11];
+						if (field != blank)
+							clas.feat10 = Int32.Parse(field);
+						else
+							clas.feat10 = 0;
+
+						field = cols[12];
+						if (field != blank)
+							clas.feat11 = Int32.Parse(field);
+						else
+							clas.feat11 = 0;
+
+						clas.differ = bit_clear;
+						clas.isChanged = false;
+
+
+						Classes.Add(clas);	// race-structs can now be referenced in the list by their
+					}						// - Races[id]
+				}							// - HenchRacial.2da row#
+											// - RaceID (Subraces.2da row#)
+//				pb.Step();
+			}
+
+			PopTree();
+
+			ToggleMenuitems(true);
+		}
+
+		/// <summary>
+		/// Populates nodes in the tree.
+		/// </summary>
+		void PopTree()
+		{
+//			var pb = ProgBarF.Instance;
+//			pb.SetInfo("populating ...");
+//			pb.SetTotal(Spells.Count);
+
+			Tree.Nodes.Clear();
+
+			switch (Type)
+			{
+				case Type2da.TYPE_SPELLS:
+				{
+					int digits;
+					string pad;
+
+					foreach (var spell in Spells)
+					{
+						pad = String.Empty;
+						digits = spell.id.ToString().Length;
+						while (digits++ < 4) // good to id# 9999
+						{
+							pad += " ";
+						}
+
+						Tree.Nodes.Add(spell.id + pad + " " + spell.label);
+//						pb.Step();
+					}
+					break;
+				}
+
+				case Type2da.TYPE_RACIAL:
+					foreach (var race in Races)
+					{
+						Tree.Nodes.Add(race.id.ToString());
+//						pb.Step();
+					}
+					break;
+
+				case Type2da.TYPE_CLASSES:
+					foreach (var clas in Classes)
+					{
+						Tree.Nodes.Add(clas.id.ToString());
+//						pb.Step();
+					}
+					break;
+			}
+
+			// NOTE: Tree.SelectedNode=Tree.Nodes[0] is done auto.
+			// Not necessarily ...
+			Tree.SelectedNode = Tree.Nodes[0];
 		}
 
 		/// <summary>
 		/// Enables/disables several menu-items.
 		/// NOTE: Calls to this need to be adjusted if a Close 2da function is
-		/// added - and perhaps if a 2da fails to load leaving a blank spell-tree.
+		/// added - and perhaps if a 2da fails to load leaving a blank tree.
 		/// </summary>
 		/// <param name="enable"></param>
 		void ToggleMenuitems(bool enable)
@@ -309,42 +702,7 @@ namespace nwn2_ai_2da_editor
 
 			setCoreAIver    .Enabled = enable;	// options.
 		}
-
-
-		/// <summary>
-		/// Populates nodes in the spell-tree.
-		/// </summary>
-		void PopulateSpellTree()
-		{
-//			var pb = ProgBarF.Instance;
-//			pb.SetInfo("populating ...");
-//			pb.SetTotal(Spells.Count);
-
-			SpellTree.Nodes.Clear();
-
-			int digits;
-			string pad;
-
-			foreach (var spell in Spells)
-			{
-				pad = String.Empty;
-				digits = spell.id.ToString().Length;
-				while (digits++ < 4) // good to id# 9999
-				{
-					pad += " ";
-				}
-
-				SpellTree.Nodes.Add(spell.id + pad + " " + spell.label);
-
-//				pb.Step();
-			}
-
-			// NOTE: SpellTree.SelectedNode=SpellTree.Nodes[0] is done auto.
-			// Not necessarily ...
-			SpellTree.SelectedNode = SpellTree.Nodes[0];
-		}
 		#endregion Load
-
 
 
 		#region SpellTree node-select
@@ -353,22 +711,44 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		void AfterSelect_spellnode(object sender, TreeViewEventArgs e)
+		void AfterSelect_node(object sender, TreeViewEventArgs e)
 		{
 			bypassTextChanged = true;
 
-			Id = SpellTree.SelectedNode.Index;
+			Id = Tree.SelectedNode.Index;
 
 			//logfile.Log("AfterSelect_spellnode() selectedNode= " + Id);
-			
+
+			switch (Type)
+			{
+				case Type2da.TYPE_SPELLS:
+					SpellSelect();
+					break;
+
+				case Type2da.TYPE_RACIAL:
+					RaceSelect();
+					break;
+
+				case Type2da.TYPE_CLASSES:
+					ClassSelect();
+					break;
+			}
+
+			bypassTextChanged = false;
+		}
+
+		/// <summary>
+		/// Fills displayed fields w/ data from the spell's Id.
+		/// </summary>
+		void SpellSelect()
+		{
 			Spell spell = Spells[Id];
 
 			bool dirty = SpellsChanged.ContainsKey(Id);
 
 // SpellInfo
 			int val = spell.spellinfo;
-			string text = val.ToString();
-			SpellInfo_reset.Text = text;
+			SpellInfo_reset.Text = val.ToString();
 
 			if (dirty)
 			{
@@ -379,8 +759,7 @@ namespace nwn2_ai_2da_editor
 
 // TargetInfo
 			val = spell.targetinfo;
-			text = val.ToString();
-			TargetInfo_reset.Text = text;
+			TargetInfo_reset.Text = val.ToString();
 
 			if (dirty)
 			{
@@ -390,7 +769,7 @@ namespace nwn2_ai_2da_editor
 			PrintCurrent(val, TargetInfo_text, TargetInfo_hex, TargetInfo_bin);
 
 // EffectWeight
-			text = FormatFloat(spell.effectweight.ToString());
+			string text = FormatFloat(spell.effectweight.ToString());
 			EffectWeight_reset.Text = text;
 
 			if (dirty)
@@ -401,8 +780,7 @@ namespace nwn2_ai_2da_editor
 
 // EffectTypes
 			val = spell.effecttypes;
-			text = val.ToString();
-			EffectTypes_reset.Text = text;
+			EffectTypes_reset.Text = val.ToString();
 
 			if (dirty)
 			{
@@ -413,8 +791,7 @@ namespace nwn2_ai_2da_editor
 
 // DamageInfo
 			val = spell.damageinfo;
-			text = val.ToString();
-			DamageInfo_reset.Text = text;
+			DamageInfo_reset.Text = val.ToString();
 
 			if (dirty)
 			{
@@ -425,8 +802,7 @@ namespace nwn2_ai_2da_editor
 
 // SaveType
 			val = spell.savetype;
-			text = val.ToString();
-			SaveType_reset.Text = text;
+			SaveType_reset.Text = val.ToString();
 
 			if (dirty)
 			{
@@ -437,8 +813,7 @@ namespace nwn2_ai_2da_editor
 
 // SaveDCType
 			val = spell.savedctype;
-			text = val.ToString();
-			SaveDCType_reset.Text = text;
+			SaveDCType_reset.Text = val.ToString();
 
 			if (dirty)
 			{
@@ -446,9 +821,224 @@ namespace nwn2_ai_2da_editor
 			}
 
 			PrintCurrent(val, SaveDCType_text, SaveDCType_hex, SaveDCType_bin);
+		}
 
+		/// <summary>
+		/// Fills displayed fields w/ data from the race's Id.
+		/// </summary>
+		void RaceSelect()
+		{
+			Race race = Races[Id];
 
-			bypassTextChanged = false;
+			bool dirty = RacesChanged.ContainsKey(Id);
+
+// Flags
+			int val = race.flags;
+			RacialFlags_reset.Text = val.ToString();
+
+			if (dirty)
+			{
+				val = RacesChanged[Id].flags;
+			}
+
+			PrintCurrent(val, RacialFlags_text, RacialFlags_hex, RacialFlags_bin);
+
+// Feat1
+			val = race.feat1;
+			RacialFeat1_reset.Text = val.ToString();
+
+			if (dirty)
+			{
+				val = RacesChanged[Id].feat1;
+			}
+
+			PrintCurrent(val, RacialFeat1_text, RacialFeat1_hex, RacialFeat1_bin);
+
+// Feat2
+			val = race.feat2;
+			RacialFeat2_reset.Text = val.ToString();
+
+			if (dirty)
+			{
+				val = RacesChanged[Id].feat2;
+			}
+
+			PrintCurrent(val, RacialFeat2_text, RacialFeat2_hex, RacialFeat2_bin);
+
+// Feat3
+			val = race.feat3;
+			RacialFeat3_reset.Text = val.ToString();
+
+			if (dirty)
+			{
+				val = RacesChanged[Id].feat3;
+			}
+
+			PrintCurrent(val, RacialFeat3_text, RacialFeat3_hex, RacialFeat3_bin);
+
+// Feat4
+			val = race.feat4;
+			RacialFeat4_reset.Text = val.ToString();
+
+			if (dirty)
+			{
+				val = RacesChanged[Id].feat4;
+			}
+
+			PrintCurrent(val, RacialFeat4_text, RacialFeat4_hex, RacialFeat4_bin);
+
+// Feat5
+			val = race.feat5;
+			RacialFeat5_reset.Text = val.ToString();
+
+			if (dirty)
+			{
+				val = RacesChanged[Id].feat5;
+			}
+
+			PrintCurrent(val, RacialFeat5_text, RacialFeat5_hex, RacialFeat5_bin);
+		}
+
+		/// <summary>
+		/// Fills displayed fields w/ data from the classes' Id.
+		/// </summary>
+		void ClassSelect()
+		{
+			Class clas = Classes[Id];
+
+			bool dirty = ClassesChanged.ContainsKey(Id);
+
+// Flags
+			int val = clas.flags;
+			ClassFlags_reset.Text = val.ToString();
+
+			if (dirty)
+			{
+				val = ClassesChanged[Id].flags;
+			}
+
+			PrintCurrent(val, ClassFlags_text, ClassFlags_hex, ClassFlags_bin);
+
+// Feat1
+			val = clas.feat1;
+			ClassFeat1_reset.Text = val.ToString();
+
+			if (dirty)
+			{
+				val = ClassesChanged[Id].feat1;
+			}
+
+			PrintCurrent(val, ClassFeat1_text, ClassFeat1_hex, ClassFeat1_bin);
+
+// Feat2
+			val = clas.feat2;
+			ClassFeat2_reset.Text = val.ToString();
+
+			if (dirty)
+			{
+				val = ClassesChanged[Id].feat2;
+			}
+
+			PrintCurrent(val, ClassFeat2_text, ClassFeat2_hex, ClassFeat2_bin);
+
+// Feat3
+			val = clas.feat3;
+			ClassFeat3_reset.Text = val.ToString();
+
+			if (dirty)
+			{
+				val = ClassesChanged[Id].feat3;
+			}
+
+			PrintCurrent(val, ClassFeat3_text, ClassFeat3_hex, ClassFeat3_bin);
+
+// Feat4
+			val = clas.feat4;
+			ClassFeat4_reset.Text = val.ToString();
+
+			if (dirty)
+			{
+				val = ClassesChanged[Id].feat4;
+			}
+
+			PrintCurrent(val, ClassFeat4_text, ClassFeat4_hex, ClassFeat4_bin);
+
+// Feat5
+			val = clas.feat5;
+			ClassFeat5_reset.Text = val.ToString();
+
+			if (dirty)
+			{
+				val = ClassesChanged[Id].feat5;
+			}
+
+			PrintCurrent(val, ClassFeat5_text, ClassFeat5_hex, ClassFeat5_bin);
+
+// Feat6
+			val = clas.feat6;
+			ClassFeat6_reset.Text = val.ToString();
+
+			if (dirty)
+			{
+				val = ClassesChanged[Id].feat6;
+			}
+
+			PrintCurrent(val, ClassFeat6_text, ClassFeat6_hex, ClassFeat6_bin);
+
+// Feat7
+			val = clas.feat7;
+			ClassFeat7_reset.Text = val.ToString();
+
+			if (dirty)
+			{
+				val = ClassesChanged[Id].feat7;
+			}
+
+			PrintCurrent(val, ClassFeat7_text, ClassFeat7_hex, ClassFeat7_bin);
+
+// Feat8
+			val = clas.feat8;
+			ClassFeat8_reset.Text = val.ToString();
+
+			if (dirty)
+			{
+				val = ClassesChanged[Id].feat8;
+			}
+
+			PrintCurrent(val, ClassFeat8_text, ClassFeat8_hex, ClassFeat8_bin);
+
+// Feat9
+			val = clas.feat9;
+			ClassFeat9_reset.Text = val.ToString();
+
+			if (dirty)
+			{
+				val = ClassesChanged[Id].feat9;
+			}
+
+			PrintCurrent(val, ClassFeat9_text, ClassFeat9_hex, ClassFeat9_bin);
+
+// Feat10
+			val = clas.feat10;
+			ClassFeat10_reset.Text = val.ToString();
+
+			if (dirty)
+			{
+				val = ClassesChanged[Id].feat10;
+			}
+
+			PrintCurrent(val, ClassFeat10_text, ClassFeat10_hex, ClassFeat10_bin);
+
+// Feat11
+			val = clas.feat11;
+			ClassFeat11_reset.Text = val.ToString();
+
+			if (dirty)
+			{
+				val = ClassesChanged[Id].feat11;
+			}
+
+			PrintCurrent(val, ClassFeat11_text, ClassFeat11_hex, ClassFeat11_bin);
 		}
 		#endregion SpellTree node-select
 
@@ -465,7 +1055,9 @@ namespace nwn2_ai_2da_editor
 		void SelectedIndexChanged_tab(object sender, EventArgs e)
 		{
 			Copy_hexadecimal.Enabled =
-			Copy_binary     .Enabled = (cols_HenchSpells.SelectedIndex != 2); // ie. not 'page_EffectWeight'
+			Copy_binary     .Enabled = Type != Type2da.TYPE_SPELLS
+									|| (cols_HenchSpells.SelectedIndex != 2);
+//									|| (cols_HenchSpells.SelectedTab == cols_HenchSpells.TabPages["page_EffectWeight"]);
 		}
 
 		/// <summary>
@@ -510,23 +1102,54 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_clear(object sender, EventArgs e)
 		{
+			TextBox tb = null;
 			var btn = sender as Button;
-			if (btn == ew_Clear)
-			{
-				EffectWeight_text.Text = "0.0"; // EffectWeight is the only float-val - the rest are ints.
-			}
-			else
-			{
-				TextBox tb;
-				if      (btn == si_Clear) tb = SpellInfo_text;
-				else if (btn == ti_Clear) tb = TargetInfo_text;
-				else if (btn == et_Clear) tb = EffectTypes_text;
-				else if (btn == di_Clear) tb = DamageInfo_text;
-				else if (btn == st_Clear) tb = SaveType_text;
-				else                      tb = SaveDCType_text; //if (btn == dc_Clear)
 
-				tb.Text = "0";
+			switch (Type)
+			{
+				case Type2da.TYPE_SPELLS:
+					if (btn == ew_Clear)
+					{
+						EffectWeight_text.Text = "0.0"; // EffectWeight is the only float-val - the rest are ints.
+					}
+					else
+					{
+						if      (btn == si_Clear) tb = SpellInfo_text;
+						else if (btn == ti_Clear) tb = TargetInfo_text;
+						else if (btn == et_Clear) tb = EffectTypes_text;
+						else if (btn == di_Clear) tb = DamageInfo_text;
+						else if (btn == st_Clear) tb = SaveType_text;
+						else                      tb = SaveDCType_text; //if (btn == dc_Clear)
+					}
+					break;
+
+				case Type2da.TYPE_RACIAL:
+					if      (btn ==  rf_Clear) tb = RacialFlags_text;
+					else if (btn == rf1_Clear) tb = RacialFeat1_text;
+					else if (btn == rf2_Clear) tb = RacialFeat2_text;
+					else if (btn == rf3_Clear) tb = RacialFeat3_text;
+					else if (btn == rf4_Clear) tb = RacialFeat4_text;
+					else                       tb = RacialFeat5_text; //if (btn == rf5_Clear)
+					break;
+
+				case Type2da.TYPE_CLASSES:
+					if      (btn ==   cf_Clear) tb = ClassFlags_text;
+					else if (btn ==  cf1_Clear) tb = ClassFeat1_text;
+					else if (btn ==  cf2_Clear) tb = ClassFeat2_text;
+					else if (btn ==  cf3_Clear) tb = ClassFeat3_text;
+					else if (btn ==  cf4_Clear) tb = ClassFeat4_text;
+					else if (btn ==  cf5_Clear) tb = ClassFeat5_text;
+					else if (btn ==  cf6_Clear) tb = ClassFeat6_text;
+					else if (btn ==  cf7_Clear) tb = ClassFeat7_text;
+					else if (btn ==  cf8_Clear) tb = ClassFeat8_text;
+					else if (btn ==  cf9_Clear) tb = ClassFeat9_text;
+					else if (btn == cf10_Clear) tb = ClassFeat10_text;
+					else                        tb = ClassFeat11_text; //if (btn == cf11_Clear)
+					break;
 			}
+
+			if (tb != null) // safety.
+				tb.Text = "0";
 		}
 
 		/// <summary>
@@ -538,61 +1161,151 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_apply(object sender, EventArgs e)
 		{
-			//logfile.Log("Click_apply()");
-
-			if (SpellsChanged.ContainsKey(Id))
+			switch (Type)
 			{
-				//logfile.Log(". is in SpellsChanged");
+				case Type2da.TYPE_SPELLS:
+					if (SpellsChanged.ContainsKey(Id))
+					{
+						var spellchanged = SpellsChanged[Id];
 
-				var spellchanged = SpellsChanged[Id];
+						Spell spell = Spells[Id];
 
-				Spell spell = Spells[Id];
+						spell.isChanged = true;
+						spell.differ = bit_clear;
 
-				spell.isChanged = true;
-				spell.differ = bit_clear;
+						spell.spellinfo    = spellchanged.spellinfo;
+						spell.targetinfo   = spellchanged.targetinfo;
+						spell.effectweight = spellchanged.effectweight;
+						spell.effecttypes  = spellchanged.effecttypes;
+						spell.damageinfo   = spellchanged.damageinfo;
+						spell.savetype     = spellchanged.savetype;
+						spell.savedctype   = spellchanged.savedctype;
 
-				spell.spellinfo    = spellchanged.spellinfo;
-				spell.targetinfo   = spellchanged.targetinfo;
-				spell.effectweight = spellchanged.effectweight;
-				spell.effecttypes  = spellchanged.effecttypes;
-				spell.damageinfo   = spellchanged.damageinfo;
-				spell.savetype     = spellchanged.savetype;
-				spell.savedctype   = spellchanged.savedctype;
+						Spells[Id] = spell;
 
-				// NOTE: keep 'savedctypetype' intact. It's basically a user-setting. // TODO: Obsolete that.
+						SpellsChanged.Remove(Id);
 
-				Spells[Id] = spell;
+						SpellInfo_reset   .ForeColor = DefaultForeColor;
+						TargetInfo_reset  .ForeColor = DefaultForeColor;
+						EffectWeight_reset.ForeColor = DefaultForeColor;
+						EffectTypes_reset .ForeColor = DefaultForeColor;
+						DamageInfo_reset  .ForeColor = DefaultForeColor;
+						SaveType_reset    .ForeColor = DefaultForeColor;
+						SaveDCType_reset  .ForeColor = DefaultForeColor;
 
-				SpellsChanged.Remove(Id);
+						AfterSelect_node(null, null); // refresh all displayed data for the current spell jic
+					}
 
-				SpellInfo_reset   .ForeColor = DefaultForeColor;
-				TargetInfo_reset  .ForeColor = DefaultForeColor;
-				EffectWeight_reset.ForeColor = DefaultForeColor;
-				EffectTypes_reset .ForeColor = DefaultForeColor;
-				DamageInfo_reset  .ForeColor = DefaultForeColor;
-				SaveType_reset    .ForeColor = DefaultForeColor;
-				SaveDCType_reset  .ForeColor = DefaultForeColor;
+					if (Spells[Id].isChanged) // this goes outside the SpellsChanged check above because uh color goes screwy if not.
+					{
+						Tree.SelectedNode.ForeColor = Color.MediumBlue;
+					}
+					else // I doubt this ever *needs* to run ... but safety.
+					{
+						Tree.SelectedNode.ForeColor = DefaultForeColor;
+					}
+					break;
 
-				AfterSelect_spellnode(null, null); // refresh all displayed data for the current spell jic
-			}
-			//else logfile.Log(". is NOT in SpellsChanged");
+				case Type2da.TYPE_RACIAL:
+					if (RacesChanged.ContainsKey(Id))
+					{
+						var racechanged = RacesChanged[Id];
 
-			if (Spells[Id].isChanged) // this goes outside the SpellsChanged check above because uh color goes screwy if not.
-			{
-				//logfile.Log(". isChanged TRUE - set node to Blue");
-				SpellTree.SelectedNode.ForeColor = Color.MediumBlue;
-			}
-			else // I doubt this ever *needs* to run ... but safety.
-			{
-				//logfile.Log(". isChanged FALSE - set node to DefaultColor");
-				SpellTree.SelectedNode.ForeColor = DefaultForeColor;
+						Race race = Races[Id];
+
+						race.isChanged = true;
+						race.differ = bit_clear;
+
+						race.flags = racechanged.flags;
+						race.feat1 = racechanged.feat1;
+						race.feat2 = racechanged.feat2;
+						race.feat3 = racechanged.feat3;
+						race.feat4 = racechanged.feat4;
+						race.feat5 = racechanged.feat5;
+
+						Races[Id] = race;
+
+						RacesChanged.Remove(Id);
+
+						RacialFlags_reset.ForeColor = DefaultForeColor;
+						RacialFeat1_reset.ForeColor = DefaultForeColor;
+						RacialFeat2_reset.ForeColor = DefaultForeColor;
+						RacialFeat3_reset.ForeColor = DefaultForeColor;
+						RacialFeat4_reset.ForeColor = DefaultForeColor;
+						RacialFeat5_reset.ForeColor = DefaultForeColor;
+
+						AfterSelect_node(null, null); // refresh all displayed data for the current node jic
+					}
+
+					if (Races[Id].isChanged) // this goes outside the RacesChanged check above because uh color goes screwy if not.
+					{
+						Tree.SelectedNode.ForeColor = Color.MediumBlue;
+					}
+					else // I doubt this ever *needs* to run ... but safety.
+					{
+						Tree.SelectedNode.ForeColor = DefaultForeColor;
+					}
+					break;
+
+				case Type2da.TYPE_CLASSES:
+					if (ClassesChanged.ContainsKey(Id))
+					{
+						var claschanged = ClassesChanged[Id];
+
+						Class clas = Classes[Id];
+
+						clas.isChanged = true;
+						clas.differ = bit_clear;
+
+						clas.flags  = claschanged.flags;
+						clas.feat1  = claschanged.feat1;
+						clas.feat2  = claschanged.feat2;
+						clas.feat3  = claschanged.feat3;
+						clas.feat4  = claschanged.feat4;
+						clas.feat5  = claschanged.feat5;
+						clas.feat6  = claschanged.feat6;
+						clas.feat7  = claschanged.feat7;
+						clas.feat8  = claschanged.feat8;
+						clas.feat9  = claschanged.feat9;
+						clas.feat10 = claschanged.feat10;
+						clas.feat11 = claschanged.feat11;
+
+						Classes[Id] = clas;
+
+						ClassesChanged.Remove(Id);
+
+						ClassFlags_reset .ForeColor = DefaultForeColor;
+						ClassFeat1_reset .ForeColor = DefaultForeColor;
+						ClassFeat2_reset .ForeColor = DefaultForeColor;
+						ClassFeat3_reset .ForeColor = DefaultForeColor;
+						ClassFeat4_reset .ForeColor = DefaultForeColor;
+						ClassFeat5_reset .ForeColor = DefaultForeColor;
+						ClassFeat6_reset .ForeColor = DefaultForeColor;
+						ClassFeat7_reset .ForeColor = DefaultForeColor;
+						ClassFeat8_reset .ForeColor = DefaultForeColor;
+						ClassFeat9_reset .ForeColor = DefaultForeColor;
+						ClassFeat10_reset.ForeColor = DefaultForeColor;
+						ClassFeat11_reset.ForeColor = DefaultForeColor;
+
+						AfterSelect_node(null, null); // refresh all displayed data for the current node jic
+					}
+
+					if (Classes[Id].isChanged) // this goes outside the ClassesChanged check above because uh color goes screwy if not.
+					{
+						Tree.SelectedNode.ForeColor = Color.MediumBlue;
+					}
+					else // I doubt this ever *needs* to run ... but safety.
+					{
+						Tree.SelectedNode.ForeColor = DefaultForeColor;
+					}
+					break;
 			}
 		}
 
 
 		#region Utilities
 		/// <summary>
-		/// Bitflags for fields that have changed.
+		/// Bitflags for spell-fields that have changed.
 		/// note: The master-int 'differ' is tracked in each spell-struct but is
 		/// not saved to file.
 		/// </summary>
@@ -635,6 +1348,104 @@ namespace nwn2_ai_2da_editor
 
 			if (spell.savedctype != spellchanged.savedctype)
 				differ |= bit_savedctype;
+
+			return differ;
+		}
+
+		/// <summary>
+		/// Bitflags for race- and class-fields that have changed.
+		/// note: The master-int 'differ' is tracked in each struct but is not
+		/// saved to file.
+		/// </summary>
+		const int bit_flags  = 0x001;
+		const int bit_feat1  = 0x002;
+		const int bit_feat2  = 0x004;
+		const int bit_feat3  = 0x008;
+		const int bit_feat4  = 0x010;
+		const int bit_feat5  = 0x020;
+		const int bit_feat6  = 0x040;
+		const int bit_feat7  = 0x080;
+		const int bit_feat8  = 0x100;
+		const int bit_feat9  = 0x200;
+		const int bit_feat10 = 0x400;
+		const int bit_feat11 = 0x800;
+
+		/// <summary>
+		/// Gets a bitwise value containing flags for fields that have changed.
+		/// </summary>
+		/// <param name="race">a Race struct</param>
+		/// <param name="racechanged">a RaceChanged struct</param>
+		/// <returns>bitwise value containing flags for fields that have changed</returns>
+		static int RaceDiffer(Race race, RaceChanged racechanged)
+		{
+			int differ = bit_clear;
+
+			if (race.flags != racechanged.flags)
+				differ |= bit_flags;
+
+			if (race.feat1 != racechanged.feat1)
+				differ |= bit_feat1;
+
+			if (race.feat2 != racechanged.feat2)
+				differ |= bit_feat2;
+
+			if (race.feat3 != racechanged.feat3)
+				differ |= bit_feat3;
+
+			if (race.feat4 != racechanged.feat4)
+				differ |= bit_feat4;
+
+			if (race.feat5 != racechanged.feat5)
+				differ |= bit_feat5;
+
+			return differ;
+		}
+
+		/// <summary>
+		/// Gets a bitwise value containing flags for fields that have changed.
+		/// </summary>
+		/// <param name="clas">a Class struct</param>
+		/// <param name="claschanged">a ClassChanged struct</param>
+		/// <returns>bitwise value containing flags for fields that have changed</returns>
+		static int ClassDiffer(Class clas, ClassChanged claschanged)
+		{
+			int differ = bit_clear;
+
+			if (clas.flags != claschanged.flags)
+				differ |= bit_flags;
+
+			if (clas.feat1 != claschanged.feat1)
+				differ |= bit_feat1;
+
+			if (clas.feat2 != claschanged.feat2)
+				differ |= bit_feat2;
+
+			if (clas.feat3 != claschanged.feat3)
+				differ |= bit_feat3;
+
+			if (clas.feat4 != claschanged.feat4)
+				differ |= bit_feat4;
+
+			if (clas.feat5 != claschanged.feat5)
+				differ |= bit_feat5;
+
+			if (clas.feat6 != claschanged.feat6)
+				differ |= bit_feat6;
+
+			if (clas.feat7 != claschanged.feat7)
+				differ |= bit_feat7;
+
+			if (clas.feat8 != claschanged.feat8)
+				differ |= bit_feat8;
+
+			if (clas.feat9 != claschanged.feat9)
+				differ |= bit_feat9;
+
+			if (clas.feat10 != claschanged.feat10)
+				differ |= bit_feat10;
+
+			if (clas.feat11 != claschanged.feat11)
+				differ |= bit_feat11;
 
 			return differ;
 		}
@@ -696,7 +1507,7 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_search(object sender, EventArgs e)
 		{
-			int totalnodes = SpellTree.Nodes.Count;
+			int totalnodes = Tree.Nodes.Count;
 			if (totalnodes > 1)
 			{
 				string text = tb_Search.Text;
@@ -716,7 +1527,7 @@ namespace nwn2_ai_2da_editor
 						else
 							id = Id + 1;
 
-						while (!SpellTree.Nodes[id].Text.ToLower().Contains(text))
+						while (!Tree.Nodes[id].Text.ToLower().Contains(text))
 						{
 							if (id == Id) // not found.
 							{
@@ -739,7 +1550,7 @@ namespace nwn2_ai_2da_editor
 						else
 							id = Id - 1;
 
-						while (!SpellTree.Nodes[id].Text.ToLower().Contains(text))
+						while (!Tree.Nodes[id].Text.ToLower().Contains(text))
 						{
 							if (id == Id) // not found.
 							{
@@ -754,7 +1565,7 @@ namespace nwn2_ai_2da_editor
 						}
 					}
 
-					SpellTree.SelectedNode = SpellTree.Nodes[id];
+					Tree.SelectedNode = Tree.Nodes[id];
 				}
 			}
 		}
@@ -804,5 +1615,85 @@ namespace nwn2_ai_2da_editor
 		public int   damageinfo;
 		public int   savetype;
 		public int   savedctype;
+	}
+
+
+	/// <summary>
+	/// 
+	/// </summary>
+	struct Race
+	{
+		public int id;
+
+		public int flags;
+		public int feat1;
+		public int feat2;
+		public int feat3;
+		public int feat4;
+		public int feat5;
+
+		// NOTE: The following fields are not saved to file ->
+
+		public int differ;		// bitwise int that holds flags for changed fields
+		public bool isChanged;	// boolean used to warn if there is modified data when exiting the app.
+	}
+
+	/// <summary>
+	/// 
+	/// </summary>
+	struct RaceChanged
+	{
+		public int flags;
+		public int feat1;
+		public int feat2;
+		public int feat3;
+		public int feat4;
+		public int feat5;
+	}
+
+
+	/// <summary>
+	/// 
+	/// </summary>
+	struct Class
+	{
+		public int id;
+
+		public int flags;
+		public int feat1;
+		public int feat2;
+		public int feat3;
+		public int feat4;
+		public int feat5;
+		public int feat6;
+		public int feat7;
+		public int feat8;
+		public int feat9;
+		public int feat10;
+		public int feat11;
+
+		// NOTE: The following fields are not saved to file ->
+
+		public int differ;		// bitwise int that holds flags for changed fields
+		public bool isChanged;	// boolean used to warn if there is modified data when exiting the app.
+	}
+
+	/// <summary>
+	/// 
+	/// </summary>
+	struct ClassChanged
+	{
+		public int flags;
+		public int feat1;
+		public int feat2;
+		public int feat3;
+		public int feat4;
+		public int feat5;
+		public int feat6;
+		public int feat7;
+		public int feat8;
+		public int feat9;
+		public int feat10;
+		public int feat11;
 	}
 }

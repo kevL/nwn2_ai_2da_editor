@@ -62,6 +62,8 @@
     <Compile Include="func5_DamageInfo.cs" />
     <Compile Include="func6_SaveType.cs" />
     <Compile Include="func7_SaveDCType.cs" />
+    <Compile Include="func8_Racial.cs" />
+    <Compile Include="func9_Classes.cs" />
     <Compile Include="inputbox.cs" />
     <Compile Include="logger.cs" />
     <Compile Include="MainForm.cs" />

@@ -55,7 +55,7 @@ namespace nwn2_ai_2da_editor
 					if (differ != bit_clear)
 					{
 						SpellsChanged[Id] = spellchanged;
-						SpellTree.SelectedNode.ForeColor = Color.Crimson;
+						Tree.SelectedNode.ForeColor = Color.Crimson;
 					}
 					else
 					{
@@ -63,7 +63,7 @@ namespace nwn2_ai_2da_editor
 
 						if (!spell.isChanged) // this is set by the Apply btn only.
 						{
-							SpellTree.SelectedNode.ForeColor = DefaultForeColor;
+							Tree.SelectedNode.ForeColor = DefaultForeColor;
 						}
 					}
 				}
@@ -99,10 +99,10 @@ namespace nwn2_ai_2da_editor
 
 					if (spell.isChanged) // this is set by the Apply btn only.
 					{
-						SpellTree.SelectedNode.ForeColor = Color.MediumBlue;
+						Tree.SelectedNode.ForeColor = Color.MediumBlue;
 					}
 					else
-						SpellTree.SelectedNode.ForeColor = DefaultForeColor;
+						Tree.SelectedNode.ForeColor = DefaultForeColor;
 				}
 
 				EffectWeight_reset.ForeColor = DefaultForeColor;
