@@ -175,6 +175,8 @@ namespace nwn2_ai_2da_editor
 
 
 		#region Edit
+		// TODO: Muti-purpose all of these handlers - needs Racial and Classes conditions
+
 		void Click_findnextchanged(object sender, EventArgs e)
 		{
 			int totalnodes = Tree.Nodes.Count;
@@ -526,10 +528,9 @@ namespace nwn2_ai_2da_editor
 										dt);
 */
 			// what a fucking pain in the ass.
-			const string info = "built - 2018 jun 26";
 
-			MessageBox.Show(info,
-							"  About",
+			MessageBox.Show(_version,
+							"  About - nwn2_ai_2da_editor",
 							MessageBoxButtons.OK,
 							MessageBoxIcon.Information,
 							MessageBoxDefaultButton.Button1);
@@ -696,12 +697,18 @@ namespace nwn2_ai_2da_editor
 
 							if (id == Id) // is currently selected tree-node
 							{
-								ClassFlags_reset.ForeColor = DefaultForeColor;
-								ClassFeat1_reset.ForeColor = DefaultForeColor;
-								ClassFeat2_reset.ForeColor = DefaultForeColor;
-								ClassFeat3_reset.ForeColor = DefaultForeColor;
-								ClassFeat4_reset.ForeColor = DefaultForeColor;
-								ClassFeat5_reset.ForeColor = DefaultForeColor;
+								ClassFlags_reset .ForeColor = DefaultForeColor;
+								ClassFeat1_reset .ForeColor = DefaultForeColor;
+								ClassFeat2_reset .ForeColor = DefaultForeColor;
+								ClassFeat3_reset .ForeColor = DefaultForeColor;
+								ClassFeat4_reset .ForeColor = DefaultForeColor;
+								ClassFeat5_reset .ForeColor = DefaultForeColor;
+								ClassFeat6_reset .ForeColor = DefaultForeColor;
+								ClassFeat7_reset .ForeColor = DefaultForeColor;
+								ClassFeat8_reset .ForeColor = DefaultForeColor;
+								ClassFeat9_reset .ForeColor = DefaultForeColor;
+								ClassFeat10_reset.ForeColor = DefaultForeColor;
+								ClassFeat11_reset.ForeColor = DefaultForeColor;
 
 								AfterSelect_node(null, null); // refresh all displayed data for the current class jic
 							}

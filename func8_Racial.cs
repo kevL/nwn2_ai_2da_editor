@@ -438,7 +438,7 @@ namespace nwn2_ai_2da_editor
 					int feaT = Int32.Parse(tb.Text);
 					feaT &= ~HENCH_FEAT_SPELL_MASK_SPELL;
 
-					spell <<= 16;
+					spell <<= HENCH_FEAT_SPELL_SHIFT_SPELL;
 					tb.Text = (feaT | spell).ToString();
 				}
 			}
@@ -538,12 +538,15 @@ namespace nwn2_ai_2da_editor
 					int val = (feat & HENCH_FEAT_SPELL_MASK_FEAT);
 					tb_feat.Text = val.ToString();
 
-					val = (feat & HENCH_FEAT_SPELL_MASK_SPELL) >> 16;
+					val = (feat & HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
 					tb_spell.Text = val.ToString();
 				}
 			}
 //			else
 //				bypassCheckedChecker = false; // TODO: conflict w/ CheckRacialFlagsCheckers()
 		}
+
+
+		const int HENCH_FEAT_SPELL_SHIFT_SPELL = 16;
 	}
 }

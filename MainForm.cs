@@ -17,6 +17,12 @@ namespace nwn2_ai_2da_editor
 	{
 		#region class Vars
 		/// <summary>
+		/// The version as a build-date. This appears in the About.
+		/// </summary>
+		const string _version = "built - 2018 jun 26";
+
+
+		/// <summary>
 		/// The 'blank' 2da-string.
 		/// </summary>
 		const string blank = "****";
