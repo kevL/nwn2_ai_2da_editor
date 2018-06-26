@@ -191,7 +191,7 @@ namespace nwn2_ai_2da_editor
 
 			Size = new Size(1150, 550);
 
-			cols_HenchRacial.Location = cols_HenchSpells.Location;
+			cols_HenchRacial.Location  =
 			cols_HenchClasses.Location = cols_HenchSpells.Location;
 
 			cols_HenchSpells .Visible =
