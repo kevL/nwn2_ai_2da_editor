@@ -44,25 +44,25 @@ namespace nwn2_ai_2da_editor
 		Dictionary<int, SpellChanged> SpellsChanged = new Dictionary<int, SpellChanged>();
 
 		/// <summary>
-		/// A list-object that contains structs of all spells currently in
-		/// HenchSpells.2da.
+		/// A list-object that contains structs of all races currently in
+		/// HenchRacial.2da.
 		/// </summary>
 		List<Race> Races = new List<Race>();
 
 		/// <summary>
-		/// A dictionary-object that contains structs of any spell that has been
+		/// A dictionary-object that contains structs of any race that has been
 		/// changed by the editor.
 		/// </summary>
 		Dictionary<int, RaceChanged> RacesChanged = new Dictionary<int, RaceChanged>();
 
 		/// <summary>
-		/// A list-object that contains structs of all spells currently in
-		/// HenchSpells.2da.
+		/// A list-object that contains structs of all classes currently in
+		/// HenchClasses.2da.
 		/// </summary>
 		List<Class> Classes = new List<Class>();
 
 		/// <summary>
-		/// A dictionary-object that contains structs of any spell that has been
+		/// A dictionary-object that contains structs of any class that has been
 		/// changed by the editor.
 		/// </summary>
 		Dictionary<int, ClassChanged> ClassesChanged = new Dictionary<int, ClassChanged>();
@@ -617,10 +617,10 @@ namespace nwn2_ai_2da_editor
 						clas.isChanged = false;
 
 
-						Classes.Add(clas);	// race-structs can now be referenced in the list by their
-					}						// - Races[id]
-				}							// - HenchRacial.2da row#
-											// - RaceID (Subraces.2da row#)
+						Classes.Add(clas);	// class-structs can now be referenced in the list by their
+					}						// - Classes[id]
+				}							// - HenchClasses.2da row#
+											// - ClassID (Classes.2da row#)
 //				pb.Step();
 			}
 
@@ -900,7 +900,7 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Fills displayed fields w/ data from the classes' Id.
+		/// Fills displayed fields w/ data from the class' Id.
 		/// </summary>
 		void ClassSelect()
 		{
@@ -1619,7 +1619,10 @@ namespace nwn2_ai_2da_editor
 
 
 	/// <summary>
-	/// 
+	/// Struct that holds data of each race in HenchRacial.2da.
+	/// note: This data can change when the Apply-btn is clicked (but only if
+	/// the race-data has in fact been changed of c).
+	/// NOTE: This is the data that gets saved to file on File|Save.
 	/// </summary>
 	struct Race
 	{
@@ -1639,7 +1642,10 @@ namespace nwn2_ai_2da_editor
 	}
 
 	/// <summary>
-	/// 
+	/// Struct that holds changed data of any race that has been modified in
+	/// the editor.
+	/// NOTE: These structs get created and deleted on-the-fly as stuff changes
+	/// in the editor.
 	/// </summary>
 	struct RaceChanged
 	{
@@ -1653,7 +1659,10 @@ namespace nwn2_ai_2da_editor
 
 
 	/// <summary>
-	/// 
+	/// Struct that holds data of each class in HenchClasses.2da.
+	/// note: This data can change when the Apply-btn is clicked (but only if
+	/// the class-data has in fact been changed of c).
+	/// NOTE: This is the data that gets saved to file on File|Save.
 	/// </summary>
 	struct Class
 	{
@@ -1679,7 +1688,10 @@ namespace nwn2_ai_2da_editor
 	}
 
 	/// <summary>
-	/// 
+	/// Struct that holds changed data of any class that has been modified in
+	/// the editor.
+	/// NOTE: These structs get created and deleted on-the-fly as stuff changes
+	/// in the editor.
 	/// </summary>
 	struct ClassChanged
 	{
