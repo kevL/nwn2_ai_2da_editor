@@ -177,7 +177,15 @@ namespace nwn2_ai_2da_editor
 				else
 					btn.ForeColor = DefaultForeColor;
 
-//				CheckRacialCheckers(val);
+				if (tb == RacialFlags_text)
+				{
+					CheckRacialFlagsCheckers();
+				}
+				else
+					CheckRacialFeatsCheckers(tb);
+
+
+				PrintInfoVersion();
 			}
 			// else TODO: error dialog here.
 		}
@@ -256,6 +264,284 @@ namespace nwn2_ai_2da_editor
 
 				tb.Text = info.ToString();
 			}
+		}
+
+
+		/// <summary>
+		/// Handles toggling bits by checkboxes on the RacialFlags page.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void MouseClick_rFlags(object sender, MouseEventArgs e)
+		{
+			int flags;
+			if (Int32.TryParse(RacialFlags_text.Text, out flags))
+			{
+				if (rf_HasFeatSpells.Checked)
+				{
+					flags |= HENCH_RACIAL_FEAT_SPELLS;
+				}
+				else
+					flags &= ~HENCH_RACIAL_FEAT_SPELLS;
+
+				bypassCheckedChecker = true;
+				RacialFlags_text.Text = flags.ToString();
+			}
+		}
+
+		/// <summary>
+		/// Handles toggling bits by checkboxes on the RacialFeats pages.
+		/// </summary>
+		void MouseClick_rFeats(object sender, MouseEventArgs e)
+		{
+			TextBox tb;
+
+			var cb = sender as CheckBox;
+			if (cb == rf1_cheatCast)
+			{
+				tb = RacialFeat1_text;
+			}
+			else if (cb == rf2_cheatCast)
+			{
+				tb = RacialFeat2_text;
+			}
+			else if (cb == rf3_cheatCast)
+			{
+				tb = RacialFeat3_text;
+			}
+			else if (cb == rf4_cheatCast)
+			{
+				tb = RacialFeat4_text;
+			}
+			else //if (cb == rf5_cheatCast)
+			{
+				tb = RacialFeat5_text;
+			}
+
+			int feat;
+			if (Int32.TryParse(tb.Text, out feat))
+			{
+				if (cb.Checked)
+				{
+					feat |= HENCH_FEAT_SPELL_CHEAT_CAST;
+				}
+				else
+					feat &= ~HENCH_FEAT_SPELL_CHEAT_CAST;
+
+				bypassCheckedChecker = true;
+				tb.Text = feat.ToString();
+			}
+		}
+
+		/// <summary>
+		/// Handles changing RacialFeat feats in their textboxes.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void TextChanged_rFeat(object sender, EventArgs e)
+		{
+			var tb_feat = sender as TextBox;
+
+			int feat;
+			if (Int32.TryParse(tb_feat.Text, out feat))
+			{
+				if (feat < 0)
+				{
+					feat = 0;
+					tb_feat.Text = feat.ToString(); // re-trigger this funct.
+				}
+				else if (feat > 65535) // 16 bits
+				{
+					feat = 65535;
+					tb_feat.Text = feat.ToString(); // re-trigger this funct.
+				}
+				else
+				{
+					TextBox tb;
+					if (tb_feat == rf1_FeatId)
+					{
+						tb = RacialFeat1_text;
+					}
+					else if (tb_feat == rf2_FeatId)
+					{
+						tb = RacialFeat2_text;
+					}
+					else if (tb_feat == rf3_FeatId)
+					{
+						tb = RacialFeat3_text;
+					}
+					else if (tb_feat == rf4_FeatId)
+					{
+						tb = RacialFeat4_text;
+					}
+					else //if (tb_feat == rf5_FeatId)
+					{
+						tb = RacialFeat5_text;
+					}
+
+					int feaT = Int32.Parse(tb.Text);
+					feaT &= ~HENCH_FEAT_SPELL_MASK_FEAT;
+
+					tb.Text = (feaT | feat).ToString();
+				}
+			}
+		}
+
+		/// <summary>
+		/// Handles changing RacialFeat spells in their textboxes.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void TextChanged_rSpell(object sender, EventArgs e)
+		{
+			var tb_spell = sender as TextBox;
+
+			int spell;
+			if (Int32.TryParse(tb_spell.Text, out spell))
+			{
+				if (spell < 0)
+				{
+					spell = 0;
+					tb_spell.Text = spell.ToString(); // re-trigger this funct.
+				}
+				else if (spell > 16383) // 14 bits
+				{
+					spell = 16383;
+					tb_spell.Text = spell.ToString(); // re-trigger this funct.
+				}
+				else
+				{
+					TextBox tb;
+					if (tb_spell == rf1_SpellId)
+					{
+						tb = RacialFeat1_text;
+					}
+					else if (tb_spell == rf2_SpellId)
+					{
+						tb = RacialFeat2_text;
+					}
+					else if (tb_spell == rf3_SpellId)
+					{
+						tb = RacialFeat3_text;
+					}
+					else if (tb_spell == rf4_SpellId)
+					{
+						tb = RacialFeat4_text;
+					}
+					else //if (tb_feat == rf5_SpellId)
+					{
+						tb = RacialFeat5_text;
+					}
+
+					int feaT = Int32.Parse(tb.Text);
+					feaT &= ~HENCH_FEAT_SPELL_MASK_SPELL;
+
+					spell <<= 16;
+					tb.Text = (feaT | spell).ToString();
+				}
+			}
+		}
+
+
+		/// <summary>
+		/// Prints the info-version of the currently selected race ID.
+		/// </summary>
+		void PrintInfoVersion()
+		{
+			int ver;
+			if (RacesChanged.ContainsKey(Id))
+			{
+				ver = RacesChanged[Id].flags;
+			}
+			else
+				ver = Races[Id].flags;
+
+			ver &= HENCH_SPELL_INFO_VERSION_MASK;
+			ver >>= 24;
+
+			rf_infoversion.Text = ver.ToString();
+		}
+
+
+		/// <summary>
+		/// Sets the checkers on the RacialFlags page to reflect the current
+		/// flags value.
+		/// </summary>
+		void CheckRacialFlagsCheckers()
+		{
+			if (!bypassCheckedChecker)
+			{
+				int info;
+				if (RacesChanged.ContainsKey(Id))
+				{
+					info = RacesChanged[Id].flags;
+				}
+				else
+					info = Races[Id].flags;
+
+				rf_HasFeatSpells.Checked = (info & HENCH_RACIAL_FEAT_SPELLS) != 0;
+			}
+			else
+				bypassCheckedChecker = false;
+		}
+
+		/// <summary>
+		/// Sets the checkers on the RacialFeats pages to reflect the current
+		/// feat value.
+		/// </summary>
+		/// <param name="tb"></param>
+		void CheckRacialFeatsCheckers(Control tb)
+		{
+			if (!bypassCheckedChecker)
+			{
+				CheckBox cb;
+				TextBox tb_feat, tb_spell;
+
+				int feat;
+				if (Int32.TryParse(tb.Text, out feat))
+				{
+					if (tb == RacialFeat1_text)
+					{
+						cb = rf1_cheatCast;
+						tb_feat = rf1_FeatId;
+						tb_spell = rf1_SpellId;
+					}
+					else if (tb == RacialFeat2_text)
+					{
+						cb = rf2_cheatCast;
+						tb_feat = rf2_FeatId;
+						tb_spell = rf2_SpellId;
+					}
+					else if (tb == RacialFeat3_text)
+					{
+						cb = rf3_cheatCast;
+						tb_feat = rf3_FeatId;
+						tb_spell = rf3_SpellId;
+					}
+					else if (tb == RacialFeat4_text)
+					{
+						cb = rf4_cheatCast;
+						tb_feat = rf4_FeatId;
+						tb_spell = rf4_SpellId;
+					}
+					else //if (tb == RacialFeat5_text)
+					{
+						cb = rf5_cheatCast;
+						tb_feat = rf5_FeatId;
+						tb_spell = rf5_SpellId;
+					}
+
+					cb.Checked = (feat & HENCH_FEAT_SPELL_CHEAT_CAST) != 0;
+
+					int val = (feat & HENCH_FEAT_SPELL_MASK_FEAT);
+					tb_feat.Text = val.ToString();
+
+					val = (feat & HENCH_FEAT_SPELL_MASK_SPELL) >> 16;
+					tb_spell.Text = val.ToString();
+				}
+			}
+			else
+				bypassCheckedChecker = false;
 		}
 	}
 }

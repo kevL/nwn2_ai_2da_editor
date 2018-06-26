@@ -326,6 +326,8 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void TextChanged_si_ChildFields(object sender, EventArgs e)
 		{
+			// TODO: test that a valid integer > -1 is input
+
 			// NOTE: this doesn't result in an infinite loop.
 			var tb = sender as TextBox;
 			if (tb.Equals(si_Child1))

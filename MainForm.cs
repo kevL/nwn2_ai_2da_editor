@@ -189,9 +189,20 @@ namespace nwn2_ai_2da_editor
 			ToggleMenuitems(false);
 
 
+			Size = new Size(1150, 550);
+
+			cols_HenchRacial.Location = cols_HenchSpells.Location;
+			cols_HenchClasses.Location = cols_HenchSpells.Location;
+
+			cols_HenchSpells .Visible =
+			cols_HenchRacial .Visible =
+			cols_HenchClasses.Visible = false;
+
+
 			// NOTE: quickload the 2da for testing ONLY.
 //			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchspells.2da";
-//			Load_HenchSpells();
+			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchracial.2da";
+			Load_file();
 		}
 		#endregion cTor
 
@@ -312,6 +323,11 @@ namespace nwn2_ai_2da_editor
 		{
 			Type = Type2da.TYPE_SPELLS;
 
+			cols_HenchSpells .Visible = true;
+			cols_HenchRacial .Visible =
+			cols_HenchClasses.Visible = false;
+
+
 			ClearData();
 
 			SpellInfo_reset   .ForeColor = DefaultForeColor;
@@ -427,6 +443,10 @@ namespace nwn2_ai_2da_editor
 		{
 			Type = Type2da.TYPE_RACIAL;
 
+			cols_HenchSpells .Visible = false;
+			cols_HenchRacial .Visible = true;
+			cols_HenchClasses.Visible = false;
+
 			ClearData();
 
 			RacialFlags_reset.ForeColor = DefaultForeColor;
@@ -511,6 +531,10 @@ namespace nwn2_ai_2da_editor
 		void Load_HenchClasses(string[] rows)
 		{
 			Type = Type2da.TYPE_CLASSES;
+
+			cols_HenchSpells .Visible =
+			cols_HenchRacial .Visible = false;
+			cols_HenchClasses.Visible = true;
 
 			ClearData();
 

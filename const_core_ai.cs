@@ -506,5 +506,15 @@
 
 		const int HENCH_AC_CHECK_MOVEMENT_SPEED_DECREASE = 0x10000000;
 		#endregion SaveDCType
+
+
+
+		#region Racial
+		const int HENCH_RACIAL_FEAT_SPELLS    = 0x00000008;
+
+		const int HENCH_FEAT_SPELL_MASK_FEAT  = 0x0000ffff;
+		const int HENCH_FEAT_SPELL_MASK_SPELL = 0x3fff0000;
+		const int HENCH_FEAT_SPELL_CHEAT_CAST = 0x40000000;
+		#endregion Racial
 	}
 }
