@@ -175,8 +175,11 @@ namespace nwn2_ai_2da_editor
 
 
 		#region Edit
-		// TODO: Muti-purpose all of these handlers - needs Racial and Classes conditions
-
+		/// <summary>
+		/// Handles the Find Next Changed menu-item.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		void Click_findnextchanged(object sender, EventArgs e)
 		{
 			int totalnodes = Tree.Nodes.Count;
@@ -190,69 +193,151 @@ namespace nwn2_ai_2da_editor
 				else
 					id = Id + 1;
 
-				while (!Spells[id].isChanged && Spells[id].differ == bit_clear)
+				switch (Type)
 				{
-					if (id == Id) // not found.
-					{
-						System.Media.SystemSounds.Beep.Play();
+					case Type2da.TYPE_SPELLS:
+						while (!Spells[id].isChanged && Spells[id].differ == bit_clear)
+						{
+							if (id == Id) // not found.
+							{
+								System.Media.SystemSounds.Beep.Play();
+								break;
+							}
+		
+							if (++id == totalnodes) // wrap to first node
+							{
+								id = 0;
+							}
+						}
 						break;
-					}
 
-					if (++id == totalnodes) // wrap to first node
-					{
-						id = 0;
-					}
+					case Type2da.TYPE_RACIAL:
+						while (!Races[id].isChanged && Races[id].differ == bit_clear)
+						{
+							if (id == Id) // not found.
+							{
+								System.Media.SystemSounds.Beep.Play();
+								break;
+							}
+		
+							if (++id == totalnodes) // wrap to first node
+							{
+								id = 0;
+							}
+						}
+						break;
+
+					case Type2da.TYPE_CLASSES:
+						while (!Classes[id].isChanged && Classes[id].differ == bit_clear)
+						{
+							if (id == Id) // not found.
+							{
+								System.Media.SystemSounds.Beep.Play();
+								break;
+							}
+		
+							if (++id == totalnodes) // wrap to first node
+							{
+								id = 0;
+							}
+						}
+						break;
 				}
 
 				Tree.SelectedNode = Tree.Nodes[id];
 			}
 		}
 
-
+		/// <summary>
+		/// Handles the Copy decimal info menu-item.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		void Click_copy_decimal(object sender, EventArgs e)
 		{
-//			if (cols_HenchSpells.SelectedTab == cols_HenchSpells.TabPages["page_SpellInfo"])
-
 			string val = String.Empty;
 			int i;
 			float f;
 
-			switch (cols_HenchSpells.SelectedIndex)
+			switch (Type)
 			{
-				case 0:
-					val = SpellInfo_text.Text;
+				case Type2da.TYPE_SPELLS:
+					switch (cols_HenchSpells.SelectedIndex)
+					{
+						case 0:
+							val = SpellInfo_text.Text;
+							if (!Int32.TryParse(val, out i))
+								val = String.Empty;
+							break;
+						case 1:
+							val = TargetInfo_text.Text;
+							if (!Int32.TryParse(val, out i))
+								val = String.Empty;
+							break;
+						case 2:
+							val = EffectWeight_text.Text;
+							if (!float.TryParse(val, out f))
+								val = String.Empty;
+							break;
+						case 3:
+							val = EffectTypes_text.Text;
+							if (!Int32.TryParse(val, out i))
+								val = String.Empty;
+							break;
+						case 4:
+							val = DamageInfo_text.Text;
+							if (!Int32.TryParse(val, out i))
+								val = String.Empty;
+							break;
+						case 5:
+							val = SaveType_text.Text;
+							if (!Int32.TryParse(val, out i))
+								val = String.Empty;
+							break;
+						case 6:
+							val = SaveDCType_text.Text;
+							if (!Int32.TryParse(val, out i))
+								val = String.Empty;
+							break;
+					}
+					break;
+
+				case Type2da.TYPE_RACIAL:
+					switch (cols_HenchRacial.SelectedIndex)
+					{
+						case 0: val = RacialFlags_text.Text; break;
+						case 1: val = RacialFeat1_text.Text; break;
+						case 2: val = RacialFeat2_text.Text; break;
+						case 3: val = RacialFeat3_text.Text; break;
+						case 4: val = RacialFeat4_text.Text; break;
+						case 5: val = RacialFeat5_text.Text; break;
+					}
+
 					if (!Int32.TryParse(val, out i))
 						val = String.Empty;
+
 					break;
-				case 1:
-					val = TargetInfo_text.Text;
+
+				case Type2da.TYPE_CLASSES:
+					switch (cols_HenchClasses.SelectedIndex)
+					{
+						case  0: val = ClassFlags_text .Text; break;
+						case  1: val = ClassFeat1_text .Text; break;
+						case  2: val = ClassFeat2_text .Text; break;
+						case  3: val = ClassFeat3_text .Text; break;
+						case  4: val = ClassFeat4_text .Text; break;
+						case  5: val = ClassFeat5_text .Text; break;
+						case  6: val = ClassFeat6_text .Text; break;
+						case  7: val = ClassFeat7_text .Text; break;
+						case  8: val = ClassFeat8_text .Text; break;
+						case  9: val = ClassFeat9_text .Text; break;
+						case 10: val = ClassFeat10_text.Text; break;
+						case 11: val = ClassFeat11_text.Text; break;
+					}
+
 					if (!Int32.TryParse(val, out i))
 						val = String.Empty;
-					break;
-				case 2:
-					val = EffectWeight_text.Text;
-					if (!float.TryParse(val, out f))
-						val = String.Empty;
-					break;
-				case 3:
-					val = EffectTypes_text.Text;
-					if (!Int32.TryParse(val, out i))
-						val = String.Empty;
-					break;
-				case 4:
-					val = DamageInfo_text.Text;
-					if (!Int32.TryParse(val, out i))
-						val = String.Empty;
-					break;
-				case 5:
-					val = SaveType_text.Text;
-					if (!Int32.TryParse(val, out i))
-						val = String.Empty;
-					break;
-				case 6:
-					val = SaveDCType_text.Text;
-					if (!Int32.TryParse(val, out i))
-						val = String.Empty;
+
 					break;
 			}
 
@@ -264,47 +349,92 @@ namespace nwn2_ai_2da_editor
 				Clipboard.Clear();
 		}
 
+		/// <summary>
+		/// Handles the Copy hexadecimal info menu-item.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		void Click_copy_hexadecimal(object sender, EventArgs e)
 		{
 			string val = String.Empty;
 			int i = 0;
 
-			switch (cols_HenchSpells.SelectedIndex)
+			switch (Type)
 			{
-				case 0:
-					val = SpellInfo_text.Text;
-					if (!Int32.TryParse(val, out i))
-						val = String.Empty;
+				case Type2da.TYPE_SPELLS:
+					switch (cols_HenchSpells.SelectedIndex)
+					{
+						case 0:
+							val = SpellInfo_text.Text;
+							if (!Int32.TryParse(val, out i))
+								val = String.Empty;
+							break;
+						case 1:
+							val = TargetInfo_text.Text;
+							if (!Int32.TryParse(val, out i))
+								val = String.Empty;
+							break;
+//						case 2: // invalid
+//							break;
+						case 3:
+							val = EffectTypes_text.Text;
+							if (!Int32.TryParse(val, out i))
+								val = String.Empty;
+							break;
+						case 4:
+							val = DamageInfo_text.Text;
+							if (!Int32.TryParse(val, out i))
+								val = String.Empty;
+							break;
+						case 5:
+							val = SaveType_text.Text;
+							if (!Int32.TryParse(val, out i))
+								val = String.Empty;
+							break;
+						case 6:
+							val = SaveDCType_text.Text;
+							if (!Int32.TryParse(val, out i))
+								val = String.Empty;
+							break;
+					}
 					break;
-				case 1:
-					val = TargetInfo_text.Text;
+
+				case Type2da.TYPE_RACIAL:
+					switch (cols_HenchRacial.SelectedIndex)
+					{
+						case 0: val = RacialFlags_text.Text; break;
+						case 1: val = RacialFeat1_text.Text; break;
+						case 2: val = RacialFeat2_text.Text; break;
+						case 3: val = RacialFeat3_text.Text; break;
+						case 4: val = RacialFeat4_text.Text; break;
+						case 5: val = RacialFeat5_text.Text; break;
+					}
+
 					if (!Int32.TryParse(val, out i))
 						val = String.Empty;
+
 					break;
-//				case 2: // invalid
-//					val = EffectWeight_text.Text;
-//					if (!float.TryParse(val, out f))
-//						val = String.Empty;
-//					break;
-				case 3:
-					val = EffectTypes_text.Text;
+
+				case Type2da.TYPE_CLASSES:
+					switch (cols_HenchClasses.SelectedIndex)
+					{
+						case  0: val = ClassFlags_text .Text; break;
+						case  1: val = ClassFeat1_text .Text; break;
+						case  2: val = ClassFeat2_text .Text; break;
+						case  3: val = ClassFeat3_text .Text; break;
+						case  4: val = ClassFeat4_text .Text; break;
+						case  5: val = ClassFeat5_text .Text; break;
+						case  6: val = ClassFeat6_text .Text; break;
+						case  7: val = ClassFeat7_text .Text; break;
+						case  8: val = ClassFeat8_text .Text; break;
+						case  9: val = ClassFeat9_text .Text; break;
+						case 10: val = ClassFeat10_text.Text; break;
+						case 11: val = ClassFeat11_text.Text; break;
+					}
+
 					if (!Int32.TryParse(val, out i))
 						val = String.Empty;
-					break;
-				case 4:
-					val = DamageInfo_text.Text;
-					if (!Int32.TryParse(val, out i))
-						val = String.Empty;
-					break;
-				case 5:
-					val = SaveType_text.Text;
-					if (!Int32.TryParse(val, out i))
-						val = String.Empty;
-					break;
-				case 6:
-					val = SaveDCType_text.Text;
-					if (!Int32.TryParse(val, out i))
-						val = String.Empty;
+
 					break;
 			}
 
@@ -318,47 +448,92 @@ namespace nwn2_ai_2da_editor
 				Clipboard.Clear();
 		}
 
+		/// <summary>
+		/// Handles the Copy binary info menu-item.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		void Click_copy_binary(object sender, EventArgs e)
 		{
 			string val = String.Empty;
 			int i = 0;
 
-			switch (cols_HenchSpells.SelectedIndex)
+			switch (Type)
 			{
-				case 0:
-					val = SpellInfo_text.Text;
-					if (!Int32.TryParse(val, out i))
-						val = String.Empty;
+				case Type2da.TYPE_SPELLS:
+					switch (cols_HenchSpells.SelectedIndex)
+					{
+						case 0:
+							val = SpellInfo_text.Text;
+							if (!Int32.TryParse(val, out i))
+								val = String.Empty;
+							break;
+						case 1:
+							val = TargetInfo_text.Text;
+							if (!Int32.TryParse(val, out i))
+								val = String.Empty;
+							break;
+//						case 2: // invalid
+//							break;
+						case 3:
+							val = EffectTypes_text.Text;
+							if (!Int32.TryParse(val, out i))
+								val = String.Empty;
+							break;
+						case 4:
+							val = DamageInfo_text.Text;
+							if (!Int32.TryParse(val, out i))
+								val = String.Empty;
+							break;
+						case 5:
+							val = SaveType_text.Text;
+							if (!Int32.TryParse(val, out i))
+								val = String.Empty;
+							break;
+						case 6:
+							val = SaveDCType_text.Text;
+							if (!Int32.TryParse(val, out i))
+								val = String.Empty;
+							break;
+					}
 					break;
-				case 1:
-					val = TargetInfo_text.Text;
+
+				case Type2da.TYPE_RACIAL:
+					switch (cols_HenchRacial.SelectedIndex)
+					{
+						case 0: val = RacialFlags_text.Text; break;
+						case 1: val = RacialFeat1_text.Text; break;
+						case 2: val = RacialFeat2_text.Text; break;
+						case 3: val = RacialFeat3_text.Text; break;
+						case 4: val = RacialFeat4_text.Text; break;
+						case 5: val = RacialFeat5_text.Text; break;
+					}
+
 					if (!Int32.TryParse(val, out i))
 						val = String.Empty;
+
 					break;
-//				case 2: // invalid
-//					val = EffectWeight_text.Text;
-//					if (!float.TryParse(val, out f))
-//						val = String.Empty;
-//					break;
-				case 3:
-					val = EffectTypes_text.Text;
+
+				case Type2da.TYPE_CLASSES:
+					switch (cols_HenchClasses.SelectedIndex)
+					{
+						case  0: val = ClassFlags_text .Text; break;
+						case  1: val = ClassFeat1_text .Text; break;
+						case  2: val = ClassFeat2_text .Text; break;
+						case  3: val = ClassFeat3_text .Text; break;
+						case  4: val = ClassFeat4_text .Text; break;
+						case  5: val = ClassFeat5_text .Text; break;
+						case  6: val = ClassFeat6_text .Text; break;
+						case  7: val = ClassFeat7_text .Text; break;
+						case  8: val = ClassFeat8_text .Text; break;
+						case  9: val = ClassFeat9_text .Text; break;
+						case 10: val = ClassFeat10_text.Text; break;
+						case 11: val = ClassFeat11_text.Text; break;
+					}
+
 					if (!Int32.TryParse(val, out i))
 						val = String.Empty;
-					break;
-				case 4:
-					val = DamageInfo_text.Text;
-					if (!Int32.TryParse(val, out i))
-						val = String.Empty;
-					break;
-				case 5:
-					val = SaveType_text.Text;
-					if (!Int32.TryParse(val, out i))
-						val = String.Empty;
-					break;
-				case 6:
-					val = SaveDCType_text.Text;
-					if (!Int32.TryParse(val, out i))
-						val = String.Empty;
+
 					break;
 			}
 
