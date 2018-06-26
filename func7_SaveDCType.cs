@@ -326,7 +326,7 @@ namespace nwn2_ai_2da_editor
 		/// <param name="savedctype"></param>
 		void CheckSaveDcTypeCheckers(int savedctype)
 		{
-			if (!bypassCheckedChecker)
+//			if (!bypassCheckedChecker)
 			{
 // ArmorCheck checkboxes
 				bool b = (savedctype > -1); // a negative value wreaks havoc on the speed-decrease bit ...
@@ -399,8 +399,8 @@ namespace nwn2_ai_2da_editor
 
 				cbo_dc_SaveDC.SelectedIndex = val;
 			}
-			else
-				bypassCheckedChecker = false;
+//			else
+//				bypassCheckedChecker = false;
 		}
 	}
 }

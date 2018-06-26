@@ -214,7 +214,7 @@ namespace nwn2_ai_2da_editor
 					{
 						claschanged.feat10 = val;
 					}
-					else if (tb == ClassFeat11_text)
+					else //if (tb == ClassFeat11_text)
 					{
 						claschanged.feat11 = val;
 					}
@@ -249,7 +249,17 @@ namespace nwn2_ai_2da_editor
 				else
 					btn.ForeColor = DefaultForeColor;
 
-//				CheckClassCheckers(val);
+				if (tb == ClassFlags_text)
+				{
+					CheckClassFlagsCheckers();
+				}
+				else
+					CheckClassFeatsCheckers(tb);
+
+//				bypassCheckedChecker = false; // TODO: This funct will fire multiple times OnLoad ...
+
+
+				PrintInfoVersion_class();
 			}
 			// else TODO: error dialog here.
 		}
@@ -328,6 +338,392 @@ namespace nwn2_ai_2da_editor
 
 				tb.Text = info.ToString();
 			}
+		}
+
+
+		/// <summary>
+		/// Handles toggling bits by checkboxes on the ClassFlags page.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void MouseClick_cFlags(object sender, MouseEventArgs e)
+		{
+			int flags;
+			if (Int32.TryParse(ClassFlags_text.Text, out flags))
+			{
+				if (cf_HasFeatSpells.Checked)
+				{
+					flags |= HENCH_CLASS_FEAT_SPELLS;
+				}
+				else
+					flags &= ~HENCH_CLASS_FEAT_SPELLS;
+
+//				bypassCheckedChecker = true;
+				ClassFlags_text.Text = flags.ToString();
+			}
+		}
+
+		/// <summary>
+		/// Handles toggling bits by checkboxes on the ClassFeats pages.
+		/// </summary>
+		void MouseClick_cFeats(object sender, MouseEventArgs e)
+		{
+			TextBox tb;
+
+			var cb = sender as CheckBox;
+			if (cb == cf1_cheatCast)
+			{
+				tb = ClassFeat1_text;
+			}
+			else if (cb == cf2_cheatCast)
+			{
+				tb = ClassFeat2_text;
+			}
+			else if (cb == cf3_cheatCast)
+			{
+				tb = ClassFeat3_text;
+			}
+			else if (cb == cf4_cheatCast)
+			{
+				tb = ClassFeat4_text;
+			}
+			else if (cb == cf5_cheatCast)
+			{
+				tb = ClassFeat5_text;
+			}
+			else if (cb == cf6_cheatCast)
+			{
+				tb = ClassFeat6_text;
+			}
+			else if (cb == cf7_cheatCast)
+			{
+				tb = ClassFeat7_text;
+			}
+			else if (cb == cf8_cheatCast)
+			{
+				tb = ClassFeat8_text;
+			}
+			else if (cb == cf9_cheatCast)
+			{
+				tb = ClassFeat9_text;
+			}
+			else if (cb == cf10_cheatCast)
+			{
+				tb = ClassFeat10_text;
+			}
+			else //if (cb == cf11_cheatCast)
+			{
+				tb = ClassFeat11_text;
+			}
+
+			int feat;
+			if (Int32.TryParse(tb.Text, out feat))
+			{
+				if (cb.Checked)
+				{
+					feat |= HENCH_FEAT_SPELL_CHEAT_CAST;
+				}
+				else
+					feat &= ~HENCH_FEAT_SPELL_CHEAT_CAST;
+
+//				bypassCheckedChecker = true;
+				tb.Text = feat.ToString();
+			}
+		}
+
+		/// <summary>
+		/// Handles changing ClassFeat feats in their textboxes.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void TextChanged_cFeat(object sender, EventArgs e)
+		{
+			var tb_feat = sender as TextBox;
+
+			int feat;
+			if (Int32.TryParse(tb_feat.Text, out feat))
+			{
+				if (feat < 0)
+				{
+					feat = 0;
+					tb_feat.Text = feat.ToString(); // re-trigger this funct.
+				}
+				else if (feat > 65535) // 16 bits
+				{
+					feat = 65535;
+					tb_feat.Text = feat.ToString(); // re-trigger this funct.
+				}
+				else
+				{
+					TextBox tb;
+					if (tb_feat == cf1_FeatId)
+					{
+						tb = ClassFeat1_text;
+					}
+					else if (tb_feat == cf2_FeatId)
+					{
+						tb = ClassFeat2_text;
+					}
+					else if (tb_feat == cf3_FeatId)
+					{
+						tb = ClassFeat3_text;
+					}
+					else if (tb_feat == cf4_FeatId)
+					{
+						tb = ClassFeat4_text;
+					}
+					else if (tb_feat == cf5_FeatId)
+					{
+						tb = ClassFeat5_text;
+					}
+					else if (tb_feat == cf6_FeatId)
+					{
+						tb = ClassFeat6_text;
+					}
+					else if (tb_feat == cf7_FeatId)
+					{
+						tb = ClassFeat7_text;
+					}
+					else if (tb_feat == cf8_FeatId)
+					{
+						tb = ClassFeat8_text;
+					}
+					else if (tb_feat == cf9_FeatId)
+					{
+						tb = ClassFeat9_text;
+					}
+					else if (tb_feat == cf10_FeatId)
+					{
+						tb = ClassFeat10_text;
+					}
+					else //if (tb_feat == cf11_FeatId)
+					{
+						tb = ClassFeat11_text;
+					}
+
+					int feaT = Int32.Parse(tb.Text);
+					feaT &= ~HENCH_FEAT_SPELL_MASK_FEAT;
+
+					tb.Text = (feaT | feat).ToString();
+				}
+			}
+		}
+
+		/// <summary>
+		/// Handles changing ClassFeat spells in their textboxes.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void TextChanged_cSpell(object sender, EventArgs e)
+		{
+			var tb_spell = sender as TextBox;
+
+			int spell;
+			if (Int32.TryParse(tb_spell.Text, out spell))
+			{
+				if (spell < 0)
+				{
+					spell = 0;
+					tb_spell.Text = spell.ToString(); // re-trigger this funct.
+				}
+				else if (spell > 16383) // 14 bits
+				{
+					spell = 16383;
+					tb_spell.Text = spell.ToString(); // re-trigger this funct.
+				}
+				else
+				{
+					TextBox tb;
+					if (tb_spell == cf1_SpellId)
+					{
+						tb = ClassFeat1_text;
+					}
+					else if (tb_spell == cf2_SpellId)
+					{
+						tb = ClassFeat2_text;
+					}
+					else if (tb_spell == cf3_SpellId)
+					{
+						tb = ClassFeat3_text;
+					}
+					else if (tb_spell == cf4_SpellId)
+					{
+						tb = ClassFeat4_text;
+					}
+					else if (tb_spell == cf5_SpellId)
+					{
+						tb = ClassFeat5_text;
+					}
+					else if (tb_spell == cf6_SpellId)
+					{
+						tb = ClassFeat6_text;
+					}
+					else if (tb_spell == cf7_SpellId)
+					{
+						tb = ClassFeat7_text;
+					}
+					else if (tb_spell == cf8_SpellId)
+					{
+						tb = ClassFeat8_text;
+					}
+					else if (tb_spell == cf9_SpellId)
+					{
+						tb = ClassFeat9_text;
+					}
+					else if (tb_spell == cf10_SpellId)
+					{
+						tb = ClassFeat10_text;
+					}
+					else //if (tb_spell == cf11_SpellId)
+					{
+						tb = ClassFeat11_text;
+					}
+
+					int feaT = Int32.Parse(tb.Text);
+					feaT &= ~HENCH_FEAT_SPELL_MASK_SPELL;
+
+					spell <<= 16;
+					tb.Text = (feaT | spell).ToString();
+				}
+			}
+		}
+
+
+		/// <summary>
+		/// Prints the info-version of the currently selected class ID.
+		/// </summary>
+		void PrintInfoVersion_class()
+		{
+			int ver;
+			if (ClassesChanged.ContainsKey(Id))
+			{
+				ver = ClassesChanged[Id].flags;
+			}
+			else
+				ver = Classes[Id].flags;
+
+			ver &= HENCH_SPELL_INFO_VERSION_MASK;
+			ver >>= HENCH_SPELL_INFO_VERSION_SHIFT;
+
+			cf_infoversion.Text = ver.ToString();
+		}
+
+
+		/// <summary>
+		/// Sets the checkers on the ClassFlags page to reflect the current
+		/// flags value.
+		/// </summary>
+		void CheckClassFlagsCheckers()
+		{
+//			if (!bypassCheckedChecker)
+			{
+				int flags;
+				if (ClassesChanged.ContainsKey(Id))
+				{
+					flags = ClassesChanged[Id].flags;
+				}
+				else
+					flags = Classes[Id].flags;
+
+				cf_HasFeatSpells.Checked = (flags & HENCH_CLASS_FEAT_SPELLS) != 0;
+			}
+//			else
+//				bypassCheckedChecker = false; // TODO: conflict w/ CheckClassFeatsCheckers()
+		}
+
+		/// <summary>
+		/// Sets the checkers on the ClassFeats pages to reflect the current
+		/// feat value.
+		/// </summary>
+		/// <param name="tb"></param>
+		void CheckClassFeatsCheckers(Control tb)
+		{
+//			if (!bypassCheckedChecker)
+			{
+				CheckBox cb;
+				TextBox tb_feat, tb_spell;
+
+				int feat;
+				if (Int32.TryParse(tb.Text, out feat))
+				{
+					if (tb == ClassFeat1_text)
+					{
+						cb = cf1_cheatCast;
+						tb_feat = cf1_FeatId;
+						tb_spell = cf1_SpellId;
+					}
+					else if (tb == ClassFeat2_text)
+					{
+						cb = cf2_cheatCast;
+						tb_feat = cf2_FeatId;
+						tb_spell = cf2_SpellId;
+					}
+					else if (tb == ClassFeat3_text)
+					{
+						cb = cf3_cheatCast;
+						tb_feat = cf3_FeatId;
+						tb_spell = cf3_SpellId;
+					}
+					else if (tb == ClassFeat4_text)
+					{
+						cb = cf4_cheatCast;
+						tb_feat = cf4_FeatId;
+						tb_spell = cf4_SpellId;
+					}
+					else if (tb == ClassFeat5_text)
+					{
+						cb = cf5_cheatCast;
+						tb_feat = cf5_FeatId;
+						tb_spell = cf5_SpellId;
+					}
+					else if (tb == ClassFeat6_text)
+					{
+						cb = cf6_cheatCast;
+						tb_feat = cf6_FeatId;
+						tb_spell = cf6_SpellId;
+					}
+					else if (tb == ClassFeat7_text)
+					{
+						cb = cf7_cheatCast;
+						tb_feat = cf7_FeatId;
+						tb_spell = cf7_SpellId;
+					}
+					else if (tb == ClassFeat8_text)
+					{
+						cb = cf8_cheatCast;
+						tb_feat = cf8_FeatId;
+						tb_spell = cf8_SpellId;
+					}
+					else if (tb == ClassFeat9_text)
+					{
+						cb = cf9_cheatCast;
+						tb_feat = cf9_FeatId;
+						tb_spell = cf9_SpellId;
+					}
+					else if (tb == ClassFeat10_text)
+					{
+						cb = cf10_cheatCast;
+						tb_feat = cf10_FeatId;
+						tb_spell = cf10_SpellId;
+					}
+					else //if (tb == ClassFeat11_text)
+					{
+						cb = cf11_cheatCast;
+						tb_feat = cf11_FeatId;
+						tb_spell = cf11_SpellId;
+					}
+
+					cb.Checked = (feat & HENCH_FEAT_SPELL_CHEAT_CAST) != 0;
+
+					int val = (feat & HENCH_FEAT_SPELL_MASK_FEAT);
+					tb_feat.Text = val.ToString();
+
+					val = (feat & HENCH_FEAT_SPELL_MASK_SPELL) >> 16;
+					tb_spell.Text = val.ToString();
+				}
+			}
+//			else
+//				bypassCheckedChecker = false; // TODO: conflict w/ CheckClassFlagsCheckers()
 		}
 	}
 }

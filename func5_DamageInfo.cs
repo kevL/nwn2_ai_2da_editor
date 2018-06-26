@@ -731,7 +731,7 @@ namespace nwn2_ai_2da_editor
 		/// <param name="damageinfo"></param>
 		void CheckDamageInfoCheckers(int damageinfo)
 		{
-			if (!bypassCheckedChecker)
+//			if (!bypassCheckedChecker)
 			{
 // DispelTypes checkboxes
 				di_Breach.Checked = (damageinfo & HENCH_SPELL_INFO_DAMAGE_BREACH) != 0;
@@ -914,8 +914,8 @@ namespace nwn2_ai_2da_editor
 				val >>= HENCH_SPELL_INFO_DAMAGE_FIXED_COUNT_SHIFT;
 				di_DetFixedcount.Text = val.ToString();
 			}
-			else
-				bypassCheckedChecker = false;
+//			else
+//				bypassCheckedChecker = false;
 		}
 	}
 }

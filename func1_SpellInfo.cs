@@ -223,7 +223,7 @@ namespace nwn2_ai_2da_editor
 			int spellinfo;
 			if (Int32.TryParse(SpellInfo_text.Text, out spellinfo))
 			{
-				bypassCheckedChecker = true;
+//				bypassCheckedChecker = true;
 
 				spellinfo &= ~HENCH_SPELL_INFO_SPELL_TYPE_MASK; // 0x000000ff
 				SpellInfo_text.Text = (spellinfo | cbo_si_Spelltype.SelectedIndex).ToString();
@@ -242,7 +242,7 @@ namespace nwn2_ai_2da_editor
 			int spellinfo;
 			if (Int32.TryParse(SpellInfo_text.Text, out spellinfo))
 			{
-				bypassCheckedChecker = true;
+//				bypassCheckedChecker = true;
 
 				spellinfo &= ~HENCH_SPELL_INFO_SPELL_LEVEL_MASK; // 0x0001e000
 				int val = cbo_si_Spelllevel.SelectedIndex << HENCH_SPELL_INFO_SPELL_LEVEL_SHIFT;
@@ -312,7 +312,7 @@ namespace nwn2_ai_2da_editor
 				else
 					spellinfo &= ~bit;
 
-				bypassCheckedChecker = true;
+//				bypassCheckedChecker = true;
 				SpellInfo_text.Text = spellinfo.ToString();
 			}
 		}
@@ -360,7 +360,7 @@ namespace nwn2_ai_2da_editor
 		/// <param name="spellinfo"></param>
 		void CheckSpellInfoCheckers(int spellinfo)
 		{
-			if (!bypassCheckedChecker)
+//			if (!bypassCheckedChecker)
 			{
 // Flags checkboxes
 				si_IsMaster     .Checked = (spellinfo & HENCH_SPELL_INFO_MASTER_FLAG)        != 0;
@@ -400,8 +400,8 @@ namespace nwn2_ai_2da_editor
 
 				cbo_si_Spelllevel.SelectedIndex = val;
 			}
-			else
-				bypassCheckedChecker = false;
+//			else
+//				bypassCheckedChecker = false;
 		}
 
 

@@ -516,5 +516,49 @@
 		const int HENCH_FEAT_SPELL_MASK_SPELL = 0x3fff0000;
 		const int HENCH_FEAT_SPELL_CHEAT_CAST = 0x40000000;
 		#endregion Racial
+
+
+		#region Classes
+		const int HENCH_CLASS_FEAT_SPELLS                  = 0x00000008;
+
+//		const int HENCH_CLASS_SPELL_PROG_MASK              = 0x00000007;
+//		const int HENCH_FULL_SPELL_PROGRESSION             = 0x00000007;
+//		const int HENCH_SKIP_FIRST_SPELL_PROGRESSION       = 0x00000006;
+//		const int HENCH_SKIP_FOURTH_SPELL_PROGRESSION      = 0x00000005;
+//		const int HENCH_EVERY_OTHER_ODD_SPELL_PROGRESSION  = 0x00000004;
+//		const int HENCH_EVERY_OTHER_EVEN_SPELL_PROGRESSION = 0x00000003;
+//		const int HENCH_SKIP_FIRST_THIRD_SPELL_PROGRESSION = 0x00000002;
+//		const int HENCH_NO_SPELL_PROGRESSION               = 0x00000000;
+
+//		const int HENCH_CLASS_PRC_FLAG                     = 0x00000010;
+//		const int HENCH_CLASS_DIVINE_FLAG                  = 0x00000020;
+//		const int HENCH_CLASS_DC_BONUS_FLAG                = 0x00000040;
+//		const int HENCH_CLASS_FOURTH_LEVEL_NEEDED          = 0x00000080;
+//		const int HENCH_CLASS_ABILITY_MODIFIER_MASK        = 0x00000300;
+//		const int HENCH_CLASS_ABILITY_MODIFIER_SHIFT       = 8;
+//		const int HENCH_CLASS_BUFF_OTHERS_MASK             = 0x00000c00;
+//		const int HENCH_CLASS_BUFF_OTHERS_FULL             = 0x00000000;
+//		const int HENCH_CLASS_BUFF_OTHERS_HIGH             = 0x00000400;
+//		const int HENCH_CLASS_BUFF_OTHERS_MEDIUM           = 0x00000800;
+//		const int HENCH_CLASS_BUFF_OTHERS_LOW              = 0x00000c00;
+//		const int HENCH_CLASS_ATTACK_MASK                  = 0x00003000;
+//		const int HENCH_CLASS_ATTACK_FULL                  = 0x00000000;
+//		const int HENCH_CLASS_ATTACK_HIGH                  = 0x00001000;
+//		const int HENCH_CLASS_ATTACK_MEDIUM                = 0x00002000;
+//		const int HENCH_CLASS_ATTACK_LOW                   = 0x00003000;
+
+//		const int HENCH_CLASS_SA_MASK                      = 0x0001c000; // sneak attack info
+//		const int HENCH_CLASS_SA_NONE                      = 0x00000000;
+//		const int HENCH_CLASS_SA_EVERY_OTHER_ODD           = 0x00004000;
+//		const int HENCH_CLASS_SA_EVERY_OTHER_EVEN          = 0x00008000;
+//		const int HENCH_CLASS_SA_EVERY_THIRD_SKIP_FIRST    = 0x0000c000;
+//		const int HENCH_CLASS_SA_EVERY_THIRD               = 0x00010000;
+//		const int HENCH_CLASS_SA_EVERY_THIRD_FROM_TWO      = 0x00014000;
+//		const int HENCH_CLASS_SA_EVERY_THIRD_FROM_ONE      = 0x00018000;
+//		const int HENCH_CLASS_SA_EVERY_FORTH               = 0x0001c000;
+
+//		const int HENCH_CLASS_TURN_UNDEAD_STACKS           = 0x00020000;
+//		const int HENCH_CLASS_IGNORE_SILENCE               = 0x00040000;
+		#endregion Classes
 	}
 }

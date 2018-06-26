@@ -184,8 +184,10 @@ namespace nwn2_ai_2da_editor
 				else
 					CheckRacialFeatsCheckers(tb);
 
+//				bypassCheckedChecker = false; // TODO: This funct will fire multiple times OnLoad ...
 
-				PrintInfoVersion();
+
+				PrintInfoVersion_race();
 			}
 			// else TODO: error dialog here.
 		}
@@ -284,7 +286,7 @@ namespace nwn2_ai_2da_editor
 				else
 					flags &= ~HENCH_RACIAL_FEAT_SPELLS;
 
-				bypassCheckedChecker = true;
+//				bypassCheckedChecker = true;
 				RacialFlags_text.Text = flags.ToString();
 			}
 		}
@@ -328,7 +330,7 @@ namespace nwn2_ai_2da_editor
 				else
 					feat &= ~HENCH_FEAT_SPELL_CHEAT_CAST;
 
-				bypassCheckedChecker = true;
+//				bypassCheckedChecker = true;
 				tb.Text = feat.ToString();
 			}
 		}
@@ -428,7 +430,7 @@ namespace nwn2_ai_2da_editor
 					{
 						tb = RacialFeat4_text;
 					}
-					else //if (tb_feat == rf5_SpellId)
+					else //if (tb_spell == rf5_SpellId)
 					{
 						tb = RacialFeat5_text;
 					}
@@ -446,7 +448,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Prints the info-version of the currently selected race ID.
 		/// </summary>
-		void PrintInfoVersion()
+		void PrintInfoVersion_race()
 		{
 			int ver;
 			if (RacesChanged.ContainsKey(Id))
@@ -457,7 +459,7 @@ namespace nwn2_ai_2da_editor
 				ver = Races[Id].flags;
 
 			ver &= HENCH_SPELL_INFO_VERSION_MASK;
-			ver >>= 24;
+			ver >>= HENCH_SPELL_INFO_VERSION_SHIFT;
 
 			rf_infoversion.Text = ver.ToString();
 		}
@@ -469,20 +471,20 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void CheckRacialFlagsCheckers()
 		{
-			if (!bypassCheckedChecker)
+//			if (!bypassCheckedChecker)
 			{
-				int info;
+				int flags;
 				if (RacesChanged.ContainsKey(Id))
 				{
-					info = RacesChanged[Id].flags;
+					flags = RacesChanged[Id].flags;
 				}
 				else
-					info = Races[Id].flags;
+					flags = Races[Id].flags;
 
-				rf_HasFeatSpells.Checked = (info & HENCH_RACIAL_FEAT_SPELLS) != 0;
+				rf_HasFeatSpells.Checked = (flags & HENCH_RACIAL_FEAT_SPELLS) != 0;
 			}
-			else
-				bypassCheckedChecker = false;
+//			else
+//				bypassCheckedChecker = false; // TODO: conflict w/ CheckRacialFeatsCheckers()
 		}
 
 		/// <summary>
@@ -492,7 +494,7 @@ namespace nwn2_ai_2da_editor
 		/// <param name="tb"></param>
 		void CheckRacialFeatsCheckers(Control tb)
 		{
-			if (!bypassCheckedChecker)
+//			if (!bypassCheckedChecker)
 			{
 				CheckBox cb;
 				TextBox tb_feat, tb_spell;
@@ -540,8 +542,8 @@ namespace nwn2_ai_2da_editor
 					tb_spell.Text = val.ToString();
 				}
 			}
-			else
-				bypassCheckedChecker = false;
+//			else
+//				bypassCheckedChecker = false; // TODO: conflict w/ CheckRacialFlagsCheckers()
 		}
 	}
 }

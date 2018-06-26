@@ -473,6 +473,64 @@
 		private System.Windows.Forms.CheckBox rf5_cheatCast;
 		private System.Windows.Forms.Label rf5_spellId_label;
 		private System.Windows.Forms.Label rf5_featId_label;
+		private System.Windows.Forms.TextBox cf1_SpellId;
+		private System.Windows.Forms.TextBox cf1_FeatId;
+		private System.Windows.Forms.CheckBox cf1_cheatCast;
+		private System.Windows.Forms.Label cf1_spellId_label;
+		private System.Windows.Forms.Label cf1_featId_label;
+		private System.Windows.Forms.TextBox cf2_SpellId;
+		private System.Windows.Forms.TextBox cf2_FeatId;
+		private System.Windows.Forms.CheckBox cf2_cheatCast;
+		private System.Windows.Forms.Label cf2_spellId_label;
+		private System.Windows.Forms.Label cf2_featId_label;
+		private System.Windows.Forms.TextBox cf3_SpellId;
+		private System.Windows.Forms.TextBox cf3_FeatId;
+		private System.Windows.Forms.CheckBox cf3_cheatCast;
+		private System.Windows.Forms.Label cf3_spellId_label;
+		private System.Windows.Forms.Label cf3_featId_label;
+		private System.Windows.Forms.TextBox cf4_SpellId;
+		private System.Windows.Forms.TextBox cf4_FeatId;
+		private System.Windows.Forms.CheckBox cf4_cheatCast;
+		private System.Windows.Forms.Label cf4_spellId_label;
+		private System.Windows.Forms.Label cf4_featId_label;
+		private System.Windows.Forms.TextBox cf5_SpellId;
+		private System.Windows.Forms.TextBox cf5_FeatId;
+		private System.Windows.Forms.CheckBox cf5_cheatCast;
+		private System.Windows.Forms.Label cf5_spellId_label;
+		private System.Windows.Forms.Label cf5_featId_label;
+		private System.Windows.Forms.TextBox cf6_SpellId;
+		private System.Windows.Forms.TextBox cf6_FeatId;
+		private System.Windows.Forms.CheckBox cf6_cheatCast;
+		private System.Windows.Forms.Label cf6_spellId_label;
+		private System.Windows.Forms.Label cf6_featId_label;
+		private System.Windows.Forms.TextBox cf7_SpellId;
+		private System.Windows.Forms.TextBox cf7_FeatId;
+		private System.Windows.Forms.CheckBox cf7_cheatCast;
+		private System.Windows.Forms.Label cf7_spellId_label;
+		private System.Windows.Forms.Label cf7_featId_label;
+		private System.Windows.Forms.TextBox cf8_SpellId;
+		private System.Windows.Forms.TextBox cf8_FeatId;
+		private System.Windows.Forms.CheckBox cf8_cheatCast;
+		private System.Windows.Forms.Label cf8_spellId_label;
+		private System.Windows.Forms.Label cf8_featId_label;
+		private System.Windows.Forms.TextBox cf9_SpellId;
+		private System.Windows.Forms.TextBox cf9_FeatId;
+		private System.Windows.Forms.CheckBox cf9_cheatCast;
+		private System.Windows.Forms.Label cf9_spellId_label;
+		private System.Windows.Forms.Label cf9_featId_label;
+		private System.Windows.Forms.TextBox cf10_SpellId;
+		private System.Windows.Forms.TextBox cf10_FeatId;
+		private System.Windows.Forms.CheckBox cf10_cheatCast;
+		private System.Windows.Forms.Label cf10_spellId_label;
+		private System.Windows.Forms.Label cf10_featId_label;
+		private System.Windows.Forms.TextBox cf11_SpellId;
+		private System.Windows.Forms.TextBox cf11_FeatId;
+		private System.Windows.Forms.CheckBox cf11_cheatCast;
+		private System.Windows.Forms.Label cf11_spellId_label;
+		private System.Windows.Forms.Label cf11_featId_label;
+		private System.Windows.Forms.CheckBox cf_HasFeatSpells;
+		private System.Windows.Forms.Label cf_infoversion;
+		private System.Windows.Forms.Label cf_infoversion_label;
 
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -790,6 +848,9 @@
 			this.tb_Search = new System.Windows.Forms.TextBox();
 			this.cols_HenchClasses = new System.Windows.Forms.TabControl();
 			this.page_ClassFlags = new System.Windows.Forms.TabPage();
+			this.cf_infoversion = new System.Windows.Forms.Label();
+			this.cf_infoversion_label = new System.Windows.Forms.Label();
+			this.cf_HasFeatSpells = new System.Windows.Forms.CheckBox();
 			this.cf_bin = new System.Windows.Forms.Label();
 			this.cf_hex = new System.Windows.Forms.Label();
 			this.cf_Clear = new System.Windows.Forms.Button();
@@ -798,6 +859,11 @@
 			this.ClassFlags_text = new System.Windows.Forms.TextBox();
 			this.ClassFlags_reset = new System.Windows.Forms.Button();
 			this.page_ClassFeat1 = new System.Windows.Forms.TabPage();
+			this.cf1_SpellId = new System.Windows.Forms.TextBox();
+			this.cf1_FeatId = new System.Windows.Forms.TextBox();
+			this.cf1_cheatCast = new System.Windows.Forms.CheckBox();
+			this.cf1_spellId_label = new System.Windows.Forms.Label();
+			this.cf1_featId_label = new System.Windows.Forms.Label();
 			this.cf1_bin = new System.Windows.Forms.Label();
 			this.cf1_hex = new System.Windows.Forms.Label();
 			this.cf1_Clear = new System.Windows.Forms.Button();
@@ -806,6 +872,11 @@
 			this.ClassFeat1_text = new System.Windows.Forms.TextBox();
 			this.ClassFeat1_reset = new System.Windows.Forms.Button();
 			this.page_ClassFeat2 = new System.Windows.Forms.TabPage();
+			this.cf2_SpellId = new System.Windows.Forms.TextBox();
+			this.cf2_FeatId = new System.Windows.Forms.TextBox();
+			this.cf2_cheatCast = new System.Windows.Forms.CheckBox();
+			this.cf2_spellId_label = new System.Windows.Forms.Label();
+			this.cf2_featId_label = new System.Windows.Forms.Label();
 			this.cf2_bin = new System.Windows.Forms.Label();
 			this.cf2_hex = new System.Windows.Forms.Label();
 			this.cf2_Clear = new System.Windows.Forms.Button();
@@ -814,6 +885,11 @@
 			this.ClassFeat2_text = new System.Windows.Forms.TextBox();
 			this.ClassFeat2_reset = new System.Windows.Forms.Button();
 			this.page_ClassFeat3 = new System.Windows.Forms.TabPage();
+			this.cf3_SpellId = new System.Windows.Forms.TextBox();
+			this.cf3_FeatId = new System.Windows.Forms.TextBox();
+			this.cf3_cheatCast = new System.Windows.Forms.CheckBox();
+			this.cf3_spellId_label = new System.Windows.Forms.Label();
+			this.cf3_featId_label = new System.Windows.Forms.Label();
 			this.cf3_bin = new System.Windows.Forms.Label();
 			this.cf3_hex = new System.Windows.Forms.Label();
 			this.cf3_Clear = new System.Windows.Forms.Button();
@@ -822,6 +898,11 @@
 			this.ClassFeat3_text = new System.Windows.Forms.TextBox();
 			this.ClassFeat3_reset = new System.Windows.Forms.Button();
 			this.page_ClassFeat4 = new System.Windows.Forms.TabPage();
+			this.cf4_SpellId = new System.Windows.Forms.TextBox();
+			this.cf4_FeatId = new System.Windows.Forms.TextBox();
+			this.cf4_cheatCast = new System.Windows.Forms.CheckBox();
+			this.cf4_spellId_label = new System.Windows.Forms.Label();
+			this.cf4_featId_label = new System.Windows.Forms.Label();
 			this.cf4_bin = new System.Windows.Forms.Label();
 			this.cf4_hex = new System.Windows.Forms.Label();
 			this.cf4_Clear = new System.Windows.Forms.Button();
@@ -830,6 +911,11 @@
 			this.ClassFeat4_text = new System.Windows.Forms.TextBox();
 			this.ClassFeat4_reset = new System.Windows.Forms.Button();
 			this.page_ClassFeat5 = new System.Windows.Forms.TabPage();
+			this.cf5_SpellId = new System.Windows.Forms.TextBox();
+			this.cf5_FeatId = new System.Windows.Forms.TextBox();
+			this.cf5_cheatCast = new System.Windows.Forms.CheckBox();
+			this.cf5_spellId_label = new System.Windows.Forms.Label();
+			this.cf5_featId_label = new System.Windows.Forms.Label();
 			this.cf5_bin = new System.Windows.Forms.Label();
 			this.cf5_hex = new System.Windows.Forms.Label();
 			this.cf5_Clear = new System.Windows.Forms.Button();
@@ -838,6 +924,11 @@
 			this.ClassFeat5_text = new System.Windows.Forms.TextBox();
 			this.ClassFeat5_reset = new System.Windows.Forms.Button();
 			this.page_ClassFeat6 = new System.Windows.Forms.TabPage();
+			this.cf6_SpellId = new System.Windows.Forms.TextBox();
+			this.cf6_FeatId = new System.Windows.Forms.TextBox();
+			this.cf6_cheatCast = new System.Windows.Forms.CheckBox();
+			this.cf6_spellId_label = new System.Windows.Forms.Label();
+			this.cf6_featId_label = new System.Windows.Forms.Label();
 			this.cf6_bin = new System.Windows.Forms.Label();
 			this.cf6_hex = new System.Windows.Forms.Label();
 			this.cf6_Clear = new System.Windows.Forms.Button();
@@ -846,6 +937,11 @@
 			this.ClassFeat6_text = new System.Windows.Forms.TextBox();
 			this.ClassFeat6_reset = new System.Windows.Forms.Button();
 			this.page_ClassFeat7 = new System.Windows.Forms.TabPage();
+			this.cf7_SpellId = new System.Windows.Forms.TextBox();
+			this.cf7_FeatId = new System.Windows.Forms.TextBox();
+			this.cf7_cheatCast = new System.Windows.Forms.CheckBox();
+			this.cf7_spellId_label = new System.Windows.Forms.Label();
+			this.cf7_featId_label = new System.Windows.Forms.Label();
 			this.cf7_bin = new System.Windows.Forms.Label();
 			this.cf7_hex = new System.Windows.Forms.Label();
 			this.cf7_Clear = new System.Windows.Forms.Button();
@@ -854,6 +950,11 @@
 			this.ClassFeat7_text = new System.Windows.Forms.TextBox();
 			this.ClassFeat7_reset = new System.Windows.Forms.Button();
 			this.page_ClassFeat8 = new System.Windows.Forms.TabPage();
+			this.cf8_SpellId = new System.Windows.Forms.TextBox();
+			this.cf8_FeatId = new System.Windows.Forms.TextBox();
+			this.cf8_cheatCast = new System.Windows.Forms.CheckBox();
+			this.cf8_spellId_label = new System.Windows.Forms.Label();
+			this.cf8_featId_label = new System.Windows.Forms.Label();
 			this.cf8_bin = new System.Windows.Forms.Label();
 			this.cf8_hex = new System.Windows.Forms.Label();
 			this.cf8_Clear = new System.Windows.Forms.Button();
@@ -862,6 +963,11 @@
 			this.ClassFeat8_text = new System.Windows.Forms.TextBox();
 			this.ClassFeat8_reset = new System.Windows.Forms.Button();
 			this.page_ClassFeat9 = new System.Windows.Forms.TabPage();
+			this.cf9_SpellId = new System.Windows.Forms.TextBox();
+			this.cf9_FeatId = new System.Windows.Forms.TextBox();
+			this.cf9_cheatCast = new System.Windows.Forms.CheckBox();
+			this.cf9_spellId_label = new System.Windows.Forms.Label();
+			this.cf9_featId_label = new System.Windows.Forms.Label();
 			this.cf9_bin = new System.Windows.Forms.Label();
 			this.cf9_hex = new System.Windows.Forms.Label();
 			this.cf9_Clear = new System.Windows.Forms.Button();
@@ -870,6 +976,11 @@
 			this.ClassFeat9_text = new System.Windows.Forms.TextBox();
 			this.ClassFeat9_reset = new System.Windows.Forms.Button();
 			this.page_ClassFeat10 = new System.Windows.Forms.TabPage();
+			this.cf10_SpellId = new System.Windows.Forms.TextBox();
+			this.cf10_FeatId = new System.Windows.Forms.TextBox();
+			this.cf10_cheatCast = new System.Windows.Forms.CheckBox();
+			this.cf10_spellId_label = new System.Windows.Forms.Label();
+			this.cf10_featId_label = new System.Windows.Forms.Label();
 			this.cf10_bin = new System.Windows.Forms.Label();
 			this.cf10_hex = new System.Windows.Forms.Label();
 			this.cf10_Clear = new System.Windows.Forms.Button();
@@ -878,6 +989,11 @@
 			this.ClassFeat10_text = new System.Windows.Forms.TextBox();
 			this.ClassFeat10_reset = new System.Windows.Forms.Button();
 			this.page_ClassFeat11 = new System.Windows.Forms.TabPage();
+			this.cf11_SpellId = new System.Windows.Forms.TextBox();
+			this.cf11_FeatId = new System.Windows.Forms.TextBox();
+			this.cf11_cheatCast = new System.Windows.Forms.CheckBox();
+			this.cf11_spellId_label = new System.Windows.Forms.Label();
+			this.cf11_featId_label = new System.Windows.Forms.Label();
 			this.cf11_bin = new System.Windows.Forms.Label();
 			this.cf11_hex = new System.Windows.Forms.Label();
 			this.cf11_Clear = new System.Windows.Forms.Button();
@@ -4442,12 +4558,15 @@
 			this.cols_HenchClasses.Name = "cols_HenchClasses";
 			this.cols_HenchClasses.Padding = new System.Drawing.Point(5, 2);
 			this.cols_HenchClasses.SelectedIndex = 0;
-			this.cols_HenchClasses.Size = new System.Drawing.Size(1070, 168);
+			this.cols_HenchClasses.Size = new System.Drawing.Size(1070, 210);
 			this.cols_HenchClasses.TabIndex = 3;
 			this.cols_HenchClasses.SelectedIndexChanged += new System.EventHandler(this.SelectedIndexChanged_tab);
 			// 
 			// page_ClassFlags
 			// 
+			this.page_ClassFlags.Controls.Add(this.cf_infoversion);
+			this.page_ClassFlags.Controls.Add(this.cf_infoversion_label);
+			this.page_ClassFlags.Controls.Add(this.cf_HasFeatSpells);
 			this.page_ClassFlags.Controls.Add(this.cf_bin);
 			this.page_ClassFlags.Controls.Add(this.cf_hex);
 			this.page_ClassFlags.Controls.Add(this.cf_Clear);
@@ -4459,10 +4578,39 @@
 			this.page_ClassFlags.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFlags.Name = "page_ClassFlags";
 			this.page_ClassFlags.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFlags.Size = new System.Drawing.Size(1062, 140);
+			this.page_ClassFlags.Size = new System.Drawing.Size(1062, 182);
 			this.page_ClassFlags.TabIndex = 0;
 			this.page_ClassFlags.Text = "Flags";
 			this.page_ClassFlags.UseVisualStyleBackColor = true;
+			// 
+			// cf_infoversion
+			// 
+			this.cf_infoversion.Location = new System.Drawing.Point(520, 35);
+			this.cf_infoversion.Margin = new System.Windows.Forms.Padding(0);
+			this.cf_infoversion.Name = "cf_infoversion";
+			this.cf_infoversion.Size = new System.Drawing.Size(95, 15);
+			this.cf_infoversion.TabIndex = 57;
+			this.cf_infoversion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			// 
+			// cf_infoversion_label
+			// 
+			this.cf_infoversion_label.Location = new System.Drawing.Point(520, 15);
+			this.cf_infoversion_label.Margin = new System.Windows.Forms.Padding(0);
+			this.cf_infoversion_label.Name = "cf_infoversion_label";
+			this.cf_infoversion_label.Size = new System.Drawing.Size(95, 15);
+			this.cf_infoversion_label.TabIndex = 56;
+			this.cf_infoversion_label.Text = "Info Version";
+			// 
+			// cf_HasFeatSpells
+			// 
+			this.cf_HasFeatSpells.Location = new System.Drawing.Point(15, 65);
+			this.cf_HasFeatSpells.Margin = new System.Windows.Forms.Padding(0);
+			this.cf_HasFeatSpells.Name = "cf_HasFeatSpells";
+			this.cf_HasFeatSpells.Size = new System.Drawing.Size(125, 19);
+			this.cf_HasFeatSpells.TabIndex = 55;
+			this.cf_HasFeatSpells.Text = "has FeatSpells";
+			this.cf_HasFeatSpells.UseVisualStyleBackColor = true;
+			this.cf_HasFeatSpells.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_cFlags);
 			// 
 			// cf_bin
 			// 
@@ -4540,6 +4688,11 @@
 			// 
 			// page_ClassFeat1
 			// 
+			this.page_ClassFeat1.Controls.Add(this.cf1_SpellId);
+			this.page_ClassFeat1.Controls.Add(this.cf1_FeatId);
+			this.page_ClassFeat1.Controls.Add(this.cf1_cheatCast);
+			this.page_ClassFeat1.Controls.Add(this.cf1_spellId_label);
+			this.page_ClassFeat1.Controls.Add(this.cf1_featId_label);
 			this.page_ClassFeat1.Controls.Add(this.cf1_bin);
 			this.page_ClassFeat1.Controls.Add(this.cf1_hex);
 			this.page_ClassFeat1.Controls.Add(this.cf1_Clear);
@@ -4547,14 +4700,62 @@
 			this.page_ClassFeat1.Controls.Add(this.ClassFeat1_hex);
 			this.page_ClassFeat1.Controls.Add(this.ClassFeat1_text);
 			this.page_ClassFeat1.Controls.Add(this.ClassFeat1_reset);
-			this.page_ClassFeat1.Location = new System.Drawing.Point(4, 23);
+			this.page_ClassFeat1.Location = new System.Drawing.Point(4, 24);
 			this.page_ClassFeat1.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat1.Name = "page_ClassFeat1";
 			this.page_ClassFeat1.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat1.Size = new System.Drawing.Size(1062, 141);
+			this.page_ClassFeat1.Size = new System.Drawing.Size(1062, 182);
 			this.page_ClassFeat1.TabIndex = 1;
 			this.page_ClassFeat1.Text = "FeatSpell1";
 			this.page_ClassFeat1.UseVisualStyleBackColor = true;
+			// 
+			// cf1_SpellId
+			// 
+			this.cf1_SpellId.Location = new System.Drawing.Point(80, 80);
+			this.cf1_SpellId.Margin = new System.Windows.Forms.Padding(0);
+			this.cf1_SpellId.Name = "cf1_SpellId";
+			this.cf1_SpellId.Size = new System.Drawing.Size(90, 20);
+			this.cf1_SpellId.TabIndex = 64;
+			this.cf1_SpellId.TextChanged += new System.EventHandler(this.TextChanged_cSpell);
+			// 
+			// cf1_FeatId
+			// 
+			this.cf1_FeatId.Location = new System.Drawing.Point(80, 60);
+			this.cf1_FeatId.Margin = new System.Windows.Forms.Padding(0);
+			this.cf1_FeatId.Name = "cf1_FeatId";
+			this.cf1_FeatId.Size = new System.Drawing.Size(90, 20);
+			this.cf1_FeatId.TabIndex = 63;
+			this.cf1_FeatId.TextChanged += new System.EventHandler(this.TextChanged_cFeat);
+			// 
+			// cf1_cheatCast
+			// 
+			this.cf1_cheatCast.Location = new System.Drawing.Point(15, 110);
+			this.cf1_cheatCast.Name = "cf1_cheatCast";
+			this.cf1_cheatCast.Size = new System.Drawing.Size(100, 19);
+			this.cf1_cheatCast.TabIndex = 62;
+			this.cf1_cheatCast.Text = "cheat cast";
+			this.cf1_cheatCast.UseVisualStyleBackColor = true;
+			this.cf1_cheatCast.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_cFeats);
+			// 
+			// cf1_spellId_label
+			// 
+			this.cf1_spellId_label.Location = new System.Drawing.Point(10, 85);
+			this.cf1_spellId_label.Margin = new System.Windows.Forms.Padding(0);
+			this.cf1_spellId_label.Name = "cf1_spellId_label";
+			this.cf1_spellId_label.Size = new System.Drawing.Size(65, 15);
+			this.cf1_spellId_label.TabIndex = 61;
+			this.cf1_spellId_label.Text = "ID Spell";
+			this.cf1_spellId_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf1_featId_label
+			// 
+			this.cf1_featId_label.Location = new System.Drawing.Point(10, 65);
+			this.cf1_featId_label.Margin = new System.Windows.Forms.Padding(0);
+			this.cf1_featId_label.Name = "cf1_featId_label";
+			this.cf1_featId_label.Size = new System.Drawing.Size(65, 15);
+			this.cf1_featId_label.TabIndex = 60;
+			this.cf1_featId_label.Text = "ID Feat";
+			this.cf1_featId_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cf1_bin
 			// 
@@ -4632,6 +4833,11 @@
 			// 
 			// page_ClassFeat2
 			// 
+			this.page_ClassFeat2.Controls.Add(this.cf2_SpellId);
+			this.page_ClassFeat2.Controls.Add(this.cf2_FeatId);
+			this.page_ClassFeat2.Controls.Add(this.cf2_cheatCast);
+			this.page_ClassFeat2.Controls.Add(this.cf2_spellId_label);
+			this.page_ClassFeat2.Controls.Add(this.cf2_featId_label);
 			this.page_ClassFeat2.Controls.Add(this.cf2_bin);
 			this.page_ClassFeat2.Controls.Add(this.cf2_hex);
 			this.page_ClassFeat2.Controls.Add(this.cf2_Clear);
@@ -4639,14 +4845,62 @@
 			this.page_ClassFeat2.Controls.Add(this.ClassFeat2_hex);
 			this.page_ClassFeat2.Controls.Add(this.ClassFeat2_text);
 			this.page_ClassFeat2.Controls.Add(this.ClassFeat2_reset);
-			this.page_ClassFeat2.Location = new System.Drawing.Point(4, 23);
+			this.page_ClassFeat2.Location = new System.Drawing.Point(4, 24);
 			this.page_ClassFeat2.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat2.Name = "page_ClassFeat2";
 			this.page_ClassFeat2.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat2.Size = new System.Drawing.Size(1062, 141);
+			this.page_ClassFeat2.Size = new System.Drawing.Size(1062, 182);
 			this.page_ClassFeat2.TabIndex = 2;
 			this.page_ClassFeat2.Text = "FeatSpell2";
 			this.page_ClassFeat2.UseVisualStyleBackColor = true;
+			// 
+			// cf2_SpellId
+			// 
+			this.cf2_SpellId.Location = new System.Drawing.Point(80, 80);
+			this.cf2_SpellId.Margin = new System.Windows.Forms.Padding(0);
+			this.cf2_SpellId.Name = "cf2_SpellId";
+			this.cf2_SpellId.Size = new System.Drawing.Size(90, 20);
+			this.cf2_SpellId.TabIndex = 64;
+			this.cf2_SpellId.TextChanged += new System.EventHandler(this.TextChanged_cSpell);
+			// 
+			// cf2_FeatId
+			// 
+			this.cf2_FeatId.Location = new System.Drawing.Point(80, 60);
+			this.cf2_FeatId.Margin = new System.Windows.Forms.Padding(0);
+			this.cf2_FeatId.Name = "cf2_FeatId";
+			this.cf2_FeatId.Size = new System.Drawing.Size(90, 20);
+			this.cf2_FeatId.TabIndex = 63;
+			this.cf2_FeatId.TextChanged += new System.EventHandler(this.TextChanged_cFeat);
+			// 
+			// cf2_cheatCast
+			// 
+			this.cf2_cheatCast.Location = new System.Drawing.Point(15, 110);
+			this.cf2_cheatCast.Name = "cf2_cheatCast";
+			this.cf2_cheatCast.Size = new System.Drawing.Size(100, 19);
+			this.cf2_cheatCast.TabIndex = 62;
+			this.cf2_cheatCast.Text = "cheat cast";
+			this.cf2_cheatCast.UseVisualStyleBackColor = true;
+			this.cf2_cheatCast.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_cFeats);
+			// 
+			// cf2_spellId_label
+			// 
+			this.cf2_spellId_label.Location = new System.Drawing.Point(10, 85);
+			this.cf2_spellId_label.Margin = new System.Windows.Forms.Padding(0);
+			this.cf2_spellId_label.Name = "cf2_spellId_label";
+			this.cf2_spellId_label.Size = new System.Drawing.Size(65, 15);
+			this.cf2_spellId_label.TabIndex = 61;
+			this.cf2_spellId_label.Text = "ID Spell";
+			this.cf2_spellId_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf2_featId_label
+			// 
+			this.cf2_featId_label.Location = new System.Drawing.Point(10, 65);
+			this.cf2_featId_label.Margin = new System.Windows.Forms.Padding(0);
+			this.cf2_featId_label.Name = "cf2_featId_label";
+			this.cf2_featId_label.Size = new System.Drawing.Size(65, 15);
+			this.cf2_featId_label.TabIndex = 60;
+			this.cf2_featId_label.Text = "ID Feat";
+			this.cf2_featId_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cf2_bin
 			// 
@@ -4724,6 +4978,11 @@
 			// 
 			// page_ClassFeat3
 			// 
+			this.page_ClassFeat3.Controls.Add(this.cf3_SpellId);
+			this.page_ClassFeat3.Controls.Add(this.cf3_FeatId);
+			this.page_ClassFeat3.Controls.Add(this.cf3_cheatCast);
+			this.page_ClassFeat3.Controls.Add(this.cf3_spellId_label);
+			this.page_ClassFeat3.Controls.Add(this.cf3_featId_label);
 			this.page_ClassFeat3.Controls.Add(this.cf3_bin);
 			this.page_ClassFeat3.Controls.Add(this.cf3_hex);
 			this.page_ClassFeat3.Controls.Add(this.cf3_Clear);
@@ -4731,14 +4990,62 @@
 			this.page_ClassFeat3.Controls.Add(this.ClassFeat3_hex);
 			this.page_ClassFeat3.Controls.Add(this.ClassFeat3_text);
 			this.page_ClassFeat3.Controls.Add(this.ClassFeat3_reset);
-			this.page_ClassFeat3.Location = new System.Drawing.Point(4, 23);
+			this.page_ClassFeat3.Location = new System.Drawing.Point(4, 24);
 			this.page_ClassFeat3.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat3.Name = "page_ClassFeat3";
 			this.page_ClassFeat3.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat3.Size = new System.Drawing.Size(1062, 141);
+			this.page_ClassFeat3.Size = new System.Drawing.Size(1062, 182);
 			this.page_ClassFeat3.TabIndex = 3;
 			this.page_ClassFeat3.Text = "FeatSpell3";
 			this.page_ClassFeat3.UseVisualStyleBackColor = true;
+			// 
+			// cf3_SpellId
+			// 
+			this.cf3_SpellId.Location = new System.Drawing.Point(80, 80);
+			this.cf3_SpellId.Margin = new System.Windows.Forms.Padding(0);
+			this.cf3_SpellId.Name = "cf3_SpellId";
+			this.cf3_SpellId.Size = new System.Drawing.Size(90, 20);
+			this.cf3_SpellId.TabIndex = 64;
+			this.cf3_SpellId.TextChanged += new System.EventHandler(this.TextChanged_cSpell);
+			// 
+			// cf3_FeatId
+			// 
+			this.cf3_FeatId.Location = new System.Drawing.Point(80, 60);
+			this.cf3_FeatId.Margin = new System.Windows.Forms.Padding(0);
+			this.cf3_FeatId.Name = "cf3_FeatId";
+			this.cf3_FeatId.Size = new System.Drawing.Size(90, 20);
+			this.cf3_FeatId.TabIndex = 63;
+			this.cf3_FeatId.TextChanged += new System.EventHandler(this.TextChanged_cFeat);
+			// 
+			// cf3_cheatCast
+			// 
+			this.cf3_cheatCast.Location = new System.Drawing.Point(15, 110);
+			this.cf3_cheatCast.Name = "cf3_cheatCast";
+			this.cf3_cheatCast.Size = new System.Drawing.Size(100, 19);
+			this.cf3_cheatCast.TabIndex = 62;
+			this.cf3_cheatCast.Text = "cheat cast";
+			this.cf3_cheatCast.UseVisualStyleBackColor = true;
+			this.cf3_cheatCast.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_cFeats);
+			// 
+			// cf3_spellId_label
+			// 
+			this.cf3_spellId_label.Location = new System.Drawing.Point(10, 85);
+			this.cf3_spellId_label.Margin = new System.Windows.Forms.Padding(0);
+			this.cf3_spellId_label.Name = "cf3_spellId_label";
+			this.cf3_spellId_label.Size = new System.Drawing.Size(65, 15);
+			this.cf3_spellId_label.TabIndex = 61;
+			this.cf3_spellId_label.Text = "ID Spell";
+			this.cf3_spellId_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf3_featId_label
+			// 
+			this.cf3_featId_label.Location = new System.Drawing.Point(10, 65);
+			this.cf3_featId_label.Margin = new System.Windows.Forms.Padding(0);
+			this.cf3_featId_label.Name = "cf3_featId_label";
+			this.cf3_featId_label.Size = new System.Drawing.Size(65, 15);
+			this.cf3_featId_label.TabIndex = 60;
+			this.cf3_featId_label.Text = "ID Feat";
+			this.cf3_featId_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cf3_bin
 			// 
@@ -4816,6 +5123,11 @@
 			// 
 			// page_ClassFeat4
 			// 
+			this.page_ClassFeat4.Controls.Add(this.cf4_SpellId);
+			this.page_ClassFeat4.Controls.Add(this.cf4_FeatId);
+			this.page_ClassFeat4.Controls.Add(this.cf4_cheatCast);
+			this.page_ClassFeat4.Controls.Add(this.cf4_spellId_label);
+			this.page_ClassFeat4.Controls.Add(this.cf4_featId_label);
 			this.page_ClassFeat4.Controls.Add(this.cf4_bin);
 			this.page_ClassFeat4.Controls.Add(this.cf4_hex);
 			this.page_ClassFeat4.Controls.Add(this.cf4_Clear);
@@ -4823,14 +5135,62 @@
 			this.page_ClassFeat4.Controls.Add(this.ClassFeat4_hex);
 			this.page_ClassFeat4.Controls.Add(this.ClassFeat4_text);
 			this.page_ClassFeat4.Controls.Add(this.ClassFeat4_reset);
-			this.page_ClassFeat4.Location = new System.Drawing.Point(4, 23);
+			this.page_ClassFeat4.Location = new System.Drawing.Point(4, 24);
 			this.page_ClassFeat4.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat4.Name = "page_ClassFeat4";
 			this.page_ClassFeat4.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat4.Size = new System.Drawing.Size(1062, 141);
+			this.page_ClassFeat4.Size = new System.Drawing.Size(1062, 182);
 			this.page_ClassFeat4.TabIndex = 4;
 			this.page_ClassFeat4.Text = "FeatSpell4";
 			this.page_ClassFeat4.UseVisualStyleBackColor = true;
+			// 
+			// cf4_SpellId
+			// 
+			this.cf4_SpellId.Location = new System.Drawing.Point(80, 80);
+			this.cf4_SpellId.Margin = new System.Windows.Forms.Padding(0);
+			this.cf4_SpellId.Name = "cf4_SpellId";
+			this.cf4_SpellId.Size = new System.Drawing.Size(90, 20);
+			this.cf4_SpellId.TabIndex = 64;
+			this.cf4_SpellId.TextChanged += new System.EventHandler(this.TextChanged_cSpell);
+			// 
+			// cf4_FeatId
+			// 
+			this.cf4_FeatId.Location = new System.Drawing.Point(80, 60);
+			this.cf4_FeatId.Margin = new System.Windows.Forms.Padding(0);
+			this.cf4_FeatId.Name = "cf4_FeatId";
+			this.cf4_FeatId.Size = new System.Drawing.Size(90, 20);
+			this.cf4_FeatId.TabIndex = 63;
+			this.cf4_FeatId.TextChanged += new System.EventHandler(this.TextChanged_cFeat);
+			// 
+			// cf4_cheatCast
+			// 
+			this.cf4_cheatCast.Location = new System.Drawing.Point(15, 110);
+			this.cf4_cheatCast.Name = "cf4_cheatCast";
+			this.cf4_cheatCast.Size = new System.Drawing.Size(100, 19);
+			this.cf4_cheatCast.TabIndex = 62;
+			this.cf4_cheatCast.Text = "cheat cast";
+			this.cf4_cheatCast.UseVisualStyleBackColor = true;
+			this.cf4_cheatCast.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_cFeats);
+			// 
+			// cf4_spellId_label
+			// 
+			this.cf4_spellId_label.Location = new System.Drawing.Point(10, 85);
+			this.cf4_spellId_label.Margin = new System.Windows.Forms.Padding(0);
+			this.cf4_spellId_label.Name = "cf4_spellId_label";
+			this.cf4_spellId_label.Size = new System.Drawing.Size(65, 15);
+			this.cf4_spellId_label.TabIndex = 61;
+			this.cf4_spellId_label.Text = "ID Spell";
+			this.cf4_spellId_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf4_featId_label
+			// 
+			this.cf4_featId_label.Location = new System.Drawing.Point(10, 65);
+			this.cf4_featId_label.Margin = new System.Windows.Forms.Padding(0);
+			this.cf4_featId_label.Name = "cf4_featId_label";
+			this.cf4_featId_label.Size = new System.Drawing.Size(65, 15);
+			this.cf4_featId_label.TabIndex = 60;
+			this.cf4_featId_label.Text = "ID Feat";
+			this.cf4_featId_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cf4_bin
 			// 
@@ -4908,6 +5268,11 @@
 			// 
 			// page_ClassFeat5
 			// 
+			this.page_ClassFeat5.Controls.Add(this.cf5_SpellId);
+			this.page_ClassFeat5.Controls.Add(this.cf5_FeatId);
+			this.page_ClassFeat5.Controls.Add(this.cf5_cheatCast);
+			this.page_ClassFeat5.Controls.Add(this.cf5_spellId_label);
+			this.page_ClassFeat5.Controls.Add(this.cf5_featId_label);
 			this.page_ClassFeat5.Controls.Add(this.cf5_bin);
 			this.page_ClassFeat5.Controls.Add(this.cf5_hex);
 			this.page_ClassFeat5.Controls.Add(this.cf5_Clear);
@@ -4915,14 +5280,62 @@
 			this.page_ClassFeat5.Controls.Add(this.ClassFeat5_hex);
 			this.page_ClassFeat5.Controls.Add(this.ClassFeat5_text);
 			this.page_ClassFeat5.Controls.Add(this.ClassFeat5_reset);
-			this.page_ClassFeat5.Location = new System.Drawing.Point(4, 23);
+			this.page_ClassFeat5.Location = new System.Drawing.Point(4, 24);
 			this.page_ClassFeat5.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat5.Name = "page_ClassFeat5";
 			this.page_ClassFeat5.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat5.Size = new System.Drawing.Size(1062, 141);
+			this.page_ClassFeat5.Size = new System.Drawing.Size(1062, 182);
 			this.page_ClassFeat5.TabIndex = 5;
 			this.page_ClassFeat5.Text = "FeatSpell5";
 			this.page_ClassFeat5.UseVisualStyleBackColor = true;
+			// 
+			// cf5_SpellId
+			// 
+			this.cf5_SpellId.Location = new System.Drawing.Point(80, 80);
+			this.cf5_SpellId.Margin = new System.Windows.Forms.Padding(0);
+			this.cf5_SpellId.Name = "cf5_SpellId";
+			this.cf5_SpellId.Size = new System.Drawing.Size(90, 20);
+			this.cf5_SpellId.TabIndex = 64;
+			this.cf5_SpellId.TextChanged += new System.EventHandler(this.TextChanged_cSpell);
+			// 
+			// cf5_FeatId
+			// 
+			this.cf5_FeatId.Location = new System.Drawing.Point(80, 60);
+			this.cf5_FeatId.Margin = new System.Windows.Forms.Padding(0);
+			this.cf5_FeatId.Name = "cf5_FeatId";
+			this.cf5_FeatId.Size = new System.Drawing.Size(90, 20);
+			this.cf5_FeatId.TabIndex = 63;
+			this.cf5_FeatId.TextChanged += new System.EventHandler(this.TextChanged_cFeat);
+			// 
+			// cf5_cheatCast
+			// 
+			this.cf5_cheatCast.Location = new System.Drawing.Point(15, 110);
+			this.cf5_cheatCast.Name = "cf5_cheatCast";
+			this.cf5_cheatCast.Size = new System.Drawing.Size(100, 19);
+			this.cf5_cheatCast.TabIndex = 62;
+			this.cf5_cheatCast.Text = "cheat cast";
+			this.cf5_cheatCast.UseVisualStyleBackColor = true;
+			this.cf5_cheatCast.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_cFeats);
+			// 
+			// cf5_spellId_label
+			// 
+			this.cf5_spellId_label.Location = new System.Drawing.Point(10, 85);
+			this.cf5_spellId_label.Margin = new System.Windows.Forms.Padding(0);
+			this.cf5_spellId_label.Name = "cf5_spellId_label";
+			this.cf5_spellId_label.Size = new System.Drawing.Size(65, 15);
+			this.cf5_spellId_label.TabIndex = 61;
+			this.cf5_spellId_label.Text = "ID Spell";
+			this.cf5_spellId_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf5_featId_label
+			// 
+			this.cf5_featId_label.Location = new System.Drawing.Point(10, 65);
+			this.cf5_featId_label.Margin = new System.Windows.Forms.Padding(0);
+			this.cf5_featId_label.Name = "cf5_featId_label";
+			this.cf5_featId_label.Size = new System.Drawing.Size(65, 15);
+			this.cf5_featId_label.TabIndex = 60;
+			this.cf5_featId_label.Text = "ID Feat";
+			this.cf5_featId_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cf5_bin
 			// 
@@ -5000,6 +5413,11 @@
 			// 
 			// page_ClassFeat6
 			// 
+			this.page_ClassFeat6.Controls.Add(this.cf6_SpellId);
+			this.page_ClassFeat6.Controls.Add(this.cf6_FeatId);
+			this.page_ClassFeat6.Controls.Add(this.cf6_cheatCast);
+			this.page_ClassFeat6.Controls.Add(this.cf6_spellId_label);
+			this.page_ClassFeat6.Controls.Add(this.cf6_featId_label);
 			this.page_ClassFeat6.Controls.Add(this.cf6_bin);
 			this.page_ClassFeat6.Controls.Add(this.cf6_hex);
 			this.page_ClassFeat6.Controls.Add(this.cf6_Clear);
@@ -5007,14 +5425,62 @@
 			this.page_ClassFeat6.Controls.Add(this.ClassFeat6_hex);
 			this.page_ClassFeat6.Controls.Add(this.ClassFeat6_text);
 			this.page_ClassFeat6.Controls.Add(this.ClassFeat6_reset);
-			this.page_ClassFeat6.Location = new System.Drawing.Point(4, 23);
+			this.page_ClassFeat6.Location = new System.Drawing.Point(4, 24);
 			this.page_ClassFeat6.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat6.Name = "page_ClassFeat6";
 			this.page_ClassFeat6.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat6.Size = new System.Drawing.Size(1062, 141);
+			this.page_ClassFeat6.Size = new System.Drawing.Size(1062, 182);
 			this.page_ClassFeat6.TabIndex = 6;
 			this.page_ClassFeat6.Text = "FeatSpell6";
 			this.page_ClassFeat6.UseVisualStyleBackColor = true;
+			// 
+			// cf6_SpellId
+			// 
+			this.cf6_SpellId.Location = new System.Drawing.Point(80, 80);
+			this.cf6_SpellId.Margin = new System.Windows.Forms.Padding(0);
+			this.cf6_SpellId.Name = "cf6_SpellId";
+			this.cf6_SpellId.Size = new System.Drawing.Size(90, 20);
+			this.cf6_SpellId.TabIndex = 64;
+			this.cf6_SpellId.TextChanged += new System.EventHandler(this.TextChanged_cSpell);
+			// 
+			// cf6_FeatId
+			// 
+			this.cf6_FeatId.Location = new System.Drawing.Point(80, 60);
+			this.cf6_FeatId.Margin = new System.Windows.Forms.Padding(0);
+			this.cf6_FeatId.Name = "cf6_FeatId";
+			this.cf6_FeatId.Size = new System.Drawing.Size(90, 20);
+			this.cf6_FeatId.TabIndex = 63;
+			this.cf6_FeatId.TextChanged += new System.EventHandler(this.TextChanged_cFeat);
+			// 
+			// cf6_cheatCast
+			// 
+			this.cf6_cheatCast.Location = new System.Drawing.Point(15, 110);
+			this.cf6_cheatCast.Name = "cf6_cheatCast";
+			this.cf6_cheatCast.Size = new System.Drawing.Size(100, 19);
+			this.cf6_cheatCast.TabIndex = 62;
+			this.cf6_cheatCast.Text = "cheat cast";
+			this.cf6_cheatCast.UseVisualStyleBackColor = true;
+			this.cf6_cheatCast.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_cFeats);
+			// 
+			// cf6_spellId_label
+			// 
+			this.cf6_spellId_label.Location = new System.Drawing.Point(10, 85);
+			this.cf6_spellId_label.Margin = new System.Windows.Forms.Padding(0);
+			this.cf6_spellId_label.Name = "cf6_spellId_label";
+			this.cf6_spellId_label.Size = new System.Drawing.Size(65, 15);
+			this.cf6_spellId_label.TabIndex = 61;
+			this.cf6_spellId_label.Text = "ID Spell";
+			this.cf6_spellId_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf6_featId_label
+			// 
+			this.cf6_featId_label.Location = new System.Drawing.Point(10, 65);
+			this.cf6_featId_label.Margin = new System.Windows.Forms.Padding(0);
+			this.cf6_featId_label.Name = "cf6_featId_label";
+			this.cf6_featId_label.Size = new System.Drawing.Size(65, 15);
+			this.cf6_featId_label.TabIndex = 60;
+			this.cf6_featId_label.Text = "ID Feat";
+			this.cf6_featId_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cf6_bin
 			// 
@@ -5092,6 +5558,11 @@
 			// 
 			// page_ClassFeat7
 			// 
+			this.page_ClassFeat7.Controls.Add(this.cf7_SpellId);
+			this.page_ClassFeat7.Controls.Add(this.cf7_FeatId);
+			this.page_ClassFeat7.Controls.Add(this.cf7_cheatCast);
+			this.page_ClassFeat7.Controls.Add(this.cf7_spellId_label);
+			this.page_ClassFeat7.Controls.Add(this.cf7_featId_label);
 			this.page_ClassFeat7.Controls.Add(this.cf7_bin);
 			this.page_ClassFeat7.Controls.Add(this.cf7_hex);
 			this.page_ClassFeat7.Controls.Add(this.cf7_Clear);
@@ -5099,14 +5570,62 @@
 			this.page_ClassFeat7.Controls.Add(this.ClassFeat7_hex);
 			this.page_ClassFeat7.Controls.Add(this.ClassFeat7_text);
 			this.page_ClassFeat7.Controls.Add(this.ClassFeat7_reset);
-			this.page_ClassFeat7.Location = new System.Drawing.Point(4, 23);
+			this.page_ClassFeat7.Location = new System.Drawing.Point(4, 24);
 			this.page_ClassFeat7.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat7.Name = "page_ClassFeat7";
 			this.page_ClassFeat7.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat7.Size = new System.Drawing.Size(1062, 141);
+			this.page_ClassFeat7.Size = new System.Drawing.Size(1062, 182);
 			this.page_ClassFeat7.TabIndex = 7;
 			this.page_ClassFeat7.Text = "FeatSpell7";
 			this.page_ClassFeat7.UseVisualStyleBackColor = true;
+			// 
+			// cf7_SpellId
+			// 
+			this.cf7_SpellId.Location = new System.Drawing.Point(80, 80);
+			this.cf7_SpellId.Margin = new System.Windows.Forms.Padding(0);
+			this.cf7_SpellId.Name = "cf7_SpellId";
+			this.cf7_SpellId.Size = new System.Drawing.Size(90, 20);
+			this.cf7_SpellId.TabIndex = 64;
+			this.cf7_SpellId.TextChanged += new System.EventHandler(this.TextChanged_cSpell);
+			// 
+			// cf7_FeatId
+			// 
+			this.cf7_FeatId.Location = new System.Drawing.Point(80, 60);
+			this.cf7_FeatId.Margin = new System.Windows.Forms.Padding(0);
+			this.cf7_FeatId.Name = "cf7_FeatId";
+			this.cf7_FeatId.Size = new System.Drawing.Size(90, 20);
+			this.cf7_FeatId.TabIndex = 63;
+			this.cf7_FeatId.TextChanged += new System.EventHandler(this.TextChanged_cFeat);
+			// 
+			// cf7_cheatCast
+			// 
+			this.cf7_cheatCast.Location = new System.Drawing.Point(15, 110);
+			this.cf7_cheatCast.Name = "cf7_cheatCast";
+			this.cf7_cheatCast.Size = new System.Drawing.Size(100, 19);
+			this.cf7_cheatCast.TabIndex = 62;
+			this.cf7_cheatCast.Text = "cheat cast";
+			this.cf7_cheatCast.UseVisualStyleBackColor = true;
+			this.cf7_cheatCast.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_cFeats);
+			// 
+			// cf7_spellId_label
+			// 
+			this.cf7_spellId_label.Location = new System.Drawing.Point(10, 85);
+			this.cf7_spellId_label.Margin = new System.Windows.Forms.Padding(0);
+			this.cf7_spellId_label.Name = "cf7_spellId_label";
+			this.cf7_spellId_label.Size = new System.Drawing.Size(65, 15);
+			this.cf7_spellId_label.TabIndex = 61;
+			this.cf7_spellId_label.Text = "ID Spell";
+			this.cf7_spellId_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf7_featId_label
+			// 
+			this.cf7_featId_label.Location = new System.Drawing.Point(10, 65);
+			this.cf7_featId_label.Margin = new System.Windows.Forms.Padding(0);
+			this.cf7_featId_label.Name = "cf7_featId_label";
+			this.cf7_featId_label.Size = new System.Drawing.Size(65, 15);
+			this.cf7_featId_label.TabIndex = 60;
+			this.cf7_featId_label.Text = "ID Feat";
+			this.cf7_featId_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cf7_bin
 			// 
@@ -5184,6 +5703,11 @@
 			// 
 			// page_ClassFeat8
 			// 
+			this.page_ClassFeat8.Controls.Add(this.cf8_SpellId);
+			this.page_ClassFeat8.Controls.Add(this.cf8_FeatId);
+			this.page_ClassFeat8.Controls.Add(this.cf8_cheatCast);
+			this.page_ClassFeat8.Controls.Add(this.cf8_spellId_label);
+			this.page_ClassFeat8.Controls.Add(this.cf8_featId_label);
 			this.page_ClassFeat8.Controls.Add(this.cf8_bin);
 			this.page_ClassFeat8.Controls.Add(this.cf8_hex);
 			this.page_ClassFeat8.Controls.Add(this.cf8_Clear);
@@ -5191,14 +5715,62 @@
 			this.page_ClassFeat8.Controls.Add(this.ClassFeat8_hex);
 			this.page_ClassFeat8.Controls.Add(this.ClassFeat8_text);
 			this.page_ClassFeat8.Controls.Add(this.ClassFeat8_reset);
-			this.page_ClassFeat8.Location = new System.Drawing.Point(4, 23);
+			this.page_ClassFeat8.Location = new System.Drawing.Point(4, 24);
 			this.page_ClassFeat8.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat8.Name = "page_ClassFeat8";
 			this.page_ClassFeat8.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat8.Size = new System.Drawing.Size(1062, 141);
+			this.page_ClassFeat8.Size = new System.Drawing.Size(1062, 182);
 			this.page_ClassFeat8.TabIndex = 8;
 			this.page_ClassFeat8.Text = "FeatSpell8";
 			this.page_ClassFeat8.UseVisualStyleBackColor = true;
+			// 
+			// cf8_SpellId
+			// 
+			this.cf8_SpellId.Location = new System.Drawing.Point(80, 80);
+			this.cf8_SpellId.Margin = new System.Windows.Forms.Padding(0);
+			this.cf8_SpellId.Name = "cf8_SpellId";
+			this.cf8_SpellId.Size = new System.Drawing.Size(90, 20);
+			this.cf8_SpellId.TabIndex = 64;
+			this.cf8_SpellId.TextChanged += new System.EventHandler(this.TextChanged_cSpell);
+			// 
+			// cf8_FeatId
+			// 
+			this.cf8_FeatId.Location = new System.Drawing.Point(80, 60);
+			this.cf8_FeatId.Margin = new System.Windows.Forms.Padding(0);
+			this.cf8_FeatId.Name = "cf8_FeatId";
+			this.cf8_FeatId.Size = new System.Drawing.Size(90, 20);
+			this.cf8_FeatId.TabIndex = 63;
+			this.cf8_FeatId.TextChanged += new System.EventHandler(this.TextChanged_cFeat);
+			// 
+			// cf8_cheatCast
+			// 
+			this.cf8_cheatCast.Location = new System.Drawing.Point(15, 110);
+			this.cf8_cheatCast.Name = "cf8_cheatCast";
+			this.cf8_cheatCast.Size = new System.Drawing.Size(100, 19);
+			this.cf8_cheatCast.TabIndex = 62;
+			this.cf8_cheatCast.Text = "cheat cast";
+			this.cf8_cheatCast.UseVisualStyleBackColor = true;
+			this.cf8_cheatCast.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_cFeats);
+			// 
+			// cf8_spellId_label
+			// 
+			this.cf8_spellId_label.Location = new System.Drawing.Point(10, 85);
+			this.cf8_spellId_label.Margin = new System.Windows.Forms.Padding(0);
+			this.cf8_spellId_label.Name = "cf8_spellId_label";
+			this.cf8_spellId_label.Size = new System.Drawing.Size(65, 15);
+			this.cf8_spellId_label.TabIndex = 61;
+			this.cf8_spellId_label.Text = "ID Spell";
+			this.cf8_spellId_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf8_featId_label
+			// 
+			this.cf8_featId_label.Location = new System.Drawing.Point(10, 65);
+			this.cf8_featId_label.Margin = new System.Windows.Forms.Padding(0);
+			this.cf8_featId_label.Name = "cf8_featId_label";
+			this.cf8_featId_label.Size = new System.Drawing.Size(65, 15);
+			this.cf8_featId_label.TabIndex = 60;
+			this.cf8_featId_label.Text = "ID Feat";
+			this.cf8_featId_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cf8_bin
 			// 
@@ -5276,6 +5848,11 @@
 			// 
 			// page_ClassFeat9
 			// 
+			this.page_ClassFeat9.Controls.Add(this.cf9_SpellId);
+			this.page_ClassFeat9.Controls.Add(this.cf9_FeatId);
+			this.page_ClassFeat9.Controls.Add(this.cf9_cheatCast);
+			this.page_ClassFeat9.Controls.Add(this.cf9_spellId_label);
+			this.page_ClassFeat9.Controls.Add(this.cf9_featId_label);
 			this.page_ClassFeat9.Controls.Add(this.cf9_bin);
 			this.page_ClassFeat9.Controls.Add(this.cf9_hex);
 			this.page_ClassFeat9.Controls.Add(this.cf9_Clear);
@@ -5283,14 +5860,62 @@
 			this.page_ClassFeat9.Controls.Add(this.ClassFeat9_hex);
 			this.page_ClassFeat9.Controls.Add(this.ClassFeat9_text);
 			this.page_ClassFeat9.Controls.Add(this.ClassFeat9_reset);
-			this.page_ClassFeat9.Location = new System.Drawing.Point(4, 23);
+			this.page_ClassFeat9.Location = new System.Drawing.Point(4, 24);
 			this.page_ClassFeat9.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat9.Name = "page_ClassFeat9";
 			this.page_ClassFeat9.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat9.Size = new System.Drawing.Size(1062, 141);
+			this.page_ClassFeat9.Size = new System.Drawing.Size(1062, 182);
 			this.page_ClassFeat9.TabIndex = 9;
 			this.page_ClassFeat9.Text = "FeatSpell9";
 			this.page_ClassFeat9.UseVisualStyleBackColor = true;
+			// 
+			// cf9_SpellId
+			// 
+			this.cf9_SpellId.Location = new System.Drawing.Point(80, 80);
+			this.cf9_SpellId.Margin = new System.Windows.Forms.Padding(0);
+			this.cf9_SpellId.Name = "cf9_SpellId";
+			this.cf9_SpellId.Size = new System.Drawing.Size(90, 20);
+			this.cf9_SpellId.TabIndex = 64;
+			this.cf9_SpellId.TextChanged += new System.EventHandler(this.TextChanged_cSpell);
+			// 
+			// cf9_FeatId
+			// 
+			this.cf9_FeatId.Location = new System.Drawing.Point(80, 60);
+			this.cf9_FeatId.Margin = new System.Windows.Forms.Padding(0);
+			this.cf9_FeatId.Name = "cf9_FeatId";
+			this.cf9_FeatId.Size = new System.Drawing.Size(90, 20);
+			this.cf9_FeatId.TabIndex = 63;
+			this.cf9_FeatId.TextChanged += new System.EventHandler(this.TextChanged_cFeat);
+			// 
+			// cf9_cheatCast
+			// 
+			this.cf9_cheatCast.Location = new System.Drawing.Point(15, 110);
+			this.cf9_cheatCast.Name = "cf9_cheatCast";
+			this.cf9_cheatCast.Size = new System.Drawing.Size(100, 19);
+			this.cf9_cheatCast.TabIndex = 62;
+			this.cf9_cheatCast.Text = "cheat cast";
+			this.cf9_cheatCast.UseVisualStyleBackColor = true;
+			this.cf9_cheatCast.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_cFeats);
+			// 
+			// cf9_spellId_label
+			// 
+			this.cf9_spellId_label.Location = new System.Drawing.Point(10, 85);
+			this.cf9_spellId_label.Margin = new System.Windows.Forms.Padding(0);
+			this.cf9_spellId_label.Name = "cf9_spellId_label";
+			this.cf9_spellId_label.Size = new System.Drawing.Size(65, 15);
+			this.cf9_spellId_label.TabIndex = 61;
+			this.cf9_spellId_label.Text = "ID Spell";
+			this.cf9_spellId_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf9_featId_label
+			// 
+			this.cf9_featId_label.Location = new System.Drawing.Point(10, 65);
+			this.cf9_featId_label.Margin = new System.Windows.Forms.Padding(0);
+			this.cf9_featId_label.Name = "cf9_featId_label";
+			this.cf9_featId_label.Size = new System.Drawing.Size(65, 15);
+			this.cf9_featId_label.TabIndex = 60;
+			this.cf9_featId_label.Text = "ID Feat";
+			this.cf9_featId_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cf9_bin
 			// 
@@ -5368,6 +5993,11 @@
 			// 
 			// page_ClassFeat10
 			// 
+			this.page_ClassFeat10.Controls.Add(this.cf10_SpellId);
+			this.page_ClassFeat10.Controls.Add(this.cf10_FeatId);
+			this.page_ClassFeat10.Controls.Add(this.cf10_cheatCast);
+			this.page_ClassFeat10.Controls.Add(this.cf10_spellId_label);
+			this.page_ClassFeat10.Controls.Add(this.cf10_featId_label);
 			this.page_ClassFeat10.Controls.Add(this.cf10_bin);
 			this.page_ClassFeat10.Controls.Add(this.cf10_hex);
 			this.page_ClassFeat10.Controls.Add(this.cf10_Clear);
@@ -5375,14 +6005,62 @@
 			this.page_ClassFeat10.Controls.Add(this.ClassFeat10_hex);
 			this.page_ClassFeat10.Controls.Add(this.ClassFeat10_text);
 			this.page_ClassFeat10.Controls.Add(this.ClassFeat10_reset);
-			this.page_ClassFeat10.Location = new System.Drawing.Point(4, 23);
+			this.page_ClassFeat10.Location = new System.Drawing.Point(4, 24);
 			this.page_ClassFeat10.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat10.Name = "page_ClassFeat10";
 			this.page_ClassFeat10.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat10.Size = new System.Drawing.Size(1062, 141);
+			this.page_ClassFeat10.Size = new System.Drawing.Size(1062, 182);
 			this.page_ClassFeat10.TabIndex = 10;
 			this.page_ClassFeat10.Text = "FeatSpell10";
 			this.page_ClassFeat10.UseVisualStyleBackColor = true;
+			// 
+			// cf10_SpellId
+			// 
+			this.cf10_SpellId.Location = new System.Drawing.Point(80, 80);
+			this.cf10_SpellId.Margin = new System.Windows.Forms.Padding(0);
+			this.cf10_SpellId.Name = "cf10_SpellId";
+			this.cf10_SpellId.Size = new System.Drawing.Size(90, 20);
+			this.cf10_SpellId.TabIndex = 64;
+			this.cf10_SpellId.TextChanged += new System.EventHandler(this.TextChanged_cSpell);
+			// 
+			// cf10_FeatId
+			// 
+			this.cf10_FeatId.Location = new System.Drawing.Point(80, 60);
+			this.cf10_FeatId.Margin = new System.Windows.Forms.Padding(0);
+			this.cf10_FeatId.Name = "cf10_FeatId";
+			this.cf10_FeatId.Size = new System.Drawing.Size(90, 20);
+			this.cf10_FeatId.TabIndex = 63;
+			this.cf10_FeatId.TextChanged += new System.EventHandler(this.TextChanged_cFeat);
+			// 
+			// cf10_cheatCast
+			// 
+			this.cf10_cheatCast.Location = new System.Drawing.Point(15, 110);
+			this.cf10_cheatCast.Name = "cf10_cheatCast";
+			this.cf10_cheatCast.Size = new System.Drawing.Size(100, 19);
+			this.cf10_cheatCast.TabIndex = 62;
+			this.cf10_cheatCast.Text = "cheat cast";
+			this.cf10_cheatCast.UseVisualStyleBackColor = true;
+			this.cf10_cheatCast.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_cFeats);
+			// 
+			// cf10_spellId_label
+			// 
+			this.cf10_spellId_label.Location = new System.Drawing.Point(10, 85);
+			this.cf10_spellId_label.Margin = new System.Windows.Forms.Padding(0);
+			this.cf10_spellId_label.Name = "cf10_spellId_label";
+			this.cf10_spellId_label.Size = new System.Drawing.Size(65, 15);
+			this.cf10_spellId_label.TabIndex = 61;
+			this.cf10_spellId_label.Text = "ID Spell";
+			this.cf10_spellId_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf10_featId_label
+			// 
+			this.cf10_featId_label.Location = new System.Drawing.Point(10, 65);
+			this.cf10_featId_label.Margin = new System.Windows.Forms.Padding(0);
+			this.cf10_featId_label.Name = "cf10_featId_label";
+			this.cf10_featId_label.Size = new System.Drawing.Size(65, 15);
+			this.cf10_featId_label.TabIndex = 60;
+			this.cf10_featId_label.Text = "ID Feat";
+			this.cf10_featId_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cf10_bin
 			// 
@@ -5460,6 +6138,11 @@
 			// 
 			// page_ClassFeat11
 			// 
+			this.page_ClassFeat11.Controls.Add(this.cf11_SpellId);
+			this.page_ClassFeat11.Controls.Add(this.cf11_FeatId);
+			this.page_ClassFeat11.Controls.Add(this.cf11_cheatCast);
+			this.page_ClassFeat11.Controls.Add(this.cf11_spellId_label);
+			this.page_ClassFeat11.Controls.Add(this.cf11_featId_label);
 			this.page_ClassFeat11.Controls.Add(this.cf11_bin);
 			this.page_ClassFeat11.Controls.Add(this.cf11_hex);
 			this.page_ClassFeat11.Controls.Add(this.cf11_Clear);
@@ -5467,14 +6150,62 @@
 			this.page_ClassFeat11.Controls.Add(this.ClassFeat11_hex);
 			this.page_ClassFeat11.Controls.Add(this.ClassFeat11_text);
 			this.page_ClassFeat11.Controls.Add(this.ClassFeat11_reset);
-			this.page_ClassFeat11.Location = new System.Drawing.Point(4, 23);
+			this.page_ClassFeat11.Location = new System.Drawing.Point(4, 24);
 			this.page_ClassFeat11.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat11.Name = "page_ClassFeat11";
 			this.page_ClassFeat11.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat11.Size = new System.Drawing.Size(1062, 141);
+			this.page_ClassFeat11.Size = new System.Drawing.Size(1062, 182);
 			this.page_ClassFeat11.TabIndex = 11;
 			this.page_ClassFeat11.Text = "FeatSpell11";
 			this.page_ClassFeat11.UseVisualStyleBackColor = true;
+			// 
+			// cf11_SpellId
+			// 
+			this.cf11_SpellId.Location = new System.Drawing.Point(80, 80);
+			this.cf11_SpellId.Margin = new System.Windows.Forms.Padding(0);
+			this.cf11_SpellId.Name = "cf11_SpellId";
+			this.cf11_SpellId.Size = new System.Drawing.Size(90, 20);
+			this.cf11_SpellId.TabIndex = 64;
+			this.cf11_SpellId.TextChanged += new System.EventHandler(this.TextChanged_cSpell);
+			// 
+			// cf11_FeatId
+			// 
+			this.cf11_FeatId.Location = new System.Drawing.Point(80, 60);
+			this.cf11_FeatId.Margin = new System.Windows.Forms.Padding(0);
+			this.cf11_FeatId.Name = "cf11_FeatId";
+			this.cf11_FeatId.Size = new System.Drawing.Size(90, 20);
+			this.cf11_FeatId.TabIndex = 63;
+			this.cf11_FeatId.TextChanged += new System.EventHandler(this.TextChanged_cFeat);
+			// 
+			// cf11_cheatCast
+			// 
+			this.cf11_cheatCast.Location = new System.Drawing.Point(15, 110);
+			this.cf11_cheatCast.Name = "cf11_cheatCast";
+			this.cf11_cheatCast.Size = new System.Drawing.Size(100, 19);
+			this.cf11_cheatCast.TabIndex = 62;
+			this.cf11_cheatCast.Text = "cheat cast";
+			this.cf11_cheatCast.UseVisualStyleBackColor = true;
+			this.cf11_cheatCast.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_cFeats);
+			// 
+			// cf11_spellId_label
+			// 
+			this.cf11_spellId_label.Location = new System.Drawing.Point(10, 85);
+			this.cf11_spellId_label.Margin = new System.Windows.Forms.Padding(0);
+			this.cf11_spellId_label.Name = "cf11_spellId_label";
+			this.cf11_spellId_label.Size = new System.Drawing.Size(65, 15);
+			this.cf11_spellId_label.TabIndex = 61;
+			this.cf11_spellId_label.Text = "ID Spell";
+			this.cf11_spellId_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf11_featId_label
+			// 
+			this.cf11_featId_label.Location = new System.Drawing.Point(10, 65);
+			this.cf11_featId_label.Margin = new System.Windows.Forms.Padding(0);
+			this.cf11_featId_label.Name = "cf11_featId_label";
+			this.cf11_featId_label.Size = new System.Drawing.Size(65, 15);
+			this.cf11_featId_label.TabIndex = 60;
+			this.cf11_featId_label.Text = "ID Feat";
+			this.cf11_featId_label.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cf11_bin
 			// 
@@ -5706,11 +6437,11 @@
 			this.page_RacialFeat1.Controls.Add(this.RacialFeat1_hex);
 			this.page_RacialFeat1.Controls.Add(this.RacialFeat1_text);
 			this.page_RacialFeat1.Controls.Add(this.RacialFeat1_reset);
-			this.page_RacialFeat1.Location = new System.Drawing.Point(4, 24);
+			this.page_RacialFeat1.Location = new System.Drawing.Point(4, 23);
 			this.page_RacialFeat1.Margin = new System.Windows.Forms.Padding(2);
 			this.page_RacialFeat1.Name = "page_RacialFeat1";
 			this.page_RacialFeat1.Padding = new System.Windows.Forms.Padding(2);
-			this.page_RacialFeat1.Size = new System.Drawing.Size(812, 237);
+			this.page_RacialFeat1.Size = new System.Drawing.Size(812, 238);
 			this.page_RacialFeat1.TabIndex = 1;
 			this.page_RacialFeat1.Text = "FeatSpell1";
 			this.page_RacialFeat1.UseVisualStyleBackColor = true;
@@ -5851,11 +6582,11 @@
 			this.page_RacialFeat2.Controls.Add(this.RacialFeat2_hex);
 			this.page_RacialFeat2.Controls.Add(this.RacialFeat2_text);
 			this.page_RacialFeat2.Controls.Add(this.RacialFeat2_reset);
-			this.page_RacialFeat2.Location = new System.Drawing.Point(4, 24);
+			this.page_RacialFeat2.Location = new System.Drawing.Point(4, 23);
 			this.page_RacialFeat2.Margin = new System.Windows.Forms.Padding(2);
 			this.page_RacialFeat2.Name = "page_RacialFeat2";
 			this.page_RacialFeat2.Padding = new System.Windows.Forms.Padding(2);
-			this.page_RacialFeat2.Size = new System.Drawing.Size(812, 237);
+			this.page_RacialFeat2.Size = new System.Drawing.Size(812, 238);
 			this.page_RacialFeat2.TabIndex = 2;
 			this.page_RacialFeat2.Text = "FeatSpell2";
 			this.page_RacialFeat2.UseVisualStyleBackColor = true;
@@ -5996,11 +6727,11 @@
 			this.page_RacialFeat3.Controls.Add(this.RacialFeat3_hex);
 			this.page_RacialFeat3.Controls.Add(this.RacialFeat3_text);
 			this.page_RacialFeat3.Controls.Add(this.RacialFeat3_reset);
-			this.page_RacialFeat3.Location = new System.Drawing.Point(4, 24);
+			this.page_RacialFeat3.Location = new System.Drawing.Point(4, 23);
 			this.page_RacialFeat3.Margin = new System.Windows.Forms.Padding(2);
 			this.page_RacialFeat3.Name = "page_RacialFeat3";
 			this.page_RacialFeat3.Padding = new System.Windows.Forms.Padding(2);
-			this.page_RacialFeat3.Size = new System.Drawing.Size(812, 237);
+			this.page_RacialFeat3.Size = new System.Drawing.Size(812, 238);
 			this.page_RacialFeat3.TabIndex = 3;
 			this.page_RacialFeat3.Text = "FeatSpell3";
 			this.page_RacialFeat3.UseVisualStyleBackColor = true;
@@ -6141,11 +6872,11 @@
 			this.page_RacialFeat4.Controls.Add(this.RacialFeat4_hex);
 			this.page_RacialFeat4.Controls.Add(this.RacialFeat4_text);
 			this.page_RacialFeat4.Controls.Add(this.RacialFeat4_reset);
-			this.page_RacialFeat4.Location = new System.Drawing.Point(4, 24);
+			this.page_RacialFeat4.Location = new System.Drawing.Point(4, 23);
 			this.page_RacialFeat4.Margin = new System.Windows.Forms.Padding(2);
 			this.page_RacialFeat4.Name = "page_RacialFeat4";
 			this.page_RacialFeat4.Padding = new System.Windows.Forms.Padding(2);
-			this.page_RacialFeat4.Size = new System.Drawing.Size(812, 237);
+			this.page_RacialFeat4.Size = new System.Drawing.Size(812, 238);
 			this.page_RacialFeat4.TabIndex = 4;
 			this.page_RacialFeat4.Text = "FeatSpell4";
 			this.page_RacialFeat4.UseVisualStyleBackColor = true;
@@ -6286,11 +7017,11 @@
 			this.page_RacialFeat5.Controls.Add(this.RacialFeat5_hex);
 			this.page_RacialFeat5.Controls.Add(this.RacialFeat5_text);
 			this.page_RacialFeat5.Controls.Add(this.RacialFeat5_reset);
-			this.page_RacialFeat5.Location = new System.Drawing.Point(4, 24);
+			this.page_RacialFeat5.Location = new System.Drawing.Point(4, 23);
 			this.page_RacialFeat5.Margin = new System.Windows.Forms.Padding(2);
 			this.page_RacialFeat5.Name = "page_RacialFeat5";
 			this.page_RacialFeat5.Padding = new System.Windows.Forms.Padding(2);
-			this.page_RacialFeat5.Size = new System.Drawing.Size(812, 237);
+			this.page_RacialFeat5.Size = new System.Drawing.Size(812, 238);
 			this.page_RacialFeat5.TabIndex = 5;
 			this.page_RacialFeat5.Text = "FeatSpell5";
 			this.page_RacialFeat5.UseVisualStyleBackColor = true;

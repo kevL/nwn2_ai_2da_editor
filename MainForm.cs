@@ -75,19 +75,28 @@ namespace nwn2_ai_2da_editor
 
 		/// <summary>
 		/// A boolean that prevents firing the TextChanged handlers when true.
-		/// That is don't fire the text-changed event when the spell-tree needs
-		/// to be re/populated.
+		/// That is don't fire the text-changed event when the tree is initially
+		/// populated or is being re-populated.
 		/// </summary>
 		bool bypassTextChanged;
 
 		/// <summary>
-		/// A boolean that prevents firing the Checkbox Setter when true. That
+		/// A boolean that prevents firing the Checkbox Setters when true. That
 		/// is don't try to force a checkbox-setting if the control is actually
 		/// being clicked. It happens auto.
 		/// UPDATE: But as it turns out there are bits that overlap with bits
 		/// for other fields ....
+		/// 
+		/// This should be set TRUE only on mouse-clicks (checkboxes,
+		/// radiobuttons) and text-changes (of subfields only). But leave it
+		/// FALSE if a bit or bit-group shares its bits with other groups or
+		/// constants - that happens only on the spell-pages.
+		/// NOTE: There appears to be no harm in leaving this FALSE de facto.
 		/// </summary>
-		bool bypassCheckedChecker;
+//		bool bypassCheckedChecker;
+		// uh The way that I coded the Racial and Classes text-changed
+		// handler(s) (field(s): current) has relegated this to oblivion.
+
 
 		/// <summary>
 		/// The fullpath of the currently opened 2da file.
@@ -189,9 +198,9 @@ namespace nwn2_ai_2da_editor
 			ToggleMenuitems(false);
 
 
-			Size = new Size(1150, 550);
+			Size = new Size(800, 480);
 
-			cols_HenchRacial.Location  =
+			cols_HenchRacial .Location =
 			cols_HenchClasses.Location = cols_HenchSpells.Location;
 
 			cols_HenchSpells .Visible =
@@ -201,8 +210,9 @@ namespace nwn2_ai_2da_editor
 
 			// NOTE: quickload the 2da for testing ONLY.
 //			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchspells.2da";
-			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchracial.2da";
-			Load_file();
+//			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchracial.2da";
+//			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchclasses.2da";
+//			Load_file();
 		}
 		#endregion cTor
 
@@ -216,7 +226,7 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void Load_file()
 		{
-			logfile.Log(_pfe);
+			//logfile.Log(_pfe);
 
 			if (File.Exists(_pfe))
 			{
@@ -261,25 +271,25 @@ namespace nwn2_ai_2da_editor
 							switch (cols.Length)
 							{
 								case 9: // henchspells
-									logfile.Log("load henchspells");
+									//logfile.Log("load henchspells");
 									Load_HenchSpells(rows);
 									stop = true;
 									break;
 
 								case 7: // henchracial
-									logfile.Log("load henchracial");
+									//logfile.Log("load henchracial");
 									Load_HenchRacial(rows);
 									stop = true;
 									break;
 
 								case 13: // henchclasses
-									logfile.Log("load henchclasses");
+									//logfile.Log("load henchclasses");
 									Load_HenchClasses(rows);
 									stop = true;
 									break;
 
 								default:
-									logfile.Log("load ERROR");
+									//logfile.Log("load ERROR");
 									if (MessageBox.Show("That file does not appear to be HenchSpells, HenchRacial, or HenchClasses.2da",
 														"  ERROR",
 														MessageBoxButtons.OK,
@@ -322,6 +332,8 @@ namespace nwn2_ai_2da_editor
 		void Load_HenchSpells(string[] rows)
 		{
 			Type = Type2da.TYPE_SPELLS;
+
+			Size = new Size(1105, 525);
 
 			cols_HenchSpells .Visible = true;
 			cols_HenchRacial .Visible =
@@ -443,6 +455,8 @@ namespace nwn2_ai_2da_editor
 		{
 			Type = Type2da.TYPE_RACIAL;
 
+			Size = new Size(905, 350);
+
 			cols_HenchSpells .Visible = false;
 			cols_HenchRacial .Visible = true;
 			cols_HenchClasses.Visible = false;
@@ -531,6 +545,8 @@ namespace nwn2_ai_2da_editor
 		void Load_HenchClasses(string[] rows)
 		{
 			Type = Type2da.TYPE_CLASSES;
+
+			Size = new Size(1355, 400);
 
 			cols_HenchSpells .Visible =
 			cols_HenchRacial .Visible = false;

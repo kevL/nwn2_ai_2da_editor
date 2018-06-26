@@ -21,13 +21,40 @@ namespace nwn2_ai_2da_editor
 		{
 			bool warn = false;
 
-			foreach (var spell in Spells)
+			switch (Type)
 			{
-				if (spell.isChanged || spell.differ != bit_clear)
-				{
-					warn = true;
+				case Type2da.TYPE_SPELLS:
+					foreach (var spell in Spells)
+					{
+						if (spell.isChanged || spell.differ != bit_clear)
+						{
+							warn = true;
+							break;
+						}
+					}
 					break;
-				}
+
+				case Type2da.TYPE_RACIAL:
+					foreach (var race in Races)
+					{
+						if (race.isChanged || race.differ != bit_clear)
+						{
+							warn = true;
+							break;
+						}
+					}
+					break;
+
+				case Type2da.TYPE_CLASSES:
+					foreach (var clas in Classes)
+					{
+						if (clas.isChanged || clas.differ != bit_clear)
+						{
+							warn = true;
+							break;
+						}
+					}
+					break;
 			}
 
 			if (!warn || MessageBox.Show("Data has changed." + Environment.NewLine + "Okay to exit ...",
@@ -499,7 +526,7 @@ namespace nwn2_ai_2da_editor
 										dt);
 */
 			// what a fucking pain in the ass.
-			const string info = "built - 2018 jun 24";
+			const string info = "built - 2018 jun 26";
 
 			MessageBox.Show(info,
 							"  About",
@@ -511,72 +538,182 @@ namespace nwn2_ai_2da_editor
 
 
 		/// <summary>
-		/// Checks if all modified spell-data has been Applied with the Apply-btn.
+		/// Checks if all modified data has been Applied with the Apply-btn.
 		/// </summary>
 		/// <returns></returns>
 		bool DirtyDataApplied()
 		{
-			foreach (var spell in Spells)
+			switch (Type)
 			{
-				if (spell.differ != 0)
-					return false;
+				case Type2da.TYPE_SPELLS:
+					foreach (var spell in Spells)
+					{
+						if (spell.differ != bit_clear)
+							return false;
+					}
+					break;
+
+				case Type2da.TYPE_RACIAL:
+					foreach (var race in Races)
+					{
+						if (race.differ != bit_clear)
+							return false;
+					}
+					break;
+
+				case Type2da.TYPE_CLASSES:
+					foreach (var clas in Classes)
+					{
+						if (clas.differ != bit_clear)
+							return false;
+					}
+					break;
 			}
 			return true;
 		}
 
 		/// <summary>
-		/// Applies modified data to any Spell that has changed.
+		/// Applies modified data to any struct that has changed.
 		/// NOTE: This should be called only before saving to file. That is it
 		/// clears things that should otherwise be left intact.
 		/// Cf. Click_apply()
 		/// </summary>
 		void ApplyDirtyData()
 		{
-			int spellstotal = Spells.Count;
-			for (int id = 0; id != spellstotal; ++id)
+			int total;
+
+			switch (Type)
 			{
-				if (SpellsChanged.ContainsKey(id))
-				{
-					var spellchanged = SpellsChanged[id];
-
-					Spell spell = Spells[id];
-
-					spell.isChanged = true; // this flag causes Write2daFile() to reset the node-color
-					spell.differ = bit_clear;
-
-					spell.spellinfo    = spellchanged.spellinfo;
-					spell.targetinfo   = spellchanged.targetinfo;
-					spell.effectweight = spellchanged.effectweight;
-					spell.effecttypes  = spellchanged.effecttypes;
-					spell.damageinfo   = spellchanged.damageinfo;
-					spell.savetype     = spellchanged.savetype;
-					spell.savedctype   = spellchanged.savedctype;
-
-					// NOTE: keep 'savedctypetype' intact. It's basically a user-setting. // TODO: Obsolete that.
-
-					Spells[id] = spell;
-
-					SpellsChanged.Remove(id);
-
-					if (id == Id) // is currently selected tree-node
+				case Type2da.TYPE_SPELLS:
+					total = Spells.Count;
+					for (int id = 0; id != total; ++id)
 					{
-						SpellInfo_reset   .ForeColor = DefaultForeColor;
-						TargetInfo_reset  .ForeColor = DefaultForeColor;
-						EffectWeight_reset.ForeColor = DefaultForeColor;
-						EffectTypes_reset .ForeColor = DefaultForeColor;
-						DamageInfo_reset  .ForeColor = DefaultForeColor;
-						SaveType_reset    .ForeColor = DefaultForeColor;
-						SaveDCType_reset  .ForeColor = DefaultForeColor;
+						if (SpellsChanged.ContainsKey(id))
+						{
+							var spellchanged = SpellsChanged[id];
 
-						AfterSelect_node(null, null); // refresh all displayed data for the current spell jic
+							Spell spell = Spells[id];
+
+							spell.isChanged = true; // this flag causes Write2daFile() to reset the node-color
+							spell.differ = bit_clear;
+
+							spell.spellinfo    = spellchanged.spellinfo;
+							spell.targetinfo   = spellchanged.targetinfo;
+							spell.effectweight = spellchanged.effectweight;
+							spell.effecttypes  = spellchanged.effecttypes;
+							spell.damageinfo   = spellchanged.damageinfo;
+							spell.savetype     = spellchanged.savetype;
+							spell.savedctype   = spellchanged.savedctype;
+
+							Spells[id] = spell;
+
+							SpellsChanged.Remove(id);
+
+							if (id == Id) // is currently selected tree-node
+							{
+								SpellInfo_reset   .ForeColor = DefaultForeColor;
+								TargetInfo_reset  .ForeColor = DefaultForeColor;
+								EffectWeight_reset.ForeColor = DefaultForeColor;
+								EffectTypes_reset .ForeColor = DefaultForeColor;
+								DamageInfo_reset  .ForeColor = DefaultForeColor;
+								SaveType_reset    .ForeColor = DefaultForeColor;
+								SaveDCType_reset  .ForeColor = DefaultForeColor;
+
+								AfterSelect_node(null, null); // refresh all displayed data for the current spell jic
+							}
+						}
 					}
-				}
+					break;
+
+				case Type2da.TYPE_RACIAL:
+					total = Races.Count;
+					for (int id = 0; id != total; ++id)
+					{
+						if (RacesChanged.ContainsKey(id))
+						{
+							var racechanged = RacesChanged[id];
+
+							Race race = Races[id];
+
+							race.isChanged = true; // this flag causes Write2daFile() to reset the node-color
+							race.differ = bit_clear;
+
+							race.flags = racechanged.flags;
+							race.feat1 = racechanged.feat1;
+							race.feat2 = racechanged.feat2;
+							race.feat3 = racechanged.feat3;
+							race.feat4 = racechanged.feat4;
+							race.feat5 = racechanged.feat5;
+
+							Races[id] = race;
+
+							RacesChanged.Remove(id);
+
+							if (id == Id) // is currently selected tree-node
+							{
+								RacialFlags_reset.ForeColor = DefaultForeColor;
+								RacialFeat1_reset.ForeColor = DefaultForeColor;
+								RacialFeat2_reset.ForeColor = DefaultForeColor;
+								RacialFeat3_reset.ForeColor = DefaultForeColor;
+								RacialFeat4_reset.ForeColor = DefaultForeColor;
+								RacialFeat5_reset.ForeColor = DefaultForeColor;
+
+								AfterSelect_node(null, null); // refresh all displayed data for the current race jic
+							}
+						}
+					}
+					break;
+
+				case Type2da.TYPE_CLASSES:
+					total = Classes.Count;
+					for (int id = 0; id != total; ++id)
+					{
+						if (ClassesChanged.ContainsKey(id))
+						{
+							var claschanged = ClassesChanged[id];
+
+							Class clas = Classes[id];
+
+							clas.isChanged = true; // this flag causes Write2daFile() to reset the node-color
+							clas.differ = bit_clear;
+
+							clas.flags  = claschanged.flags;
+							clas.feat1  = claschanged.feat1;
+							clas.feat2  = claschanged.feat2;
+							clas.feat3  = claschanged.feat3;
+							clas.feat4  = claschanged.feat4;
+							clas.feat5  = claschanged.feat5;
+							clas.feat6  = claschanged.feat6;
+							clas.feat7  = claschanged.feat7;
+							clas.feat8  = claschanged.feat8;
+							clas.feat9  = claschanged.feat9;
+							clas.feat10 = claschanged.feat10;
+							clas.feat11 = claschanged.feat11;
+
+							Classes[id] = clas;
+
+							ClassesChanged.Remove(id);
+
+							if (id == Id) // is currently selected tree-node
+							{
+								ClassFlags_reset.ForeColor = DefaultForeColor;
+								ClassFeat1_reset.ForeColor = DefaultForeColor;
+								ClassFeat2_reset.ForeColor = DefaultForeColor;
+								ClassFeat3_reset.ForeColor = DefaultForeColor;
+								ClassFeat4_reset.ForeColor = DefaultForeColor;
+								ClassFeat5_reset.ForeColor = DefaultForeColor;
+
+								AfterSelect_node(null, null); // refresh all displayed data for the current class jic
+							}
+						}
+					}
+					break;
 			}
 		}
 
 
 		/// <summary>
-		/// Writes all Applied data to HenchSpells.2da file.
+		/// Writes all Applied data to 2da-file.
 		/// </summary>
 		void Write2daFile()
 		{
@@ -584,16 +721,37 @@ namespace nwn2_ai_2da_editor
 
 			Text = "nwn2_ai_2da_editor - " + _pfe; // titlebar text (append path of saved file)
 
-			Spell spellclear;
-
-			int spellstotal = Spells.Count; // clear any isChanged flags
-			for (int id = 0; id != spellstotal; ++id)
+			switch (Type)
 			{
-				spellclear = Spells[id];
-				if (spellclear.isChanged)
+				case Type2da.TYPE_SPELLS:
+					WriteHenchSpells();
+					break;
+
+				case Type2da.TYPE_RACIAL:
+					WriteHenchRacial();
+					break;
+
+				case Type2da.TYPE_CLASSES:
+					WriteHenchClasses();
+					break;
+			}
+		}
+
+		/// <summary>
+		/// Writes HenchSpells.2da
+		/// </summary>
+		void WriteHenchSpells()
+		{
+			Spell clear;
+
+			int total = Spells.Count; // clear any isChanged flags
+			for (int id = 0; id != total; ++id)
+			{
+				clear = Spells[id];
+				if (clear.isChanged)
 				{
-					spellclear.isChanged = false;
-					Spells[id] = spellclear;
+					clear.isChanged = false;
+					Spells[id] = clear;
 
 					Tree.Nodes[id].ForeColor = DefaultForeColor;
 				}
@@ -678,6 +836,240 @@ namespace nwn2_ai_2da_editor
 					if (spell.savedctype != 0)
 					{
 						line += spell.savedctype.ToString();
+					}
+					else
+						line += blank;
+
+					sw.WriteLine(line);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Writes HenchRacial.2da
+		/// </summary>
+		void WriteHenchRacial()
+		{
+			Race clear;
+
+			int total = Races.Count; // clear any isChanged flags
+			for (int id = 0; id != total; ++id)
+			{
+				clear = Races[id];
+				if (clear.isChanged)
+				{
+					clear.isChanged = false;
+					Races[id] = clear;
+
+					Tree.Nodes[id].ForeColor = DefaultForeColor;
+				}
+			}
+
+
+			using (var sw = new StreamWriter(_pfe))
+			{
+				sw.WriteLine("2DA V2.0");
+				sw.WriteLine("");
+				sw.WriteLine(" Flags FeatSpell1 FeatSpell2 FeatSpell3 FeatSpell4 FeatSpell5");
+
+				string line;
+
+				foreach (var race in Races) // this writes Applied data only.
+				{
+					line = race.id + " ";
+
+					if (race.flags != 0)
+					{
+						line += race.flags.ToString();
+					}
+					else
+						line += blank;
+
+					line += " ";
+
+					if (race.feat1 != 0)
+					{
+						line += race.feat1.ToString();
+					}
+					else
+						line += blank;
+
+					line += " ";
+
+					if (race.feat2 != 0)
+					{
+						line += race.feat2.ToString();
+					}
+					else
+						line += blank;
+
+					line += " ";
+
+					if (race.feat3 != 0)
+					{
+						line += race.feat3.ToString();
+					}
+					else
+						line += blank;
+
+					line += " ";
+
+					if (race.feat4 != 0)
+					{
+						line += race.feat4.ToString();
+					}
+					else
+						line += blank;
+
+					line += " ";
+
+					if (race.feat5 != 0)
+					{
+						line += race.feat5.ToString();
+					}
+					else
+						line += blank;
+
+					sw.WriteLine(line);
+				}
+			}
+		}
+
+		/// <summary>
+		/// Writes HenchClasses.2da
+		/// </summary>
+		void WriteHenchClasses()
+		{
+			Class clear;
+
+			int total = Classes.Count; // clear any isChanged flags
+			for (int id = 0; id != total; ++id)
+			{
+				clear = Classes[id];
+				if (clear.isChanged)
+				{
+					clear.isChanged = false;
+					Classes[id] = clear;
+
+					Tree.Nodes[id].ForeColor = DefaultForeColor;
+				}
+			}
+
+
+			using (var sw = new StreamWriter(_pfe))
+			{
+				sw.WriteLine("2DA V2.0");
+				sw.WriteLine("");
+				sw.WriteLine(" Flags FeatSpell1 FeatSpell2 FeatSpell3 FeatSpell4 FeatSpell5 FeatSpell6 FeatSpell7 FeatSpell8 FeatSpell9 FeatSpell10 FeatSpell11");
+
+				string line;
+
+				foreach (var clas in Classes) // this writes Applied data only.
+				{
+					line = clas.id + " ";
+
+					if (clas.flags != 0)
+					{
+						line += clas.flags.ToString();
+					}
+					else
+						line += blank;
+
+					line += " ";
+
+					if (clas.feat1 != 0)
+					{
+						line += clas.feat1.ToString();
+					}
+					else
+						line += blank;
+
+					line += " ";
+
+					if (clas.feat2 != 0)
+					{
+						line += clas.feat2.ToString();
+					}
+					else
+						line += blank;
+
+					line += " ";
+
+					if (clas.feat3 != 0)
+					{
+						line += clas.feat3.ToString();
+					}
+					else
+						line += blank;
+
+					line += " ";
+
+					if (clas.feat4 != 0)
+					{
+						line += clas.feat4.ToString();
+					}
+					else
+						line += blank;
+
+					line += " ";
+
+					if (clas.feat5 != 0)
+					{
+						line += clas.feat5.ToString();
+					}
+					else
+						line += blank;
+
+					line += " ";
+
+					if (clas.feat6 != 0)
+					{
+						line += clas.feat6.ToString();
+					}
+					else
+						line += blank;
+
+					line += " ";
+
+					if (clas.feat7 != 0)
+					{
+						line += clas.feat7.ToString();
+					}
+					else
+						line += blank;
+
+					line += " ";
+
+					if (clas.feat8 != 0)
+					{
+						line += clas.feat8.ToString();
+					}
+					else
+						line += blank;
+
+					line += " ";
+
+					if (clas.feat9 != 0)
+					{
+						line += clas.feat9.ToString();
+					}
+					else
+						line += blank;
+
+					line += " ";
+
+					if (clas.feat10 != 0)
+					{
+						line += clas.feat10.ToString();
+					}
+					else
+						line += blank;
+
+					line += " ";
+
+					if (clas.feat11 != 0)
+					{
+						line += clas.feat11.ToString();
 					}
 					else
 						line += blank;

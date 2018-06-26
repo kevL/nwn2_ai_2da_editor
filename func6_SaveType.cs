@@ -768,7 +768,7 @@ namespace nwn2_ai_2da_editor
 		/// <param name="savetype"></param>
 		void CheckSaveTypeCheckers(int savetype)
 		{
-			if (!bypassCheckedChecker)
+			//if (!bypassCheckedChecker)
 			{
 				int val;
 
@@ -934,8 +934,8 @@ namespace nwn2_ai_2da_editor
 				val >>= HENCH_IMMUNITY_WEIGHT_AMOUNT_SHIFT;
 				st_Excl_Weight.Text = val.ToString();
 			}
-			else
-				bypassCheckedChecker = false;
+//			else
+//				bypassCheckedChecker = false;
 		}
 	}
 }

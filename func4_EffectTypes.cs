@@ -424,7 +424,7 @@ namespace nwn2_ai_2da_editor
 		/// <param name="effecttypes"></param>
 		void CheckEffectTypesCheckers(int effecttypes)
 		{
-			if (!bypassCheckedChecker)
+//			if (!bypassCheckedChecker)
 			{
 // Beneficial Effects checkboxes
 				et_AcIncrease         .Checked = (effecttypes & HENCH_EFFECT_TYPE_AC_INCREASE)           != 0;
@@ -485,8 +485,8 @@ namespace nwn2_ai_2da_editor
 				et_Mesmerize          .Checked = (effecttypes & HENCH_EFFECT_TYPE_MESMERIZE)               != 0;
 				et_CutsceneParalyze   .Checked = (effecttypes & HENCH_EFFECT_TYPE_CUTSCENE_PARALYZE)       != 0;
 			}
-			else
-				bypassCheckedChecker = false;
+//			else
+//				bypassCheckedChecker = false;
 		}
 	}
 }

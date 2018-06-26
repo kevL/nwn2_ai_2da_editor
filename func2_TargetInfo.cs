@@ -193,7 +193,7 @@ namespace nwn2_ai_2da_editor
 			int targetinfo;
 			if (Int32.TryParse(TargetInfo_text.Text, out targetinfo))
 			{
-				bypassCheckedChecker = true;
+//				bypassCheckedChecker = true;
 
 				targetinfo &= ~HENCH_SPELL_TARGET_SHAPE_MASK; // clear specific bits
 				TargetInfo_text.Text = (targetinfo | cbo_ti_Shape.SelectedIndex).ToString();
@@ -212,7 +212,7 @@ namespace nwn2_ai_2da_editor
 			int targetinfo;
 			if (Int32.TryParse(TargetInfo_text.Text, out targetinfo))
 			{
-				bypassCheckedChecker = true;
+//				bypassCheckedChecker = true;
 
 				targetinfo &= ~HENCH_SPELL_TARGET_RANGE_MASK; // clear specific bits
 
@@ -300,7 +300,7 @@ namespace nwn2_ai_2da_editor
 				else
 					targetinfo &= ~bit;
 
-				bypassCheckedChecker = true;
+//				bypassCheckedChecker = true;
 				TargetInfo_text.Text = targetinfo.ToString();
 			}
 		}
@@ -359,7 +359,7 @@ namespace nwn2_ai_2da_editor
 		/// <param name="targetinfo"></param>
 		void CheckTargetInfoCheckers(int targetinfo)
 		{
-			if (!bypassCheckedChecker)
+//			if (!bypassCheckedChecker)
 			{
 // Flags checkboxes
 				ti_ShapeLoop          .Checked = (targetinfo & HENCH_SPELL_TARGET_SHAPE_LOOP)           != 0;
@@ -412,8 +412,8 @@ namespace nwn2_ai_2da_editor
 				float fval = ((float)val) * 0.1f;
 				ti_Radius.Text = FormatFloat(fval.ToString());
 			}
-			else
-				bypassCheckedChecker = false;
+//			else
+//				bypassCheckedChecker = false;
 		}
 	}
 }
