@@ -388,15 +388,36 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_setCoreAiVersion(object sender, EventArgs e)
 		{
-			int spellinfo;
+			switch (Type)
+			{
+				case Type2da.TYPE_SPELLS:
+					SetInfoVersion_spells();
+					break;
+
+				case Type2da.TYPE_RACIAL:
+					SetInfoVersion_racial();
+					break;
+
+				case Type2da.TYPE_CLASSES:
+					SetInfoVersion_classes();
+					break;
+			}
+		}
+
+		/// <summary>
+		/// Sets the InfoVersion of spell IDs.
+		/// </summary>
+		void SetInfoVersion_spells()
+		{
+			int info;
 			if (SpellsChanged.ContainsKey(Id))
 			{
-				spellinfo = SpellsChanged[Id].spellinfo;
+				info = SpellsChanged[Id].spellinfo;
 			}
 			else
-				spellinfo = Spells[Id].spellinfo;
+				info = Spells[Id].spellinfo;
 
-			int ver = (spellinfo & HENCH_SPELL_INFO_VERSION_MASK) >> HENCH_SPELL_INFO_VERSION_SHIFT;
+			int ver = (info & HENCH_SPELL_INFO_VERSION_MASK) >> HENCH_SPELL_INFO_VERSION_SHIFT;
 
 			//logfile.Log("input= " + ver);
 
@@ -410,13 +431,13 @@ namespace nwn2_ai_2da_editor
 				case DialogResult.OK: // change the current spell's version only
 					//logfile.Log("Ok result= " + input);
 
-					if (spellinfo != 0 // don't bother setting version if the SpellInfo field is blank.
+					if (info != 0 // don't bother setting version if the SpellInfo field is blank.
 						&& Int32.TryParse(input, out ver))
 					{
-						spellinfo &= ~HENCH_SPELL_INFO_VERSION_MASK;
-						spellinfo |= (ver << HENCH_SPELL_INFO_VERSION_SHIFT);
+						info &= ~HENCH_SPELL_INFO_VERSION_MASK;
+						info |= (ver << HENCH_SPELL_INFO_VERSION_SHIFT);
 
-						SpellInfo_text.Text = spellinfo.ToString();
+						SpellInfo_text.Text = info.ToString();
 					}
 					break;
 
@@ -426,8 +447,6 @@ namespace nwn2_ai_2da_editor
 					if (Int32.TryParse(input, out ver)
 						&& ver > 0 && ver < 256) // version is held in only 8 bits of spellinfo (do not allow 0).
 					{
-//						foreach (var spell in spells) // <- the iterator in foreach() is readonly. So can't change the differ ...
-
 						//logfile.Log(". ver= " + ver);
 
 						bool changed;
@@ -435,28 +454,28 @@ namespace nwn2_ai_2da_editor
 						SpellChanged spellchanged;
 						Spell spell;
 
-						int spellinfo0;
+						int info0;
 
-						int totalspells = Spells.Count;
-						for (int id = 0; id != totalspells; ++id)
+						int total = Spells.Count;
+						for (int id = 0; id != total; ++id)
 						{
 							if (changed = SpellsChanged.ContainsKey(id))
 							{
-								spellinfo0 = SpellsChanged[id].spellinfo;
+								info0 = SpellsChanged[id].spellinfo;
 							}
 							else
-								spellinfo0 = Spells[id].spellinfo;
+								info0 = Spells[id].spellinfo;
 
-							if (spellinfo0 != 0) // don't bother setting version if the SpellInfo field is blank.
+							if (info0 != 0) // don't bother setting version if the SpellInfo field is blank.
 							{
-								spellinfo = (spellinfo0 & ~HENCH_SPELL_INFO_VERSION_MASK);
-								spellinfo |= (ver << HENCH_SPELL_INFO_VERSION_SHIFT);
+								info = (info0 & ~HENCH_SPELL_INFO_VERSION_MASK);
+								info |= (ver << HENCH_SPELL_INFO_VERSION_SHIFT);
 
-								if (spellinfo != spellinfo0)
+								if (info != info0)
 								{
 									if (id == Id)
 									{
-										SpellInfo_text.Text = spellinfo.ToString();
+										SpellInfo_text.Text = info.ToString();
 									}
 									else
 									{
@@ -478,7 +497,7 @@ namespace nwn2_ai_2da_editor
 											spellchanged.savedctype   = spell.savedctype;
 										}
 
-										spellchanged.spellinfo = spellinfo;
+										spellchanged.spellinfo = info;
 
 										// check it
 										int differ = SpellDiffer(spell, spellchanged);
@@ -497,6 +516,268 @@ namespace nwn2_ai_2da_editor
 											SpellsChanged.Remove(id);
 
 											if (!spell.isChanged) // this is set by the Apply btn only.
+											{
+												Tree.Nodes[id].ForeColor = DefaultForeColor;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					//else logfile.Log(". invalid");
+					break;
+
+				case DialogResult.Cancel: // do a jig.
+					//logfile.Log("cancelled");
+					break;
+			}
+		}
+
+		/// <summary>
+		/// Sets the InfoVersion of race IDs.
+		/// </summary>
+		void SetInfoVersion_racial()
+		{
+			int info;
+			if (RacesChanged.ContainsKey(Id))
+			{
+				info = RacesChanged[Id].flags;
+			}
+			else
+				info = Races[Id].flags;
+
+			int ver = (info & HENCH_SPELL_INFO_VERSION_MASK) >> HENCH_SPELL_INFO_VERSION_SHIFT;
+
+			//logfile.Log("input= " + ver);
+
+			string input = ver.ToString();
+			switch (ShowInputDialog("  RacialFlags version",
+									ref input,
+									"current race only",
+									"all races in 2da",
+									"Do NOT change this."))
+			{
+				case DialogResult.OK: // change the current race's version only
+					//logfile.Log("Ok result= " + input);
+
+					if (Int32.TryParse(input, out ver)) // set the version even if the RacialFlags field is blank.
+					{
+						info &= ~HENCH_SPELL_INFO_VERSION_MASK;
+						info |= (ver << HENCH_SPELL_INFO_VERSION_SHIFT);
+
+						RacialFlags_text.Text = info.ToString();
+					}
+					break;
+
+				case DialogResult.Retry: // change the version of all races currently loaded
+					//logfile.Log("Retry result= " + input);
+
+					if (Int32.TryParse(input, out ver)
+						&& ver > 0 && ver < 256) // version is held in only 8 bits of racialflags (do not allow 0).
+					{
+						//logfile.Log(". ver= " + ver);
+
+						bool changed;
+
+						RaceChanged racechanged;
+						Race race;
+
+						int info0;
+
+						int total = Races.Count;
+						for (int id = 0; id != total; ++id)
+						{
+							if (changed = RacesChanged.ContainsKey(id))
+							{
+								info0 = RacesChanged[id].flags;
+							}
+							else
+								info0 = Races[id].flags;
+
+//							if (info0 != 0) // set the version even if the RacialFlags field is blank.
+							{
+								info = (info0 & ~HENCH_SPELL_INFO_VERSION_MASK);
+								info |= (ver << HENCH_SPELL_INFO_VERSION_SHIFT);
+
+								if (info != info0)
+								{
+									if (id == Id)
+									{
+										RacialFlags_text.Text = info.ToString();
+									}
+									else
+									{
+										race = Races[id];
+
+										if (changed)
+										{
+											racechanged = RacesChanged[id];
+										}
+										else
+										{
+											racechanged = new RaceChanged();
+
+											racechanged.feat1 = race.feat1;
+											racechanged.feat2 = race.feat2;
+											racechanged.feat3 = race.feat3;
+											racechanged.feat4 = race.feat4;
+											racechanged.feat5 = race.feat5;
+										}
+
+										racechanged.flags = info;
+
+										// check it
+										int differ = RaceDiffer(race, racechanged);
+										race.differ = differ;
+										Races[id] = race;
+
+										//logfile.Log(". differ= " + differ);
+
+										if (differ != bit_clear)
+										{
+											RacesChanged[id] = racechanged;
+											Tree.Nodes[id].ForeColor = Color.Crimson;
+										}
+										else
+										{
+											RacesChanged.Remove(id);
+
+											if (!race.isChanged) // this is set by the Apply btn only.
+											{
+												Tree.Nodes[id].ForeColor = DefaultForeColor;
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+					//else logfile.Log(". invalid");
+					break;
+
+				case DialogResult.Cancel: // do a jig.
+					//logfile.Log("cancelled");
+					break;
+			}
+		}
+
+		/// <summary>
+		/// Sets the InfoVersion of class IDs.
+		/// </summary>
+		void SetInfoVersion_classes()
+		{
+			int info;
+			if (ClassesChanged.ContainsKey(Id))
+			{
+				info = ClassesChanged[Id].flags;
+			}
+			else
+				info = Classes[Id].flags;
+
+			int ver = (info & HENCH_SPELL_INFO_VERSION_MASK) >> HENCH_SPELL_INFO_VERSION_SHIFT;
+
+			//logfile.Log("input= " + ver);
+
+			string input = ver.ToString();
+			switch (ShowInputDialog("  ClassFlags version",
+									ref input,
+									"current class only",
+									"all classes in 2da",
+									"Do NOT change this."))
+			{
+				case DialogResult.OK: // change the current class' version only
+					//logfile.Log("Ok result= " + input);
+
+					if (Int32.TryParse(input, out ver)) // set the version even if the ClassFlags field is blank.
+					{
+						info &= ~HENCH_SPELL_INFO_VERSION_MASK;
+						info |= (ver << HENCH_SPELL_INFO_VERSION_SHIFT);
+
+						ClassFlags_text.Text = info.ToString();
+					}
+					break;
+
+				case DialogResult.Retry: // change the version of all classes currently loaded
+					//logfile.Log("Retry result= " + input);
+
+					if (Int32.TryParse(input, out ver)
+						&& ver > 0 && ver < 256) // version is held in only 8 bits of classflags (do not allow 0).
+					{
+						//logfile.Log(". ver= " + ver);
+
+						bool changed;
+
+						ClassChanged claschanged;
+						Class clas;
+
+						int info0;
+
+						int total = Classes.Count;
+						for (int id = 0; id != total; ++id)
+						{
+							if (changed = ClassesChanged.ContainsKey(id))
+							{
+								info0 = ClassesChanged[id].flags;
+							}
+							else
+								info0 = Classes[id].flags;
+
+//							if (info0 != 0) // set the version even if the ClassFlags field is blank.
+							{
+								info = (info0 & ~HENCH_SPELL_INFO_VERSION_MASK);
+								info |= (ver << HENCH_SPELL_INFO_VERSION_SHIFT);
+
+								if (info != info0)
+								{
+									if (id == Id)
+									{
+										ClassFlags_text.Text = info.ToString();
+									}
+									else
+									{
+										clas = Classes[id];
+
+										if (changed)
+										{
+											claschanged = ClassesChanged[id];
+										}
+										else
+										{
+											claschanged = new ClassChanged();
+
+											claschanged.feat1  = clas.feat1;
+											claschanged.feat2  = clas.feat2;
+											claschanged.feat3  = clas.feat3;
+											claschanged.feat4  = clas.feat4;
+											claschanged.feat5  = clas.feat5;
+											claschanged.feat6  = clas.feat6;
+											claschanged.feat7  = clas.feat7;
+											claschanged.feat8  = clas.feat8;
+											claschanged.feat9  = clas.feat9;
+											claschanged.feat10 = clas.feat10;
+											claschanged.feat11 = clas.feat11;
+										}
+
+										claschanged.flags = info;
+
+										// check it
+										int differ = ClassDiffer(clas, claschanged);
+										clas.differ = differ;
+										Classes[id] = clas;
+
+										//logfile.Log(". differ= " + differ);
+
+										if (differ != bit_clear)
+										{
+											ClassesChanged[id] = claschanged;
+											Tree.Nodes[id].ForeColor = Color.Crimson;
+										}
+										else
+										{
+											ClassesChanged.Remove(id);
+
+											if (!clas.isChanged) // this is set by the Apply btn only.
 											{
 												Tree.Nodes[id].ForeColor = DefaultForeColor;
 											}

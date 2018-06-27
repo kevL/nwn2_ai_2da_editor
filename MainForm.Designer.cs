@@ -4630,7 +4630,7 @@
 			// 
 			// cf_rbArcane
 			// 
-			this.cf_rbArcane.Location = new System.Drawing.Point(775, 110);
+			this.cf_rbArcane.Location = new System.Drawing.Point(780, 40);
 			this.cf_rbArcane.Margin = new System.Windows.Forms.Padding(0);
 			this.cf_rbArcane.Name = "cf_rbArcane";
 			this.cf_rbArcane.Size = new System.Drawing.Size(120, 20);
@@ -4642,7 +4642,7 @@
 			// 
 			// cf_rbDivine
 			// 
-			this.cf_rbDivine.Location = new System.Drawing.Point(775, 90);
+			this.cf_rbDivine.Location = new System.Drawing.Point(780, 20);
 			this.cf_rbDivine.Margin = new System.Windows.Forms.Padding(0);
 			this.cf_rbDivine.Name = "cf_rbDivine";
 			this.cf_rbDivine.Size = new System.Drawing.Size(120, 20);
@@ -4654,7 +4654,7 @@
 			// 
 			// cf_L4Required
 			// 
-			this.cf_L4Required.Location = new System.Drawing.Point(775, 65);
+			this.cf_L4Required.Location = new System.Drawing.Point(780, 110);
 			this.cf_L4Required.Margin = new System.Windows.Forms.Padding(0);
 			this.cf_L4Required.Name = "cf_L4Required";
 			this.cf_L4Required.Size = new System.Drawing.Size(155, 19);
@@ -4665,7 +4665,7 @@
 			// 
 			// cf_DcBonus
 			// 
-			this.cf_DcBonus.Location = new System.Drawing.Point(775, 45);
+			this.cf_DcBonus.Location = new System.Drawing.Point(780, 90);
 			this.cf_DcBonus.Margin = new System.Windows.Forms.Padding(0);
 			this.cf_DcBonus.Name = "cf_DcBonus";
 			this.cf_DcBonus.Size = new System.Drawing.Size(155, 19);
@@ -4676,7 +4676,7 @@
 			// 
 			// cf_isPrestigeClass
 			// 
-			this.cf_isPrestigeClass.Location = new System.Drawing.Point(775, 25);
+			this.cf_isPrestigeClass.Location = new System.Drawing.Point(780, 70);
 			this.cf_isPrestigeClass.Margin = new System.Windows.Forms.Padding(0);
 			this.cf_isPrestigeClass.Name = "cf_isPrestigeClass";
 			this.cf_isPrestigeClass.Size = new System.Drawing.Size(155, 19);
