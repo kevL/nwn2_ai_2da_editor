@@ -343,8 +343,6 @@ namespace nwn2_ai_2da_editor
 
 			Type = Type2da.TYPE_SPELLS;
 
-			Size = new Size(1105, 525);
-
 			cols_HenchSpells .Visible = true;
 			cols_HenchRacial .Visible =
 			cols_HenchClasses.Visible = false;
@@ -448,6 +446,8 @@ namespace nwn2_ai_2da_editor
 			GroupColor(ti_ShapeGrp,  Color.LimeGreen);
 			GroupColor(ti_RangeGrp,  Color.LimeGreen);
 			GroupColor(ti_RadiusGrp, Color.LimeGreen);
+
+			Size = new Size(1105, 525);
 		}
 
 		/// <summary>
@@ -461,8 +461,6 @@ namespace nwn2_ai_2da_editor
 			SuspendLayout();
 
 			Type = Type2da.TYPE_RACIAL;
-
-			Size = new Size(905, 350);
 
 			cols_HenchSpells .Visible = false;
 			cols_HenchRacial .Visible = true;
@@ -541,6 +539,8 @@ namespace nwn2_ai_2da_editor
 
 			PopTree();
 			ToggleMenuitems(true);
+
+			Size = new Size(905, 350);
 		}
 
 		/// <summary>
@@ -554,8 +554,6 @@ namespace nwn2_ai_2da_editor
 			SuspendLayout();
 
 			Type = Type2da.TYPE_CLASSES;
-
-			Size = new Size(1355, 400);
 
 			cols_HenchSpells .Visible =
 			cols_HenchRacial .Visible = false;
@@ -676,6 +674,8 @@ namespace nwn2_ai_2da_editor
 
 			PopTree();
 			ToggleMenuitems(true);
+
+			Size = new Size(1355, 400);
 		}
 
 		/// <summary>
