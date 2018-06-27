@@ -191,6 +191,8 @@ namespace nwn2_ai_2da_editor
 			PopulateSaveTypeComboboxes();
 			PopulateSaveDcTypeComboboxes();
 
+			PopulateClassComboboxes();
+
 
 			// set unicode text on the up/down Search btns.
 			btn_Search_d.Text = "\u25bc"; // down triangle
@@ -217,8 +219,8 @@ namespace nwn2_ai_2da_editor
 			// NOTE: quickload the 2da for testing ONLY.
 //			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchspells.2da";
 //			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchracial.2da";
-//			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchclasses.2da";
-//			Load_file();
+			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchclasses.2da";
+			Load_file();
 		}
 		#endregion cTor
 

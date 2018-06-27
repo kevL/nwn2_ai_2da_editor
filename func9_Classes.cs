@@ -251,7 +251,7 @@ namespace nwn2_ai_2da_editor
 
 				if (tb == ClassFlags_text)
 				{
-					CheckClassFlagsCheckers();
+					CheckClassFlagsCheckers(val);
 				}
 				else
 					CheckClassFeatsCheckers(tb);
@@ -342,6 +342,50 @@ namespace nwn2_ai_2da_editor
 
 
 		/// <summary>
+		/// Populates the RacialFlags dropdown-lists.
+		/// </summary>
+		void PopulateClassComboboxes()
+		{
+			// populate the dropdown list for Casting Ability
+			cbo_cf_Ability.Items.Add("none");			// 0
+			cbo_cf_Ability.Items.Add("intelligence");	// 1
+			cbo_cf_Ability.Items.Add("wisdom");			// 2
+			cbo_cf_Ability.Items.Add("charisma");		// 3
+
+			// populate the dropdown list for Buff Others
+			cbo_cf_BuffOthers.Items.Add("full");	// 0
+			cbo_cf_BuffOthers.Items.Add("high");	// 1
+			cbo_cf_BuffOthers.Items.Add("medium");	// 2
+			cbo_cf_BuffOthers.Items.Add("low");		// 3
+
+			// populate the dropdown list for Attack
+			cbo_cf_Attack.Items.Add("full");	// 0
+			cbo_cf_Attack.Items.Add("high");	// 1
+			cbo_cf_Attack.Items.Add("medium");	// 2
+			cbo_cf_Attack.Items.Add("low");		// 3
+
+			// populate the dropdown list for Spell Progression
+			cbo_cf_SpellProg.Items.Add("none");				// 0
+			cbo_cf_SpellProg.Items.Add("[not used]");		// 1 - not used.
+			cbo_cf_SpellProg.Items.Add("skip 1st & 3rd");	// 2
+			cbo_cf_SpellProg.Items.Add("even levels");		// 3
+			cbo_cf_SpellProg.Items.Add("odd levels");		// 4
+			cbo_cf_SpellProg.Items.Add("skip 4th");			// 5
+			cbo_cf_SpellProg.Items.Add("skip 1st");			// 6
+			cbo_cf_SpellProg.Items.Add("full");				// 7
+
+			cbo_cf_SneakAttack.Items.Add("none");					// 0
+			cbo_cf_SneakAttack.Items.Add("odd levels");				// 1
+			cbo_cf_SneakAttack.Items.Add("even levels");			// 2
+			cbo_cf_SneakAttack.Items.Add("every 3rd, skip 1st");	// 3
+			cbo_cf_SneakAttack.Items.Add("every 3rd");				// 4
+			cbo_cf_SneakAttack.Items.Add("every 3rd after 2nd");	// 5
+			cbo_cf_SneakAttack.Items.Add("every 3rd after 1st");	// 6
+			cbo_cf_SneakAttack.Items.Add("every 4th");				// 7
+		}
+
+
+		/// <summary>
 		/// Handles toggling bits by checkboxes on the ClassFlags page.
 		/// </summary>
 		/// <param name="sender"></param>
@@ -360,6 +404,109 @@ namespace nwn2_ai_2da_editor
 
 //				bypassCheckedChecker = true;
 				ClassFlags_text.Text = flags.ToString();
+			}
+		}
+
+		/// <summary>
+		/// Handles toggling bits by combobox on the RacialFlags page - caster ability.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void SelectionChangeCommitted_cf_cbo_CasterAbility(object sender, EventArgs e)
+		{
+			int flags;
+			if (Int32.TryParse(ClassFlags_text.Text, out flags))
+			{
+//				bypassCheckedChecker = true;
+
+				flags &= ~HENCH_CLASS_ABILITY_MODIFIER_MASK; // 0x00000300
+				int val = cbo_cf_Ability.SelectedIndex << HENCH_CLASS_ABILITY_MODIFIER_SHIFT;
+				ClassFlags_text.Text = (flags | val).ToString();
+			}
+		}
+
+		/// <summary>
+		/// Handles toggling bits by combobox on the RacialFlags page - buff others.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void SelectionChangeCommitted_cf_cbo_BuffOthers(object sender, EventArgs e)
+		{
+			int flags;
+			if (Int32.TryParse(ClassFlags_text.Text, out flags))
+			{
+//				bypassCheckedChecker = true;
+
+				flags &= ~HENCH_CLASS_BUFF_OTHERS_LOW; // 0x00000c00 - acts as the mask also.
+				int val = cbo_cf_BuffOthers.SelectedIndex << HENCH_CLASS_BUFF_OTHERS_SHIFT;
+				ClassFlags_text.Text = (flags | val).ToString();
+			}
+		}
+
+		/// <summary>
+		/// Handles toggling bits by combobox on the RacialFlags page - attack.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void SelectionChangeCommitted_cf_cbo_Attack(object sender, EventArgs e)
+		{
+			int flags;
+			if (Int32.TryParse(ClassFlags_text.Text, out flags))
+			{
+//				bypassCheckedChecker = true;
+
+				flags &= ~HENCH_CLASS_ATTACK_LOW; // 0x00003000 - acts as the mask also.
+				int val = cbo_cf_Attack.SelectedIndex << HENCH_CLASS_ATTACK_SHIFT;
+				ClassFlags_text.Text = (flags | val).ToString();
+			}
+		}
+
+		/// <summary>
+		/// Handles toggling bits by combobox on the RacialFlags page - spell progression.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void SelectionChangeCommitted_cf_cbo_SpellProg(object sender, EventArgs e)
+		{
+			int flags;
+			if (Int32.TryParse(ClassFlags_text.Text, out flags))
+			{
+//				bypassCheckedChecker = true;
+
+				flags &= ~HENCH_FULL_SPELL_PROGRESSION; // 0x00000007 - acts as the mask also.
+				int val = cbo_cf_SpellProg.SelectedIndex;
+				ClassFlags_text.Text = (flags | val).ToString();
+			}
+		}
+
+		/// <summary>
+		/// Handles toggling bits by combobox on the RacialFlags page - sneak attack.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void SelectionChangeCommitted_cf_cbo_SneakAttack(object sender, EventArgs e)
+		{
+			int flags;
+			if (Int32.TryParse(ClassFlags_text.Text, out flags))
+			{
+//				bypassCheckedChecker = true;
+
+				flags &= ~HENCH_CLASS_SA_EVERY_FORTH; // 0x0001c000 - acts as the mask also.
+
+				int val;
+				switch (cbo_cf_SneakAttack.SelectedIndex)
+				{
+					default: val = HENCH_CLASS_SA_NONE; break;
+
+					case 1: val = HENCH_CLASS_SA_EVERY_OTHER_ODD;        break;
+					case 2: val = HENCH_CLASS_SA_EVERY_OTHER_EVEN;       break;
+					case 3: val = HENCH_CLASS_SA_EVERY_THIRD_SKIP_FIRST; break;
+					case 4: val = HENCH_CLASS_SA_EVERY_THIRD;            break;
+					case 5: val = HENCH_CLASS_SA_EVERY_THIRD_FROM_TWO;   break;
+					case 6: val = HENCH_CLASS_SA_EVERY_THIRD_FROM_ONE;   break;
+					case 7: val = HENCH_CLASS_SA_EVERY_FORTH;            break;
+				}
+				ClassFlags_text.Text = (flags | val).ToString();
 			}
 		}
 
@@ -609,23 +756,102 @@ namespace nwn2_ai_2da_editor
 		}
 
 
+		const int HENCH_CLASS_BUFF_OTHERS_SHIFT = 10;
+		const int HENCH_CLASS_ATTACK_SHIFT      = 12;
+
 		/// <summary>
 		/// Sets the checkers on the ClassFlags page to reflect the current
 		/// flags value.
 		/// </summary>
-		void CheckClassFlagsCheckers()
+		void CheckClassFlagsCheckers(int flags)
 		{
 //			if (!bypassCheckedChecker)
 			{
-				int flags;
-				if (ClassesChanged.ContainsKey(Id))
-				{
-					flags = ClassesChanged[Id].flags;
-				}
-				else
-					flags = Classes[Id].flags;
+//				int flags;
+//				if (ClassesChanged.ContainsKey(Id))
+//				{
+//					flags = ClassesChanged[Id].flags;
+//				}
+//				else
+//					flags = Classes[Id].flags;
 
 				cf_HasFeatSpells.Checked = (flags & HENCH_CLASS_FEAT_SPELLS) != 0;
+
+// Caster Ability dropdown-list
+				int val = flags;
+				val &= HENCH_CLASS_ABILITY_MODIFIER_MASK; // 0x00000300
+				val >>= HENCH_CLASS_ABILITY_MODIFIER_SHIFT;
+				if (val >= cbo_cf_Ability.Items.Count)
+				{
+					val = -1;
+					cbo_cf_Ability.ForeColor = Color.Crimson;
+				}
+				else
+					cbo_cf_Ability.ForeColor = DefaultForeColor;
+
+				cbo_cf_Ability.SelectedIndex = val;
+
+// Buff Others dropdown-list
+				val = flags;
+				val &= HENCH_CLASS_BUFF_OTHERS_LOW; // 0x00000c00 - acts as the mask also.
+				val >>= HENCH_CLASS_BUFF_OTHERS_SHIFT;
+				if (val >= cbo_cf_BuffOthers.Items.Count)
+				{
+					val = -1;
+					cbo_cf_BuffOthers.ForeColor = Color.Crimson;
+				}
+				else
+					cbo_cf_BuffOthers.ForeColor = DefaultForeColor;
+
+				cbo_cf_BuffOthers.SelectedIndex = val;
+
+// Attack dropdown-list
+				val = flags;
+				val &= HENCH_CLASS_ATTACK_LOW; // 0x00003000 - acts as the mask also.
+				val >>= HENCH_CLASS_ATTACK_SHIFT;
+				if (val >= cbo_cf_Attack.Items.Count)
+				{
+					val = -1;
+					cbo_cf_Attack.ForeColor = Color.Crimson;
+				}
+				else
+					cbo_cf_Attack.ForeColor = DefaultForeColor;
+
+				cbo_cf_Attack.SelectedIndex = val;
+
+// Spell Progression dropdown-list
+				val = flags;
+				val &= HENCH_FULL_SPELL_PROGRESSION; // 0x00000007 - acts as the mask also.
+				if (val >= cbo_cf_SpellProg.Items.Count)
+				{
+					val = -1;
+					cbo_cf_SpellProg.ForeColor = Color.Crimson;
+				}
+				else
+					cbo_cf_SpellProg.ForeColor = DefaultForeColor;
+
+				cbo_cf_SpellProg.SelectedIndex = val;
+
+// Sneak Attack dropdown-list
+				cbo_cf_SneakAttack.ForeColor = DefaultForeColor;
+
+				switch (flags & HENCH_CLASS_SA_EVERY_FORTH) // 0x0001c000 - acts as flag also.
+				{
+					case HENCH_CLASS_SA_NONE:                   val = 0; break; // 0x00000000
+					case HENCH_CLASS_SA_EVERY_OTHER_ODD:        val = 1; break; // 0x00004000
+					case HENCH_CLASS_SA_EVERY_OTHER_EVEN:       val = 2; break; // 0x00008000
+					case HENCH_CLASS_SA_EVERY_THIRD_SKIP_FIRST: val = 3; break; // 0x0000c000
+					case HENCH_CLASS_SA_EVERY_THIRD:            val = 4; break; // 0x00010000
+					case HENCH_CLASS_SA_EVERY_THIRD_FROM_TWO:   val = 5; break; // 0x00014000
+					case HENCH_CLASS_SA_EVERY_THIRD_FROM_ONE:   val = 6; break; // 0x00018000
+					case HENCH_CLASS_SA_EVERY_FORTH:            val = 7; break; // 0x0001c000
+
+					default:
+						val = -1;
+						cbo_cf_SneakAttack.ForeColor = Color.Crimson;
+						break;
+				}
+				cbo_cf_SneakAttack.SelectedIndex = val;
 			}
 //			else
 //				bypassCheckedChecker = false; // TODO: conflict w/ CheckClassFeatsCheckers()

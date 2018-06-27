@@ -446,7 +446,7 @@
 		private System.Windows.Forms.TextBox ClassFeat11_text;
 		private System.Windows.Forms.Button ClassFeat11_reset;
 		private System.Windows.Forms.Label rf_infoversion;
-		private System.Windows.Forms.Label rf_infoversion_label;
+		private System.Windows.Forms.Label rf_infoversion_lbl;
 		private System.Windows.Forms.CheckBox rf_HasFeatSpells;
 		private System.Windows.Forms.TextBox rf1_SpellId;
 		private System.Windows.Forms.TextBox rf1_FeatId;
@@ -530,7 +530,17 @@
 		private System.Windows.Forms.Label cf11_featId_label;
 		private System.Windows.Forms.CheckBox cf_HasFeatSpells;
 		private System.Windows.Forms.Label cf_infoversion;
-		private System.Windows.Forms.Label cf_infoversion_label;
+		private System.Windows.Forms.Label cf_infoversion_lbl;
+		private System.Windows.Forms.ComboBox cbo_cf_Ability;
+		private System.Windows.Forms.Label cf_Ability_lbl;
+		private System.Windows.Forms.Label cf_BuffOthers_lbl;
+		private System.Windows.Forms.ComboBox cbo_cf_BuffOthers;
+		private System.Windows.Forms.ComboBox cbo_cf_Attack;
+		private System.Windows.Forms.Label cf_Attack_lbl;
+		private System.Windows.Forms.ComboBox cbo_cf_SpellProg;
+		private System.Windows.Forms.Label cf_SpellProg_lbl;
+		private System.Windows.Forms.ComboBox cbo_cf_SneakAttack;
+		private System.Windows.Forms.Label cf_SneakAttack_lbl;
 
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -848,8 +858,18 @@
 			this.tb_Search = new System.Windows.Forms.TextBox();
 			this.cols_HenchClasses = new System.Windows.Forms.TabControl();
 			this.page_ClassFlags = new System.Windows.Forms.TabPage();
+			this.cbo_cf_SneakAttack = new System.Windows.Forms.ComboBox();
+			this.cf_SneakAttack_lbl = new System.Windows.Forms.Label();
+			this.cbo_cf_SpellProg = new System.Windows.Forms.ComboBox();
+			this.cf_SpellProg_lbl = new System.Windows.Forms.Label();
+			this.cbo_cf_Attack = new System.Windows.Forms.ComboBox();
+			this.cf_Attack_lbl = new System.Windows.Forms.Label();
+			this.cbo_cf_BuffOthers = new System.Windows.Forms.ComboBox();
+			this.cf_BuffOthers_lbl = new System.Windows.Forms.Label();
+			this.cf_Ability_lbl = new System.Windows.Forms.Label();
+			this.cbo_cf_Ability = new System.Windows.Forms.ComboBox();
 			this.cf_infoversion = new System.Windows.Forms.Label();
-			this.cf_infoversion_label = new System.Windows.Forms.Label();
+			this.cf_infoversion_lbl = new System.Windows.Forms.Label();
 			this.cf_HasFeatSpells = new System.Windows.Forms.CheckBox();
 			this.cf_bin = new System.Windows.Forms.Label();
 			this.cf_hex = new System.Windows.Forms.Label();
@@ -1005,7 +1025,7 @@
 			this.page_RacialFlags = new System.Windows.Forms.TabPage();
 			this.rf_HasFeatSpells = new System.Windows.Forms.CheckBox();
 			this.rf_infoversion = new System.Windows.Forms.Label();
-			this.rf_infoversion_label = new System.Windows.Forms.Label();
+			this.rf_infoversion_lbl = new System.Windows.Forms.Label();
 			this.rf_bin = new System.Windows.Forms.Label();
 			this.rf_hex = new System.Windows.Forms.Label();
 			this.rf_Clear = new System.Windows.Forms.Button();
@@ -4564,8 +4584,18 @@
 			// 
 			// page_ClassFlags
 			// 
+			this.page_ClassFlags.Controls.Add(this.cbo_cf_SneakAttack);
+			this.page_ClassFlags.Controls.Add(this.cf_SneakAttack_lbl);
+			this.page_ClassFlags.Controls.Add(this.cbo_cf_SpellProg);
+			this.page_ClassFlags.Controls.Add(this.cf_SpellProg_lbl);
+			this.page_ClassFlags.Controls.Add(this.cbo_cf_Attack);
+			this.page_ClassFlags.Controls.Add(this.cf_Attack_lbl);
+			this.page_ClassFlags.Controls.Add(this.cbo_cf_BuffOthers);
+			this.page_ClassFlags.Controls.Add(this.cf_BuffOthers_lbl);
+			this.page_ClassFlags.Controls.Add(this.cf_Ability_lbl);
+			this.page_ClassFlags.Controls.Add(this.cbo_cf_Ability);
 			this.page_ClassFlags.Controls.Add(this.cf_infoversion);
-			this.page_ClassFlags.Controls.Add(this.cf_infoversion_label);
+			this.page_ClassFlags.Controls.Add(this.cf_infoversion_lbl);
 			this.page_ClassFlags.Controls.Add(this.cf_HasFeatSpells);
 			this.page_ClassFlags.Controls.Add(this.cf_bin);
 			this.page_ClassFlags.Controls.Add(this.cf_hex);
@@ -4583,6 +4613,106 @@
 			this.page_ClassFlags.Text = "Flags";
 			this.page_ClassFlags.UseVisualStyleBackColor = true;
 			// 
+			// cbo_cf_SneakAttack
+			// 
+			this.cbo_cf_SneakAttack.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbo_cf_SneakAttack.FormattingEnabled = true;
+			this.cbo_cf_SneakAttack.Location = new System.Drawing.Point(610, 110);
+			this.cbo_cf_SneakAttack.Margin = new System.Windows.Forms.Padding(0);
+			this.cbo_cf_SneakAttack.Name = "cbo_cf_SneakAttack";
+			this.cbo_cf_SneakAttack.Size = new System.Drawing.Size(145, 22);
+			this.cbo_cf_SneakAttack.TabIndex = 67;
+			this.cbo_cf_SneakAttack.SelectionChangeCommitted += new System.EventHandler(this.SelectionChangeCommitted_cf_cbo_SneakAttack);
+			// 
+			// cf_SneakAttack_lbl
+			// 
+			this.cf_SneakAttack_lbl.Location = new System.Drawing.Point(615, 90);
+			this.cf_SneakAttack_lbl.Margin = new System.Windows.Forms.Padding(0);
+			this.cf_SneakAttack_lbl.Name = "cf_SneakAttack_lbl";
+			this.cf_SneakAttack_lbl.Size = new System.Drawing.Size(140, 15);
+			this.cf_SneakAttack_lbl.TabIndex = 66;
+			this.cf_SneakAttack_lbl.Text = "Sneak Attack";
+			// 
+			// cbo_cf_SpellProg
+			// 
+			this.cbo_cf_SpellProg.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbo_cf_SpellProg.FormattingEnabled = true;
+			this.cbo_cf_SpellProg.Location = new System.Drawing.Point(460, 110);
+			this.cbo_cf_SpellProg.Margin = new System.Windows.Forms.Padding(0);
+			this.cbo_cf_SpellProg.Name = "cbo_cf_SpellProg";
+			this.cbo_cf_SpellProg.Size = new System.Drawing.Size(145, 22);
+			this.cbo_cf_SpellProg.TabIndex = 65;
+			this.cbo_cf_SpellProg.SelectionChangeCommitted += new System.EventHandler(this.SelectionChangeCommitted_cf_cbo_SpellProg);
+			// 
+			// cf_SpellProg_lbl
+			// 
+			this.cf_SpellProg_lbl.Location = new System.Drawing.Point(465, 90);
+			this.cf_SpellProg_lbl.Margin = new System.Windows.Forms.Padding(0);
+			this.cf_SpellProg_lbl.Name = "cf_SpellProg_lbl";
+			this.cf_SpellProg_lbl.Size = new System.Drawing.Size(140, 15);
+			this.cf_SpellProg_lbl.TabIndex = 64;
+			this.cf_SpellProg_lbl.Text = "Spell Progression";
+			// 
+			// cbo_cf_Attack
+			// 
+			this.cbo_cf_Attack.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbo_cf_Attack.FormattingEnabled = true;
+			this.cbo_cf_Attack.Location = new System.Drawing.Point(310, 110);
+			this.cbo_cf_Attack.Margin = new System.Windows.Forms.Padding(0);
+			this.cbo_cf_Attack.Name = "cbo_cf_Attack";
+			this.cbo_cf_Attack.Size = new System.Drawing.Size(145, 22);
+			this.cbo_cf_Attack.TabIndex = 63;
+			this.cbo_cf_Attack.SelectionChangeCommitted += new System.EventHandler(this.SelectionChangeCommitted_cf_cbo_Attack);
+			// 
+			// cf_Attack_lbl
+			// 
+			this.cf_Attack_lbl.Location = new System.Drawing.Point(315, 90);
+			this.cf_Attack_lbl.Margin = new System.Windows.Forms.Padding(0);
+			this.cf_Attack_lbl.Name = "cf_Attack_lbl";
+			this.cf_Attack_lbl.Size = new System.Drawing.Size(140, 15);
+			this.cf_Attack_lbl.TabIndex = 62;
+			this.cf_Attack_lbl.Text = "Attack";
+			// 
+			// cbo_cf_BuffOthers
+			// 
+			this.cbo_cf_BuffOthers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbo_cf_BuffOthers.FormattingEnabled = true;
+			this.cbo_cf_BuffOthers.Location = new System.Drawing.Point(160, 110);
+			this.cbo_cf_BuffOthers.Margin = new System.Windows.Forms.Padding(0);
+			this.cbo_cf_BuffOthers.Name = "cbo_cf_BuffOthers";
+			this.cbo_cf_BuffOthers.Size = new System.Drawing.Size(145, 22);
+			this.cbo_cf_BuffOthers.TabIndex = 61;
+			this.cbo_cf_BuffOthers.SelectionChangeCommitted += new System.EventHandler(this.SelectionChangeCommitted_cf_cbo_BuffOthers);
+			// 
+			// cf_BuffOthers_lbl
+			// 
+			this.cf_BuffOthers_lbl.Location = new System.Drawing.Point(165, 90);
+			this.cf_BuffOthers_lbl.Margin = new System.Windows.Forms.Padding(0);
+			this.cf_BuffOthers_lbl.Name = "cf_BuffOthers_lbl";
+			this.cf_BuffOthers_lbl.Size = new System.Drawing.Size(140, 15);
+			this.cf_BuffOthers_lbl.TabIndex = 60;
+			this.cf_BuffOthers_lbl.Text = "Buff Others";
+			// 
+			// cf_Ability_lbl
+			// 
+			this.cf_Ability_lbl.Location = new System.Drawing.Point(15, 90);
+			this.cf_Ability_lbl.Margin = new System.Windows.Forms.Padding(0);
+			this.cf_Ability_lbl.Name = "cf_Ability_lbl";
+			this.cf_Ability_lbl.Size = new System.Drawing.Size(140, 15);
+			this.cf_Ability_lbl.TabIndex = 59;
+			this.cf_Ability_lbl.Text = "Caster Ability";
+			// 
+			// cbo_cf_Ability
+			// 
+			this.cbo_cf_Ability.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.cbo_cf_Ability.FormattingEnabled = true;
+			this.cbo_cf_Ability.Location = new System.Drawing.Point(10, 110);
+			this.cbo_cf_Ability.Margin = new System.Windows.Forms.Padding(0);
+			this.cbo_cf_Ability.Name = "cbo_cf_Ability";
+			this.cbo_cf_Ability.Size = new System.Drawing.Size(145, 22);
+			this.cbo_cf_Ability.TabIndex = 58;
+			this.cbo_cf_Ability.SelectionChangeCommitted += new System.EventHandler(this.SelectionChangeCommitted_cf_cbo_CasterAbility);
+			// 
 			// cf_infoversion
 			// 
 			this.cf_infoversion.Location = new System.Drawing.Point(520, 35);
@@ -4592,14 +4722,14 @@
 			this.cf_infoversion.TabIndex = 57;
 			this.cf_infoversion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			// 
-			// cf_infoversion_label
+			// cf_infoversion_lbl
 			// 
-			this.cf_infoversion_label.Location = new System.Drawing.Point(520, 15);
-			this.cf_infoversion_label.Margin = new System.Windows.Forms.Padding(0);
-			this.cf_infoversion_label.Name = "cf_infoversion_label";
-			this.cf_infoversion_label.Size = new System.Drawing.Size(95, 15);
-			this.cf_infoversion_label.TabIndex = 56;
-			this.cf_infoversion_label.Text = "Info Version";
+			this.cf_infoversion_lbl.Location = new System.Drawing.Point(520, 15);
+			this.cf_infoversion_lbl.Margin = new System.Windows.Forms.Padding(0);
+			this.cf_infoversion_lbl.Name = "cf_infoversion_lbl";
+			this.cf_infoversion_lbl.Size = new System.Drawing.Size(95, 15);
+			this.cf_infoversion_lbl.TabIndex = 56;
+			this.cf_infoversion_lbl.Text = "Info Version";
 			// 
 			// cf_HasFeatSpells
 			// 
@@ -4700,11 +4830,11 @@
 			this.page_ClassFeat1.Controls.Add(this.ClassFeat1_hex);
 			this.page_ClassFeat1.Controls.Add(this.ClassFeat1_text);
 			this.page_ClassFeat1.Controls.Add(this.ClassFeat1_reset);
-			this.page_ClassFeat1.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat1.Location = new System.Drawing.Point(4, 23);
 			this.page_ClassFeat1.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat1.Name = "page_ClassFeat1";
 			this.page_ClassFeat1.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat1.Size = new System.Drawing.Size(1062, 182);
+			this.page_ClassFeat1.Size = new System.Drawing.Size(1062, 183);
 			this.page_ClassFeat1.TabIndex = 1;
 			this.page_ClassFeat1.Text = "FeatSpell1";
 			this.page_ClassFeat1.UseVisualStyleBackColor = true;
@@ -4845,11 +4975,11 @@
 			this.page_ClassFeat2.Controls.Add(this.ClassFeat2_hex);
 			this.page_ClassFeat2.Controls.Add(this.ClassFeat2_text);
 			this.page_ClassFeat2.Controls.Add(this.ClassFeat2_reset);
-			this.page_ClassFeat2.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat2.Location = new System.Drawing.Point(4, 23);
 			this.page_ClassFeat2.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat2.Name = "page_ClassFeat2";
 			this.page_ClassFeat2.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat2.Size = new System.Drawing.Size(1062, 182);
+			this.page_ClassFeat2.Size = new System.Drawing.Size(1062, 183);
 			this.page_ClassFeat2.TabIndex = 2;
 			this.page_ClassFeat2.Text = "FeatSpell2";
 			this.page_ClassFeat2.UseVisualStyleBackColor = true;
@@ -4990,11 +5120,11 @@
 			this.page_ClassFeat3.Controls.Add(this.ClassFeat3_hex);
 			this.page_ClassFeat3.Controls.Add(this.ClassFeat3_text);
 			this.page_ClassFeat3.Controls.Add(this.ClassFeat3_reset);
-			this.page_ClassFeat3.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat3.Location = new System.Drawing.Point(4, 23);
 			this.page_ClassFeat3.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat3.Name = "page_ClassFeat3";
 			this.page_ClassFeat3.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat3.Size = new System.Drawing.Size(1062, 182);
+			this.page_ClassFeat3.Size = new System.Drawing.Size(1062, 183);
 			this.page_ClassFeat3.TabIndex = 3;
 			this.page_ClassFeat3.Text = "FeatSpell3";
 			this.page_ClassFeat3.UseVisualStyleBackColor = true;
@@ -5135,11 +5265,11 @@
 			this.page_ClassFeat4.Controls.Add(this.ClassFeat4_hex);
 			this.page_ClassFeat4.Controls.Add(this.ClassFeat4_text);
 			this.page_ClassFeat4.Controls.Add(this.ClassFeat4_reset);
-			this.page_ClassFeat4.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat4.Location = new System.Drawing.Point(4, 23);
 			this.page_ClassFeat4.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat4.Name = "page_ClassFeat4";
 			this.page_ClassFeat4.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat4.Size = new System.Drawing.Size(1062, 182);
+			this.page_ClassFeat4.Size = new System.Drawing.Size(1062, 183);
 			this.page_ClassFeat4.TabIndex = 4;
 			this.page_ClassFeat4.Text = "FeatSpell4";
 			this.page_ClassFeat4.UseVisualStyleBackColor = true;
@@ -5280,11 +5410,11 @@
 			this.page_ClassFeat5.Controls.Add(this.ClassFeat5_hex);
 			this.page_ClassFeat5.Controls.Add(this.ClassFeat5_text);
 			this.page_ClassFeat5.Controls.Add(this.ClassFeat5_reset);
-			this.page_ClassFeat5.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat5.Location = new System.Drawing.Point(4, 23);
 			this.page_ClassFeat5.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat5.Name = "page_ClassFeat5";
 			this.page_ClassFeat5.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat5.Size = new System.Drawing.Size(1062, 182);
+			this.page_ClassFeat5.Size = new System.Drawing.Size(1062, 183);
 			this.page_ClassFeat5.TabIndex = 5;
 			this.page_ClassFeat5.Text = "FeatSpell5";
 			this.page_ClassFeat5.UseVisualStyleBackColor = true;
@@ -5425,11 +5555,11 @@
 			this.page_ClassFeat6.Controls.Add(this.ClassFeat6_hex);
 			this.page_ClassFeat6.Controls.Add(this.ClassFeat6_text);
 			this.page_ClassFeat6.Controls.Add(this.ClassFeat6_reset);
-			this.page_ClassFeat6.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat6.Location = new System.Drawing.Point(4, 23);
 			this.page_ClassFeat6.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat6.Name = "page_ClassFeat6";
 			this.page_ClassFeat6.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat6.Size = new System.Drawing.Size(1062, 182);
+			this.page_ClassFeat6.Size = new System.Drawing.Size(1062, 183);
 			this.page_ClassFeat6.TabIndex = 6;
 			this.page_ClassFeat6.Text = "FeatSpell6";
 			this.page_ClassFeat6.UseVisualStyleBackColor = true;
@@ -5570,11 +5700,11 @@
 			this.page_ClassFeat7.Controls.Add(this.ClassFeat7_hex);
 			this.page_ClassFeat7.Controls.Add(this.ClassFeat7_text);
 			this.page_ClassFeat7.Controls.Add(this.ClassFeat7_reset);
-			this.page_ClassFeat7.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat7.Location = new System.Drawing.Point(4, 23);
 			this.page_ClassFeat7.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat7.Name = "page_ClassFeat7";
 			this.page_ClassFeat7.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat7.Size = new System.Drawing.Size(1062, 182);
+			this.page_ClassFeat7.Size = new System.Drawing.Size(1062, 183);
 			this.page_ClassFeat7.TabIndex = 7;
 			this.page_ClassFeat7.Text = "FeatSpell7";
 			this.page_ClassFeat7.UseVisualStyleBackColor = true;
@@ -5715,11 +5845,11 @@
 			this.page_ClassFeat8.Controls.Add(this.ClassFeat8_hex);
 			this.page_ClassFeat8.Controls.Add(this.ClassFeat8_text);
 			this.page_ClassFeat8.Controls.Add(this.ClassFeat8_reset);
-			this.page_ClassFeat8.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat8.Location = new System.Drawing.Point(4, 23);
 			this.page_ClassFeat8.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat8.Name = "page_ClassFeat8";
 			this.page_ClassFeat8.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat8.Size = new System.Drawing.Size(1062, 182);
+			this.page_ClassFeat8.Size = new System.Drawing.Size(1062, 183);
 			this.page_ClassFeat8.TabIndex = 8;
 			this.page_ClassFeat8.Text = "FeatSpell8";
 			this.page_ClassFeat8.UseVisualStyleBackColor = true;
@@ -5860,11 +5990,11 @@
 			this.page_ClassFeat9.Controls.Add(this.ClassFeat9_hex);
 			this.page_ClassFeat9.Controls.Add(this.ClassFeat9_text);
 			this.page_ClassFeat9.Controls.Add(this.ClassFeat9_reset);
-			this.page_ClassFeat9.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat9.Location = new System.Drawing.Point(4, 23);
 			this.page_ClassFeat9.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat9.Name = "page_ClassFeat9";
 			this.page_ClassFeat9.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat9.Size = new System.Drawing.Size(1062, 182);
+			this.page_ClassFeat9.Size = new System.Drawing.Size(1062, 183);
 			this.page_ClassFeat9.TabIndex = 9;
 			this.page_ClassFeat9.Text = "FeatSpell9";
 			this.page_ClassFeat9.UseVisualStyleBackColor = true;
@@ -6005,11 +6135,11 @@
 			this.page_ClassFeat10.Controls.Add(this.ClassFeat10_hex);
 			this.page_ClassFeat10.Controls.Add(this.ClassFeat10_text);
 			this.page_ClassFeat10.Controls.Add(this.ClassFeat10_reset);
-			this.page_ClassFeat10.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat10.Location = new System.Drawing.Point(4, 23);
 			this.page_ClassFeat10.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat10.Name = "page_ClassFeat10";
 			this.page_ClassFeat10.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat10.Size = new System.Drawing.Size(1062, 182);
+			this.page_ClassFeat10.Size = new System.Drawing.Size(1062, 183);
 			this.page_ClassFeat10.TabIndex = 10;
 			this.page_ClassFeat10.Text = "FeatSpell10";
 			this.page_ClassFeat10.UseVisualStyleBackColor = true;
@@ -6150,11 +6280,11 @@
 			this.page_ClassFeat11.Controls.Add(this.ClassFeat11_hex);
 			this.page_ClassFeat11.Controls.Add(this.ClassFeat11_text);
 			this.page_ClassFeat11.Controls.Add(this.ClassFeat11_reset);
-			this.page_ClassFeat11.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat11.Location = new System.Drawing.Point(4, 23);
 			this.page_ClassFeat11.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat11.Name = "page_ClassFeat11";
 			this.page_ClassFeat11.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat11.Size = new System.Drawing.Size(1062, 182);
+			this.page_ClassFeat11.Size = new System.Drawing.Size(1062, 183);
 			this.page_ClassFeat11.TabIndex = 11;
 			this.page_ClassFeat11.Text = "FeatSpell11";
 			this.page_ClassFeat11.UseVisualStyleBackColor = true;
@@ -6303,7 +6433,7 @@
 			// 
 			this.page_RacialFlags.Controls.Add(this.rf_HasFeatSpells);
 			this.page_RacialFlags.Controls.Add(this.rf_infoversion);
-			this.page_RacialFlags.Controls.Add(this.rf_infoversion_label);
+			this.page_RacialFlags.Controls.Add(this.rf_infoversion_lbl);
 			this.page_RacialFlags.Controls.Add(this.rf_bin);
 			this.page_RacialFlags.Controls.Add(this.rf_hex);
 			this.page_RacialFlags.Controls.Add(this.rf_Clear);
@@ -6340,14 +6470,14 @@
 			this.rf_infoversion.TabIndex = 49;
 			this.rf_infoversion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			// 
-			// rf_infoversion_label
+			// rf_infoversion_lbl
 			// 
-			this.rf_infoversion_label.Location = new System.Drawing.Point(520, 15);
-			this.rf_infoversion_label.Margin = new System.Windows.Forms.Padding(0);
-			this.rf_infoversion_label.Name = "rf_infoversion_label";
-			this.rf_infoversion_label.Size = new System.Drawing.Size(95, 15);
-			this.rf_infoversion_label.TabIndex = 48;
-			this.rf_infoversion_label.Text = "Info Version";
+			this.rf_infoversion_lbl.Location = new System.Drawing.Point(520, 15);
+			this.rf_infoversion_lbl.Margin = new System.Windows.Forms.Padding(0);
+			this.rf_infoversion_lbl.Name = "rf_infoversion_lbl";
+			this.rf_infoversion_lbl.Size = new System.Drawing.Size(95, 15);
+			this.rf_infoversion_lbl.TabIndex = 48;
+			this.rf_infoversion_lbl.Text = "Info Version";
 			// 
 			// rf_bin
 			// 
