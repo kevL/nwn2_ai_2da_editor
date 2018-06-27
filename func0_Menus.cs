@@ -11,6 +11,24 @@ namespace nwn2_ai_2da_editor
 	/// </summary>
 	partial class MainForm
 	{
+		/// <summary>
+		/// Handles the FormClosing event.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void FormClosing_main(object sender, FormClosingEventArgs e)
+		{
+			if (GetChanged()
+				&& MessageBox.Show("Data has changed." + Environment.NewLine + "Okay to exit ...",
+								   "  Warning",
+								   MessageBoxButtons.OKCancel,
+								   MessageBoxIcon.Warning,
+								   MessageBoxDefaultButton.Button2) == DialogResult.Cancel)
+			{
+				e.Cancel = true;
+			}
+		}
+
 		#region File
 		/// <summary>
 		/// Handles FileMenu close program event.
@@ -19,49 +37,12 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_quit(object sender, EventArgs e)
 		{
-			bool warn = false;
-
-			switch (Type)
-			{
-				case Type2da.TYPE_SPELLS:
-					foreach (var spell in Spells)
-					{
-						if (spell.isChanged || spell.differ != bit_clear)
-						{
-							warn = true;
-							break;
-						}
-					}
-					break;
-
-				case Type2da.TYPE_RACIAL:
-					foreach (var race in Races)
-					{
-						if (race.isChanged || race.differ != bit_clear)
-						{
-							warn = true;
-							break;
-						}
-					}
-					break;
-
-				case Type2da.TYPE_CLASSES:
-					foreach (var clas in Classes)
-					{
-						if (clas.isChanged || clas.differ != bit_clear)
-						{
-							warn = true;
-							break;
-						}
-					}
-					break;
-			}
-
-			if (!warn || MessageBox.Show("Data has changed." + Environment.NewLine + "Okay to exit ...",
-										 "  Warning",
-										 MessageBoxButtons.OKCancel,
-										 MessageBoxIcon.Warning,
-										 MessageBoxDefaultButton.Button2) == DialogResult.OK)
+			if (!GetChanged()
+				|| MessageBox.Show("Data has changed." + Environment.NewLine + "Okay to exit ...",
+								   "  Warning",
+								   MessageBoxButtons.OKCancel,
+								   MessageBoxIcon.Warning,
+								   MessageBoxDefaultButton.Button2) == DialogResult.OK)
 			{
 				Close();
 			}
@@ -74,17 +55,67 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_open(object sender, EventArgs e)
 		{
-			using (var ofd = new OpenFileDialog())
+			if (!GetChanged()
+				|| MessageBox.Show("Data has changed." + Environment.NewLine + "Okay to exit ...",
+								   "  Warning",
+								   MessageBoxButtons.OKCancel,
+								   MessageBoxIcon.Warning,
+								   MessageBoxDefaultButton.Button2) == DialogResult.OK)
 			{
-				ofd.Title  = "Select a HenchSpells.2da";
-				ofd.Filter = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
-
-				if (ofd.ShowDialog() == DialogResult.OK)
+				using (var ofd = new OpenFileDialog())
 				{
-					_pfe = ofd.FileName;
-					Load_file();
+					ofd.Title  = "Select a HenchSpells.2da";
+					ofd.Filter = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
+	
+					if (ofd.ShowDialog() == DialogResult.OK)
+					{
+						_pfe = ofd.FileName;
+						Load_file();
+					}
 				}
 			}
+		}
+
+		/// <summary>
+		/// Gets if there is unsaved modifications.
+		/// </summary>
+		/// <returns></returns>
+		bool GetChanged()
+		{
+			switch (Type)
+			{
+				case Type2da.TYPE_SPELLS:
+					foreach (var spell in Spells)
+					{
+						if (spell.isChanged || spell.differ != bit_clear)
+						{
+							return true;
+						}
+					}
+					break;
+
+				case Type2da.TYPE_RACIAL:
+					foreach (var race in Races)
+					{
+						if (race.isChanged || race.differ != bit_clear)
+						{
+							return true;
+						}
+					}
+					break;
+
+				case Type2da.TYPE_CLASSES:
+					foreach (var clas in Classes)
+					{
+						if (clas.isChanged || clas.differ != bit_clear)
+						{
+							return true;
+						}
+					}
+					break;
+			}
+
+			return false;
 		}
 
 		/// <summary>

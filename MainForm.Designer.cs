@@ -7378,6 +7378,7 @@
 			this.MainMenuStrip = this.menuStrip;
 			this.Name = "MainForm";
 			this.Text = "nwn2_ai_2da_editor";
+			this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FormClosing_main);
 			this.cols_HenchSpells.ResumeLayout(false);
 			this.page_SpellInfo.ResumeLayout(false);
 			this.page_SpellInfo.PerformLayout();
