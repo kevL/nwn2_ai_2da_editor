@@ -337,6 +337,8 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void Load_HenchSpells(string[] rows)
 		{
+			SuspendLayout();
+
 			Type = Type2da.TYPE_SPELLS;
 
 			Size = new Size(1105, 525);
@@ -449,6 +451,8 @@ namespace nwn2_ai_2da_editor
 			GroupColor(ti_ShapeGrp,  Color.LimeGreen);
 			GroupColor(ti_RangeGrp,  Color.LimeGreen);
 			GroupColor(ti_RadiusGrp, Color.LimeGreen);
+
+			ResumeLayout();
 		}
 
 		/// <summary>
@@ -459,6 +463,8 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void Load_HenchRacial(string[] rows)
 		{
+			SuspendLayout();
+
 			Type = Type2da.TYPE_RACIAL;
 
 			Size = new Size(905, 350);
@@ -540,6 +546,8 @@ namespace nwn2_ai_2da_editor
 			PopTree();
 
 			ToggleMenuitems(true);
+
+			ResumeLayout();
 		}
 
 		/// <summary>
@@ -550,6 +558,8 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void Load_HenchClasses(string[] rows)
 		{
+			SuspendLayout();
+
 			Type = Type2da.TYPE_CLASSES;
 
 			Size = new Size(1355, 400);
@@ -673,6 +683,8 @@ namespace nwn2_ai_2da_editor
 			PopTree();
 
 			ToggleMenuitems(true);
+
+			ResumeLayout();
 		}
 
 		/// <summary>
