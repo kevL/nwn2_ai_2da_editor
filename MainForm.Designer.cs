@@ -7353,7 +7353,9 @@
 			// apply
 			// 
 			this.apply.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.apply.Enabled = false;
 			this.apply.Location = new System.Drawing.Point(0, 944);
+			this.apply.Margin = new System.Windows.Forms.Padding(0);
 			this.apply.Name = "apply";
 			this.apply.Size = new System.Drawing.Size(1074, 25);
 			this.apply.TabIndex = 1;

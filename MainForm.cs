@@ -19,7 +19,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// The version as a build-date. This appears in the About.
 		/// </summary>
-		const string _version = "built - 2018 jun 26";
+		const string _version = "built - 2018 jun 27";
 
 
 		/// <summary>
@@ -360,6 +360,8 @@ namespace nwn2_ai_2da_editor
 			SaveType_reset    .ForeColor = DefaultForeColor;
 			SaveDCType_reset  .ForeColor = DefaultForeColor;
 
+			apply.Enabled = true;
+
 
 			foreach (string row in rows)
 			{
@@ -475,6 +477,9 @@ namespace nwn2_ai_2da_editor
 			RacialFeat4_reset.ForeColor = DefaultForeColor;
 			RacialFeat5_reset.ForeColor = DefaultForeColor;
 
+			apply.Enabled = true;
+
+
 			foreach (string row in rows)
 			{
 				if (!String.IsNullOrEmpty(row))
@@ -570,6 +575,9 @@ namespace nwn2_ai_2da_editor
 			ClassFeat9_reset .ForeColor = DefaultForeColor;
 			ClassFeat10_reset.ForeColor = DefaultForeColor;
 			ClassFeat11_reset.ForeColor = DefaultForeColor;
+
+			apply.Enabled = true;
+
 
 			foreach (string row in rows)
 			{

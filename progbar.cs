@@ -41,12 +41,6 @@ namespace nwn2_ai_2da_editor
 		}
 
 
-		internal void SetTotal(int total)
-		{
-			ValTop = total;
-		}
-
-
 		const int margin = 1;
 
 		internal void Step()
