@@ -18,15 +18,12 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void FormClosing_main(object sender, FormClosingEventArgs e)
 		{
-			if (GetChanged()
-				&& MessageBox.Show("Data has changed." + Environment.NewLine + "Okay to exit ...",
-								   "  Warning",
-								   MessageBoxButtons.OKCancel,
-								   MessageBoxIcon.Warning,
-								   MessageBoxDefaultButton.Button2) == DialogResult.Cancel)
-			{
-				e.Cancel = true;
-			}
+			e.Cancel = GetChanged()
+					&& MessageBox.Show("Data has changed." + Environment.NewLine + "Okay to exit ...",
+									   "  Warning",
+									   MessageBoxButtons.OKCancel,
+									   MessageBoxIcon.Warning,
+									   MessageBoxDefaultButton.Button2) == DialogResult.Cancel;
 		}
 
 		#region File

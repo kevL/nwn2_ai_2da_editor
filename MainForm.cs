@@ -219,8 +219,8 @@ namespace nwn2_ai_2da_editor
 			// NOTE: quickload the 2da for testing ONLY.
 //			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchspells.2da";
 //			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchracial.2da";
-			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchclasses.2da";
-			Load_file();
+//			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchclasses.2da";
+//			Load_file();
 		}
 		#endregion cTor
 
@@ -361,10 +361,6 @@ namespace nwn2_ai_2da_editor
 			SaveDCType_reset  .ForeColor = DefaultForeColor;
 
 
-//			var pb = ProgBarF.Instance;	// the ProgressBar slows loading on my Win7 machine.
-//			pb.SetInfo("loading ...");	// It appears to be an issue on Win7 generally.
-//			pb.SetTotal(rows.Length);	// TODO: write a progress-bar w/ custom graphic
-
 			foreach (string row in rows)
 			{
 				if (!String.IsNullOrEmpty(row))
@@ -434,12 +430,9 @@ namespace nwn2_ai_2da_editor
 						Spells.Add(spell);	// spell-structs can now be referenced in the list by their
 					}						// - Spells[id]
 				}							// - HenchSpells.2da row#
-											// - SpellID (Spells.2da row#)
-//				pb.Step();
-			}
+			}								// - SpellID (Spells.2da row#)
 
 			PopTree();
-
 			ToggleMenuitems(true);
 
 			// Groups on SpellInfo and TargetInfo generally stay green
@@ -453,8 +446,6 @@ namespace nwn2_ai_2da_editor
 			GroupColor(ti_ShapeGrp,  Color.LimeGreen);
 			GroupColor(ti_RangeGrp,  Color.LimeGreen);
 			GroupColor(ti_RadiusGrp, Color.LimeGreen);
-
-			ResumeLayout();
 		}
 
 		/// <summary>
@@ -541,15 +532,10 @@ namespace nwn2_ai_2da_editor
 						Races.Add(race);	// race-structs can now be referenced in the list by their
 					}						// - Races[id]
 				}							// - HenchRacial.2da row#
-											// - RaceID (Subraces.2da row#)
-//				pb.Step();
-			}
+			}								// - SubRaceID (RacialSubtypes.2da row#)
 
 			PopTree();
-
 			ToggleMenuitems(true);
-
-			ResumeLayout();
 		}
 
 		/// <summary>
@@ -678,15 +664,10 @@ namespace nwn2_ai_2da_editor
 						Classes.Add(clas);	// class-structs can now be referenced in the list by their
 					}						// - Classes[id]
 				}							// - HenchClasses.2da row#
-											// - ClassID (Classes.2da row#)
-//				pb.Step();
-			}
+			}								// - ClassID (Classes.2da row#)
 
 			PopTree();
-
 			ToggleMenuitems(true);
-
-			ResumeLayout();
 		}
 
 		/// <summary>
@@ -694,16 +675,16 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void PopTree()
 		{
-//			var pb = ProgBarF.Instance;
-//			pb.SetInfo("populating ...");
-//			pb.SetTotal(Spells.Count);
-
 			Tree.Nodes.Clear();
 
 			switch (Type)
 			{
 				case Type2da.TYPE_SPELLS:
 				{
+					var pb = new ProgBar(); // populating the spells-tree takes a few seconds.
+					pb.ValTop = Spells.Count;
+					pb.Show();
+
 					int digits;
 					string pad;
 
@@ -717,7 +698,7 @@ namespace nwn2_ai_2da_editor
 						}
 
 						Tree.Nodes.Add(spell.id + pad + " " + spell.label);
-//						pb.Step();
+						pb.Step();
 					}
 					break;
 				}
@@ -726,7 +707,6 @@ namespace nwn2_ai_2da_editor
 					foreach (var race in Races)
 					{
 						Tree.Nodes.Add(race.id.ToString());
-//						pb.Step();
 					}
 					break;
 
@@ -734,7 +714,6 @@ namespace nwn2_ai_2da_editor
 					foreach (var clas in Classes)
 					{
 						Tree.Nodes.Add(clas.id.ToString());
-//						pb.Step();
 					}
 					break;
 			}
@@ -742,6 +721,8 @@ namespace nwn2_ai_2da_editor
 			// NOTE: Tree.SelectedNode=Tree.Nodes[0] is done auto.
 			// Not necessarily ...
 			Tree.SelectedNode = Tree.Nodes[0];
+
+			ResumeLayout();
 		}
 
 		/// <summary>
@@ -1162,7 +1143,7 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_clear(object sender, EventArgs e)
 		{
-			TextBox tb = null;
+			TextBox tb = null; // grr...
 			var btn = sender as Button;
 
 			switch (Type)
@@ -1208,8 +1189,7 @@ namespace nwn2_ai_2da_editor
 					break;
 			}
 
-			if (tb != null) // safety.
-				tb.Text = "0";
+			tb.Text = "0";
 		}
 
 		/// <summary>
