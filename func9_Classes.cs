@@ -374,6 +374,7 @@ namespace nwn2_ai_2da_editor
 			cbo_cf_SpellProg.Items.Add("skip 1st");			// 6
 			cbo_cf_SpellProg.Items.Add("full");				// 7
 
+			// populate the dropdown list for Sneak Attack
 			cbo_cf_SneakAttack.Items.Add("none");					// 0
 			cbo_cf_SneakAttack.Items.Add("odd levels");				// 1
 			cbo_cf_SneakAttack.Items.Add("even levels");			// 2
@@ -395,12 +396,47 @@ namespace nwn2_ai_2da_editor
 			int flags;
 			if (Int32.TryParse(ClassFlags_text.Text, out flags))
 			{
-				if (cf_HasFeatSpells.Checked)
+				int bit;
+
+				var cb = sender as CheckBox;
+				if (cb != null)
 				{
-					flags |= HENCH_CLASS_FEAT_SPELLS;
+					if (cb == cf_HasFeatSpells)
+					{
+						bit = HENCH_CLASS_FEAT_SPELLS;
+					}
+					else if (cb == cf_isPrestigeClass)
+					{
+						bit = HENCH_CLASS_PRC_FLAG;
+					}
+					else if (cb == cf_DcBonus)
+					{
+						bit = HENCH_CLASS_DC_BONUS_FLAG;
+					}
+					else //if (cb == cf_L4Required)
+					{
+						bit = HENCH_CLASS_FOURTH_LEVEL_NEEDED;
+					}
+
+					if (cb.Checked)
+					{
+						flags |= bit;
+					}
+					else
+						flags &= ~bit;
 				}
 				else
-					flags &= ~HENCH_CLASS_FEAT_SPELLS;
+				{
+					var rb = sender as RadioButton;
+					if (rb == cf_rbDivine)
+					{
+						flags |= HENCH_CLASS_DIVINE_FLAG;
+					}
+					else //if (rb == cf_rbArcane)
+					{
+						flags &= ~HENCH_CLASS_DIVINE_FLAG;
+					}
+				}
 
 //				bypassCheckedChecker = true;
 				ClassFlags_text.Text = flags.ToString();
@@ -496,15 +532,14 @@ namespace nwn2_ai_2da_editor
 				int val;
 				switch (cbo_cf_SneakAttack.SelectedIndex)
 				{
-					default: val = HENCH_CLASS_SA_NONE; break;
-
-					case 1: val = HENCH_CLASS_SA_EVERY_OTHER_ODD;        break;
-					case 2: val = HENCH_CLASS_SA_EVERY_OTHER_EVEN;       break;
-					case 3: val = HENCH_CLASS_SA_EVERY_THIRD_SKIP_FIRST; break;
-					case 4: val = HENCH_CLASS_SA_EVERY_THIRD;            break;
-					case 5: val = HENCH_CLASS_SA_EVERY_THIRD_FROM_TWO;   break;
-					case 6: val = HENCH_CLASS_SA_EVERY_THIRD_FROM_ONE;   break;
-					case 7: val = HENCH_CLASS_SA_EVERY_FORTH;            break;
+					default: val = HENCH_CLASS_SA_NONE;                   break;
+					case 1:  val = HENCH_CLASS_SA_EVERY_OTHER_ODD;        break;
+					case 2:  val = HENCH_CLASS_SA_EVERY_OTHER_EVEN;       break;
+					case 3:  val = HENCH_CLASS_SA_EVERY_THIRD_SKIP_FIRST; break;
+					case 4:  val = HENCH_CLASS_SA_EVERY_THIRD;            break;
+					case 5:  val = HENCH_CLASS_SA_EVERY_THIRD_FROM_TWO;   break;
+					case 6:  val = HENCH_CLASS_SA_EVERY_THIRD_FROM_ONE;   break;
+					case 7:  val = HENCH_CLASS_SA_EVERY_FORTH;            break;
 				}
 				ClassFlags_text.Text = (flags | val).ToString();
 			}
@@ -767,15 +802,14 @@ namespace nwn2_ai_2da_editor
 		{
 //			if (!bypassCheckedChecker)
 			{
-//				int flags;
-//				if (ClassesChanged.ContainsKey(Id))
-//				{
-//					flags = ClassesChanged[Id].flags;
-//				}
-//				else
-//					flags = Classes[Id].flags;
+				cf_HasFeatSpells  .Checked = (flags & HENCH_CLASS_FEAT_SPELLS)         != 0;
+				cf_isPrestigeClass.Checked = (flags & HENCH_CLASS_PRC_FLAG)            != 0;
+				cf_DcBonus        .Checked = (flags & HENCH_CLASS_DC_BONUS_FLAG)       != 0;
+				cf_L4Required     .Checked = (flags & HENCH_CLASS_FOURTH_LEVEL_NEEDED) != 0;
 
-				cf_HasFeatSpells.Checked = (flags & HENCH_CLASS_FEAT_SPELLS) != 0;
+				bool divine = (flags & HENCH_CLASS_DIVINE_FLAG) != 0;
+				cf_rbDivine.Checked =  divine;
+				cf_rbArcane.Checked = !divine;
 
 // Caster Ability dropdown-list
 				int val = flags;

@@ -541,6 +541,11 @@
 		private System.Windows.Forms.Label cf_SpellProg_lbl;
 		private System.Windows.Forms.ComboBox cbo_cf_SneakAttack;
 		private System.Windows.Forms.Label cf_SneakAttack_lbl;
+		private System.Windows.Forms.RadioButton cf_rbArcane;
+		private System.Windows.Forms.RadioButton cf_rbDivine;
+		private System.Windows.Forms.CheckBox cf_L4Required;
+		private System.Windows.Forms.CheckBox cf_DcBonus;
+		private System.Windows.Forms.CheckBox cf_isPrestigeClass;
 
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -858,6 +863,11 @@
 			this.tb_Search = new System.Windows.Forms.TextBox();
 			this.cols_HenchClasses = new System.Windows.Forms.TabControl();
 			this.page_ClassFlags = new System.Windows.Forms.TabPage();
+			this.cf_rbArcane = new System.Windows.Forms.RadioButton();
+			this.cf_rbDivine = new System.Windows.Forms.RadioButton();
+			this.cf_L4Required = new System.Windows.Forms.CheckBox();
+			this.cf_DcBonus = new System.Windows.Forms.CheckBox();
+			this.cf_isPrestigeClass = new System.Windows.Forms.CheckBox();
 			this.cbo_cf_SneakAttack = new System.Windows.Forms.ComboBox();
 			this.cf_SneakAttack_lbl = new System.Windows.Forms.Label();
 			this.cbo_cf_SpellProg = new System.Windows.Forms.ComboBox();
@@ -4584,6 +4594,11 @@
 			// 
 			// page_ClassFlags
 			// 
+			this.page_ClassFlags.Controls.Add(this.cf_rbArcane);
+			this.page_ClassFlags.Controls.Add(this.cf_rbDivine);
+			this.page_ClassFlags.Controls.Add(this.cf_L4Required);
+			this.page_ClassFlags.Controls.Add(this.cf_DcBonus);
+			this.page_ClassFlags.Controls.Add(this.cf_isPrestigeClass);
 			this.page_ClassFlags.Controls.Add(this.cbo_cf_SneakAttack);
 			this.page_ClassFlags.Controls.Add(this.cf_SneakAttack_lbl);
 			this.page_ClassFlags.Controls.Add(this.cbo_cf_SpellProg);
@@ -4613,6 +4628,63 @@
 			this.page_ClassFlags.Text = "Flags";
 			this.page_ClassFlags.UseVisualStyleBackColor = true;
 			// 
+			// cf_rbArcane
+			// 
+			this.cf_rbArcane.Location = new System.Drawing.Point(775, 110);
+			this.cf_rbArcane.Margin = new System.Windows.Forms.Padding(0);
+			this.cf_rbArcane.Name = "cf_rbArcane";
+			this.cf_rbArcane.Size = new System.Drawing.Size(120, 20);
+			this.cf_rbArcane.TabIndex = 72;
+			this.cf_rbArcane.TabStop = true;
+			this.cf_rbArcane.Text = "Arcane Caster";
+			this.cf_rbArcane.UseVisualStyleBackColor = true;
+			this.cf_rbArcane.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_cFlags);
+			// 
+			// cf_rbDivine
+			// 
+			this.cf_rbDivine.Location = new System.Drawing.Point(775, 90);
+			this.cf_rbDivine.Margin = new System.Windows.Forms.Padding(0);
+			this.cf_rbDivine.Name = "cf_rbDivine";
+			this.cf_rbDivine.Size = new System.Drawing.Size(120, 20);
+			this.cf_rbDivine.TabIndex = 71;
+			this.cf_rbDivine.TabStop = true;
+			this.cf_rbDivine.Text = "Divine Caster";
+			this.cf_rbDivine.UseVisualStyleBackColor = true;
+			this.cf_rbDivine.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_cFlags);
+			// 
+			// cf_L4Required
+			// 
+			this.cf_L4Required.Location = new System.Drawing.Point(775, 65);
+			this.cf_L4Required.Margin = new System.Windows.Forms.Padding(0);
+			this.cf_L4Required.Name = "cf_L4Required";
+			this.cf_L4Required.Size = new System.Drawing.Size(155, 19);
+			this.cf_L4Required.TabIndex = 70;
+			this.cf_L4Required.Text = "4th Level required";
+			this.cf_L4Required.UseVisualStyleBackColor = true;
+			this.cf_L4Required.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_cFlags);
+			// 
+			// cf_DcBonus
+			// 
+			this.cf_DcBonus.Location = new System.Drawing.Point(775, 45);
+			this.cf_DcBonus.Margin = new System.Windows.Forms.Padding(0);
+			this.cf_DcBonus.Name = "cf_DcBonus";
+			this.cf_DcBonus.Size = new System.Drawing.Size(155, 19);
+			this.cf_DcBonus.TabIndex = 69;
+			this.cf_DcBonus.Text = "DC Bonus";
+			this.cf_DcBonus.UseVisualStyleBackColor = true;
+			this.cf_DcBonus.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_cFlags);
+			// 
+			// cf_isPrestigeClass
+			// 
+			this.cf_isPrestigeClass.Location = new System.Drawing.Point(775, 25);
+			this.cf_isPrestigeClass.Margin = new System.Windows.Forms.Padding(0);
+			this.cf_isPrestigeClass.Name = "cf_isPrestigeClass";
+			this.cf_isPrestigeClass.Size = new System.Drawing.Size(155, 19);
+			this.cf_isPrestigeClass.TabIndex = 68;
+			this.cf_isPrestigeClass.Text = "is Prestige Class";
+			this.cf_isPrestigeClass.UseVisualStyleBackColor = true;
+			this.cf_isPrestigeClass.MouseClick += new System.Windows.Forms.MouseEventHandler(this.MouseClick_cFlags);
+			// 
 			// cbo_cf_SneakAttack
 			// 
 			this.cbo_cf_SneakAttack.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -4629,7 +4701,7 @@
 			this.cf_SneakAttack_lbl.Location = new System.Drawing.Point(615, 90);
 			this.cf_SneakAttack_lbl.Margin = new System.Windows.Forms.Padding(0);
 			this.cf_SneakAttack_lbl.Name = "cf_SneakAttack_lbl";
-			this.cf_SneakAttack_lbl.Size = new System.Drawing.Size(140, 15);
+			this.cf_SneakAttack_lbl.Size = new System.Drawing.Size(130, 15);
 			this.cf_SneakAttack_lbl.TabIndex = 66;
 			this.cf_SneakAttack_lbl.Text = "Sneak Attack";
 			// 
@@ -4649,7 +4721,7 @@
 			this.cf_SpellProg_lbl.Location = new System.Drawing.Point(465, 90);
 			this.cf_SpellProg_lbl.Margin = new System.Windows.Forms.Padding(0);
 			this.cf_SpellProg_lbl.Name = "cf_SpellProg_lbl";
-			this.cf_SpellProg_lbl.Size = new System.Drawing.Size(140, 15);
+			this.cf_SpellProg_lbl.Size = new System.Drawing.Size(130, 15);
 			this.cf_SpellProg_lbl.TabIndex = 64;
 			this.cf_SpellProg_lbl.Text = "Spell Progression";
 			// 
@@ -4669,7 +4741,7 @@
 			this.cf_Attack_lbl.Location = new System.Drawing.Point(315, 90);
 			this.cf_Attack_lbl.Margin = new System.Windows.Forms.Padding(0);
 			this.cf_Attack_lbl.Name = "cf_Attack_lbl";
-			this.cf_Attack_lbl.Size = new System.Drawing.Size(140, 15);
+			this.cf_Attack_lbl.Size = new System.Drawing.Size(130, 15);
 			this.cf_Attack_lbl.TabIndex = 62;
 			this.cf_Attack_lbl.Text = "Attack";
 			// 
@@ -4689,7 +4761,7 @@
 			this.cf_BuffOthers_lbl.Location = new System.Drawing.Point(165, 90);
 			this.cf_BuffOthers_lbl.Margin = new System.Windows.Forms.Padding(0);
 			this.cf_BuffOthers_lbl.Name = "cf_BuffOthers_lbl";
-			this.cf_BuffOthers_lbl.Size = new System.Drawing.Size(140, 15);
+			this.cf_BuffOthers_lbl.Size = new System.Drawing.Size(130, 15);
 			this.cf_BuffOthers_lbl.TabIndex = 60;
 			this.cf_BuffOthers_lbl.Text = "Buff Others";
 			// 
@@ -4698,7 +4770,7 @@
 			this.cf_Ability_lbl.Location = new System.Drawing.Point(15, 90);
 			this.cf_Ability_lbl.Margin = new System.Windows.Forms.Padding(0);
 			this.cf_Ability_lbl.Name = "cf_Ability_lbl";
-			this.cf_Ability_lbl.Size = new System.Drawing.Size(140, 15);
+			this.cf_Ability_lbl.Size = new System.Drawing.Size(130, 15);
 			this.cf_Ability_lbl.TabIndex = 59;
 			this.cf_Ability_lbl.Text = "Caster Ability";
 			// 
