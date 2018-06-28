@@ -546,6 +546,43 @@
 		private System.Windows.Forms.CheckBox cf_L4Required;
 		private System.Windows.Forms.CheckBox cf_DcBonus;
 		private System.Windows.Forms.CheckBox cf_isPrestigeClass;
+		private System.Windows.Forms.ToolStripMenuItem pathClasses;
+		private System.Windows.Forms.ToolStripMenuItem pathRacialSubtypes;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+		private System.Windows.Forms.ToolStripMenuItem pathSpells;
+		private System.Windows.Forms.ToolStripMenuItem pathFeat;
+		private System.Windows.Forms.Label rf1_SpellLabel;
+		private System.Windows.Forms.Label rf1_FeatLabel;
+		private System.Windows.Forms.Label rf2_SpellLabel;
+		private System.Windows.Forms.Label rf2_FeatLabel;
+		private System.Windows.Forms.Label rf3_SpellLabel;
+		private System.Windows.Forms.Label rf3_FeatLabel;
+		private System.Windows.Forms.Label rf4_SpellLabel;
+		private System.Windows.Forms.Label rf4_FeatLabel;
+		private System.Windows.Forms.Label rf5_SpellLabel;
+		private System.Windows.Forms.Label rf5_FeatLabel;
+		private System.Windows.Forms.Label cf1_SpellLabel;
+		private System.Windows.Forms.Label cf1_FeatLabel;
+		private System.Windows.Forms.Label cf2_SpellLabel;
+		private System.Windows.Forms.Label cf2_FeatLabel;
+		private System.Windows.Forms.Label cf3_SpellLabel;
+		private System.Windows.Forms.Label cf3_FeatLabel;
+		private System.Windows.Forms.Label cf4_SpellLabel;
+		private System.Windows.Forms.Label cf4_FeatLabel;
+		private System.Windows.Forms.Label cf5_SpellLabel;
+		private System.Windows.Forms.Label cf5_FeatLabel;
+		private System.Windows.Forms.Label cf6_SpellLabel;
+		private System.Windows.Forms.Label cf6_FeatLabel;
+		private System.Windows.Forms.Label cf7_SpellLabel;
+		private System.Windows.Forms.Label cf7_FeatLabel;
+		private System.Windows.Forms.Label cf8_SpellLabel;
+		private System.Windows.Forms.Label cf8_FeatLabel;
+		private System.Windows.Forms.Label cf9_SpellLabel;
+		private System.Windows.Forms.Label cf9_FeatLabel;
+		private System.Windows.Forms.Label cf10_SpellLabel;
+		private System.Windows.Forms.Label cf10_FeatLabel;
+		private System.Windows.Forms.Label cf11_SpellLabel;
+		private System.Windows.Forms.Label cf11_FeatLabel;
 
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -853,6 +890,11 @@
 			this.Copy_hexadecimal = new System.Windows.Forms.ToolStripMenuItem();
 			this.Copy_binary = new System.Windows.Forms.ToolStripMenuItem();
 			this.options = new System.Windows.Forms.ToolStripMenuItem();
+			this.pathRacialSubtypes = new System.Windows.Forms.ToolStripMenuItem();
+			this.pathClasses = new System.Windows.Forms.ToolStripMenuItem();
+			this.pathSpells = new System.Windows.Forms.ToolStripMenuItem();
+			this.pathFeat = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
 			this.setCoreAIver = new System.Windows.Forms.ToolStripMenuItem();
 			this.help = new System.Windows.Forms.ToolStripMenuItem();
 			this.About = new System.Windows.Forms.ToolStripMenuItem();
@@ -1044,6 +1086,8 @@
 			this.RacialFlags_text = new System.Windows.Forms.TextBox();
 			this.RacialFlags_reset = new System.Windows.Forms.Button();
 			this.page_RacialFeat1 = new System.Windows.Forms.TabPage();
+			this.rf1_SpellLabel = new System.Windows.Forms.Label();
+			this.rf1_FeatLabel = new System.Windows.Forms.Label();
 			this.rf1_SpellId = new System.Windows.Forms.TextBox();
 			this.rf1_FeatId = new System.Windows.Forms.TextBox();
 			this.rf1_cheatCast = new System.Windows.Forms.CheckBox();
@@ -1057,6 +1101,8 @@
 			this.RacialFeat1_text = new System.Windows.Forms.TextBox();
 			this.RacialFeat1_reset = new System.Windows.Forms.Button();
 			this.page_RacialFeat2 = new System.Windows.Forms.TabPage();
+			this.rf2_SpellLabel = new System.Windows.Forms.Label();
+			this.rf2_FeatLabel = new System.Windows.Forms.Label();
 			this.rf2_SpellId = new System.Windows.Forms.TextBox();
 			this.rf2_FeatId = new System.Windows.Forms.TextBox();
 			this.rf2_cheatCast = new System.Windows.Forms.CheckBox();
@@ -1070,6 +1116,8 @@
 			this.RacialFeat2_text = new System.Windows.Forms.TextBox();
 			this.RacialFeat2_reset = new System.Windows.Forms.Button();
 			this.page_RacialFeat3 = new System.Windows.Forms.TabPage();
+			this.rf3_SpellLabel = new System.Windows.Forms.Label();
+			this.rf3_FeatLabel = new System.Windows.Forms.Label();
 			this.rf3_SpellId = new System.Windows.Forms.TextBox();
 			this.rf3_FeatId = new System.Windows.Forms.TextBox();
 			this.rf3_cheatCast = new System.Windows.Forms.CheckBox();
@@ -1083,6 +1131,8 @@
 			this.RacialFeat3_text = new System.Windows.Forms.TextBox();
 			this.RacialFeat3_reset = new System.Windows.Forms.Button();
 			this.page_RacialFeat4 = new System.Windows.Forms.TabPage();
+			this.rf4_SpellLabel = new System.Windows.Forms.Label();
+			this.rf4_FeatLabel = new System.Windows.Forms.Label();
 			this.rf4_SpellId = new System.Windows.Forms.TextBox();
 			this.rf4_FeatId = new System.Windows.Forms.TextBox();
 			this.rf4_cheatCast = new System.Windows.Forms.CheckBox();
@@ -1096,6 +1146,8 @@
 			this.RacialFeat4_text = new System.Windows.Forms.TextBox();
 			this.RacialFeat4_reset = new System.Windows.Forms.Button();
 			this.page_RacialFeat5 = new System.Windows.Forms.TabPage();
+			this.rf5_SpellLabel = new System.Windows.Forms.Label();
+			this.rf5_FeatLabel = new System.Windows.Forms.Label();
 			this.rf5_SpellId = new System.Windows.Forms.TextBox();
 			this.rf5_FeatId = new System.Windows.Forms.TextBox();
 			this.rf5_cheatCast = new System.Windows.Forms.CheckBox();
@@ -1110,6 +1162,28 @@
 			this.RacialFeat5_reset = new System.Windows.Forms.Button();
 			this.apply = new System.Windows.Forms.Button();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+			this.cf1_SpellLabel = new System.Windows.Forms.Label();
+			this.cf1_FeatLabel = new System.Windows.Forms.Label();
+			this.cf2_SpellLabel = new System.Windows.Forms.Label();
+			this.cf2_FeatLabel = new System.Windows.Forms.Label();
+			this.cf3_SpellLabel = new System.Windows.Forms.Label();
+			this.cf3_FeatLabel = new System.Windows.Forms.Label();
+			this.cf4_SpellLabel = new System.Windows.Forms.Label();
+			this.cf4_FeatLabel = new System.Windows.Forms.Label();
+			this.cf5_SpellLabel = new System.Windows.Forms.Label();
+			this.cf5_FeatLabel = new System.Windows.Forms.Label();
+			this.cf6_SpellLabel = new System.Windows.Forms.Label();
+			this.cf6_FeatLabel = new System.Windows.Forms.Label();
+			this.cf7_SpellLabel = new System.Windows.Forms.Label();
+			this.cf7_FeatLabel = new System.Windows.Forms.Label();
+			this.cf8_SpellLabel = new System.Windows.Forms.Label();
+			this.cf8_FeatLabel = new System.Windows.Forms.Label();
+			this.cf9_SpellLabel = new System.Windows.Forms.Label();
+			this.cf9_FeatLabel = new System.Windows.Forms.Label();
+			this.cf10_SpellLabel = new System.Windows.Forms.Label();
+			this.cf10_FeatLabel = new System.Windows.Forms.Label();
+			this.cf11_SpellLabel = new System.Windows.Forms.Label();
+			this.cf11_FeatLabel = new System.Windows.Forms.Label();
 			this.cols_HenchSpells.SuspendLayout();
 			this.page_SpellInfo.SuspendLayout();
 			this.si_ChildIDGrp.SuspendLayout();
@@ -4374,8 +4448,9 @@
 			// Open
 			// 
 			this.Open.Name = "Open";
+			this.Open.Padding = new System.Windows.Forms.Padding(0);
 			this.Open.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-			this.Open.Size = new System.Drawing.Size(160, 22);
+			this.Open.Size = new System.Drawing.Size(160, 20);
 			this.Open.Text = "Open ...";
 			this.Open.Click += new System.EventHandler(this.Click_open);
 			// 
@@ -4387,16 +4462,18 @@
 			// Save
 			// 
 			this.Save.Name = "Save";
+			this.Save.Padding = new System.Windows.Forms.Padding(0);
 			this.Save.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-			this.Save.Size = new System.Drawing.Size(160, 22);
+			this.Save.Size = new System.Drawing.Size(160, 20);
 			this.Save.Text = "Save";
 			this.Save.Click += new System.EventHandler(this.Click_save);
 			// 
 			// Saveas
 			// 
 			this.Saveas.Name = "Saveas";
+			this.Saveas.Padding = new System.Windows.Forms.Padding(0);
 			this.Saveas.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
-			this.Saveas.Size = new System.Drawing.Size(160, 22);
+			this.Saveas.Size = new System.Drawing.Size(160, 20);
 			this.Saveas.Text = "Save As ...";
 			this.Saveas.Click += new System.EventHandler(this.Click_saveas);
 			// 
@@ -4408,8 +4485,9 @@
 			// Quit
 			// 
 			this.Quit.Name = "Quit";
+			this.Quit.Padding = new System.Windows.Forms.Padding(0);
 			this.Quit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-			this.Quit.Size = new System.Drawing.Size(160, 22);
+			this.Quit.Size = new System.Drawing.Size(160, 20);
 			this.Quit.Text = "Quit";
 			this.Quit.Click += new System.EventHandler(this.Click_quit);
 			// 
@@ -4428,8 +4506,9 @@
 			// FindNextChanged
 			// 
 			this.FindNextChanged.Name = "FindNextChanged";
+			this.FindNextChanged.Padding = new System.Windows.Forms.Padding(0);
 			this.FindNextChanged.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-			this.FindNextChanged.Size = new System.Drawing.Size(190, 22);
+			this.FindNextChanged.Size = new System.Drawing.Size(190, 20);
 			this.FindNextChanged.Text = "Find next changed";
 			this.FindNextChanged.Click += new System.EventHandler(this.Click_findnextchanged);
 			// 
@@ -4441,39 +4520,85 @@
 			// Copy_decimal
 			// 
 			this.Copy_decimal.Name = "Copy_decimal";
+			this.Copy_decimal.Padding = new System.Windows.Forms.Padding(0);
 			this.Copy_decimal.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-			this.Copy_decimal.Size = new System.Drawing.Size(190, 22);
+			this.Copy_decimal.Size = new System.Drawing.Size(190, 20);
 			this.Copy_decimal.Text = "Copy decimal";
 			this.Copy_decimal.Click += new System.EventHandler(this.Click_copy_decimal);
 			// 
 			// Copy_hexadecimal
 			// 
 			this.Copy_hexadecimal.Name = "Copy_hexadecimal";
+			this.Copy_hexadecimal.Padding = new System.Windows.Forms.Padding(0);
 			this.Copy_hexadecimal.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
-			this.Copy_hexadecimal.Size = new System.Drawing.Size(190, 22);
+			this.Copy_hexadecimal.Size = new System.Drawing.Size(190, 20);
 			this.Copy_hexadecimal.Text = "Copy hexadecimal";
 			this.Copy_hexadecimal.Click += new System.EventHandler(this.Click_copy_hexadecimal);
 			// 
 			// Copy_binary
 			// 
 			this.Copy_binary.Name = "Copy_binary";
+			this.Copy_binary.Padding = new System.Windows.Forms.Padding(0);
 			this.Copy_binary.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
-			this.Copy_binary.Size = new System.Drawing.Size(190, 22);
+			this.Copy_binary.Size = new System.Drawing.Size(190, 20);
 			this.Copy_binary.Text = "Copy binary";
 			this.Copy_binary.Click += new System.EventHandler(this.Click_copy_binary);
 			// 
 			// options
 			// 
 			this.options.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.pathRacialSubtypes,
+			this.pathClasses,
+			this.pathSpells,
+			this.pathFeat,
+			this.toolStripSeparator4,
 			this.setCoreAIver});
 			this.options.Name = "options";
 			this.options.Size = new System.Drawing.Size(52, 20);
 			this.options.Text = "Options";
 			// 
+			// pathRacialSubtypes
+			// 
+			this.pathRacialSubtypes.Name = "pathRacialSubtypes";
+			this.pathRacialSubtypes.Padding = new System.Windows.Forms.Padding(0);
+			this.pathRacialSubtypes.Size = new System.Drawing.Size(185, 20);
+			this.pathRacialSubtypes.Text = "path RacialSubtypes.2da";
+			this.pathRacialSubtypes.Click += new System.EventHandler(this.Click_pathRacialSubtypes);
+			// 
+			// pathClasses
+			// 
+			this.pathClasses.Name = "pathClasses";
+			this.pathClasses.Padding = new System.Windows.Forms.Padding(0);
+			this.pathClasses.Size = new System.Drawing.Size(185, 20);
+			this.pathClasses.Text = "path Classes.2da";
+			this.pathClasses.Click += new System.EventHandler(this.Click_pathClasses);
+			// 
+			// pathSpells
+			// 
+			this.pathSpells.Name = "pathSpells";
+			this.pathSpells.Padding = new System.Windows.Forms.Padding(0);
+			this.pathSpells.Size = new System.Drawing.Size(185, 20);
+			this.pathSpells.Text = "path Spells.2da";
+			this.pathSpells.Click += new System.EventHandler(this.Click_pathSpells);
+			// 
+			// pathFeat
+			// 
+			this.pathFeat.Name = "pathFeat";
+			this.pathFeat.Padding = new System.Windows.Forms.Padding(0);
+			this.pathFeat.Size = new System.Drawing.Size(185, 20);
+			this.pathFeat.Text = "path Feat.2da";
+			this.pathFeat.Click += new System.EventHandler(this.Click_pathFeat);
+			// 
+			// toolStripSeparator4
+			// 
+			this.toolStripSeparator4.Name = "toolStripSeparator4";
+			this.toolStripSeparator4.Size = new System.Drawing.Size(182, 6);
+			// 
 			// setCoreAIver
 			// 
 			this.setCoreAIver.Name = "setCoreAIver";
-			this.setCoreAIver.Size = new System.Drawing.Size(160, 22);
+			this.setCoreAIver.Padding = new System.Windows.Forms.Padding(0);
+			this.setCoreAIver.Size = new System.Drawing.Size(185, 20);
 			this.setCoreAIver.Text = "Set CoreAI version";
 			this.setCoreAIver.Click += new System.EventHandler(this.Click_setCoreAiVersion);
 			// 
@@ -4488,7 +4613,8 @@
 			// About
 			// 
 			this.About.Name = "About";
-			this.About.Size = new System.Drawing.Size(95, 22);
+			this.About.Padding = new System.Windows.Forms.Padding(0);
+			this.About.Size = new System.Drawing.Size(95, 20);
 			this.About.Text = "About";
 			this.About.Click += new System.EventHandler(this.Click_about);
 			// 
@@ -4890,6 +5016,8 @@
 			// 
 			// page_ClassFeat1
 			// 
+			this.page_ClassFeat1.Controls.Add(this.cf1_SpellLabel);
+			this.page_ClassFeat1.Controls.Add(this.cf1_FeatLabel);
 			this.page_ClassFeat1.Controls.Add(this.cf1_SpellId);
 			this.page_ClassFeat1.Controls.Add(this.cf1_FeatId);
 			this.page_ClassFeat1.Controls.Add(this.cf1_cheatCast);
@@ -4902,11 +5030,11 @@
 			this.page_ClassFeat1.Controls.Add(this.ClassFeat1_hex);
 			this.page_ClassFeat1.Controls.Add(this.ClassFeat1_text);
 			this.page_ClassFeat1.Controls.Add(this.ClassFeat1_reset);
-			this.page_ClassFeat1.Location = new System.Drawing.Point(4, 23);
+			this.page_ClassFeat1.Location = new System.Drawing.Point(4, 24);
 			this.page_ClassFeat1.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat1.Name = "page_ClassFeat1";
 			this.page_ClassFeat1.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat1.Size = new System.Drawing.Size(1062, 183);
+			this.page_ClassFeat1.Size = new System.Drawing.Size(1062, 182);
 			this.page_ClassFeat1.TabIndex = 1;
 			this.page_ClassFeat1.Text = "FeatSpell1";
 			this.page_ClassFeat1.UseVisualStyleBackColor = true;
@@ -5035,6 +5163,8 @@
 			// 
 			// page_ClassFeat2
 			// 
+			this.page_ClassFeat2.Controls.Add(this.cf2_SpellLabel);
+			this.page_ClassFeat2.Controls.Add(this.cf2_FeatLabel);
 			this.page_ClassFeat2.Controls.Add(this.cf2_SpellId);
 			this.page_ClassFeat2.Controls.Add(this.cf2_FeatId);
 			this.page_ClassFeat2.Controls.Add(this.cf2_cheatCast);
@@ -5047,11 +5177,11 @@
 			this.page_ClassFeat2.Controls.Add(this.ClassFeat2_hex);
 			this.page_ClassFeat2.Controls.Add(this.ClassFeat2_text);
 			this.page_ClassFeat2.Controls.Add(this.ClassFeat2_reset);
-			this.page_ClassFeat2.Location = new System.Drawing.Point(4, 23);
+			this.page_ClassFeat2.Location = new System.Drawing.Point(4, 24);
 			this.page_ClassFeat2.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat2.Name = "page_ClassFeat2";
 			this.page_ClassFeat2.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat2.Size = new System.Drawing.Size(1062, 183);
+			this.page_ClassFeat2.Size = new System.Drawing.Size(1062, 182);
 			this.page_ClassFeat2.TabIndex = 2;
 			this.page_ClassFeat2.Text = "FeatSpell2";
 			this.page_ClassFeat2.UseVisualStyleBackColor = true;
@@ -5180,6 +5310,8 @@
 			// 
 			// page_ClassFeat3
 			// 
+			this.page_ClassFeat3.Controls.Add(this.cf3_SpellLabel);
+			this.page_ClassFeat3.Controls.Add(this.cf3_FeatLabel);
 			this.page_ClassFeat3.Controls.Add(this.cf3_SpellId);
 			this.page_ClassFeat3.Controls.Add(this.cf3_FeatId);
 			this.page_ClassFeat3.Controls.Add(this.cf3_cheatCast);
@@ -5192,11 +5324,11 @@
 			this.page_ClassFeat3.Controls.Add(this.ClassFeat3_hex);
 			this.page_ClassFeat3.Controls.Add(this.ClassFeat3_text);
 			this.page_ClassFeat3.Controls.Add(this.ClassFeat3_reset);
-			this.page_ClassFeat3.Location = new System.Drawing.Point(4, 23);
+			this.page_ClassFeat3.Location = new System.Drawing.Point(4, 24);
 			this.page_ClassFeat3.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat3.Name = "page_ClassFeat3";
 			this.page_ClassFeat3.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat3.Size = new System.Drawing.Size(1062, 183);
+			this.page_ClassFeat3.Size = new System.Drawing.Size(1062, 182);
 			this.page_ClassFeat3.TabIndex = 3;
 			this.page_ClassFeat3.Text = "FeatSpell3";
 			this.page_ClassFeat3.UseVisualStyleBackColor = true;
@@ -5325,6 +5457,8 @@
 			// 
 			// page_ClassFeat4
 			// 
+			this.page_ClassFeat4.Controls.Add(this.cf4_SpellLabel);
+			this.page_ClassFeat4.Controls.Add(this.cf4_FeatLabel);
 			this.page_ClassFeat4.Controls.Add(this.cf4_SpellId);
 			this.page_ClassFeat4.Controls.Add(this.cf4_FeatId);
 			this.page_ClassFeat4.Controls.Add(this.cf4_cheatCast);
@@ -5337,11 +5471,11 @@
 			this.page_ClassFeat4.Controls.Add(this.ClassFeat4_hex);
 			this.page_ClassFeat4.Controls.Add(this.ClassFeat4_text);
 			this.page_ClassFeat4.Controls.Add(this.ClassFeat4_reset);
-			this.page_ClassFeat4.Location = new System.Drawing.Point(4, 23);
+			this.page_ClassFeat4.Location = new System.Drawing.Point(4, 24);
 			this.page_ClassFeat4.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat4.Name = "page_ClassFeat4";
 			this.page_ClassFeat4.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat4.Size = new System.Drawing.Size(1062, 183);
+			this.page_ClassFeat4.Size = new System.Drawing.Size(1062, 182);
 			this.page_ClassFeat4.TabIndex = 4;
 			this.page_ClassFeat4.Text = "FeatSpell4";
 			this.page_ClassFeat4.UseVisualStyleBackColor = true;
@@ -5470,6 +5604,8 @@
 			// 
 			// page_ClassFeat5
 			// 
+			this.page_ClassFeat5.Controls.Add(this.cf5_SpellLabel);
+			this.page_ClassFeat5.Controls.Add(this.cf5_FeatLabel);
 			this.page_ClassFeat5.Controls.Add(this.cf5_SpellId);
 			this.page_ClassFeat5.Controls.Add(this.cf5_FeatId);
 			this.page_ClassFeat5.Controls.Add(this.cf5_cheatCast);
@@ -5482,11 +5618,11 @@
 			this.page_ClassFeat5.Controls.Add(this.ClassFeat5_hex);
 			this.page_ClassFeat5.Controls.Add(this.ClassFeat5_text);
 			this.page_ClassFeat5.Controls.Add(this.ClassFeat5_reset);
-			this.page_ClassFeat5.Location = new System.Drawing.Point(4, 23);
+			this.page_ClassFeat5.Location = new System.Drawing.Point(4, 24);
 			this.page_ClassFeat5.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat5.Name = "page_ClassFeat5";
 			this.page_ClassFeat5.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat5.Size = new System.Drawing.Size(1062, 183);
+			this.page_ClassFeat5.Size = new System.Drawing.Size(1062, 182);
 			this.page_ClassFeat5.TabIndex = 5;
 			this.page_ClassFeat5.Text = "FeatSpell5";
 			this.page_ClassFeat5.UseVisualStyleBackColor = true;
@@ -5615,6 +5751,8 @@
 			// 
 			// page_ClassFeat6
 			// 
+			this.page_ClassFeat6.Controls.Add(this.cf6_SpellLabel);
+			this.page_ClassFeat6.Controls.Add(this.cf6_FeatLabel);
 			this.page_ClassFeat6.Controls.Add(this.cf6_SpellId);
 			this.page_ClassFeat6.Controls.Add(this.cf6_FeatId);
 			this.page_ClassFeat6.Controls.Add(this.cf6_cheatCast);
@@ -5627,11 +5765,11 @@
 			this.page_ClassFeat6.Controls.Add(this.ClassFeat6_hex);
 			this.page_ClassFeat6.Controls.Add(this.ClassFeat6_text);
 			this.page_ClassFeat6.Controls.Add(this.ClassFeat6_reset);
-			this.page_ClassFeat6.Location = new System.Drawing.Point(4, 23);
+			this.page_ClassFeat6.Location = new System.Drawing.Point(4, 24);
 			this.page_ClassFeat6.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat6.Name = "page_ClassFeat6";
 			this.page_ClassFeat6.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat6.Size = new System.Drawing.Size(1062, 183);
+			this.page_ClassFeat6.Size = new System.Drawing.Size(1062, 182);
 			this.page_ClassFeat6.TabIndex = 6;
 			this.page_ClassFeat6.Text = "FeatSpell6";
 			this.page_ClassFeat6.UseVisualStyleBackColor = true;
@@ -5760,6 +5898,8 @@
 			// 
 			// page_ClassFeat7
 			// 
+			this.page_ClassFeat7.Controls.Add(this.cf7_SpellLabel);
+			this.page_ClassFeat7.Controls.Add(this.cf7_FeatLabel);
 			this.page_ClassFeat7.Controls.Add(this.cf7_SpellId);
 			this.page_ClassFeat7.Controls.Add(this.cf7_FeatId);
 			this.page_ClassFeat7.Controls.Add(this.cf7_cheatCast);
@@ -5772,11 +5912,11 @@
 			this.page_ClassFeat7.Controls.Add(this.ClassFeat7_hex);
 			this.page_ClassFeat7.Controls.Add(this.ClassFeat7_text);
 			this.page_ClassFeat7.Controls.Add(this.ClassFeat7_reset);
-			this.page_ClassFeat7.Location = new System.Drawing.Point(4, 23);
+			this.page_ClassFeat7.Location = new System.Drawing.Point(4, 24);
 			this.page_ClassFeat7.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat7.Name = "page_ClassFeat7";
 			this.page_ClassFeat7.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat7.Size = new System.Drawing.Size(1062, 183);
+			this.page_ClassFeat7.Size = new System.Drawing.Size(1062, 182);
 			this.page_ClassFeat7.TabIndex = 7;
 			this.page_ClassFeat7.Text = "FeatSpell7";
 			this.page_ClassFeat7.UseVisualStyleBackColor = true;
@@ -5905,6 +6045,8 @@
 			// 
 			// page_ClassFeat8
 			// 
+			this.page_ClassFeat8.Controls.Add(this.cf8_SpellLabel);
+			this.page_ClassFeat8.Controls.Add(this.cf8_FeatLabel);
 			this.page_ClassFeat8.Controls.Add(this.cf8_SpellId);
 			this.page_ClassFeat8.Controls.Add(this.cf8_FeatId);
 			this.page_ClassFeat8.Controls.Add(this.cf8_cheatCast);
@@ -5917,11 +6059,11 @@
 			this.page_ClassFeat8.Controls.Add(this.ClassFeat8_hex);
 			this.page_ClassFeat8.Controls.Add(this.ClassFeat8_text);
 			this.page_ClassFeat8.Controls.Add(this.ClassFeat8_reset);
-			this.page_ClassFeat8.Location = new System.Drawing.Point(4, 23);
+			this.page_ClassFeat8.Location = new System.Drawing.Point(4, 24);
 			this.page_ClassFeat8.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat8.Name = "page_ClassFeat8";
 			this.page_ClassFeat8.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat8.Size = new System.Drawing.Size(1062, 183);
+			this.page_ClassFeat8.Size = new System.Drawing.Size(1062, 182);
 			this.page_ClassFeat8.TabIndex = 8;
 			this.page_ClassFeat8.Text = "FeatSpell8";
 			this.page_ClassFeat8.UseVisualStyleBackColor = true;
@@ -6050,6 +6192,8 @@
 			// 
 			// page_ClassFeat9
 			// 
+			this.page_ClassFeat9.Controls.Add(this.cf9_SpellLabel);
+			this.page_ClassFeat9.Controls.Add(this.cf9_FeatLabel);
 			this.page_ClassFeat9.Controls.Add(this.cf9_SpellId);
 			this.page_ClassFeat9.Controls.Add(this.cf9_FeatId);
 			this.page_ClassFeat9.Controls.Add(this.cf9_cheatCast);
@@ -6062,11 +6206,11 @@
 			this.page_ClassFeat9.Controls.Add(this.ClassFeat9_hex);
 			this.page_ClassFeat9.Controls.Add(this.ClassFeat9_text);
 			this.page_ClassFeat9.Controls.Add(this.ClassFeat9_reset);
-			this.page_ClassFeat9.Location = new System.Drawing.Point(4, 23);
+			this.page_ClassFeat9.Location = new System.Drawing.Point(4, 24);
 			this.page_ClassFeat9.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat9.Name = "page_ClassFeat9";
 			this.page_ClassFeat9.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat9.Size = new System.Drawing.Size(1062, 183);
+			this.page_ClassFeat9.Size = new System.Drawing.Size(1062, 182);
 			this.page_ClassFeat9.TabIndex = 9;
 			this.page_ClassFeat9.Text = "FeatSpell9";
 			this.page_ClassFeat9.UseVisualStyleBackColor = true;
@@ -6195,6 +6339,8 @@
 			// 
 			// page_ClassFeat10
 			// 
+			this.page_ClassFeat10.Controls.Add(this.cf10_SpellLabel);
+			this.page_ClassFeat10.Controls.Add(this.cf10_FeatLabel);
 			this.page_ClassFeat10.Controls.Add(this.cf10_SpellId);
 			this.page_ClassFeat10.Controls.Add(this.cf10_FeatId);
 			this.page_ClassFeat10.Controls.Add(this.cf10_cheatCast);
@@ -6207,11 +6353,11 @@
 			this.page_ClassFeat10.Controls.Add(this.ClassFeat10_hex);
 			this.page_ClassFeat10.Controls.Add(this.ClassFeat10_text);
 			this.page_ClassFeat10.Controls.Add(this.ClassFeat10_reset);
-			this.page_ClassFeat10.Location = new System.Drawing.Point(4, 23);
+			this.page_ClassFeat10.Location = new System.Drawing.Point(4, 24);
 			this.page_ClassFeat10.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat10.Name = "page_ClassFeat10";
 			this.page_ClassFeat10.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat10.Size = new System.Drawing.Size(1062, 183);
+			this.page_ClassFeat10.Size = new System.Drawing.Size(1062, 182);
 			this.page_ClassFeat10.TabIndex = 10;
 			this.page_ClassFeat10.Text = "FeatSpell10";
 			this.page_ClassFeat10.UseVisualStyleBackColor = true;
@@ -6340,6 +6486,8 @@
 			// 
 			// page_ClassFeat11
 			// 
+			this.page_ClassFeat11.Controls.Add(this.cf11_SpellLabel);
+			this.page_ClassFeat11.Controls.Add(this.cf11_FeatLabel);
 			this.page_ClassFeat11.Controls.Add(this.cf11_SpellId);
 			this.page_ClassFeat11.Controls.Add(this.cf11_FeatId);
 			this.page_ClassFeat11.Controls.Add(this.cf11_cheatCast);
@@ -6352,11 +6500,11 @@
 			this.page_ClassFeat11.Controls.Add(this.ClassFeat11_hex);
 			this.page_ClassFeat11.Controls.Add(this.ClassFeat11_text);
 			this.page_ClassFeat11.Controls.Add(this.ClassFeat11_reset);
-			this.page_ClassFeat11.Location = new System.Drawing.Point(4, 23);
+			this.page_ClassFeat11.Location = new System.Drawing.Point(4, 24);
 			this.page_ClassFeat11.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat11.Name = "page_ClassFeat11";
 			this.page_ClassFeat11.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat11.Size = new System.Drawing.Size(1062, 183);
+			this.page_ClassFeat11.Size = new System.Drawing.Size(1062, 182);
 			this.page_ClassFeat11.TabIndex = 11;
 			this.page_ClassFeat11.Text = "FeatSpell11";
 			this.page_ClassFeat11.UseVisualStyleBackColor = true;
@@ -6627,6 +6775,8 @@
 			// 
 			// page_RacialFeat1
 			// 
+			this.page_RacialFeat1.Controls.Add(this.rf1_SpellLabel);
+			this.page_RacialFeat1.Controls.Add(this.rf1_FeatLabel);
 			this.page_RacialFeat1.Controls.Add(this.rf1_SpellId);
 			this.page_RacialFeat1.Controls.Add(this.rf1_FeatId);
 			this.page_RacialFeat1.Controls.Add(this.rf1_cheatCast);
@@ -6639,14 +6789,32 @@
 			this.page_RacialFeat1.Controls.Add(this.RacialFeat1_hex);
 			this.page_RacialFeat1.Controls.Add(this.RacialFeat1_text);
 			this.page_RacialFeat1.Controls.Add(this.RacialFeat1_reset);
-			this.page_RacialFeat1.Location = new System.Drawing.Point(4, 23);
+			this.page_RacialFeat1.Location = new System.Drawing.Point(4, 24);
 			this.page_RacialFeat1.Margin = new System.Windows.Forms.Padding(2);
 			this.page_RacialFeat1.Name = "page_RacialFeat1";
 			this.page_RacialFeat1.Padding = new System.Windows.Forms.Padding(2);
-			this.page_RacialFeat1.Size = new System.Drawing.Size(812, 238);
+			this.page_RacialFeat1.Size = new System.Drawing.Size(812, 237);
 			this.page_RacialFeat1.TabIndex = 1;
 			this.page_RacialFeat1.Text = "FeatSpell1";
 			this.page_RacialFeat1.UseVisualStyleBackColor = true;
+			// 
+			// rf1_SpellLabel
+			// 
+			this.rf1_SpellLabel.Location = new System.Drawing.Point(175, 85);
+			this.rf1_SpellLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.rf1_SpellLabel.Name = "rf1_SpellLabel";
+			this.rf1_SpellLabel.Size = new System.Drawing.Size(250, 15);
+			this.rf1_SpellLabel.TabIndex = 61;
+			this.rf1_SpellLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// rf1_FeatLabel
+			// 
+			this.rf1_FeatLabel.Location = new System.Drawing.Point(175, 65);
+			this.rf1_FeatLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.rf1_FeatLabel.Name = "rf1_FeatLabel";
+			this.rf1_FeatLabel.Size = new System.Drawing.Size(250, 15);
+			this.rf1_FeatLabel.TabIndex = 60;
+			this.rf1_FeatLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// rf1_SpellId
 			// 
@@ -6772,6 +6940,8 @@
 			// 
 			// page_RacialFeat2
 			// 
+			this.page_RacialFeat2.Controls.Add(this.rf2_SpellLabel);
+			this.page_RacialFeat2.Controls.Add(this.rf2_FeatLabel);
 			this.page_RacialFeat2.Controls.Add(this.rf2_SpellId);
 			this.page_RacialFeat2.Controls.Add(this.rf2_FeatId);
 			this.page_RacialFeat2.Controls.Add(this.rf2_cheatCast);
@@ -6792,6 +6962,24 @@
 			this.page_RacialFeat2.TabIndex = 2;
 			this.page_RacialFeat2.Text = "FeatSpell2";
 			this.page_RacialFeat2.UseVisualStyleBackColor = true;
+			// 
+			// rf2_SpellLabel
+			// 
+			this.rf2_SpellLabel.Location = new System.Drawing.Point(175, 85);
+			this.rf2_SpellLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.rf2_SpellLabel.Name = "rf2_SpellLabel";
+			this.rf2_SpellLabel.Size = new System.Drawing.Size(250, 15);
+			this.rf2_SpellLabel.TabIndex = 68;
+			this.rf2_SpellLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// rf2_FeatLabel
+			// 
+			this.rf2_FeatLabel.Location = new System.Drawing.Point(175, 65);
+			this.rf2_FeatLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.rf2_FeatLabel.Name = "rf2_FeatLabel";
+			this.rf2_FeatLabel.Size = new System.Drawing.Size(250, 15);
+			this.rf2_FeatLabel.TabIndex = 67;
+			this.rf2_FeatLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// rf2_SpellId
 			// 
@@ -6917,6 +7105,8 @@
 			// 
 			// page_RacialFeat3
 			// 
+			this.page_RacialFeat3.Controls.Add(this.rf3_SpellLabel);
+			this.page_RacialFeat3.Controls.Add(this.rf3_FeatLabel);
 			this.page_RacialFeat3.Controls.Add(this.rf3_SpellId);
 			this.page_RacialFeat3.Controls.Add(this.rf3_FeatId);
 			this.page_RacialFeat3.Controls.Add(this.rf3_cheatCast);
@@ -6937,6 +7127,24 @@
 			this.page_RacialFeat3.TabIndex = 3;
 			this.page_RacialFeat3.Text = "FeatSpell3";
 			this.page_RacialFeat3.UseVisualStyleBackColor = true;
+			// 
+			// rf3_SpellLabel
+			// 
+			this.rf3_SpellLabel.Location = new System.Drawing.Point(175, 85);
+			this.rf3_SpellLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.rf3_SpellLabel.Name = "rf3_SpellLabel";
+			this.rf3_SpellLabel.Size = new System.Drawing.Size(250, 15);
+			this.rf3_SpellLabel.TabIndex = 75;
+			this.rf3_SpellLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// rf3_FeatLabel
+			// 
+			this.rf3_FeatLabel.Location = new System.Drawing.Point(175, 65);
+			this.rf3_FeatLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.rf3_FeatLabel.Name = "rf3_FeatLabel";
+			this.rf3_FeatLabel.Size = new System.Drawing.Size(250, 15);
+			this.rf3_FeatLabel.TabIndex = 74;
+			this.rf3_FeatLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// rf3_SpellId
 			// 
@@ -7062,6 +7270,8 @@
 			// 
 			// page_RacialFeat4
 			// 
+			this.page_RacialFeat4.Controls.Add(this.rf4_SpellLabel);
+			this.page_RacialFeat4.Controls.Add(this.rf4_FeatLabel);
 			this.page_RacialFeat4.Controls.Add(this.rf4_SpellId);
 			this.page_RacialFeat4.Controls.Add(this.rf4_FeatId);
 			this.page_RacialFeat4.Controls.Add(this.rf4_cheatCast);
@@ -7082,6 +7292,24 @@
 			this.page_RacialFeat4.TabIndex = 4;
 			this.page_RacialFeat4.Text = "FeatSpell4";
 			this.page_RacialFeat4.UseVisualStyleBackColor = true;
+			// 
+			// rf4_SpellLabel
+			// 
+			this.rf4_SpellLabel.Location = new System.Drawing.Point(175, 85);
+			this.rf4_SpellLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.rf4_SpellLabel.Name = "rf4_SpellLabel";
+			this.rf4_SpellLabel.Size = new System.Drawing.Size(250, 15);
+			this.rf4_SpellLabel.TabIndex = 77;
+			this.rf4_SpellLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// rf4_FeatLabel
+			// 
+			this.rf4_FeatLabel.Location = new System.Drawing.Point(175, 65);
+			this.rf4_FeatLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.rf4_FeatLabel.Name = "rf4_FeatLabel";
+			this.rf4_FeatLabel.Size = new System.Drawing.Size(250, 15);
+			this.rf4_FeatLabel.TabIndex = 76;
+			this.rf4_FeatLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// rf4_SpellId
 			// 
@@ -7207,6 +7435,8 @@
 			// 
 			// page_RacialFeat5
 			// 
+			this.page_RacialFeat5.Controls.Add(this.rf5_SpellLabel);
+			this.page_RacialFeat5.Controls.Add(this.rf5_FeatLabel);
 			this.page_RacialFeat5.Controls.Add(this.rf5_SpellId);
 			this.page_RacialFeat5.Controls.Add(this.rf5_FeatId);
 			this.page_RacialFeat5.Controls.Add(this.rf5_cheatCast);
@@ -7227,6 +7457,24 @@
 			this.page_RacialFeat5.TabIndex = 5;
 			this.page_RacialFeat5.Text = "FeatSpell5";
 			this.page_RacialFeat5.UseVisualStyleBackColor = true;
+			// 
+			// rf5_SpellLabel
+			// 
+			this.rf5_SpellLabel.Location = new System.Drawing.Point(175, 85);
+			this.rf5_SpellLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.rf5_SpellLabel.Name = "rf5_SpellLabel";
+			this.rf5_SpellLabel.Size = new System.Drawing.Size(250, 15);
+			this.rf5_SpellLabel.TabIndex = 79;
+			this.rf5_SpellLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// rf5_FeatLabel
+			// 
+			this.rf5_FeatLabel.Location = new System.Drawing.Point(175, 65);
+			this.rf5_FeatLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.rf5_FeatLabel.Name = "rf5_FeatLabel";
+			this.rf5_FeatLabel.Size = new System.Drawing.Size(250, 15);
+			this.rf5_FeatLabel.TabIndex = 78;
+			this.rf5_FeatLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// rf5_SpellId
 			// 
@@ -7368,6 +7616,204 @@
 			this.toolTip1.AutoPopDelay = 10000;
 			this.toolTip1.InitialDelay = 500;
 			this.toolTip1.ReshowDelay = 100;
+			// 
+			// cf1_SpellLabel
+			// 
+			this.cf1_SpellLabel.Location = new System.Drawing.Point(175, 85);
+			this.cf1_SpellLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.cf1_SpellLabel.Name = "cf1_SpellLabel";
+			this.cf1_SpellLabel.Size = new System.Drawing.Size(250, 15);
+			this.cf1_SpellLabel.TabIndex = 66;
+			this.cf1_SpellLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf1_FeatLabel
+			// 
+			this.cf1_FeatLabel.Location = new System.Drawing.Point(175, 65);
+			this.cf1_FeatLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.cf1_FeatLabel.Name = "cf1_FeatLabel";
+			this.cf1_FeatLabel.Size = new System.Drawing.Size(250, 15);
+			this.cf1_FeatLabel.TabIndex = 65;
+			this.cf1_FeatLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf2_SpellLabel
+			// 
+			this.cf2_SpellLabel.Location = new System.Drawing.Point(175, 85);
+			this.cf2_SpellLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.cf2_SpellLabel.Name = "cf2_SpellLabel";
+			this.cf2_SpellLabel.Size = new System.Drawing.Size(250, 15);
+			this.cf2_SpellLabel.TabIndex = 66;
+			this.cf2_SpellLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf2_FeatLabel
+			// 
+			this.cf2_FeatLabel.Location = new System.Drawing.Point(175, 65);
+			this.cf2_FeatLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.cf2_FeatLabel.Name = "cf2_FeatLabel";
+			this.cf2_FeatLabel.Size = new System.Drawing.Size(250, 15);
+			this.cf2_FeatLabel.TabIndex = 65;
+			this.cf2_FeatLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf3_SpellLabel
+			// 
+			this.cf3_SpellLabel.Location = new System.Drawing.Point(175, 85);
+			this.cf3_SpellLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.cf3_SpellLabel.Name = "cf3_SpellLabel";
+			this.cf3_SpellLabel.Size = new System.Drawing.Size(250, 15);
+			this.cf3_SpellLabel.TabIndex = 66;
+			this.cf3_SpellLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf3_FeatLabel
+			// 
+			this.cf3_FeatLabel.Location = new System.Drawing.Point(175, 65);
+			this.cf3_FeatLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.cf3_FeatLabel.Name = "cf3_FeatLabel";
+			this.cf3_FeatLabel.Size = new System.Drawing.Size(250, 15);
+			this.cf3_FeatLabel.TabIndex = 65;
+			this.cf3_FeatLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf4_SpellLabel
+			// 
+			this.cf4_SpellLabel.Location = new System.Drawing.Point(175, 85);
+			this.cf4_SpellLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.cf4_SpellLabel.Name = "cf4_SpellLabel";
+			this.cf4_SpellLabel.Size = new System.Drawing.Size(250, 15);
+			this.cf4_SpellLabel.TabIndex = 66;
+			this.cf4_SpellLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf4_FeatLabel
+			// 
+			this.cf4_FeatLabel.Location = new System.Drawing.Point(175, 65);
+			this.cf4_FeatLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.cf4_FeatLabel.Name = "cf4_FeatLabel";
+			this.cf4_FeatLabel.Size = new System.Drawing.Size(250, 15);
+			this.cf4_FeatLabel.TabIndex = 65;
+			this.cf4_FeatLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf5_SpellLabel
+			// 
+			this.cf5_SpellLabel.Location = new System.Drawing.Point(175, 85);
+			this.cf5_SpellLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.cf5_SpellLabel.Name = "cf5_SpellLabel";
+			this.cf5_SpellLabel.Size = new System.Drawing.Size(250, 15);
+			this.cf5_SpellLabel.TabIndex = 66;
+			this.cf5_SpellLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf5_FeatLabel
+			// 
+			this.cf5_FeatLabel.Location = new System.Drawing.Point(175, 65);
+			this.cf5_FeatLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.cf5_FeatLabel.Name = "cf5_FeatLabel";
+			this.cf5_FeatLabel.Size = new System.Drawing.Size(250, 15);
+			this.cf5_FeatLabel.TabIndex = 65;
+			this.cf5_FeatLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf6_SpellLabel
+			// 
+			this.cf6_SpellLabel.Location = new System.Drawing.Point(175, 85);
+			this.cf6_SpellLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.cf6_SpellLabel.Name = "cf6_SpellLabel";
+			this.cf6_SpellLabel.Size = new System.Drawing.Size(250, 15);
+			this.cf6_SpellLabel.TabIndex = 66;
+			this.cf6_SpellLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf6_FeatLabel
+			// 
+			this.cf6_FeatLabel.Location = new System.Drawing.Point(175, 65);
+			this.cf6_FeatLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.cf6_FeatLabel.Name = "cf6_FeatLabel";
+			this.cf6_FeatLabel.Size = new System.Drawing.Size(250, 15);
+			this.cf6_FeatLabel.TabIndex = 65;
+			this.cf6_FeatLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf7_SpellLabel
+			// 
+			this.cf7_SpellLabel.Location = new System.Drawing.Point(175, 85);
+			this.cf7_SpellLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.cf7_SpellLabel.Name = "cf7_SpellLabel";
+			this.cf7_SpellLabel.Size = new System.Drawing.Size(250, 15);
+			this.cf7_SpellLabel.TabIndex = 66;
+			this.cf7_SpellLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf7_FeatLabel
+			// 
+			this.cf7_FeatLabel.Location = new System.Drawing.Point(175, 65);
+			this.cf7_FeatLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.cf7_FeatLabel.Name = "cf7_FeatLabel";
+			this.cf7_FeatLabel.Size = new System.Drawing.Size(250, 15);
+			this.cf7_FeatLabel.TabIndex = 65;
+			this.cf7_FeatLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf8_SpellLabel
+			// 
+			this.cf8_SpellLabel.Location = new System.Drawing.Point(175, 85);
+			this.cf8_SpellLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.cf8_SpellLabel.Name = "cf8_SpellLabel";
+			this.cf8_SpellLabel.Size = new System.Drawing.Size(250, 15);
+			this.cf8_SpellLabel.TabIndex = 66;
+			this.cf8_SpellLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf8_FeatLabel
+			// 
+			this.cf8_FeatLabel.Location = new System.Drawing.Point(175, 65);
+			this.cf8_FeatLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.cf8_FeatLabel.Name = "cf8_FeatLabel";
+			this.cf8_FeatLabel.Size = new System.Drawing.Size(250, 15);
+			this.cf8_FeatLabel.TabIndex = 65;
+			this.cf8_FeatLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf9_SpellLabel
+			// 
+			this.cf9_SpellLabel.Location = new System.Drawing.Point(175, 85);
+			this.cf9_SpellLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.cf9_SpellLabel.Name = "cf9_SpellLabel";
+			this.cf9_SpellLabel.Size = new System.Drawing.Size(250, 15);
+			this.cf9_SpellLabel.TabIndex = 66;
+			this.cf9_SpellLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf9_FeatLabel
+			// 
+			this.cf9_FeatLabel.Location = new System.Drawing.Point(175, 65);
+			this.cf9_FeatLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.cf9_FeatLabel.Name = "cf9_FeatLabel";
+			this.cf9_FeatLabel.Size = new System.Drawing.Size(250, 15);
+			this.cf9_FeatLabel.TabIndex = 65;
+			this.cf9_FeatLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf10_SpellLabel
+			// 
+			this.cf10_SpellLabel.Location = new System.Drawing.Point(175, 85);
+			this.cf10_SpellLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.cf10_SpellLabel.Name = "cf10_SpellLabel";
+			this.cf10_SpellLabel.Size = new System.Drawing.Size(250, 15);
+			this.cf10_SpellLabel.TabIndex = 66;
+			this.cf10_SpellLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf10_FeatLabel
+			// 
+			this.cf10_FeatLabel.Location = new System.Drawing.Point(175, 65);
+			this.cf10_FeatLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.cf10_FeatLabel.Name = "cf10_FeatLabel";
+			this.cf10_FeatLabel.Size = new System.Drawing.Size(250, 15);
+			this.cf10_FeatLabel.TabIndex = 65;
+			this.cf10_FeatLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf11_SpellLabel
+			// 
+			this.cf11_SpellLabel.Location = new System.Drawing.Point(175, 85);
+			this.cf11_SpellLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.cf11_SpellLabel.Name = "cf11_SpellLabel";
+			this.cf11_SpellLabel.Size = new System.Drawing.Size(250, 15);
+			this.cf11_SpellLabel.TabIndex = 66;
+			this.cf11_SpellLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// cf11_FeatLabel
+			// 
+			this.cf11_FeatLabel.Location = new System.Drawing.Point(175, 65);
+			this.cf11_FeatLabel.Margin = new System.Windows.Forms.Padding(0);
+			this.cf11_FeatLabel.Name = "cf11_FeatLabel";
+			this.cf11_FeatLabel.Size = new System.Drawing.Size(250, 15);
+			this.cf11_FeatLabel.TabIndex = 65;
+			this.cf11_FeatLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// MainForm
 			// 

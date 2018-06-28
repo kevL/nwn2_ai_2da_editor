@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -11,12 +13,18 @@ namespace nwn2_ai_2da_editor
 	/// </summary>
 	partial class MainForm
 	{
+		List<string> classLabels = new List<string>();
+		List<string> racesLabels = new List<string>();
+		List<string> spellLabels = new List<string>();
+		List<string> featsLabels = new List<string>();
+
+
 		/// <summary>
 		/// Handles the FormClosing event.
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		void FormClosing_main(object sender, FormClosingEventArgs e)
+		void FormClosing_main(object sender, CancelEventArgs e)
 		{
 			e.Cancel = GetChanged()
 					&& MessageBox.Show("Data has changed." + Environment.NewLine + "Okay to exit ...",
@@ -61,7 +69,7 @@ namespace nwn2_ai_2da_editor
 			{
 				using (var ofd = new OpenFileDialog())
 				{
-					ofd.Title  = "Select a HenchSpells.2da";
+					ofd.Title  = "Select a Hench*.2da file";
 					ofd.Filter = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
 	
 					if (ofd.ShowDialog() == DialogResult.OK)
@@ -330,7 +338,7 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// 
+		/// Gets the master-int of the currently selected page as a string.
 		/// </summary>
 		/// <returns></returns>
 		string GetTextInfo()
@@ -402,6 +410,227 @@ namespace nwn2_ai_2da_editor
 
 
 		#region Options
+		/// <summary>
+		/// Handles clicking the PathRacialSubtypes menuitem.
+		/// Intended to add labels from RacialSubtypes.2da to the 'racesLabels'
+		/// list.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void Click_pathRacialSubtypes(object sender, EventArgs e)
+		{
+			if (!pathRacialSubtypes.Checked)
+			{
+				using (var ofd = new OpenFileDialog())
+				{
+					ofd.Title  = "Select RacialSubtypes.2da";
+					ofd.Filter = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
+
+					if (ofd.ShowDialog() == DialogResult.OK)
+					{
+						GropeLabels(ofd.FileName, racesLabels, pathRacialSubtypes);
+
+						if (racesLabels.Count != 0
+							&& Type == Type2da.TYPE_RACIAL)
+						{
+							int i = 0;
+							int nodes = Tree.Nodes.Count;
+							foreach (var label in racesLabels)
+							{
+								if (i < nodes)
+								{
+									Tree.Nodes[i++].Text += " " + label;
+								}
+								else
+									break;
+							}
+						}
+					}
+				}
+			}
+			else
+			{
+				pathRacialSubtypes.Checked = false;
+				racesLabels.Clear();
+
+				if (Type == Type2da.TYPE_RACIAL)
+				{
+					int nodes = Tree.Nodes.Count;
+					for (int i = 0; i != nodes; ++i)
+					{
+						Tree.Nodes[i].Text = i.ToString();
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Handles clicking the PathClasses menuitem.
+		/// Intended to add labels from Classes.2da to the 'classLabels' list.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void Click_pathClasses(object sender, EventArgs e)
+		{
+			if (!pathClasses.Checked)
+			{
+				using (var ofd = new OpenFileDialog())
+				{
+					ofd.Title  = "Select Classes.2da";
+					ofd.Filter = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
+
+					if (ofd.ShowDialog() == DialogResult.OK)
+					{
+						GropeLabels(ofd.FileName, classLabels, pathClasses);
+
+						if (classLabels.Count != 0
+							&& Type == Type2da.TYPE_CLASSES)
+						{
+							int i = 0;
+							int nodes = Tree.Nodes.Count;
+							foreach (var label in classLabels)
+							{
+								if (i < nodes)
+								{
+									Tree.Nodes[i++].Text += " " + label;
+								}
+								else
+									break;
+							}
+						}
+					}
+				}
+			}
+			else
+			{
+				pathClasses.Checked = false;
+				classLabels.Clear();
+
+				if (Type == Type2da.TYPE_CLASSES)
+				{
+					int nodes = Tree.Nodes.Count;
+					for (int i = 0; i != nodes; ++i)
+					{
+						Tree.Nodes[i].Text = i.ToString();
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// Handles clicking the PathSpells menuitem.
+		/// Intended to add labels from Spells.2da to the 'spellLabels' list.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void Click_pathSpells(object sender, EventArgs e)
+		{
+			if (!pathSpells.Checked)
+			{
+				using (var ofd = new OpenFileDialog())
+				{
+					ofd.Title  = "Select Spells.2da";
+					ofd.Filter = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
+
+					if (ofd.ShowDialog() == DialogResult.OK)
+					{
+						GropeLabels(ofd.FileName, spellLabels, pathSpells);
+					}
+				}
+			}
+			else
+			{
+				pathSpells.Checked = false;
+				spellLabels.Clear();
+			}
+		}
+
+		/// <summary>
+		/// Handles clicking the PathFeat menuitem.
+		/// Intended to add labels from Feat.2da to the 'featsLabels' list.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void Click_pathFeat(object sender, EventArgs e)
+		{
+			if (!pathFeat.Checked)
+			{
+				using (var ofd = new OpenFileDialog())
+				{
+					ofd.Title  = "Select Feat.2da";
+					ofd.Filter = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
+
+					if (ofd.ShowDialog() == DialogResult.OK)
+					{
+						GropeLabels(ofd.FileName, featsLabels, pathFeat);
+					}
+				}
+			}
+			else
+			{
+				pathFeat.Checked = false;
+				featsLabels.Clear();
+			}
+		}
+
+		/// <summary>
+		/// Gets the label-string from Classes.2da or RacialSubtypes.2da
+		/// </summary>
+		/// <param name="pfe2da"></param>
+		/// <param name="labels"></param>
+		/// <param name="item"></param>
+		/// <returns></returns>
+		void GropeLabels(string pfe2da, ICollection<string> labels, ToolStripMenuItem item)
+		{
+			if (File.Exists(pfe2da))
+			{
+				string[] rows = File.ReadAllLines(pfe2da);
+
+				// WARNING: This editor does *not* handle quotation marks around 2da fields.
+				foreach (string row in rows) // test for double-quote character and exit if found.
+				{
+					foreach(char character in row)
+					{
+						if (character == '"')
+						{
+							const string info = "The 2da-file contains double-quotes. Although that can be"
+											  + " valid in a 2da-file this editor is not coded to cope."
+											  + " Format the 2da-file to not use double-quotes if you want"
+											  + " to access it here.";
+							MessageBox.Show(info,
+											"  ERROR",
+											MessageBoxButtons.OK,
+											MessageBoxIcon.Error,
+											MessageBoxDefaultButton.Button1);
+							return;
+						}
+					}
+				}
+
+
+				labels.Clear();
+
+				string[] cols;
+				foreach (string row in rows)
+				{
+					if (!String.IsNullOrEmpty(row))
+					{
+						cols = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
+
+						int id;
+						if (Int32.TryParse(cols[0], out id)) // is a valid 2da row
+						{
+							//logfile.Log(cols[1]); it works
+							labels.Add(cols[1]); // and hope for the best.
+						}
+					}
+				}
+
+				item.Checked = (labels.Count != 0);
+			}
+		}
+
+
 		const int HENCH_SPELL_INFO_VERSION_SHIFT = 24;
 
 		/// <summary>

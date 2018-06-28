@@ -900,77 +900,100 @@ namespace nwn2_ai_2da_editor
 		{
 //			if (!bypassCheckedChecker)
 			{
-				CheckBox cb;
-				TextBox tb_feat, tb_spell;
-
 				int feat;
 				if (Int32.TryParse(tb.Text, out feat))
 				{
+					CheckBox cb;
+					TextBox tb_feat, tb_spell;
+					Label lbl_feat, lbl_spell;
+
 					if (tb == ClassFeat1_text)
 					{
-						cb = cf1_cheatCast;
-						tb_feat = cf1_FeatId;
-						tb_spell = cf1_SpellId;
+						cb        = cf1_cheatCast;
+						tb_feat   = cf1_FeatId;
+						tb_spell  = cf1_SpellId;
+						lbl_feat  = cf1_FeatLabel;
+						lbl_spell = cf1_SpellLabel;
 					}
 					else if (tb == ClassFeat2_text)
 					{
-						cb = cf2_cheatCast;
-						tb_feat = cf2_FeatId;
-						tb_spell = cf2_SpellId;
+						cb        = cf2_cheatCast;
+						tb_feat   = cf2_FeatId;
+						tb_spell  = cf2_SpellId;
+						lbl_feat  = cf2_FeatLabel;
+						lbl_spell = cf2_SpellLabel;
 					}
 					else if (tb == ClassFeat3_text)
 					{
-						cb = cf3_cheatCast;
-						tb_feat = cf3_FeatId;
-						tb_spell = cf3_SpellId;
+						cb        = cf3_cheatCast;
+						tb_feat   = cf3_FeatId;
+						tb_spell  = cf3_SpellId;
+						lbl_feat  = cf3_FeatLabel;
+						lbl_spell = cf3_SpellLabel;
 					}
 					else if (tb == ClassFeat4_text)
 					{
-						cb = cf4_cheatCast;
-						tb_feat = cf4_FeatId;
-						tb_spell = cf4_SpellId;
+						cb        = cf4_cheatCast;
+						tb_feat   = cf4_FeatId;
+						tb_spell  = cf4_SpellId;
+						lbl_feat  = cf4_FeatLabel;
+						lbl_spell = cf4_SpellLabel;
 					}
 					else if (tb == ClassFeat5_text)
 					{
-						cb = cf5_cheatCast;
-						tb_feat = cf5_FeatId;
-						tb_spell = cf5_SpellId;
+						cb        = cf5_cheatCast;
+						tb_feat   = cf5_FeatId;
+						tb_spell  = cf5_SpellId;
+						lbl_feat  = cf5_FeatLabel;
+						lbl_spell = cf5_SpellLabel;
 					}
 					else if (tb == ClassFeat6_text)
 					{
-						cb = cf6_cheatCast;
-						tb_feat = cf6_FeatId;
-						tb_spell = cf6_SpellId;
+						cb        = cf6_cheatCast;
+						tb_feat   = cf6_FeatId;
+						tb_spell  = cf6_SpellId;
+						lbl_feat  = cf6_FeatLabel;
+						lbl_spell = cf6_SpellLabel;
 					}
 					else if (tb == ClassFeat7_text)
 					{
-						cb = cf7_cheatCast;
-						tb_feat = cf7_FeatId;
-						tb_spell = cf7_SpellId;
+						cb        = cf7_cheatCast;
+						tb_feat   = cf7_FeatId;
+						tb_spell  = cf7_SpellId;
+						lbl_feat  = cf7_FeatLabel;
+						lbl_spell = cf7_SpellLabel;
 					}
 					else if (tb == ClassFeat8_text)
 					{
-						cb = cf8_cheatCast;
-						tb_feat = cf8_FeatId;
-						tb_spell = cf8_SpellId;
+						cb        = cf8_cheatCast;
+						tb_feat   = cf8_FeatId;
+						tb_spell  = cf8_SpellId;
+						lbl_feat  = cf8_FeatLabel;
+						lbl_spell = cf8_SpellLabel;
 					}
 					else if (tb == ClassFeat9_text)
 					{
-						cb = cf9_cheatCast;
-						tb_feat = cf9_FeatId;
-						tb_spell = cf9_SpellId;
+						cb        = cf9_cheatCast;
+						tb_feat   = cf9_FeatId;
+						tb_spell  = cf9_SpellId;
+						lbl_feat  = cf9_FeatLabel;
+						lbl_spell = cf9_SpellLabel;
 					}
 					else if (tb == ClassFeat10_text)
 					{
-						cb = cf10_cheatCast;
-						tb_feat = cf10_FeatId;
-						tb_spell = cf10_SpellId;
+						cb        = cf10_cheatCast;
+						tb_feat   = cf10_FeatId;
+						tb_spell  = cf10_SpellId;
+						lbl_feat  = cf10_FeatLabel;
+						lbl_spell = cf10_SpellLabel;
 					}
 					else //if (tb == ClassFeat11_text)
 					{
-						cb = cf11_cheatCast;
-						tb_feat = cf11_FeatId;
-						tb_spell = cf11_SpellId;
+						cb        = cf11_cheatCast;
+						tb_feat   = cf11_FeatId;
+						tb_spell  = cf11_SpellId;
+						lbl_feat  = cf11_FeatLabel;
+						lbl_spell = cf11_SpellLabel;
 					}
 
 					cb.Checked = (feat & HENCH_FEAT_SPELL_CHEAT_CAST) != 0;
@@ -978,8 +1001,20 @@ namespace nwn2_ai_2da_editor
 					int val = (feat & HENCH_FEAT_SPELL_MASK_FEAT);
 					tb_feat.Text = val.ToString();
 
+					if (featsLabels.Count != 0
+						&& val < featsLabels.Count)
+					{
+						lbl_feat.Text = featsLabels[val];
+					}
+
 					val = (feat & HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
 					tb_spell.Text = val.ToString();
+
+					if (spellLabels.Count != 0
+						&& val < spellLabels.Count)
+					{
+						lbl_spell.Text = spellLabels[val];
+					}
 				}
 			}
 //			else

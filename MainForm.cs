@@ -29,7 +29,7 @@ namespace nwn2_ai_2da_editor
 
 		enum Type2da
 		{
-			TYPE_SPELLS, // 0
+			TYPE_SPELLS, // 0 - default on startup.
 			TYPE_RACIAL, // 1
 			TYPE_CLASSES // 2
 		}
@@ -251,18 +251,18 @@ namespace nwn2_ai_2da_editor
 											  + " valid in a 2da-file this editor is not coded to cope."
 											  + " Format the 2da-file to not use double-quotes if you want"
 											  + " to open it here.";
-							if (MessageBox.Show(info,
-												"  ERROR",
-												MessageBoxButtons.OK,
-												MessageBoxIcon.Error,
-												MessageBoxDefaultButton.Button1) == DialogResult.OK)
-							{
-								return;
-							}
+							MessageBox.Show(info,
+											"  ERROR",
+											MessageBoxButtons.OK,
+											MessageBoxIcon.Error,
+											MessageBoxDefaultButton.Button1);
+							return;
 						}
 					}
 				}
 
+
+				string[] cols;
 
 				bool stop = false;
 				foreach (string row in rows)
@@ -271,7 +271,7 @@ namespace nwn2_ai_2da_editor
 
 					if (!String.IsNullOrEmpty(row))
 					{
-						string[] cols = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
+						cols = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
 
 						int id;
 						if (Int32.TryParse(cols[0], out id)) // is a valid 2da row
@@ -298,15 +298,12 @@ namespace nwn2_ai_2da_editor
 
 								default:
 									//logfile.Log("load ERROR");
-									if (MessageBox.Show("That file does not appear to be HenchSpells, HenchRacial, or HenchClasses.2da",
+									MessageBox.Show("That file does not appear to be HenchSpells, HenchRacial, or HenchClasses.2da",
 														"  ERROR",
 														MessageBoxButtons.OK,
 														MessageBoxIcon.Error,
-														MessageBoxDefaultButton.Button1) == DialogResult.OK)
-									{
-										return;
-									}
-									break;
+														MessageBoxDefaultButton.Button1);
+									return;
 							}
 
 							Text = "nwn2_ai_2da_editor - " + _pfe; // titlebar text (append path of current file)
@@ -361,11 +358,14 @@ namespace nwn2_ai_2da_editor
 			apply.Enabled = true;
 
 
+			string[] cols;
+			string field;
+
 			foreach (string row in rows)
 			{
 				if (!String.IsNullOrEmpty(row))
 				{
-					string[] cols = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
+					cols = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
 
 					int id;
 					if (Int32.TryParse(cols[0], out id)) // is a valid 2da row
@@ -375,7 +375,7 @@ namespace nwn2_ai_2da_editor
 						spell.id = id;
 
 
-						string field = cols[1];
+						field = cols[1];
 						if (field != blank)
 							spell.label = field;
 						else
@@ -478,11 +478,14 @@ namespace nwn2_ai_2da_editor
 			apply.Enabled = true;
 
 
+			string[] cols;
+			string field;
+
 			foreach (string row in rows)
 			{
 				if (!String.IsNullOrEmpty(row))
 				{
-					string[] cols = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
+					cols = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
 
 					int id;
 					if (Int32.TryParse(cols[0], out id)) // is a valid 2da row
@@ -492,7 +495,7 @@ namespace nwn2_ai_2da_editor
 						race.id = id;
 
 
-						string field = cols[1];
+						field = cols[1];
 						if (field != blank)
 							race.flags = Int32.Parse(field);
 						else
@@ -577,11 +580,14 @@ namespace nwn2_ai_2da_editor
 			apply.Enabled = true;
 
 
+			string[] cols;
+			string field;
+
 			foreach (string row in rows)
 			{
 				if (!String.IsNullOrEmpty(row))
 				{
-					string[] cols = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
+					cols = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
 
 					int id;
 					if (Int32.TryParse(cols[0], out id)) // is a valid 2da row
@@ -591,7 +597,7 @@ namespace nwn2_ai_2da_editor
 						clas.id = id;
 
 
-						string field = cols[1];
+						field = cols[1];
 						if (field != blank)
 							clas.flags = Int32.Parse(field);
 						else
@@ -716,12 +722,42 @@ namespace nwn2_ai_2da_editor
 					{
 						Tree.Nodes.Add(race.id.ToString());
 					}
+
+					if (racesLabels.Count != 0)
+					{
+						int i = 0;
+						int nodes = Tree.Nodes.Count;
+						foreach (var label in racesLabels)
+						{
+							if (i < nodes)
+							{
+								Tree.Nodes[i++].Text += " " + label;
+							}
+							else
+								break;
+						}
+					}
 					break;
 
 				case Type2da.TYPE_CLASSES:
 					foreach (var clas in Classes)
 					{
 						Tree.Nodes.Add(clas.id.ToString());
+					}
+
+					if (classLabels.Count != 0)
+					{
+						int i = 0;
+						int nodes = Tree.Nodes.Count;
+						foreach (var label in classLabels)
+						{
+							if (i < nodes)
+							{
+								Tree.Nodes[i++].Text += " " + label;
+							}
+							else
+								break;
+						}
 					}
 					break;
 			}
