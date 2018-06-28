@@ -352,15 +352,15 @@ namespace nwn2_ai_2da_editor
 				int bit;
 
 				var cb = sender as CheckBox;
-				if (cb.Equals(di_Breach))
+				if (cb == di_Breach)
 				{
 					bit = HENCH_SPELL_INFO_DAMAGE_BREACH; // 0x00000001;
 				}
-				else if (cb.Equals(di_Dispel))
+				else if (cb == di_Dispel)
 				{
 					bit = HENCH_SPELL_INFO_DAMAGE_DISPEL; // 0x00000002;
 				}
-				else //if (cb.Equals(di_Resist))
+				else //if (cb == di_Resist)
 				{
 					bit = HENCH_SPELL_INFO_DAMAGE_RESIST; // 0x00000004;
 				}
@@ -403,51 +403,51 @@ namespace nwn2_ai_2da_editor
 				int bit;
 
 				var cb = sender as CheckBox;
-				if (cb.Equals(di_Bludgeoning))
+				if (cb == di_Bludgeoning)
 				{
 					bit = DAMAGE_TYPE_BLUDGEONING;
 				}
-				else if (cb.Equals(di_Piercing))
+				else if (cb == di_Piercing)
 				{
 					bit = DAMAGE_TYPE_PIERCING;
 				}
-				else if (cb.Equals(di_Slashing))
+				else if (cb == di_Slashing)
 				{
 					bit = DAMAGE_TYPE_SLASHING;
 				}
-				else if (cb.Equals(di_Magical))
+				else if (cb == di_Magical)
 				{
 					bit = DAMAGE_TYPE_MAGICAL;
 				}
-				else if (cb.Equals(di_Acid))
+				else if (cb == di_Acid)
 				{
 					bit = DAMAGE_TYPE_ACID;
 				}
-				else if (cb.Equals(di_Cold))
+				else if (cb == di_Cold)
 				{
 					bit = DAMAGE_TYPE_COLD;
 				}
-				else if (cb.Equals(di_Divine))
+				else if (cb == di_Divine)
 				{
 					bit = DAMAGE_TYPE_DIVINE;
 				}
-				else if (cb.Equals(di_Electrical))
+				else if (cb == di_Electrical)
 				{
 					bit = DAMAGE_TYPE_ELECTRICAL;
 				}
-				else if (cb.Equals(di_Fire))
+				else if (cb == di_Fire)
 				{
 					bit = DAMAGE_TYPE_FIRE;
 				}
-				else if (cb.Equals(di_Negative))
+				else if (cb == di_Negative)
 				{
 					bit = DAMAGE_TYPE_NEGATIVE;
 				}
-				else if (cb.Equals(di_Positive))
+				else if (cb == di_Positive)
 				{
 					bit = DAMAGE_TYPE_POSITIVE;
 				}
-				else //if (cb.Equals(di_Sonic))
+				else //if (cb == di_Sonic)
 				{
 					bit = DAMAGE_TYPE_SONIC;
 				}

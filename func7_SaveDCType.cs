@@ -229,11 +229,11 @@ namespace nwn2_ai_2da_editor
 			if (Int32.TryParse(SaveDCType_text.Text, out savedctype))
 			{
 				var btn = sender as Button;
-				if (btn.Equals(savedc_up))
+				if (btn == savedc_up)
 				{
 					++savedctype;
 				}
-				else //if (rb.Equals(savedc_dn))
+				else //if (rb == savedc_dn)
 				{
 					--savedctype;
 				}
@@ -293,15 +293,15 @@ namespace nwn2_ai_2da_editor
 				int bit;
 
 				var cb = sender as CheckBox;
-				if (cb.Equals(savedc_ac1))
+				if (cb == savedc_ac1)
 				{
 					bit = HENCH_AC_CHECK_ARMOR; // 0x00000001
 				}
-				else if (cb.Equals(savedc_ac2))
+				else if (cb == savedc_ac2)
 				{
 					bit = HENCH_AC_CHECK_SHIELD; // 0x00000002
 				}
-				else //if (cb.Equals(savedc_ac3))
+				else //if (cb == savedc_ac3)
 				{
 					bit = HENCH_AC_CHECK_MOVEMENT_SPEED_DECREASE; // 0x10000000
 				}

@@ -149,103 +149,103 @@ namespace nwn2_ai_2da_editor
 				int bit;
 
 				var cb = sender as CheckBox;
-				if (cb.Equals(et_AcIncrease))
+				if (cb == et_AcIncrease)
 				{
 					bit = HENCH_EFFECT_TYPE_AC_INCREASE;
 				}
-				else if (cb.Equals(et_Regenerate))
+				else if (cb == et_Regenerate)
 				{
 					bit = HENCH_EFFECT_TYPE_REGENERATE;
 				}
-				else if (cb.Equals(et_AttackIncrease))
+				else if (cb == et_AttackIncrease)
 				{
 					bit = HENCH_EFFECT_TYPE_ATTACK_INCREASE;
 				}
-				else if (cb.Equals(et_DamageReduction))
+				else if (cb == et_DamageReduction)
 				{
 					bit = HENCH_EFFECT_TYPE_DAMAGE_REDUCTION;
 				}
-				else if (cb.Equals(et_Haste))
+				else if (cb == et_Haste)
 				{
 					bit = HENCH_EFFECT_TYPE_HASTE;
 				}
-				else if (cb.Equals(et_TempHitpoints))
+				else if (cb == et_TempHitpoints)
 				{
 					bit = HENCH_EFFECT_TYPE_TEMPORARY_HITPOINTS;
 				}
-				else if (cb.Equals(et_Sanctuary))
+				else if (cb == et_Sanctuary)
 				{
 					bit = HENCH_EFFECT_TYPE_SANCTUARY;
 				}
-				else if (cb.Equals(et_Timestop))
+				else if (cb == et_Timestop)
 				{
 					bit = HENCH_EFFECT_TYPE_TIMESTOP;
 				}
-				else if (cb.Equals(et_SpellAbsorption))
+				else if (cb == et_SpellAbsorption)
 				{
 					bit = HENCH_EFFECT_TYPE_SPELLLEVELABSORPTION;
 				}
-				else if (cb.Equals(et_SavingThrowIncrease))
+				else if (cb == et_SavingThrowIncrease)
 				{
 					bit = HENCH_EFFECT_TYPE_SAVING_THROW_INCREASE;
 				}
-				else if (cb.Equals(et_Concealment))
+				else if (cb == et_Concealment)
 				{
 					bit = HENCH_EFFECT_TYPE_CONCEALMENT;
 				}
-				else if (cb.Equals(et_DamageIncrease))
+				else if (cb == et_DamageIncrease)
 				{
 					bit = HENCH_EFFECT_TYPE_DAMAGE_INCREASE;
 				}
-				else if (cb.Equals(et_AbsorbDamage))
+				else if (cb == et_AbsorbDamage)
 				{
 					bit = HENCH_EFFECT_TYPE_ABSORBDAMAGE;
 				}
-				else if (cb.Equals(et_Ethereal))
+				else if (cb == et_Ethereal)
 				{
 					bit = HENCH_EFFECT_TYPE_ETHEREAL;
 				}
-				else if (cb.Equals(et_Invisibility))
+				else if (cb == et_Invisibility)
 				{
 					bit = HENCH_EFFECT_TYPE_INVISIBILITY;
 				}
-				else if (cb.Equals(et_Polymorph))
+				else if (cb == et_Polymorph)
 				{
 					bit = HENCH_EFFECT_TYPE_POLYMORPH;
 				}
-				else if (cb.Equals(et_Ultravision))
+				else if (cb == et_Ultravision)
 				{
 					bit = HENCH_EFFECT_TYPE_ULTRAVISION;
 				}
-				else if (cb.Equals(et_TrueSeeing))
+				else if (cb == et_TrueSeeing)
 				{
 					bit = HENCH_EFFECT_TYPE_TRUESEEING;
 				}
-				else if (cb.Equals(et_Wildshape))
+				else if (cb == et_Wildshape)
 				{
 					bit = HENCH_EFFECT_TYPE_WILDSHAPE;
 				}
-				else if (cb.Equals(et_GreaterInvisibility))
+				else if (cb == et_GreaterInvisibility)
 				{
 					bit = HENCH_EFFECT_TYPE_GREATER_INVIS;
 				}
-				else if (cb.Equals(et_ElementalShield))
+				else if (cb == et_ElementalShield)
 				{
 					bit = HENCH_EFFECT_TYPE_ELEMENTALSHIELD;
 				}
-				else if (cb.Equals(et_AbilityIncrease))
+				else if (cb == et_AbilityIncrease)
 				{
 					bit = HENCH_EFFECT_TYPE_ABILITY_INCREASE;
 				}
-				else if (cb.Equals(et_SeeInvisible))
+				else if (cb == et_SeeInvisible)
 				{
 					bit = HENCH_EFFECT_TYPE_SEEINVISIBLE;
 				}
-				else if (cb.Equals(et_SpellShield))
+				else if (cb == et_SpellShield)
 				{
 					bit = HENCH_EFFECT_TYPE_SPELL_SHIELD;
 				}
-				else //if (cb.Equals(et_ImmunityNecromancy))
+				else //if (cb == et_ImmunityNecromancy)
 				{
 					bit = HENCH_EFFECT_TYPE_IMMUNE_NECROMANCY;
 				}
@@ -280,123 +280,123 @@ namespace nwn2_ai_2da_editor
 				int bit;
 
 				var cb = sender as CheckBox;
-				if (cb.Equals(et_Entangle))
+				if (cb == et_Entangle)
 				{
 					bit = HENCH_EFFECT_TYPE_ENTANGLE;
 				}
-				else if (cb.Equals(et_Paralyze))
+				else if (cb == et_Paralyze)
 				{
 					bit = HENCH_EFFECT_TYPE_PARALYZE;
 				}
-				else if (cb.Equals(et_Deafness))
+				else if (cb == et_Deafness)
 				{
 					bit = HENCH_EFFECT_TYPE_DEAF;
 				}
-				else if (cb.Equals(et_Blindness))
+				else if (cb == et_Blindness)
 				{
 					bit = HENCH_EFFECT_TYPE_BLINDNESS;
 				}
-				else if (cb.Equals(et_Curse))
+				else if (cb == et_Curse)
 				{
 					bit = HENCH_EFFECT_TYPE_CURSE;
 				}
-				else if (cb.Equals(et_Sleep))
+				else if (cb == et_Sleep)
 				{
 					bit = HENCH_EFFECT_TYPE_SLEEP;
 				}
-				else if (cb.Equals(et_Charm))
+				else if (cb == et_Charm)
 				{
 					bit = HENCH_EFFECT_TYPE_CHARMED;
 				}
-				else if (cb.Equals(et_Confuse))
+				else if (cb == et_Confuse)
 				{
 					bit = HENCH_EFFECT_TYPE_CONFUSED;
 				}
-				else if (cb.Equals(et_Frighten))
+				else if (cb == et_Frighten)
 				{
 					bit = HENCH_EFFECT_TYPE_FRIGHTENED;
 				}
-				else if (cb.Equals(et_Dominate))
+				else if (cb == et_Dominate)
 				{
 					bit = HENCH_EFFECT_TYPE_DOMINATED;
 				}
-				else if (cb.Equals(et_Daze))
+				else if (cb == et_Daze)
 				{
 					bit = HENCH_EFFECT_TYPE_DAZED;
 				}
-				else if (cb.Equals(et_Poison))
+				else if (cb == et_Poison)
 				{
 					bit = HENCH_EFFECT_TYPE_POISON;
 				}
-				else if (cb.Equals(et_Disease))
+				else if (cb == et_Disease)
 				{
 					bit = HENCH_EFFECT_TYPE_DISEASE;
 				}
-				else if (cb.Equals(et_Silence))
+				else if (cb == et_Silence)
 				{
 					bit = HENCH_EFFECT_TYPE_SILENCE;
 				}
-				else if (cb.Equals(et_Slow))
+				else if (cb == et_Slow)
 				{
 					bit = HENCH_EFFECT_TYPE_SLOW;
 				}
-				else if (cb.Equals(et_AbilityDecrease))
+				else if (cb == et_AbilityDecrease)
 				{
 					bit = HENCH_EFFECT_TYPE_ABILITY_DECREASE;
 				}
-				else if (cb.Equals(et_DamageDecrease))
+				else if (cb == et_DamageDecrease)
 				{
 					bit = HENCH_EFFECT_TYPE_DAMAGE_DECREASE;
 				}
-				else if (cb.Equals(et_AttackDecrease))
+				else if (cb == et_AttackDecrease)
 				{
 					bit = HENCH_EFFECT_TYPE_ATTACK_DECREASE;
 				}
-				else if (cb.Equals(et_SkillDecrease))
+				else if (cb == et_SkillDecrease)
 				{
 					bit = HENCH_EFFECT_TYPE_SKILL_DECREASE;
 				}
-				else if (cb.Equals(et_Stun))
+				else if (cb == et_Stun)
 				{
 					bit = HENCH_EFFECT_TYPE_STUNNED;
 				}
-				else if (cb.Equals(et_Petrify))
+				else if (cb == et_Petrify)
 				{
 					bit = HENCH_EFFECT_TYPE_PETRIFY;
 				}
-				else if (cb.Equals(et_SpeedDecrease))
+				else if (cb == et_SpeedDecrease)
 				{
 					bit = HENCH_EFFECT_TYPE_MOVEMENT_SPEED_DECREASE;
 				}
-				else if (cb.Equals(et_Death))
+				else if (cb == et_Death)
 				{
 					bit = HENCH_EFFECT_TYPE_DEATH;
 				}
-				else if (cb.Equals(et_NegativeLevel))
+				else if (cb == et_NegativeLevel)
 				{
 					bit = HENCH_EFFECT_TYPE_NEGATIVELEVEL;
 				}
-				else if (cb.Equals(et_AcDecrease))
+				else if (cb == et_AcDecrease)
 				{
 					bit = HENCH_EFFECT_TYPE_AC_DECREASE;
 				}
-				else if (cb.Equals(et_SavingThrowDecrease))
+				else if (cb == et_SavingThrowDecrease)
 				{
 					bit = HENCH_EFFECT_TYPE_SAVING_THROW_DECREASE;
 				}
-				else if (cb.Equals(et_Knockdown))
+				else if (cb == et_Knockdown)
 				{
 					bit = HENCH_EFFECT_TYPE_KNOCKDOWN;
 				}
-				else if (cb.Equals(et_Dying))
+				else if (cb == et_Dying)
 				{
 					bit = HENCH_EFFECT_TYPE_DYING;
 				}
-				else if (cb.Equals(et_Mesmerize))
+				else if (cb == et_Mesmerize)
 				{
 					bit = HENCH_EFFECT_TYPE_MESMERIZE;
 				}
-				else //if (cb.Equals(et_CutsceneParalyze))
+				else //if (cb == et_CutsceneParalyze)
 				{
 					bit = HENCH_EFFECT_TYPE_CUTSCENE_PARALYZE;
 				}

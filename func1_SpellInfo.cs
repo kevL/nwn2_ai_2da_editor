@@ -275,39 +275,39 @@ namespace nwn2_ai_2da_editor
 				int bit;
 
 				var cb = sender as CheckBox;
-				if (cb.Equals(si_IsMaster))
+				if (cb == si_IsMaster)
 				{
 					bit = HENCH_SPELL_INFO_MASTER_FLAG;			// 0x00000100
 				}
-				else if (cb.Equals(si_Ignore))
+				else if (cb == si_Ignore)
 				{
 					bit = HENCH_SPELL_INFO_IGNORE_FLAG;			// 0x00000200
 				}
-				else if (cb.Equals(si_Concentration))
+				else if (cb == si_Concentration)
 				{
 					bit = HENCH_SPELL_INFO_CONCENTRATION_FLAG;	// 0x00000400
 				}
-				else if (cb.Equals(si_Unlimited))
+				else if (cb == si_Unlimited)
 				{
 					bit = HENCH_SPELL_INFO_UNLIMITED_FLAG;		// 0x00000800
 				}
-				else if (cb.Equals(si_HealOrCure))
+				else if (cb == si_HealOrCure)
 				{
 					bit = HENCH_SPELL_INFO_HEAL_OR_CURE;		// 0x00020000
 				}
-				else if (cb.Equals(si_ShortDurBuff))
+				else if (cb == si_ShortDurBuff)
 				{
 					bit = HENCH_SPELL_INFO_SHORT_DUR_BUFF;		// 0x00040000
 				}
-				else if (cb.Equals(si_MediumDurBuff))
+				else if (cb == si_MediumDurBuff)
 				{
 					bit = HENCH_SPELL_INFO_MEDIUM_DUR_BUFF;		// 0x00080000
 				}
-				else if (cb.Equals(si_LongDurBuff))
+				else if (cb == si_LongDurBuff)
 				{
 					bit = HENCH_SPELL_INFO_LONG_DUR_BUFF;		// 0x00100000
 				}
-				else //if (cb.Equals(si_ItemCast))
+				else //if (cb == si_ItemCast)
 				{
 					bit = HENCH_SPELL_INFO_ITEM_FLAG;			// 0x00800000
 				}
@@ -353,27 +353,27 @@ namespace nwn2_ai_2da_editor
 					Label lbl_child;
 
 					// NOTE: this doesn't result in an infinite loop.
-					if (tb.Equals(si_Child1))
+					if (tb == si_Child1)
 					{
 						TargetInfo_text.Text = tb.Text;
 						lbl_child = si_ChildLabel1;
 					}
-					else if (tb.Equals(si_Child2))
+					else if (tb == si_Child2)
 					{
 						EffectTypes_text.Text = tb.Text;
 						lbl_child = si_ChildLabel2;
 					}
-					else if (tb.Equals(si_Child3))
+					else if (tb == si_Child3)
 					{
 						DamageInfo_text.Text = tb.Text;
 						lbl_child = si_ChildLabel3;
 					}
-					else if (tb.Equals(si_Child4))
+					else if (tb == si_Child4)
 					{
 						SaveType_text.Text = tb.Text;
 						lbl_child = si_ChildLabel4;
 					}
-					else //if (tb.Equals(si_Child5))
+					else //if (tb == si_Child5)
 					{
 						SaveDCType_text.Text = tb.Text;
 						lbl_child = si_ChildLabel5;

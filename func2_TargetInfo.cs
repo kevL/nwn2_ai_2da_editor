@@ -248,47 +248,47 @@ namespace nwn2_ai_2da_editor
 				int bit;
 
 				var cb = sender as CheckBox;
-				if (cb.Equals(ti_ShapeLoop))
+				if (cb == ti_ShapeLoop)
 				{
 					bit = HENCH_SPELL_TARGET_SHAPE_LOOP;
 				}
-				else if (cb.Equals(ti_CheckCount))
+				else if (cb == ti_CheckCount)
 				{
 					bit = HENCH_SPELL_TARGET_CHECK_COUNT;
 				}
-				else if (cb.Equals(ti_MissileTargets))
+				else if (cb == ti_MissileTargets)
 				{
 					bit = HENCH_SPELL_TARGET_MISSILE_TARGETS;
 				}
-				else if (cb.Equals(ti_SecondaryTargets))
+				else if (cb == ti_SecondaryTargets)
 				{
 					bit = HENCH_SPELL_TARGET_SECONDARY_TARGETS;
 				}
-				else if (cb.Equals(ti_SecondaryHalfDamage))
+				else if (cb == ti_SecondaryHalfDamage)
 				{
 					bit = HENCH_SPELL_TARGET_SECONDARY_HALF_DAM;
 				}
-				else if (cb.Equals(ti_SeenRequired))
+				else if (cb == ti_SeenRequired)
 				{
 					bit = HENCH_SPELL_TARGET_VIS_REQUIRED_FLAG;
 				}
-				else if (cb.Equals(ti_RangedSelectedArea))
+				else if (cb == ti_RangedSelectedArea)
 				{
 					bit = HENCH_SPELL_TARGET_RANGED_SEL_AREA_FLAG;
 				}
-				else if (cb.Equals(ti_PersistentAoe))
+				else if (cb == ti_PersistentAoe)
 				{
 					bit = HENCH_SPELL_TARGET_PERSISTENT_SPELL;
 				}
-				else if (cb.Equals(ti_ScaledEffect))
+				else if (cb == ti_ScaledEffect)
 				{
 					bit = HENCH_SPELL_TARGET_SCALE_EFFECT;
 				}
-				else if (cb.Equals(ti_Necromancy))
+				else if (cb == ti_Necromancy)
 				{
 					bit = HENCH_SPELL_TARGET_NECROMANCY_SPELL;
 				}
-				else //if (cb.Equals(ti_Regular))
+				else //if (cb == ti_Regular)
 				{
 					bit = HENCH_SPELL_TARGET_REGULAR_SPELL;
 				}
