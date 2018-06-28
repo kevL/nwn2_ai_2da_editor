@@ -355,8 +355,6 @@ namespace nwn2_ai_2da_editor
 			SaveType_reset    .ForeColor = DefaultForeColor;
 			SaveDCType_reset  .ForeColor = DefaultForeColor;
 
-			apply.Enabled = true;
-
 
 			string[] cols;
 			string field;
@@ -475,8 +473,6 @@ namespace nwn2_ai_2da_editor
 			RacialFeat4_reset.ForeColor = DefaultForeColor;
 			RacialFeat5_reset.ForeColor = DefaultForeColor;
 
-			apply.Enabled = true;
-
 
 			string[] cols;
 			string field;
@@ -576,8 +572,6 @@ namespace nwn2_ai_2da_editor
 			ClassFeat9_reset .ForeColor = DefaultForeColor;
 			ClassFeat10_reset.ForeColor = DefaultForeColor;
 			ClassFeat11_reset.ForeColor = DefaultForeColor;
-
-			apply.Enabled = true;
 
 
 			string[] cols;

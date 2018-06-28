@@ -226,11 +226,13 @@ namespace nwn2_ai_2da_editor
 
 					if (differ != bit_clear)
 					{
+						apply.Enabled = true;
 						ClassesChanged[Id] = claschanged;
 						Tree.SelectedNode.ForeColor = Color.Crimson;
 					}
 					else
 					{
+						apply.Enabled = false;
 						ClassesChanged.Remove(Id);
 
 						if (!clas.isChanged) // this is set by the Apply btn only.

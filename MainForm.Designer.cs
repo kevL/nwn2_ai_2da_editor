@@ -614,6 +614,11 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.cols_HenchSpells = new System.Windows.Forms.TabControl();
 			this.page_SpellInfo = new System.Windows.Forms.TabPage();
+			this.si_ChildLabel5 = new System.Windows.Forms.Label();
+			this.si_ChildLabel4 = new System.Windows.Forms.Label();
+			this.si_ChildLabel3 = new System.Windows.Forms.Label();
+			this.si_ChildLabel2 = new System.Windows.Forms.Label();
+			this.si_ChildLabel1 = new System.Windows.Forms.Label();
 			this.si_ChildIDGrp = new System.Windows.Forms.GroupBox();
 			this.si_Child5 = new System.Windows.Forms.TextBox();
 			this.si_Child4 = new System.Windows.Forms.TextBox();
@@ -1189,11 +1194,6 @@
 			this.RacialFeat5_reset = new System.Windows.Forms.Button();
 			this.apply = new System.Windows.Forms.Button();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-			this.si_ChildLabel1 = new System.Windows.Forms.Label();
-			this.si_ChildLabel2 = new System.Windows.Forms.Label();
-			this.si_ChildLabel3 = new System.Windows.Forms.Label();
-			this.si_ChildLabel4 = new System.Windows.Forms.Label();
-			this.si_ChildLabel5 = new System.Windows.Forms.Label();
 			this.cols_HenchSpells.SuspendLayout();
 			this.page_SpellInfo.SuspendLayout();
 			this.si_ChildIDGrp.SuspendLayout();
@@ -1317,6 +1317,51 @@
 			this.page_SpellInfo.TabIndex = 0;
 			this.page_SpellInfo.Text = "SpellInfo";
 			this.page_SpellInfo.UseVisualStyleBackColor = true;
+			// 
+			// si_ChildLabel5
+			// 
+			this.si_ChildLabel5.Location = new System.Drawing.Point(415, 275);
+			this.si_ChildLabel5.Margin = new System.Windows.Forms.Padding(0);
+			this.si_ChildLabel5.Name = "si_ChildLabel5";
+			this.si_ChildLabel5.Size = new System.Drawing.Size(250, 15);
+			this.si_ChildLabel5.TabIndex = 83;
+			this.si_ChildLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// si_ChildLabel4
+			// 
+			this.si_ChildLabel4.Location = new System.Drawing.Point(415, 250);
+			this.si_ChildLabel4.Margin = new System.Windows.Forms.Padding(0);
+			this.si_ChildLabel4.Name = "si_ChildLabel4";
+			this.si_ChildLabel4.Size = new System.Drawing.Size(250, 15);
+			this.si_ChildLabel4.TabIndex = 82;
+			this.si_ChildLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// si_ChildLabel3
+			// 
+			this.si_ChildLabel3.Location = new System.Drawing.Point(415, 225);
+			this.si_ChildLabel3.Margin = new System.Windows.Forms.Padding(0);
+			this.si_ChildLabel3.Name = "si_ChildLabel3";
+			this.si_ChildLabel3.Size = new System.Drawing.Size(250, 15);
+			this.si_ChildLabel3.TabIndex = 81;
+			this.si_ChildLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// si_ChildLabel2
+			// 
+			this.si_ChildLabel2.Location = new System.Drawing.Point(415, 200);
+			this.si_ChildLabel2.Margin = new System.Windows.Forms.Padding(0);
+			this.si_ChildLabel2.Name = "si_ChildLabel2";
+			this.si_ChildLabel2.Size = new System.Drawing.Size(250, 15);
+			this.si_ChildLabel2.TabIndex = 80;
+			this.si_ChildLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			// 
+			// si_ChildLabel1
+			// 
+			this.si_ChildLabel1.Location = new System.Drawing.Point(415, 175);
+			this.si_ChildLabel1.Margin = new System.Windows.Forms.Padding(0);
+			this.si_ChildLabel1.Name = "si_ChildLabel1";
+			this.si_ChildLabel1.Size = new System.Drawing.Size(250, 15);
+			this.si_ChildLabel1.TabIndex = 79;
+			this.si_ChildLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// si_ChildIDGrp
 			// 
@@ -7662,11 +7707,11 @@
 			this.page_RacialFeat5.Controls.Add(this.RacialFeat5_hex);
 			this.page_RacialFeat5.Controls.Add(this.RacialFeat5_text);
 			this.page_RacialFeat5.Controls.Add(this.RacialFeat5_reset);
-			this.page_RacialFeat5.Location = new System.Drawing.Point(4, 24);
+			this.page_RacialFeat5.Location = new System.Drawing.Point(4, 23);
 			this.page_RacialFeat5.Margin = new System.Windows.Forms.Padding(2);
 			this.page_RacialFeat5.Name = "page_RacialFeat5";
 			this.page_RacialFeat5.Padding = new System.Windows.Forms.Padding(2);
-			this.page_RacialFeat5.Size = new System.Drawing.Size(812, 237);
+			this.page_RacialFeat5.Size = new System.Drawing.Size(812, 238);
 			this.page_RacialFeat5.TabIndex = 5;
 			this.page_RacialFeat5.Text = "FeatSpell5";
 			this.page_RacialFeat5.UseVisualStyleBackColor = true;
@@ -7816,10 +7861,10 @@
 			this.apply.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
 			| System.Windows.Forms.AnchorStyles.Right)));
 			this.apply.Enabled = false;
-			this.apply.Location = new System.Drawing.Point(0, 940);
+			this.apply.Location = new System.Drawing.Point(20, 940);
 			this.apply.Margin = new System.Windows.Forms.Padding(0);
 			this.apply.Name = "apply";
-			this.apply.Size = new System.Drawing.Size(1050, 25);
+			this.apply.Size = new System.Drawing.Size(1030, 25);
 			this.apply.TabIndex = 1;
 			this.apply.Text = "apply this tree-node\'s data";
 			this.apply.UseVisualStyleBackColor = true;
@@ -7830,51 +7875,6 @@
 			this.toolTip1.AutoPopDelay = 10000;
 			this.toolTip1.InitialDelay = 500;
 			this.toolTip1.ReshowDelay = 100;
-			// 
-			// si_ChildLabel1
-			// 
-			this.si_ChildLabel1.Location = new System.Drawing.Point(415, 175);
-			this.si_ChildLabel1.Margin = new System.Windows.Forms.Padding(0);
-			this.si_ChildLabel1.Name = "si_ChildLabel1";
-			this.si_ChildLabel1.Size = new System.Drawing.Size(250, 15);
-			this.si_ChildLabel1.TabIndex = 79;
-			this.si_ChildLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
-			// si_ChildLabel2
-			// 
-			this.si_ChildLabel2.Location = new System.Drawing.Point(415, 200);
-			this.si_ChildLabel2.Margin = new System.Windows.Forms.Padding(0);
-			this.si_ChildLabel2.Name = "si_ChildLabel2";
-			this.si_ChildLabel2.Size = new System.Drawing.Size(250, 15);
-			this.si_ChildLabel2.TabIndex = 80;
-			this.si_ChildLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
-			// si_ChildLabel3
-			// 
-			this.si_ChildLabel3.Location = new System.Drawing.Point(415, 225);
-			this.si_ChildLabel3.Margin = new System.Windows.Forms.Padding(0);
-			this.si_ChildLabel3.Name = "si_ChildLabel3";
-			this.si_ChildLabel3.Size = new System.Drawing.Size(250, 15);
-			this.si_ChildLabel3.TabIndex = 81;
-			this.si_ChildLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
-			// si_ChildLabel4
-			// 
-			this.si_ChildLabel4.Location = new System.Drawing.Point(415, 250);
-			this.si_ChildLabel4.Margin = new System.Windows.Forms.Padding(0);
-			this.si_ChildLabel4.Name = "si_ChildLabel4";
-			this.si_ChildLabel4.Size = new System.Drawing.Size(250, 15);
-			this.si_ChildLabel4.TabIndex = 82;
-			this.si_ChildLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-			// 
-			// si_ChildLabel5
-			// 
-			this.si_ChildLabel5.Location = new System.Drawing.Point(415, 275);
-			this.si_ChildLabel5.Margin = new System.Windows.Forms.Padding(0);
-			this.si_ChildLabel5.Name = "si_ChildLabel5";
-			this.si_ChildLabel5.Size = new System.Drawing.Size(250, 15);
-			this.si_ChildLabel5.TabIndex = 83;
-			this.si_ChildLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// MainForm
 			// 

@@ -636,8 +636,8 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Invokes and handles the SetCoreAiVersion inputbox via the Options.
 		/// NOTE: The version is not really the version of the CoreAI. It's the
-		/// version of the data of each spell. Apparently it can be updated IG
-		/// (after spell-data has already been cached to the module-object) such
+		/// version of the data of each entry. Apparently it can be updated IG
+		/// (after info-data has already been cached to the module-object) such
 		/// that that stale data will be bypassed in favor of the new data. But
 		/// I haven't looked into it thoroughly.
 		/// </summary>
