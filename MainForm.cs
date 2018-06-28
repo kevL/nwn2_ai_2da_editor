@@ -447,7 +447,7 @@ namespace nwn2_ai_2da_editor
 			GroupColor(ti_RangeGrp,  Color.LimeGreen);
 			GroupColor(ti_RadiusGrp, Color.LimeGreen);
 
-			Size = new Size(1105, 525);
+			Size = new Size(1105, 530);
 		}
 
 		/// <summary>

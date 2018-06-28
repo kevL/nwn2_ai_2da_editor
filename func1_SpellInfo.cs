@@ -114,7 +114,12 @@ namespace nwn2_ai_2da_editor
 				SetDetrimentalBeneficial();
 				SetGroupColors();
 
-				si_ChildIDGrp.Visible = si_IsMaster.Checked;
+				si_ChildIDGrp .Visible =
+				si_ChildLabel1.Visible =
+				si_ChildLabel2.Visible =
+				si_ChildLabel3.Visible =
+				si_ChildLabel4.Visible =
+				si_ChildLabel5.Visible = si_IsMaster.Checked;
 			}
 			// else TODO: error dialog here.
 		}
@@ -326,29 +331,58 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void TextChanged_si_ChildFields(object sender, EventArgs e)
 		{
-			// TODO: test that a valid integer > -1 is input
-
-			// NOTE: this doesn't result in an infinite loop.
 			var tb = sender as TextBox;
-			if (tb.Equals(si_Child1))
+
+			int childId;
+			if (Int32.TryParse(tb.Text, out childId))
 			{
-				TargetInfo_text.Text = tb.Text;
-			}
-			else if (tb.Equals(si_Child2))
-			{
-				EffectTypes_text.Text = tb.Text;
-			}
-			else if (tb.Equals(si_Child3))
-			{
-				DamageInfo_text.Text = tb.Text;
-			}
-			else if (tb.Equals(si_Child4))
-			{
-				SaveType_text.Text = tb.Text;
-			}
-			else //if (tb.Equals(si_Child5))
-			{
-				SaveDCType_text.Text = tb.Text;
+				if (childId < 0)
+				{
+					childId = 0;
+					tb.Text = childId.ToString(); // re-trigger this funct.
+				}
+//				else if (childId > 16383) // 14 bits
+//				{
+//					childId = 16383;
+//					tb.Text = childId.ToString(); // re-trigger this funct.
+//				}
+				else
+				{
+					Label lbl_child;
+
+					// NOTE: this doesn't result in an infinite loop.
+					if (tb.Equals(si_Child1))
+					{
+						TargetInfo_text.Text = tb.Text;
+						lbl_child = si_ChildLabel1;
+					}
+					else if (tb.Equals(si_Child2))
+					{
+						EffectTypes_text.Text = tb.Text;
+						lbl_child = si_ChildLabel2;
+					}
+					else if (tb.Equals(si_Child3))
+					{
+						DamageInfo_text.Text = tb.Text;
+						lbl_child = si_ChildLabel3;
+					}
+					else if (tb.Equals(si_Child4))
+					{
+						SaveType_text.Text = tb.Text;
+						lbl_child = si_ChildLabel4;
+					}
+					else //if (tb.Equals(si_Child5))
+					{
+						SaveDCType_text.Text = tb.Text;
+						lbl_child = si_ChildLabel5;
+					}
+
+					if (spellLabels.Count != 0
+						&& childId < spellLabels.Count)
+					{
+						lbl_child.Text = spellLabels[childId];
+					}
+				}
 			}
 		}
 
