@@ -121,7 +121,7 @@ namespace nwn2_ai_2da_editor
 				si_ChildLabel4.Visible =
 				si_ChildLabel5.Visible = si_IsMaster.Checked;
 
-				PrintInfoVersion_spell();
+				PrintInfoVersion_spell(spellinfo);
 			}
 			// else TODO: error dialog here.
 		}
@@ -391,21 +391,14 @@ namespace nwn2_ai_2da_editor
 
 		/// <summary>
 		/// Prints the info-version of the currently selected spell ID.
+		/// <param name="spellinfo"></param>
 		/// </summary>
-		void PrintInfoVersion_spell()
+		void PrintInfoVersion_spell(int spellinfo)
 		{
-			int ver;
-			if (SpellsChanged.ContainsKey(Id))
-			{
-				ver = SpellsChanged[Id].spellinfo;
-			}
-			else
-				ver = Spells[Id].spellinfo;
+			spellinfo &= HENCH_SPELL_INFO_VERSION_MASK;
+			spellinfo >>= HENCH_SPELL_INFO_VERSION_SHIFT;
 
-			ver &= HENCH_SPELL_INFO_VERSION_MASK;
-			ver >>= HENCH_SPELL_INFO_VERSION_SHIFT;
-
-			si_infoversion.Text = ver.ToString();
+			si_infoversion.Text = spellinfo.ToString();
 		}
 
 

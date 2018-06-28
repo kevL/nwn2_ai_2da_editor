@@ -33,45 +33,45 @@ namespace nwn2_ai_2da_editor
 
 				if (tb == RacialFlags_text)
 				{
-					btn = RacialFlags_reset;
+					btn    = RacialFlags_reset;
 					tb_hex = RacialFlags_hex;
 					tb_bin = RacialFlags_bin;
-					bit = bit_flags;
+					bit    = bit_flags;
 				}
 				else if (tb == RacialFeat1_text)
 				{
-					btn = RacialFeat1_reset;
+					btn    = RacialFeat1_reset;
 					tb_hex = RacialFeat1_hex;
 					tb_bin = RacialFeat1_bin;
-					bit = bit_feat1;
+					bit    = bit_feat1;
 				}
 				else if (tb == RacialFeat2_text)
 				{
-					btn = RacialFeat2_reset;
+					btn    = RacialFeat2_reset;
 					tb_hex = RacialFeat2_hex;
 					tb_bin = RacialFeat2_bin;
-					bit = bit_feat2;
+					bit    = bit_feat2;
 				}
 				else if (tb == RacialFeat3_text)
 				{
-					btn = RacialFeat3_reset;
+					btn    = RacialFeat3_reset;
 					tb_hex = RacialFeat3_hex;
 					tb_bin = RacialFeat3_bin;
-					bit = bit_feat3;
+					bit    = bit_feat3;
 				}
 				else if (tb == RacialFeat4_text)
 				{
-					btn = RacialFeat4_reset;
+					btn    = RacialFeat4_reset;
 					tb_hex = RacialFeat4_hex;
 					tb_bin = RacialFeat4_bin;
-					bit = bit_feat4;
+					bit    = bit_feat4;
 				}
 				else //if (tb == RacialFeat5_text)
 				{
-					btn = RacialFeat5_reset;
+					btn    = RacialFeat5_reset;
 					tb_hex = RacialFeat5_hex;
 					tb_bin = RacialFeat5_bin;
-					bit = bit_feat5;
+					bit    = bit_feat5;
 				}
 
 				if (!bypassTextChanged)
@@ -181,7 +181,7 @@ namespace nwn2_ai_2da_editor
 
 				if (tb == RacialFlags_text)
 				{
-					CheckRacialFlagsCheckers();
+					CheckRacialFlagsCheckers(val);
 				}
 				else
 					CheckRacialFeatsCheckers(tb);
@@ -189,7 +189,7 @@ namespace nwn2_ai_2da_editor
 //				bypassCheckedChecker = false; // TODO: This funct will fire multiple times OnLoad ...
 
 
-				PrintInfoVersion_race();
+				PrintInfoVersion_race(val);
 			}
 			// else TODO: error dialog here.
 		}
@@ -214,39 +214,39 @@ namespace nwn2_ai_2da_editor
 				var btn = sender as Button;
 				if (btn == RacialFlags_reset)
 				{
-					tb = RacialFlags_text;
+					tb   = RacialFlags_text;
 					info = race.flags;
-					bit = bit_flags;
+					bit  = bit_flags;
 				}
 				else if (btn == RacialFeat1_reset)
 				{
-					tb = RacialFeat1_text;
+					tb   = RacialFeat1_text;
 					info = race.feat1;
-					bit = bit_feat1;
+					bit  = bit_feat1;
 				}
 				else if (btn == RacialFeat2_reset)
 				{
-					tb = RacialFeat2_text;
+					tb   = RacialFeat2_text;
 					info = race.feat2;
-					bit = bit_feat2;
+					bit  = bit_feat2;
 				}
 				else if (btn == RacialFeat3_reset)
 				{
-					tb = RacialFeat3_text;
+					tb   = RacialFeat3_text;
 					info = race.feat3;
-					bit = bit_feat3;
+					bit  = bit_feat3;
 				}
 				else if (btn == RacialFeat4_reset)
 				{
-					tb = RacialFeat4_text;
+					tb   = RacialFeat4_text;
 					info = race.feat4;
-					bit = bit_feat4;
+					bit  = bit_feat4;
 				}
 				else //if (btn == RacialFeat5_reset)
 				{
-					tb = RacialFeat5_text;
+					tb   = RacialFeat5_text;
 					info = race.feat5;
-					bit = bit_feat5;
+					bit  = bit_feat5;
 				}
 
 				race.differ &= ~bit;
@@ -449,40 +449,26 @@ namespace nwn2_ai_2da_editor
 
 		/// <summary>
 		/// Prints the info-version of the currently selected race ID.
+		/// <param name="flags"></param>
 		/// </summary>
-		void PrintInfoVersion_race()
+		void PrintInfoVersion_race(int flags)
 		{
-			int ver;
-			if (RacesChanged.ContainsKey(Id))
-			{
-				ver = RacesChanged[Id].flags;
-			}
-			else
-				ver = Races[Id].flags;
+			flags &= HENCH_SPELL_INFO_VERSION_MASK;
+			flags >>= HENCH_SPELL_INFO_VERSION_SHIFT;
 
-			ver &= HENCH_SPELL_INFO_VERSION_MASK;
-			ver >>= HENCH_SPELL_INFO_VERSION_SHIFT;
-
-			rf_infoversion.Text = ver.ToString();
+			rf_infoversion.Text = flags.ToString();
 		}
 
 
 		/// <summary>
 		/// Sets the checkers on the RacialFlags page to reflect the current
 		/// flags value.
+		/// <param name="flags"></param>
 		/// </summary>
-		void CheckRacialFlagsCheckers()
+		void CheckRacialFlagsCheckers(int flags)
 		{
 //			if (!bypassCheckedChecker)
 			{
-				int flags;
-				if (RacesChanged.ContainsKey(Id))
-				{
-					flags = RacesChanged[Id].flags;
-				}
-				else
-					flags = Races[Id].flags;
-
 				rf_HasFeatSpells.Checked = (flags & HENCH_RACIAL_FEAT_SPELLS) != 0;
 			}
 //			else

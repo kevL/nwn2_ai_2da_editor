@@ -33,87 +33,87 @@ namespace nwn2_ai_2da_editor
 
 				if (tb == ClassFlags_text)
 				{
-					btn = ClassFlags_reset;
+					btn    = ClassFlags_reset;
 					tb_hex = ClassFlags_hex;
 					tb_bin = ClassFlags_bin;
-					bit = bit_flags;
+					bit    = bit_flags;
 				}
 				else if (tb == ClassFeat1_text)
 				{
-					btn = ClassFeat1_reset;
+					btn    = ClassFeat1_reset;
 					tb_hex = ClassFeat1_hex;
 					tb_bin = ClassFeat1_bin;
-					bit = bit_feat1;
+					bit    = bit_feat1;
 				}
 				else if (tb == ClassFeat2_text)
 				{
-					btn = ClassFeat2_reset;
+					btn    = ClassFeat2_reset;
 					tb_hex = ClassFeat2_hex;
 					tb_bin = ClassFeat2_bin;
-					bit = bit_feat2;
+					bit    = bit_feat2;
 				}
 				else if (tb == ClassFeat3_text)
 				{
-					btn = ClassFeat3_reset;
+					btn    = ClassFeat3_reset;
 					tb_hex = ClassFeat3_hex;
 					tb_bin = ClassFeat3_bin;
-					bit = bit_feat3;
+					bit    = bit_feat3;
 				}
 				else if (tb == ClassFeat4_text)
 				{
-					btn = ClassFeat4_reset;
+					btn    = ClassFeat4_reset;
 					tb_hex = ClassFeat4_hex;
 					tb_bin = ClassFeat4_bin;
-					bit = bit_feat4;
+					bit    = bit_feat4;
 				}
 				else if (tb == ClassFeat5_text)
 				{
-					btn = ClassFeat5_reset;
+					btn    = ClassFeat5_reset;
 					tb_hex = ClassFeat5_hex;
 					tb_bin = ClassFeat5_bin;
-					bit = bit_feat5;
+					bit    = bit_feat5;
 				}
 				else if (tb == ClassFeat6_text)
 				{
-					btn = ClassFeat6_reset;
+					btn    = ClassFeat6_reset;
 					tb_hex = ClassFeat6_hex;
 					tb_bin = ClassFeat6_bin;
-					bit = bit_feat6;
+					bit    = bit_feat6;
 				}
 				else if (tb == ClassFeat7_text)
 				{
-					btn = ClassFeat7_reset;
+					btn    = ClassFeat7_reset;
 					tb_hex = ClassFeat7_hex;
 					tb_bin = ClassFeat7_bin;
-					bit = bit_feat7;
+					bit    = bit_feat7;
 				}
 				else if (tb == ClassFeat8_text)
 				{
-					btn = ClassFeat8_reset;
+					btn    = ClassFeat8_reset;
 					tb_hex = ClassFeat8_hex;
 					tb_bin = ClassFeat8_bin;
-					bit = bit_feat8;
+					bit    = bit_feat8;
 				}
 				else if (tb == ClassFeat9_text)
 				{
-					btn = ClassFeat9_reset;
+					btn    = ClassFeat9_reset;
 					tb_hex = ClassFeat9_hex;
 					tb_bin = ClassFeat9_bin;
-					bit = bit_feat9;
+					bit    = bit_feat9;
 				}
 				else if (tb == ClassFeat10_text)
 				{
-					btn = ClassFeat10_reset;
+					btn    = ClassFeat10_reset;
 					tb_hex = ClassFeat10_hex;
 					tb_bin = ClassFeat10_bin;
-					bit = bit_feat10;
+					bit    = bit_feat10;
 				}
 				else //if (tb == ClassFeat11_text)
 				{
-					btn = ClassFeat11_reset;
+					btn    = ClassFeat11_reset;
 					tb_hex = ClassFeat11_hex;
 					tb_bin = ClassFeat11_bin;
-					bit = bit_feat11;
+					bit    = bit_feat11;
 				}
 
 				if (!bypassTextChanged)
@@ -261,7 +261,7 @@ namespace nwn2_ai_2da_editor
 //				bypassCheckedChecker = false; // TODO: This funct will fire multiple times OnLoad ...
 
 
-				PrintInfoVersion_class();
+				PrintInfoVersion_class(val);
 			}
 			// else TODO: error dialog here.
 		}
@@ -286,39 +286,75 @@ namespace nwn2_ai_2da_editor
 				var btn = sender as Button;
 				if (btn == ClassFlags_reset)
 				{
-					tb = ClassFlags_text;
+					tb   = ClassFlags_text;
 					info = clas.flags;
-					bit = bit_flags;
+					bit  = bit_flags;
 				}
 				else if (btn == ClassFeat1_reset)
 				{
-					tb = ClassFeat1_text;
+					tb   = ClassFeat1_text;
 					info = clas.feat1;
-					bit = bit_feat1;
+					bit  = bit_feat1;
 				}
 				else if (btn == ClassFeat2_reset)
 				{
-					tb = ClassFeat2_text;
+					tb   = ClassFeat2_text;
 					info = clas.feat2;
-					bit = bit_feat2;
+					bit  = bit_feat2;
 				}
 				else if (btn == ClassFeat3_reset)
 				{
-					tb = ClassFeat3_text;
+					tb   = ClassFeat3_text;
 					info = clas.feat3;
-					bit = bit_feat3;
+					bit  = bit_feat3;
 				}
 				else if (btn == ClassFeat4_reset)
 				{
-					tb = ClassFeat4_text;
+					tb   = ClassFeat4_text;
 					info = clas.feat4;
-					bit = bit_feat4;
+					bit  = bit_feat4;
 				}
-				else //if (btn == ClassFeat5_reset)
+				else if (btn == ClassFeat5_reset)
 				{
-					tb = ClassFeat5_text;
+					tb   = ClassFeat5_text;
 					info = clas.feat5;
-					bit = bit_feat5;
+					bit  = bit_feat5;
+				}
+				else if (btn == ClassFeat6_reset)
+				{
+					tb   = ClassFeat6_text;
+					info = clas.feat6;
+					bit  = bit_feat6;
+				}
+				else if (btn == ClassFeat7_reset)
+				{
+					tb   = ClassFeat7_text;
+					info = clas.feat7;
+					bit  = bit_feat7;
+				}
+				else if (btn == ClassFeat8_reset)
+				{
+					tb   = ClassFeat8_text;
+					info = clas.feat8;
+					bit  = bit_feat8;
+				}
+				else if (btn == ClassFeat9_reset)
+				{
+					tb   = ClassFeat9_text;
+					info = clas.feat9;
+					bit  = bit_feat9;
+				}
+				else if (btn == ClassFeat10_reset)
+				{
+					tb   = ClassFeat10_text;
+					info = clas.feat10;
+					bit  = bit_feat10;
+				}
+				else //if (btn == ClassFeat11_reset)
+				{
+					tb   = ClassFeat11_text;
+					info = clas.feat11;
+					bit  = bit_feat11;
 				}
 
 				clas.differ &= ~bit;
@@ -776,20 +812,13 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Prints the info-version of the currently selected class ID.
 		/// </summary>
-		void PrintInfoVersion_class()
+		/// <param name="flags"></param>
+		void PrintInfoVersion_class(int flags)
 		{
-			int ver;
-			if (ClassesChanged.ContainsKey(Id))
-			{
-				ver = ClassesChanged[Id].flags;
-			}
-			else
-				ver = Classes[Id].flags;
+			flags &= HENCH_SPELL_INFO_VERSION_MASK;
+			flags >>= HENCH_SPELL_INFO_VERSION_SHIFT;
 
-			ver &= HENCH_SPELL_INFO_VERSION_MASK;
-			ver >>= HENCH_SPELL_INFO_VERSION_SHIFT;
-
-			cf_infoversion.Text = ver.ToString();
+			cf_infoversion.Text = flags.ToString();
 		}
 
 
