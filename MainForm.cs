@@ -821,6 +821,16 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void SpellSelect()
 		{
+			// clear the info-fields to force TextChanged events
+			SpellInfo_text   .Clear();
+			TargetInfo_text  .Clear();
+			EffectWeight_text.Clear();
+			EffectTypes_text .Clear();
+			DamageInfo_text  .Clear();
+			SaveType_text    .Clear();
+			SaveDCType_text  .Clear();
+
+
 			Spell spell = Spells[Id];
 
 			bool dirty = SpellsChanged.ContainsKey(Id);
@@ -907,6 +917,15 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void RaceSelect()
 		{
+			// clear the info-fields to force TextChanged events
+			RacialFlags_text.Clear();
+			RacialFeat1_text.Clear();
+			RacialFeat2_text.Clear();
+			RacialFeat3_text.Clear();
+			RacialFeat4_text.Clear();
+			RacialFeat5_text.Clear();
+
+
 			Race race = Races[Id];
 
 			bool dirty = RacesChanged.ContainsKey(Id);
@@ -983,6 +1002,21 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void ClassSelect()
 		{
+			// clear the info-fields to force TextChanged events
+			ClassFlags_text .Clear();
+			ClassFeat1_text .Clear();
+			ClassFeat2_text .Clear();
+			ClassFeat3_text .Clear();
+			ClassFeat4_text .Clear();
+			ClassFeat5_text .Clear();
+			ClassFeat6_text .Clear();
+			ClassFeat7_text .Clear();
+			ClassFeat8_text .Clear();
+			ClassFeat9_text .Clear();
+			ClassFeat10_text.Clear();
+			ClassFeat11_text.Clear();
+
+
 			Class clas = Classes[Id];
 
 			bool dirty = ClassesChanged.ContainsKey(Id);

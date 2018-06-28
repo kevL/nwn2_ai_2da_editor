@@ -76,12 +76,17 @@ namespace nwn2_ai_2da_editor
 
 				if (!bypassTextChanged)
 				{
-/*
+					logfile.Log(". . Id= " + Id + " val= " + val);
+
 					// ensure that racial-flags has a CoreAI version
 					// NOTE that RacialInfo always has a Version (unlike spellinfo)
+//					if (tb == RacialFlags_text
+//						&& (val & HENCH_SPELL_INFO_VERSION_MASK) == 0)
+//					{
+//						val |= HENCH_SPELL_INFO_VERSION; // insert the default version #
+//					}
 
-
-					// although strictly speaking I believe that GetSpellInfo()
+/*					// although strictly speaking I believe that GetSpellInfo()
 					// will gracefully handle spell-data that has no version set.
 					if (val != 0)
 					{
@@ -157,13 +162,11 @@ namespace nwn2_ai_2da_editor
 
 					if (differ != bit_clear)
 					{
-						apply.Enabled = true;
 						RacesChanged[Id] = racechanged;
 						Tree.SelectedNode.ForeColor = Color.Crimson;
 					}
 					else
 					{
-						apply.Enabled = false;
 						RacesChanged.Remove(Id);
 
 						if (!race.isChanged) // this is set by the Apply btn only.
@@ -189,6 +192,9 @@ namespace nwn2_ai_2da_editor
 				}
 				else
 					CheckRacialFeatsCheckers(tb);
+
+
+				apply.Enabled = RacesChanged.ContainsKey(Id);
 
 //				bypassCheckedChecker = false; // TODO: This funct will fire multiple times OnLoad ...
 			}

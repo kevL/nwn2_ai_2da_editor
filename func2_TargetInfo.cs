@@ -58,13 +58,11 @@ namespace nwn2_ai_2da_editor
 
 					if (differ != bit_clear)
 					{
-						apply.Enabled = true;
 						SpellsChanged[Id] = spellchanged;
 						Tree.SelectedNode.ForeColor = Color.Crimson;
 					}
 					else
 					{
-						apply.Enabled = false;
 						SpellsChanged.Remove(Id);
 
 						if (!spell.isChanged) // this is set by the Apply btn only.
@@ -114,7 +112,8 @@ namespace nwn2_ai_2da_editor
 
 						break;
 				}
-//				}
+
+				apply.Enabled = SpellsChanged.ContainsKey(Id);
 			}
 			// else TODO: error dialog here.
 		}

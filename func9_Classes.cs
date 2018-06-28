@@ -119,7 +119,10 @@ namespace nwn2_ai_2da_editor
 				if (!bypassTextChanged)
 				{
 /*
-					// ensure that spellinfo has a CoreAI version
+					// ensure that class-flags has a CoreAI version
+					// NOTE that ClassInfo always has a Version (unlike spellinfo)
+
+
 					// although strictly speaking I believe that GetSpellInfo()
 					// will gracefully handle spell-data that has no version set.
 					if (val != 0)
@@ -226,13 +229,11 @@ namespace nwn2_ai_2da_editor
 
 					if (differ != bit_clear)
 					{
-						apply.Enabled = true;
 						ClassesChanged[Id] = claschanged;
 						Tree.SelectedNode.ForeColor = Color.Crimson;
 					}
 					else
 					{
-						apply.Enabled = false;
 						ClassesChanged.Remove(Id);
 
 						if (!clas.isChanged) // this is set by the Apply btn only.
@@ -258,6 +259,9 @@ namespace nwn2_ai_2da_editor
 				}
 				else
 					CheckClassFeatsCheckers(tb);
+
+
+				apply.Enabled = ClassesChanged.ContainsKey(Id);
 
 //				bypassCheckedChecker = false; // TODO: This funct will fire multiple times OnLoad ...
 			}
