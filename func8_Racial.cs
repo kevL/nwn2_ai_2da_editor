@@ -77,7 +77,10 @@ namespace nwn2_ai_2da_editor
 				if (!bypassTextChanged)
 				{
 /*
-					// ensure that spellinfo has a CoreAI version
+					// ensure that racial-flags has a CoreAI version
+					// NOTE that RacialInfo always has a Version (unlike spellinfo)
+
+
 					// although strictly speaking I believe that GetSpellInfo()
 					// will gracefully handle spell-data that has no version set.
 					if (val != 0)
@@ -182,14 +185,12 @@ namespace nwn2_ai_2da_editor
 				if (tb == RacialFlags_text)
 				{
 					CheckRacialFlagsCheckers(val);
+					PrintInfoVersion_race(val);
 				}
 				else
 					CheckRacialFeatsCheckers(tb);
 
 //				bypassCheckedChecker = false; // TODO: This funct will fire multiple times OnLoad ...
-
-
-				PrintInfoVersion_race(val);
 			}
 			// else TODO: error dialog here.
 		}

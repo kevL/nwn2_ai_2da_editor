@@ -34,14 +34,16 @@ namespace nwn2_ai_2da_editor
 					// will gracefully handle spell-data that has no version set.
 					if (spellinfo != 0)
 					{
-						if ((spellinfo & HENCH_SPELL_INFO_VERSION_MASK) == 0) // insert the default spell-version if it doesn't exist
+						int ver = (spellinfo & HENCH_SPELL_INFO_VERSION_MASK);
+
+						if (ver == 0) // insert the default spell-version if it doesn't exist
 						{
-							spellinfo |= HENCH_SPELL_INFO_VERSION; // def'n 'hench_i0_generic'
+							spellinfo |= HENCH_SPELL_INFO_VERSION; // default info-version in 'hench_i0_generic'
 							SpellInfo_text.Text = spellinfo.ToString();
 							return; // re-fire this funct.
 						}
 
-						if (spellinfo == (spellinfo & HENCH_SPELL_INFO_VERSION_MASK)) // clear the spell-version if that's the only data in spellinfo
+						if (spellinfo == ver) // clear the spell-version if that's the only data in spellinfo
 						{
 							// TODO: I suppose the spell-version should be stored (if not the default version #) ...
 							// so it can be re-inserted identically (if/after user clears all spellinfo bits).
@@ -50,8 +52,8 @@ namespace nwn2_ai_2da_editor
 							return; // re-fire this funct.
 						}
 					}
-					// TODO: Those need to update the fields when loading the 2da
-					// ... especially the Text-field/reset-color. And the spell-tree's node-color
+					// TODO: Those need to update stuff when loading the 2da
+					// ... especially the Text-field and reset-color. And the spell-tree's node-color
 
 
 					var spell = Spells[Id];

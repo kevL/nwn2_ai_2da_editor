@@ -616,6 +616,8 @@
 			System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
 			this.cols_HenchSpells = new System.Windows.Forms.TabControl();
 			this.page_SpellInfo = new System.Windows.Forms.TabPage();
+			this.si_infoversion = new System.Windows.Forms.Label();
+			this.si_infoversion_lbl = new System.Windows.Forms.Label();
 			this.si_ChildLabel5 = new System.Windows.Forms.Label();
 			this.si_ChildLabel4 = new System.Windows.Forms.Label();
 			this.si_ChildLabel3 = new System.Windows.Forms.Label();
@@ -1196,8 +1198,6 @@
 			this.RacialFeat5_reset = new System.Windows.Forms.Button();
 			this.apply = new System.Windows.Forms.Button();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-			this.si_infoversion = new System.Windows.Forms.Label();
-			this.si_infoversion_lbl = new System.Windows.Forms.Label();
 			this.cols_HenchSpells.SuspendLayout();
 			this.page_SpellInfo.SuspendLayout();
 			this.si_ChildIDGrp.SuspendLayout();
@@ -1323,6 +1323,24 @@
 			this.page_SpellInfo.TabIndex = 0;
 			this.page_SpellInfo.Text = "SpellInfo";
 			this.page_SpellInfo.UseVisualStyleBackColor = true;
+			// 
+			// si_infoversion
+			// 
+			this.si_infoversion.Location = new System.Drawing.Point(520, 35);
+			this.si_infoversion.Margin = new System.Windows.Forms.Padding(0);
+			this.si_infoversion.Name = "si_infoversion";
+			this.si_infoversion.Size = new System.Drawing.Size(95, 15);
+			this.si_infoversion.TabIndex = 85;
+			this.si_infoversion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+			// 
+			// si_infoversion_lbl
+			// 
+			this.si_infoversion_lbl.Location = new System.Drawing.Point(520, 15);
+			this.si_infoversion_lbl.Margin = new System.Windows.Forms.Padding(0);
+			this.si_infoversion_lbl.Name = "si_infoversion_lbl";
+			this.si_infoversion_lbl.Size = new System.Drawing.Size(95, 15);
+			this.si_infoversion_lbl.TabIndex = 84;
+			this.si_infoversion_lbl.Text = "Info Version";
 			// 
 			// si_ChildLabel5
 			// 
@@ -1693,11 +1711,11 @@
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_hex);
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_text);
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_reset);
-			this.page_TargetInfo.Location = new System.Drawing.Point(4, 24);
+			this.page_TargetInfo.Location = new System.Drawing.Point(4, 23);
 			this.page_TargetInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_TargetInfo.Name = "page_TargetInfo";
 			this.page_TargetInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_TargetInfo.Size = new System.Drawing.Size(812, 427);
+			this.page_TargetInfo.Size = new System.Drawing.Size(812, 428);
 			this.page_TargetInfo.TabIndex = 1;
 			this.page_TargetInfo.Text = "TargetInfo";
 			this.page_TargetInfo.UseVisualStyleBackColor = true;
@@ -1984,11 +2002,11 @@
 			this.page_EffectWeight.Controls.Add(this.f1);
 			this.page_EffectWeight.Controls.Add(this.EffectWeight_reset);
 			this.page_EffectWeight.Controls.Add(this.EffectWeight_text);
-			this.page_EffectWeight.Location = new System.Drawing.Point(4, 24);
+			this.page_EffectWeight.Location = new System.Drawing.Point(4, 23);
 			this.page_EffectWeight.Margin = new System.Windows.Forms.Padding(2);
 			this.page_EffectWeight.Name = "page_EffectWeight";
 			this.page_EffectWeight.Padding = new System.Windows.Forms.Padding(2);
-			this.page_EffectWeight.Size = new System.Drawing.Size(812, 427);
+			this.page_EffectWeight.Size = new System.Drawing.Size(812, 428);
 			this.page_EffectWeight.TabIndex = 2;
 			this.page_EffectWeight.Text = "EffectWeight";
 			this.page_EffectWeight.UseVisualStyleBackColor = true;
@@ -7867,10 +7885,10 @@
 			this.apply.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
 			| System.Windows.Forms.AnchorStyles.Right)));
 			this.apply.Enabled = false;
-			this.apply.Location = new System.Drawing.Point(20, 940);
+			this.apply.Location = new System.Drawing.Point(15, 940);
 			this.apply.Margin = new System.Windows.Forms.Padding(0);
 			this.apply.Name = "apply";
-			this.apply.Size = new System.Drawing.Size(1030, 25);
+			this.apply.Size = new System.Drawing.Size(1035, 25);
 			this.apply.TabIndex = 1;
 			this.apply.Text = "apply this tree-node\'s data";
 			this.apply.UseVisualStyleBackColor = true;
@@ -7881,24 +7899,6 @@
 			this.toolTip1.AutoPopDelay = 10000;
 			this.toolTip1.InitialDelay = 500;
 			this.toolTip1.ReshowDelay = 100;
-			// 
-			// si_infoversion
-			// 
-			this.si_infoversion.Location = new System.Drawing.Point(520, 35);
-			this.si_infoversion.Margin = new System.Windows.Forms.Padding(0);
-			this.si_infoversion.Name = "si_infoversion";
-			this.si_infoversion.Size = new System.Drawing.Size(95, 15);
-			this.si_infoversion.TabIndex = 85;
-			this.si_infoversion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-			// 
-			// si_infoversion_lbl
-			// 
-			this.si_infoversion_lbl.Location = new System.Drawing.Point(520, 15);
-			this.si_infoversion_lbl.Margin = new System.Windows.Forms.Padding(0);
-			this.si_infoversion_lbl.Name = "si_infoversion_lbl";
-			this.si_infoversion_lbl.Size = new System.Drawing.Size(95, 15);
-			this.si_infoversion_lbl.TabIndex = 84;
-			this.si_infoversion_lbl.Text = "Info Version";
 			// 
 			// MainForm
 			// 

@@ -254,14 +254,12 @@ namespace nwn2_ai_2da_editor
 				if (tb == ClassFlags_text)
 				{
 					CheckClassFlagsCheckers(val);
+					PrintInfoVersion_class(val);
 				}
 				else
 					CheckClassFeatsCheckers(tb);
 
 //				bypassCheckedChecker = false; // TODO: This funct will fire multiple times OnLoad ...
-
-
-				PrintInfoVersion_class(val);
 			}
 			// else TODO: error dialog here.
 		}
