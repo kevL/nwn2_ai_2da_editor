@@ -56,7 +56,7 @@ namespace nwn2_ai_2da_editor
 					// ... especially the Text-field and reset-color. And the spell-tree's node-color
 
 
-					var spell = Spells[Id];
+					Spell spell = Spells[Id];
 
 					SpellChanged spellchanged;
 

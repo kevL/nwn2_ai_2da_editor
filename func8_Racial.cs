@@ -76,39 +76,18 @@ namespace nwn2_ai_2da_editor
 
 				if (!bypassTextChanged)
 				{
-					logfile.Log(". . Id= " + Id + " val= " + val);
-
 					// ensure that racial-flags has a CoreAI version
 					// NOTE that RacialInfo always has a Version (unlike spellinfo)
-//					if (tb == RacialFlags_text
-//						&& (val & HENCH_SPELL_INFO_VERSION_MASK) == 0)
-//					{
-//						val |= HENCH_SPELL_INFO_VERSION; // insert the default version #
-//					}
-
-/*					// although strictly speaking I believe that GetSpellInfo()
-					// will gracefully handle spell-data that has no version set.
-					if (val != 0)
+					if (tb == RacialFlags_text
+						&& (val & HENCH_SPELL_INFO_VERSION_MASK) == 0)
 					{
-						if ((val & HENCH_SPELL_INFO_VERSION_MASK) == 0) // insert the default spell-version if it doesn't exist
-						{
-							val |= HENCH_SPELL_INFO_VERSION; // def'n 'hench_i0_generic'
-							tb.Text = val.ToString();
-							return; // re-fire this funct.
-						}
-
-						if (val == (val & HENCH_SPELL_INFO_VERSION_MASK)) // clear the spell-version if that's the only data in spellinfo
-						{
-							// TODO: I suppose the spell-version should be stored (if not the default version #) ...
-							// so it can be re-inserted identically (if/after user clears all spellinfo bits).
-							val = 0;
-							tb.Text = val.ToString();
-							return; // re-fire this funct.
-						}
+						val |= HENCH_SPELL_INFO_VERSION; // insert the default version #
+						RacialFlags_text.Text = val.ToString();
+						return; // re-fire this funct.
 					}
 					// TODO: Those need to update the fields when loading the 2da
 					// ... especially the Text-field/reset-color. And the spell-tree's node-color
-*/
+
 
 					Race race = Races[Id];
 
