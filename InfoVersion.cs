@@ -39,7 +39,7 @@ namespace nwn2_ai_2da_editor
 					title = "  Class Info version";
 					text_1 = "current class only";
 					text_2 = "any changed class";
-					text_3 = "all races in 2da";
+					text_3 = "all classes in 2da";
 					break;
 			}
 

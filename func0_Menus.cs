@@ -287,6 +287,7 @@ namespace nwn2_ai_2da_editor
 				}
 
 				Tree.SelectedNode = Tree.Nodes[id];
+				Tree.SelectedNode.EnsureVisible();
 			}
 		}
 

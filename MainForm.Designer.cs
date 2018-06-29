@@ -4729,11 +4729,11 @@
 			this.Tree.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
 			| System.Windows.Forms.AnchorStyles.Left) 
 			| System.Windows.Forms.AnchorStyles.Right)));
-			this.Tree.FullRowSelect = true;
 			this.Tree.HideSelection = false;
 			this.Tree.Indent = 15;
 			this.Tree.Location = new System.Drawing.Point(0, 20);
 			this.Tree.Name = "Tree";
+			this.Tree.ShowPlusMinus = false;
 			this.Tree.Size = new System.Drawing.Size(275, 947);
 			this.Tree.TabIndex = 2;
 			this.Tree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.AfterSelect_node);

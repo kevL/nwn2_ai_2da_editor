@@ -445,7 +445,9 @@ namespace nwn2_ai_2da_editor
 			GroupColor(ti_RangeGrp,  Color.LimeGreen);
 			GroupColor(ti_RadiusGrp, Color.LimeGreen);
 
-			Size = new Size(1105, 530);
+
+			if (Width < 1105) Width = 1105;
+			if (Height < 530) Height = 530;
 		}
 
 		/// <summary>
@@ -539,7 +541,8 @@ namespace nwn2_ai_2da_editor
 			PopTree();
 			ToggleMenuitems(true);
 
-			Size = new Size(905, 350);
+			if (Width  < 905) Width  = 905;
+			if (Height < 350) Height = 350;
 		}
 
 		/// <summary>
@@ -675,7 +678,8 @@ namespace nwn2_ai_2da_editor
 			PopTree();
 			ToggleMenuitems(true);
 
-			Size = new Size(1355, 400);
+			if (Width  < 1355) Width  = 1355;
+			if (Height <  400) Height = 400;
 		}
 
 		/// <summary>
@@ -683,6 +687,8 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void PopTree()
 		{
+			Tree.BeginUpdate();
+
 			Tree.Nodes.Clear();
 
 			switch (Type)
@@ -759,6 +765,8 @@ namespace nwn2_ai_2da_editor
 			// NOTE: Tree.SelectedNode=Tree.Nodes[0] is done auto.
 			// Not necessarily ...
 			Tree.SelectedNode = Tree.Nodes[0];
+
+			Tree.EndUpdate();
 
 			ResumeLayout();
 		}
