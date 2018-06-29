@@ -262,6 +262,8 @@ namespace nwn2_ai_2da_editor
 				}
 
 
+				SuspendLayout();
+
 				string[] cols;
 
 				bool stop = false;
@@ -279,30 +281,28 @@ namespace nwn2_ai_2da_editor
 							switch (cols.Length)
 							{
 								case 9: // henchspells
-									//logfile.Log("load henchspells");
 									Load_HenchSpells(rows);
 									stop = true;
 									break;
 
 								case 7: // henchracial
-									//logfile.Log("load henchracial");
 									Load_HenchRacial(rows);
 									stop = true;
 									break;
 
 								case 13: // henchclasses
-									//logfile.Log("load henchclasses");
 									Load_HenchClasses(rows);
 									stop = true;
 									break;
 
 								default:
-									//logfile.Log("load ERROR");
+									ResumeLayout();
+
 									MessageBox.Show("That file does not appear to be HenchSpells, HenchRacial, or HenchClasses.2da",
-														"  ERROR",
-														MessageBoxButtons.OK,
-														MessageBoxIcon.Error,
-														MessageBoxDefaultButton.Button1);
+													"  ERROR",
+													MessageBoxButtons.OK,
+													MessageBoxIcon.Error,
+													MessageBoxDefaultButton.Button1);
 									return;
 							}
 
@@ -336,8 +336,6 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void Load_HenchSpells(string[] rows)
 		{
-			SuspendLayout();
-
 			Type = Type2da.TYPE_SPELLS;
 
 			cols_HenchSpells .Visible = true;
@@ -458,8 +456,6 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void Load_HenchRacial(string[] rows)
 		{
-			SuspendLayout();
-
 			Type = Type2da.TYPE_RACIAL;
 
 			cols_HenchSpells .Visible = false;
@@ -553,8 +549,6 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void Load_HenchClasses(string[] rows)
 		{
-			SuspendLayout();
-
 			Type = Type2da.TYPE_CLASSES;
 
 			cols_HenchSpells .Visible =

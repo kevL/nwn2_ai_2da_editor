@@ -957,7 +957,7 @@ namespace nwn2_ai_2da_editor
 							else
 								continue;
 
-//							if (info0 != 0)										// set the version even if the RacialFlags field is blank.
+//							if (racialflags0 != 0)								// set the version even if the RacialFlags field is blank.
 							{
 								racialflags = (racialflags0 & ~HENCH_SPELL_INFO_VERSION_MASK);
 								racialflags |= (ver << HENCH_SPELL_INFO_VERSION_SHIFT);
@@ -1039,7 +1039,7 @@ namespace nwn2_ai_2da_editor
 							else
 								racialflags0 = Races[id].flags;
 
-//							if (info0 != 0)										// set the version even if the RacialFlags field is blank.
+//							if (racialflags0 != 0)								// set the version even if the RacialFlags field is blank.
 							{
 								racialflags = (racialflags0 & ~HENCH_SPELL_INFO_VERSION_MASK);
 								racialflags |= (ver << HENCH_SPELL_INFO_VERSION_SHIFT);
@@ -1171,7 +1171,7 @@ namespace nwn2_ai_2da_editor
 							else
 								continue;
 
-//							if (info0 != 0)										// set the version even if the ClassFlags field is blank.
+//							if (clasflags0 != 0)								// set the version even if the ClassFlags field is blank.
 							{
 								clasflags = (clasflags0 & ~HENCH_SPELL_INFO_VERSION_MASK);
 								clasflags |= (ver << HENCH_SPELL_INFO_VERSION_SHIFT);
@@ -1259,7 +1259,7 @@ namespace nwn2_ai_2da_editor
 							else
 								clasflags0 = Classes[id].flags;
 
-//							if (info0 != 0)										// set the version even if the ClassFlags field is blank.
+//							if (clasflags0 != 0)								// set the version even if the ClassFlags field is blank.
 							{
 								clasflags = (clasflags0 & ~HENCH_SPELL_INFO_VERSION_MASK);
 								clasflags |= (ver << HENCH_SPELL_INFO_VERSION_SHIFT);
