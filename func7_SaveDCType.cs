@@ -93,7 +93,9 @@ namespace nwn2_ai_2da_editor
 				// TODO: should probably disable if savedctype is negative.
 				dc_ArmorCheckGrp.Enabled = (savedctype & ~HENCH_SAVEDCTYPE_ARMORCHECK_MASK) == 0;
 
-				apply.Enabled = SpellsChanged.ContainsKey(Id);
+				apply          .Enabled = SpellsChanged.ContainsKey(Id);
+				applyGlobal    .Enabled =
+				gotoNextChanged.Enabled = !DirtyDataApplied();
 			}
 			// else TODO: error dialog here.
 		}

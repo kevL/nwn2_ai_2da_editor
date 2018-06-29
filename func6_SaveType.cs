@@ -84,7 +84,9 @@ namespace nwn2_ai_2da_editor
 					si_Child4.Text = SaveType_text.Text;
 				}
 
-				apply.Enabled = SpellsChanged.ContainsKey(Id);
+				apply          .Enabled = SpellsChanged.ContainsKey(Id);
+				applyGlobal    .Enabled =
+				gotoNextChanged.Enabled = !DirtyDataApplied();
 			}
 			// else TODO: error dialog here.
 		}

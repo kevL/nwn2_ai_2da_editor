@@ -64,7 +64,7 @@
     <Compile Include="func7_SaveDCType.cs" />
     <Compile Include="func8_Racial.cs" />
     <Compile Include="func9_Classes.cs" />
-    <Compile Include="inputbox.cs" />
+    <Compile Include="InfoVersion.cs" />
     <Compile Include="logger.cs" />
     <Compile Include="MainForm.cs" />
     <Compile Include="MainForm.Designer.cs">

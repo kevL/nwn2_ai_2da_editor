@@ -245,7 +245,9 @@ namespace nwn2_ai_2da_editor
 					CheckClassFeatsCheckers(tb);
 
 
-				apply.Enabled = ClassesChanged.ContainsKey(Id);
+				apply          .Enabled = ClassesChanged.ContainsKey(Id);
+				applyGlobal    .Enabled =
+				gotoNextChanged.Enabled = !DirtyDataApplied();
 
 //				bypassCheckedChecker = false; // TODO: This funct will fire multiple times OnLoad ...
 			}

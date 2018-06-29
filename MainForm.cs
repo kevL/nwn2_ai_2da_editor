@@ -774,8 +774,7 @@ namespace nwn2_ai_2da_editor
 			Save            .Enabled =			// file ->
 			Saveas          .Enabled =
 
-			FindNextChanged .Enabled =			// edit ->
-			Copy_decimal    .Enabled =
+			Copy_decimal    .Enabled =			// edit ->
 			Copy_hexadecimal.Enabled =
 			Copy_binary     .Enabled =
 

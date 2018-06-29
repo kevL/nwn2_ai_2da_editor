@@ -295,7 +295,7 @@
 		private System.Windows.Forms.RadioButton st_Excl_rbImmunity;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
-		private System.Windows.Forms.ToolStripMenuItem FindNextChanged;
+		private System.Windows.Forms.ToolStripMenuItem gotoNextChanged;
 		private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
 		private System.Windows.Forms.ToolStripMenuItem help;
 		private System.Windows.Forms.ToolStripMenuItem About;
@@ -590,6 +590,8 @@
 		private System.Windows.Forms.Label si_ChildLabel1;
 		private System.Windows.Forms.Label si_infoversion;
 		private System.Windows.Forms.Label si_infoversion_lbl;
+		private System.Windows.Forms.ToolStripMenuItem applyGlobal;
+		private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
 
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -898,7 +900,9 @@
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.Quit = new System.Windows.Forms.ToolStripMenuItem();
 			this.edit = new System.Windows.Forms.ToolStripMenuItem();
-			this.FindNextChanged = new System.Windows.Forms.ToolStripMenuItem();
+			this.applyGlobal = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+			this.gotoNextChanged = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.Copy_decimal = new System.Windows.Forms.ToolStripMenuItem();
 			this.Copy_hexadecimal = new System.Windows.Forms.ToolStripMenuItem();
@@ -4578,7 +4582,9 @@
 			// edit
 			// 
 			this.edit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-			this.FindNextChanged,
+			this.applyGlobal,
+			this.toolStripSeparator5,
+			this.gotoNextChanged,
 			this.toolStripSeparator3,
 			this.Copy_decimal,
 			this.Copy_hexadecimal,
@@ -4587,26 +4593,42 @@
 			this.edit.Size = new System.Drawing.Size(37, 20);
 			this.edit.Text = "Edit";
 			// 
-			// FindNextChanged
+			// applyGlobal
 			// 
-			this.FindNextChanged.Name = "FindNextChanged";
-			this.FindNextChanged.Padding = new System.Windows.Forms.Padding(0);
-			this.FindNextChanged.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-			this.FindNextChanged.Size = new System.Drawing.Size(190, 20);
-			this.FindNextChanged.Text = "Find next changed";
-			this.FindNextChanged.Click += new System.EventHandler(this.Click_findnextchanged);
+			this.applyGlobal.Enabled = false;
+			this.applyGlobal.Name = "applyGlobal";
+			this.applyGlobal.Padding = new System.Windows.Forms.Padding(0);
+			this.applyGlobal.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
+			this.applyGlobal.Size = new System.Drawing.Size(195, 20);
+			this.applyGlobal.Text = "global Apply";
+			this.applyGlobal.Click += new System.EventHandler(this.Click_applyGlobal);
+			// 
+			// toolStripSeparator5
+			// 
+			this.toolStripSeparator5.Name = "toolStripSeparator5";
+			this.toolStripSeparator5.Size = new System.Drawing.Size(192, 6);
+			// 
+			// gotoNextChanged
+			// 
+			this.gotoNextChanged.Enabled = false;
+			this.gotoNextChanged.Name = "gotoNextChanged";
+			this.gotoNextChanged.Padding = new System.Windows.Forms.Padding(0);
+			this.gotoNextChanged.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+			this.gotoNextChanged.Size = new System.Drawing.Size(195, 20);
+			this.gotoNextChanged.Text = "go to next changed";
+			this.gotoNextChanged.Click += new System.EventHandler(this.Click_gotonextchanged);
 			// 
 			// toolStripSeparator3
 			// 
 			this.toolStripSeparator3.Name = "toolStripSeparator3";
-			this.toolStripSeparator3.Size = new System.Drawing.Size(187, 6);
+			this.toolStripSeparator3.Size = new System.Drawing.Size(192, 6);
 			// 
 			// Copy_decimal
 			// 
 			this.Copy_decimal.Name = "Copy_decimal";
 			this.Copy_decimal.Padding = new System.Windows.Forms.Padding(0);
 			this.Copy_decimal.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-			this.Copy_decimal.Size = new System.Drawing.Size(190, 20);
+			this.Copy_decimal.Size = new System.Drawing.Size(195, 20);
 			this.Copy_decimal.Text = "Copy decimal";
 			this.Copy_decimal.Click += new System.EventHandler(this.Click_copy_decimal);
 			// 
@@ -4615,7 +4637,7 @@
 			this.Copy_hexadecimal.Name = "Copy_hexadecimal";
 			this.Copy_hexadecimal.Padding = new System.Windows.Forms.Padding(0);
 			this.Copy_hexadecimal.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
-			this.Copy_hexadecimal.Size = new System.Drawing.Size(190, 20);
+			this.Copy_hexadecimal.Size = new System.Drawing.Size(195, 20);
 			this.Copy_hexadecimal.Text = "Copy hexadecimal";
 			this.Copy_hexadecimal.Click += new System.EventHandler(this.Click_copy_hexadecimal);
 			// 
@@ -4624,7 +4646,7 @@
 			this.Copy_binary.Name = "Copy_binary";
 			this.Copy_binary.Padding = new System.Windows.Forms.Padding(0);
 			this.Copy_binary.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
-			this.Copy_binary.Size = new System.Drawing.Size(190, 20);
+			this.Copy_binary.Size = new System.Drawing.Size(195, 20);
 			this.Copy_binary.Text = "Copy binary";
 			this.Copy_binary.Click += new System.EventHandler(this.Click_copy_binary);
 			// 

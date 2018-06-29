@@ -173,7 +173,9 @@ namespace nwn2_ai_2da_editor
 					CheckRacialFeatsCheckers(tb);
 
 
-				apply.Enabled = RacesChanged.ContainsKey(Id);
+				apply          .Enabled = RacesChanged.ContainsKey(Id);
+				applyGlobal    .Enabled =
+				gotoNextChanged.Enabled = !DirtyDataApplied();
 
 //				bypassCheckedChecker = false; // TODO: This funct will fire multiple times OnLoad ...
 			}
