@@ -19,7 +19,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// The version as a build-date. This appears in the About.
 		/// </summary>
-		const string _version = "built - 2018 jun 27";
+		const string _version = "built - 2018 jun 29";
 
 
 		/// <summary>
@@ -243,7 +243,7 @@ namespace nwn2_ai_2da_editor
 				// WARNING: This editor does *not* handle quotation marks around 2da fields.
 				foreach (string row in rows) // test for double-quote character and exit if found.
 				{
-					foreach(char character in row)
+					foreach (char character in row)
 					{
 						if (character == '"')
 						{
