@@ -2,8 +2,8 @@ nwn2_ai_2da_editor
 A HenchSpells.2da editor for TonyK's Companion and Monster AI 2.2
 
 --
-ver 1
-2018 jun 24
+ver 1.2
+2018 jun 29
 
 --
 Requirements
@@ -162,8 +162,8 @@ TODO: Describe exactly what all the bits do.
 --
 Tips
 
-A spell does not have to be described exactly for the AI to use it (many are in
-fact not exactly detailed by HenchSpells.2da -- and it wouldn't be hard to
+1. A spell does not have to be described exactly for the AI to use it (many are
+in fact not exactly detailed by HenchSpells.2da -- and it wouldn't be hard to
 design a new spell that actually can't be detailed exactly). The spells Stone
 Body and Iron Body, for example, are given the spelltype
 
@@ -183,3 +183,70 @@ suggestions about how it ought be used.
 
 You could even get clever and deliberately misrepresent a spell to induce the AI
 to use it differently.
+
+2. The editor is not able to add or delete rows in the 2das. So to add a new
+spell/race/class it needs to be added to the 2da itself with your favorite 2da-
+or text-editor before opening it in this app. Do NOT use double-quotes at all
+since I haven't implemented code that deals with double-quotes; the editor will
+(or ought) rather error-out if it finds any. A new row needs only its row # in
+the first column, followed by "****" fields in the following columns to be
+valid (although providing a label for rows in HenchSpells.2da is helpful of
+course).
+
+3. CoreAI version. The so-called CoreAI Version is actually version-data that is
+held in each entry. The default value in the CoreAI is "22". The version will be
+checked automatically by the editor when a 2da gets loaded. If it's a blank
+spell-entry then no version is assigned. But if it's a race- or class-entry then
+the default version is assigned even if the entry is otherwise blank. This is
+done to maintain consistency with what I see in the Hench*.2da files already.
+
+Version-data can be changed under Options|Set CoreAI version. It is not
+suggested to ever do so unless you've looked at the CoreAI scripts and have a
+reasonable degree of confidence about what it does.
+
+--
+Concerning HenchRacial and HenchClasses Info
+
+The data in HenchRacial.2da and HenchClasses.2da is much less complicated than
+that in HenchSpells.2da. When either of the former is loaded in the editor, only
+the first tab contains necessary information while the subsequent pages hold
+data for FeatSpells - Feat information that is relevant to the Race or Class.
+
+The "has FeatSpells" checkbox must be toggled on for the AI to make use of any
+FeatSpells that are defined on the subsequent pages.
+
+Note that, unlike HenchSpells, the HenchRacial and HenchClasses 2das do not
+contain label-information. The editor can get de facto labels out of
+RacialSubtypes.2da and Classes.2da respectively, however; in the Options menu
+choose either or both "path RacialSubtypes.2da" and "path Classes.2da" and point
+the dialog that appears to the appropriate 2da. The node-tree on the left of the
+editor should fill-in with corresponding labels for loaded (Sub)Races/Classes.
+
+If a check appears beside the "path" menuitem, it means that label-data of that
+type is currently loaded. Simply uncheck the item to clear the labels (if
+they're incorrect or whatever). The check beside the item should disappear
+allowing new label-data to be loaded if you wish.
+
+That is not a robust mechanism but is merely a convenience. It assumes that, for
+example, the rows in Classes.2da match the rows in HenchClasses.2da - and while
+I don't believe that it's necessary to maintain such a correspondence, it's
+strongly recommended that you maintain this correspondence between the 2da-files
+for the sake of sanity if nothing else.
+
+By the way, under Options you'll also see "path Spells.2da" and "path Feat.2da".
+If you point their dialogs to Spells.2da and Feat.2da respectively, labels for
+any spell- and feat-IDs should also appear in the editor.
+
+Unlike the paths for RacialSubtypes and Classes, any labels for spells and feats
+do not refresh automatically in the editor. Simply click a different node on
+the node-tree (on the left side of the editor) and click back to the entry that
+you're working on, and the spell/feat labels should then display okay.
+
+The above instructions assume that RacialSubtypes.2da, Classes.2da, Spells.2da,
+and Feat.2da have been broken out of the NwN2 installation-folder. Tip: Copy
+those four 2das along with working copies of the Hench*.2da files to a scratch-
+folder (I use the "nwn2_ai_2da_editor" folder itself) for ease and convenience;
+then copy any edited hench-files back to where they ought go when required. It's
+sort of up to you to understand how this can work as a back-up mechanism also.
+
+Did I mention always make back-ups before editing the Hench*.2da files ....

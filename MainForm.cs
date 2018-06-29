@@ -444,6 +444,8 @@ namespace nwn2_ai_2da_editor
 			GroupColor(ti_RadiusGrp, Color.LimeGreen);
 
 
+			// TODO: this doesn't work as intended if the window is currently
+			// maximized.
 			if (Width < 1105) Width = 1105;
 			if (Height < 530) Height = 530;
 		}
@@ -537,6 +539,9 @@ namespace nwn2_ai_2da_editor
 			PopTree();
 			ToggleMenuitems(true);
 
+
+			// TODO: this doesn't work as intended if the window is currently
+			// maximized.
 			if (Width  < 905) Width  = 905;
 			if (Height < 350) Height = 350;
 		}
@@ -672,6 +677,9 @@ namespace nwn2_ai_2da_editor
 			PopTree();
 			ToggleMenuitems(true);
 
+
+			// TODO: this doesn't work as intended if the window is currently
+			// maximized.
 			if (Width  < 1355) Width  = 1355;
 			if (Height <  400) Height = 400;
 		}
