@@ -425,6 +425,7 @@ namespace nwn2_ai_2da_editor
 			GroupColor(ti_RangeGrp,  Color.LimeGreen);
 			GroupColor(ti_RadiusGrp, Color.LimeGreen);
 
+			si_hostile.ForeColor = DefaultForeColor; // set the DETRIMENTAL/BENEFICIAL label back to default-color.
 
 			// TODO: this doesn't work as intended if the window is currently
 			// maximized.

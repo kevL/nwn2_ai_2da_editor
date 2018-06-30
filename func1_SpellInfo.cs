@@ -123,7 +123,7 @@ namespace nwn2_ai_2da_editor
 
 				PrintInfoVersion_spell(spellinfo);
 
-				apply          .Enabled = SpellsChanged.ContainsKey(Id);
+				apply          .Enabled = SpellsChanged.ContainsKey(Id); // TODO: use (Spells[Id].differ != 0)
 				applyGlobal    .Enabled =
 				gotoNextChanged.Enabled = !DirtyDataApplied();
 			}
@@ -459,8 +459,7 @@ namespace nwn2_ai_2da_editor
 			{
 				case -1: // safety.
 				case  0:
-					text = "INVALID";
-					si_hostile.ForeColor = Color.MediumBlue;
+					text = ""; // "INVALID"
 					break;
 
 				case HENCH_SPELL_INFO_SPELL_TYPE_ATTACK:	// TODO: Look into these and how they trace through
@@ -470,12 +469,10 @@ namespace nwn2_ai_2da_editor
 				case HENCH_SPELL_INFO_SPELL_TYPE_WARLOCK:
 				case HENCH_SPELL_INFO_SPELL_TYPE_ATTACK_SPECIAL:
 					text = "DETRIMENTAL";
-					si_hostile.ForeColor = DefaultForeColor;
 					break;
 
 				default:									// TODO: Investigate exactly which spelltypes
 					text = "BENEFICIAL";					// should show the PositiveEffects group.
-					si_hostile.ForeColor = DefaultForeColor;
 					break;
 			}
 
