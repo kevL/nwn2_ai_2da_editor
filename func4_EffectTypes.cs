@@ -85,11 +85,8 @@ namespace nwn2_ai_2da_editor
 
 				CheckEffectTypesCheckers(effecttypes);
 
-				if (si_IsMaster.Checked)
-				{
-					// NOTE: this doesn't result in an infinite loop.
-					si_Child2.Text = EffectTypes_text.Text;
-				}
+				// NOTE: this doesn't result in an infinite loop.
+				si_Child2.Text = EffectTypes_text.Text;
 
 				apply          .Enabled = SpellsChanged.ContainsKey(Id);
 				applyGlobal    .Enabled =

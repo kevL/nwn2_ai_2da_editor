@@ -123,7 +123,7 @@ namespace nwn2_ai_2da_editor
 
 				PrintInfoVersion_spell(spellinfo);
 
-				apply          .Enabled = SpellsChanged.ContainsKey(Id); // TODO: use (Spells[Id].differ != 0)
+				apply          .Enabled = SpellsChanged.ContainsKey(Id); // TODO: use (Spells[Id].differ != bit_clear)
 				applyGlobal    .Enabled =
 				gotoNextChanged.Enabled = !DirtyDataApplied();
 			}

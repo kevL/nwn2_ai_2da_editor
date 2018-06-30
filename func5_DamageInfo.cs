@@ -94,11 +94,8 @@ namespace nwn2_ai_2da_editor
 
 				CheckDamageInfoCheckers(damageinfo);
 
-				if (si_IsMaster.Checked)
-				{
-					// NOTE: this doesn't result in an infinite loop.
-					si_Child3.Text = DamageInfo_text.Text;
-				}
+				// NOTE: this doesn't result in an infinite loop.
+				si_Child3.Text = DamageInfo_text.Text;
 
 				apply          .Enabled = SpellsChanged.ContainsKey(Id);
 				applyGlobal    .Enabled =
