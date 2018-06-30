@@ -216,7 +216,6 @@ namespace nwn2_ai_2da_editor
 				case 19: text = HENCH_SAVEDC_BARD_FASCINATE.ToString();         break; // 1025
 			}
 
-//			bypassCheckedChecker = true;
 			SaveDCType_text.Text = text;
 		}
 
@@ -266,7 +265,6 @@ namespace nwn2_ai_2da_editor
 				case 3: text = "102"; break; // spelltype - HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF
 			}
 
-//			bypassCheckedChecker = true;
 			SaveDCType_text.Text = text;
 		}
 
@@ -315,7 +313,6 @@ namespace nwn2_ai_2da_editor
 				else
 					savedctype &= ~bit;
 
-//				bypassCheckedChecker = true;
 				SaveDCType_text.Text = savedctype.ToString();
 			}
 		}
@@ -328,81 +325,76 @@ namespace nwn2_ai_2da_editor
 		/// <param name="savedctype"></param>
 		void CheckSaveDcTypeCheckers(int savedctype)
 		{
-//			if (!bypassCheckedChecker)
-			{
 // ArmorCheck checkboxes
-				bool b = (savedctype > -1); // a negative value wreaks havoc on the speed-decrease bit ...
+			bool b = (savedctype > -1); // a negative value wreaks havoc on the speed-decrease bit ...
 
-				savedc_ac1.Checked = b && (savedctype & HENCH_AC_CHECK_ARMOR)                   != 0;
-				savedc_ac2.Checked = b && (savedctype & HENCH_AC_CHECK_SHIELD)                  != 0;
-				savedc_ac3.Checked = b && (savedctype & HENCH_AC_CHECK_MOVEMENT_SPEED_DECREASE) != 0;
+			savedc_ac1.Checked = b && (savedctype & HENCH_AC_CHECK_ARMOR)                   != 0;
+			savedc_ac2.Checked = b && (savedctype & HENCH_AC_CHECK_SHIELD)                  != 0;
+			savedc_ac3.Checked = b && (savedctype & HENCH_AC_CHECK_MOVEMENT_SPEED_DECREASE) != 0;
 
-				int val;
+			int val;
 
 // WeaponBonus dropdown-list
-				switch (savedctype)
-				{
-					case   0: val = 0; break;
-					case 100: val = 1; break;
-					case 101: val = 2; break;
-					case 102: val = 3; break;
+			switch (savedctype)
+			{
+				case   0: val = 0; break;
+				case 100: val = 1; break;
+				case 101: val = 2; break;
+				case 102: val = 3; break;
 
-					default:
-						val = -1;
-						cbo_dc_WeaponBonus.ForeColor = Color.Crimson;
-						break;
-				}
+				default:
+					val = -1;
+					cbo_dc_WeaponBonus.ForeColor = Color.Crimson;
+					break;
+			}
 
-				if (val != -1)
-				{
-					cbo_dc_WeaponBonus.ForeColor = DefaultForeColor;
-				}
+			if (val != -1)
+			{
+				cbo_dc_WeaponBonus.ForeColor = DefaultForeColor;
+			}
 
-				cbo_dc_WeaponBonus.SelectedIndex = val;
+			cbo_dc_WeaponBonus.SelectedIndex = val;
 
 // SaveDc dropdown-list
-				switch (savedctype)
-				{
-					case -1000: val = 0; break;
-					case     0: val = 1; break;
+			switch (savedctype)
+			{
+				case -1000: val = 0; break;
+				case     0: val = 1; break;
 
-					case  1000:
-					case  1001:
-					case  1002:
-					case  1003:
-					case  1004:
-					case  1005:
-					case  1006:
-					case  1007: val = savedctype -  998; break;
+				case  1000:
+				case  1001:
+				case  1002:
+				case  1003:
+				case  1004:
+				case  1005:
+				case  1006:
+				case  1007: val = savedctype -  998; break;
 
-					case  1010:
-					case  1011:
-					case  1012:
-					case  1013:
-					case  1014: val = savedctype - 1000; break;
+				case  1010:
+				case  1011:
+				case  1012:
+				case  1013:
+				case  1014: val = savedctype - 1000; break;
 
-					case  1020:
-					case  1021:
-					case  1022: val = savedctype - 1005; break;
+				case  1020:
+				case  1021:
+				case  1022: val = savedctype - 1005; break;
 
-					case  1024:
-					case  1025: val = savedctype - 1006; break;
+				case  1024:
+				case  1025: val = savedctype - 1006; break;
 
-					default:
-						val = -1;
-						cbo_dc_SaveDC.ForeColor = Color.Crimson;
-						break;
-				}
-
-				if (val != -1)
-				{
-					cbo_dc_SaveDC.ForeColor = DefaultForeColor;
-				}
-
-				cbo_dc_SaveDC.SelectedIndex = val;
+				default:
+					val = -1;
+					cbo_dc_SaveDC.ForeColor = Color.Crimson;
+					break;
 			}
-//			else
-//				bypassCheckedChecker = false;
+
+			if (val != -1)
+			{
+				cbo_dc_SaveDC.ForeColor = DefaultForeColor;
+			}
+
+			cbo_dc_SaveDC.SelectedIndex = val;
 		}
 	}
 }

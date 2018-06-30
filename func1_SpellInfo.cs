@@ -234,8 +234,6 @@ namespace nwn2_ai_2da_editor
 			int spellinfo;
 			if (Int32.TryParse(SpellInfo_text.Text, out spellinfo))
 			{
-//				bypassCheckedChecker = true;
-
 				spellinfo &= ~HENCH_SPELL_INFO_SPELL_TYPE_MASK; // 0x000000ff
 				SpellInfo_text.Text = (spellinfo | cbo_si_Spelltype.SelectedIndex).ToString();
 			}
@@ -253,8 +251,6 @@ namespace nwn2_ai_2da_editor
 			int spellinfo;
 			if (Int32.TryParse(SpellInfo_text.Text, out spellinfo))
 			{
-//				bypassCheckedChecker = true;
-
 				spellinfo &= ~HENCH_SPELL_INFO_SPELL_LEVEL_MASK; // 0x0001e000
 				int val = cbo_si_Spelllevel.SelectedIndex << HENCH_SPELL_INFO_SPELL_LEVEL_SHIFT;
 				SpellInfo_text.Text = (spellinfo | val).ToString();
@@ -323,7 +319,6 @@ namespace nwn2_ai_2da_editor
 				else
 					spellinfo &= ~bit;
 
-//				bypassCheckedChecker = true;
 				SpellInfo_text.Text = spellinfo.ToString();
 			}
 		}
@@ -413,48 +408,43 @@ namespace nwn2_ai_2da_editor
 		/// <param name="spellinfo"></param>
 		void CheckSpellInfoCheckers(int spellinfo)
 		{
-//			if (!bypassCheckedChecker)
-			{
 // Flags checkboxes
-				si_IsMaster     .Checked = (spellinfo & HENCH_SPELL_INFO_MASTER_FLAG)        != 0;
-				si_Ignore       .Checked = (spellinfo & HENCH_SPELL_INFO_IGNORE_FLAG)        != 0;
-				si_Concentration.Checked = (spellinfo & HENCH_SPELL_INFO_CONCENTRATION_FLAG) != 0;
-				si_Unlimited    .Checked = (spellinfo & HENCH_SPELL_INFO_UNLIMITED_FLAG)     != 0;
-				si_HealOrCure   .Checked = (spellinfo & HENCH_SPELL_INFO_HEAL_OR_CURE)       != 0;
-				si_ShortDurBuff .Checked = (spellinfo & HENCH_SPELL_INFO_SHORT_DUR_BUFF)     != 0;
-				si_MediumDurBuff.Checked = (spellinfo & HENCH_SPELL_INFO_MEDIUM_DUR_BUFF)    != 0;
-				si_LongDurBuff  .Checked = (spellinfo & HENCH_SPELL_INFO_LONG_DUR_BUFF)      != 0;
-				si_ItemCast     .Checked = (spellinfo & HENCH_SPELL_INFO_ITEM_FLAG)          != 0;
+			si_IsMaster     .Checked = (spellinfo & HENCH_SPELL_INFO_MASTER_FLAG)        != 0;
+			si_Ignore       .Checked = (spellinfo & HENCH_SPELL_INFO_IGNORE_FLAG)        != 0;
+			si_Concentration.Checked = (spellinfo & HENCH_SPELL_INFO_CONCENTRATION_FLAG) != 0;
+			si_Unlimited    .Checked = (spellinfo & HENCH_SPELL_INFO_UNLIMITED_FLAG)     != 0;
+			si_HealOrCure   .Checked = (spellinfo & HENCH_SPELL_INFO_HEAL_OR_CURE)       != 0;
+			si_ShortDurBuff .Checked = (spellinfo & HENCH_SPELL_INFO_SHORT_DUR_BUFF)     != 0;
+			si_MediumDurBuff.Checked = (spellinfo & HENCH_SPELL_INFO_MEDIUM_DUR_BUFF)    != 0;
+			si_LongDurBuff  .Checked = (spellinfo & HENCH_SPELL_INFO_LONG_DUR_BUFF)      != 0;
+			si_ItemCast     .Checked = (spellinfo & HENCH_SPELL_INFO_ITEM_FLAG)          != 0;
 
 // Spelltype dropdown-list
-				int val = spellinfo;
-				val &= HENCH_SPELL_INFO_SPELL_TYPE_MASK;
-				if (val >= cbo_si_Spelltype.Items.Count)
-				{
-					val = -1;
-					cbo_si_Spelltype.ForeColor = Color.Crimson;
-				}
-				else
-					cbo_si_Spelltype.ForeColor = DefaultForeColor;
+			int val = spellinfo;
+			val &= HENCH_SPELL_INFO_SPELL_TYPE_MASK;
+			if (val >= cbo_si_Spelltype.Items.Count)
+			{
+				val = -1;
+				cbo_si_Spelltype.ForeColor = Color.Crimson;
+			}
+			else
+				cbo_si_Spelltype.ForeColor = DefaultForeColor;
 
-				cbo_si_Spelltype.SelectedIndex = val;
+			cbo_si_Spelltype.SelectedIndex = val;
 
 // Spelllevel dropdown-list
-				val = spellinfo;
-				val &= HENCH_SPELL_INFO_SPELL_LEVEL_MASK;
-				val >>= HENCH_SPELL_INFO_SPELL_LEVEL_SHIFT;
-				if (val >= cbo_si_Spelllevel.Items.Count)
-				{
-					val = -1;
-					cbo_si_Spelllevel.ForeColor = Color.Crimson;
-				}
-				else
-					cbo_si_Spelllevel.ForeColor = DefaultForeColor;
-
-				cbo_si_Spelllevel.SelectedIndex = val;
+			val = spellinfo;
+			val &= HENCH_SPELL_INFO_SPELL_LEVEL_MASK;
+			val >>= HENCH_SPELL_INFO_SPELL_LEVEL_SHIFT;
+			if (val >= cbo_si_Spelllevel.Items.Count)
+			{
+				val = -1;
+				cbo_si_Spelllevel.ForeColor = Color.Crimson;
 			}
-//			else
-//				bypassCheckedChecker = false;
+			else
+				cbo_si_Spelllevel.ForeColor = DefaultForeColor;
+
+			cbo_si_Spelllevel.SelectedIndex = val;
 		}
 
 

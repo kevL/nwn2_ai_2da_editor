@@ -171,8 +171,6 @@ namespace nwn2_ai_2da_editor
 				apply          .Enabled = RacesChanged.ContainsKey(Id);
 				applyGlobal    .Enabled =
 				gotoNextChanged.Enabled = !DirtyDataApplied();
-
-//				bypassCheckedChecker = false; // TODO: This funct will fire multiple times OnLoad ...
 			}
 			// else TODO: error dialog here.
 		}
@@ -330,7 +328,6 @@ namespace nwn2_ai_2da_editor
 				else
 					flags &= ~HENCH_RACIAL_FEAT_SPELLS;
 
-//				bypassCheckedChecker = true;
 				RacialFlags_text.Text = flags.ToString();
 			}
 		}
@@ -374,7 +371,6 @@ namespace nwn2_ai_2da_editor
 				else
 					feat &= ~HENCH_FEAT_SPELL_CHEAT_CAST;
 
-//				bypassCheckedChecker = true;
 				tb.Text = feat.ToString();
 			}
 		}
@@ -509,12 +505,7 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void CheckRacialFlagsCheckers(int flags)
 		{
-//			if (!bypassCheckedChecker)
-			{
-				rf_HasFeatSpells.Checked = (flags & HENCH_RACIAL_FEAT_SPELLS) != 0;
-			}
-//			else
-//				bypassCheckedChecker = false; // TODO: conflict w/ CheckRacialFeatsCheckers()
+			rf_HasFeatSpells.Checked = (flags & HENCH_RACIAL_FEAT_SPELLS) != 0;
 		}
 
 		/// <summary>
@@ -524,79 +515,74 @@ namespace nwn2_ai_2da_editor
 		/// <param name="tb"></param>
 		void CheckRacialFeatsCheckers(Control tb)
 		{
-//			if (!bypassCheckedChecker)
+			int feat;
+			if (Int32.TryParse(tb.Text, out feat))
 			{
-				int feat;
-				if (Int32.TryParse(tb.Text, out feat))
+				CheckBox cb;
+				TextBox tb_feat, tb_spell;
+				Label lbl_feat, lbl_spell;
+
+				if (tb == RacialFeat1_text)
 				{
-					CheckBox cb;
-					TextBox tb_feat, tb_spell;
-					Label lbl_feat, lbl_spell;
+					cb        = rf1_cheatCast;
+					tb_feat   = rf1_FeatId;
+					tb_spell  = rf1_SpellId;
+					lbl_feat  = rf1_FeatLabel;
+					lbl_spell = rf1_SpellLabel;
+				}
+				else if (tb == RacialFeat2_text)
+				{
+					cb        = rf2_cheatCast;
+					tb_feat   = rf2_FeatId;
+					tb_spell  = rf2_SpellId;
+					lbl_feat  = rf2_FeatLabel;
+					lbl_spell = rf2_SpellLabel;
+				}
+				else if (tb == RacialFeat3_text)
+				{
+					cb        = rf3_cheatCast;
+					tb_feat   = rf3_FeatId;
+					tb_spell  = rf3_SpellId;
+					lbl_feat  = rf3_FeatLabel;
+					lbl_spell = rf3_SpellLabel;
+				}
+				else if (tb == RacialFeat4_text)
+				{
+					cb        = rf4_cheatCast;
+					tb_feat   = rf4_FeatId;
+					tb_spell  = rf4_SpellId;
+					lbl_feat  = rf4_FeatLabel;
+					lbl_spell = rf4_SpellLabel;
+				}
+				else //if (tb == RacialFeat5_text)
+				{
+					cb        = rf5_cheatCast;
+					tb_feat   = rf5_FeatId;
+					tb_spell  = rf5_SpellId;
+					lbl_feat  = rf5_FeatLabel;
+					lbl_spell = rf5_SpellLabel;
+				}
 
-					if (tb == RacialFeat1_text)
-					{
-						cb        = rf1_cheatCast;
-						tb_feat   = rf1_FeatId;
-						tb_spell  = rf1_SpellId;
-						lbl_feat  = rf1_FeatLabel;
-						lbl_spell = rf1_SpellLabel;
-					}
-					else if (tb == RacialFeat2_text)
-					{
-						cb        = rf2_cheatCast;
-						tb_feat   = rf2_FeatId;
-						tb_spell  = rf2_SpellId;
-						lbl_feat  = rf2_FeatLabel;
-						lbl_spell = rf2_SpellLabel;
-					}
-					else if (tb == RacialFeat3_text)
-					{
-						cb        = rf3_cheatCast;
-						tb_feat   = rf3_FeatId;
-						tb_spell  = rf3_SpellId;
-						lbl_feat  = rf3_FeatLabel;
-						lbl_spell = rf3_SpellLabel;
-					}
-					else if (tb == RacialFeat4_text)
-					{
-						cb        = rf4_cheatCast;
-						tb_feat   = rf4_FeatId;
-						tb_spell  = rf4_SpellId;
-						lbl_feat  = rf4_FeatLabel;
-						lbl_spell = rf4_SpellLabel;
-					}
-					else //if (tb == RacialFeat5_text)
-					{
-						cb        = rf5_cheatCast;
-						tb_feat   = rf5_FeatId;
-						tb_spell  = rf5_SpellId;
-						lbl_feat  = rf5_FeatLabel;
-						lbl_spell = rf5_SpellLabel;
-					}
+				cb.Checked = (feat & HENCH_FEAT_SPELL_CHEAT_CAST) != 0;
 
-					cb.Checked = (feat & HENCH_FEAT_SPELL_CHEAT_CAST) != 0;
+				int val = (feat & HENCH_FEAT_SPELL_MASK_FEAT);
+				tb_feat.Text = val.ToString();
 
-					int val = (feat & HENCH_FEAT_SPELL_MASK_FEAT);
-					tb_feat.Text = val.ToString();
+				if (featsLabels.Count != 0
+					&& val < featsLabels.Count)
+				{
+					lbl_feat.Text = featsLabels[val];
+				}
 
-					if (featsLabels.Count != 0
-						&& val < featsLabels.Count)
-					{
-						lbl_feat.Text = featsLabels[val];
-					}
+				val = (feat & HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
+				tb_spell.Text = val.ToString();
 
-					val = (feat & HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
-					tb_spell.Text = val.ToString();
-
-					if (spellLabels.Count != 0
-						&& val < spellLabels.Count)
-					{
-						lbl_spell.Text = spellLabels[val];
-					}
+				if (spellLabels.Count != 0
+					&& val < spellLabels.Count)
+				{
+					lbl_spell.Text = spellLabels[val];
 				}
 			}
-//			else
-//				bypassCheckedChecker = false; // TODO: conflict w/ CheckRacialFlagsCheckers()
 		}
 
 

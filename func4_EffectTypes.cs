@@ -259,7 +259,6 @@ namespace nwn2_ai_2da_editor
 				else
 					effecttypes &= ~bit;
 
-//				bypassCheckedChecker = true; // TODO: not sure about that - NegativeEffects should change also.
 				EffectTypes_text.Text = effecttypes.ToString();
 			}
 		}
@@ -413,7 +412,6 @@ namespace nwn2_ai_2da_editor
 				else
 					effecttypes &= ~bit;
 
-//				bypassCheckedChecker = true; // TODO: not sure about that - PositiveEffects should change also.
 				EffectTypes_text.Text = effecttypes.ToString();
 			}
 		}
@@ -426,69 +424,64 @@ namespace nwn2_ai_2da_editor
 		/// <param name="effecttypes"></param>
 		void CheckEffectTypesCheckers(int effecttypes)
 		{
-//			if (!bypassCheckedChecker)
-			{
 // Beneficial Effects checkboxes
-				et_AcIncrease         .Checked = (effecttypes & HENCH_EFFECT_TYPE_AC_INCREASE)           != 0;
-				et_Regenerate         .Checked = (effecttypes & HENCH_EFFECT_TYPE_REGENERATE)            != 0;
-				et_AttackIncrease     .Checked = (effecttypes & HENCH_EFFECT_TYPE_ATTACK_INCREASE)       != 0;
-				et_DamageReduction    .Checked = (effecttypes & HENCH_EFFECT_TYPE_DAMAGE_REDUCTION)      != 0;
-				et_Haste              .Checked = (effecttypes & HENCH_EFFECT_TYPE_HASTE)                 != 0;
-				et_TempHitpoints      .Checked = (effecttypes & HENCH_EFFECT_TYPE_TEMPORARY_HITPOINTS)   != 0;
-				et_Sanctuary          .Checked = (effecttypes & HENCH_EFFECT_TYPE_SANCTUARY)             != 0;
-				et_Timestop           .Checked = (effecttypes & HENCH_EFFECT_TYPE_TIMESTOP)              != 0;
-				et_SpellAbsorption    .Checked = (effecttypes & HENCH_EFFECT_TYPE_SPELLLEVELABSORPTION)  != 0;
-				et_SavingThrowIncrease.Checked = (effecttypes & HENCH_EFFECT_TYPE_SAVING_THROW_INCREASE) != 0;
-				et_Concealment        .Checked = (effecttypes & HENCH_EFFECT_TYPE_CONCEALMENT)           != 0;
-				et_DamageIncrease     .Checked = (effecttypes & HENCH_EFFECT_TYPE_DAMAGE_INCREASE)       != 0;
-				et_AbsorbDamage       .Checked = (effecttypes & HENCH_EFFECT_TYPE_ABSORBDAMAGE)          != 0;
-				et_Ethereal           .Checked = (effecttypes & HENCH_EFFECT_TYPE_ETHEREAL)              != 0;
-				et_Invisibility       .Checked = (effecttypes & HENCH_EFFECT_TYPE_INVISIBILITY)          != 0;
-				et_Polymorph          .Checked = (effecttypes & HENCH_EFFECT_TYPE_POLYMORPH)             != 0;
-				et_Ultravision        .Checked = (effecttypes & HENCH_EFFECT_TYPE_ULTRAVISION)           != 0;
-				et_TrueSeeing         .Checked = (effecttypes & HENCH_EFFECT_TYPE_TRUESEEING)            != 0;
-				et_Wildshape          .Checked = (effecttypes & HENCH_EFFECT_TYPE_WILDSHAPE)             != 0;
-				et_GreaterInvisibility.Checked = (effecttypes & HENCH_EFFECT_TYPE_GREATER_INVIS)         != 0;
-				et_ElementalShield    .Checked = (effecttypes & HENCH_EFFECT_TYPE_ELEMENTALSHIELD)       != 0;
-				et_AbilityIncrease    .Checked = (effecttypes & HENCH_EFFECT_TYPE_ABILITY_INCREASE)      != 0;
-				et_SeeInvisible       .Checked = (effecttypes & HENCH_EFFECT_TYPE_SEEINVISIBLE)          != 0;
-				et_SpellShield        .Checked = (effecttypes & HENCH_EFFECT_TYPE_SPELL_SHIELD)          != 0;
-				et_ImmunityNecromancy .Checked = (effecttypes & HENCH_EFFECT_TYPE_IMMUNE_NECROMANCY)     != 0;
+			et_AcIncrease         .Checked = (effecttypes & HENCH_EFFECT_TYPE_AC_INCREASE)           != 0;
+			et_Regenerate         .Checked = (effecttypes & HENCH_EFFECT_TYPE_REGENERATE)            != 0;
+			et_AttackIncrease     .Checked = (effecttypes & HENCH_EFFECT_TYPE_ATTACK_INCREASE)       != 0;
+			et_DamageReduction    .Checked = (effecttypes & HENCH_EFFECT_TYPE_DAMAGE_REDUCTION)      != 0;
+			et_Haste              .Checked = (effecttypes & HENCH_EFFECT_TYPE_HASTE)                 != 0;
+			et_TempHitpoints      .Checked = (effecttypes & HENCH_EFFECT_TYPE_TEMPORARY_HITPOINTS)   != 0;
+			et_Sanctuary          .Checked = (effecttypes & HENCH_EFFECT_TYPE_SANCTUARY)             != 0;
+			et_Timestop           .Checked = (effecttypes & HENCH_EFFECT_TYPE_TIMESTOP)              != 0;
+			et_SpellAbsorption    .Checked = (effecttypes & HENCH_EFFECT_TYPE_SPELLLEVELABSORPTION)  != 0;
+			et_SavingThrowIncrease.Checked = (effecttypes & HENCH_EFFECT_TYPE_SAVING_THROW_INCREASE) != 0;
+			et_Concealment        .Checked = (effecttypes & HENCH_EFFECT_TYPE_CONCEALMENT)           != 0;
+			et_DamageIncrease     .Checked = (effecttypes & HENCH_EFFECT_TYPE_DAMAGE_INCREASE)       != 0;
+			et_AbsorbDamage       .Checked = (effecttypes & HENCH_EFFECT_TYPE_ABSORBDAMAGE)          != 0;
+			et_Ethereal           .Checked = (effecttypes & HENCH_EFFECT_TYPE_ETHEREAL)              != 0;
+			et_Invisibility       .Checked = (effecttypes & HENCH_EFFECT_TYPE_INVISIBILITY)          != 0;
+			et_Polymorph          .Checked = (effecttypes & HENCH_EFFECT_TYPE_POLYMORPH)             != 0;
+			et_Ultravision        .Checked = (effecttypes & HENCH_EFFECT_TYPE_ULTRAVISION)           != 0;
+			et_TrueSeeing         .Checked = (effecttypes & HENCH_EFFECT_TYPE_TRUESEEING)            != 0;
+			et_Wildshape          .Checked = (effecttypes & HENCH_EFFECT_TYPE_WILDSHAPE)             != 0;
+			et_GreaterInvisibility.Checked = (effecttypes & HENCH_EFFECT_TYPE_GREATER_INVIS)         != 0;
+			et_ElementalShield    .Checked = (effecttypes & HENCH_EFFECT_TYPE_ELEMENTALSHIELD)       != 0;
+			et_AbilityIncrease    .Checked = (effecttypes & HENCH_EFFECT_TYPE_ABILITY_INCREASE)      != 0;
+			et_SeeInvisible       .Checked = (effecttypes & HENCH_EFFECT_TYPE_SEEINVISIBLE)          != 0;
+			et_SpellShield        .Checked = (effecttypes & HENCH_EFFECT_TYPE_SPELL_SHIELD)          != 0;
+			et_ImmunityNecromancy .Checked = (effecttypes & HENCH_EFFECT_TYPE_IMMUNE_NECROMANCY)     != 0;
 
 // Detrimental Effects checkboxes
-				et_Entangle           .Checked = (effecttypes & HENCH_EFFECT_TYPE_ENTANGLE)                != 0;
-				et_Paralyze           .Checked = (effecttypes & HENCH_EFFECT_TYPE_PARALYZE)                != 0;
-				et_Deafness           .Checked = (effecttypes & HENCH_EFFECT_TYPE_DEAF)                    != 0;
-				et_Blindness          .Checked = (effecttypes & HENCH_EFFECT_TYPE_BLINDNESS)               != 0;
-				et_Curse              .Checked = (effecttypes & HENCH_EFFECT_TYPE_CURSE)                   != 0;
-				et_Sleep              .Checked = (effecttypes & HENCH_EFFECT_TYPE_SLEEP)                   != 0;
-				et_Charm              .Checked = (effecttypes & HENCH_EFFECT_TYPE_CHARMED)                 != 0;
-				et_Confuse            .Checked = (effecttypes & HENCH_EFFECT_TYPE_CONFUSED)                != 0;
-				et_Frighten           .Checked = (effecttypes & HENCH_EFFECT_TYPE_FRIGHTENED)              != 0;
-				et_Dominate           .Checked = (effecttypes & HENCH_EFFECT_TYPE_DOMINATED)               != 0;
-				et_Daze               .Checked = (effecttypes & HENCH_EFFECT_TYPE_DAZED)                   != 0;
-				et_Poison             .Checked = (effecttypes & HENCH_EFFECT_TYPE_POISON)                  != 0;
-				et_Disease            .Checked = (effecttypes & HENCH_EFFECT_TYPE_DISEASE)                 != 0;
-				et_Silence            .Checked = (effecttypes & HENCH_EFFECT_TYPE_SILENCE)                 != 0;
-				et_Slow               .Checked = (effecttypes & HENCH_EFFECT_TYPE_SLOW)                    != 0;
-				et_AbilityDecrease    .Checked = (effecttypes & HENCH_EFFECT_TYPE_ABILITY_DECREASE)        != 0;
-				et_DamageDecrease     .Checked = (effecttypes & HENCH_EFFECT_TYPE_DAMAGE_DECREASE)         != 0;
-				et_AttackDecrease     .Checked = (effecttypes & HENCH_EFFECT_TYPE_ATTACK_DECREASE)         != 0;
-				et_SkillDecrease      .Checked = (effecttypes & HENCH_EFFECT_TYPE_SKILL_DECREASE)          != 0;
-				et_Stun               .Checked = (effecttypes & HENCH_EFFECT_TYPE_STUNNED)                 != 0;
-				et_Petrify            .Checked = (effecttypes & HENCH_EFFECT_TYPE_PETRIFY)                 != 0;
-				et_SpeedDecrease      .Checked = (effecttypes & HENCH_EFFECT_TYPE_MOVEMENT_SPEED_DECREASE) != 0;
-				et_Death              .Checked = (effecttypes & HENCH_EFFECT_TYPE_DEATH)                   != 0;
-				et_NegativeLevel      .Checked = (effecttypes & HENCH_EFFECT_TYPE_NEGATIVELEVEL)           != 0;
-				et_AcDecrease         .Checked = (effecttypes & HENCH_EFFECT_TYPE_AC_DECREASE)             != 0;
-				et_SavingThrowDecrease.Checked = (effecttypes & HENCH_EFFECT_TYPE_SAVING_THROW_DECREASE)   != 0;
-				et_Knockdown          .Checked = (effecttypes & HENCH_EFFECT_TYPE_KNOCKDOWN)               != 0;
-				et_Dying              .Checked = (effecttypes & HENCH_EFFECT_TYPE_DYING)                   != 0;
-				et_Mesmerize          .Checked = (effecttypes & HENCH_EFFECT_TYPE_MESMERIZE)               != 0;
-				et_CutsceneParalyze   .Checked = (effecttypes & HENCH_EFFECT_TYPE_CUTSCENE_PARALYZE)       != 0;
-			}
-//			else
-//				bypassCheckedChecker = false;
+			et_Entangle           .Checked = (effecttypes & HENCH_EFFECT_TYPE_ENTANGLE)                != 0;
+			et_Paralyze           .Checked = (effecttypes & HENCH_EFFECT_TYPE_PARALYZE)                != 0;
+			et_Deafness           .Checked = (effecttypes & HENCH_EFFECT_TYPE_DEAF)                    != 0;
+			et_Blindness          .Checked = (effecttypes & HENCH_EFFECT_TYPE_BLINDNESS)               != 0;
+			et_Curse              .Checked = (effecttypes & HENCH_EFFECT_TYPE_CURSE)                   != 0;
+			et_Sleep              .Checked = (effecttypes & HENCH_EFFECT_TYPE_SLEEP)                   != 0;
+			et_Charm              .Checked = (effecttypes & HENCH_EFFECT_TYPE_CHARMED)                 != 0;
+			et_Confuse            .Checked = (effecttypes & HENCH_EFFECT_TYPE_CONFUSED)                != 0;
+			et_Frighten           .Checked = (effecttypes & HENCH_EFFECT_TYPE_FRIGHTENED)              != 0;
+			et_Dominate           .Checked = (effecttypes & HENCH_EFFECT_TYPE_DOMINATED)               != 0;
+			et_Daze               .Checked = (effecttypes & HENCH_EFFECT_TYPE_DAZED)                   != 0;
+			et_Poison             .Checked = (effecttypes & HENCH_EFFECT_TYPE_POISON)                  != 0;
+			et_Disease            .Checked = (effecttypes & HENCH_EFFECT_TYPE_DISEASE)                 != 0;
+			et_Silence            .Checked = (effecttypes & HENCH_EFFECT_TYPE_SILENCE)                 != 0;
+			et_Slow               .Checked = (effecttypes & HENCH_EFFECT_TYPE_SLOW)                    != 0;
+			et_AbilityDecrease    .Checked = (effecttypes & HENCH_EFFECT_TYPE_ABILITY_DECREASE)        != 0;
+			et_DamageDecrease     .Checked = (effecttypes & HENCH_EFFECT_TYPE_DAMAGE_DECREASE)         != 0;
+			et_AttackDecrease     .Checked = (effecttypes & HENCH_EFFECT_TYPE_ATTACK_DECREASE)         != 0;
+			et_SkillDecrease      .Checked = (effecttypes & HENCH_EFFECT_TYPE_SKILL_DECREASE)          != 0;
+			et_Stun               .Checked = (effecttypes & HENCH_EFFECT_TYPE_STUNNED)                 != 0;
+			et_Petrify            .Checked = (effecttypes & HENCH_EFFECT_TYPE_PETRIFY)                 != 0;
+			et_SpeedDecrease      .Checked = (effecttypes & HENCH_EFFECT_TYPE_MOVEMENT_SPEED_DECREASE) != 0;
+			et_Death              .Checked = (effecttypes & HENCH_EFFECT_TYPE_DEATH)                   != 0;
+			et_NegativeLevel      .Checked = (effecttypes & HENCH_EFFECT_TYPE_NEGATIVELEVEL)           != 0;
+			et_AcDecrease         .Checked = (effecttypes & HENCH_EFFECT_TYPE_AC_DECREASE)             != 0;
+			et_SavingThrowDecrease.Checked = (effecttypes & HENCH_EFFECT_TYPE_SAVING_THROW_DECREASE)   != 0;
+			et_Knockdown          .Checked = (effecttypes & HENCH_EFFECT_TYPE_KNOCKDOWN)               != 0;
+			et_Dying              .Checked = (effecttypes & HENCH_EFFECT_TYPE_DYING)                   != 0;
+			et_Mesmerize          .Checked = (effecttypes & HENCH_EFFECT_TYPE_MESMERIZE)               != 0;
+			et_CutsceneParalyze   .Checked = (effecttypes & HENCH_EFFECT_TYPE_CUTSCENE_PARALYZE)       != 0;
 		}
 	}
 }

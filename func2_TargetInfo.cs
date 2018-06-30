@@ -194,8 +194,6 @@ namespace nwn2_ai_2da_editor
 			int targetinfo;
 			if (Int32.TryParse(TargetInfo_text.Text, out targetinfo))
 			{
-//				bypassCheckedChecker = true;
-
 				targetinfo &= ~HENCH_SPELL_TARGET_SHAPE_MASK; // clear specific bits
 				TargetInfo_text.Text = (targetinfo | cbo_ti_Shape.SelectedIndex).ToString();
 			}
@@ -213,8 +211,6 @@ namespace nwn2_ai_2da_editor
 			int targetinfo;
 			if (Int32.TryParse(TargetInfo_text.Text, out targetinfo))
 			{
-//				bypassCheckedChecker = true;
-
 				targetinfo &= ~HENCH_SPELL_TARGET_RANGE_MASK; // clear specific bits
 
 				int val;
@@ -301,7 +297,6 @@ namespace nwn2_ai_2da_editor
 				else
 					targetinfo &= ~bit;
 
-//				bypassCheckedChecker = true;
 				TargetInfo_text.Text = targetinfo.ToString();
 			}
 		}
@@ -360,61 +355,56 @@ namespace nwn2_ai_2da_editor
 		/// <param name="targetinfo"></param>
 		void CheckTargetInfoCheckers(int targetinfo)
 		{
-//			if (!bypassCheckedChecker)
-			{
 // Flags checkboxes
-				ti_ShapeLoop          .Checked = (targetinfo & HENCH_SPELL_TARGET_SHAPE_LOOP)           != 0;
-				ti_CheckCount         .Checked = (targetinfo & HENCH_SPELL_TARGET_CHECK_COUNT)          != 0;
-				ti_MissileTargets     .Checked = (targetinfo & HENCH_SPELL_TARGET_MISSILE_TARGETS)      != 0;
-				ti_SecondaryTargets   .Checked = (targetinfo & HENCH_SPELL_TARGET_SECONDARY_TARGETS)    != 0;
-				ti_SecondaryHalfDamage.Checked = (targetinfo & HENCH_SPELL_TARGET_SECONDARY_HALF_DAM)   != 0;
-				ti_SeenRequired       .Checked = (targetinfo & HENCH_SPELL_TARGET_VIS_REQUIRED_FLAG)    != 0;
-				ti_RangedSelectedArea .Checked = (targetinfo & HENCH_SPELL_TARGET_RANGED_SEL_AREA_FLAG) != 0;
-				ti_PersistentAoe      .Checked = (targetinfo & HENCH_SPELL_TARGET_PERSISTENT_SPELL)     != 0;
-				ti_ScaledEffect       .Checked = (targetinfo & HENCH_SPELL_TARGET_SCALE_EFFECT)         != 0;
-				ti_Necromancy         .Checked = (targetinfo & HENCH_SPELL_TARGET_NECROMANCY_SPELL)     != 0;
-				ti_Regular            .Checked = (targetinfo & HENCH_SPELL_TARGET_REGULAR_SPELL)        != 0;
+			ti_ShapeLoop          .Checked = (targetinfo & HENCH_SPELL_TARGET_SHAPE_LOOP)           != 0;
+			ti_CheckCount         .Checked = (targetinfo & HENCH_SPELL_TARGET_CHECK_COUNT)          != 0;
+			ti_MissileTargets     .Checked = (targetinfo & HENCH_SPELL_TARGET_MISSILE_TARGETS)      != 0;
+			ti_SecondaryTargets   .Checked = (targetinfo & HENCH_SPELL_TARGET_SECONDARY_TARGETS)    != 0;
+			ti_SecondaryHalfDamage.Checked = (targetinfo & HENCH_SPELL_TARGET_SECONDARY_HALF_DAM)   != 0;
+			ti_SeenRequired       .Checked = (targetinfo & HENCH_SPELL_TARGET_VIS_REQUIRED_FLAG)    != 0;
+			ti_RangedSelectedArea .Checked = (targetinfo & HENCH_SPELL_TARGET_RANGED_SEL_AREA_FLAG) != 0;
+			ti_PersistentAoe      .Checked = (targetinfo & HENCH_SPELL_TARGET_PERSISTENT_SPELL)     != 0;
+			ti_ScaledEffect       .Checked = (targetinfo & HENCH_SPELL_TARGET_SCALE_EFFECT)         != 0;
+			ti_Necromancy         .Checked = (targetinfo & HENCH_SPELL_TARGET_NECROMANCY_SPELL)     != 0;
+			ti_Regular            .Checked = (targetinfo & HENCH_SPELL_TARGET_REGULAR_SPELL)        != 0;
 
 // Shape dropdown
-				int val = (targetinfo & HENCH_SPELL_TARGET_SHAPE_MASK); // 0x00000007
-				if (val >= cbo_ti_Shape.Items.Count)
-				{
-					val = -1;
-					cbo_ti_Shape.ForeColor = Color.Crimson;
-				}
-				else
-					cbo_ti_Shape.ForeColor = DefaultForeColor;
+			int val = (targetinfo & HENCH_SPELL_TARGET_SHAPE_MASK); // 0x00000007
+			if (val >= cbo_ti_Shape.Items.Count)
+			{
+				val = -1;
+				cbo_ti_Shape.ForeColor = Color.Crimson;
+			}
+			else
+				cbo_ti_Shape.ForeColor = DefaultForeColor;
 
-				cbo_ti_Shape.SelectedIndex = val;
+			cbo_ti_Shape.SelectedIndex = val;
 
 // Range dropdown
-				cbo_ti_Range.ForeColor = DefaultForeColor;
+			cbo_ti_Range.ForeColor = DefaultForeColor;
 
-				switch (targetinfo & HENCH_SPELL_TARGET_RANGE_MASK) // 0x00000038
-				{
-					case HENCH_SPELL_TARGET_RANGE_PERSONAL: val = 0; break;
-					case HENCH_SPELL_TARGET_RANGE_TOUCH:    val = 1; break;
-					case HENCH_SPELL_TARGET_RANGE_SHORT:    val = 2; break;
-					case HENCH_SPELL_TARGET_RANGE_MEDIUM:   val = 3; break;
-					case HENCH_SPELL_TARGET_RANGE_LONG:     val = 4; break;
-					case HENCH_SPELL_TARGET_RANGE_INFINITE: val = 5; break;
+			switch (targetinfo & HENCH_SPELL_TARGET_RANGE_MASK) // 0x00000038
+			{
+				case HENCH_SPELL_TARGET_RANGE_PERSONAL: val = 0; break;
+				case HENCH_SPELL_TARGET_RANGE_TOUCH:    val = 1; break;
+				case HENCH_SPELL_TARGET_RANGE_SHORT:    val = 2; break;
+				case HENCH_SPELL_TARGET_RANGE_MEDIUM:   val = 3; break;
+				case HENCH_SPELL_TARGET_RANGE_LONG:     val = 4; break;
+				case HENCH_SPELL_TARGET_RANGE_INFINITE: val = 5; break;
 
-					default:
-						val = -1;
-						cbo_ti_Range.ForeColor = Color.Crimson;
-						break;
-				}
-				cbo_ti_Range.SelectedIndex = val;
+				default:
+					val = -1;
+					cbo_ti_Range.ForeColor = Color.Crimson;
+					break;
+			}
+			cbo_ti_Range.SelectedIndex = val;
 
 // Radius textbox
-				val = targetinfo;
-				val &= HENCH_SPELL_TARGET_RADIUS_MASK;
-				val >>= HENCH_SPELL_TARGET_RADIUS_SHIFT;
-				float fval = ((float)val) * 0.1f;
-				ti_Radius.Text = FormatFloat(fval.ToString());
-			}
-//			else
-//				bypassCheckedChecker = false;
+			val = targetinfo;
+			val &= HENCH_SPELL_TARGET_RADIUS_MASK;
+			val >>= HENCH_SPELL_TARGET_RADIUS_SHIFT;
+			float fval = ((float)val) * 0.1f;
+			ti_Radius.Text = FormatFloat(fval.ToString());
 		}
 	}
 }

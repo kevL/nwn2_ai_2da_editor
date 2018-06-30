@@ -27,6 +27,12 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		const string blank = "****";
 
+		/// <summary>
+		/// Tracks which 2da-type is currently loaded:
+		/// - henchspells
+		/// - henchracial
+		/// - henchclasses
+		/// </summary>
 		enum Type2da
 		{
 			TYPE_SPELLS, // 0 - default on startup.
@@ -34,6 +40,9 @@ namespace nwn2_ai_2da_editor
 			TYPE_CLASSES // 2
 		}
 
+		/// <summary>
+		/// Gets/sets the currently loaded 2da-type.
+		/// </summary>
 		Type2da Type
 		{ get; set; }
 
@@ -85,23 +94,6 @@ namespace nwn2_ai_2da_editor
 		/// populated or is being re-populated.
 		/// </summary>
 		bool bypassTextChanged;
-
-		/// <summary>
-		/// A boolean that prevents firing the Checkbox Setters when true. That
-		/// is don't try to force a checkbox-setting if the control is actually
-		/// being clicked. It happens auto.
-		/// UPDATE: But as it turns out there are bits that overlap with bits
-		/// for other fields ....
-		/// 
-		/// This should be set TRUE only on mouse-clicks (checkboxes,
-		/// radiobuttons) and text-changes (of subfields only). But leave it
-		/// FALSE if a bit or bit-group shares its bits with other groups or
-		/// constants - that happens only on the spell-pages.
-		/// NOTE: There appears to be no harm in leaving this FALSE de facto.
-		/// </summary>
-//		bool bypassCheckedChecker;
-		// uh The way that I coded the Racial and Classes text-changed
-		// handler(s) (field(s): current) has relegated this to oblivion.
 
 
 		/// <summary>

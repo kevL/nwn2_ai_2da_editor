@@ -243,8 +243,6 @@ namespace nwn2_ai_2da_editor
 				apply          .Enabled = ClassesChanged.ContainsKey(Id);
 				applyGlobal    .Enabled =
 				gotoNextChanged.Enabled = !DirtyDataApplied();
-
-//				bypassCheckedChecker = false; // TODO: This funct will fire multiple times OnLoad ...
 			}
 			// else TODO: error dialog here.
 		}
@@ -524,7 +522,6 @@ namespace nwn2_ai_2da_editor
 					}
 				}
 
-//				bypassCheckedChecker = true;
 				ClassFlags_text.Text = flags.ToString();
 			}
 		}
@@ -539,8 +536,6 @@ namespace nwn2_ai_2da_editor
 			int flags;
 			if (Int32.TryParse(ClassFlags_text.Text, out flags))
 			{
-//				bypassCheckedChecker = true;
-
 				flags &= ~HENCH_CLASS_ABILITY_MODIFIER_MASK; // 0x00000300
 				int val = cbo_cf_Ability.SelectedIndex << HENCH_CLASS_ABILITY_MODIFIER_SHIFT;
 				ClassFlags_text.Text = (flags | val).ToString();
@@ -557,8 +552,6 @@ namespace nwn2_ai_2da_editor
 			int flags;
 			if (Int32.TryParse(ClassFlags_text.Text, out flags))
 			{
-//				bypassCheckedChecker = true;
-
 				flags &= ~HENCH_CLASS_BUFF_OTHERS_LOW; // 0x00000c00 - acts as the mask also.
 				int val = cbo_cf_BuffOthers.SelectedIndex << HENCH_CLASS_BUFF_OTHERS_SHIFT;
 				ClassFlags_text.Text = (flags | val).ToString();
@@ -575,8 +568,6 @@ namespace nwn2_ai_2da_editor
 			int flags;
 			if (Int32.TryParse(ClassFlags_text.Text, out flags))
 			{
-//				bypassCheckedChecker = true;
-
 				flags &= ~HENCH_CLASS_ATTACK_LOW; // 0x00003000 - acts as the mask also.
 				int val = cbo_cf_Attack.SelectedIndex << HENCH_CLASS_ATTACK_SHIFT;
 				ClassFlags_text.Text = (flags | val).ToString();
@@ -593,8 +584,6 @@ namespace nwn2_ai_2da_editor
 			int flags;
 			if (Int32.TryParse(ClassFlags_text.Text, out flags))
 			{
-//				bypassCheckedChecker = true;
-
 				flags &= ~HENCH_FULL_SPELL_PROGRESSION; // 0x00000007 - acts as the mask also.
 				int val = cbo_cf_SpellProg.SelectedIndex;
 				ClassFlags_text.Text = (flags | val).ToString();
@@ -611,8 +600,6 @@ namespace nwn2_ai_2da_editor
 			int flags;
 			if (Int32.TryParse(ClassFlags_text.Text, out flags))
 			{
-//				bypassCheckedChecker = true;
-
 				flags &= ~HENCH_CLASS_SA_EVERY_FORTH; // 0x0001c000 - acts as the mask also.
 
 				int val;
@@ -694,7 +681,6 @@ namespace nwn2_ai_2da_editor
 				else
 					feat &= ~HENCH_FEAT_SPELL_CHEAT_CAST;
 
-//				bypassCheckedChecker = true;
 				tb.Text = feat.ToString();
 			}
 		}
@@ -879,95 +865,90 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void CheckClassFlagsCheckers(int flags)
 		{
-//			if (!bypassCheckedChecker)
-			{
-				cf_HasFeatSpells  .Checked = (flags & HENCH_CLASS_FEAT_SPELLS)         != 0;
-				cf_isPrestigeClass.Checked = (flags & HENCH_CLASS_PRC_FLAG)            != 0;
-				cf_DcBonus        .Checked = (flags & HENCH_CLASS_DC_BONUS_FLAG)       != 0;
-				cf_L4Required     .Checked = (flags & HENCH_CLASS_FOURTH_LEVEL_NEEDED) != 0;
+			cf_HasFeatSpells  .Checked = (flags & HENCH_CLASS_FEAT_SPELLS)         != 0;
+			cf_isPrestigeClass.Checked = (flags & HENCH_CLASS_PRC_FLAG)            != 0;
+			cf_DcBonus        .Checked = (flags & HENCH_CLASS_DC_BONUS_FLAG)       != 0;
+			cf_L4Required     .Checked = (flags & HENCH_CLASS_FOURTH_LEVEL_NEEDED) != 0;
 
-				bool divine = (flags & HENCH_CLASS_DIVINE_FLAG) != 0;
-				cf_rbDivine.Checked =  divine;
-				cf_rbArcane.Checked = !divine;
+			bool divine = (flags & HENCH_CLASS_DIVINE_FLAG) != 0;
+			cf_rbDivine.Checked =  divine;
+			cf_rbArcane.Checked = !divine;
 
 // Caster Ability dropdown-list
-				int val = flags;
-				val &= HENCH_CLASS_ABILITY_MODIFIER_MASK; // 0x00000300
-				val >>= HENCH_CLASS_ABILITY_MODIFIER_SHIFT;
-				if (val >= cbo_cf_Ability.Items.Count)
-				{
-					val = -1;
-					cbo_cf_Ability.ForeColor = Color.Crimson;
-				}
-				else
-					cbo_cf_Ability.ForeColor = DefaultForeColor;
+			int val = flags;
+			val &= HENCH_CLASS_ABILITY_MODIFIER_MASK; // 0x00000300
+			val >>= HENCH_CLASS_ABILITY_MODIFIER_SHIFT;
+			if (val >= cbo_cf_Ability.Items.Count)
+			{
+				val = -1;
+				cbo_cf_Ability.ForeColor = Color.Crimson;
+			}
+			else
+				cbo_cf_Ability.ForeColor = DefaultForeColor;
 
-				cbo_cf_Ability.SelectedIndex = val;
+			cbo_cf_Ability.SelectedIndex = val;
 
 // Buff Others dropdown-list
-				val = flags;
-				val &= HENCH_CLASS_BUFF_OTHERS_LOW; // 0x00000c00 - acts as the mask also.
-				val >>= HENCH_CLASS_BUFF_OTHERS_SHIFT;
-				if (val >= cbo_cf_BuffOthers.Items.Count)
-				{
-					val = -1;
-					cbo_cf_BuffOthers.ForeColor = Color.Crimson;
-				}
-				else
-					cbo_cf_BuffOthers.ForeColor = DefaultForeColor;
+			val = flags;
+			val &= HENCH_CLASS_BUFF_OTHERS_LOW; // 0x00000c00 - acts as the mask also.
+			val >>= HENCH_CLASS_BUFF_OTHERS_SHIFT;
+			if (val >= cbo_cf_BuffOthers.Items.Count)
+			{
+				val = -1;
+				cbo_cf_BuffOthers.ForeColor = Color.Crimson;
+			}
+			else
+				cbo_cf_BuffOthers.ForeColor = DefaultForeColor;
 
-				cbo_cf_BuffOthers.SelectedIndex = val;
+			cbo_cf_BuffOthers.SelectedIndex = val;
 
 // Attack dropdown-list
-				val = flags;
-				val &= HENCH_CLASS_ATTACK_LOW; // 0x00003000 - acts as the mask also.
-				val >>= HENCH_CLASS_ATTACK_SHIFT;
-				if (val >= cbo_cf_Attack.Items.Count)
-				{
-					val = -1;
-					cbo_cf_Attack.ForeColor = Color.Crimson;
-				}
-				else
-					cbo_cf_Attack.ForeColor = DefaultForeColor;
+			val = flags;
+			val &= HENCH_CLASS_ATTACK_LOW; // 0x00003000 - acts as the mask also.
+			val >>= HENCH_CLASS_ATTACK_SHIFT;
+			if (val >= cbo_cf_Attack.Items.Count)
+			{
+				val = -1;
+				cbo_cf_Attack.ForeColor = Color.Crimson;
+			}
+			else
+				cbo_cf_Attack.ForeColor = DefaultForeColor;
 
-				cbo_cf_Attack.SelectedIndex = val;
+			cbo_cf_Attack.SelectedIndex = val;
 
 // Spell Progression dropdown-list
-				val = flags;
-				val &= HENCH_FULL_SPELL_PROGRESSION; // 0x00000007 - acts as the mask also.
-				if (val >= cbo_cf_SpellProg.Items.Count)
-				{
-					val = -1;
-					cbo_cf_SpellProg.ForeColor = Color.Crimson;
-				}
-				else
-					cbo_cf_SpellProg.ForeColor = DefaultForeColor;
+			val = flags;
+			val &= HENCH_FULL_SPELL_PROGRESSION; // 0x00000007 - acts as the mask also.
+			if (val >= cbo_cf_SpellProg.Items.Count)
+			{
+				val = -1;
+				cbo_cf_SpellProg.ForeColor = Color.Crimson;
+			}
+			else
+				cbo_cf_SpellProg.ForeColor = DefaultForeColor;
 
-				cbo_cf_SpellProg.SelectedIndex = val;
+			cbo_cf_SpellProg.SelectedIndex = val;
 
 // Sneak Attack dropdown-list
-				cbo_cf_SneakAttack.ForeColor = DefaultForeColor;
+			cbo_cf_SneakAttack.ForeColor = DefaultForeColor;
 
-				switch (flags & HENCH_CLASS_SA_EVERY_FORTH) // 0x0001c000 - acts as flag also.
-				{
-					case HENCH_CLASS_SA_NONE:                   val = 0; break; // 0x00000000
-					case HENCH_CLASS_SA_EVERY_OTHER_ODD:        val = 1; break; // 0x00004000
-					case HENCH_CLASS_SA_EVERY_OTHER_EVEN:       val = 2; break; // 0x00008000
-					case HENCH_CLASS_SA_EVERY_THIRD_SKIP_FIRST: val = 3; break; // 0x0000c000
-					case HENCH_CLASS_SA_EVERY_THIRD:            val = 4; break; // 0x00010000
-					case HENCH_CLASS_SA_EVERY_THIRD_FROM_TWO:   val = 5; break; // 0x00014000
-					case HENCH_CLASS_SA_EVERY_THIRD_FROM_ONE:   val = 6; break; // 0x00018000
-					case HENCH_CLASS_SA_EVERY_FORTH:            val = 7; break; // 0x0001c000
+			switch (flags & HENCH_CLASS_SA_EVERY_FORTH) // 0x0001c000 - acts as flag also.
+			{
+				case HENCH_CLASS_SA_NONE:                   val = 0; break; // 0x00000000
+				case HENCH_CLASS_SA_EVERY_OTHER_ODD:        val = 1; break; // 0x00004000
+				case HENCH_CLASS_SA_EVERY_OTHER_EVEN:       val = 2; break; // 0x00008000
+				case HENCH_CLASS_SA_EVERY_THIRD_SKIP_FIRST: val = 3; break; // 0x0000c000
+				case HENCH_CLASS_SA_EVERY_THIRD:            val = 4; break; // 0x00010000
+				case HENCH_CLASS_SA_EVERY_THIRD_FROM_TWO:   val = 5; break; // 0x00014000
+				case HENCH_CLASS_SA_EVERY_THIRD_FROM_ONE:   val = 6; break; // 0x00018000
+				case HENCH_CLASS_SA_EVERY_FORTH:            val = 7; break; // 0x0001c000
 
-					default:
-						val = -1;
-						cbo_cf_SneakAttack.ForeColor = Color.Crimson;
-						break;
-				}
-				cbo_cf_SneakAttack.SelectedIndex = val;
+				default:
+					val = -1;
+					cbo_cf_SneakAttack.ForeColor = Color.Crimson;
+					break;
 			}
-//			else
-//				bypassCheckedChecker = false; // TODO: conflict w/ CheckClassFeatsCheckers()
+			cbo_cf_SneakAttack.SelectedIndex = val;
 		}
 
 		/// <summary>
@@ -977,127 +958,122 @@ namespace nwn2_ai_2da_editor
 		/// <param name="tb"></param>
 		void CheckClassFeatsCheckers(Control tb)
 		{
-//			if (!bypassCheckedChecker)
+			int feat;
+			if (Int32.TryParse(tb.Text, out feat))
 			{
-				int feat;
-				if (Int32.TryParse(tb.Text, out feat))
+				CheckBox cb;
+				TextBox tb_feat, tb_spell;
+				Label lbl_feat, lbl_spell;
+
+				if (tb == ClassFeat1_text)
 				{
-					CheckBox cb;
-					TextBox tb_feat, tb_spell;
-					Label lbl_feat, lbl_spell;
+					cb        = cf1_cheatCast;
+					tb_feat   = cf1_FeatId;
+					tb_spell  = cf1_SpellId;
+					lbl_feat  = cf1_FeatLabel;
+					lbl_spell = cf1_SpellLabel;
+				}
+				else if (tb == ClassFeat2_text)
+				{
+					cb        = cf2_cheatCast;
+					tb_feat   = cf2_FeatId;
+					tb_spell  = cf2_SpellId;
+					lbl_feat  = cf2_FeatLabel;
+					lbl_spell = cf2_SpellLabel;
+				}
+				else if (tb == ClassFeat3_text)
+				{
+					cb        = cf3_cheatCast;
+					tb_feat   = cf3_FeatId;
+					tb_spell  = cf3_SpellId;
+					lbl_feat  = cf3_FeatLabel;
+					lbl_spell = cf3_SpellLabel;
+				}
+				else if (tb == ClassFeat4_text)
+				{
+					cb        = cf4_cheatCast;
+					tb_feat   = cf4_FeatId;
+					tb_spell  = cf4_SpellId;
+					lbl_feat  = cf4_FeatLabel;
+					lbl_spell = cf4_SpellLabel;
+				}
+				else if (tb == ClassFeat5_text)
+				{
+					cb        = cf5_cheatCast;
+					tb_feat   = cf5_FeatId;
+					tb_spell  = cf5_SpellId;
+					lbl_feat  = cf5_FeatLabel;
+					lbl_spell = cf5_SpellLabel;
+				}
+				else if (tb == ClassFeat6_text)
+				{
+					cb        = cf6_cheatCast;
+					tb_feat   = cf6_FeatId;
+					tb_spell  = cf6_SpellId;
+					lbl_feat  = cf6_FeatLabel;
+					lbl_spell = cf6_SpellLabel;
+				}
+				else if (tb == ClassFeat7_text)
+				{
+					cb        = cf7_cheatCast;
+					tb_feat   = cf7_FeatId;
+					tb_spell  = cf7_SpellId;
+					lbl_feat  = cf7_FeatLabel;
+					lbl_spell = cf7_SpellLabel;
+				}
+				else if (tb == ClassFeat8_text)
+				{
+					cb        = cf8_cheatCast;
+					tb_feat   = cf8_FeatId;
+					tb_spell  = cf8_SpellId;
+					lbl_feat  = cf8_FeatLabel;
+					lbl_spell = cf8_SpellLabel;
+				}
+				else if (tb == ClassFeat9_text)
+				{
+					cb        = cf9_cheatCast;
+					tb_feat   = cf9_FeatId;
+					tb_spell  = cf9_SpellId;
+					lbl_feat  = cf9_FeatLabel;
+					lbl_spell = cf9_SpellLabel;
+				}
+				else if (tb == ClassFeat10_text)
+				{
+					cb        = cf10_cheatCast;
+					tb_feat   = cf10_FeatId;
+					tb_spell  = cf10_SpellId;
+					lbl_feat  = cf10_FeatLabel;
+					lbl_spell = cf10_SpellLabel;
+				}
+				else //if (tb == ClassFeat11_text)
+				{
+					cb        = cf11_cheatCast;
+					tb_feat   = cf11_FeatId;
+					tb_spell  = cf11_SpellId;
+					lbl_feat  = cf11_FeatLabel;
+					lbl_spell = cf11_SpellLabel;
+				}
 
-					if (tb == ClassFeat1_text)
-					{
-						cb        = cf1_cheatCast;
-						tb_feat   = cf1_FeatId;
-						tb_spell  = cf1_SpellId;
-						lbl_feat  = cf1_FeatLabel;
-						lbl_spell = cf1_SpellLabel;
-					}
-					else if (tb == ClassFeat2_text)
-					{
-						cb        = cf2_cheatCast;
-						tb_feat   = cf2_FeatId;
-						tb_spell  = cf2_SpellId;
-						lbl_feat  = cf2_FeatLabel;
-						lbl_spell = cf2_SpellLabel;
-					}
-					else if (tb == ClassFeat3_text)
-					{
-						cb        = cf3_cheatCast;
-						tb_feat   = cf3_FeatId;
-						tb_spell  = cf3_SpellId;
-						lbl_feat  = cf3_FeatLabel;
-						lbl_spell = cf3_SpellLabel;
-					}
-					else if (tb == ClassFeat4_text)
-					{
-						cb        = cf4_cheatCast;
-						tb_feat   = cf4_FeatId;
-						tb_spell  = cf4_SpellId;
-						lbl_feat  = cf4_FeatLabel;
-						lbl_spell = cf4_SpellLabel;
-					}
-					else if (tb == ClassFeat5_text)
-					{
-						cb        = cf5_cheatCast;
-						tb_feat   = cf5_FeatId;
-						tb_spell  = cf5_SpellId;
-						lbl_feat  = cf5_FeatLabel;
-						lbl_spell = cf5_SpellLabel;
-					}
-					else if (tb == ClassFeat6_text)
-					{
-						cb        = cf6_cheatCast;
-						tb_feat   = cf6_FeatId;
-						tb_spell  = cf6_SpellId;
-						lbl_feat  = cf6_FeatLabel;
-						lbl_spell = cf6_SpellLabel;
-					}
-					else if (tb == ClassFeat7_text)
-					{
-						cb        = cf7_cheatCast;
-						tb_feat   = cf7_FeatId;
-						tb_spell  = cf7_SpellId;
-						lbl_feat  = cf7_FeatLabel;
-						lbl_spell = cf7_SpellLabel;
-					}
-					else if (tb == ClassFeat8_text)
-					{
-						cb        = cf8_cheatCast;
-						tb_feat   = cf8_FeatId;
-						tb_spell  = cf8_SpellId;
-						lbl_feat  = cf8_FeatLabel;
-						lbl_spell = cf8_SpellLabel;
-					}
-					else if (tb == ClassFeat9_text)
-					{
-						cb        = cf9_cheatCast;
-						tb_feat   = cf9_FeatId;
-						tb_spell  = cf9_SpellId;
-						lbl_feat  = cf9_FeatLabel;
-						lbl_spell = cf9_SpellLabel;
-					}
-					else if (tb == ClassFeat10_text)
-					{
-						cb        = cf10_cheatCast;
-						tb_feat   = cf10_FeatId;
-						tb_spell  = cf10_SpellId;
-						lbl_feat  = cf10_FeatLabel;
-						lbl_spell = cf10_SpellLabel;
-					}
-					else //if (tb == ClassFeat11_text)
-					{
-						cb        = cf11_cheatCast;
-						tb_feat   = cf11_FeatId;
-						tb_spell  = cf11_SpellId;
-						lbl_feat  = cf11_FeatLabel;
-						lbl_spell = cf11_SpellLabel;
-					}
+				cb.Checked = (feat & HENCH_FEAT_SPELL_CHEAT_CAST) != 0;
 
-					cb.Checked = (feat & HENCH_FEAT_SPELL_CHEAT_CAST) != 0;
+				int val = (feat & HENCH_FEAT_SPELL_MASK_FEAT);
+				tb_feat.Text = val.ToString();
 
-					int val = (feat & HENCH_FEAT_SPELL_MASK_FEAT);
-					tb_feat.Text = val.ToString();
+				if (featsLabels.Count != 0
+					&& val < featsLabels.Count)
+				{
+					lbl_feat.Text = featsLabels[val];
+				}
 
-					if (featsLabels.Count != 0
-						&& val < featsLabels.Count)
-					{
-						lbl_feat.Text = featsLabels[val];
-					}
+				val = (feat & HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
+				tb_spell.Text = val.ToString();
 
-					val = (feat & HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
-					tb_spell.Text = val.ToString();
-
-					if (spellLabels.Count != 0
-						&& val < spellLabels.Count)
-					{
-						lbl_spell.Text = spellLabels[val];
-					}
+				if (spellLabels.Count != 0
+					&& val < spellLabels.Count)
+				{
+					lbl_spell.Text = spellLabels[val];
 				}
 			}
-//			else
-//				bypassCheckedChecker = false; // TODO: conflict w/ CheckClassFlagsCheckers()
 		}
 	}
 }
