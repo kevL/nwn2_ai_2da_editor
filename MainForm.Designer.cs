@@ -900,9 +900,9 @@
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.Quit = new System.Windows.Forms.ToolStripMenuItem();
 			this.edit = new System.Windows.Forms.ToolStripMenuItem();
-			this.applyGlobal = new System.Windows.Forms.ToolStripMenuItem();
-			this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
 			this.gotoNextChanged = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+			this.applyGlobal = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.Copy_decimal = new System.Windows.Forms.ToolStripMenuItem();
 			this.Copy_hexadecimal = new System.Windows.Forms.ToolStripMenuItem();
@@ -4549,6 +4549,7 @@
 			// 
 			// Save
 			// 
+			this.Save.Enabled = false;
 			this.Save.Name = "Save";
 			this.Save.Padding = new System.Windows.Forms.Padding(0);
 			this.Save.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
@@ -4558,6 +4559,7 @@
 			// 
 			// Saveas
 			// 
+			this.Saveas.Enabled = false;
 			this.Saveas.Name = "Saveas";
 			this.Saveas.Padding = new System.Windows.Forms.Padding(0);
 			this.Saveas.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
@@ -4593,21 +4595,6 @@
 			this.edit.Size = new System.Drawing.Size(37, 20);
 			this.edit.Text = "Edit";
 			// 
-			// applyGlobal
-			// 
-			this.applyGlobal.Enabled = false;
-			this.applyGlobal.Name = "applyGlobal";
-			this.applyGlobal.Padding = new System.Windows.Forms.Padding(0);
-			this.applyGlobal.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
-			this.applyGlobal.Size = new System.Drawing.Size(195, 20);
-			this.applyGlobal.Text = "global Apply";
-			this.applyGlobal.Click += new System.EventHandler(this.Click_applyGlobal);
-			// 
-			// toolStripSeparator5
-			// 
-			this.toolStripSeparator5.Name = "toolStripSeparator5";
-			this.toolStripSeparator5.Size = new System.Drawing.Size(192, 6);
-			// 
 			// gotoNextChanged
 			// 
 			this.gotoNextChanged.Enabled = false;
@@ -4618,6 +4605,21 @@
 			this.gotoNextChanged.Text = "go to next changed";
 			this.gotoNextChanged.Click += new System.EventHandler(this.Click_gotonextchanged);
 			// 
+			// toolStripSeparator5
+			// 
+			this.toolStripSeparator5.Name = "toolStripSeparator5";
+			this.toolStripSeparator5.Size = new System.Drawing.Size(192, 6);
+			// 
+			// applyGlobal
+			// 
+			this.applyGlobal.Enabled = false;
+			this.applyGlobal.Name = "applyGlobal";
+			this.applyGlobal.Padding = new System.Windows.Forms.Padding(0);
+			this.applyGlobal.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
+			this.applyGlobal.Size = new System.Drawing.Size(195, 20);
+			this.applyGlobal.Text = "global Apply";
+			this.applyGlobal.Click += new System.EventHandler(this.Click_applyGlobal);
+			// 
 			// toolStripSeparator3
 			// 
 			this.toolStripSeparator3.Name = "toolStripSeparator3";
@@ -4625,6 +4627,7 @@
 			// 
 			// Copy_decimal
 			// 
+			this.Copy_decimal.Enabled = false;
 			this.Copy_decimal.Name = "Copy_decimal";
 			this.Copy_decimal.Padding = new System.Windows.Forms.Padding(0);
 			this.Copy_decimal.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
@@ -4634,6 +4637,7 @@
 			// 
 			// Copy_hexadecimal
 			// 
+			this.Copy_hexadecimal.Enabled = false;
 			this.Copy_hexadecimal.Name = "Copy_hexadecimal";
 			this.Copy_hexadecimal.Padding = new System.Windows.Forms.Padding(0);
 			this.Copy_hexadecimal.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
@@ -4643,6 +4647,7 @@
 			// 
 			// Copy_binary
 			// 
+			this.Copy_binary.Enabled = false;
 			this.Copy_binary.Name = "Copy_binary";
 			this.Copy_binary.Padding = new System.Windows.Forms.Padding(0);
 			this.Copy_binary.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
@@ -4702,6 +4707,7 @@
 			// 
 			// setCoreAIver
 			// 
+			this.setCoreAIver.Enabled = false;
 			this.setCoreAIver.Name = "setCoreAIver";
 			this.setCoreAIver.Padding = new System.Windows.Forms.Padding(0);
 			this.setCoreAIver.Size = new System.Drawing.Size(185, 20);

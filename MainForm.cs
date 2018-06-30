@@ -193,11 +193,6 @@ namespace nwn2_ai_2da_editor
 			ActiveControl = tb_Search; // focus the Search-box
 
 
-			// disable menu-items till they become legitimate
-			// TODO: Set these false in the designer.
-			ToggleMenuitems(false);
-
-
 			Size = new Size(800, 480);
 
 			cols_HenchRacial .Location =
@@ -421,7 +416,7 @@ namespace nwn2_ai_2da_editor
 			}								// - SpellID (Spells.2da row#)
 
 			PopTree();
-			ToggleMenuitems(true);
+			MenuitemsEnable();
 
 			// Groups on SpellInfo and TargetInfo generally stay green
 			// (unless SpellInfo is flagged as a MasterID)
@@ -529,7 +524,7 @@ namespace nwn2_ai_2da_editor
 			}								// - SubRaceID (RacialSubtypes.2da row#)
 
 			PopTree();
-			ToggleMenuitems(true);
+			MenuitemsEnable();
 
 
 			// TODO: this doesn't work as intended if the window is currently
@@ -667,7 +662,7 @@ namespace nwn2_ai_2da_editor
 			}								// - ClassID (Classes.2da row#)
 
 			PopTree();
-			ToggleMenuitems(true);
+			MenuitemsEnable();
 
 
 			// TODO: this doesn't work as intended if the window is currently
@@ -766,12 +761,11 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Enables/disables several menu-items.
+		/// Enables several menu-items.
 		/// NOTE: Calls to this need to be adjusted if a Close 2da function is
 		/// added - and perhaps if a 2da fails to load leaving a blank tree.
 		/// </summary>
-		/// <param name="enable"></param>
-		void ToggleMenuitems(bool enable)
+		void MenuitemsEnable()
 		{
 			Save            .Enabled =			// file ->
 			Saveas          .Enabled =
@@ -780,7 +774,7 @@ namespace nwn2_ai_2da_editor
 			Copy_hexadecimal.Enabled =
 			Copy_binary     .Enabled =
 
-			setCoreAIver    .Enabled = enable;	// options.
+			setCoreAIver    .Enabled = true;	// options.
 		}
 		#endregion Load
 
