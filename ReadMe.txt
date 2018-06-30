@@ -2,8 +2,8 @@ nwn2_ai_2da_editor
 A HenchSpells.2da editor for TonyK's Companion and Monster AI 2.2
 
 --
-ver 1.2
-2018 jun 29
+ver 1.2.1
+2018 jun 30
 
 --
 Requirements
@@ -18,6 +18,8 @@ This is a standalone application. It requires no ini-files nor does it read or
 write to the Windows Registry.
 
 Note for developers: A logfile.txt will be created by debug-builds only.
+
+GIT repo: https://github.com/kevL/nwn2_ai_2da_editor
 
 --
 Manifest
