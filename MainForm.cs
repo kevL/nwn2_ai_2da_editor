@@ -195,15 +195,12 @@ namespace nwn2_ai_2da_editor
 
 			Size = new Size(800, 480);
 
+			// move the Racial and Classes tab-pages to correct positions
 			cols_HenchRacial .Location =
 			cols_HenchClasses.Location = cols_HenchSpells.Location;
 
-			cols_HenchSpells .Visible =
-			cols_HenchRacial .Visible =
-			cols_HenchClasses.Visible = false;
 
-
-			// NOTE: quickload the 2da for testing ONLY.
+			// NOTE: quickload a 2da for testing ONLY.
 //			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchspells.2da";
 //			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchracial.2da";
 //			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchclasses.2da";

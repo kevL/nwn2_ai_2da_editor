@@ -1297,6 +1297,7 @@
 			this.cols_HenchSpells.SelectedIndex = 0;
 			this.cols_HenchSpells.Size = new System.Drawing.Size(820, 455);
 			this.cols_HenchSpells.TabIndex = 0;
+			this.cols_HenchSpells.Visible = false;
 			this.cols_HenchSpells.SelectedIndexChanged += new System.EventHandler(this.SelectedIndexChanged_tab);
 			// 
 			// page_SpellInfo
@@ -4828,6 +4829,7 @@
 			this.cols_HenchClasses.SelectedIndex = 0;
 			this.cols_HenchClasses.Size = new System.Drawing.Size(1070, 210);
 			this.cols_HenchClasses.TabIndex = 3;
+			this.cols_HenchClasses.Visible = false;
 			this.cols_HenchClasses.SelectedIndexChanged += new System.EventHandler(this.SelectedIndexChanged_tab);
 			// 
 			// page_ClassFlags
@@ -6957,6 +6959,7 @@
 			this.cols_HenchRacial.SelectedIndex = 0;
 			this.cols_HenchRacial.Size = new System.Drawing.Size(820, 265);
 			this.cols_HenchRacial.TabIndex = 2;
+			this.cols_HenchRacial.Visible = false;
 			this.cols_HenchRacial.SelectedIndexChanged += new System.EventHandler(this.SelectedIndexChanged_tab);
 			// 
 			// page_RacialFlags
