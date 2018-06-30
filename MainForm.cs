@@ -322,12 +322,11 @@ namespace nwn2_ai_2da_editor
 		{
 			Type = Type2da.TYPE_SPELLS;
 
+			ClearData();
+
 			cols_HenchSpells .Visible = true;
 			cols_HenchRacial .Visible =
 			cols_HenchClasses.Visible = false;
-
-
-			ClearData();
 
 			SpellInfo_reset   .ForeColor = DefaultForeColor;
 			TargetInfo_reset  .ForeColor = DefaultForeColor;
@@ -412,8 +411,7 @@ namespace nwn2_ai_2da_editor
 				}							// - HenchSpells.2da row#
 			}								// - SpellID (Spells.2da row#)
 
-			PopTree();
-			MenuitemsEnable();
+			TreeGrowth();
 
 			// Groups on SpellInfo and TargetInfo generally stay green
 			// (unless SpellInfo is flagged as a MasterID)
@@ -444,11 +442,11 @@ namespace nwn2_ai_2da_editor
 		{
 			Type = Type2da.TYPE_RACIAL;
 
+			ClearData();
+
 			cols_HenchSpells .Visible = false;
 			cols_HenchRacial .Visible = true;
 			cols_HenchClasses.Visible = false;
-
-			ClearData();
 
 			RacialFlags_reset.ForeColor = DefaultForeColor;
 			RacialFeat1_reset.ForeColor = DefaultForeColor;
@@ -520,9 +518,7 @@ namespace nwn2_ai_2da_editor
 				}							// - HenchRacial.2da row#
 			}								// - SubRaceID (RacialSubtypes.2da row#)
 
-			PopTree();
-			MenuitemsEnable();
-
+			TreeGrowth();
 
 			// TODO: this doesn't work as intended if the window is currently
 			// maximized.
@@ -540,11 +536,11 @@ namespace nwn2_ai_2da_editor
 		{
 			Type = Type2da.TYPE_CLASSES;
 
+			ClearData();
+
 			cols_HenchSpells .Visible =
 			cols_HenchRacial .Visible = false;
 			cols_HenchClasses.Visible = true;
-
-			ClearData();
 
 			ClassFlags_reset .ForeColor = DefaultForeColor;
 			ClassFeat1_reset .ForeColor = DefaultForeColor;
@@ -658,9 +654,7 @@ namespace nwn2_ai_2da_editor
 				}							// - HenchClasses.2da row#
 			}								// - ClassID (Classes.2da row#)
 
-			PopTree();
-			MenuitemsEnable();
-
+			TreeGrowth();
 
 			// TODO: this doesn't work as intended if the window is currently
 			// maximized.
@@ -671,8 +665,10 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Populates nodes in the tree.
 		/// </summary>
-		void PopTree()
+		void TreeGrowth()
 		{
+			MenuEnable();
+
 			Tree.BeginUpdate();
 
 			Tree.Nodes.Clear();
@@ -762,7 +758,7 @@ namespace nwn2_ai_2da_editor
 		/// NOTE: Calls to this need to be adjusted if a Close 2da function is
 		/// added - and perhaps if a 2da fails to load leaving a blank tree.
 		/// </summary>
-		void MenuitemsEnable()
+		void MenuEnable()
 		{
 			Save            .Enabled =			// file ->
 			Saveas          .Enabled =
