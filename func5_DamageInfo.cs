@@ -81,9 +81,9 @@ namespace nwn2_ai_2da_editor
 							Tree.SelectedNode.ForeColor = DefaultForeColor;
 						}
 					}
-
-					PrintCurrent(damageinfo, null, DamageInfo_hex, DamageInfo_bin);
 				}
+
+				PrintCurrent(damageinfo, DamageInfo_hex, DamageInfo_bin);
 
 				if ((Spells[Id].differ & bit_damageinfo) != 0)
 				{

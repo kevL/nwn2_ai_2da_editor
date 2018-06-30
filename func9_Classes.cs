@@ -31,8 +31,16 @@ namespace nwn2_ai_2da_editor
 				TextBox tb_hex, tb_bin;
 				int bit;
 
-				if (tb == ClassFlags_text)
+				bool isFlags = (tb == ClassFlags_text);
+
+				if (isFlags)
 				{
+					if (InfoVersionChange_class(ref val))
+					{
+						ClassFlags_text.Text = val.ToString();
+						return; // refire this funct.
+					}
+
 					btn    = ClassFlags_reset;
 					tb_hex = ClassFlags_hex;
 					tb_bin = ClassFlags_bin;
@@ -118,19 +126,6 @@ namespace nwn2_ai_2da_editor
 
 				if (!bypassTextChanged)
 				{
-					// ensure that class-flags has a CoreAI version
-					// NOTE that ClassInfo always has a Version (unlike spellinfo)
-					if (tb == ClassFlags_text
-						&& (val & HENCH_SPELL_INFO_VERSION_MASK) == 0)
-					{
-						val |= HENCH_SPELL_INFO_VERSION; // insert the default version #
-						ClassFlags_text.Text = val.ToString();
-						return; // re-fire this funct.
-					}
-					// TODO: Those need to update the fields when loading the 2da
-					// ... especially the Text-field/reset-color. And the spell-tree's node-color
-
-
 					Class clas = Classes[Id];
 
 					ClassChanged claschanged;
@@ -157,7 +152,7 @@ namespace nwn2_ai_2da_editor
 						claschanged.feat11 = clas.feat11;
 					}
 
-					if (tb == ClassFlags_text)
+					if (isFlags)
 					{
 						claschanged.flags = val;
 					}
@@ -225,9 +220,9 @@ namespace nwn2_ai_2da_editor
 							Tree.SelectedNode.ForeColor = DefaultForeColor;
 						}
 					}
-
-					PrintCurrent(val, null, tb_hex, tb_bin);
 				}
+
+				PrintCurrent(val, tb_hex, tb_bin);
 
 				if ((Classes[Id].differ & bit) != 0)
 				{
@@ -236,7 +231,7 @@ namespace nwn2_ai_2da_editor
 				else
 					btn.ForeColor = DefaultForeColor;
 
-				if (tb == ClassFlags_text)
+				if (isFlags)
 				{
 					CheckClassFlagsCheckers(val);
 					PrintInfoVersion_class(val);
@@ -252,6 +247,71 @@ namespace nwn2_ai_2da_editor
 //				bypassCheckedChecker = false; // TODO: This funct will fire multiple times OnLoad ...
 			}
 			// else TODO: error dialog here.
+		}
+
+		/// <summary>
+		/// Updates InfoVersion for the current class.
+		/// </summary>
+		/// <param name="val"></param>
+		/// <returns></returns>
+		bool InfoVersionChange_class(ref int val)
+		{
+			// ensure that class-flags has a CoreAI version
+			// NOTE that ClassInfo always has a Version (unlike spellinfo)
+			if ((val & HENCH_SPELL_INFO_VERSION_MASK) == 0)
+			{
+				val |= HENCH_SPELL_INFO_VERSION; // insert the default version #
+
+				Class clas = Classes[Id];
+	
+				ClassChanged claschanged;
+	
+				if (ClassesChanged.ContainsKey(Id))
+				{
+					claschanged = ClassesChanged[Id];
+				}
+				else
+				{
+					claschanged = new ClassChanged();
+	
+					claschanged.feat1  = clas.feat1;
+					claschanged.feat2  = clas.feat2;
+					claschanged.feat3  = clas.feat3;
+					claschanged.feat4  = clas.feat4;
+					claschanged.feat5  = clas.feat5;
+					claschanged.feat6  = clas.feat6;
+					claschanged.feat7  = clas.feat7;
+					claschanged.feat8  = clas.feat8;
+					claschanged.feat9  = clas.feat9;
+					claschanged.feat10 = clas.feat10;
+					claschanged.feat11 = clas.feat11;
+				}
+	
+				claschanged.flags = val;
+	
+				// check it
+				int differ = ClassDiffer(clas, claschanged);
+				clas.differ = differ;
+				Classes[Id] = clas;
+	
+				if (differ != bit_clear)
+				{
+					ClassesChanged[Id] = claschanged;
+					Tree.SelectedNode.ForeColor = Color.Crimson;
+				}
+				else
+				{
+					ClassesChanged.Remove(Id);
+	
+					if (!clas.isChanged) // this is set by the Apply btn only.
+					{
+						Tree.SelectedNode.ForeColor = DefaultForeColor;
+					}
+				}
+
+				return true;
+			}
+			return false;
 		}
 
 		/// <summary>

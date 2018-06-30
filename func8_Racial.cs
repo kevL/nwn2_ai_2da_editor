@@ -31,8 +31,16 @@ namespace nwn2_ai_2da_editor
 				TextBox tb_hex, tb_bin;
 				int bit;
 
-				if (tb == RacialFlags_text)
+				bool isFlags = (tb == RacialFlags_text);
+
+				if (isFlags)
 				{
+					if (InfoVersionChange_racial(ref val))
+					{
+						RacialFlags_text.Text = val.ToString();
+						return; // refire this funct.
+					}
+
 					btn    = RacialFlags_reset;
 					tb_hex = RacialFlags_hex;
 					tb_bin = RacialFlags_bin;
@@ -76,19 +84,6 @@ namespace nwn2_ai_2da_editor
 
 				if (!bypassTextChanged)
 				{
-					// ensure that racial-flags has a CoreAI version
-					// NOTE that RacialInfo always has a Version (unlike spellinfo)
-					if (tb == RacialFlags_text
-						&& (val & HENCH_SPELL_INFO_VERSION_MASK) == 0)
-					{
-						val |= HENCH_SPELL_INFO_VERSION; // insert the default version #
-						RacialFlags_text.Text = val.ToString();
-						return; // re-fire this funct.
-					}
-					// TODO: Those need to update the fields when loading the 2da
-					// ... especially the Text-field/reset-color. And the spell-tree's node-color
-
-
 					Race race = Races[Id];
 
 					RaceChanged racechanged;
@@ -109,7 +104,7 @@ namespace nwn2_ai_2da_editor
 						racechanged.feat5 = race.feat5;
 					}
 
-					if (tb == RacialFlags_text)
+					if (isFlags)
 					{
 						racechanged.flags = val;
 					}
@@ -153,9 +148,9 @@ namespace nwn2_ai_2da_editor
 							Tree.SelectedNode.ForeColor = DefaultForeColor;
 						}
 					}
-
-					PrintCurrent(val, null, tb_hex, tb_bin);
 				}
+
+				PrintCurrent(val, tb_hex, tb_bin);
 
 				if ((Races[Id].differ & bit) != 0)
 				{
@@ -164,7 +159,7 @@ namespace nwn2_ai_2da_editor
 				else
 					btn.ForeColor = DefaultForeColor;
 
-				if (tb == RacialFlags_text)
+				if (isFlags)
 				{
 					CheckRacialFlagsCheckers(val);
 					PrintInfoVersion_race(val);
@@ -180,6 +175,65 @@ namespace nwn2_ai_2da_editor
 //				bypassCheckedChecker = false; // TODO: This funct will fire multiple times OnLoad ...
 			}
 			// else TODO: error dialog here.
+		}
+
+		/// <summary>
+		/// Updates InfoVersion for the current race.
+		/// </summary>
+		/// <param name="val"></param>
+		/// <returns></returns>
+		bool InfoVersionChange_racial(ref int val)
+		{
+			// ensure that racial-flags has a CoreAI version
+			// NOTE that RacialInfo always has a Version (unlike spellinfo)
+			if ((val & HENCH_SPELL_INFO_VERSION_MASK) == 0)
+			{
+				val |= HENCH_SPELL_INFO_VERSION; // insert the default version #
+
+				Race race = Races[Id];
+
+				RaceChanged racechanged;
+
+				if (RacesChanged.ContainsKey(Id))
+				{
+					racechanged = RacesChanged[Id];
+				}
+				else
+				{
+					racechanged = new RaceChanged();
+
+					racechanged.feat1 = race.feat1;
+					racechanged.feat2 = race.feat2;
+					racechanged.feat3 = race.feat3;
+					racechanged.feat4 = race.feat4;
+					racechanged.feat5 = race.feat5;
+				}
+
+				racechanged.flags = val;
+
+				// check it
+				int differ = RaceDiffer(race, racechanged);
+				race.differ = differ;
+				Races[Id] = race;
+
+				if (differ != bit_clear)
+				{
+					RacesChanged[Id] = racechanged;
+					Tree.SelectedNode.ForeColor = Color.Crimson;
+				}
+				else
+				{
+					RacesChanged.Remove(Id);
+
+					if (!race.isChanged) // this is set by the Apply btn only.
+					{
+						Tree.SelectedNode.ForeColor = DefaultForeColor;
+					}
+				}
+
+				return true;
+			}
+			return false;
 		}
 
 		/// <summary>

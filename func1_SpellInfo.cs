@@ -97,9 +97,9 @@ namespace nwn2_ai_2da_editor
 							Tree.SelectedNode.ForeColor = DefaultForeColor;
 						}
 					}
-
-					PrintCurrent(spellinfo, null, SpellInfo_hex, SpellInfo_bin);
 				}
+
+				PrintCurrent(spellinfo, SpellInfo_hex, SpellInfo_bin);
 
 				if ((Spells[Id].differ & bit_spellinfo) != 0)
 				{

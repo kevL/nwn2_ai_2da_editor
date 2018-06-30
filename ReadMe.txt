@@ -242,6 +242,9 @@ do not refresh automatically in the editor. Simply click a different node on
 the node-tree (on the left side of the editor) and click back to the entry that
 you're working on, and the spell/feat labels should then display okay.
 
+Note that the label-data is not stored between runs of the editor; it goes
+~poof~ when the editor closes. (I don't want to deal with config-files.)
+
 The above instructions assume that RacialSubtypes.2da, Classes.2da, Spells.2da,
 and Feat.2da have been broken out of the NwN2 installation-folder. Tip: Copy
 those four 2das along with working copies of the Hench*.2da files to a scratch-

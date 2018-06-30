@@ -65,9 +65,9 @@ namespace nwn2_ai_2da_editor
 							Tree.SelectedNode.ForeColor = DefaultForeColor;
 						}
 					}
-
-					PrintCurrent(savedctype, null, SaveDCType_hex, SaveDCType_bin);
 				}
+
+				PrintCurrent(savedctype, SaveDCType_hex, SaveDCType_bin);
 
 				if ((Spells[Id].differ & bit_savedctype) != 0)
 				{

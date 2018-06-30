@@ -72,9 +72,9 @@ namespace nwn2_ai_2da_editor
 							Tree.SelectedNode.ForeColor = DefaultForeColor;
 						}
 					}
-
-					PrintCurrent(effecttypes, null, EffectTypes_hex, EffectTypes_bin);
 				}
+
+				PrintCurrent(effecttypes, EffectTypes_hex, EffectTypes_bin);
 
 				if ((Spells[Id].differ & bit_effecttypes) != 0)
 				{

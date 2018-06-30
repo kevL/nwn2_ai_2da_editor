@@ -852,8 +852,7 @@ namespace nwn2_ai_2da_editor
 			{
 				val = SpellsChanged[Id].spellinfo;
 			}
-
-			PrintCurrent(val, SpellInfo_text, SpellInfo_hex, SpellInfo_bin);
+			SpellInfo_text.Text = val.ToString();
 
 // TargetInfo
 			val = spell.targetinfo;
@@ -863,8 +862,7 @@ namespace nwn2_ai_2da_editor
 			{
 				val = SpellsChanged[Id].targetinfo;
 			}
-
-			PrintCurrent(val, TargetInfo_text, TargetInfo_hex, TargetInfo_bin);
+			TargetInfo_text.Text = val.ToString();
 
 // EffectWeight
 			string text = FormatFloat(spell.effectweight.ToString());
@@ -874,7 +872,7 @@ namespace nwn2_ai_2da_editor
 			{
 				text = FormatFloat(SpellsChanged[Id].effectweight.ToString());
 			}
-			EffectWeight_text.Text = text; // NOTE: This will fire TextChanged_ew().
+			EffectWeight_text.Text = text;
 
 // EffectTypes
 			val = spell.effecttypes;
@@ -884,8 +882,7 @@ namespace nwn2_ai_2da_editor
 			{
 				val = SpellsChanged[Id].effecttypes;
 			}
-
-			PrintCurrent(val, EffectTypes_text, EffectTypes_hex, EffectTypes_bin);
+			EffectTypes_text.Text = val.ToString();
 
 // DamageInfo
 			val = spell.damageinfo;
@@ -895,8 +892,7 @@ namespace nwn2_ai_2da_editor
 			{
 				val = SpellsChanged[Id].damageinfo;
 			}
-
-			PrintCurrent(val, DamageInfo_text, DamageInfo_hex, DamageInfo_bin);
+			DamageInfo_text.Text = val.ToString();
 
 // SaveType
 			val = spell.savetype;
@@ -906,8 +902,7 @@ namespace nwn2_ai_2da_editor
 			{
 				val = SpellsChanged[Id].savetype;
 			}
-
-			PrintCurrent(val, SaveType_text, SaveType_hex, SaveType_bin);
+			SaveType_text.Text = val.ToString();
 
 // SaveDCType
 			val = spell.savedctype;
@@ -917,8 +912,7 @@ namespace nwn2_ai_2da_editor
 			{
 				val = SpellsChanged[Id].savedctype;
 			}
-
-			PrintCurrent(val, SaveDCType_text, SaveDCType_hex, SaveDCType_bin);
+			SaveDCType_text.Text = val.ToString();
 		}
 
 		/// <summary>
@@ -947,8 +941,7 @@ namespace nwn2_ai_2da_editor
 			{
 				val = RacesChanged[Id].flags;
 			}
-
-			PrintCurrent(val, RacialFlags_text, RacialFlags_hex, RacialFlags_bin);
+			RacialFlags_text.Text = val.ToString();
 
 // Feat1
 			val = race.feat1;
@@ -958,8 +951,7 @@ namespace nwn2_ai_2da_editor
 			{
 				val = RacesChanged[Id].feat1;
 			}
-
-			PrintCurrent(val, RacialFeat1_text, RacialFeat1_hex, RacialFeat1_bin);
+			RacialFeat1_text.Text = val.ToString();
 
 // Feat2
 			val = race.feat2;
@@ -969,8 +961,7 @@ namespace nwn2_ai_2da_editor
 			{
 				val = RacesChanged[Id].feat2;
 			}
-
-			PrintCurrent(val, RacialFeat2_text, RacialFeat2_hex, RacialFeat2_bin);
+			RacialFeat2_text.Text = val.ToString();
 
 // Feat3
 			val = race.feat3;
@@ -980,8 +971,7 @@ namespace nwn2_ai_2da_editor
 			{
 				val = RacesChanged[Id].feat3;
 			}
-
-			PrintCurrent(val, RacialFeat3_text, RacialFeat3_hex, RacialFeat3_bin);
+			RacialFeat3_text.Text = val.ToString();
 
 // Feat4
 			val = race.feat4;
@@ -991,8 +981,7 @@ namespace nwn2_ai_2da_editor
 			{
 				val = RacesChanged[Id].feat4;
 			}
-
-			PrintCurrent(val, RacialFeat4_text, RacialFeat4_hex, RacialFeat4_bin);
+			RacialFeat4_text.Text = val.ToString();
 
 // Feat5
 			val = race.feat5;
@@ -1002,8 +991,7 @@ namespace nwn2_ai_2da_editor
 			{
 				val = RacesChanged[Id].feat5;
 			}
-
-			PrintCurrent(val, RacialFeat5_text, RacialFeat5_hex, RacialFeat5_bin);
+			RacialFeat5_text.Text = val.ToString();
 		}
 
 		/// <summary>
@@ -1038,8 +1026,7 @@ namespace nwn2_ai_2da_editor
 			{
 				val = ClassesChanged[Id].flags;
 			}
-
-			PrintCurrent(val, ClassFlags_text, ClassFlags_hex, ClassFlags_bin);
+			ClassFlags_text.Text = val.ToString();
 
 // Feat1
 			val = clas.feat1;
@@ -1049,8 +1036,7 @@ namespace nwn2_ai_2da_editor
 			{
 				val = ClassesChanged[Id].feat1;
 			}
-
-			PrintCurrent(val, ClassFeat1_text, ClassFeat1_hex, ClassFeat1_bin);
+			ClassFeat1_text.Text = val.ToString();
 
 // Feat2
 			val = clas.feat2;
@@ -1060,8 +1046,7 @@ namespace nwn2_ai_2da_editor
 			{
 				val = ClassesChanged[Id].feat2;
 			}
-
-			PrintCurrent(val, ClassFeat2_text, ClassFeat2_hex, ClassFeat2_bin);
+			ClassFeat2_text.Text = val.ToString();
 
 // Feat3
 			val = clas.feat3;
@@ -1071,8 +1056,7 @@ namespace nwn2_ai_2da_editor
 			{
 				val = ClassesChanged[Id].feat3;
 			}
-
-			PrintCurrent(val, ClassFeat3_text, ClassFeat3_hex, ClassFeat3_bin);
+			ClassFeat3_text.Text = val.ToString();
 
 // Feat4
 			val = clas.feat4;
@@ -1082,8 +1066,7 @@ namespace nwn2_ai_2da_editor
 			{
 				val = ClassesChanged[Id].feat4;
 			}
-
-			PrintCurrent(val, ClassFeat4_text, ClassFeat4_hex, ClassFeat4_bin);
+			ClassFeat4_text.Text = val.ToString();
 
 // Feat5
 			val = clas.feat5;
@@ -1093,8 +1076,7 @@ namespace nwn2_ai_2da_editor
 			{
 				val = ClassesChanged[Id].feat5;
 			}
-
-			PrintCurrent(val, ClassFeat5_text, ClassFeat5_hex, ClassFeat5_bin);
+			ClassFeat5_text.Text = val.ToString();
 
 // Feat6
 			val = clas.feat6;
@@ -1104,8 +1086,7 @@ namespace nwn2_ai_2da_editor
 			{
 				val = ClassesChanged[Id].feat6;
 			}
-
-			PrintCurrent(val, ClassFeat6_text, ClassFeat6_hex, ClassFeat6_bin);
+			ClassFeat6_text.Text = val.ToString();
 
 // Feat7
 			val = clas.feat7;
@@ -1115,8 +1096,7 @@ namespace nwn2_ai_2da_editor
 			{
 				val = ClassesChanged[Id].feat7;
 			}
-
-			PrintCurrent(val, ClassFeat7_text, ClassFeat7_hex, ClassFeat7_bin);
+			ClassFeat7_text.Text = val.ToString();
 
 // Feat8
 			val = clas.feat8;
@@ -1126,8 +1106,7 @@ namespace nwn2_ai_2da_editor
 			{
 				val = ClassesChanged[Id].feat8;
 			}
-
-			PrintCurrent(val, ClassFeat8_text, ClassFeat8_hex, ClassFeat8_bin);
+			ClassFeat8_text.Text = val.ToString();
 
 // Feat9
 			val = clas.feat9;
@@ -1137,8 +1116,7 @@ namespace nwn2_ai_2da_editor
 			{
 				val = ClassesChanged[Id].feat9;
 			}
-
-			PrintCurrent(val, ClassFeat9_text, ClassFeat9_hex, ClassFeat9_bin);
+			ClassFeat9_text.Text = val.ToString();
 
 // Feat10
 			val = clas.feat10;
@@ -1148,8 +1126,7 @@ namespace nwn2_ai_2da_editor
 			{
 				val = ClassesChanged[Id].feat10;
 			}
-
-			PrintCurrent(val, ClassFeat10_text, ClassFeat10_hex, ClassFeat10_bin);
+			ClassFeat10_text.Text = val.ToString();
 
 // Feat11
 			val = clas.feat11;
@@ -1159,8 +1136,7 @@ namespace nwn2_ai_2da_editor
 			{
 				val = ClassesChanged[Id].feat11;
 			}
-
-			PrintCurrent(val, ClassFeat11_text, ClassFeat11_hex, ClassFeat11_bin);
+			ClassFeat11_text.Text = val.ToString();
 		}
 		#endregion SpellTree node-select
 
@@ -1183,17 +1159,14 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Prints current value of current page's field to the page's TextBoxes.
+		/// Prints current value of current page's text-field to its hex-field
+		/// and bin-field.
 		/// </summary>
 		/// <param name="val"></param>
-		/// <param name="textbox">editable</param>
-		/// <param name="hexbox">readonly</param>
-		/// <param name="binbox">readonly</param>
-		void PrintCurrent(int val, Control textbox, Control hexbox, Control binbox)
+		/// <param name="hexbox"></param>
+		/// <param name="binbox"></param>
+		void PrintCurrent(int val, Control hexbox, Control binbox)
 		{
-			if (textbox != null)				// bypass setting the textbox text if this was called by setting the textbox text.
-				textbox.Text = val.ToString();	// NOTE: This will fire TextChanged_*().
-
 			string text = val.ToString("x8");
 			text = text.Insert(7, "    ");
 			text = text.Insert(6, "    ");
