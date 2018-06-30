@@ -14,7 +14,7 @@ namespace nwn2_ai_2da_editor
 		:
 			Form
 	{
-		int _valCur;
+		int _valCur; // inits to 0
 
 		public int ValTop
 		{ get; set; }
@@ -26,18 +26,17 @@ namespace nwn2_ai_2da_editor
 		{
 			Size = new Size(300, 50);
 			ControlBox = false;
-//			Font = new Font("Courier New", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)(0));
 			FormBorderStyle = FormBorderStyle.SizableToolWindow;
 			MaximizeBox = false;
 			MinimizeBox = false;
-//			Name = "ProgBar";
 			ShowIcon = false;
 			ShowInTaskbar = false;
 			SizeGripStyle = SizeGripStyle.Hide;
 			StartPosition = FormStartPosition.CenterScreen;
 			TopMost = true;
 
-			_valCur = 0;
+//			Font = new Font("Courier New", 8.25F, FontStyle.Regular, GraphicsUnit.Point, (byte)(0));
+//			Name = "ProgBar";
 		}
 
 
@@ -49,12 +48,12 @@ namespace nwn2_ai_2da_editor
 			{
 				using (var graphics = CreateGraphics())
 				{
-					var rectangle = new Rectangle(ClientRectangle.X + margin,
-												  ClientRectangle.Y + margin,
-												  ClientRectangle.Width * _valCur / ValTop - margin * 2,
-												  ClientRectangle.Height - margin * 2);
+					var rect = new Rectangle(ClientRectangle.X + margin,
+											 ClientRectangle.Y + margin,
+											 ClientRectangle.Width * _valCur / ValTop - margin * 2,
+											 ClientRectangle.Height - margin * 2);
 
-					ProgressBarRenderer.DrawHorizontalChunks(graphics, rectangle);
+					ProgressBarRenderer.DrawHorizontalChunks(graphics, rect);
 				}
 			}
 			else
