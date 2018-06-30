@@ -1333,7 +1333,7 @@
 			this.si_infoversion.Location = new System.Drawing.Point(520, 35);
 			this.si_infoversion.Margin = new System.Windows.Forms.Padding(0);
 			this.si_infoversion.Name = "si_infoversion";
-			this.si_infoversion.Size = new System.Drawing.Size(95, 15);
+			this.si_infoversion.Size = new System.Drawing.Size(85, 15);
 			this.si_infoversion.TabIndex = 85;
 			this.si_infoversion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			// 
@@ -1342,9 +1342,9 @@
 			this.si_infoversion_lbl.Location = new System.Drawing.Point(520, 15);
 			this.si_infoversion_lbl.Margin = new System.Windows.Forms.Padding(0);
 			this.si_infoversion_lbl.Name = "si_infoversion_lbl";
-			this.si_infoversion_lbl.Size = new System.Drawing.Size(95, 15);
+			this.si_infoversion_lbl.Size = new System.Drawing.Size(85, 15);
 			this.si_infoversion_lbl.TabIndex = 84;
-			this.si_infoversion_lbl.Text = "Info Version";
+			this.si_infoversion_lbl.Text = "InfoVersion";
 			// 
 			// si_ChildLabel5
 			// 
@@ -4582,9 +4582,9 @@
 			// edit
 			// 
 			this.edit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-			this.applyGlobal,
-			this.toolStripSeparator5,
 			this.gotoNextChanged,
+			this.toolStripSeparator5,
+			this.applyGlobal,
 			this.toolStripSeparator3,
 			this.Copy_decimal,
 			this.Copy_hexadecimal,
@@ -5022,7 +5022,7 @@
 			this.cf_infoversion.Location = new System.Drawing.Point(520, 35);
 			this.cf_infoversion.Margin = new System.Windows.Forms.Padding(0);
 			this.cf_infoversion.Name = "cf_infoversion";
-			this.cf_infoversion.Size = new System.Drawing.Size(95, 15);
+			this.cf_infoversion.Size = new System.Drawing.Size(85, 15);
 			this.cf_infoversion.TabIndex = 57;
 			this.cf_infoversion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			// 
@@ -5031,9 +5031,9 @@
 			this.cf_infoversion_lbl.Location = new System.Drawing.Point(520, 15);
 			this.cf_infoversion_lbl.Margin = new System.Windows.Forms.Padding(0);
 			this.cf_infoversion_lbl.Name = "cf_infoversion_lbl";
-			this.cf_infoversion_lbl.Size = new System.Drawing.Size(95, 15);
+			this.cf_infoversion_lbl.Size = new System.Drawing.Size(85, 15);
 			this.cf_infoversion_lbl.TabIndex = 56;
-			this.cf_infoversion_lbl.Text = "Info Version";
+			this.cf_infoversion_lbl.Text = "InfoVersion";
 			// 
 			// cf_HasFeatSpells
 			// 
@@ -6976,7 +6976,7 @@
 			// 
 			// rf_HasFeatSpells
 			// 
-			this.rf_HasFeatSpells.Location = new System.Drawing.Point(15, 70);
+			this.rf_HasFeatSpells.Location = new System.Drawing.Point(15, 65);
 			this.rf_HasFeatSpells.Margin = new System.Windows.Forms.Padding(0);
 			this.rf_HasFeatSpells.Name = "rf_HasFeatSpells";
 			this.rf_HasFeatSpells.Size = new System.Drawing.Size(125, 19);
@@ -6990,7 +6990,7 @@
 			this.rf_infoversion.Location = new System.Drawing.Point(520, 35);
 			this.rf_infoversion.Margin = new System.Windows.Forms.Padding(0);
 			this.rf_infoversion.Name = "rf_infoversion";
-			this.rf_infoversion.Size = new System.Drawing.Size(95, 15);
+			this.rf_infoversion.Size = new System.Drawing.Size(85, 15);
 			this.rf_infoversion.TabIndex = 49;
 			this.rf_infoversion.TextAlign = System.Drawing.ContentAlignment.TopCenter;
 			// 
@@ -6999,9 +6999,9 @@
 			this.rf_infoversion_lbl.Location = new System.Drawing.Point(520, 15);
 			this.rf_infoversion_lbl.Margin = new System.Windows.Forms.Padding(0);
 			this.rf_infoversion_lbl.Name = "rf_infoversion_lbl";
-			this.rf_infoversion_lbl.Size = new System.Drawing.Size(95, 15);
+			this.rf_infoversion_lbl.Size = new System.Drawing.Size(85, 15);
 			this.rf_infoversion_lbl.TabIndex = 48;
-			this.rf_infoversion_lbl.Text = "Info Version";
+			this.rf_infoversion_lbl.Text = "InfoVersion";
 			// 
 			// rf_bin
 			// 
