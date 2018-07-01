@@ -29,7 +29,7 @@ namespace nwn2_ai_2da_editor
 			{
 				int differ;
 
-				if (!bypassTextChanged)
+				if (!bypassDiffer)
 				{
 					// ensure that spellinfo has a CoreAI version
 					// although strictly speaking I believe that GetSpellInfo()

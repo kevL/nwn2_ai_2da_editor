@@ -84,7 +84,7 @@ namespace nwn2_ai_2da_editor
 
 				int differ;
 
-				if (!bypassTextChanged)
+				if (!bypassDiffer)
 				{
 					Race race = Races[Id];
 

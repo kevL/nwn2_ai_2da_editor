@@ -23,7 +23,7 @@ namespace nwn2_ai_2da_editor
 			{
 				int differ;
 
-				if (!bypassTextChanged)
+				if (!bypassDiffer)
 				{
 					Spell spell = Spells[Id];
 
@@ -113,7 +113,7 @@ namespace nwn2_ai_2da_editor
 
 				EffectWeight_reset.ForeColor = DefaultForeColor;
 
-				EffectWeight_text.Text = FormatFloat(spell.effectweight.ToString());
+				EffectWeight_text.Text = FormatFloat(spell.effectweight);
 			}
 		}
 	}

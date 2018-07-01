@@ -126,7 +126,7 @@ namespace nwn2_ai_2da_editor
 
 				int differ;
 
-				if (!bypassTextChanged)
+				if (!bypassDiffer)
 				{
 					Class clas = Classes[Id];
 

@@ -87,7 +87,7 @@ namespace nwn2_ai_2da_editor
 		/// That is don't fire the text-changed event when the tree is initially
 		/// populated or is being re-populated.
 		/// </summary>
-		bool bypassTextChanged;
+		bool bypassDiffer;
 
 
 		/// <summary>
@@ -189,7 +189,7 @@ namespace nwn2_ai_2da_editor
 
 			Size = new Size(800, 480);
 
-			// move the Racial and Classes tab-pages to correct positions
+			// position the Racial and Classes tab-pages to their appropriate location
 			cols_HenchRacial .Location =
 			cols_HenchClasses.Location = cols_HenchSpells.Location;
 
@@ -212,8 +212,6 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void Load_file()
 		{
-			//logfile.Log(_pfe);
-
 			if (File.Exists(_pfe))
 			{
 				string[] rows = File.ReadAllLines(_pfe);
@@ -296,13 +294,11 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void ClearData()
 		{
-			Spells.Clear();
-			SpellsChanged.Clear();
-
-			Races.Clear();
-			RacesChanged.Clear();
-
-			Classes.Clear();
+			Spells        .Clear();
+			SpellsChanged .Clear();
+			Races         .Clear();
+			RacesChanged  .Clear();
+			Classes       .Clear();
 			ClassesChanged.Clear();
 		}
 
@@ -345,60 +341,49 @@ namespace nwn2_ai_2da_editor
 					{
 						var spell = new Spell();
 
-						spell.id = id;
+						spell.id        = id;
+						spell.isChanged = false;
+						spell.differ    = bit_clear;
 
-
-						field = cols[1];
-						if (field != blank)
+						if ((field = cols[1]) != blank)
 							spell.label = field;
 						else
 							spell.label = String.Empty;
 
-						field = cols[2];
-						if (field != blank)
+						if ((field = cols[2]) != blank)
 							spell.spellinfo = Int32.Parse(field);
 						else
 							spell.spellinfo = 0;
 
-						field = cols[3];
-						if (field != blank)
+						if ((field = cols[3]) != blank)
 							spell.targetinfo = Int32.Parse(field);
 						else
 							spell.targetinfo = 0;
 
-						field = cols[4];
-						if (field != blank)
+						if ((field = cols[4]) != blank)
 							spell.effectweight = float.Parse(field);
 						else
 							spell.effectweight = 0.0f;
 
-						field = cols[5];
-						if (field != blank)
+						if ((field = cols[5]) != blank)
 							spell.effecttypes = Int32.Parse(field);
 						else
 							spell.effecttypes = 0;
 
-						field = cols[6];
-						if (field != blank)
+						if ((field = cols[6]) != blank)
 							spell.damageinfo = Int32.Parse(field);
 						else
 							spell.damageinfo = 0;
 
-						field = cols[7];
-						if (field != blank)
+						if ((field = cols[7]) != blank)
 							spell.savetype = Int32.Parse(field);
 						else
 							spell.savetype = 0;
 
-						field = cols[8];
-						if (field != blank)
+						if ((field = cols[8]) != blank)
 							spell.savedctype = Int32.Parse(field);
 						else
 							spell.savedctype = 0;
-
-						spell.differ = bit_clear;
-						spell.isChanged = false;
-
 
 						Spells.Add(spell);	// spell-structs can now be referenced in the list by their
 					}						// - Spells[id]
@@ -408,7 +393,7 @@ namespace nwn2_ai_2da_editor
 			TreeGrowth();
 
 			// Groups on SpellInfo and TargetInfo generally stay green
-			// (unless SpellInfo is flagged as a MasterID)
+			// unless SpellInfo is flagged as a MasterID
 			GroupColor(si_SpelltypeGrp,  Color.LimeGreen);
 			GroupColor(si_FlagsGrp,      Color.LimeGreen);
 			GroupColor(si_SpelllevelGrp, Color.LimeGreen);
@@ -465,48 +450,39 @@ namespace nwn2_ai_2da_editor
 					{
 						var race = new Race();
 
-						race.id = id;
+						race.id        = id;
+						race.isChanged = false;
+						race.differ    = bit_clear;
 
-
-						field = cols[1];
-						if (field != blank)
+						if ((field = cols[1]) != blank)
 							race.flags = Int32.Parse(field);
 						else
 							race.flags = 0;
 
-						field = cols[2];
-						if (field != blank)
+						if ((field = cols[2]) != blank)
 							race.feat1 = Int32.Parse(field);
 						else
 							race.feat1 = 0;
 
-						field = cols[3];
-						if (field != blank)
+						if ((field = cols[3]) != blank)
 							race.feat2 = Int32.Parse(field);
 						else
 							race.feat2 = 0;
 
-						field = cols[4];
-						if (field != blank)
+						if ((field = cols[4]) != blank)
 							race.feat3 = Int32.Parse(field);
 						else
 							race.feat3 = 0;
 
-						field = cols[5];
-						if (field != blank)
+						if ((field = cols[5]) != blank)
 							race.feat4 = Int32.Parse(field);
 						else
 							race.feat4 = 0;
 
-						field = cols[6];
-						if (field != blank)
+						if ((field = cols[6]) != blank)
 							race.feat5 = Int32.Parse(field);
 						else
 							race.feat5 = 0;
-
-						race.differ = bit_clear;
-						race.isChanged = false;
-
 
 						Races.Add(race);	// race-structs can now be referenced in the list by their
 					}						// - Races[id]
@@ -565,84 +541,69 @@ namespace nwn2_ai_2da_editor
 					{
 						var clas = new Class();
 
-						clas.id = id;
+						clas.id        = id;
+						clas.isChanged = false;
+						clas.differ    = bit_clear;
 
-
-						field = cols[1];
-						if (field != blank)
+						if ((field = cols[1]) != blank)
 							clas.flags = Int32.Parse(field);
 						else
 							clas.flags = 0;
 
-						field = cols[2];
-						if (field != blank)
+						if ((field = cols[2]) != blank)
 							clas.feat1 = Int32.Parse(field);
 						else
 							clas.feat1 = 0;
 
-						field = cols[3];
-						if (field != blank)
+						if ((field = cols[3]) != blank)
 							clas.feat2 = Int32.Parse(field);
 						else
 							clas.feat2 = 0;
 
-						field = cols[4];
-						if (field != blank)
+						if ((field = cols[4]) != blank)
 							clas.feat3 = Int32.Parse(field);
 						else
 							clas.feat3 = 0;
 
-						field = cols[5];
-						if (field != blank)
+						if ((field = cols[5]) != blank)
 							clas.feat4 = Int32.Parse(field);
 						else
 							clas.feat4 = 0;
 
-						field = cols[6];
-						if (field != blank)
+						if ((field = cols[6]) != blank)
 							clas.feat5 = Int32.Parse(field);
 						else
 							clas.feat5 = 0;
 
-						field = cols[7];
-						if (field != blank)
+						if ((field = cols[7]) != blank)
 							clas.feat6 = Int32.Parse(field);
 						else
 							clas.feat6 = 0;
 
-						field = cols[8];
-						if (field != blank)
+						if ((field = cols[8]) != blank)
 							clas.feat7 = Int32.Parse(field);
 						else
 							clas.feat7 = 0;
 
-						field = cols[9];
-						if (field != blank)
+						if ((field = cols[9]) != blank)
 							clas.feat8 = Int32.Parse(field);
 						else
 							clas.feat8 = 0;
 
-						field = cols[10];
-						if (field != blank)
+						if ((field = cols[10]) != blank)
 							clas.feat9 = Int32.Parse(field);
 						else
 							clas.feat9 = 0;
 
-						field = cols[11];
-						if (field != blank)
+						if ((field = cols[11]) != blank)
 							clas.feat10 = Int32.Parse(field);
 						else
 							clas.feat10 = 0;
 
-						field = cols[12];
-						if (field != blank)
+						if ((field = cols[12]) != blank)
 							clas.feat11 = Int32.Parse(field);
 						else
 							clas.feat11 = 0;
-
-						clas.differ = bit_clear;
-						clas.isChanged = false;
-
 
 						Classes.Add(clas);	// class-structs can now be referenced in the list by their
 					}						// - Classes[id]
@@ -672,7 +633,7 @@ namespace nwn2_ai_2da_editor
 			{
 				case Type2da.TYPE_SPELLS:
 				{
-					var pb = new ProgBar(); // populating the spells-tree takes a few seconds.
+					var pb = new ProgBar(); // populating the spells-tree takes a second.
 					pb.ValTop = Spells.Count;
 					pb.Show();
 
@@ -702,13 +663,13 @@ namespace nwn2_ai_2da_editor
 
 					if (racesLabels.Count != 0)
 					{
-						int i = 0;
-						int nodes = Tree.Nodes.Count;
+						int id = 0;
+						int total = Tree.Nodes.Count;
 						foreach (var label in racesLabels)
 						{
-							if (i < nodes)
+							if (id < total)
 							{
-								Tree.Nodes[i++].Text += " " + label;
+								Tree.Nodes[id++].Text += " " + label;
 							}
 							else
 								break;
@@ -724,13 +685,13 @@ namespace nwn2_ai_2da_editor
 
 					if (classLabels.Count != 0)
 					{
-						int i = 0;
-						int nodes = Tree.Nodes.Count;
+						int id = 0;
+						int total = Tree.Nodes.Count;
 						foreach (var label in classLabels)
 						{
-							if (i < nodes)
+							if (id < total)
 							{
-								Tree.Nodes[i++].Text += " " + label;
+								Tree.Nodes[id++].Text += " " + label;
 							}
 							else
 								break;
@@ -775,34 +736,32 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void AfterSelect_node(object sender, TreeViewEventArgs e)
 		{
-			bypassTextChanged = true;
-
 			Id = Tree.SelectedNode.Index;
 
-			//logfile.Log("AfterSelect_spellnode() selectedNode= " + Id);
+			bypassDiffer = true;
 
 			switch (Type)
 			{
 				case Type2da.TYPE_SPELLS:
-					SpellSelect();
+					SelectSpell();
 					break;
 
 				case Type2da.TYPE_RACIAL:
-					RaceSelect();
+					SelectRace();
 					break;
 
 				case Type2da.TYPE_CLASSES:
-					ClassSelect();
+					SelectClass();
 					break;
 			}
 
-			bypassTextChanged = false;
+			bypassDiffer = false;
 		}
 
 		/// <summary>
 		/// Fills displayed fields w/ data from the spell's Id.
 		/// </summary>
-		void SpellSelect()
+		void SelectSpell()
 		{
 			// clear the info-fields to force TextChanged events
 			SpellInfo_text   .Clear();
@@ -839,12 +798,12 @@ namespace nwn2_ai_2da_editor
 			TargetInfo_text.Text = val.ToString();
 
 // EffectWeight
-			string text = FormatFloat(spell.effectweight.ToString());
+			string text = FormatFloat(spell.effectweight);
 			EffectWeight_reset.Text = text;
 
 			if (dirty)
 			{
-				text = FormatFloat(SpellsChanged[Id].effectweight.ToString());
+				text = FormatFloat(SpellsChanged[Id].effectweight);
 			}
 			EffectWeight_text.Text = text;
 
@@ -892,7 +851,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Fills displayed fields w/ data from the race's Id.
 		/// </summary>
-		void RaceSelect()
+		void SelectRace()
 		{
 			// clear the info-fields to force TextChanged events
 			RacialFlags_text.Clear();
@@ -971,7 +930,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Fills displayed fields w/ data from the class' Id.
 		/// </summary>
-		void ClassSelect()
+		void SelectClass()
 		{
 			// clear the info-fields to force TextChanged events
 			ClassFlags_text .Clear();
@@ -1395,7 +1354,7 @@ namespace nwn2_ai_2da_editor
 			if (spell.targetinfo != spellchanged.targetinfo)
 				differ |= bit_targetinfo;
 
-			if (!CheckFloats(spell.effectweight, spellchanged.effectweight))
+			if (!CompareFloats(spell.effectweight, spellchanged.effectweight))
 				differ |= bit_effectweight;
 
 			if (spell.effecttypes != spellchanged.effecttypes)
@@ -1524,23 +1483,21 @@ namespace nwn2_ai_2da_editor
 		/// <param name="a"></param>
 		/// <param name="b"></param>
 		/// <returns>true if equal enough</returns>
-		static bool CheckFloats(float a, float b)
+		static bool CompareFloats(float a, float b)
 		{
 			return Math.Abs(b - a) < epsilon;
 		}
 
 		/// <summary>
-		/// Formats a string that is a float in a way that is consistent with
-		/// a 2da-field.
+		/// Formats a float to a string that is consistent with a 2da-field.
 		/// </summary>
 		/// <param name="f"></param>
-		/// <returns>formatted string representing a float</returns>
-		static string FormatFloat(string f)
+		/// <returns>string of a float</returns>
+		static string FormatFloat(float f)
 		{
-			if (f.IndexOf('.') == -1)
-				return f.Insert(f.Length, ".0");
-
-			return f;
+			string str = f.ToString();
+			return (str.IndexOf('.') == -1) ? str.Insert(str.Length, ".0")
+											: str;
 		}
 		#endregion Utilities
 
@@ -1568,8 +1525,8 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_search(object sender, EventArgs e)
 		{
-			int totalnodes = Tree.Nodes.Count;
-			if (totalnodes > 1)
+			int total = Tree.Nodes.Count;
+			if (total > 1)
 			{
 				string text = tb_Search.Text;
 				if (!String.IsNullOrEmpty(text))
@@ -1581,7 +1538,7 @@ namespace nwn2_ai_2da_editor
 					var btn = sender as Button;
 					if (btn == btn_Search_d || btn == null)
 					{
-						if (Id == totalnodes - 1)
+						if (Id == total - 1)
 						{
 							id = 0;
 						}
@@ -1596,7 +1553,7 @@ namespace nwn2_ai_2da_editor
 								break;
 							}
 
-							if (++id == totalnodes) // wrap to first node
+							if (++id == total) // wrap to first node
 							{
 								id = 0;
 							}
@@ -1606,7 +1563,7 @@ namespace nwn2_ai_2da_editor
 					{
 						if (Id == 0)
 						{
-							id = totalnodes - 1;
+							id = total - 1;
 						}
 						else
 							id = Id - 1;
@@ -1621,7 +1578,7 @@ namespace nwn2_ai_2da_editor
 
 							if (--id == -1) // wrap to last node
 							{
-								id = totalnodes - 1;
+								id = total - 1;
 							}
 						}
 					}

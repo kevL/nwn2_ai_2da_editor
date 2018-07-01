@@ -425,10 +425,10 @@ namespace nwn2_ai_2da_editor
 							&& Type == Type2da.TYPE_RACIAL)
 						{
 							int id = 0;
-							int nodes = Tree.Nodes.Count;
+							int total = Tree.Nodes.Count;
 							foreach (var label in racesLabels)
 							{
-								if (id < nodes)
+								if (id < total)
 								{
 									Tree.Nodes[id++].Text += " " + label;
 								}
@@ -446,8 +446,8 @@ namespace nwn2_ai_2da_editor
 
 				if (Type == Type2da.TYPE_RACIAL)
 				{
-					int nodes = Tree.Nodes.Count;
-					for (int id = 0; id != nodes; ++id)
+					int total = Tree.Nodes.Count;
+					for (int id = 0; id != total; ++id)
 					{
 						Tree.Nodes[id].Text = id.ToString();
 					}
@@ -478,10 +478,10 @@ namespace nwn2_ai_2da_editor
 							&& Type == Type2da.TYPE_CLASSES)
 						{
 							int id = 0;
-							int nodes = Tree.Nodes.Count;
+							int total = Tree.Nodes.Count;
 							foreach (var label in classLabels)
 							{
-								if (id < nodes)
+								if (id < total)
 								{
 									Tree.Nodes[id++].Text += " " + label;
 								}
@@ -499,8 +499,8 @@ namespace nwn2_ai_2da_editor
 
 				if (Type == Type2da.TYPE_CLASSES)
 				{
-					int nodes = Tree.Nodes.Count;
-					for (int id = 0; id != nodes; ++id)
+					int total = Tree.Nodes.Count;
+					for (int id = 0; id != total; ++id)
 					{
 						Tree.Nodes[id].Text = id.ToString();
 					}
@@ -1051,9 +1051,9 @@ namespace nwn2_ai_2da_editor
 
 					line += " ";
 
-					if (!CheckFloats(spell.effectweight, 0.0f))
+					if (!CompareFloats(spell.effectweight, 0.0f))
 					{
-						line += FormatFloat(spell.effectweight.ToString());
+						line += FormatFloat(spell.effectweight);
 					}
 					else
 						line += blank;

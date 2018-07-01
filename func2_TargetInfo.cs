@@ -29,7 +29,7 @@ namespace nwn2_ai_2da_editor
 			{
 				int differ;
 
-				if (!bypassTextChanged)
+				if (!bypassDiffer)
 				{
 					Spell spell = Spells[Id];
 
@@ -318,12 +318,12 @@ namespace nwn2_ai_2da_editor
 				if (radius < 0.0f)
 				{
 					radius = 0.0f;
-					ti_Radius.Text = FormatFloat(radius.ToString()); // re-trigger this funct.
+					ti_Radius.Text = FormatFloat(radius); // re-trigger this funct.
 				}
 				else if (radius > 102.3f)	// NOTE: This can throw on Convert.ToInt32()
 				{							// if the input goes too high. So just stop it.
 					radius = 102.3f;
-					ti_Radius.Text = FormatFloat(radius.ToString()); // re-trigger this funct.
+					ti_Radius.Text = FormatFloat(radius); // re-trigger this funct.
 				}
 				else
 				{
@@ -407,8 +407,7 @@ namespace nwn2_ai_2da_editor
 			val = targetinfo;
 			val &= HENCH_SPELL_TARGET_RADIUS_MASK;
 			val >>= HENCH_SPELL_TARGET_RADIUS_SHIFT;
-			float fval = ((float)val) * 0.1f;
-			ti_Radius.Text = FormatFloat(fval.ToString());
+			ti_Radius.Text = FormatFloat(((float)val) * 0.1f);
 		}
 	}
 }

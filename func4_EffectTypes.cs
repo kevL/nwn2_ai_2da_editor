@@ -31,7 +31,7 @@ namespace nwn2_ai_2da_editor
 			{
 				int differ;
 
-				if (!bypassTextChanged)
+				if (!bypassDiffer)
 				{
 					Spell spell = Spells[Id];
 
