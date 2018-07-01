@@ -781,16 +781,20 @@ namespace nwn2_ai_2da_editor
 			switch (Type)
 			{
 				case Type2da.TYPE_SPELLS:
+				{
+					Spell spell;
+
 					total = Spells.Count;
 					for (int id = 0; id != total; ++id)
 					{
-						if (SpellsChanged.ContainsKey(id))
-						{
-							SpellChanged spellchanged = SpellsChanged[id];
-							Spell spell = Spells[id];
+						spell = Spells[id];
 
-							spell.isChanged = true; // this flag will be cleared by Write2daFile()
+						if (spell.differ != bit_clear)
+						{
 							spell.differ = bit_clear;
+							spell.isChanged = true; // this flag will be cleared by Write2daFile()
+
+							SpellChanged spellchanged = SpellsChanged[id];
 
 							spell.spellinfo    = spellchanged.spellinfo;
 							spell.targetinfo   = spellchanged.targetinfo;
@@ -821,18 +825,23 @@ namespace nwn2_ai_2da_editor
 						}
 					}
 					break;
+				}
 
 				case Type2da.TYPE_RACIAL:
+				{
+					Race race;
+
 					total = Races.Count;
 					for (int id = 0; id != total; ++id)
 					{
-						if (RacesChanged.ContainsKey(id))
-						{
-							RaceChanged racechanged = RacesChanged[id];
-							Race race = Races[id];
+						race = Races[id];
 
-							race.isChanged = true; // this flag will be cleared by Write2daFile()
+						if (race.differ != bit_clear)
+						{
 							race.differ = bit_clear;
+							race.isChanged = true; // this flag will be cleared by Write2daFile()
+
+							RaceChanged racechanged = RacesChanged[id];
 
 							race.flags = racechanged.flags;
 							race.feat1 = racechanged.feat1;
@@ -861,18 +870,23 @@ namespace nwn2_ai_2da_editor
 						}
 					}
 					break;
+				}
 
 				case Type2da.TYPE_CLASSES:
+				{
+					Class clas;
+
 					total = Classes.Count;
 					for (int id = 0; id != total; ++id)
 					{
-						if (ClassesChanged.ContainsKey(id))
-						{
-							ClassChanged claschanged = ClassesChanged[id];
-							Class clas = Classes[id];
+						clas = Classes[id];
 
-							clas.isChanged = true; // this flag will be cleared by Write2daFile()
+						if (clas.differ != bit_clear)
+						{
 							clas.differ = bit_clear;
+							clas.isChanged = true; // this flag will be cleared by Write2daFile()
+
+							ClassChanged claschanged = ClassesChanged[id];
 
 							clas.flags  = claschanged.flags;
 							clas.feat1  = claschanged.feat1;
@@ -913,6 +927,7 @@ namespace nwn2_ai_2da_editor
 						}
 					}
 					break;
+				}
 			}
 		}
 
