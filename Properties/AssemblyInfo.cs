@@ -8,11 +8,11 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle ("nwn2_ai_2da_editor")]
-[assembly: AssemblyDescription ("")]
+[assembly: AssemblyDescription ("An editor for NwN2 CoreAI 2da files.")]
 [assembly: AssemblyConfiguration ("")]
-[assembly: AssemblyCompany ("")]
+[assembly: AssemblyCompany ("kevL")]
 [assembly: AssemblyProduct ("nwn2_ai_2da_editor")]
-[assembly: AssemblyCopyright ("")]
+[assembly: AssemblyCopyright ("2018")]
 [assembly: AssemblyTrademark ("")]
 [assembly: AssemblyCulture ("")]
 // This sets the default COM visibility of types in the assembly to invisible.
@@ -24,4 +24,4 @@ using System.Runtime.InteropServices;
 //
 // You can specify all the values or you can use the default the Revision and 
 // Build Numbers by using the '*' as shown below:
-[assembly: AssemblyVersion ("1.0.*")]
+[assembly: AssemblyVersion ("1.2.7.0")]

@@ -19,7 +19,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// The version as a build-date. This appears in the About.
 		/// </summary>
-		const string _version = "built - 2018 jun 29";
+		const string _version = "2018 jun 29";
 
 
 		/// <summary>

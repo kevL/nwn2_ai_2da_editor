@@ -136,36 +136,25 @@ namespace nwn2_ai_2da_editor
 
 			int ver = (spellinfo & HENCH_SPELL_INFO_VERSION_MASK) >> HENCH_SPELL_INFO_VERSION_SHIFT;
 
-			//logfile.Log("input= " + ver);
-
 			string input = ver.ToString();
 			switch (InfoVersion(Type2da.TYPE_SPELLS, ref input))				// prompt user w/ InfoVersion dialog
 			{
 				case DialogResult.OK:											// change the current spell's version only
-					//logfile.Log("Ok (current spell) result= " + input);
-
 					if (spellinfo != 0											// don't bother setting version if the SpellInfo field is blank.
 						&& Int32.TryParse(input, out ver)
 						&& ver > 0 && ver < 256)								// version is held in only 8 bits of spellinfo (do not allow 0).
 					{
-						//logfile.Log(". ver= " + ver);
-
 						spellinfo &= ~HENCH_SPELL_INFO_VERSION_MASK;
 						spellinfo |= (ver << HENCH_SPELL_INFO_VERSION_SHIFT);
 
 						SpellInfo_text.Text = spellinfo.ToString();
 					}
-					//else logfile.Log(". invalid");
 					break;
 
 				case DialogResult.Yes:											// change the version of any currently changed spell
-					//logfile.Log("Yes (any spell) result= " + input);
-
 					if (Int32.TryParse(input, out ver)
 						&& ver > 0 && ver < 256)								// version is held in only 8 bits of spellinfo (do not allow 0).
 					{
-						//logfile.Log(". ver= " + ver);
-
 						bool dirty;
 
 						SpellChanged spellchanged;
@@ -244,17 +233,12 @@ namespace nwn2_ai_2da_editor
 							}
 						}
 					}
-					//else logfile.Log(". invalid");
 					break;
 
 				case DialogResult.Retry:										// change the version of all spells currently loaded
-					//logfile.Log("Retry (all spells) result= " + input);
-
 					if (Int32.TryParse(input, out ver)
 						&& ver > 0 && ver < 256)								// version is held in only 8 bits of spellinfo (do not allow 0).
 					{
-						//logfile.Log(". ver= " + ver);
-
 						bool dirty;
 
 						SpellChanged spellchanged;
@@ -329,11 +313,9 @@ namespace nwn2_ai_2da_editor
 							}
 						}
 					}
-					//else logfile.Log(". invalid");
 					break;
 
 				case DialogResult.Cancel: // do a jig.
-					//logfile.Log("cancelled");
 					break;
 			}
 		}
@@ -353,35 +335,24 @@ namespace nwn2_ai_2da_editor
 
 			int ver = (racialflags & HENCH_SPELL_INFO_VERSION_MASK) >> HENCH_SPELL_INFO_VERSION_SHIFT;
 
-			//logfile.Log("input= " + ver);
-
 			string input = ver.ToString();
 			switch (InfoVersion(Type2da.TYPE_RACIAL, ref input))				// prompt user w/ InfoVersion dialog
 			{
 				case DialogResult.OK:											// change the current race's version only
-					//logfile.Log("Ok (current race) result= " + input);
-
 					if (Int32.TryParse(input, out ver)							// set the version even if the RacialFlags field is blank.
 						&& ver > 0 && ver < 256)								// version is held in only 8 bits of racialflags (do not allow 0).
 					{
-						//logfile.Log(". ver= " + ver);
-
 						racialflags &= ~HENCH_SPELL_INFO_VERSION_MASK;
 						racialflags |= (ver << HENCH_SPELL_INFO_VERSION_SHIFT);
 
 						RacialFlags_text.Text = racialflags.ToString();
 					}
-					//else logfile.Log(". invalid");
 					break;
 
 				case DialogResult.Yes:											// change the version of any currently changed race
-					//logfile.Log("Yes (any race) result= " + input);
-
 					if (Int32.TryParse(input, out ver)
 						&& ver > 0 && ver < 256)								// version is held in only 8 bits of racialflags (do not allow 0).
 					{
-						//logfile.Log(". ver= " + ver);
-
 						bool dirty;
 
 						RaceChanged racechanged;
@@ -459,17 +430,12 @@ namespace nwn2_ai_2da_editor
 							}
 						}
 					}
-					//else logfile.Log(". invalid");
 					break;
 
 				case DialogResult.Retry:										// change the version of all races currently loaded
-					//logfile.Log("Retry (all races) result= " + input);
-
 					if (Int32.TryParse(input, out ver)
 						&& ver > 0 && ver < 256)								// version is held in only 8 bits of racialflags (do not allow 0).
 					{
-						//logfile.Log(". ver= " + ver);
-
 						bool dirty;
 
 						RaceChanged racechanged;
@@ -543,11 +509,9 @@ namespace nwn2_ai_2da_editor
 							}
 						}
 					}
-					//else logfile.Log(". invalid");
 					break;
 
 				case DialogResult.Cancel: // do a jig.
-					//logfile.Log("cancelled");
 					break;
 			}
 		}
@@ -567,35 +531,24 @@ namespace nwn2_ai_2da_editor
 
 			int ver = (clasflags & HENCH_SPELL_INFO_VERSION_MASK) >> HENCH_SPELL_INFO_VERSION_SHIFT;
 
-			//logfile.Log("input= " + ver);
-
 			string input = ver.ToString();
 			switch (InfoVersion(Type2da.TYPE_CLASSES, ref input))				// prompt user w/ InfoVersion dialog
 			{
 				case DialogResult.OK:											// change the current class' version only
-					//logfile.Log("Ok (current class) result= " + input);
-
 					if (Int32.TryParse(input, out ver)							// set the version even if the ClassFlags field is blank.
 						&& ver > 0 && ver < 256)								// version is held in only 8 bits of clasflags (do not allow 0).
 					{
-						//logfile.Log(". ver= " + ver);
-
 						clasflags &= ~HENCH_SPELL_INFO_VERSION_MASK;
 						clasflags |= (ver << HENCH_SPELL_INFO_VERSION_SHIFT);
 
 						ClassFlags_text.Text = clasflags.ToString();
 					}
-					//else logfile.Log(". invalid");
 					break;
 
 				case DialogResult.Yes:											// change the version of any currently changed class
-					//logfile.Log("Yes (any class) result= " + input);
-
 					if (Int32.TryParse(input, out ver)
 						&& ver > 0 && ver < 256)								// version is held in only 8 bits of clasflags (do not allow 0).
 					{
-						//logfile.Log(". ver= " + ver);
-
 						bool dirty;
 
 						ClassChanged claschanged;
@@ -679,17 +632,12 @@ namespace nwn2_ai_2da_editor
 							}
 						}
 					}
-					//else logfile.Log(". invalid");
 					break;
 
 				case DialogResult.Retry:										// change the version of all classes currently loaded
-					//logfile.Log("Retry (all classes) result= " + input);
-
 					if (Int32.TryParse(input, out ver)
 						&& ver > 0 && ver < 256)								// version is held in only 8 bits of clasflags (do not allow 0).
 					{
-						//logfile.Log(". ver= " + ver);
-
 						bool dirty;
 
 						ClassChanged claschanged;
@@ -769,11 +717,9 @@ namespace nwn2_ai_2da_editor
 							}
 						}
 					}
-					//else logfile.Log(". invalid");
 					break;
 
 				case DialogResult.Cancel: // do a jig.
-					//logfile.Log("cancelled");
 					break;
 			}
 		}

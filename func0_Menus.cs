@@ -3,19 +3,39 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
 using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
 
 
 namespace nwn2_ai_2da_editor
 {
 	/// <summary>
-	/// Event handlers for menu-items.
+	/// Event handlers for menu-items and related stuff.
 	/// </summary>
 	partial class MainForm
 	{
+		/// <summary>
+		/// A list that holds labels for classes in Classes.2da.
+		/// - optional
+		/// </summary>
 		List<string> classLabels = new List<string>();
+
+		/// <summary>
+		/// A list that holds labels for races in Races.2da.
+		/// - optional
+		/// </summary>
 		List<string> racesLabels = new List<string>();
+
+		/// <summary>
+		/// A list that holds labels for spells in Spells.2da.
+		/// - optional
+		/// </summary>
 		List<string> spellLabels = new List<string>();
+
+		/// <summary>
+		/// A list that holds labels for feats in Feat.2da.
+		/// - optional
+		/// </summary>
 		List<string> featsLabels = new List<string>();
 
 
@@ -33,6 +53,7 @@ namespace nwn2_ai_2da_editor
 									   MessageBoxIcon.Warning,
 									   MessageBoxDefaultButton.Button2) == DialogResult.Cancel;
 		}
+
 
 		#region File
 		/// <summary>
@@ -79,48 +100,6 @@ namespace nwn2_ai_2da_editor
 					}
 				}
 			}
-		}
-
-		/// <summary>
-		/// Gets if there is unsaved modifications.
-		/// </summary>
-		/// <returns></returns>
-		bool GetChanged()
-		{
-			switch (Type)
-			{
-				case Type2da.TYPE_SPELLS:
-					foreach (var spell in Spells)
-					{
-						if (spell.isChanged || spell.differ != bit_clear)
-						{
-							return true;
-						}
-					}
-					break;
-
-				case Type2da.TYPE_RACIAL:
-					foreach (var race in Races)
-					{
-						if (race.isChanged || race.differ != bit_clear)
-						{
-							return true;
-						}
-					}
-					break;
-
-				case Type2da.TYPE_CLASSES:
-					foreach (var clas in Classes)
-					{
-						if (clas.isChanged || clas.differ != bit_clear)
-						{
-							return true;
-						}
-					}
-					break;
-			}
-
-			return false;
 		}
 
 		/// <summary>
@@ -229,11 +208,11 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_gotonextchanged(object sender, EventArgs e)
 		{
-			int totalnodes = Tree.Nodes.Count;
-			if (totalnodes > 1)
+			int total = Tree.Nodes.Count;
+			if (total > 1)
 			{
 				int id;
-				if (Id == totalnodes - 1)
+				if (Id == total - 1)
 				{
 					id = 0;
 				}
@@ -251,7 +230,7 @@ namespace nwn2_ai_2da_editor
 								break;
 							}
 		
-							if (++id == totalnodes) // wrap to first node
+							if (++id == total) // wrap to first node
 							{
 								id = 0;
 							}
@@ -267,7 +246,7 @@ namespace nwn2_ai_2da_editor
 								break;
 							}
 		
-							if (++id == totalnodes) // wrap to first node
+							if (++id == total) // wrap to first node
 							{
 								id = 0;
 							}
@@ -283,7 +262,7 @@ namespace nwn2_ai_2da_editor
 								break;
 							}
 		
-							if (++id == totalnodes) // wrap to first node
+							if (++id == total) // wrap to first node
 							{
 								id = 0;
 							}
@@ -372,12 +351,12 @@ namespace nwn2_ai_2da_editor
 							}
 							return String.Empty;
 
-						case 0: info = SpellInfo_text.Text;   break;
-						case 1: info = TargetInfo_text.Text;  break;
+						case 0: info = SpellInfo_text  .Text; break;
+						case 1: info = TargetInfo_text .Text; break;
 						case 3: info = EffectTypes_text.Text; break;
-						case 4: info = DamageInfo_text.Text;  break;
-						case 5: info = SaveType_text.Text;    break;
-						case 6: info = SaveDCType_text.Text;  break;
+						case 4: info = DamageInfo_text .Text; break;
+						case 5: info = SaveType_text   .Text; break;
+						case 6: info = SaveDCType_text .Text; break;
 					}
 					break;
 
@@ -445,13 +424,13 @@ namespace nwn2_ai_2da_editor
 						if (racesLabels.Count != 0
 							&& Type == Type2da.TYPE_RACIAL)
 						{
-							int i = 0;
+							int id = 0;
 							int nodes = Tree.Nodes.Count;
 							foreach (var label in racesLabels)
 							{
-								if (i < nodes)
+								if (id < nodes)
 								{
-									Tree.Nodes[i++].Text += " " + label;
+									Tree.Nodes[id++].Text += " " + label;
 								}
 								else
 									break;
@@ -468,9 +447,9 @@ namespace nwn2_ai_2da_editor
 				if (Type == Type2da.TYPE_RACIAL)
 				{
 					int nodes = Tree.Nodes.Count;
-					for (int i = 0; i != nodes; ++i)
+					for (int id = 0; id != nodes; ++id)
 					{
-						Tree.Nodes[i].Text = i.ToString();
+						Tree.Nodes[id].Text = id.ToString();
 					}
 				}
 			}
@@ -498,13 +477,13 @@ namespace nwn2_ai_2da_editor
 						if (classLabels.Count != 0
 							&& Type == Type2da.TYPE_CLASSES)
 						{
-							int i = 0;
+							int id = 0;
 							int nodes = Tree.Nodes.Count;
 							foreach (var label in classLabels)
 							{
-								if (i < nodes)
+								if (id < nodes)
 								{
-									Tree.Nodes[i++].Text += " " + label;
+									Tree.Nodes[id++].Text += " " + label;
 								}
 								else
 									break;
@@ -521,9 +500,9 @@ namespace nwn2_ai_2da_editor
 				if (Type == Type2da.TYPE_CLASSES)
 				{
 					int nodes = Tree.Nodes.Count;
-					for (int i = 0; i != nodes; ++i)
+					for (int id = 0; id != nodes; ++id)
 					{
-						Tree.Nodes[i].Text = i.ToString();
+						Tree.Nodes[id].Text = id.ToString();
 					}
 				}
 			}
@@ -677,16 +656,27 @@ namespace nwn2_ai_2da_editor
 		#region Help
 		void Click_about(object sender, EventArgs e)
 		{
-/*			DateTime dt = DateTime.Now;
 			DateTime dt = Assembly.GetExecutingAssembly().GetLinkerTime();
-			string info = "build date" + Environment.NewLine + Environment.NewLine
-						+ String.Format(System.Globalization.CultureInfo.CurrentCulture,
+			string info = // "build date" + Environment.NewLine + Environment.NewLine +
+						  String.Format(System.Globalization.CultureInfo.CurrentCulture,
 										"{0:yyyy MMM d}  {0:HH}:{0:mm}:{0:ss} {0:zzz}",
 										dt);
-*/
 			// what a fucking pain in the ass.
 
-			MessageBox.Show(_version,
+			var an = Assembly.GetExecutingAssembly().GetName();
+			string ver = "Ver "
+					   + an.Version.Major + "."
+					   + an.Version.Minor + "."
+					   + an.Version.Build + "."
+					   + an.Version.Revision;
+#if DEBUG
+			ver += " debug";
+#else
+			ver += " release";
+#endif
+			ver += " build";
+
+			MessageBox.Show(info + Environment.NewLine + Environment.NewLine + ver,
 							"  About - nwn2_ai_2da_editor",
 							MessageBoxButtons.OK,
 							MessageBoxIcon.Information,
@@ -694,6 +684,49 @@ namespace nwn2_ai_2da_editor
 		}
 		#endregion Help
 
+
+		#region Changes functs
+		/// <summary>
+		/// Gets if there is unsaved modifications.
+		/// </summary>
+		/// <returns></returns>
+		bool GetChanged()
+		{
+			switch (Type)
+			{
+				case Type2da.TYPE_SPELLS:
+					foreach (var spell in Spells)
+					{
+						if (spell.isChanged || spell.differ != bit_clear)
+						{
+							return true;
+						}
+					}
+					break;
+
+				case Type2da.TYPE_RACIAL:
+					foreach (var race in Races)
+					{
+						if (race.isChanged || race.differ != bit_clear)
+						{
+							return true;
+						}
+					}
+					break;
+
+				case Type2da.TYPE_CLASSES:
+					foreach (var clas in Classes)
+					{
+						if (clas.isChanged || clas.differ != bit_clear)
+						{
+							return true;
+						}
+					}
+					break;
+			}
+
+			return false;
+		}
 
 		/// <summary>
 		/// Checks if there are any Applied structs.
@@ -768,6 +801,8 @@ namespace nwn2_ai_2da_editor
 			}
 			return false;
 		}
+		#endregion Changes functs
+
 
 		/// <summary>
 		/// Applies modified data to any struct that has changed.
@@ -1302,7 +1337,11 @@ namespace nwn2_ai_2da_editor
 
 
 
-/*	public static class DateTimeExtension
+	/// <summary>
+	/// Lifted from StackOverflow.com:
+	/// https://stackoverflow.com/questions/1600962/displaying-the-build-date#answer-1600990
+	/// </summary>
+	public static class DateTimeExtension
 	{
 		public static DateTime GetLinkerTime(this Assembly assembly, TimeZoneInfo target = null)
 		{
@@ -1326,5 +1365,5 @@ namespace nwn2_ai_2da_editor
 
 			return localTime;
 		}
-	} */
+	}
 }
