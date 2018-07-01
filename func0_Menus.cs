@@ -657,8 +657,7 @@ namespace nwn2_ai_2da_editor
 		void Click_about(object sender, EventArgs e)
 		{
 			DateTime dt = Assembly.GetExecutingAssembly().GetLinkerTime();
-			string info = // "build date" + Environment.NewLine + Environment.NewLine +
-						  String.Format(System.Globalization.CultureInfo.CurrentCulture,
+			string info = String.Format(System.Globalization.CultureInfo.CurrentCulture,
 										"{0:yyyy MMM d}  {0:HH}:{0:mm}:{0:ss} {0:zzz}",
 										dt);
 			// what a fucking pain in the ass.
