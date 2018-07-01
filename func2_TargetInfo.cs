@@ -114,8 +114,8 @@ namespace nwn2_ai_2da_editor
 				}
 
 				apply          .Enabled = (differ != bit_clear);
-				applyGlobal    .Enabled =
-				gotoNextChanged.Enabled = !DirtyDataApplied();
+				applyGlobal    .Enabled = (differ != bit_clear) || (SpellsChanged.Count != 0);
+				gotoNextChanged.Enabled = (differ != bit_clear) || (SpellsChanged.Count != 0) || SpareChange();
 			}
 			// else TODO: error dialog here.
 		}

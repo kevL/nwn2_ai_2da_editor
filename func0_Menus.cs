@@ -130,7 +130,7 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_save(object sender, EventArgs e)
 		{
-			if (DirtyDataApplied())
+			if (!DirtyData())
 			{
 				if (sender == null) // is Saveas
 				{
@@ -696,38 +696,77 @@ namespace nwn2_ai_2da_editor
 
 
 		/// <summary>
-		/// Checks if all modified data has been Applied.
+		/// Checks if there are any Applied structs.
 		/// </summary>
-		/// <returns>true if there are no dirty structs</returns>
-		bool DirtyDataApplied()
+		/// <returns>true if basic structs have yet to be saved</returns>
+		bool SpareChange()
 		{
 			switch (Type)
 			{
 				case Type2da.TYPE_SPELLS:
 					foreach (var spell in Spells)
 					{
-						if (spell.differ != bit_clear)
-							return false;
+						if (spell.isChanged)
+						{
+							return true;
+						}
 					}
 					break;
 
 				case Type2da.TYPE_RACIAL:
 					foreach (var race in Races)
 					{
-						if (race.differ != bit_clear)
-							return false;
+						if (race.isChanged)
+						{
+							return true;
+						}
 					}
 					break;
 
 				case Type2da.TYPE_CLASSES:
 					foreach (var clas in Classes)
 					{
-						if (clas.differ != bit_clear)
-							return false;
+						if (clas.isChanged)
+						{
+							return true;
+						}
 					}
 					break;
 			}
-			return true;
+			return false;
+		}
+
+		/// <summary>
+		/// Checks if there is any dirty data - data that's been modified but
+		/// has yet to be Applied.
+		/// </summary>
+		/// <returns>true if there are dirty structs</returns>
+		bool DirtyData()
+		{
+			switch (Type)
+			{
+				case Type2da.TYPE_SPELLS:
+					if (SpellsChanged.Count != 0)
+					{
+						return true;
+					}
+					break;
+
+				case Type2da.TYPE_RACIAL:
+					if (RacesChanged.Count != 0)
+					{
+						return true;
+					}
+					break;
+
+				case Type2da.TYPE_CLASSES:
+					if (ClassesChanged.Count != 0)
+					{
+						return true;
+					}
+					break;
+			}
+			return false;
 		}
 
 		/// <summary>
