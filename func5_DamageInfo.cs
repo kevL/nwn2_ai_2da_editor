@@ -98,8 +98,12 @@ namespace nwn2_ai_2da_editor
 
 				CheckDamageInfoCheckers(damageinfo);
 
-				// NOTE: this doesn't result in an infinite loop.
-				si_Child3.Text = DamageInfo_text.Text;
+				if (si_IsMaster.Checked)
+				{
+					// NOTE: this doesn't result in an infinite loop.
+					// But it does clamp the value before it gets shot back here.
+					si_Child3.Text = DamageInfo_text.Text;
+				}
 
 				apply          .Enabled = (differ != bit_clear);
 				applyGlobal    .Enabled = (differ != bit_clear) || (SpellsChanged.Count != 0);

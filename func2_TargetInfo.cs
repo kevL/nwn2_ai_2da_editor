@@ -87,8 +87,12 @@ namespace nwn2_ai_2da_editor
 
 				CheckTargetInfoCheckers(targetinfo);
 
-				// NOTE: this doesn't result in an infinite loop.
-				si_Child1.Text = TargetInfo_text.Text;
+				if (si_IsMaster.Checked)
+				{
+					// NOTE: this doesn't result in an infinite loop.
+					// But it does clamp the value before it gets shot back here.
+					si_Child1.Text = TargetInfo_text.Text;
+				}
 
 				// set DamageInfo colors based on SpellInfo spelltype and TargetInfo scaledeffect
 				switch (cbo_si_Spelltype.SelectedIndex) // (spellinfo & HENCH_SPELL_INFO_SPELL_TYPE_MASK)

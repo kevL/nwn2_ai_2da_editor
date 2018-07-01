@@ -82,8 +82,12 @@ namespace nwn2_ai_2da_editor
 
 				CheckSaveDcTypeCheckers(savedctype);
 
-				// NOTE: this doesn't result in an infinite loop.
-				si_Child5.Text = SaveDCType_text.Text;
+				if (si_IsMaster.Checked)
+				{
+					// NOTE: this doesn't result in an infinite loop.
+					// But it does clamp the value before it gets shot back here.
+					si_Child5.Text = SaveDCType_text.Text;
+				}
 
 				// The DC must be less than 1000 for the adjustor-buttons to appear.
 				// 1000+ thar be AI-constants that are set using the DC-combobox.

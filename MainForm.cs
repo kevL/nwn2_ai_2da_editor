@@ -1177,53 +1177,43 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_clear(object sender, EventArgs e)
 		{
-			TextBox tb = null; // grr...
 			var btn = sender as Button;
-
 			switch (Type)
 			{
 				case Type2da.TYPE_SPELLS:
-					if (btn == ew_Clear)
-					{
-						EffectWeight_text.Text = "0.0"; // EffectWeight is the only float-val - the rest are ints.
-					}
-					else
-					{
-						if      (btn == si_Clear) tb = SpellInfo_text;
-						else if (btn == ti_Clear) tb = TargetInfo_text;
-						else if (btn == et_Clear) tb = EffectTypes_text;
-						else if (btn == di_Clear) tb = DamageInfo_text;
-						else if (btn == st_Clear) tb = SaveType_text;
-						else                      tb = SaveDCType_text; //if (btn == dc_Clear)
-					}
+					if      (btn == si_Clear) SpellInfo_text   .Text = "0";
+					else if (btn == ti_Clear) TargetInfo_text  .Text = "0";
+					else if (btn == ew_Clear) EffectWeight_text.Text = "0.0";
+					else if (btn == et_Clear) EffectTypes_text .Text = "0";
+					else if (btn == di_Clear) DamageInfo_text  .Text = "0";
+					else if (btn == st_Clear) SaveType_text    .Text = "0";
+					else                      SaveDCType_text  .Text = "0"; //if (btn == dc_Clear)
 					break;
 
 				case Type2da.TYPE_RACIAL:
-					if      (btn ==  rf_Clear) tb = RacialFlags_text;
-					else if (btn == rf1_Clear) tb = RacialFeat1_text;
-					else if (btn == rf2_Clear) tb = RacialFeat2_text;
-					else if (btn == rf3_Clear) tb = RacialFeat3_text;
-					else if (btn == rf4_Clear) tb = RacialFeat4_text;
-					else                       tb = RacialFeat5_text; //if (btn == rf5_Clear)
+					if      (btn ==  rf_Clear) RacialFlags_text.Text = "0";
+					else if (btn == rf1_Clear) RacialFeat1_text.Text = "0";
+					else if (btn == rf2_Clear) RacialFeat2_text.Text = "0";
+					else if (btn == rf3_Clear) RacialFeat3_text.Text = "0";
+					else if (btn == rf4_Clear) RacialFeat4_text.Text = "0";
+					else                       RacialFeat5_text.Text = "0"; //if (btn == rf5_Clear)
 					break;
 
 				case Type2da.TYPE_CLASSES:
-					if      (btn ==   cf_Clear) tb = ClassFlags_text;
-					else if (btn ==  cf1_Clear) tb = ClassFeat1_text;
-					else if (btn ==  cf2_Clear) tb = ClassFeat2_text;
-					else if (btn ==  cf3_Clear) tb = ClassFeat3_text;
-					else if (btn ==  cf4_Clear) tb = ClassFeat4_text;
-					else if (btn ==  cf5_Clear) tb = ClassFeat5_text;
-					else if (btn ==  cf6_Clear) tb = ClassFeat6_text;
-					else if (btn ==  cf7_Clear) tb = ClassFeat7_text;
-					else if (btn ==  cf8_Clear) tb = ClassFeat8_text;
-					else if (btn ==  cf9_Clear) tb = ClassFeat9_text;
-					else if (btn == cf10_Clear) tb = ClassFeat10_text;
-					else                        tb = ClassFeat11_text; //if (btn == cf11_Clear)
+					if      (btn ==   cf_Clear) ClassFlags_text .Text = "0";
+					else if (btn ==  cf1_Clear) ClassFeat1_text .Text = "0";
+					else if (btn ==  cf2_Clear) ClassFeat2_text .Text = "0";
+					else if (btn ==  cf3_Clear) ClassFeat3_text .Text = "0";
+					else if (btn ==  cf4_Clear) ClassFeat4_text .Text = "0";
+					else if (btn ==  cf5_Clear) ClassFeat5_text .Text = "0";
+					else if (btn ==  cf6_Clear) ClassFeat6_text .Text = "0";
+					else if (btn ==  cf7_Clear) ClassFeat7_text .Text = "0";
+					else if (btn ==  cf8_Clear) ClassFeat8_text .Text = "0";
+					else if (btn ==  cf9_Clear) ClassFeat9_text .Text = "0";
+					else if (btn == cf10_Clear) ClassFeat10_text.Text = "0";
+					else                        ClassFeat11_text.Text = "0"; //if (btn == cf11_Clear)
 					break;
 			}
-
-			tb.Text = "0";
 		}
 
 		/// <summary>
