@@ -110,11 +110,9 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_dc_reset(object sender, EventArgs e)
 		{
-			//logfile.Log("Click_dc_reset()");
-
-			if (SpellsChanged.ContainsKey(Id))
+			Spell spell = Spells[Id];
+			if ((spell.differ & bit_savedctype) != 0)
 			{
-				Spell spell = Spells[Id];
 				spell.differ &= ~bit_savedctype;
 				Spells[Id] = spell;
 

@@ -118,9 +118,9 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_di_reset(object sender, EventArgs e)
 		{
-			if (SpellsChanged.ContainsKey(Id))
+			Spell spell = Spells[Id];
+			if ((spell.differ & bit_damageinfo) != 0)
 			{
-				Spell spell = Spells[Id];
 				spell.differ &= ~bit_damageinfo;
 				Spells[Id] = spell;
 

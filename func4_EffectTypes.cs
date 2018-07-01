@@ -109,9 +109,9 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_et_reset(object sender, EventArgs e)
 		{
-			if (SpellsChanged.ContainsKey(Id))
+			Spell spell = Spells[Id];
+			if ((spell.differ & bit_effecttypes) != 0)
 			{
-				Spell spell = Spells[Id];
 				spell.differ &= ~bit_effecttypes;
 				Spells[Id] = spell;
 

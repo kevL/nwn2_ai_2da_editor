@@ -250,47 +250,47 @@ namespace nwn2_ai_2da_editor
 		{
 			if (RacesChanged.ContainsKey(Id))
 			{
+				int bit, info;
 				TextBox tb;
-				int info, bit;
 
 				Race race = Races[Id];
 
 				var btn = sender as Button;
 				if (btn == RacialFlags_reset)
 				{
-					tb   = RacialFlags_text;
-					info = race.flags;
 					bit  = bit_flags;
+					info = race.flags;
+					tb   = RacialFlags_text;
 				}
 				else if (btn == RacialFeat1_reset)
 				{
-					tb   = RacialFeat1_text;
-					info = race.feat1;
 					bit  = bit_feat1;
+					info = race.feat1;
+					tb   = RacialFeat1_text;
 				}
 				else if (btn == RacialFeat2_reset)
 				{
-					tb   = RacialFeat2_text;
-					info = race.feat2;
 					bit  = bit_feat2;
+					info = race.feat2;
+					tb   = RacialFeat2_text;
 				}
 				else if (btn == RacialFeat3_reset)
 				{
-					tb   = RacialFeat3_text;
-					info = race.feat3;
 					bit  = bit_feat3;
+					info = race.feat3;
+					tb   = RacialFeat3_text;
 				}
 				else if (btn == RacialFeat4_reset)
 				{
-					tb   = RacialFeat4_text;
-					info = race.feat4;
 					bit  = bit_feat4;
+					info = race.feat4;
+					tb   = RacialFeat4_text;
 				}
 				else //if (btn == RacialFeat5_reset)
 				{
-					tb   = RacialFeat5_text;
-					info = race.feat5;
 					bit  = bit_feat5;
+					info = race.feat5;
+					tb   = RacialFeat5_text;
 				}
 
 				race.differ &= ~bit;

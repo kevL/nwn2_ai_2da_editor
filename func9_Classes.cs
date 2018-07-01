@@ -328,83 +328,83 @@ namespace nwn2_ai_2da_editor
 		{
 			if (ClassesChanged.ContainsKey(Id))
 			{
+				int bit, info;
 				TextBox tb;
-				int info, bit;
 
 				Class clas = Classes[Id];
 
 				var btn = sender as Button;
 				if (btn == ClassFlags_reset)
 				{
-					tb   = ClassFlags_text;
-					info = clas.flags;
 					bit  = bit_flags;
+					info = clas.flags;
+					tb   = ClassFlags_text;
 				}
 				else if (btn == ClassFeat1_reset)
 				{
-					tb   = ClassFeat1_text;
-					info = clas.feat1;
 					bit  = bit_feat1;
+					info = clas.feat1;
+					tb   = ClassFeat1_text;
 				}
 				else if (btn == ClassFeat2_reset)
 				{
-					tb   = ClassFeat2_text;
-					info = clas.feat2;
 					bit  = bit_feat2;
+					info = clas.feat2;
+					tb   = ClassFeat2_text;
 				}
 				else if (btn == ClassFeat3_reset)
 				{
-					tb   = ClassFeat3_text;
-					info = clas.feat3;
 					bit  = bit_feat3;
+					info = clas.feat3;
+					tb   = ClassFeat3_text;
 				}
 				else if (btn == ClassFeat4_reset)
 				{
-					tb   = ClassFeat4_text;
-					info = clas.feat4;
 					bit  = bit_feat4;
+					info = clas.feat4;
+					tb   = ClassFeat4_text;
 				}
 				else if (btn == ClassFeat5_reset)
 				{
-					tb   = ClassFeat5_text;
-					info = clas.feat5;
 					bit  = bit_feat5;
+					info = clas.feat5;
+					tb   = ClassFeat5_text;
 				}
 				else if (btn == ClassFeat6_reset)
 				{
-					tb   = ClassFeat6_text;
-					info = clas.feat6;
 					bit  = bit_feat6;
+					info = clas.feat6;
+					tb   = ClassFeat6_text;
 				}
 				else if (btn == ClassFeat7_reset)
 				{
-					tb   = ClassFeat7_text;
-					info = clas.feat7;
 					bit  = bit_feat7;
+					info = clas.feat7;
+					tb   = ClassFeat7_text;
 				}
 				else if (btn == ClassFeat8_reset)
 				{
-					tb   = ClassFeat8_text;
-					info = clas.feat8;
 					bit  = bit_feat8;
+					info = clas.feat8;
+					tb   = ClassFeat8_text;
 				}
 				else if (btn == ClassFeat9_reset)
 				{
-					tb   = ClassFeat9_text;
-					info = clas.feat9;
 					bit  = bit_feat9;
+					info = clas.feat9;
+					tb   = ClassFeat9_text;
 				}
 				else if (btn == ClassFeat10_reset)
 				{
-					tb   = ClassFeat10_text;
-					info = clas.feat10;
 					bit  = bit_feat10;
+					info = clas.feat10;
+					tb   = ClassFeat10_text;
 				}
 				else //if (btn == ClassFeat11_reset)
 				{
-					tb   = ClassFeat11_text;
-					info = clas.feat11;
 					bit  = bit_feat11;
+					info = clas.feat11;
+					tb   = ClassFeat11_text;
 				}
 
 				clas.differ &= ~bit;

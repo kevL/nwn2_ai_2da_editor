@@ -130,9 +130,9 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_ti_reset(object sender, EventArgs e)
 		{
-			if (SpellsChanged.ContainsKey(Id))
+			Spell spell = Spells[Id];
+			if ((spell.differ & bit_targetinfo) != 0)
 			{
-				Spell spell = Spells[Id];
 				spell.differ &= ~bit_targetinfo;
 				Spells[Id] = spell;
 
