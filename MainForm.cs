@@ -822,7 +822,7 @@ namespace nwn2_ai_2da_editor
 
 			Spell spell = Spells[Id];
 
-			bool dirty = SpellsChanged.ContainsKey(Id);
+			bool dirty = (spell.differ != bit_clear);
 
 // SpellInfo
 			int val = spell.spellinfo;
@@ -911,7 +911,7 @@ namespace nwn2_ai_2da_editor
 
 			Race race = Races[Id];
 
-			bool dirty = RacesChanged.ContainsKey(Id);
+			bool dirty = (race.differ != bit_clear);
 
 // Flags
 			int val = race.flags;
@@ -996,7 +996,7 @@ namespace nwn2_ai_2da_editor
 
 			Class clas = Classes[Id];
 
-			bool dirty = ClassesChanged.ContainsKey(Id);
+			bool dirty = (clas.differ != bit_clear);
 
 // Flags
 			int val = clas.flags;
