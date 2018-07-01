@@ -1238,14 +1238,14 @@ namespace nwn2_ai_2da_editor
 			switch (Type)
 			{
 				case Type2da.TYPE_SPELLS:
-					if (SpellsChanged.ContainsKey(Id))
+				{
+					Spell spell = Spells[Id];
+					if (spell.differ != bit_clear)
 					{
-						var spellchanged = SpellsChanged[Id];
-
-						Spell spell = Spells[Id];
-
-						spell.isChanged = true;
 						spell.differ = bit_clear;
+						spell.isChanged = true;
+
+						SpellChanged spellchanged = SpellsChanged[Id];
 
 						spell.spellinfo    = spellchanged.spellinfo;
 						spell.targetinfo   = spellchanged.targetinfo;
@@ -1279,16 +1279,17 @@ namespace nwn2_ai_2da_editor
 						Tree.SelectedNode.ForeColor = DefaultForeColor;
 					}
 					break;
+				}
 
 				case Type2da.TYPE_RACIAL:
-					if (RacesChanged.ContainsKey(Id))
+				{
+					Race race = Races[Id];
+					if (race.differ != bit_clear)
 					{
-						var racechanged = RacesChanged[Id];
-
-						Race race = Races[Id];
-
-						race.isChanged = true;
 						race.differ = bit_clear;
+						race.isChanged = true;
+
+						RaceChanged racechanged = RacesChanged[Id];
 
 						race.flags = racechanged.flags;
 						race.feat1 = racechanged.feat1;
@@ -1320,16 +1321,17 @@ namespace nwn2_ai_2da_editor
 						Tree.SelectedNode.ForeColor = DefaultForeColor;
 					}
 					break;
+				}
 
 				case Type2da.TYPE_CLASSES:
-					if (ClassesChanged.ContainsKey(Id))
+				{
+					Class clas = Classes[Id];
+					if (clas.differ != bit_clear)
 					{
-						var claschanged = ClassesChanged[Id];
-
-						Class clas = Classes[Id];
-
-						clas.isChanged = true;
 						clas.differ = bit_clear;
+						clas.isChanged = true;
+
+						var claschanged = ClassesChanged[Id];
 
 						clas.flags  = claschanged.flags;
 						clas.feat1  = claschanged.feat1;
@@ -1373,6 +1375,7 @@ namespace nwn2_ai_2da_editor
 						Tree.SelectedNode.ForeColor = DefaultForeColor;
 					}
 					break;
+				}
 			}
 		}
 
