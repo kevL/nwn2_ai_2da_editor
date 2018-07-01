@@ -265,17 +265,17 @@ namespace nwn2_ai_2da_editor
 				val |= HENCH_SPELL_INFO_VERSION; // insert the default version #
 
 				Class clas = Classes[Id];
-	
+
 				ClassChanged claschanged;
-	
-				if (ClassesChanged.ContainsKey(Id))
+
+				if (clas.differ != bit_clear)
 				{
 					claschanged = ClassesChanged[Id];
 				}
 				else
 				{
 					claschanged = new ClassChanged();
-	
+
 					claschanged.feat1  = clas.feat1;
 					claschanged.feat2  = clas.feat2;
 					claschanged.feat3  = clas.feat3;
@@ -288,14 +288,14 @@ namespace nwn2_ai_2da_editor
 					claschanged.feat10 = clas.feat10;
 					claschanged.feat11 = clas.feat11;
 				}
-	
+
 				claschanged.flags = val;
-	
+
 				// check it
 				int differ = ClassDiffer(clas, claschanged);
 				clas.differ = differ;
 				Classes[Id] = clas;
-	
+
 				if (differ != bit_clear)
 				{
 					ClassesChanged[Id] = claschanged;
@@ -304,7 +304,7 @@ namespace nwn2_ai_2da_editor
 				else
 				{
 					ClassesChanged.Remove(Id);
-	
+
 					if (!clas.isChanged) // this is set by the Apply btn only.
 					{
 						Tree.SelectedNode.ForeColor = DefaultForeColor;

@@ -196,7 +196,7 @@ namespace nwn2_ai_2da_editor
 
 				RaceChanged racechanged;
 
-				if (RacesChanged.ContainsKey(Id))
+				if (race.differ != bit_clear)
 				{
 					racechanged = RacesChanged[Id];
 				}
