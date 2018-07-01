@@ -38,6 +38,8 @@ namespace nwn2_ai_2da_editor
 			int damageinfo;
 			if (Int32.TryParse(DamageInfo_text.Text, out damageinfo))
 			{
+				int differ;
+
 				if (!bypassTextChanged)
 				{
 					var spell = Spells[Id];
@@ -63,7 +65,7 @@ namespace nwn2_ai_2da_editor
 					spellchanged.damageinfo = damageinfo;
 
 					// check it
-					int differ = SpellDiffer(spell, spellchanged);
+					differ = SpellDiffer(spell, spellchanged);
 					spell.differ = differ;
 					Spells[Id] = spell;
 
@@ -85,7 +87,9 @@ namespace nwn2_ai_2da_editor
 
 				PrintCurrent(damageinfo, DamageInfo_hex, DamageInfo_bin);
 
-				if ((Spells[Id].differ & bit_damageinfo) != 0)
+				differ = Spells[Id].differ;
+
+				if ((differ & bit_damageinfo) != 0)
 				{
 					DamageInfo_reset.ForeColor = Color.Crimson;
 				}
@@ -97,7 +101,7 @@ namespace nwn2_ai_2da_editor
 				// NOTE: this doesn't result in an infinite loop.
 				si_Child3.Text = DamageInfo_text.Text;
 
-				apply          .Enabled = SpellsChanged.ContainsKey(Id);
+				apply          .Enabled = (differ != bit_clear);
 				applyGlobal    .Enabled =
 				gotoNextChanged.Enabled = !DirtyDataApplied();
 			}

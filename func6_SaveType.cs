@@ -22,6 +22,8 @@ namespace nwn2_ai_2da_editor
 			int savetype;
 			if (Int32.TryParse(SaveType_text.Text, out savetype))
 			{
+				int differ;
+
 				if (!bypassTextChanged)
 				{
 					var spell = Spells[Id];
@@ -47,7 +49,7 @@ namespace nwn2_ai_2da_editor
 					spellchanged.savetype = savetype;
 
 					// check it
-					int differ = SpellDiffer(spell, spellchanged);
+					differ = SpellDiffer(spell, spellchanged);
 					spell.differ = differ;
 					Spells[Id] = spell;
 
@@ -69,7 +71,9 @@ namespace nwn2_ai_2da_editor
 
 				PrintCurrent(savetype, SaveType_hex, SaveType_bin);
 
-				if ((Spells[Id].differ & bit_savetype) != 0)
+				differ = Spells[Id].differ;
+
+				if ((differ & bit_savetype) != 0)
 				{
 					SaveType_reset.ForeColor = Color.Crimson;
 				}
@@ -81,7 +85,7 @@ namespace nwn2_ai_2da_editor
 				// NOTE: this doesn't result in an infinite loop.
 				si_Child4.Text = SaveType_text.Text;
 
-				apply          .Enabled = SpellsChanged.ContainsKey(Id);
+				apply          .Enabled = (differ != bit_clear);
 				applyGlobal    .Enabled =
 				gotoNextChanged.Enabled = !DirtyDataApplied();
 			}

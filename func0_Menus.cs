@@ -735,6 +735,8 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void ApplyDirtyData()
 		{
+			applyGlobal.Enabled = false;
+
 			int total;
 
 			switch (Type)

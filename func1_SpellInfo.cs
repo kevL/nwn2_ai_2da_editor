@@ -27,6 +27,8 @@ namespace nwn2_ai_2da_editor
 			int spellinfo;
 			if (Int32.TryParse(SpellInfo_text.Text, out spellinfo))
 			{
+				int differ;
+
 				if (!bypassTextChanged)
 				{
 					// ensure that spellinfo has a CoreAI version
@@ -79,7 +81,7 @@ namespace nwn2_ai_2da_editor
 					spellchanged.spellinfo = spellinfo;
 
 					// check it
-					int differ = SpellDiffer(spell, spellchanged);
+					differ = SpellDiffer(spell, spellchanged);
 					spell.differ = differ;
 					Spells[Id] = spell;
 
@@ -101,7 +103,9 @@ namespace nwn2_ai_2da_editor
 
 				PrintCurrent(spellinfo, SpellInfo_hex, SpellInfo_bin);
 
-				if ((Spells[Id].differ & bit_spellinfo) != 0)
+				differ = Spells[Id].differ;
+
+				if ((differ & bit_spellinfo) != 0)
 				{
 					SpellInfo_reset.ForeColor = Color.Crimson;
 				}
@@ -123,7 +127,7 @@ namespace nwn2_ai_2da_editor
 
 				PrintInfoVersion_spell(spellinfo);
 
-				apply          .Enabled = SpellsChanged.ContainsKey(Id); // TODO: use (Spells[Id].differ != bit_clear)
+				apply          .Enabled = (differ != bit_clear);
 				applyGlobal    .Enabled =
 				gotoNextChanged.Enabled = !DirtyDataApplied();
 			}

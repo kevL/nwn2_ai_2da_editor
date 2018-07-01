@@ -22,6 +22,8 @@ namespace nwn2_ai_2da_editor
 			int savedctype;
 			if (Int32.TryParse(SaveDCType_text.Text, out savedctype))
 			{
+				int differ;
+
 				if (!bypassTextChanged)
 				{
 					var spell = Spells[Id];
@@ -47,7 +49,7 @@ namespace nwn2_ai_2da_editor
 					spellchanged.savedctype = savedctype;
 
 					// check it
-					int differ = SpellDiffer(spell, spellchanged);
+					differ = SpellDiffer(spell, spellchanged);
 					spell.differ = differ;
 					Spells[Id] = spell;
 
@@ -69,7 +71,9 @@ namespace nwn2_ai_2da_editor
 
 				PrintCurrent(savedctype, SaveDCType_hex, SaveDCType_bin);
 
-				if ((Spells[Id].differ & bit_savedctype) != 0)
+				differ = Spells[Id].differ;
+
+				if ((differ & bit_savedctype) != 0)
 				{
 					SaveDCType_reset.ForeColor = Color.Crimson;
 				}
@@ -89,7 +93,7 @@ namespace nwn2_ai_2da_editor
 				// TODO: should probably disable if savedctype is negative.
 				dc_ArmorCheckGrp.Enabled = (savedctype & ~HENCH_SAVEDCTYPE_ARMORCHECK_MASK) == 0;
 
-				apply          .Enabled = SpellsChanged.ContainsKey(Id);
+				apply          .Enabled = (differ != bit_clear);
 				applyGlobal    .Enabled =
 				gotoNextChanged.Enabled = !DirtyDataApplied();
 			}

@@ -82,6 +82,8 @@ namespace nwn2_ai_2da_editor
 					bit    = bit_feat5;
 				}
 
+				int differ;
+
 				if (!bypassTextChanged)
 				{
 					Race race = Races[Id];
@@ -130,7 +132,7 @@ namespace nwn2_ai_2da_editor
 					}
 
 					// check it
-					int differ = RaceDiffer(race, racechanged);
+					differ = RaceDiffer(race, racechanged);
 					race.differ = differ;
 					Races[Id] = race;
 
@@ -152,7 +154,9 @@ namespace nwn2_ai_2da_editor
 
 				PrintCurrent(val, tb_hex, tb_bin);
 
-				if ((Races[Id].differ & bit) != 0)
+				differ = Races[Id].differ;
+
+				if ((differ & bit) != 0)
 				{
 					btn.ForeColor = Color.Crimson;
 				}
@@ -168,7 +172,7 @@ namespace nwn2_ai_2da_editor
 					CheckRacialFeatsCheckers(tb);
 
 
-				apply          .Enabled = RacesChanged.ContainsKey(Id);
+				apply          .Enabled = (differ != bit_clear);
 				applyGlobal    .Enabled =
 				gotoNextChanged.Enabled = !DirtyDataApplied();
 			}

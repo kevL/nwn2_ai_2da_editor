@@ -21,6 +21,8 @@ namespace nwn2_ai_2da_editor
 			float effectweight;
 			if (float.TryParse(EffectWeight_text.Text, out effectweight))
 			{
+				int differ;
+
 				if (!bypassTextChanged)
 				{
 					var spell = Spells[Id];
@@ -46,7 +48,7 @@ namespace nwn2_ai_2da_editor
 					spellchanged.effectweight = effectweight;
 
 					// check it
-					int differ = SpellDiffer(spell, spellchanged);
+					differ = SpellDiffer(spell, spellchanged);
 					spell.differ = differ;
 					Spells[Id] = spell;
 
@@ -66,14 +68,16 @@ namespace nwn2_ai_2da_editor
 					}
 				}
 
-				if ((Spells[Id].differ & bit_effectweight) != 0)
+				differ = Spells[Id].differ;
+
+				if ((differ & bit_effectweight) != 0)
 				{
 					EffectWeight_reset.ForeColor = Color.Crimson;
 				}
 				else
 					EffectWeight_reset.ForeColor = DefaultForeColor;
 
-				apply          .Enabled = SpellsChanged.ContainsKey(Id);
+				apply          .Enabled = (differ != bit_clear);
 				applyGlobal    .Enabled =
 				gotoNextChanged.Enabled = !DirtyDataApplied();
 			}

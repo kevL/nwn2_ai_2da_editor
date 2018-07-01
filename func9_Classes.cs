@@ -124,6 +124,8 @@ namespace nwn2_ai_2da_editor
 					bit    = bit_feat11;
 				}
 
+				int differ;
+
 				if (!bypassTextChanged)
 				{
 					Class clas = Classes[Id];
@@ -202,7 +204,7 @@ namespace nwn2_ai_2da_editor
 					}
 
 					// check it
-					int differ = ClassDiffer(clas, claschanged);
+					differ = ClassDiffer(clas, claschanged);
 					clas.differ = differ;
 					Classes[Id] = clas;
 
@@ -224,7 +226,9 @@ namespace nwn2_ai_2da_editor
 
 				PrintCurrent(val, tb_hex, tb_bin);
 
-				if ((Classes[Id].differ & bit) != 0)
+				differ = Classes[Id].differ;
+
+				if ((differ & bit) != 0)
 				{
 					btn.ForeColor = Color.Crimson;
 				}
@@ -240,7 +244,7 @@ namespace nwn2_ai_2da_editor
 					CheckClassFeatsCheckers(tb);
 
 
-				apply          .Enabled = ClassesChanged.ContainsKey(Id);
+				apply          .Enabled = (differ != bit_clear);
 				applyGlobal    .Enabled =
 				gotoNextChanged.Enabled = !DirtyDataApplied();
 			}

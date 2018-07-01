@@ -29,6 +29,8 @@ namespace nwn2_ai_2da_editor
 			int effecttypes;
 			if (Int32.TryParse(EffectTypes_text.Text, out effecttypes))
 			{
+				int differ;
+
 				if (!bypassTextChanged)
 				{
 					var spell = Spells[Id];
@@ -54,7 +56,7 @@ namespace nwn2_ai_2da_editor
 					spellchanged.effecttypes = effecttypes;
 
 					// check it
-					int differ = SpellDiffer(spell, spellchanged);
+					differ = SpellDiffer(spell, spellchanged);
 					spell.differ = differ;
 					Spells[Id] = spell;
 
@@ -76,7 +78,9 @@ namespace nwn2_ai_2da_editor
 
 				PrintCurrent(effecttypes, EffectTypes_hex, EffectTypes_bin);
 
-				if ((Spells[Id].differ & bit_effecttypes) != 0)
+				differ = Spells[Id].differ;
+
+				if ((differ & bit_effecttypes) != 0)
 				{
 					EffectTypes_reset.ForeColor = Color.Crimson;
 				}
@@ -88,7 +92,7 @@ namespace nwn2_ai_2da_editor
 				// NOTE: this doesn't result in an infinite loop.
 				si_Child2.Text = EffectTypes_text.Text;
 
-				apply          .Enabled = SpellsChanged.ContainsKey(Id);
+				apply          .Enabled = (differ != bit_clear);
 				applyGlobal    .Enabled =
 				gotoNextChanged.Enabled = !DirtyDataApplied();
 			}
