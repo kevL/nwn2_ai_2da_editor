@@ -132,7 +132,7 @@ namespace nwn2_ai_2da_editor
 
 					ClassChanged claschanged;
 
-					if (ClassesChanged.ContainsKey(Id))
+					if (clas.differ != bit_clear)
 					{
 						claschanged = ClassesChanged[Id];
 					}

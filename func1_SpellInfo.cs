@@ -62,7 +62,7 @@ namespace nwn2_ai_2da_editor
 
 					SpellChanged spellchanged;
 
-					if (SpellsChanged.ContainsKey(Id))
+					if (spell.differ != bit_clear)
 					{
 						spellchanged = SpellsChanged[Id];
 					}

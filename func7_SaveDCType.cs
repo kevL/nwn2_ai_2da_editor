@@ -26,11 +26,11 @@ namespace nwn2_ai_2da_editor
 
 				if (!bypassTextChanged)
 				{
-					var spell = Spells[Id];
+					Spell spell = Spells[Id];
 
 					SpellChanged spellchanged;
 
-					if (SpellsChanged.ContainsKey(Id))
+					if (spell.differ != bit_clear)
 					{
 						spellchanged = SpellsChanged[Id];
 					}
