@@ -6,10 +6,16 @@ using System.Windows.Forms;
 namespace nwn2_ai_2da_editor
 {
 	/// <summary>
-	/// An inputbox with which to set CoreAI version information.
+	/// Contains functions for changing the InfoVersion of spells/races/classes.
 	/// </summary>
 	partial class MainForm
 	{
+		/// <summary>
+		/// An inputbox with which to set CoreAI version information.
+		/// </summary>
+		/// <param name="type"></param>
+		/// <param name="str"></param>
+		/// <returns></returns>
 		static DialogResult InfoVersion(Type2da type, ref string str)
 		{
 			string title, text_1, text_2, text_3;
@@ -117,7 +123,8 @@ namespace nwn2_ai_2da_editor
 
 
 		/// <summary>
-		/// Handles the text-changed of the inputbox.
+		/// Handles the text-changed of the inputbox to ensure a valid version #.
+		/// NOTE: version is held in only 8 bits of the master-int (do not allow 0)
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -164,13 +171,11 @@ namespace nwn2_ai_2da_editor
 			ver0 >>= HENCH_SPELL_INFO_VERSION_SHIFT;
 
 
-			int ver;															// the return from the dialog.
-
 			string str = ver0.ToString();
 			switch (InfoVersion(Type2da.TYPE_SPELLS, ref str))					// get user-input w/ InfoVersion dialog
 			{
 				case DialogResult.OK:											// change the current spell's version only
-					if ((spellinfo &= ~HENCH_SPELL_INFO_VERSION_MASK) == 0)		// clear the version if the rest of spellinfo is blank
+					if ((spellinfo & ~HENCH_SPELL_INFO_VERSION_MASK) == 0)		// force-clear the version if the rest of spellinfo is blank
 					{
 						if (spellinfo != 0)
 						{
@@ -178,12 +183,15 @@ namespace nwn2_ai_2da_editor
 							SpellInfo_text.Text = spellinfo.ToString();			// firing the TextChanged event takes care of it.
 						}
 					}
-					else if (Int32.TryParse(str, out ver)
-						&& ver > 0 && ver < 256									// version is held in only 8 bits of spellinfo (do not allow 0).
-						&& ver != ver0)											// check that user actually changed the value
+					else
 					{
-						spellinfo |= (ver << HENCH_SPELL_INFO_VERSION_SHIFT);
-						SpellInfo_text.Text = spellinfo.ToString();				// firing the TextChanged event takes care of it.
+						int ver = Int32.Parse(str);								// the return from the dialog.
+						if (ver != ver0)										// check that user actually changed the value
+						{
+							spellinfo &= ~HENCH_SPELL_INFO_VERSION_MASK;
+							spellinfo |= (ver << HENCH_SPELL_INFO_VERSION_SHIFT);
+							SpellInfo_text.Text = spellinfo.ToString();			// firing the TextChanged event takes care of it.
+						}
 					}
 					break;
 
@@ -207,24 +215,13 @@ namespace nwn2_ai_2da_editor
 		/// <param name="all"></param>
 		void SetInfoVersion_spells(string str, bool all)
 		{
-			// NOTE: This will iterate through all changed spells even
-			// if an invalid version # is input via the dialog since it
-			// also clears any spellinfo-int that has only a version set
-			// but no other data.
-
 			Spell spell;
 			SpellChanged spellchanged;
 
+			int spellinfo0, spellinfo, differ;
 			bool dirty;
 
-			int spellinfo0;
-			int spellinfo;
-
-			int ver;															// the return from the dialog.
-			bool valid = Int32.TryParse(str, out ver)
-					  && ver > 0 && ver < 256;									// version is held in only 8 bits of spellinfo (do not allow 0).
-
-			ver <<= HENCH_SPELL_INFO_VERSION_SHIFT;
+			int ver = Int32.Parse(str) << HENCH_SPELL_INFO_VERSION_SHIFT;		// the return from the dialog.
 
 
 			int total = Spells.Count;
@@ -241,15 +238,15 @@ namespace nwn2_ai_2da_editor
 					spellinfo0 = spell.spellinfo;
 				}
 				else
-					continue;													// ignore clean spell-structs
+					continue;													// ignore clean spell-structs if !all
 
-				if (spellinfo0 == 0)											// if spellinfo is blank leave it blank
+				if (spellinfo0 == 0)
 				{
-					continue;
+					continue;													// if spellinfo is blank leave it blank
 				}
 
 
-				if ((spellinfo0 & ~HENCH_SPELL_INFO_VERSION_MASK) == 0)			// clear the version if the rest of spellinfo is blank
+				if ((spellinfo0 & ~HENCH_SPELL_INFO_VERSION_MASK) == 0)			// force-clear the version if the rest of spellinfo is blank
 				{
 					spellinfo = 0;
 				}
@@ -257,8 +254,7 @@ namespace nwn2_ai_2da_editor
 					spellinfo = ((spellinfo0 & ~HENCH_SPELL_INFO_VERSION_MASK) | ver);
 
 
-				if (spellinfo != spellinfo0
-					&& (valid || spellinfo == 0))
+				if (spellinfo != spellinfo0)
 				{
 					if (id == Id)
 					{
@@ -285,7 +281,7 @@ namespace nwn2_ai_2da_editor
 						spellchanged.spellinfo = spellinfo;
 
 						// check it
-						int differ = SpellDiffer(spell, spellchanged);
+						differ = SpellDiffer(spell, spellchanged);
 						spell.differ = differ;
 						Spells[id] = spell;
 
@@ -326,27 +322,20 @@ namespace nwn2_ai_2da_editor
 
 			int ver0 = (racialflags & HENCH_SPELL_INFO_VERSION_MASK) >> HENCH_SPELL_INFO_VERSION_SHIFT;
 
-			int ver;															// the return from the dialog.
-
 			string str = ver0.ToString();
 			switch (InfoVersion(Type2da.TYPE_RACIAL, ref str))					// get user-input w/ InfoVersion dialog
 			{
 				case DialogResult.OK:											// change the current race's version only
-					if (Int32.TryParse(str, out ver)
-						&& ver > 0 && ver < 256)								// version is held in only 8 bits of racialflags (do not allow 0).
+				{
+					int ver = Int32.Parse(str);									// the return from the dialog.
+					if (ver != ver0)											// check that user actually changed the value
 					{
-						if (ver != ver0)										// check that user actually changed the value
-						{
-							racialflags = ((racialflags & ~HENCH_SPELL_INFO_VERSION_MASK) | (ver << HENCH_SPELL_INFO_VERSION_SHIFT));
-							RacialFlags_text.Text = racialflags.ToString();		// firing the TextChanged event takes care of it.
-						}
-					}
-					else if (ver0 == 0)
-					{
-						racialflags |= HENCH_SPELL_INFO_VERSION;				// insert the default version # if user fucked up and current version is blank
+						racialflags &= ~HENCH_SPELL_INFO_VERSION_MASK;
+						racialflags |= (ver << HENCH_SPELL_INFO_VERSION_SHIFT);
 						RacialFlags_text.Text = racialflags.ToString();			// firing the TextChanged event takes care of it.
 					}
 					break;
+				}
 
 				case DialogResult.Yes:											// change the version of any currently changed race
 					SetInfoVersion_racial(str, false);
@@ -374,18 +363,10 @@ namespace nwn2_ai_2da_editor
 			Race race;
 			RaceChanged racechanged;
 
+			int racialflags0, racialflags, differ;
 			bool dirty;
 
-			int racialflags0;
-			int racialflags;
-
-			int ver;															// the return from the dialog.
-			if (!Int32.TryParse(str, out ver)
-				|| ver < 1 || ver > 255)										// version is held in only 8 bits of racialflags (do not allow 0).
-			{
-				ver = HENCH_SPELL_INFO_VERSION;
-			}
-			ver <<= HENCH_SPELL_INFO_VERSION_SHIFT;
+			int ver = (Int32.Parse(str) << HENCH_SPELL_INFO_VERSION_SHIFT);		// the return from the dialog.
 
 
 			int total = Races.Count;
@@ -402,14 +383,13 @@ namespace nwn2_ai_2da_editor
 					racialflags0 = race.flags;
 				}
 				else
-					continue;													// ignore clean racial-structs
+					continue;													// ignore clean racial-structs if !all
 
 
 				racialflags = ((racialflags0 & ~HENCH_SPELL_INFO_VERSION_MASK) | ver);
 
 
-				if (racialflags != racialflags0
-					|| racialflags0 == 0)
+				if (racialflags != racialflags0)
 				{
 					if (id == Id)
 					{
@@ -435,7 +415,7 @@ namespace nwn2_ai_2da_editor
 						racechanged.flags = racialflags;
 
 						// check it
-						int differ = RaceDiffer(race, racechanged);
+						differ = RaceDiffer(race, racechanged);
 						race.differ = differ;
 						Races[id] = race;
 
@@ -476,27 +456,20 @@ namespace nwn2_ai_2da_editor
 
 			int ver0 = (clasflags & HENCH_SPELL_INFO_VERSION_MASK) >> HENCH_SPELL_INFO_VERSION_SHIFT;
 
-			int ver;															// the return from the dialog.
-
 			string str = ver0.ToString();
 			switch (InfoVersion(Type2da.TYPE_CLASSES, ref str))					// get user-input w/ InfoVersion dialog
 			{
 				case DialogResult.OK:											// change the current class' version only
-					if (Int32.TryParse(str, out ver)
-						&& ver > 0 && ver < 256)								// version is held in only 8 bits of classflags (do not allow 0).
+				{
+					int ver = Int32.Parse(str);									// the return from the dialog.
+					if (ver != ver0)											// check that user actually changed the value
 					{
-						if (ver != ver0)										// check that user actually changed the value
-						{
-							clasflags = ((clasflags & ~HENCH_SPELL_INFO_VERSION_MASK) | (ver << HENCH_SPELL_INFO_VERSION_SHIFT));
-							ClassFlags_text.Text = clasflags.ToString();		// firing the TextChanged event takes care of it.
-						}
-					}
-					else if (ver0 == 0)
-					{
-						clasflags |= HENCH_SPELL_INFO_VERSION;					// insert the default version # if user fucked up and current version is blank
+						clasflags &= ~HENCH_SPELL_INFO_VERSION_MASK;
+						clasflags |= (ver << HENCH_SPELL_INFO_VERSION_SHIFT);
 						ClassFlags_text.Text = clasflags.ToString();			// firing the TextChanged event takes care of it.
 					}
 					break;
+				}
 
 				case DialogResult.Yes:											// change the version of any currently changed class
 					SetInfoVersion_classes(str, false);
@@ -516,26 +489,13 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void SetInfoVersion_classes(string str, bool all)
 		{
-			// NOTE: This will iterate through all changed classes even
-			// if an invalid version # is input via the dialog since it
-			// inserts the default version even if there is no other
-			// data in the classflags-int.
-
 			Class clas;
 			ClassChanged claschanged;
 
+			int clasflags0, clasflags, differ;
 			bool dirty;
 
-			int clasflags0;
-			int clasflags;
-
-			int ver;															// the return from the dialog.
-			if (!Int32.TryParse(str, out ver)
-				|| ver < 1 || ver > 255)										// version is held in only 8 bits of classflags (do not allow 0).
-			{
-				ver = HENCH_SPELL_INFO_VERSION;
-			}
-			ver <<= HENCH_SPELL_INFO_VERSION_SHIFT;
+			int ver = (Int32.Parse(str) << HENCH_SPELL_INFO_VERSION_SHIFT);		// the return from the dialog.
 
 
 			int total = Classes.Count;
@@ -552,14 +512,13 @@ namespace nwn2_ai_2da_editor
 					clasflags0 = clas.flags;
 				}
 				else
-					continue;													// ignore clean class-structs
+					continue;													// ignore clean class-structs if !all
 
 
 				clasflags = ((clasflags0 & ~HENCH_SPELL_INFO_VERSION_MASK) | ver);
 
 
-				if (clasflags != clasflags0
-					|| clasflags0 == 0)
+				if (clasflags != clasflags0)
 				{
 					if (id == Id)
 					{
@@ -591,7 +550,7 @@ namespace nwn2_ai_2da_editor
 						claschanged.flags = clasflags;
 
 						// check it
-						int differ = ClassDiffer(clas, claschanged);
+						differ = ClassDiffer(clas, claschanged);
 						clas.differ = differ;
 						Classes[id] = clas;
 
