@@ -182,12 +182,12 @@ namespace nwn2_ai_2da_editor
 			cbo_st_Specific.Items.Add("color spray");									// 41
 			cbo_st_Specific.Items.Add("sunbeam");										// 42
 			cbo_st_Specific.Items.Add("sunburst");										// 43
-			cbo_st_Specific.Items.Add("target medium or smaller creatures");			// 44
+			cbo_st_Specific.Items.Add("targets medium or smaller creatures");			// 44
 			cbo_st_Specific.Items.Add("castigate");										// 45
 			cbo_st_Specific.Items.Add("target is doing fighter-like actions");			// 46
 			cbo_st_Specific.Items.Add("does not affect deaf creatures");				// 47
 			cbo_st_Specific.Items.Add("holy blas");										// 48
-			cbo_st_Specific.Items.Add("target evil");									// 49
+			cbo_st_Specific.Items.Add("targets evil");									// 49
 
 			// populate the dropdown list for SaveType - Immunity1 type
 			// NOTE: These immunity cases are considered in 'hench_i0_attack' HenchSpellAttack()
