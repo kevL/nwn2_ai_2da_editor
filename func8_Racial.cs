@@ -191,7 +191,7 @@ namespace nwn2_ai_2da_editor
 		bool InfoVersionChange_racial(ref int val)
 		{
 			// ensure that racial-flags has a CoreAI version
-			// NOTE that RacialInfo always has a Version (unlike spellinfo)
+			// NOTE that RacialFlags always has a Version (unlike spellinfo)
 			if ((val & HENCH_SPELL_INFO_VERSION_MASK) == 0)
 			{
 				val |= HENCH_SPELL_INFO_VERSION; // insert the default version #

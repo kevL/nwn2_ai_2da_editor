@@ -263,7 +263,7 @@ namespace nwn2_ai_2da_editor
 		bool InfoVersionChange_class(ref int val)
 		{
 			// ensure that class-flags has a CoreAI version
-			// NOTE that ClassInfo always has a Version (unlike spellinfo)
+			// NOTE that ClassFlags always has a Version (unlike spellinfo)
 			if ((val & HENCH_SPELL_INFO_VERSION_MASK) == 0)
 			{
 				val |= HENCH_SPELL_INFO_VERSION; // insert the default version #

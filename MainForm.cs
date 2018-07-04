@@ -410,6 +410,8 @@ namespace nwn2_ai_2da_editor
 			// maximized.
 			if (Width < 1105) Width = 1105;
 			if (Height < 530) Height = 530;
+
+			apply.Text = "apply this spell's data";
 		}
 
 
@@ -500,6 +502,8 @@ namespace nwn2_ai_2da_editor
 			// maximized.
 			if (Width  < 905) Width  = 905;
 			if (Height < 350) Height = 350;
+
+			apply.Text = "apply this race's data";
 		}
 
 		/// <summary>
@@ -669,6 +673,8 @@ namespace nwn2_ai_2da_editor
 			// maximized.
 			if (Width  < 1355) Width  = 1355;
 			if (Height <  400) Height = 400;
+
+			apply.Text = "apply this class' data";
 		}
 
 		/// <summary>
