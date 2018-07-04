@@ -390,11 +390,10 @@ namespace nwn2_ai_2da_editor
 					continue;													// ignore clean racial-structs if !all
 
 
-				racialflags = ((racialflags0 & ~HENCH_SPELL_INFO_VERSION_MASK) | ver);
-
-
-				if (racialflags != racialflags0)
+				if ((racialflags0 & HENCH_SPELL_INFO_VERSION_MASK) != ver)
 				{
+					racialflags = ((racialflags0 & ~HENCH_SPELL_INFO_VERSION_MASK) | ver);
+
 					if (id == Id)
 					{
 						RacialFlags_text.Text = racialflags.ToString();			// firing the TextChanged event takes care of it.
@@ -495,6 +494,8 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Helper for SetInfoVersion_classes().
 		/// </summary>
+		/// <param name="str"></param>
+		/// <param name="all"></param>
 		void SetInfoVersion_classes(string str, bool all)
 		{
 			Class clas;
@@ -523,11 +524,10 @@ namespace nwn2_ai_2da_editor
 					continue;													// ignore clean class-structs if !all
 
 
-				clasflags = ((clasflags0 & ~HENCH_SPELL_INFO_VERSION_MASK) | ver);
-
-
-				if (clasflags != clasflags0)
+				if ((clasflags0 & HENCH_SPELL_INFO_VERSION_MASK) != ver)
 				{
+					clasflags = ((clasflags0 & ~HENCH_SPELL_INFO_VERSION_MASK) | ver);
+
 					if (id == Id)
 					{
 						ClassFlags_text.Text = clasflags.ToString();			// firing the TextChanged event takes care of it.

@@ -2,8 +2,8 @@ nwn2_ai_2da_editor
 A HenchSpells.2da editor for TonyK's Companion and Monster AI 2.2
 
 --
-ver 1.2.7
-2018 jul 1
+ver 1.2.9
+2018 jul 3
 
 --
 Requirements
