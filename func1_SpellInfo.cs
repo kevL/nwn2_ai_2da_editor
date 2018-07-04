@@ -38,7 +38,7 @@ namespace nwn2_ai_2da_editor
 					{
 						int ver = (spellinfo & HENCH_SPELL_INFO_VERSION_MASK);
 
-						if (ver == 0) // insert the default spell-version if it doesn't exist
+						if (ver == 0) // insert the default spell-version if a version # doesn't exist
 						{
 							spellinfo |= HENCH_SPELL_INFO_VERSION; // default info-version in 'hench_i0_generic'
 							SpellInfo_text.Text = spellinfo.ToString();
@@ -55,8 +55,6 @@ namespace nwn2_ai_2da_editor
 							return; // re-fire this funct.
 						}
 					}
-					// TODO: Those need to update stuff when loading the 2da
-					// ... especially the Text-field and reset-color. And the spell-tree's node-color
 
 
 					Spell spell = Spells[Id];

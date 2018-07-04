@@ -89,6 +89,13 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		bool bypassDiffer;
 
+		/// <summary>
+		/// A boolean to track whether to inform the user if any InfoVersions
+		/// have been updated once a 2da finishes loading.
+		/// </summary>
+		bool InfoVersionUpdate
+		{ get; set; }
+
 
 		/// <summary>
 		/// The fullpath of the currently opened 2da file.
@@ -283,6 +290,20 @@ namespace nwn2_ai_2da_editor
 							}
 
 							Text = "nwn2_ai_2da_editor - " + _pfe; // titlebar text (append path of current file)
+
+							// NOTE: Tree.SelectedNode=Tree.Nodes[0] is done auto.
+							// Not necessarily ...
+							Tree.SelectedNode = Tree.Nodes[0];
+
+							if (InfoVersionUpdate)
+							{
+								InfoVersionUpdate = false;
+								MessageBox.Show("InfoVersion(s) have been updated.",
+												"  InfoVersion update",
+												MessageBoxButtons.OK,
+												MessageBoxIcon.Information,
+												MessageBoxDefaultButton.Button1);
+							}
 						}
 					}
 				}
@@ -418,15 +439,14 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Updates any InfoVersion for the spells when the 2da loads.
+		/// Updates any InfoVersion for the spells when the 2da loads. Ensures
+		/// that spell-info does not have a CoreAI version if there's no other
+		/// data and that it does have a CoreAI version if there is.
 		/// NOTE: There won't be any SpellChanged structs at this point although
 		/// this can create such changed-structs - which is the point.
 		/// </summary>
 		void InfoVersionLoad_spells()
 		{
-			// ensure that spell-info does not have a CoreAI version if there's
-			// no other data and that it does have a CoreAI version if there is
-
 			Spell spell;
 
 			int spellinfo, ver;
@@ -473,15 +493,10 @@ namespace nwn2_ai_2da_editor
 					Spells[id] = spell;
 
 					Tree.Nodes[id].ForeColor = Color.Crimson;
-
-
-					if (id == Id)
-					{
-						SpellInfo_text.Text = spellinfo.ToString(); // trigger TextChanged to fill in the gaps
-					}
 				}
 			}
 
+			InfoVersionUpdate       =
 			applyGlobal    .Enabled =
 			gotoNextChanged.Enabled = (SpellsChanged.Count != 0);
 		}
@@ -579,45 +594,42 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Updates any blank InfoVersion for the races when the 2da loads.
+		/// Updates any InfoVersion for the races when the 2da loads. Ensures
+		/// that racial-flags has a CoreAI version - RacialFlags always has a
+		/// Version (unlike spellinfo).
 		/// NOTE: There won't be any RaceChanged structs at this point although
 		/// this can create such changed-structs - which is the point.
 		/// </summary>
 		void InfoVersionLoad_racial()
 		{
-			// ensure that racial-flags has a CoreAI version
-			// NOTE that RacialFlags always has a Version (unlike spellinfo)
-
 			Race race;
 
 			int total = Races.Count;
 			for (int id = 0; id != total; ++id)
 			{
-				if (id != Id) // else let the initial node-select mechanic take care of it
+				race = Races[id];
+				if ((race.flags & HENCH_SPELL_INFO_VERSION_MASK) == 0)
 				{
-					race = Races[id];
-					if ((race.flags & HENCH_SPELL_INFO_VERSION_MASK) == 0)
-					{
-						var racechanged = new RaceChanged();
+					var racechanged = new RaceChanged();
 
-						racechanged.feat1 = race.feat1;
-						racechanged.feat2 = race.feat2;
-						racechanged.feat3 = race.feat3;
-						racechanged.feat4 = race.feat4;
-						racechanged.feat5 = race.feat5;
+					racechanged.feat1 = race.feat1;
+					racechanged.feat2 = race.feat2;
+					racechanged.feat3 = race.feat3;
+					racechanged.feat4 = race.feat4;
+					racechanged.feat5 = race.feat5;
 
-						racechanged.flags = (race.flags | HENCH_SPELL_INFO_VERSION); // insert the default version #
+					racechanged.flags = (race.flags | HENCH_SPELL_INFO_VERSION); // insert the default version #
 
-						RacesChanged[id] = racechanged;
+					RacesChanged[id] = racechanged;
 
-						race.differ = bit_flags;
-						Races[id] = race;
+					race.differ = bit_flags;
+					Races[id] = race;
 
-						Tree.Nodes[id].ForeColor = Color.Crimson;
-					}
+					Tree.Nodes[id].ForeColor = Color.Crimson;
 				}
 			}
 
+			InfoVersionUpdate       =
 			applyGlobal    .Enabled =
 			gotoNextChanged.Enabled = (RacesChanged.Count != 0);
 		}
@@ -750,51 +762,48 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Updates any blank InfoVersion for the classes when the 2da loads.
+		/// Updates any InfoVersion for the classes when the 2da loads. Ensures
+		/// that class-flags has a CoreAI version - ClassFlags always has a
+		/// Version (unlike spellinfo).
 		/// NOTE: There won't be any ClassChanged structs at this point although
 		/// this can create such changed-structs - which is the point.
 		/// </summary>
 		void InfoVersionLoad_classes()
 		{
-			// ensure that class-flags has a CoreAI version
-			// NOTE that ClassFlags always has a Version (unlike spellinfo)
-
 			Class clas;
 
 			int total = Classes.Count;
 			for (int id = 0; id != total; ++id)
 			{
-				if (id != Id) // else let the initial node-select mechanic take care of it
+				clas = Classes[id];
+				if ((clas.flags & HENCH_SPELL_INFO_VERSION_MASK) == 0)
 				{
-					clas = Classes[id];
-					if ((clas.flags & HENCH_SPELL_INFO_VERSION_MASK) == 0)
-					{
-						var claschanged = new ClassChanged();
+					var claschanged = new ClassChanged();
 
-						claschanged.feat1  = clas.feat1;
-						claschanged.feat2  = clas.feat2;
-						claschanged.feat3  = clas.feat3;
-						claschanged.feat4  = clas.feat4;
-						claschanged.feat5  = clas.feat5;
-						claschanged.feat6  = clas.feat6;
-						claschanged.feat7  = clas.feat7;
-						claschanged.feat8  = clas.feat8;
-						claschanged.feat9  = clas.feat9;
-						claschanged.feat10 = clas.feat10;
-						claschanged.feat11 = clas.feat11;
+					claschanged.feat1  = clas.feat1;
+					claschanged.feat2  = clas.feat2;
+					claschanged.feat3  = clas.feat3;
+					claschanged.feat4  = clas.feat4;
+					claschanged.feat5  = clas.feat5;
+					claschanged.feat6  = clas.feat6;
+					claschanged.feat7  = clas.feat7;
+					claschanged.feat8  = clas.feat8;
+					claschanged.feat9  = clas.feat9;
+					claschanged.feat10 = clas.feat10;
+					claschanged.feat11 = clas.feat11;
 
-						claschanged.flags = (clas.flags | HENCH_SPELL_INFO_VERSION); // insert the default version #
+					claschanged.flags = (clas.flags | HENCH_SPELL_INFO_VERSION); // insert the default version #
 
-						ClassesChanged[id] = claschanged;
+					ClassesChanged[id] = claschanged;
 
-						clas.differ = bit_flags;
-						Classes[id] = clas;
+					clas.differ = bit_flags;
+					Classes[id] = clas;
 
-						Tree.Nodes[id].ForeColor = Color.Crimson;
-					}
+					Tree.Nodes[id].ForeColor = Color.Crimson;
 				}
 			}
 
+			InfoVersionUpdate       =
 			applyGlobal    .Enabled =
 			gotoNextChanged.Enabled = (ClassesChanged.Count != 0);
 		}
@@ -881,10 +890,6 @@ namespace nwn2_ai_2da_editor
 					}
 					break;
 			}
-
-			// NOTE: Tree.SelectedNode=Tree.Nodes[0] is done auto.
-			// Not necessarily ...
-			Tree.SelectedNode = Tree.Nodes[0];
 
 			Tree.EndUpdate();
 

@@ -678,11 +678,11 @@ namespace nwn2_ai_2da_editor
 					   + an.Version.Build + "."
 					   + an.Version.Revision;
 #if DEBUG
-			ver += " debug";
+			ver += " - debug";
 #else
-			ver += " release";
+			ver += " - release";
 #endif
-			ver += " build";
+//			ver += " build";
 
 			MessageBox.Show(info + Environment.NewLine + Environment.NewLine + ver,
 							"  About - nwn2_ai_2da_editor",
