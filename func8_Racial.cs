@@ -222,20 +222,24 @@ namespace nwn2_ai_2da_editor
 				race.differ = differ;
 				Races[Id] = race;
 
+				Color color;
 				if (differ != bit_clear)
 				{
 					RacesChanged[Id] = racechanged;
-					Tree.SelectedNode.ForeColor = Color.Crimson;
+					color = Color.Crimson;
 				}
 				else
 				{
 					RacesChanged.Remove(Id);
 
-					if (!race.isChanged) // this is set by the Apply btn only.
+					if (race.isChanged) // this is set by the Apply btn only.
 					{
-						Tree.SelectedNode.ForeColor = DefaultForeColor;
+						color = Color.Blue;
 					}
+					else
+						color = DefaultForeColor;
 				}
+				Tree.SelectedNode.ForeColor = color;
 
 				return true;
 			}

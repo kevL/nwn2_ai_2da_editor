@@ -300,20 +300,24 @@ namespace nwn2_ai_2da_editor
 				clas.differ = differ;
 				Classes[Id] = clas;
 
+				Color color;
 				if (differ != bit_clear)
 				{
 					ClassesChanged[Id] = claschanged;
-					Tree.SelectedNode.ForeColor = Color.Crimson;
+					color = Color.Crimson;
 				}
 				else
 				{
 					ClassesChanged.Remove(Id);
 
-					if (!clas.isChanged) // this is set by the Apply btn only.
+					if (clas.isChanged) // this is set by the Apply btn only.
 					{
-						Tree.SelectedNode.ForeColor = DefaultForeColor;
+						color = Color.Blue;
 					}
+					else
+						color = DefaultForeColor;
 				}
+				Tree.SelectedNode.ForeColor = color;
 
 				return true;
 			}

@@ -412,6 +412,7 @@ namespace nwn2_ai_2da_editor
 			if (Height < 530) Height = 530;
 		}
 
+
 		/// <summary>
 		/// Loads a HenchRacial.2da file.
 		/// If the file is not a valid HenchRacial.2da then this should
@@ -491,11 +492,60 @@ namespace nwn2_ai_2da_editor
 
 			TreeGrowth();
 
+			// check if any info-version(s) need to be updated in flags-int.
+			InfoVersionLoad_racial();
+
+
 			// TODO: this doesn't work as intended if the window is currently
 			// maximized.
 			if (Width  < 905) Width  = 905;
 			if (Height < 350) Height = 350;
 		}
+
+		/// <summary>
+		/// Updates any blank InfoVersion for the races when the 2da loads.
+		/// NOTE: There won't be any RaceChanged structs at this point although
+		/// this can create such changed-structs - which is the point.
+		/// </summary>
+		void InfoVersionLoad_racial()
+		{
+			// ensure that racial-flags has a CoreAI version
+			// NOTE that RacialFlags always has a Version (unlike spellinfo)
+
+			Race race;
+
+			int total = Races.Count;
+			for (int id = 0; id != total; ++id)
+			{
+				if (id != Id) // else let the initial node-select mechanic take care of it
+				{
+					race = Races[id];
+					if ((race.flags & HENCH_SPELL_INFO_VERSION_MASK) == 0)
+					{
+						var racechanged = new RaceChanged();
+
+						racechanged.feat1 = race.feat1;
+						racechanged.feat2 = race.feat2;
+						racechanged.feat3 = race.feat3;
+						racechanged.feat4 = race.feat4;
+						racechanged.feat5 = race.feat5;
+
+						racechanged.flags = (race.flags | HENCH_SPELL_INFO_VERSION); // insert the default version #
+
+						RacesChanged[id] = racechanged;
+
+						race.differ = bit_flags;
+						Races[id] = race;
+
+						Tree.Nodes[id].ForeColor = Color.Crimson;
+					}
+				}
+			}
+
+			applyGlobal    .Enabled =
+			gotoNextChanged.Enabled = (RacesChanged.Count != 0);
+		}
+
 
 		/// <summary>
 		/// Loads a HenchClasses.2da file.
@@ -612,11 +662,65 @@ namespace nwn2_ai_2da_editor
 
 			TreeGrowth();
 
+			// check if any info-version(s) need to be updated in flags-int.
+			InfoVersionLoad_classes();
+
 			// TODO: this doesn't work as intended if the window is currently
 			// maximized.
 			if (Width  < 1355) Width  = 1355;
 			if (Height <  400) Height = 400;
 		}
+
+		/// <summary>
+		/// Updates any blank InfoVersion for the classes when the 2da loads.
+		/// NOTE: There won't be any ClassChanged structs at this point although
+		/// this can create such changed-structs - which is the point.
+		/// </summary>
+		void InfoVersionLoad_classes()
+		{
+			// ensure that class-flags has a CoreAI version
+			// NOTE that ClassFlags always has a Version (unlike spellinfo)
+
+			Class clas;
+
+			int total = Classes.Count;
+			for (int id = 0; id != total; ++id)
+			{
+				if (id != Id) // else let the initial node-select mechanic take care of it
+				{
+					clas = Classes[id];
+					if ((clas.flags & HENCH_SPELL_INFO_VERSION_MASK) == 0)
+					{
+						var claschanged = new ClassChanged();
+
+						claschanged.feat1  = clas.feat1;
+						claschanged.feat2  = clas.feat2;
+						claschanged.feat3  = clas.feat3;
+						claschanged.feat4  = clas.feat4;
+						claschanged.feat5  = clas.feat5;
+						claschanged.feat6  = clas.feat6;
+						claschanged.feat7  = clas.feat7;
+						claschanged.feat8  = clas.feat8;
+						claschanged.feat9  = clas.feat9;
+						claschanged.feat10 = clas.feat10;
+						claschanged.feat11 = clas.feat11;
+
+						claschanged.flags = (clas.flags | HENCH_SPELL_INFO_VERSION); // insert the default version #
+
+						ClassesChanged[id] = claschanged;
+
+						clas.differ = bit_flags;
+						Classes[id] = clas;
+
+						Tree.Nodes[id].ForeColor = Color.Crimson;
+					}
+				}
+			}
+
+			applyGlobal    .Enabled =
+			gotoNextChanged.Enabled = (ClassesChanged.Count != 0);
+		}
+
 
 		/// <summary>
 		/// Populates nodes in the tree.

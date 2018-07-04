@@ -45,10 +45,11 @@ namespace nwn2_ai_2da_editor
 							return; // re-fire this funct.
 						}
 
-						if (spellinfo == ver) // clear the spell-version if that's the only data in spellinfo
+						if (ver == spellinfo) // clear the spell-version if that's the only data in spellinfo
 						{
 							// TODO: I suppose the spell-version should be stored (if not the default version #) ...
 							// so it can be re-inserted identically (if/after user clears all spellinfo bits).
+
 							spellinfo = 0;
 							SpellInfo_text.Text = spellinfo.ToString();
 							return; // re-fire this funct.
