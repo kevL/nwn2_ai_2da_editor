@@ -392,6 +392,9 @@ namespace nwn2_ai_2da_editor
 
 			TreeGrowth();
 
+			// check if any info-version(s) need to be updated in spellinfo-int.
+			InfoVersionLoad_spells();
+
 			// Groups on SpellInfo and TargetInfo generally stay green
 			// unless SpellInfo is flagged as a MasterID
 			GroupColor(si_SpelltypeGrp,  Color.LimeGreen);
@@ -412,6 +415,75 @@ namespace nwn2_ai_2da_editor
 			if (Height < 530) Height = 530;
 
 			apply.Text = "apply this spell\'s data";
+		}
+
+		/// <summary>
+		/// Updates any InfoVersion for the spells when the 2da loads.
+		/// NOTE: There won't be any SpellChanged structs at this point although
+		/// this can create such changed-structs - which is the point.
+		/// </summary>
+		void InfoVersionLoad_spells()
+		{
+			// ensure that spell-info does not have a CoreAI version if there's
+			// no other data and that it does have a CoreAI version if there is
+
+			Spell spell;
+
+			int spellinfo, ver0, ver;
+
+			int total = Spells.Count;
+			for (int id = 0; id != total; ++id)
+			{
+				spell = Spells[id];
+				spellinfo = spell.spellinfo;
+
+				if (spellinfo != 0)
+				{
+					ver0 = (spellinfo & HENCH_SPELL_INFO_VERSION_MASK);
+
+					if (ver0 == 0) // insert the default spell-version if it doesn't exist
+					{
+						ver = HENCH_SPELL_INFO_VERSION;
+					}
+					else if (ver0 == spellinfo) // clear the spell-version if that's the only data in spellinfo
+					{
+						ver = 0;
+					}
+					else
+						continue;
+
+
+					spellinfo &= ~HENCH_SPELL_INFO_VERSION_MASK;
+					spellinfo |= ver;
+
+					var spellchanged = new SpellChanged();
+
+					spellchanged.targetinfo   = spell.targetinfo;
+					spellchanged.effectweight = spell.effectweight;
+					spellchanged.effecttypes  = spell.effecttypes;
+					spellchanged.damageinfo   = spell.damageinfo;
+					spellchanged.savetype     = spell.savetype;
+					spellchanged.savedctype   = spell.savedctype;
+
+					spellchanged.spellinfo = spellinfo;
+
+					SpellsChanged[id] = spellchanged;
+
+					spell.differ = bit_spellinfo;
+					Spells[id] = spell;
+
+					Tree.Nodes[id].ForeColor = Color.Crimson;
+
+
+					if (id == Id)
+					{
+						SpellInfo_text.Text = spellinfo.ToString(); // trigger TextChanged to fill in the gaps
+					}
+				}
+			}
+
+			applyGlobal    .Enabled =
+			gotoNextChanged.Enabled = (SpellsChanged.Count != 0);
 		}
 
 
@@ -812,7 +884,8 @@ namespace nwn2_ai_2da_editor
 
 			// NOTE: Tree.SelectedNode=Tree.Nodes[0] is done auto.
 			// Not necessarily ...
-			Tree.SelectedNode = Tree.Nodes[0];
+//			Tree.SelectedNode = Tree.Nodes[0];
+			Tree.SelectedNode = Tree.Nodes[1]; // TEST!!
 
 			Tree.EndUpdate();
 
