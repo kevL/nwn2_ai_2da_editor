@@ -357,6 +357,8 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Helper for SetInfoVersion_racial().
 		/// </summary>
+		/// <param name="str"></param>
+		/// <param name="all"></param>
 		void SetInfoVersion_racial(string str, bool all)
 		{
 			// NOTE: This will iterate through all changed races even
