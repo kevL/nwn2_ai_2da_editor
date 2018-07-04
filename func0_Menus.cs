@@ -639,14 +639,23 @@ namespace nwn2_ai_2da_editor
 			{
 				case Type2da.TYPE_SPELLS:
 					SetInfoVersion_spells();
+
+					applyGlobal    .Enabled = SpellsChanged.Count != 0;
+					gotoNextChanged.Enabled = SpellsChanged.Count != 0 || SpareChange();
 					break;
 
 				case Type2da.TYPE_RACIAL:
 					SetInfoVersion_racial();
+
+					applyGlobal    .Enabled = RacesChanged.Count != 0;
+					gotoNextChanged.Enabled = RacesChanged.Count != 0 || SpareChange();
 					break;
 
 				case Type2da.TYPE_CLASSES:
 					SetInfoVersion_classes();
+
+					applyGlobal    .Enabled = ClassesChanged.Count != 0;
+					gotoNextChanged.Enabled = ClassesChanged.Count != 0 || SpareChange();
 					break;
 			}
 		}
@@ -855,7 +864,7 @@ namespace nwn2_ai_2da_editor
 								AfterSelect_node(null, null); // refresh all displayed data for the current spell jic
 							}
 
-							Tree.Nodes[id].ForeColor = Color.MediumBlue;
+							Tree.Nodes[id].ForeColor = Color.Blue;
 						}
 					}
 					break;
@@ -900,7 +909,7 @@ namespace nwn2_ai_2da_editor
 								AfterSelect_node(null, null); // refresh all displayed data for the current race jic
 							}
 
-							Tree.Nodes[id].ForeColor = Color.MediumBlue;
+							Tree.Nodes[id].ForeColor = Color.Blue;
 						}
 					}
 					break;
@@ -957,7 +966,7 @@ namespace nwn2_ai_2da_editor
 								AfterSelect_node(null, null); // refresh all displayed data for the current class jic
 							}
 
-							Tree.Nodes[id].ForeColor = Color.MediumBlue;
+							Tree.Nodes[id].ForeColor = Color.Blue;
 						}
 					}
 					break;

@@ -285,20 +285,24 @@ namespace nwn2_ai_2da_editor
 						spell.differ = differ;
 						Spells[id] = spell;
 
+						Color color;
 						if (differ != bit_clear)
 						{
 							SpellsChanged[id] = spellchanged;
-							Tree.Nodes[id].ForeColor = Color.Crimson;
+							color = Color.Crimson;
 						}
 						else
 						{
 							SpellsChanged.Remove(id);
-
-							if (!spell.isChanged) // this is set by the Apply btn only.
+	
+							if (spell.isChanged) // this is set by the Apply btn only.
 							{
-								Tree.Nodes[id].ForeColor = DefaultForeColor;
+								color = Color.Blue;
 							}
+							else
+								color = DefaultForeColor;
 						}
+						Tree.Nodes[id].ForeColor = color;
 					}
 				}
 			}
@@ -419,20 +423,24 @@ namespace nwn2_ai_2da_editor
 						race.differ = differ;
 						Races[id] = race;
 
+						Color color;
 						if (differ != bit_clear)
 						{
 							RacesChanged[id] = racechanged;
-							Tree.Nodes[id].ForeColor = Color.Crimson;
+							color = Color.Crimson;
 						}
 						else
 						{
 							RacesChanged.Remove(id);
-
-							if (!race.isChanged) // this is set by the Apply btn only.
+	
+							if (race.isChanged) // this is set by the Apply btn only.
 							{
-								Tree.Nodes[id].ForeColor = DefaultForeColor;
+								color = Color.Blue;
 							}
+							else
+								color = DefaultForeColor;
 						}
+						Tree.Nodes[id].ForeColor = color;
 					}
 				}
 			}
@@ -554,20 +562,24 @@ namespace nwn2_ai_2da_editor
 						clas.differ = differ;
 						Classes[id] = clas;
 
+						Color color;
 						if (differ != bit_clear)
 						{
 							ClassesChanged[id] = claschanged;
-							Tree.Nodes[id].ForeColor = Color.Crimson;
+							color = Color.Crimson;
 						}
 						else
 						{
 							ClassesChanged.Remove(id);
-
-							if (!clas.isChanged) // this is set by the Apply btn only.
+	
+							if (clas.isChanged) // this is set by the Apply btn only.
 							{
-								Tree.Nodes[id].ForeColor = DefaultForeColor;
+								color = Color.Blue;
 							}
+							else
+								color = DefaultForeColor;
 						}
+						Tree.Nodes[id].ForeColor = color;
 					}
 				}
 			}

@@ -1215,7 +1215,7 @@ namespace nwn2_ai_2da_editor
 
 					if (Spells[Id].isChanged) // this goes outside the SpellsChanged check above because uh color goes screwy if not.
 					{
-						Tree.SelectedNode.ForeColor = Color.MediumBlue;
+						Tree.SelectedNode.ForeColor = Color.Blue;
 					}
 					else // I doubt this ever *needs* to run ... but safety.
 					{
@@ -1257,7 +1257,7 @@ namespace nwn2_ai_2da_editor
 
 					if (Races[Id].isChanged) // this goes outside the RacesChanged check above because uh color goes screwy if not.
 					{
-						Tree.SelectedNode.ForeColor = Color.MediumBlue;
+						Tree.SelectedNode.ForeColor = Color.Blue;
 					}
 					else // I doubt this ever *needs* to run ... but safety.
 					{
@@ -1311,7 +1311,7 @@ namespace nwn2_ai_2da_editor
 
 					if (Classes[Id].isChanged) // this goes outside the ClassesChanged check above because uh color goes screwy if not.
 					{
-						Tree.SelectedNode.ForeColor = Color.MediumBlue;
+						Tree.SelectedNode.ForeColor = Color.Blue;
 					}
 					else // I doubt this ever *needs* to run ... but safety.
 					{

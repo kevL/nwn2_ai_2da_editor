@@ -53,20 +53,24 @@ namespace nwn2_ai_2da_editor
 					spell.differ = differ;
 					Spells[Id] = spell;
 
+					Color color;
 					if (differ != bit_clear)
 					{
 						SpellsChanged[Id] = spellchanged;
-						Tree.SelectedNode.ForeColor = Color.Crimson;
+						color = Color.Crimson;
 					}
 					else
 					{
 						SpellsChanged.Remove(Id);
 
-						if (!spell.isChanged) // this is set by the Apply btn only.
+						if (spell.isChanged) // this is set by the Apply btn only.
 						{
-							Tree.SelectedNode.ForeColor = DefaultForeColor;
+							color = Color.Blue;
 						}
+						else
+							color = DefaultForeColor;
 					}
+					Tree.SelectedNode.ForeColor = color;
 				}
 
 				PrintCurrent(savedctype, SaveDCType_hex, SaveDCType_bin);
@@ -126,7 +130,7 @@ namespace nwn2_ai_2da_editor
 
 					if (spell.isChanged) // this is set by the Apply btn only.
 					{
-						Tree.SelectedNode.ForeColor = Color.MediumBlue;
+						Tree.SelectedNode.ForeColor = Color.Blue;
 					}
 					else
 						Tree.SelectedNode.ForeColor = DefaultForeColor;
