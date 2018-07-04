@@ -429,7 +429,7 @@ namespace nwn2_ai_2da_editor
 
 			Spell spell;
 
-			int spellinfo, ver0, ver;
+			int spellinfo, ver;
 
 			int total = Spells.Count;
 			for (int id = 0; id != total; ++id)
@@ -439,13 +439,13 @@ namespace nwn2_ai_2da_editor
 
 				if (spellinfo != 0)
 				{
-					ver0 = (spellinfo & HENCH_SPELL_INFO_VERSION_MASK);
+					ver = (spellinfo & HENCH_SPELL_INFO_VERSION_MASK);
 
-					if (ver0 == 0) // insert the default spell-version if it doesn't exist
+					if (ver == 0) // insert the default spell-version if it doesn't exist
 					{
 						ver = HENCH_SPELL_INFO_VERSION;
 					}
-					else if (ver0 == spellinfo) // clear the spell-version if that's the only data in spellinfo
+					else if (ver == spellinfo) // clear the spell-version if that's the only data in spellinfo
 					{
 						ver = 0;
 					}
@@ -884,8 +884,7 @@ namespace nwn2_ai_2da_editor
 
 			// NOTE: Tree.SelectedNode=Tree.Nodes[0] is done auto.
 			// Not necessarily ...
-//			Tree.SelectedNode = Tree.Nodes[0];
-			Tree.SelectedNode = Tree.Nodes[1]; // TEST!!
+			Tree.SelectedNode = Tree.Nodes[0];
 
 			Tree.EndUpdate();
 
