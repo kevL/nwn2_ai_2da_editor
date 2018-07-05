@@ -29,10 +29,10 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		enum Type2da
 		{
-//			TYPE_NONE,   //
-			TYPE_SPELLS, // 0 - default on startup.
-			TYPE_RACIAL, // 1
-			TYPE_CLASSES // 2
+			TYPE_NONE,   // 0 - default on startup.
+			TYPE_SPELLS, // 1
+			TYPE_RACIAL, // 2
+			TYPE_CLASSES // 3
 		}
 
 		/// <summary>
@@ -438,8 +438,9 @@ namespace nwn2_ai_2da_editor
 			if (Width < 1105) Width = 1105;
 			if (Height < 530) Height = 530;
 
-			apply  .Text = "apply this spell\'s data";
-//			addNode.Text = "add node: spell";
+			apply         .Text = "apply this spell\'s data";
+			menu_Highlight.Text = "highlight";
+//			addNode       .Text = "add node: spell";
 		}
 
 		/// <summary>
@@ -594,8 +595,9 @@ namespace nwn2_ai_2da_editor
 			if (Width  < 905) Width  = 905;
 			if (Height < 350) Height = 350;
 
-			apply  .Text = "apply this race\'s data";
-//			addNode.Text = "add node: race";
+			apply         .Text = "apply this race\'s data";
+			menu_Highlight.Text = "turtles";
+//			addNode       .Text = "add node: race";
 		}
 
 		/// <summary>
@@ -763,8 +765,9 @@ namespace nwn2_ai_2da_editor
 			if (Width  < 1355) Width  = 1355;
 			if (Height <  400) Height = 400;
 
-			apply  .Text = "apply this class\' data";
-//			addNode.Text = "add node: class";
+			apply         .Text = "apply this class\' data";
+			menu_Highlight.Text = "turtles";
+//			addNode       .Text = "add node: class";
 		}
 
 		/// <summary>
@@ -1784,6 +1787,47 @@ namespace nwn2_ai_2da_editor
 
 
 		#region treeview ContextMenu
+		void Click_menuHighlight(object sender, EventArgs e)
+		{
+			switch (Type)
+			{
+				case Type2da.TYPE_SPELLS:
+				{
+					int total = Spells.Count;
+					if ((menu_Highlight.Checked = !menu_Highlight.Checked) == true)
+					{
+						for (int id = 0; id != total; ++id)
+						{
+							if (Spells[id].spellinfo == 0)
+							{
+								Tree.Nodes[id].ForeColor = Color.MediumOrchid;
+							}
+						}
+					}
+					else
+					{
+						Spell spell;
+						for (int id = 0; id != total; ++id)
+						{
+							spell = Spells[id];
+							if (spell.differ != bit_clear)
+							{
+								Tree.Nodes[id].ForeColor = Color.Crimson;
+							}
+							else if (spell.isChanged)
+							{
+								Tree.Nodes[id].ForeColor = Color.Blue;
+							}
+							else
+								Tree.Nodes[id].ForeColor = DefaultForeColor;
+						}
+					}
+					break;
+				}
+			}
+		}
+
+
 		// kL_note: I started to implement AddNode functionality (RMB-click on
 		// the Tree) below but ... long story short: this isn't a 2da row-editor.
 		// Therefore User needs to add or remove rows with a regular 2da editor.
@@ -1793,6 +1837,9 @@ namespace nwn2_ai_2da_editor
 		// Click_addnode() to its "addNode" menu-item. And uncomment the functs
 		// in 'inputbox.cs' along with the "addNode.Text = " lines in the
 		// Load_Hench*() functs. And uncomment Type2da.TYPE_NONE
+		//
+		// ps. "addNode" has been repurposed to "menu_Highlight". So you'd have
+		// to create a new menu-item.
 		//
 		// But the whole idea would need a large amount of effort; it should
 		// jive with the path-options (to so-called external 2das) as well as

@@ -598,7 +598,7 @@
 		private System.Windows.Forms.Label si_ChildEt;
 		private System.Windows.Forms.Label si_ChildTi;
 		private System.Windows.Forms.ContextMenuStrip treeMenu;
-		private System.Windows.Forms.ToolStripMenuItem addNode;
+		private System.Windows.Forms.ToolStripMenuItem menu_Highlight;
 
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -930,7 +930,7 @@
 			this.About = new System.Windows.Forms.ToolStripMenuItem();
 			this.Tree = new System.Windows.Forms.TreeView();
 			this.treeMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
-			this.addNode = new System.Windows.Forms.ToolStripMenuItem();
+			this.menu_Highlight = new System.Windows.Forms.ToolStripMenuItem();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.btn_Search_u = new System.Windows.Forms.Button();
 			this.btn_Search_d = new System.Windows.Forms.Button();
@@ -4806,6 +4806,7 @@
 			this.Tree.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
 			| System.Windows.Forms.AnchorStyles.Left) 
 			| System.Windows.Forms.AnchorStyles.Right)));
+			this.Tree.ContextMenuStrip = this.treeMenu;
 			this.Tree.HideSelection = false;
 			this.Tree.Indent = 15;
 			this.Tree.Location = new System.Drawing.Point(0, 20);
@@ -4819,18 +4820,20 @@
 			// treeMenu
 			// 
 			this.treeMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-			this.addNode});
+			this.menu_Highlight});
 			this.treeMenu.Name = "treeMenu";
+			this.treeMenu.ShowCheckMargin = true;
 			this.treeMenu.ShowImageMargin = false;
-			this.treeMenu.Size = new System.Drawing.Size(128, 46);
+			this.treeMenu.Size = new System.Drawing.Size(153, 46);
 			this.treeMenu.Text = "treeMenu";
 			// 
-			// addNode
+			// menu_Highlight
 			// 
-			this.addNode.Name = "addNode";
-			this.addNode.Padding = new System.Windows.Forms.Padding(0);
-			this.addNode.Size = new System.Drawing.Size(127, 20);
-			this.addNode.Text = "turtles";
+			this.menu_Highlight.Name = "menu_Highlight";
+			this.menu_Highlight.Padding = new System.Windows.Forms.Padding(0);
+			this.menu_Highlight.Size = new System.Drawing.Size(152, 20);
+			this.menu_Highlight.Text = "turtles";
+			this.menu_Highlight.Click += new System.EventHandler(this.Click_menuHighlight);
 			// 
 			// splitContainer1
 			// 
