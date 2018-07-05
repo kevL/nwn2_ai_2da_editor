@@ -137,6 +137,8 @@ namespace nwn2_ai_2da_editor
 				|| ver < 1 || ver > 255)
 			{
 				tb.Text = (HENCH_SPELL_INFO_VERSION >> HENCH_SPELL_INFO_VERSION_SHIFT).ToString();
+				tb.SelectionStart = tb.Text.Length;
+
 				MessageBox.Show("Integer must be in range 1 to 255",
 								"  are you sure you know what you're doing",
 								MessageBoxButtons.OK,

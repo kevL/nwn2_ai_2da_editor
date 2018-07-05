@@ -597,6 +597,8 @@
 		private System.Windows.Forms.Label si_ChildDi;
 		private System.Windows.Forms.Label si_ChildEt;
 		private System.Windows.Forms.Label si_ChildTi;
+		private System.Windows.Forms.ContextMenuStrip treeMenu;
+		private System.Windows.Forms.ToolStripMenuItem addNode;
 
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -927,6 +929,8 @@
 			this.help = new System.Windows.Forms.ToolStripMenuItem();
 			this.About = new System.Windows.Forms.ToolStripMenuItem();
 			this.Tree = new System.Windows.Forms.TreeView();
+			this.treeMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
+			this.addNode = new System.Windows.Forms.ToolStripMenuItem();
 			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
 			this.btn_Search_u = new System.Windows.Forms.Button();
 			this.btn_Search_d = new System.Windows.Forms.Button();
@@ -1265,6 +1269,7 @@
 			this.dc_WeaponBonusGrp.SuspendLayout();
 			this.dc_SaveDCGrp.SuspendLayout();
 			this.menuStrip.SuspendLayout();
+			this.treeMenu.SuspendLayout();
 			this.splitContainer1.Panel1.SuspendLayout();
 			this.splitContainer1.Panel2.SuspendLayout();
 			this.splitContainer1.SuspendLayout();
@@ -4811,6 +4816,22 @@
 			this.Tree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.AfterSelect_node);
 			this.Tree.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress_search);
 			// 
+			// treeMenu
+			// 
+			this.treeMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.addNode});
+			this.treeMenu.Name = "treeMenu";
+			this.treeMenu.ShowImageMargin = false;
+			this.treeMenu.Size = new System.Drawing.Size(128, 46);
+			this.treeMenu.Text = "treeMenu";
+			// 
+			// addNode
+			// 
+			this.addNode.Name = "addNode";
+			this.addNode.Padding = new System.Windows.Forms.Padding(0);
+			this.addNode.Size = new System.Drawing.Size(127, 20);
+			this.addNode.Text = "turtles";
+			// 
 			// splitContainer1
 			// 
 			this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -8079,6 +8100,7 @@
 			this.dc_SaveDCGrp.ResumeLayout(false);
 			this.menuStrip.ResumeLayout(false);
 			this.menuStrip.PerformLayout();
+			this.treeMenu.ResumeLayout(false);
 			this.splitContainer1.Panel1.ResumeLayout(false);
 			this.splitContainer1.Panel1.PerformLayout();
 			this.splitContainer1.Panel2.ResumeLayout(false);

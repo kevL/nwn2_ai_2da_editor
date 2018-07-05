@@ -29,9 +29,10 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		enum Type2da
 		{
-			TYPE_SPELLS, // 0 - default on startup.
-			TYPE_RACIAL, // 1
-			TYPE_CLASSES // 2
+			TYPE_NONE,   // 0 - default on startup.
+			TYPE_SPELLS, // 1
+			TYPE_RACIAL, // 2
+			TYPE_CLASSES // 3
 		}
 
 		/// <summary>
@@ -96,6 +97,8 @@ namespace nwn2_ai_2da_editor
 		bool InfoVersionUpdate
 		{ get; set; }
 
+
+		const int PAD_SPELLLABEL = 4; // good to id# 9999
 
 		/// <summary>
 		/// The fullpath of the currently opened 2da file.
@@ -435,7 +438,8 @@ namespace nwn2_ai_2da_editor
 			if (Width < 1105) Width = 1105;
 			if (Height < 530) Height = 530;
 
-			apply.Text = "apply this spell\'s data";
+			apply  .Text = "apply this spell\'s data";
+//			addNode.Text = "add node: spell";
 		}
 
 		/// <summary>
@@ -590,7 +594,8 @@ namespace nwn2_ai_2da_editor
 			if (Width  < 905) Width  = 905;
 			if (Height < 350) Height = 350;
 
-			apply.Text = "apply this race\'s data";
+			apply  .Text = "apply this race\'s data";
+//			addNode.Text = "add node: race";
 		}
 
 		/// <summary>
@@ -758,7 +763,8 @@ namespace nwn2_ai_2da_editor
 			if (Width  < 1355) Width  = 1355;
 			if (Height <  400) Height = 400;
 
-			apply.Text = "apply this class\' data";
+			apply  .Text = "apply this class\' data";
+//			addNode.Text = "add node: class";
 		}
 
 		/// <summary>
@@ -835,7 +841,7 @@ namespace nwn2_ai_2da_editor
 					{
 						pad = String.Empty;
 						digits = spell.id.ToString().Length;
-						while (digits++ < 4) // good to id# 9999
+						while (digits++ < PAD_SPELLLABEL)
 						{
 							pad += " ";
 						}
@@ -1358,7 +1364,7 @@ namespace nwn2_ai_2da_editor
 
 		/// <summary>
 		/// Handler for the "apply changed data to currently selected
-		/// spell-struct" button.
+		/// spell/race/class" button.
 		/// Cf. ApplyDirtyData()
 		/// </summary>
 		/// <param name="sender"></param>
@@ -1775,6 +1781,178 @@ namespace nwn2_ai_2da_editor
 			}
 		}
 		#endregion Search
+
+
+		#region treeview ContextMenu
+		// kL_note: I started to implement AddNode functionality (RMB-click on
+		// the Tree) below but ... long story short: this isn't a 2da row-editor.
+		// Therefore User needs to add or remove rows with a regular 2da editor.
+		//
+		// I'm leaving the ContextMenu in, however. It can be enabled by
+		// assigning 'treeMenu' to the TreeView's ContextMenuStrip. And
+		// Click_addnode() to its "addNode" menu-item. And uncomment the functs
+		// in 'inputbox.cs' along with the "addNode.Text = " lines in the
+		// Load_Hench*() functs.
+		//
+		// But the whole idea would need a large amount of effort; it should
+		// jive with the path-options (to so-called external 2das) as well as
+		// be able to create and delete ranges of rows in the Hench.2das - this
+		// could easily cause nontrivial inconsistencies between HenchSpells.2da
+		// and Spells.2da eg ....
+		//
+		// Policy #138: Let the user deal with adding/deleting 2da-rows.
+
+/*		/// <summary>
+		/// Handles click on the tree's context-menu: AddNode.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void Click_addnode(object sender, EventArgs e)
+		{
+			if (Type != Type2da.TYPE_NONE)
+			{
+				int id = Tree.Nodes.Count;
+				switch (Type)
+				{
+					case Type2da.TYPE_SPELLS:
+						AddSpell(id);
+						break;
+
+					case Type2da.TYPE_RACIAL:
+						AddRace(id);
+						break;
+
+					case Type2da.TYPE_CLASSES:
+						AddClass(id);
+						break;
+				}
+			}
+		} */
+
+/*		/// <summary>
+		/// Adds a spell to the tree.
+		/// </summary>
+		/// <param name="id"></param>
+		void AddSpell(int id)
+		{
+			string label = String.Empty;
+
+			if (spellLabels.Count >= id)
+			{
+				label = spellLabels[id];
+			}
+			else
+			{
+				string str = "";
+				switch (InputBox("Spell label", ref str))
+				{
+					case DialogResult.OK:
+						label = str;
+						break;
+
+					case DialogResult.Cancel:
+						return;
+				}
+			}
+
+
+			var spell = new Spell();
+
+			spell.label     = label;
+			spell.id        = id;
+			spell.isChanged = true;
+			spell.differ    = bit_clear;
+
+			spell.spellinfo    = 0;
+			spell.targetinfo   = 0;
+			spell.effectweight = 0.0f;
+			spell.effecttypes  = 0;
+			spell.damageinfo   = 0;
+			spell.savetype     = 0;
+			spell.savedctype   = 0;
+
+			Spells.Add(spell);
+
+
+			string pad = String.Empty;
+			int digits = id.ToString().Length;
+			while (digits++ < PAD_SPELLLABEL)
+			{
+				pad += " ";
+			}
+
+			label = id + pad + " " + label;
+
+//			Tree.BeginUpdate();
+
+			Tree.Nodes.Add(label);
+			Tree.SelectedNode = Tree.Nodes[id];
+
+//			Tree.EndUpdate();
+//			Tree.SelectedNode.EnsureVisible();
+		} */
+
+/*		/// <summary>
+		/// Adds a race to the tree.
+		/// </summary>
+		/// <param name="id"></param>
+		void AddRace(int id)
+		{
+			string label = String.Empty;
+
+			if (racesLabels.Count >= id)
+			{
+				label = racesLabels[id];
+			}
+			else
+			{
+				string str = "";
+				switch (InputBox("Subrace label", ref str))
+				{
+					case DialogResult.OK:
+						label = str;
+						break;
+
+					case DialogResult.Cancel:
+						return;
+				}
+			}
+
+
+			var race = new Race();
+
+			race.id        = id;
+			race.isChanged = true;
+			race.differ    = bit_clear;
+
+			race.flags = 0;
+			race.feat1 = 0;
+			race.feat2 = 0;
+			race.feat3 = 0;
+			race.feat4 = 0;
+			race.feat5 = 0;
+
+			Races.Add(race);
+
+
+			label = id + " " + label;
+
+//			Tree.BeginUpdate();
+
+			Tree.Nodes.Add(label);
+			Tree.SelectedNode = Tree.Nodes[id];
+
+//			Tree.EndUpdate();
+//			Tree.SelectedNode.EnsureVisible();
+		} */
+
+/*		/// <summary>
+		/// Adds a class to the tree.
+		/// </summary>
+		/// <param name="id"></param>
+		void AddClass(int id)
+		{} */
+		#endregion treeview ContextMenu
 	}
 	#endregion MainForm
 
@@ -1782,7 +1960,7 @@ namespace nwn2_ai_2da_editor
 
 	/// <summary>
 	/// Struct that holds data of each spell in HenchSpells.2da.
-	/// note: This data can change when the Apply-btn is clicked (but only if
+	/// NOTE: This data can change when the Apply-btn is clicked (but only if
 	/// the spell-data has in fact been changed of c).
 	/// NOTE: This is the data that gets saved to file on File|Save.
 	/// </summary>
@@ -1801,9 +1979,9 @@ namespace nwn2_ai_2da_editor
 
 		// NOTE: The following fields are not saved to file ->
 
-		public int differ;		// bitwise int that holds flags for changed fields
-		public bool isChanged;	// boolean used to warn if there is modified data when exiting the app.
-	}
+		public int differ;		// bitwise int that holds flags for changed fields (also colors the tree-node red if not 0)
+		public bool isChanged;	// boolean used (along with the differ) to warn if there is modified data when exiting the app
+	}							// (also colors the tree-node blue if true)
 
 	/// <summary>
 	/// Struct that holds changed data of any spell that has been modified in
@@ -1825,7 +2003,7 @@ namespace nwn2_ai_2da_editor
 
 	/// <summary>
 	/// Struct that holds data of each race in HenchRacial.2da.
-	/// note: This data can change when the Apply-btn is clicked (but only if
+	/// NOTE: This data can change when the Apply-btn is clicked (but only if
 	/// the race-data has in fact been changed of c).
 	/// NOTE: This is the data that gets saved to file on File|Save.
 	/// </summary>
@@ -1842,9 +2020,9 @@ namespace nwn2_ai_2da_editor
 
 		// NOTE: The following fields are not saved to file ->
 
-		public int differ;		// bitwise int that holds flags for changed fields
-		public bool isChanged;	// boolean used to warn if there is modified data when exiting the app.
-	}
+		public int differ;		// bitwise int that holds flags for changed fields (also colors the tree-node red if not 0)
+		public bool isChanged;	// boolean used (along with the differ) to warn if there is modified data when exiting the app
+	}							// (also colors the tree-node blue if true)
 
 	/// <summary>
 	/// Struct that holds changed data of any race that has been modified in
@@ -1865,7 +2043,7 @@ namespace nwn2_ai_2da_editor
 
 	/// <summary>
 	/// Struct that holds data of each class in HenchClasses.2da.
-	/// note: This data can change when the Apply-btn is clicked (but only if
+	/// NOTE: This data can change when the Apply-btn is clicked (but only if
 	/// the class-data has in fact been changed of c).
 	/// NOTE: This is the data that gets saved to file on File|Save.
 	/// </summary>
@@ -1888,9 +2066,9 @@ namespace nwn2_ai_2da_editor
 
 		// NOTE: The following fields are not saved to file ->
 
-		public int differ;		// bitwise int that holds flags for changed fields
-		public bool isChanged;	// boolean used to warn if there is modified data when exiting the app.
-	}
+		public int differ;		// bitwise int that holds flags for changed fields (also colors the tree-node red if not 0)
+		public bool isChanged;	// boolean used (along with the differ) to warn if there is modified data when exiting the app
+	}							// (also colors the tree-node blue if true)
 
 	/// <summary>
 	/// Struct that holds changed data of any class that has been modified in
