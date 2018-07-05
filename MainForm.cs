@@ -29,10 +29,10 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		enum Type2da
 		{
-			TYPE_NONE,   // 0 - default on startup.
-			TYPE_SPELLS, // 1
-			TYPE_RACIAL, // 2
-			TYPE_CLASSES // 3
+//			TYPE_NONE,   //
+			TYPE_SPELLS, // 0 - default on startup.
+			TYPE_RACIAL, // 1
+			TYPE_CLASSES // 2
 		}
 
 		/// <summary>
@@ -1792,7 +1792,7 @@ namespace nwn2_ai_2da_editor
 		// assigning 'treeMenu' to the TreeView's ContextMenuStrip. And
 		// Click_addnode() to its "addNode" menu-item. And uncomment the functs
 		// in 'inputbox.cs' along with the "addNode.Text = " lines in the
-		// Load_Hench*() functs.
+		// Load_Hench*() functs. And uncomment Type2da.TYPE_NONE
 		//
 		// But the whole idea would need a large amount of effort; it should
 		// jive with the path-options (to so-called external 2das) as well as
