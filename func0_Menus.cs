@@ -980,9 +980,9 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void Write2daFile()
 		{
-			//logfile.Log("Write2daFile() " + _pfe);
-
 			Text = "nwn2_ai_2da_editor - " + _pfe; // titlebar text (append path of saved file)
+
+			gotoNextChanged.Enabled = false;
 
 			switch (Type)
 			{
