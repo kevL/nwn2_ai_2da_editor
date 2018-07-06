@@ -439,8 +439,10 @@ namespace nwn2_ai_2da_editor
 			if (Height < 530) Height = 530;
 
 			apply         .Text = "apply this spell\'s data";
-			menu_Highlight.Text = "highlight";
+			menu_Highlight.Text = "highlight blank SpellInfo nodes";
 //			addNode       .Text = "add node: spell";
+
+			menu_Highlight.Checked = false;
 		}
 
 		/// <summary>
@@ -598,6 +600,8 @@ namespace nwn2_ai_2da_editor
 			apply         .Text = "apply this race\'s data";
 			menu_Highlight.Text = "turtles";
 //			addNode       .Text = "add node: race";
+
+			menu_Highlight.Checked = false;
 		}
 
 		/// <summary>
@@ -768,6 +772,8 @@ namespace nwn2_ai_2da_editor
 			apply         .Text = "apply this class\' data";
 			menu_Highlight.Text = "turtles";
 //			addNode       .Text = "add node: class";
+
+			menu_Highlight.Checked = false;
 		}
 
 		/// <summary>
@@ -1800,7 +1806,7 @@ namespace nwn2_ai_2da_editor
 						{
 							if (Spells[id].spellinfo == 0)
 							{
-								Tree.Nodes[id].ForeColor = Color.MediumOrchid;
+								Tree.Nodes[id].ForeColor = Color.DarkTurquoise;
 							}
 						}
 					}
