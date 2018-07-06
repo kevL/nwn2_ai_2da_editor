@@ -1,14 +1,37 @@
 nwn2_ai_2da_editor
 A HenchSpells.2da editor for TonyK's Companion and Monster AI 2.2
 
+- not entirely compatible with the SoZ AI but it should cut mustard
+
 --
-ver 1.2.9
-2018 jul 3
+ver 1.2.12
+2018 jul 5
+
+--
+Overview
+
+First of all what this is not: a 2da row-editor. It does not create, delete, or
+copy 2da rows. It is, rather, a bitwise editor (largely) for three specific
+2da-files: HenchSpells.2da, HenchRacial.2da, and HenchClasses.2da. Most of the
+entries in those files are integers that are used by the CoreAI in a bitwise
+way; this application reads and writes the bits of those integers.
+
+If you want to add/delete rows from the Hench* 2da files it should be done with
+a text-editor or preferably a 2da row-editor. Only the row ID # is required,
+followed by blank fields "****" in the other columns, so that it's a valid 2da-
+file. This editor should then be able to open such a file.
+
+Note that if you're adding rows to HenchSpells.2da their IDs need to be kept in
+sync with Spells.2da, if adding rows to HenchRacial.2da they need to be kept in
+sync with RacialSubtypes.2da, and if to HenchClasses.2da ... Classes.2da.
+
+ps. The CoreAI for Neverwinter Nights 2 is contained in scripts that start with
+"hench".
 
 --
 Requirements
 
-Windows w/ .NET 3.5 (installed and enabled)
+Windows w/ .NET 3.5 (installed and/or enabled)
 See: https://docs.microsoft.com/en-us/dotnet/framework/install/dotnet-35-windows-10
 If you're running the toolset okay then there should be no worries about that.
 Although the toolset technically uses .NET 2.0, a computer that's not a relic
@@ -106,7 +129,7 @@ General Description and Use
 On the left is the spell-tree. The ID of each spell should correspond to its
 SpellID in Spells.2da.
 
-The editor is subdivided into 7 pages:
+The editor divides HenchSpells.2da into 7 pages:
 SpellInfo
 TargetInfo
 EffectWeight
@@ -174,14 +197,14 @@ HENCH_SPELL_INFO_SPELL_TYPE_POLYMORPH
 but of course neither is a real Polymorph spell -- I don't know why, you'd have
 to trace the spelltype through the core scripts and get a gist of why those
 spells should be treated as Polymorphs (it could be related to the increased
-spell-failure which might hint to the AI not to try to cast spells). Further,
-neither has the bit flagged
+spell-failure which might hint to the AI not cast it on arcane spellcasters).
+Further, neither has the bit flagged
 
 HENCH_AC_CHECK_MOVEMENT_SPEED_DECREASE
 
 yet both spells impose a 50% speed reduction. So, rather, think that what you're
 doing in the editor is -- not describing a spell exactly -- but simply making
-suggestions about how it ought be used.
+suggestions about what sorts of things should be considered regarding its use.
 
 You could even get clever and deliberately misrepresent a spell to induce the AI
 to use it differently.
@@ -218,22 +241,22 @@ The "has FeatSpells" checkbox must be toggled on for the AI to make use of any
 FeatSpells that are defined on the subsequent pages.
 
 Note that, unlike HenchSpells, the HenchRacial and HenchClasses 2das do not
-contain label-information. The editor can get de facto labels out of
+contain label-information. The editor can get de jure labels out of
 RacialSubtypes.2da and Classes.2da respectively, however; in the Options menu
 choose either or both "path RacialSubtypes.2da" and "path Classes.2da" and point
 the dialog that appears to the appropriate 2da. The node-tree on the left of the
 editor should fill-in with corresponding labels for loaded (Sub)Races/Classes.
 
-If a check appears beside the "path" menuitem, it means that label-data of that
-type is currently loaded. Simply uncheck the item to clear the labels (if
-they're incorrect or whatever). The check beside the item should disappear
+If a check appears beside a "path" menuitem, it means that label-data of that
+type is currently loaded. Simply uncheck the item to clear the labels (if you
+pathed to the wrong 2da or whatever). The check beside the item should disappear
 allowing new label-data to be loaded if you wish.
 
-That is not a robust mechanism but is merely a convenience. It assumes that, for
-example, the rows in Classes.2da match the rows in HenchClasses.2da - and while
-I don't believe that it's necessary to maintain such a correspondence, it's
-strongly recommended that you maintain this correspondence between the 2da-files
-for the sake of sanity if nothing else.
+That is not a robust mechanism -- it's your responsibility, not mine or this
+application's -- but it is a binding requirement for the AI to work correctly.
+The row IDs of Spells.2da need to be kept in sync with the rows of
+HenchSpells.2da, and the row IDs of RacialSubtypes.2da and Classes.2da need to
+be kept in sync with HenchRacial.2da and HenchClasses.2da respectively.
 
 By the way, under Options you'll also see "path Spells.2da" and "path Feat.2da".
 If you point their dialogs to Spells.2da and Feat.2da respectively, labels for
@@ -242,7 +265,8 @@ any spell- and feat-IDs should also appear in the editor.
 Unlike the paths for RacialSubtypes and Classes, any labels for spells and feats
 do not refresh automatically in the editor. Simply click a different node on
 the node-tree (on the left side of the editor) and click back to the entry that
-you're working on, and the spell/feat labels should then display okay.
+you're working on, or simply toggle a bit on and off again, and any loaded
+spell/feat labels should then display.
 
 Note that the label-data is not stored between runs of the editor; it goes
 ~poof~ when the editor closes. (I don't want to deal with config-files.)
