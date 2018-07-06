@@ -348,11 +348,13 @@ namespace nwn2_ai_2da_editor
 				{
 					childId = 0;
 					tb.Text = childId.ToString(); // re-trigger this funct.
+					tb.SelectionStart = tb.Text.Length;
 				}
 //				else if (childId > 16383) // 14 bits
 //				{
 //					childId = 16383;
 //					tb.Text = childId.ToString(); // re-trigger this funct.
+//					tb.SelectionStart = tb.Text.Length;
 //				}
 				else
 				{

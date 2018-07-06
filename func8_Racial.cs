@@ -403,11 +403,13 @@ namespace nwn2_ai_2da_editor
 				{
 					feat = 0;
 					tb_feat.Text = feat.ToString(); // re-trigger this funct.
+					tb_feat.SelectionStart = tb_feat.Text.Length;
 				}
 				else if (feat > 65535) // 16 bits
 				{
 					feat = 65535;
 					tb_feat.Text = feat.ToString(); // re-trigger this funct.
+					tb_feat.SelectionStart = tb_feat.Text.Length;
 				}
 				else
 				{

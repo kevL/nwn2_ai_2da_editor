@@ -710,11 +710,13 @@ namespace nwn2_ai_2da_editor
 				{
 					weight = 0;
 					st_Excl_Weight.Text = weight.ToString(); // re-trigger this funct.
+					st_Excl_Weight.SelectionStart = st_Excl_Weight.Text.Length;
 				}
 				else if (weight > 255) // 8 bits
 				{
 					weight = 255;
 					st_Excl_Weight.Text = weight.ToString(); // re-trigger this funct.
+					st_Excl_Weight.SelectionStart = st_Excl_Weight.Text.Length;
 				}
 				else
 				{

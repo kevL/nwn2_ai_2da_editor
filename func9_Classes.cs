@@ -713,11 +713,13 @@ namespace nwn2_ai_2da_editor
 				{
 					feat = 0;
 					tb_feat.Text = feat.ToString(); // re-trigger this funct.
+					tb_feat.SelectionStart = tb_feat.Text.Length;
 				}
 				else if (feat > 65535) // 16 bits
 				{
 					feat = 65535;
 					tb_feat.Text = feat.ToString(); // re-trigger this funct.
+					tb_feat.SelectionStart = tb_feat.Text.Length;
 				}
 				else
 				{
@@ -791,11 +793,13 @@ namespace nwn2_ai_2da_editor
 				{
 					spell = 0;
 					tb_spell.Text = spell.ToString(); // re-trigger this funct.
+					tb_spell.SelectionStart = tb_spell.Text.Length;
 				}
 				else if (spell > 16383) // 14 bits
 				{
 					spell = 16383;
 					tb_spell.Text = spell.ToString(); // re-trigger this funct.
+					tb_spell.SelectionStart = tb_spell.Text.Length;
 				}
 				else
 				{

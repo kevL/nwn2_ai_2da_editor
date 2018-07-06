@@ -463,11 +463,13 @@ namespace nwn2_ai_2da_editor
 				{
 					power = 0;
 					di_BenPower.Text = power.ToString(); // re-trigger this funct.
+					di_BenPower.SelectionStart = di_BenPower.Text.Length;
 				}
 				else if (power > 255) // 8 bits
 				{
 					power = 255;
 					di_BenPower.Text = power.ToString(); // re-trigger this funct.
+					di_BenPower.SelectionStart = di_BenPower.Text.Length;
 				}
 				else
 				{
@@ -493,11 +495,13 @@ namespace nwn2_ai_2da_editor
 				{
 					levellimit = 0;
 					di_BenLevellimit.Text = levellimit.ToString(); // re-trigger this funct.
+					di_BenLevellimit.SelectionStart = di_BenLevellimit.Text.Length;
 				}
 				else if (levellimit > 63) // 6 bits
 				{
 					levellimit = 63;
 					di_BenLevellimit.Text = levellimit.ToString(); // re-trigger this funct.
+					di_BenLevellimit.SelectionStart = di_BenLevellimit.Text.Length;
 				}
 				else
 				{
@@ -524,11 +528,13 @@ namespace nwn2_ai_2da_editor
 				{
 					leveldivisor = 0;
 					di_BenLeveldivisor.Text = leveldivisor.ToString(); // re-trigger this funct.
+					di_BenLeveldivisor.SelectionStart = di_BenLeveldivisor.Text.Length;
 				}
 				else if (leveldivisor > 15) // 4 bits
 				{
 					leveldivisor = 15;
 					di_BenLeveldivisor.Text = leveldivisor.ToString(); // re-trigger this funct.
+					di_BenLeveldivisor.SelectionStart = di_BenLeveldivisor.Text.Length;
 				}
 				else
 				{
@@ -555,11 +561,13 @@ namespace nwn2_ai_2da_editor
 				{
 					leveldecrease = 0;
 					di_BenLeveldecrease.Text = leveldecrease.ToString(); // re-trigger this funct.
+					di_BenLeveldecrease.SelectionStart = di_BenLeveldecrease.Text.Length;
 				}
 				else if (leveldecrease > 15) // 4 bits
 				{
 					leveldecrease = 15;
 					di_BenLeveldecrease.Text = leveldecrease.ToString(); // re-trigger this funct.
+					di_BenLeveldecrease.SelectionStart = di_BenLeveldecrease.Text.Length;
 				}
 				else
 				{
@@ -587,11 +595,13 @@ namespace nwn2_ai_2da_editor
 				{
 					damage = 0;
 					di_DetDamage.Text = damage.ToString(); // re-trigger this funct.
+					di_DetDamage.SelectionStart = di_DetDamage.Text.Length;
 				}
 				else if (damage > 255) // 8 bits
 				{
 					damage = 255;
 					di_DetDamage.Text = damage.ToString(); // re-trigger this funct.
+					di_DetDamage.SelectionStart = di_DetDamage.Text.Length;
 				}
 				else
 				{
@@ -618,11 +628,13 @@ namespace nwn2_ai_2da_editor
 				{
 					levellimit = 0;
 					di_DetLevellimit.Text = levellimit.ToString(); // re-trigger this funct.
+					di_DetLevellimit.SelectionStart = di_DetLevellimit.Text.Length;
 				}
 				else if (levellimit > 15) // 4 bits
 				{
 					levellimit = 15;
 					di_DetLevellimit.Text = levellimit.ToString(); // re-trigger this funct.
+					di_DetLevellimit.SelectionStart = di_DetLevellimit.Text.Length;
 				}
 				else
 				{
@@ -649,11 +661,13 @@ namespace nwn2_ai_2da_editor
 				{
 					leveldivisor = 0;
 					di_DetLeveldivisor.Text = leveldivisor.ToString(); // re-trigger this funct.
+					di_DetLeveldivisor.SelectionStart = di_DetLeveldivisor.Text.Length;
 				}
 				else if (leveldivisor > 3) // 2 bits
 				{
 					leveldivisor = 3;
 					di_DetLeveldivisor.Text = leveldivisor.ToString(); // re-trigger this funct.
+					di_DetLeveldivisor.SelectionStart = di_DetLeveldivisor.Text.Length;
 				}
 				else
 				{
@@ -681,11 +695,13 @@ namespace nwn2_ai_2da_editor
 				{
 					fixedcount = 0;
 					di_DetFixedcount.Text = fixedcount.ToString(); // re-trigger this funct.
+					di_DetFixedcount.SelectionStart = di_DetFixedcount.Text.Length;
 				}
 				else if (fixedcount > 15) // 4 bits
 				{
 					fixedcount = 15;
 					di_DetFixedcount.Text = fixedcount.ToString(); // re-trigger this funct.
+					di_DetFixedcount.SelectionStart = di_DetFixedcount.Text.Length;
 				}
 				else
 				{

@@ -323,11 +323,13 @@ namespace nwn2_ai_2da_editor
 				{
 					radius = 0.0f;
 					ti_Radius.Text = FormatFloat(radius); // re-trigger this funct.
+					ti_Radius.SelectionStart = ti_Radius.Text.Length;
 				}
 				else if (radius > 102.3f)	// NOTE: This can throw on Convert.ToInt32()
 				{							// if the input goes too high. So just stop it.
 					radius = 102.3f;
 					ti_Radius.Text = FormatFloat(radius); // re-trigger this funct.
+					ti_Radius.SelectionStart = ti_Radius.Text.Length;
 				}
 				else
 				{
