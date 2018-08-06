@@ -410,7 +410,7 @@ namespace nwn2_ai_2da_editor
 		}
 
 
-/// <summary>
+		/// <summary>
 		/// Sets the checkers on the SpellInfo page to reflect the current
 		/// spellinfo value.
 		/// </summary>
