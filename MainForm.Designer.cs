@@ -1367,7 +1367,7 @@
 			this.si_ChildLabel5.Location = new System.Drawing.Point(425, 270);
 			this.si_ChildLabel5.Margin = new System.Windows.Forms.Padding(0);
 			this.si_ChildLabel5.Name = "si_ChildLabel5";
-			this.si_ChildLabel5.Size = new System.Drawing.Size(250, 20);
+			this.si_ChildLabel5.Size = new System.Drawing.Size(340, 20);
 			this.si_ChildLabel5.TabIndex = 83;
 			this.si_ChildLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
@@ -1376,7 +1376,7 @@
 			this.si_ChildLabel4.Location = new System.Drawing.Point(425, 245);
 			this.si_ChildLabel4.Margin = new System.Windows.Forms.Padding(0);
 			this.si_ChildLabel4.Name = "si_ChildLabel4";
-			this.si_ChildLabel4.Size = new System.Drawing.Size(250, 20);
+			this.si_ChildLabel4.Size = new System.Drawing.Size(340, 20);
 			this.si_ChildLabel4.TabIndex = 82;
 			this.si_ChildLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
@@ -1385,7 +1385,7 @@
 			this.si_ChildLabel3.Location = new System.Drawing.Point(425, 220);
 			this.si_ChildLabel3.Margin = new System.Windows.Forms.Padding(0);
 			this.si_ChildLabel3.Name = "si_ChildLabel3";
-			this.si_ChildLabel3.Size = new System.Drawing.Size(250, 20);
+			this.si_ChildLabel3.Size = new System.Drawing.Size(340, 20);
 			this.si_ChildLabel3.TabIndex = 81;
 			this.si_ChildLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
@@ -1394,7 +1394,7 @@
 			this.si_ChildLabel2.Location = new System.Drawing.Point(425, 195);
 			this.si_ChildLabel2.Margin = new System.Windows.Forms.Padding(0);
 			this.si_ChildLabel2.Name = "si_ChildLabel2";
-			this.si_ChildLabel2.Size = new System.Drawing.Size(250, 20);
+			this.si_ChildLabel2.Size = new System.Drawing.Size(340, 20);
 			this.si_ChildLabel2.TabIndex = 80;
 			this.si_ChildLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
@@ -1403,7 +1403,7 @@
 			this.si_ChildLabel1.Location = new System.Drawing.Point(425, 170);
 			this.si_ChildLabel1.Margin = new System.Windows.Forms.Padding(0);
 			this.si_ChildLabel1.Name = "si_ChildLabel1";
-			this.si_ChildLabel1.Size = new System.Drawing.Size(250, 20);
+			this.si_ChildLabel1.Size = new System.Drawing.Size(340, 20);
 			this.si_ChildLabel1.TabIndex = 79;
 			this.si_ChildLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
@@ -1786,11 +1786,11 @@
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_hex);
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_text);
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_reset);
-			this.page_TargetInfo.Location = new System.Drawing.Point(4, 23);
+			this.page_TargetInfo.Location = new System.Drawing.Point(4, 24);
 			this.page_TargetInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_TargetInfo.Name = "page_TargetInfo";
 			this.page_TargetInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_TargetInfo.Size = new System.Drawing.Size(812, 428);
+			this.page_TargetInfo.Size = new System.Drawing.Size(812, 427);
 			this.page_TargetInfo.TabIndex = 1;
 			this.page_TargetInfo.Text = "TargetInfo";
 			this.page_TargetInfo.UseVisualStyleBackColor = true;
@@ -2077,11 +2077,11 @@
 			this.page_EffectWeight.Controls.Add(this.f1);
 			this.page_EffectWeight.Controls.Add(this.EffectWeight_reset);
 			this.page_EffectWeight.Controls.Add(this.EffectWeight_text);
-			this.page_EffectWeight.Location = new System.Drawing.Point(4, 23);
+			this.page_EffectWeight.Location = new System.Drawing.Point(4, 24);
 			this.page_EffectWeight.Margin = new System.Windows.Forms.Padding(2);
 			this.page_EffectWeight.Name = "page_EffectWeight";
 			this.page_EffectWeight.Padding = new System.Windows.Forms.Padding(2);
-			this.page_EffectWeight.Size = new System.Drawing.Size(812, 428);
+			this.page_EffectWeight.Size = new System.Drawing.Size(812, 427);
 			this.page_EffectWeight.TabIndex = 2;
 			this.page_EffectWeight.Text = "EffectWeight";
 			this.page_EffectWeight.UseVisualStyleBackColor = true;
@@ -2147,11 +2147,11 @@
 			this.page_EffectTypes.Controls.Add(this.EffectTypes_hex);
 			this.page_EffectTypes.Controls.Add(this.EffectTypes_text);
 			this.page_EffectTypes.Controls.Add(this.EffectTypes_reset);
-			this.page_EffectTypes.Location = new System.Drawing.Point(4, 23);
+			this.page_EffectTypes.Location = new System.Drawing.Point(4, 24);
 			this.page_EffectTypes.Margin = new System.Windows.Forms.Padding(2);
 			this.page_EffectTypes.Name = "page_EffectTypes";
 			this.page_EffectTypes.Padding = new System.Windows.Forms.Padding(2);
-			this.page_EffectTypes.Size = new System.Drawing.Size(812, 428);
+			this.page_EffectTypes.Size = new System.Drawing.Size(812, 427);
 			this.page_EffectTypes.TabIndex = 3;
 			this.page_EffectTypes.Text = "EffectTypes";
 			this.page_EffectTypes.UseVisualStyleBackColor = true;
@@ -2924,11 +2924,11 @@
 			this.page_DamageInfo.Controls.Add(this.DamageInfo_hex);
 			this.page_DamageInfo.Controls.Add(this.DamageInfo_text);
 			this.page_DamageInfo.Controls.Add(this.DamageInfo_reset);
-			this.page_DamageInfo.Location = new System.Drawing.Point(4, 23);
+			this.page_DamageInfo.Location = new System.Drawing.Point(4, 24);
 			this.page_DamageInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_DamageInfo.Name = "page_DamageInfo";
 			this.page_DamageInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_DamageInfo.Size = new System.Drawing.Size(812, 428);
+			this.page_DamageInfo.Size = new System.Drawing.Size(812, 427);
 			this.page_DamageInfo.TabIndex = 4;
 			this.page_DamageInfo.Text = "DamageInfo";
 			this.page_DamageInfo.UseVisualStyleBackColor = true;
@@ -3521,11 +3521,11 @@
 			this.page_SaveType.Controls.Add(this.st_TargetRestrictionGrp);
 			this.page_SaveType.Controls.Add(this.SaveType_text);
 			this.page_SaveType.Controls.Add(this.SaveType_reset);
-			this.page_SaveType.Location = new System.Drawing.Point(4, 23);
+			this.page_SaveType.Location = new System.Drawing.Point(4, 24);
 			this.page_SaveType.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SaveType.Name = "page_SaveType";
 			this.page_SaveType.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SaveType.Size = new System.Drawing.Size(812, 428);
+			this.page_SaveType.Size = new System.Drawing.Size(812, 427);
 			this.page_SaveType.TabIndex = 5;
 			this.page_SaveType.Text = "SaveType";
 			this.page_SaveType.UseVisualStyleBackColor = true;
@@ -4337,11 +4337,11 @@
 			this.page_SaveDCType.Controls.Add(this.dc_SaveDCGrp);
 			this.page_SaveDCType.Controls.Add(this.savedctype_label);
 			this.page_SaveDCType.Controls.Add(this.SaveDCType_reset);
-			this.page_SaveDCType.Location = new System.Drawing.Point(4, 23);
+			this.page_SaveDCType.Location = new System.Drawing.Point(4, 24);
 			this.page_SaveDCType.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SaveDCType.Name = "page_SaveDCType";
 			this.page_SaveDCType.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SaveDCType.Size = new System.Drawing.Size(812, 428);
+			this.page_SaveDCType.Size = new System.Drawing.Size(812, 427);
 			this.page_SaveDCType.TabIndex = 6;
 			this.page_SaveDCType.Text = "SaveDCType";
 			this.page_SaveDCType.UseVisualStyleBackColor = true;

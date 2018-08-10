@@ -5,7 +5,7 @@ A Hench*.2da editor for TonyK's Companion and Monster AI 2.2
 
 --
 ver 1.2.13
-2018 aug 5
+2018 aug 10
 
 --
 Overview
