@@ -56,7 +56,7 @@ namespace nwn2_ai_2da_editor
 			ib.Font = new Font("Courier New", 8.25f, FontStyle.Regular, GraphicsUnit.Point, (byte)0);
 
 
-			const int pad  = 5;
+			const int pad = 5;
 
 			var infoText = new Label();
 			infoText.Size = new Size(size.Width - pad * 2, 20);

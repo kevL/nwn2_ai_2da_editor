@@ -127,57 +127,57 @@ namespace nwn2_ai_2da_editor
 
 
 // HenchSpells
-			SpellInfo_hex  .BackColor = BackColor; // set the backgrounds of the hexadecimal and binary
-			SpellInfo_bin  .BackColor = BackColor; // textboxes to blend in with the Form's background
-			TargetInfo_hex .BackColor = BackColor;
-			TargetInfo_bin .BackColor = BackColor;
-			EffectTypes_hex.BackColor = BackColor;
-			EffectTypes_bin.BackColor = BackColor;
-			DamageInfo_hex .BackColor = BackColor;
-			DamageInfo_bin .BackColor = BackColor;
-			SaveType_hex   .BackColor = BackColor;
-			SaveType_bin   .BackColor = BackColor;
-			SaveDCType_hex .BackColor = BackColor;
-			SaveDCType_bin .BackColor = BackColor;
+			SpellInfo_hex  .BackColor = // set the backgrounds of the hexadecimal and binary
+			SpellInfo_bin  .BackColor = // textboxes to blend in with the Form's background
+			TargetInfo_hex .BackColor =
+			TargetInfo_bin .BackColor =
+			EffectTypes_hex.BackColor =
+			EffectTypes_bin.BackColor =
+			DamageInfo_hex .BackColor =
+			DamageInfo_bin .BackColor =
+			SaveType_hex   .BackColor =
+			SaveType_bin   .BackColor =
+			SaveDCType_hex .BackColor =
+			SaveDCType_bin .BackColor =
 
 // HenchRacial
-			RacialFlags_hex.BackColor = BackColor;
-			RacialFlags_bin.BackColor = BackColor;
-			RacialFeat1_hex.BackColor = BackColor;
-			RacialFeat1_bin.BackColor = BackColor;
-			RacialFeat2_hex.BackColor = BackColor;
-			RacialFeat2_bin.BackColor = BackColor;
-			RacialFeat3_hex.BackColor = BackColor;
-			RacialFeat3_bin.BackColor = BackColor;
-			RacialFeat4_hex.BackColor = BackColor;
-			RacialFeat4_bin.BackColor = BackColor;
-			RacialFeat5_hex.BackColor = BackColor;
-			RacialFeat5_bin.BackColor = BackColor;
+			RacialFlags_hex.BackColor =
+			RacialFlags_bin.BackColor =
+			RacialFeat1_hex.BackColor =
+			RacialFeat1_bin.BackColor =
+			RacialFeat2_hex.BackColor =
+			RacialFeat2_bin.BackColor =
+			RacialFeat3_hex.BackColor =
+			RacialFeat3_bin.BackColor =
+			RacialFeat4_hex.BackColor =
+			RacialFeat4_bin.BackColor =
+			RacialFeat5_hex.BackColor =
+			RacialFeat5_bin.BackColor =
 
 // HenchClasses
-			ClassFlags_hex .BackColor = BackColor;
-			ClassFlags_bin .BackColor = BackColor;
-			ClassFeat1_hex .BackColor = BackColor;
-			ClassFeat1_bin .BackColor = BackColor;
-			ClassFeat2_hex .BackColor = BackColor;
-			ClassFeat2_bin .BackColor = BackColor;
-			ClassFeat3_hex .BackColor = BackColor;
-			ClassFeat3_bin .BackColor = BackColor;
-			ClassFeat4_hex .BackColor = BackColor;
-			ClassFeat4_bin .BackColor = BackColor;
-			ClassFeat5_hex .BackColor = BackColor;
-			ClassFeat5_bin .BackColor = BackColor;
-			ClassFeat6_hex .BackColor = BackColor;
-			ClassFeat6_bin .BackColor = BackColor;
-			ClassFeat7_hex .BackColor = BackColor;
-			ClassFeat7_bin .BackColor = BackColor;
-			ClassFeat8_hex .BackColor = BackColor;
-			ClassFeat8_bin .BackColor = BackColor;
-			ClassFeat9_hex .BackColor = BackColor;
-			ClassFeat9_bin .BackColor = BackColor;
-			ClassFeat10_hex.BackColor = BackColor;
-			ClassFeat10_bin.BackColor = BackColor;
-			ClassFeat11_hex.BackColor = BackColor;
+			ClassFlags_hex .BackColor =
+			ClassFlags_bin .BackColor =
+			ClassFeat1_hex .BackColor =
+			ClassFeat1_bin .BackColor =
+			ClassFeat2_hex .BackColor =
+			ClassFeat2_bin .BackColor =
+			ClassFeat3_hex .BackColor =
+			ClassFeat3_bin .BackColor =
+			ClassFeat4_hex .BackColor =
+			ClassFeat4_bin .BackColor =
+			ClassFeat5_hex .BackColor =
+			ClassFeat5_bin .BackColor =
+			ClassFeat6_hex .BackColor =
+			ClassFeat6_bin .BackColor =
+			ClassFeat7_hex .BackColor =
+			ClassFeat7_bin .BackColor =
+			ClassFeat8_hex .BackColor =
+			ClassFeat8_bin .BackColor =
+			ClassFeat9_hex .BackColor =
+			ClassFeat9_bin .BackColor =
+			ClassFeat10_hex.BackColor =
+			ClassFeat10_bin.BackColor =
+			ClassFeat11_hex.BackColor =
 			ClassFeat11_bin.BackColor = BackColor;
 
 
@@ -342,12 +342,12 @@ namespace nwn2_ai_2da_editor
 			cols_HenchRacial .Visible =
 			cols_HenchClasses.Visible = false;
 
-			SpellInfo_reset   .ForeColor = DefaultForeColor;
-			TargetInfo_reset  .ForeColor = DefaultForeColor;
-			EffectWeight_reset.ForeColor = DefaultForeColor;
-			EffectTypes_reset .ForeColor = DefaultForeColor;
-			DamageInfo_reset  .ForeColor = DefaultForeColor;
-			SaveType_reset    .ForeColor = DefaultForeColor;
+			SpellInfo_reset   .ForeColor =
+			TargetInfo_reset  .ForeColor =
+			EffectWeight_reset.ForeColor =
+			EffectTypes_reset .ForeColor =
+			DamageInfo_reset  .ForeColor =
+			SaveType_reset    .ForeColor =
 			SaveDCType_reset  .ForeColor = DefaultForeColor;
 
 
@@ -525,11 +525,11 @@ namespace nwn2_ai_2da_editor
 			cols_HenchRacial .Visible = true;
 			cols_HenchClasses.Visible = false;
 
-			RacialFlags_reset.ForeColor = DefaultForeColor;
-			RacialFeat1_reset.ForeColor = DefaultForeColor;
-			RacialFeat2_reset.ForeColor = DefaultForeColor;
-			RacialFeat3_reset.ForeColor = DefaultForeColor;
-			RacialFeat4_reset.ForeColor = DefaultForeColor;
+			RacialFlags_reset.ForeColor =
+			RacialFeat1_reset.ForeColor =
+			RacialFeat2_reset.ForeColor =
+			RacialFeat3_reset.ForeColor =
+			RacialFeat4_reset.ForeColor =
 			RacialFeat5_reset.ForeColor = DefaultForeColor;
 
 
@@ -662,17 +662,17 @@ namespace nwn2_ai_2da_editor
 			cols_HenchRacial .Visible = false;
 			cols_HenchClasses.Visible = true;
 
-			ClassFlags_reset .ForeColor = DefaultForeColor;
-			ClassFeat1_reset .ForeColor = DefaultForeColor;
-			ClassFeat2_reset .ForeColor = DefaultForeColor;
-			ClassFeat3_reset .ForeColor = DefaultForeColor;
-			ClassFeat4_reset .ForeColor = DefaultForeColor;
-			ClassFeat5_reset .ForeColor = DefaultForeColor;
-			ClassFeat6_reset .ForeColor = DefaultForeColor;
-			ClassFeat7_reset .ForeColor = DefaultForeColor;
-			ClassFeat8_reset .ForeColor = DefaultForeColor;
-			ClassFeat9_reset .ForeColor = DefaultForeColor;
-			ClassFeat10_reset.ForeColor = DefaultForeColor;
+			ClassFlags_reset .ForeColor =
+			ClassFeat1_reset .ForeColor =
+			ClassFeat2_reset .ForeColor =
+			ClassFeat3_reset .ForeColor =
+			ClassFeat4_reset .ForeColor =
+			ClassFeat5_reset .ForeColor =
+			ClassFeat6_reset .ForeColor =
+			ClassFeat7_reset .ForeColor =
+			ClassFeat8_reset .ForeColor =
+			ClassFeat9_reset .ForeColor =
+			ClassFeat10_reset.ForeColor =
 			ClassFeat11_reset.ForeColor = DefaultForeColor;
 
 
@@ -1404,12 +1404,12 @@ namespace nwn2_ai_2da_editor
 
 						SpellsChanged.Remove(Id);
 
-						SpellInfo_reset   .ForeColor = DefaultForeColor;
-						TargetInfo_reset  .ForeColor = DefaultForeColor;
-						EffectWeight_reset.ForeColor = DefaultForeColor;
-						EffectTypes_reset .ForeColor = DefaultForeColor;
-						DamageInfo_reset  .ForeColor = DefaultForeColor;
-						SaveType_reset    .ForeColor = DefaultForeColor;
+						SpellInfo_reset   .ForeColor =
+						TargetInfo_reset  .ForeColor =
+						EffectWeight_reset.ForeColor =
+						EffectTypes_reset .ForeColor =
+						DamageInfo_reset  .ForeColor =
+						SaveType_reset    .ForeColor =
 						SaveDCType_reset  .ForeColor = DefaultForeColor;
 
 						AfterSelect_node(null, null); // refresh all displayed data for the current spell jic
@@ -1447,11 +1447,11 @@ namespace nwn2_ai_2da_editor
 
 						RacesChanged.Remove(Id);
 
-						RacialFlags_reset.ForeColor = DefaultForeColor;
-						RacialFeat1_reset.ForeColor = DefaultForeColor;
-						RacialFeat2_reset.ForeColor = DefaultForeColor;
-						RacialFeat3_reset.ForeColor = DefaultForeColor;
-						RacialFeat4_reset.ForeColor = DefaultForeColor;
+						RacialFlags_reset.ForeColor =
+						RacialFeat1_reset.ForeColor =
+						RacialFeat2_reset.ForeColor =
+						RacialFeat3_reset.ForeColor =
+						RacialFeat4_reset.ForeColor =
 						RacialFeat5_reset.ForeColor = DefaultForeColor;
 
 						AfterSelect_node(null, null); // refresh all displayed data for the current node jic
@@ -1495,17 +1495,17 @@ namespace nwn2_ai_2da_editor
 
 						ClassesChanged.Remove(Id);
 
-						ClassFlags_reset .ForeColor = DefaultForeColor;
-						ClassFeat1_reset .ForeColor = DefaultForeColor;
-						ClassFeat2_reset .ForeColor = DefaultForeColor;
-						ClassFeat3_reset .ForeColor = DefaultForeColor;
-						ClassFeat4_reset .ForeColor = DefaultForeColor;
-						ClassFeat5_reset .ForeColor = DefaultForeColor;
-						ClassFeat6_reset .ForeColor = DefaultForeColor;
-						ClassFeat7_reset .ForeColor = DefaultForeColor;
-						ClassFeat8_reset .ForeColor = DefaultForeColor;
-						ClassFeat9_reset .ForeColor = DefaultForeColor;
-						ClassFeat10_reset.ForeColor = DefaultForeColor;
+						ClassFlags_reset .ForeColor =
+						ClassFeat1_reset .ForeColor =
+						ClassFeat2_reset .ForeColor =
+						ClassFeat3_reset .ForeColor =
+						ClassFeat4_reset .ForeColor =
+						ClassFeat5_reset .ForeColor =
+						ClassFeat6_reset .ForeColor =
+						ClassFeat7_reset .ForeColor =
+						ClassFeat8_reset .ForeColor =
+						ClassFeat9_reset .ForeColor =
+						ClassFeat10_reset.ForeColor =
 						ClassFeat11_reset.ForeColor = DefaultForeColor;
 
 						AfterSelect_node(null, null); // refresh all displayed data for the current node jic
@@ -1812,20 +1812,23 @@ namespace nwn2_ai_2da_editor
 					}
 					else
 					{
+						Color color;
 						Spell spell;
 						for (int id = 0; id != total; ++id)
 						{
 							spell = Spells[id];
 							if (spell.differ != bit_clear)
 							{
-								Tree.Nodes[id].ForeColor = Color.Crimson;
+								color = Color.Crimson;
 							}
 							else if (spell.isChanged)
 							{
-								Tree.Nodes[id].ForeColor = Color.Blue;
+								color = Color.Blue;
 							}
 							else
-								Tree.Nodes[id].ForeColor = DefaultForeColor;
+								color = DefaultForeColor;
+
+							Tree.Nodes[id].ForeColor = color;
 						}
 					}
 					break;
