@@ -599,6 +599,7 @@
 		private System.Windows.Forms.Label si_ChildTi;
 		private System.Windows.Forms.ContextMenuStrip treeMenu;
 		private System.Windows.Forms.ToolStripMenuItem menu_Highlight;
+		private System.Windows.Forms.ToolStripMenuItem it_insertSpellLabels;
 
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -926,6 +927,7 @@
 			this.pathFeat = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
 			this.setCoreAIver = new System.Windows.Forms.ToolStripMenuItem();
+			this.it_insertSpellLabels = new System.Windows.Forms.ToolStripMenuItem();
 			this.help = new System.Windows.Forms.ToolStripMenuItem();
 			this.About = new System.Windows.Forms.ToolStripMenuItem();
 			this.Tree = new System.Windows.Forms.TreeView();
@@ -1786,11 +1788,11 @@
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_hex);
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_text);
 			this.page_TargetInfo.Controls.Add(this.TargetInfo_reset);
-			this.page_TargetInfo.Location = new System.Drawing.Point(4, 24);
+			this.page_TargetInfo.Location = new System.Drawing.Point(4, 23);
 			this.page_TargetInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_TargetInfo.Name = "page_TargetInfo";
 			this.page_TargetInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_TargetInfo.Size = new System.Drawing.Size(812, 427);
+			this.page_TargetInfo.Size = new System.Drawing.Size(812, 428);
 			this.page_TargetInfo.TabIndex = 1;
 			this.page_TargetInfo.Text = "TargetInfo";
 			this.page_TargetInfo.UseVisualStyleBackColor = true;
@@ -2077,11 +2079,11 @@
 			this.page_EffectWeight.Controls.Add(this.f1);
 			this.page_EffectWeight.Controls.Add(this.EffectWeight_reset);
 			this.page_EffectWeight.Controls.Add(this.EffectWeight_text);
-			this.page_EffectWeight.Location = new System.Drawing.Point(4, 24);
+			this.page_EffectWeight.Location = new System.Drawing.Point(4, 23);
 			this.page_EffectWeight.Margin = new System.Windows.Forms.Padding(2);
 			this.page_EffectWeight.Name = "page_EffectWeight";
 			this.page_EffectWeight.Padding = new System.Windows.Forms.Padding(2);
-			this.page_EffectWeight.Size = new System.Drawing.Size(812, 427);
+			this.page_EffectWeight.Size = new System.Drawing.Size(812, 428);
 			this.page_EffectWeight.TabIndex = 2;
 			this.page_EffectWeight.Text = "EffectWeight";
 			this.page_EffectWeight.UseVisualStyleBackColor = true;
@@ -2147,11 +2149,11 @@
 			this.page_EffectTypes.Controls.Add(this.EffectTypes_hex);
 			this.page_EffectTypes.Controls.Add(this.EffectTypes_text);
 			this.page_EffectTypes.Controls.Add(this.EffectTypes_reset);
-			this.page_EffectTypes.Location = new System.Drawing.Point(4, 24);
+			this.page_EffectTypes.Location = new System.Drawing.Point(4, 23);
 			this.page_EffectTypes.Margin = new System.Windows.Forms.Padding(2);
 			this.page_EffectTypes.Name = "page_EffectTypes";
 			this.page_EffectTypes.Padding = new System.Windows.Forms.Padding(2);
-			this.page_EffectTypes.Size = new System.Drawing.Size(812, 427);
+			this.page_EffectTypes.Size = new System.Drawing.Size(812, 428);
 			this.page_EffectTypes.TabIndex = 3;
 			this.page_EffectTypes.Text = "EffectTypes";
 			this.page_EffectTypes.UseVisualStyleBackColor = true;
@@ -2924,11 +2926,11 @@
 			this.page_DamageInfo.Controls.Add(this.DamageInfo_hex);
 			this.page_DamageInfo.Controls.Add(this.DamageInfo_text);
 			this.page_DamageInfo.Controls.Add(this.DamageInfo_reset);
-			this.page_DamageInfo.Location = new System.Drawing.Point(4, 24);
+			this.page_DamageInfo.Location = new System.Drawing.Point(4, 23);
 			this.page_DamageInfo.Margin = new System.Windows.Forms.Padding(2);
 			this.page_DamageInfo.Name = "page_DamageInfo";
 			this.page_DamageInfo.Padding = new System.Windows.Forms.Padding(2);
-			this.page_DamageInfo.Size = new System.Drawing.Size(812, 427);
+			this.page_DamageInfo.Size = new System.Drawing.Size(812, 428);
 			this.page_DamageInfo.TabIndex = 4;
 			this.page_DamageInfo.Text = "DamageInfo";
 			this.page_DamageInfo.UseVisualStyleBackColor = true;
@@ -3521,11 +3523,11 @@
 			this.page_SaveType.Controls.Add(this.st_TargetRestrictionGrp);
 			this.page_SaveType.Controls.Add(this.SaveType_text);
 			this.page_SaveType.Controls.Add(this.SaveType_reset);
-			this.page_SaveType.Location = new System.Drawing.Point(4, 24);
+			this.page_SaveType.Location = new System.Drawing.Point(4, 23);
 			this.page_SaveType.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SaveType.Name = "page_SaveType";
 			this.page_SaveType.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SaveType.Size = new System.Drawing.Size(812, 427);
+			this.page_SaveType.Size = new System.Drawing.Size(812, 428);
 			this.page_SaveType.TabIndex = 5;
 			this.page_SaveType.Text = "SaveType";
 			this.page_SaveType.UseVisualStyleBackColor = true;
@@ -4337,11 +4339,11 @@
 			this.page_SaveDCType.Controls.Add(this.dc_SaveDCGrp);
 			this.page_SaveDCType.Controls.Add(this.savedctype_label);
 			this.page_SaveDCType.Controls.Add(this.SaveDCType_reset);
-			this.page_SaveDCType.Location = new System.Drawing.Point(4, 24);
+			this.page_SaveDCType.Location = new System.Drawing.Point(4, 23);
 			this.page_SaveDCType.Margin = new System.Windows.Forms.Padding(2);
 			this.page_SaveDCType.Name = "page_SaveDCType";
 			this.page_SaveDCType.Padding = new System.Windows.Forms.Padding(2);
-			this.page_SaveDCType.Size = new System.Drawing.Size(812, 427);
+			this.page_SaveDCType.Size = new System.Drawing.Size(812, 428);
 			this.page_SaveDCType.TabIndex = 6;
 			this.page_SaveDCType.Text = "SaveDCType";
 			this.page_SaveDCType.UseVisualStyleBackColor = true;
@@ -4734,10 +4736,12 @@
 			this.pathSpells,
 			this.pathFeat,
 			this.toolStripSeparator4,
-			this.setCoreAIver});
+			this.setCoreAIver,
+			this.it_insertSpellLabels});
 			this.options.Name = "options";
 			this.options.Size = new System.Drawing.Size(52, 20);
 			this.options.Text = "Options";
+			this.options.DropDownOpening += new System.EventHandler(this.dropdownopening_Options);
 			// 
 			// pathRacialSubtypes
 			// 
@@ -4784,6 +4788,15 @@
 			this.setCoreAIver.Size = new System.Drawing.Size(185, 20);
 			this.setCoreAIver.Text = "Set CoreAI version";
 			this.setCoreAIver.Click += new System.EventHandler(this.Click_setCoreAiVersion);
+			// 
+			// it_insertSpellLabels
+			// 
+			this.it_insertSpellLabels.Enabled = false;
+			this.it_insertSpellLabels.Name = "it_insertSpellLabels";
+			this.it_insertSpellLabels.Padding = new System.Windows.Forms.Padding(0);
+			this.it_insertSpellLabels.Size = new System.Drawing.Size(185, 20);
+			this.it_insertSpellLabels.Text = "insert spell labels";
+			this.it_insertSpellLabels.Click += new System.EventHandler(this.Click_insertSpellLabels);
 			// 
 			// help
 			// 
@@ -5233,11 +5246,11 @@
 			this.page_ClassFeat1.Controls.Add(this.ClassFeat1_hex);
 			this.page_ClassFeat1.Controls.Add(this.ClassFeat1_text);
 			this.page_ClassFeat1.Controls.Add(this.ClassFeat1_reset);
-			this.page_ClassFeat1.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat1.Location = new System.Drawing.Point(4, 23);
 			this.page_ClassFeat1.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat1.Name = "page_ClassFeat1";
 			this.page_ClassFeat1.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat1.Size = new System.Drawing.Size(1062, 182);
+			this.page_ClassFeat1.Size = new System.Drawing.Size(1062, 183);
 			this.page_ClassFeat1.TabIndex = 1;
 			this.page_ClassFeat1.Text = "FeatSpell1";
 			this.page_ClassFeat1.UseVisualStyleBackColor = true;
@@ -5398,11 +5411,11 @@
 			this.page_ClassFeat2.Controls.Add(this.ClassFeat2_hex);
 			this.page_ClassFeat2.Controls.Add(this.ClassFeat2_text);
 			this.page_ClassFeat2.Controls.Add(this.ClassFeat2_reset);
-			this.page_ClassFeat2.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat2.Location = new System.Drawing.Point(4, 23);
 			this.page_ClassFeat2.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat2.Name = "page_ClassFeat2";
 			this.page_ClassFeat2.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat2.Size = new System.Drawing.Size(1062, 182);
+			this.page_ClassFeat2.Size = new System.Drawing.Size(1062, 183);
 			this.page_ClassFeat2.TabIndex = 2;
 			this.page_ClassFeat2.Text = "FeatSpell2";
 			this.page_ClassFeat2.UseVisualStyleBackColor = true;
@@ -5563,11 +5576,11 @@
 			this.page_ClassFeat3.Controls.Add(this.ClassFeat3_hex);
 			this.page_ClassFeat3.Controls.Add(this.ClassFeat3_text);
 			this.page_ClassFeat3.Controls.Add(this.ClassFeat3_reset);
-			this.page_ClassFeat3.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat3.Location = new System.Drawing.Point(4, 23);
 			this.page_ClassFeat3.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat3.Name = "page_ClassFeat3";
 			this.page_ClassFeat3.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat3.Size = new System.Drawing.Size(1062, 182);
+			this.page_ClassFeat3.Size = new System.Drawing.Size(1062, 183);
 			this.page_ClassFeat3.TabIndex = 3;
 			this.page_ClassFeat3.Text = "FeatSpell3";
 			this.page_ClassFeat3.UseVisualStyleBackColor = true;
@@ -5728,11 +5741,11 @@
 			this.page_ClassFeat4.Controls.Add(this.ClassFeat4_hex);
 			this.page_ClassFeat4.Controls.Add(this.ClassFeat4_text);
 			this.page_ClassFeat4.Controls.Add(this.ClassFeat4_reset);
-			this.page_ClassFeat4.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat4.Location = new System.Drawing.Point(4, 23);
 			this.page_ClassFeat4.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat4.Name = "page_ClassFeat4";
 			this.page_ClassFeat4.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat4.Size = new System.Drawing.Size(1062, 182);
+			this.page_ClassFeat4.Size = new System.Drawing.Size(1062, 183);
 			this.page_ClassFeat4.TabIndex = 4;
 			this.page_ClassFeat4.Text = "FeatSpell4";
 			this.page_ClassFeat4.UseVisualStyleBackColor = true;
@@ -5893,11 +5906,11 @@
 			this.page_ClassFeat5.Controls.Add(this.ClassFeat5_hex);
 			this.page_ClassFeat5.Controls.Add(this.ClassFeat5_text);
 			this.page_ClassFeat5.Controls.Add(this.ClassFeat5_reset);
-			this.page_ClassFeat5.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat5.Location = new System.Drawing.Point(4, 23);
 			this.page_ClassFeat5.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat5.Name = "page_ClassFeat5";
 			this.page_ClassFeat5.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat5.Size = new System.Drawing.Size(1062, 182);
+			this.page_ClassFeat5.Size = new System.Drawing.Size(1062, 183);
 			this.page_ClassFeat5.TabIndex = 5;
 			this.page_ClassFeat5.Text = "FeatSpell5";
 			this.page_ClassFeat5.UseVisualStyleBackColor = true;
@@ -6058,11 +6071,11 @@
 			this.page_ClassFeat6.Controls.Add(this.ClassFeat6_hex);
 			this.page_ClassFeat6.Controls.Add(this.ClassFeat6_text);
 			this.page_ClassFeat6.Controls.Add(this.ClassFeat6_reset);
-			this.page_ClassFeat6.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat6.Location = new System.Drawing.Point(4, 23);
 			this.page_ClassFeat6.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat6.Name = "page_ClassFeat6";
 			this.page_ClassFeat6.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat6.Size = new System.Drawing.Size(1062, 182);
+			this.page_ClassFeat6.Size = new System.Drawing.Size(1062, 183);
 			this.page_ClassFeat6.TabIndex = 6;
 			this.page_ClassFeat6.Text = "FeatSpell6";
 			this.page_ClassFeat6.UseVisualStyleBackColor = true;
@@ -6223,11 +6236,11 @@
 			this.page_ClassFeat7.Controls.Add(this.ClassFeat7_hex);
 			this.page_ClassFeat7.Controls.Add(this.ClassFeat7_text);
 			this.page_ClassFeat7.Controls.Add(this.ClassFeat7_reset);
-			this.page_ClassFeat7.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat7.Location = new System.Drawing.Point(4, 23);
 			this.page_ClassFeat7.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat7.Name = "page_ClassFeat7";
 			this.page_ClassFeat7.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat7.Size = new System.Drawing.Size(1062, 182);
+			this.page_ClassFeat7.Size = new System.Drawing.Size(1062, 183);
 			this.page_ClassFeat7.TabIndex = 7;
 			this.page_ClassFeat7.Text = "FeatSpell7";
 			this.page_ClassFeat7.UseVisualStyleBackColor = true;
@@ -6388,11 +6401,11 @@
 			this.page_ClassFeat8.Controls.Add(this.ClassFeat8_hex);
 			this.page_ClassFeat8.Controls.Add(this.ClassFeat8_text);
 			this.page_ClassFeat8.Controls.Add(this.ClassFeat8_reset);
-			this.page_ClassFeat8.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat8.Location = new System.Drawing.Point(4, 23);
 			this.page_ClassFeat8.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat8.Name = "page_ClassFeat8";
 			this.page_ClassFeat8.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat8.Size = new System.Drawing.Size(1062, 182);
+			this.page_ClassFeat8.Size = new System.Drawing.Size(1062, 183);
 			this.page_ClassFeat8.TabIndex = 8;
 			this.page_ClassFeat8.Text = "FeatSpell8";
 			this.page_ClassFeat8.UseVisualStyleBackColor = true;
@@ -6553,11 +6566,11 @@
 			this.page_ClassFeat9.Controls.Add(this.ClassFeat9_hex);
 			this.page_ClassFeat9.Controls.Add(this.ClassFeat9_text);
 			this.page_ClassFeat9.Controls.Add(this.ClassFeat9_reset);
-			this.page_ClassFeat9.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat9.Location = new System.Drawing.Point(4, 23);
 			this.page_ClassFeat9.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat9.Name = "page_ClassFeat9";
 			this.page_ClassFeat9.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat9.Size = new System.Drawing.Size(1062, 182);
+			this.page_ClassFeat9.Size = new System.Drawing.Size(1062, 183);
 			this.page_ClassFeat9.TabIndex = 9;
 			this.page_ClassFeat9.Text = "FeatSpell9";
 			this.page_ClassFeat9.UseVisualStyleBackColor = true;
@@ -6718,11 +6731,11 @@
 			this.page_ClassFeat10.Controls.Add(this.ClassFeat10_hex);
 			this.page_ClassFeat10.Controls.Add(this.ClassFeat10_text);
 			this.page_ClassFeat10.Controls.Add(this.ClassFeat10_reset);
-			this.page_ClassFeat10.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat10.Location = new System.Drawing.Point(4, 23);
 			this.page_ClassFeat10.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat10.Name = "page_ClassFeat10";
 			this.page_ClassFeat10.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat10.Size = new System.Drawing.Size(1062, 182);
+			this.page_ClassFeat10.Size = new System.Drawing.Size(1062, 183);
 			this.page_ClassFeat10.TabIndex = 10;
 			this.page_ClassFeat10.Text = "FeatSpell10";
 			this.page_ClassFeat10.UseVisualStyleBackColor = true;
@@ -6883,11 +6896,11 @@
 			this.page_ClassFeat11.Controls.Add(this.ClassFeat11_hex);
 			this.page_ClassFeat11.Controls.Add(this.ClassFeat11_text);
 			this.page_ClassFeat11.Controls.Add(this.ClassFeat11_reset);
-			this.page_ClassFeat11.Location = new System.Drawing.Point(4, 24);
+			this.page_ClassFeat11.Location = new System.Drawing.Point(4, 23);
 			this.page_ClassFeat11.Margin = new System.Windows.Forms.Padding(2);
 			this.page_ClassFeat11.Name = "page_ClassFeat11";
 			this.page_ClassFeat11.Padding = new System.Windows.Forms.Padding(2);
-			this.page_ClassFeat11.Size = new System.Drawing.Size(1062, 182);
+			this.page_ClassFeat11.Size = new System.Drawing.Size(1062, 183);
 			this.page_ClassFeat11.TabIndex = 11;
 			this.page_ClassFeat11.Text = "FeatSpell11";
 			this.page_ClassFeat11.UseVisualStyleBackColor = true;
@@ -7191,11 +7204,11 @@
 			this.page_RacialFeat1.Controls.Add(this.RacialFeat1_hex);
 			this.page_RacialFeat1.Controls.Add(this.RacialFeat1_text);
 			this.page_RacialFeat1.Controls.Add(this.RacialFeat1_reset);
-			this.page_RacialFeat1.Location = new System.Drawing.Point(4, 24);
+			this.page_RacialFeat1.Location = new System.Drawing.Point(4, 23);
 			this.page_RacialFeat1.Margin = new System.Windows.Forms.Padding(2);
 			this.page_RacialFeat1.Name = "page_RacialFeat1";
 			this.page_RacialFeat1.Padding = new System.Windows.Forms.Padding(2);
-			this.page_RacialFeat1.Size = new System.Drawing.Size(812, 237);
+			this.page_RacialFeat1.Size = new System.Drawing.Size(812, 238);
 			this.page_RacialFeat1.TabIndex = 1;
 			this.page_RacialFeat1.Text = "FeatSpell1";
 			this.page_RacialFeat1.UseVisualStyleBackColor = true;
@@ -7356,11 +7369,11 @@
 			this.page_RacialFeat2.Controls.Add(this.RacialFeat2_hex);
 			this.page_RacialFeat2.Controls.Add(this.RacialFeat2_text);
 			this.page_RacialFeat2.Controls.Add(this.RacialFeat2_reset);
-			this.page_RacialFeat2.Location = new System.Drawing.Point(4, 24);
+			this.page_RacialFeat2.Location = new System.Drawing.Point(4, 23);
 			this.page_RacialFeat2.Margin = new System.Windows.Forms.Padding(2);
 			this.page_RacialFeat2.Name = "page_RacialFeat2";
 			this.page_RacialFeat2.Padding = new System.Windows.Forms.Padding(2);
-			this.page_RacialFeat2.Size = new System.Drawing.Size(812, 237);
+			this.page_RacialFeat2.Size = new System.Drawing.Size(812, 238);
 			this.page_RacialFeat2.TabIndex = 2;
 			this.page_RacialFeat2.Text = "FeatSpell2";
 			this.page_RacialFeat2.UseVisualStyleBackColor = true;
@@ -7521,11 +7534,11 @@
 			this.page_RacialFeat3.Controls.Add(this.RacialFeat3_hex);
 			this.page_RacialFeat3.Controls.Add(this.RacialFeat3_text);
 			this.page_RacialFeat3.Controls.Add(this.RacialFeat3_reset);
-			this.page_RacialFeat3.Location = new System.Drawing.Point(4, 24);
+			this.page_RacialFeat3.Location = new System.Drawing.Point(4, 23);
 			this.page_RacialFeat3.Margin = new System.Windows.Forms.Padding(2);
 			this.page_RacialFeat3.Name = "page_RacialFeat3";
 			this.page_RacialFeat3.Padding = new System.Windows.Forms.Padding(2);
-			this.page_RacialFeat3.Size = new System.Drawing.Size(812, 237);
+			this.page_RacialFeat3.Size = new System.Drawing.Size(812, 238);
 			this.page_RacialFeat3.TabIndex = 3;
 			this.page_RacialFeat3.Text = "FeatSpell3";
 			this.page_RacialFeat3.UseVisualStyleBackColor = true;
@@ -7686,11 +7699,11 @@
 			this.page_RacialFeat4.Controls.Add(this.RacialFeat4_hex);
 			this.page_RacialFeat4.Controls.Add(this.RacialFeat4_text);
 			this.page_RacialFeat4.Controls.Add(this.RacialFeat4_reset);
-			this.page_RacialFeat4.Location = new System.Drawing.Point(4, 24);
+			this.page_RacialFeat4.Location = new System.Drawing.Point(4, 23);
 			this.page_RacialFeat4.Margin = new System.Windows.Forms.Padding(2);
 			this.page_RacialFeat4.Name = "page_RacialFeat4";
 			this.page_RacialFeat4.Padding = new System.Windows.Forms.Padding(2);
-			this.page_RacialFeat4.Size = new System.Drawing.Size(812, 237);
+			this.page_RacialFeat4.Size = new System.Drawing.Size(812, 238);
 			this.page_RacialFeat4.TabIndex = 4;
 			this.page_RacialFeat4.Text = "FeatSpell4";
 			this.page_RacialFeat4.UseVisualStyleBackColor = true;
@@ -7851,11 +7864,11 @@
 			this.page_RacialFeat5.Controls.Add(this.RacialFeat5_hex);
 			this.page_RacialFeat5.Controls.Add(this.RacialFeat5_text);
 			this.page_RacialFeat5.Controls.Add(this.RacialFeat5_reset);
-			this.page_RacialFeat5.Location = new System.Drawing.Point(4, 24);
+			this.page_RacialFeat5.Location = new System.Drawing.Point(4, 23);
 			this.page_RacialFeat5.Margin = new System.Windows.Forms.Padding(2);
 			this.page_RacialFeat5.Name = "page_RacialFeat5";
 			this.page_RacialFeat5.Padding = new System.Windows.Forms.Padding(2);
-			this.page_RacialFeat5.Size = new System.Drawing.Size(812, 237);
+			this.page_RacialFeat5.Size = new System.Drawing.Size(812, 238);
 			this.page_RacialFeat5.TabIndex = 5;
 			this.page_RacialFeat5.Text = "FeatSpell5";
 			this.page_RacialFeat5.UseVisualStyleBackColor = true;

@@ -4,8 +4,8 @@ A Hench*.2da editor for TonyK's Companion and Monster AI 2.2
 - not entirely compatible with the SoZ AI but it should cut mustard
 
 --
-ver 1.2.13
-2018 aug 10
+ver 1.3.0
+2018 dec 10
 
 --
 Overview
@@ -279,3 +279,16 @@ then copy any edited hench-files back to where they ought go when required. It's
 sort of up to you to understand how this can work as a back-up mechanism also.
 
 Did I mention always make back-ups before editing the Hench*.2da files ....
+
+--
+Option: insert spell labels
+
+HenchSpells.2da could or not have a column that's titled "Label". The 2das that
+ship with NwN2 do not, nor do those in TonyK's Companion and Monster AI. Pain's
+Neverworker app, however, can output HenchSpells.2da with a "Label" column for
+readability; it is not used by NwN2 itself. This editor can open and save either
+format of HenchSpells.2da, further if Spells.2da has been pathed, 'insert spell
+labels' under Options can copy and insert the labels from Spells.2da. Note that
+the editor will create a "Label" column regardless - so it's recommended to
+insert labels and Save (after backing up the file first) else the previously
+missing column will simply be filled with "****" fields.

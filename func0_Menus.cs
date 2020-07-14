@@ -401,6 +401,12 @@ namespace nwn2_ai_2da_editor
 
 
 		#region Options
+		void dropdownopening_Options(object sender, EventArgs e)
+		{
+			it_insertSpellLabels.Enabled = pathSpells.Checked
+										&& Type == Type2da.TYPE_SPELLS;
+		}
+
 		/// <summary>
 		/// Handles clicking the PathRacialSubtypes menuitem.
 		/// Intended to add labels from RacialSubtypes.2da to the 'racesLabels'
@@ -657,6 +663,34 @@ namespace nwn2_ai_2da_editor
 					applyGlobal    .Enabled = ClassesChanged.Count != 0;
 					gotoNextChanged.Enabled = ClassesChanged.Count != 0 || SpareChange();
 					break;
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void Click_insertSpellLabels(object sender, EventArgs e)
+		{
+			if (spellLabels.Count != 0)
+			{
+				Spell spell;
+
+				int j = 0;
+				int total = spellLabels.Count;
+				for (int i = 0; i != Spells.Count; ++i)
+				{
+					if (j < total)
+					{
+						spell = Spells[i];
+						spell.label = spellLabels[j++];
+						Spells[i] = spell;
+					}
+					else
+						break;
+				}
+				TreeGrowth();
 			}
 		}
 		#endregion Options

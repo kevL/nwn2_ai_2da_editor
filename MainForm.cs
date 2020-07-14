@@ -266,7 +266,8 @@ namespace nwn2_ai_2da_editor
 						{
 							switch (cols.Length)
 							{
-								case 9: // henchspells
+								case 8: // henchspells w/out "Label" col
+								case 9: // henchspells w/    "Label" col
 									Load_HenchSpells(rows);
 									stop = true;
 									break;
@@ -354,65 +355,130 @@ namespace nwn2_ai_2da_editor
 			string[] cols;
 			string field;
 
-			foreach (string row in rows)
+			if (rows[2].Split(new char[0], StringSplitOptions.RemoveEmptyEntries).Length == 7) // does not have "Label" col
 			{
-				if (!String.IsNullOrEmpty(row))
+				foreach (string row in rows)
 				{
-					cols = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
-
-					int id;
-					if (Int32.TryParse(cols[0], out id)) // is a valid 2da row
+					if (!String.IsNullOrEmpty(row))
 					{
-						var spell = new Spell();
+						cols = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
 
-						spell.id        = id;
-						spell.isChanged = false;
-						spell.differ    = bit_clear;
+						int id;
+						if (Int32.TryParse(cols[0], out id)) // is a valid 2da row
+						{
+							var spell = new Spell();
 
-						if ((field = cols[1]) != blank)
-							spell.label = field;
-						else
-							spell.label = String.Empty;
+							spell.id        = id;
+							spell.isChanged = false;
+							spell.differ    = bit_clear;
+							spell.label     = String.Empty;
 
-						if ((field = cols[2]) != blank)
-							spell.spellinfo = Int32.Parse(field);
-						else
-							spell.spellinfo = 0;
+							if ((field = cols[1]) != blank)
+								spell.spellinfo = Int32.Parse(field);
+							else
+								spell.spellinfo = 0;
 
-						if ((field = cols[3]) != blank)
-							spell.targetinfo = Int32.Parse(field);
-						else
-							spell.targetinfo = 0;
+							if ((field = cols[2]) != blank)
+								spell.targetinfo = Int32.Parse(field);
+							else
+								spell.targetinfo = 0;
 
-						if ((field = cols[4]) != blank)
-							spell.effectweight = float.Parse(field);
-						else
-							spell.effectweight = 0.0f;
+							if ((field = cols[3]) != blank)
+								spell.effectweight = float.Parse(field);
+							else
+								spell.effectweight = 0.0f;
 
-						if ((field = cols[5]) != blank)
-							spell.effecttypes = Int32.Parse(field);
-						else
-							spell.effecttypes = 0;
+							if ((field = cols[4]) != blank)
+								spell.effecttypes = Int32.Parse(field);
+							else
+								spell.effecttypes = 0;
 
-						if ((field = cols[6]) != blank)
-							spell.damageinfo = Int32.Parse(field);
-						else
-							spell.damageinfo = 0;
+							if ((field = cols[5]) != blank)
+								spell.damageinfo = Int32.Parse(field);
+							else
+								spell.damageinfo = 0;
 
-						if ((field = cols[7]) != blank)
-							spell.savetype = Int32.Parse(field);
-						else
-							spell.savetype = 0;
+							if ((field = cols[6]) != blank)
+								spell.savetype = Int32.Parse(field);
+							else
+								spell.savetype = 0;
 
-						if ((field = cols[8]) != blank)
-							spell.savedctype = Int32.Parse(field);
-						else
-							spell.savedctype = 0;
+							if ((field = cols[7]) != blank)
+								spell.savedctype = Int32.Parse(field);
+							else
+								spell.savedctype = 0;
 
-						Spells.Add(spell);	// spell-structs can now be referenced in the list by their
-					}						// - Spells[id]
-				}							// - HenchSpells.2da row#
-			}								// - SpellID (Spells.2da row#)
+							Spells.Add(spell);
+						}
+					}
+				}
+			}
+			else // has "Label" col
+			{
+				foreach (string row in rows)
+				{
+					if (!String.IsNullOrEmpty(row))
+					{
+						cols = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
+
+						int id;
+						if (Int32.TryParse(cols[0], out id)) // is a valid 2da row
+						{
+							var spell = new Spell();
+
+							spell.id        = id;
+							spell.isChanged = false;
+							spell.differ    = bit_clear;
+
+							if ((field = cols[1]) != blank)
+								spell.label = field;
+							else
+								spell.label = String.Empty;
+
+							if ((field = cols[2]) != blank)
+								spell.spellinfo = Int32.Parse(field);
+							else
+								spell.spellinfo = 0;
+
+							if ((field = cols[3]) != blank)
+								spell.targetinfo = Int32.Parse(field);
+							else
+								spell.targetinfo = 0;
+
+							if ((field = cols[4]) != blank)
+								spell.effectweight = float.Parse(field);
+							else
+								spell.effectweight = 0.0f;
+
+							if ((field = cols[5]) != blank)
+								spell.effecttypes = Int32.Parse(field);
+							else
+								spell.effecttypes = 0;
+
+							if ((field = cols[6]) != blank)
+								spell.damageinfo = Int32.Parse(field);
+							else
+								spell.damageinfo = 0;
+
+							if ((field = cols[7]) != blank)
+								spell.savetype = Int32.Parse(field);
+							else
+								spell.savetype = 0;
+
+							if ((field = cols[8]) != blank)
+								spell.savedctype = Int32.Parse(field);
+							else
+								spell.savedctype = 0;
+
+							Spells.Add(spell);
+						}
+					}
+				}
+			}
+			// spell-structs can now be referenced in the 'Spells' list by their
+			// - Spells[id]
+			// - HenchSpells.2da row#
+			// - SpellID (Spells.2da row#)
 
 			TreeGrowth();
 
