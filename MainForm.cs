@@ -222,7 +222,7 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void Load_file()
 		{
-			if (File.Exists(_pfe))
+			if (File.Exists(_pfe)) // safety.
 			{
 				string[] rows = File.ReadAllLines(_pfe);
 
@@ -250,14 +250,18 @@ namespace nwn2_ai_2da_editor
 
 				SuspendLayout();
 
+				for (int i = 0; i != rows.Length; ++i)
+				{
+					rows[i] = rows[i].Trim();
+				}
+
 				string[] fields;
-				string ro;
 
 				foreach (string row in rows)
 				{
-					if (!String.IsNullOrEmpty(ro = row.Trim()))
+					if (!String.IsNullOrEmpty(row))
 					{
-						fields = ro.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
+						fields = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
 
 						int id;
 						if (Int32.TryParse(fields[0], out id)) // is first valid 2da row
