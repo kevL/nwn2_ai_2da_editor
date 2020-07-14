@@ -253,34 +253,28 @@ namespace nwn2_ai_2da_editor
 				string[] fields;
 				string ro;
 
-				bool stop = false;
 				foreach (string row in rows)
 				{
-					if (stop) break;
-
 					if (!String.IsNullOrEmpty(ro = row.Trim()))
 					{
 						fields = ro.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
 
 						int id;
-						if (Int32.TryParse(fields[0], out id)) // is a valid 2da row
+						if (Int32.TryParse(fields[0], out id)) // is first valid 2da row
 						{
 							switch (fields.Length)
 							{
 								case 8: // henchspells w/out "Label" col
 								case 9: // henchspells w/    "Label" col
 									Load_HenchSpells(rows);
-									stop = true;
 									break;
 
 								case 7: // henchracial
 									Load_HenchRacial(rows);
-									stop = true;
 									break;
 
 								case 13: // henchclasses
 									Load_HenchClasses(rows);
-									stop = true;
 									break;
 
 								default:
@@ -309,6 +303,7 @@ namespace nwn2_ai_2da_editor
 												MessageBoxIcon.Information,
 												MessageBoxDefaultButton.Button1);
 							}
+							break;
 						}
 					}
 				}
