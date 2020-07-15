@@ -345,7 +345,7 @@ namespace nwn2_ai_2da_editor
 					{
 						case 2: // NOTE: The menuitem shall be enabled for Copy_decimal only.
 							info = EffectWeight_text.Text;
-							if (float.TryParse(info, out f))
+							if (Single.TryParse(info, out f))
 							{
 								return info;
 							}
@@ -608,18 +608,20 @@ namespace nwn2_ai_2da_editor
 
 				labels.Clear();
 
-				string[] cols;
+				for (int i = 0; i != rows.Length; ++i)
+					rows[i] = rows[i].Trim();
+
+				string[] fields;
 				foreach (string row in rows)
 				{
 					if (!String.IsNullOrEmpty(row))
 					{
-						cols = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
+						fields = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
 
 						int id;
-						if (Int32.TryParse(cols[0], out id)) // is a valid 2da row
+						if (Int32.TryParse(fields[0], out id)) // is a valid 2da row
 						{
-							//logfile.Log(cols[1]); it works
-							labels.Add(cols[1]); // and hope for the best.
+							labels.Add(fields[1]); // and hope for the best.
 						}
 					}
 				}
