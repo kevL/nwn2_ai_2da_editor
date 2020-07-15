@@ -4,8 +4,8 @@ A Hench*.2da editor for TonyK's Companion and Monster AI 2.2
 - not entirely compatible with the SoZ AI but it should cut mustard
 
 --
-ver 1.3.0
-2018 dec 10
+ver 1.3.1.0
+2020 jul 14
 
 --
 Overview

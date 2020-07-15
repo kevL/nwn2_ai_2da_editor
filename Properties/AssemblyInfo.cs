@@ -11,7 +11,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("kevL")]
 [assembly: AssemblyProduct("nwn2_ai_2da_editor")]
-[assembly: AssemblyCopyright("2018")]
+[assembly: AssemblyCopyright("2018-20")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -26,5 +26,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can use the default the Revision and
 // Build Numbers by using the '*' as shown below (but does not work when
 // AssemblyFileVersion is specified):
-[assembly: AssemblyVersion("1.3.0.0")]
-[assembly: AssemblyFileVersion("1.3.0.0")]
+[assembly: AssemblyVersion("1.3.1.0")]
+[assembly: AssemblyFileVersion("1.3.1.0")]
