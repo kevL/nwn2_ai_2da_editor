@@ -251,12 +251,9 @@ namespace nwn2_ai_2da_editor
 				SuspendLayout();
 
 				for (int i = 0; i != rows.Length; ++i)
-				{
 					rows[i] = rows[i].Trim();
-				}
 
 				string[] fields;
-
 				foreach (string row in rows)
 				{
 					if (!String.IsNullOrEmpty(row))
@@ -268,17 +265,20 @@ namespace nwn2_ai_2da_editor
 						{
 							switch (fields.Length)
 							{
-								case 8: // henchspells w/out "Label" col
-								case 9: // henchspells w/    "Label" col
-									Load_HenchSpells(rows);
+								case 8:
+									Load_HenchSpells(rows, false);	// henchspells w/out "Label" col
 									break;
 
-								case 7: // henchracial
-									Load_HenchRacial(rows);
+								case 9:
+									Load_HenchSpells(rows, true);	// henchspells w/ "Label" col
 									break;
 
-								case 13: // henchclasses
-									Load_HenchClasses(rows);
+								case 7:
+									Load_HenchRacial(rows);			// henchracial
+									break;
+
+								case 13:
+									Load_HenchClasses(rows);		// henchclasses
 									break;
 
 								default:
@@ -333,7 +333,9 @@ namespace nwn2_ai_2da_editor
 		/// hopefully throw an exception at the user. If it doesn't all bets are
 		/// off.
 		/// </summary>
-		void Load_HenchSpells(string[] rows)
+		/// <param name="rows"></param>
+		/// <param name="hasLabels"></param>
+		void Load_HenchSpells(string[] rows, bool hasLabels)
 		{
 			Type = Type2da.TYPE_SPELLS;
 
@@ -352,19 +354,19 @@ namespace nwn2_ai_2da_editor
 			SaveDCType_reset  .ForeColor = DefaultForeColor;
 
 
-			string[] cols;
+			string[] fields;
 			string field;
 
-			if (rows[2].Split(new char[0], StringSplitOptions.RemoveEmptyEntries).Length == 7) // does not have "Label" col
+			if (!hasLabels) // does not have "Label" col
 			{
 				foreach (string row in rows)
 				{
 					if (!String.IsNullOrEmpty(row))
 					{
-						cols = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
+						fields = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
 
 						int id;
-						if (Int32.TryParse(cols[0], out id)) // is a valid 2da row
+						if (Int32.TryParse(fields[0], out id)) // is a valid 2da row
 						{
 							var spell = new Spell();
 
@@ -373,37 +375,37 @@ namespace nwn2_ai_2da_editor
 							spell.differ    = bit_clear;
 							spell.label     = String.Empty;
 
-							if ((field = cols[1]) != blank)
+							if ((field = fields[1]) != blank)
 								spell.spellinfo = Int32.Parse(field);
 							else
 								spell.spellinfo = 0;
 
-							if ((field = cols[2]) != blank)
+							if ((field = fields[2]) != blank)
 								spell.targetinfo = Int32.Parse(field);
 							else
 								spell.targetinfo = 0;
 
-							if ((field = cols[3]) != blank)
-								spell.effectweight = float.Parse(field);
+							if ((field = fields[3]) != blank)
+								spell.effectweight = Single.Parse(field);
 							else
 								spell.effectweight = 0.0f;
 
-							if ((field = cols[4]) != blank)
+							if ((field = fields[4]) != blank)
 								spell.effecttypes = Int32.Parse(field);
 							else
 								spell.effecttypes = 0;
 
-							if ((field = cols[5]) != blank)
+							if ((field = fields[5]) != blank)
 								spell.damageinfo = Int32.Parse(field);
 							else
 								spell.damageinfo = 0;
 
-							if ((field = cols[6]) != blank)
+							if ((field = fields[6]) != blank)
 								spell.savetype = Int32.Parse(field);
 							else
 								spell.savetype = 0;
 
-							if ((field = cols[7]) != blank)
+							if ((field = fields[7]) != blank)
 								spell.savedctype = Int32.Parse(field);
 							else
 								spell.savedctype = 0;
@@ -419,10 +421,10 @@ namespace nwn2_ai_2da_editor
 				{
 					if (!String.IsNullOrEmpty(row))
 					{
-						cols = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
+						fields = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
 
 						int id;
-						if (Int32.TryParse(cols[0], out id)) // is a valid 2da row
+						if (Int32.TryParse(fields[0], out id)) // is a valid 2da row
 						{
 							var spell = new Spell();
 
@@ -430,42 +432,42 @@ namespace nwn2_ai_2da_editor
 							spell.isChanged = false;
 							spell.differ    = bit_clear;
 
-							if ((field = cols[1]) != blank)
+							if ((field = fields[1]) != blank)
 								spell.label = field;
 							else
 								spell.label = String.Empty;
 
-							if ((field = cols[2]) != blank)
+							if ((field = fields[2]) != blank)
 								spell.spellinfo = Int32.Parse(field);
 							else
 								spell.spellinfo = 0;
 
-							if ((field = cols[3]) != blank)
+							if ((field = fields[3]) != blank)
 								spell.targetinfo = Int32.Parse(field);
 							else
 								spell.targetinfo = 0;
 
-							if ((field = cols[4]) != blank)
-								spell.effectweight = float.Parse(field);
+							if ((field = fields[4]) != blank)
+								spell.effectweight = Single.Parse(field);
 							else
 								spell.effectweight = 0.0f;
 
-							if ((field = cols[5]) != blank)
+							if ((field = fields[5]) != blank)
 								spell.effecttypes = Int32.Parse(field);
 							else
 								spell.effecttypes = 0;
 
-							if ((field = cols[6]) != blank)
+							if ((field = fields[6]) != blank)
 								spell.damageinfo = Int32.Parse(field);
 							else
 								spell.damageinfo = 0;
 
-							if ((field = cols[7]) != blank)
+							if ((field = fields[7]) != blank)
 								spell.savetype = Int32.Parse(field);
 							else
 								spell.savetype = 0;
 
-							if ((field = cols[8]) != blank)
+							if ((field = fields[8]) != blank)
 								spell.savedctype = Int32.Parse(field);
 							else
 								spell.savedctype = 0;
@@ -581,6 +583,7 @@ namespace nwn2_ai_2da_editor
 		/// hopefully throw an exception at the user. If it doesn't all bets are
 		/// off.
 		/// </summary>
+		/// <param name="rows"></param>
 		void Load_HenchRacial(string[] rows)
 		{
 			Type = Type2da.TYPE_RACIAL;
@@ -599,17 +602,17 @@ namespace nwn2_ai_2da_editor
 			RacialFeat5_reset.ForeColor = DefaultForeColor;
 
 
-			string[] cols;
+			string[] fields;
 			string field;
 
 			foreach (string row in rows)
 			{
 				if (!String.IsNullOrEmpty(row))
 				{
-					cols = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
+					fields = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
 
 					int id;
-					if (Int32.TryParse(cols[0], out id)) // is a valid 2da row
+					if (Int32.TryParse(fields[0], out id)) // is a valid 2da row
 					{
 						var race = new Race();
 
@@ -617,32 +620,32 @@ namespace nwn2_ai_2da_editor
 						race.isChanged = false;
 						race.differ    = bit_clear;
 
-						if ((field = cols[1]) != blank)
+						if ((field = fields[1]) != blank)
 							race.flags = Int32.Parse(field);
 						else
 							race.flags = 0;
 
-						if ((field = cols[2]) != blank)
+						if ((field = fields[2]) != blank)
 							race.feat1 = Int32.Parse(field);
 						else
 							race.feat1 = 0;
 
-						if ((field = cols[3]) != blank)
+						if ((field = fields[3]) != blank)
 							race.feat2 = Int32.Parse(field);
 						else
 							race.feat2 = 0;
 
-						if ((field = cols[4]) != blank)
+						if ((field = fields[4]) != blank)
 							race.feat3 = Int32.Parse(field);
 						else
 							race.feat3 = 0;
 
-						if ((field = cols[5]) != blank)
+						if ((field = fields[5]) != blank)
 							race.feat4 = Int32.Parse(field);
 						else
 							race.feat4 = 0;
 
-						if ((field = cols[6]) != blank)
+						if ((field = fields[6]) != blank)
 							race.feat5 = Int32.Parse(field);
 						else
 							race.feat5 = 0;
@@ -718,6 +721,7 @@ namespace nwn2_ai_2da_editor
 		/// hopefully throw an exception at the user. If it doesn't all bets are
 		/// off.
 		/// </summary>
+		/// <param name="rows"></param>
 		void Load_HenchClasses(string[] rows)
 		{
 			Type = Type2da.TYPE_CLASSES;
@@ -742,17 +746,17 @@ namespace nwn2_ai_2da_editor
 			ClassFeat11_reset.ForeColor = DefaultForeColor;
 
 
-			string[] cols;
+			string[] fields;
 			string field;
 
 			foreach (string row in rows)
 			{
 				if (!String.IsNullOrEmpty(row))
 				{
-					cols = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
+					fields = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
 
 					int id;
-					if (Int32.TryParse(cols[0], out id)) // is a valid 2da row
+					if (Int32.TryParse(fields[0], out id)) // is a valid 2da row
 					{
 						var clas = new Class();
 
@@ -760,62 +764,62 @@ namespace nwn2_ai_2da_editor
 						clas.isChanged = false;
 						clas.differ    = bit_clear;
 
-						if ((field = cols[1]) != blank)
+						if ((field = fields[1]) != blank)
 							clas.flags = Int32.Parse(field);
 						else
 							clas.flags = 0;
 
-						if ((field = cols[2]) != blank)
+						if ((field = fields[2]) != blank)
 							clas.feat1 = Int32.Parse(field);
 						else
 							clas.feat1 = 0;
 
-						if ((field = cols[3]) != blank)
+						if ((field = fields[3]) != blank)
 							clas.feat2 = Int32.Parse(field);
 						else
 							clas.feat2 = 0;
 
-						if ((field = cols[4]) != blank)
+						if ((field = fields[4]) != blank)
 							clas.feat3 = Int32.Parse(field);
 						else
 							clas.feat3 = 0;
 
-						if ((field = cols[5]) != blank)
+						if ((field = fields[5]) != blank)
 							clas.feat4 = Int32.Parse(field);
 						else
 							clas.feat4 = 0;
 
-						if ((field = cols[6]) != blank)
+						if ((field = fields[6]) != blank)
 							clas.feat5 = Int32.Parse(field);
 						else
 							clas.feat5 = 0;
 
-						if ((field = cols[7]) != blank)
+						if ((field = fields[7]) != blank)
 							clas.feat6 = Int32.Parse(field);
 						else
 							clas.feat6 = 0;
 
-						if ((field = cols[8]) != blank)
+						if ((field = fields[8]) != blank)
 							clas.feat7 = Int32.Parse(field);
 						else
 							clas.feat7 = 0;
 
-						if ((field = cols[9]) != blank)
+						if ((field = fields[9]) != blank)
 							clas.feat8 = Int32.Parse(field);
 						else
 							clas.feat8 = 0;
 
-						if ((field = cols[10]) != blank)
+						if ((field = fields[10]) != blank)
 							clas.feat9 = Int32.Parse(field);
 						else
 							clas.feat9 = 0;
 
-						if ((field = cols[11]) != blank)
+						if ((field = fields[11]) != blank)
 							clas.feat10 = Int32.Parse(field);
 						else
 							clas.feat10 = 0;
 
-						if ((field = cols[12]) != blank)
+						if ((field = fields[12]) != blank)
 							clas.feat11 = Int32.Parse(field);
 						else
 							clas.feat11 = 0;
