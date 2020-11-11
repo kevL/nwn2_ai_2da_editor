@@ -1,5 +1,7 @@
 ﻿using System;
+#if DEBUG
 using System.IO;
+#endif
 
 
 namespace nwn2_ai_2da_editor
