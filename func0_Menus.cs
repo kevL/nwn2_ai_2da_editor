@@ -39,20 +39,21 @@ namespace nwn2_ai_2da_editor
 		List<string> featsLabels = new List<string>();
 
 
-		/// <summary>
-		/// Handles the FormClosing event.
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		void FormClosing_main(object sender, CancelEventArgs e)
+
+		protected override void OnFormClosing(FormClosingEventArgs e)
 		{
-			e.Cancel = GetChanged()
-					&& MessageBox.Show("Data has changed." + Environment.NewLine + "Okay to exit ...",
-									   "  Warning",
-									   MessageBoxButtons.OKCancel,
-									   MessageBoxIcon.Warning,
-									   MessageBoxDefaultButton.Button2) == DialogResult.Cancel;
+			if (e.CloseReason != CloseReason.WindowsShutDown)
+			{
+				e.Cancel = GetChanged()
+						&& MessageBox.Show("Data has changed." + Environment.NewLine + "Okay to exit ...",
+										   "  Warning",
+										   MessageBoxButtons.OKCancel,
+										   MessageBoxIcon.Warning,
+										   MessageBoxDefaultButton.Button2) == DialogResult.Cancel;
+			}
+			base.OnFormClosing(e);
 		}
+
 
 
 		#region File
@@ -692,7 +693,7 @@ namespace nwn2_ai_2da_editor
 					else
 						break;
 				}
-				TreeGrowth();
+				GrowTree();
 			}
 		}
 		#endregion Options
@@ -718,12 +719,11 @@ namespace nwn2_ai_2da_editor
 #else
 			ver += " - release";
 #endif
-//			ver += " build";
 
-			MessageBox.Show(info + Environment.NewLine + Environment.NewLine + ver,
+			MessageBox.Show(info + Environment.NewLine + ver,
 							"  About - nwn2_ai_2da_editor",
 							MessageBoxButtons.OK,
-							MessageBoxIcon.Information,
+							MessageBoxIcon.None,
 							MessageBoxDefaultButton.Button1);
 		}
 		#endregion Help
@@ -742,9 +742,7 @@ namespace nwn2_ai_2da_editor
 					foreach (var spell in Spells)
 					{
 						if (spell.isChanged || spell.differ != bit_clear)
-						{
 							return true;
-						}
 					}
 					break;
 
@@ -752,9 +750,7 @@ namespace nwn2_ai_2da_editor
 					foreach (var race in Races)
 					{
 						if (race.isChanged || race.differ != bit_clear)
-						{
 							return true;
-						}
 					}
 					break;
 
@@ -762,9 +758,7 @@ namespace nwn2_ai_2da_editor
 					foreach (var clas in Classes)
 					{
 						if (clas.isChanged || clas.differ != bit_clear)
-						{
 							return true;
-						}
 					}
 					break;
 			}

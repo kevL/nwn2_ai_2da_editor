@@ -90,6 +90,8 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		bool bypassDiffer;
 
+		bool hasLabels;
+
 		/// <summary>
 		/// A boolean to track whether to inform the user if any InfoVersions
 		/// have been updated once a 2da finishes loading.
@@ -98,7 +100,7 @@ namespace nwn2_ai_2da_editor
 		{ get; set; }
 
 
-		const int PAD_SPELLLABEL = 4; // good to id# 9999
+//		const int PAD_SPELLLABEL = 4; // good to id# 9999
 
 		/// <summary>
 		/// The fullpath of the currently opened 2da file.
@@ -282,7 +284,8 @@ namespace nwn2_ai_2da_editor
 								&& fields[5].ToLowerInvariant() == "savetype"
 								&& fields[6].ToLowerInvariant() == "savedctype")
 							{
-								Load_HenchSpells(rows, false);
+								hasLabels = false;
+								Load_HenchSpells(rows);
 							}
 							else if (fields.Length == 8							// henchspells w/ "Label" col
 								&& fields[0].ToLowerInvariant() == "label"
@@ -294,7 +297,8 @@ namespace nwn2_ai_2da_editor
 								&& fields[6].ToLowerInvariant() == "savetype"
 								&& fields[7].ToLowerInvariant() == "savedctype")
 							{
-								Load_HenchSpells(rows, true);
+								hasLabels = true;
+								Load_HenchSpells(rows);
 							}
 							else if (fields.Length == 6							// henchracial w/out "Label" col
 								&& fields[0].ToLowerInvariant() == "flags"
@@ -304,7 +308,8 @@ namespace nwn2_ai_2da_editor
 								&& fields[4].ToLowerInvariant() == "featspell4"
 								&& fields[5].ToLowerInvariant() == "featspell5")
 							{
-								Load_HenchRacial(rows, false);
+								hasLabels = false;
+								Load_HenchRacial(rows);
 							}
 							else if (fields.Length == 7							// henchracial w/ "Label" col
 								&& fields[0].ToLowerInvariant() == "label"
@@ -315,7 +320,8 @@ namespace nwn2_ai_2da_editor
 								&& fields[5].ToLowerInvariant() == "featspell4"
 								&& fields[6].ToLowerInvariant() == "featspell5")
 							{
-								Load_HenchRacial(rows, true);
+								hasLabels = true;
+								Load_HenchRacial(rows);
 							}
 							else if (fields.Length == 12						// henchclasses w/out "Label" col
 								&& fields[ 0].ToLowerInvariant() == "flags"
@@ -331,7 +337,8 @@ namespace nwn2_ai_2da_editor
 								&& fields[10].ToLowerInvariant() == "featspell10"
 								&& fields[11].ToLowerInvariant() == "featspell11")
 							{
-								Load_HenchClasses(rows, false);
+								hasLabels = false;
+								Load_HenchClasses(rows);
 							}
 							else if (fields.Length == 13						// henchclasses w/ "Label" col
 								&& fields[ 0].ToLowerInvariant() == "label"
@@ -348,7 +355,8 @@ namespace nwn2_ai_2da_editor
 								&& fields[11].ToLowerInvariant() == "featspell10"
 								&& fields[12].ToLowerInvariant() == "featspell11")
 							{
-								Load_HenchClasses(rows, true);
+								hasLabels = true;
+								Load_HenchClasses(rows);
 							}
 							else
 							{
@@ -405,8 +413,7 @@ namespace nwn2_ai_2da_editor
 		/// off.
 		/// </summary>
 		/// <param name="rows"></param>
-		/// <param name="hasLabels"></param>
-		void Load_HenchSpells(string[] rows, bool hasLabels)
+		void Load_HenchSpells(string[] rows)
 		{
 			Type = Type2da.TYPE_SPELLS;
 
@@ -490,7 +497,7 @@ namespace nwn2_ai_2da_editor
 				}							// - HenchSpells.2da row#
 			}								// - SpellID (Spells.2da row#)
 
-			TreeGrowth();
+			GrowTree();
 
 			// check if any info-version(s) need to be updated in spellinfo-int.
 			InfoVersionLoad_spells();
@@ -592,8 +599,7 @@ namespace nwn2_ai_2da_editor
 		/// off.
 		/// </summary>
 		/// <param name="rows"></param>
-		/// <param name="hasLabels"></param>
-		void Load_HenchRacial(string[] rows, bool hasLabels)
+		void Load_HenchRacial(string[] rows)
 		{
 			Type = Type2da.TYPE_RACIAL;
 
@@ -671,7 +677,7 @@ namespace nwn2_ai_2da_editor
 				}							// - HenchRacial.2da row#
 			}								// - SubRaceID (RacialSubtypes.2da row#)
 
-			TreeGrowth();
+			GrowTree();
 
 			// check if any info-version(s) need to be updated in flags-int.
 			InfoVersionLoad_racial();
@@ -738,8 +744,7 @@ namespace nwn2_ai_2da_editor
 		/// off.
 		/// </summary>
 		/// <param name="rows"></param>
-		/// <param name="hasLabels"></param>
-		void Load_HenchClasses(string[] rows, bool hasLabels)
+		void Load_HenchClasses(string[] rows)
 		{
 			Type = Type2da.TYPE_CLASSES;
 
@@ -853,7 +858,7 @@ namespace nwn2_ai_2da_editor
 				}							// - HenchClasses.2da row#
 			}								// - ClassID (Classes.2da row#)
 
-			TreeGrowth();
+			GrowTree();
 
 			// check if any info-version(s) need to be updated in flags-int.
 			InfoVersionLoad_classes();
@@ -921,7 +926,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Populates nodes in the tree.
 		/// </summary>
-		void TreeGrowth()
+		void GrowTree()
 		{
 			MenuEnable();
 
@@ -937,67 +942,76 @@ namespace nwn2_ai_2da_editor
 					pb.ValTop = Spells.Count;
 					pb.Show();
 
-					int digits;
-					string pad;
+//					int digits;
+//					string pad;
+
+					string text;
 
 					foreach (var spell in Spells)
 					{
-						pad = String.Empty;
-						digits = spell.id.ToString().Length;
-						while (digits++ < PAD_SPELLLABEL)
-						{
-							pad += " ";
-						}
+//						pad = String.Empty;
+//						digits = spell.id.ToString().Length;
+//						while (digits++ < PAD_SPELLLABEL)
+//						{
+//							pad += " ";
+//						}
+//						Tree.Nodes.Add(spell.id + pad + " " + spell.label);
 
-						Tree.Nodes.Add(spell.id + pad + " " + spell.label);
+						text = spell.id.ToString();
+						if (hasLabels)
+						{
+							text += " " + spell.label;
+						}
+						else if (spellLabels.Count != 0 && spellLabels.Count > spell.id)
+						{
+							text += " " + spellLabels[spell.id];
+						}
+						Tree.Nodes.Add(text);
+
 						pb.Step();
 					}
 					break;
 				}
 
 				case Type2da.TYPE_RACIAL:
+				{
+					string text;
+
 					foreach (var race in Races)
 					{
-						Tree.Nodes.Add(race.id.ToString());
-					}
-
-					if (racesLabels.Count != 0)
-					{
-						int id = 0;
-						int total = Tree.Nodes.Count;
-						foreach (var label in racesLabels)
+						text = race.id.ToString();
+						if (hasLabels)
 						{
-							if (id < total)
-							{
-								Tree.Nodes[id++].Text += " " + label;
-							}
-							else
-								break;
+							text += " " + race.label;
 						}
+						else if (racesLabels.Count != 0 && racesLabels.Count > race.id)
+						{
+							text += " " + racesLabels[race.id];
+						}
+						Tree.Nodes.Add(text);
 					}
 					break;
+				}
 
 				case Type2da.TYPE_CLASSES:
+				{
+					string text;
+
 					foreach (var clas in Classes)
 					{
-						Tree.Nodes.Add(clas.id.ToString());
-					}
-
-					if (classLabels.Count != 0)
-					{
-						int id = 0;
-						int total = Tree.Nodes.Count;
-						foreach (var label in classLabels)
+						text = clas.id.ToString();
+						if (hasLabels)
 						{
-							if (id < total)
-							{
-								Tree.Nodes[id++].Text += " " + label;
-							}
-							else
-								break;
+							text += " " + clas.label;
 						}
+						else if (classLabels.Count != 0 && classLabels.Count > clas.id)
+						{
+							text += " " + classLabels[clas.id];
+						}
+						Tree.Nodes.Add(text);
 					}
 					break;
+				}
 			}
 
 			Tree.EndUpdate();
@@ -1026,7 +1040,7 @@ namespace nwn2_ai_2da_editor
 
 		#region SpellTree node-select
 		/// <summary>
-		/// Handles AfterSelect event for nodes in the spell-tree.
+		/// Handles AfterSelect event for nodes in the tree.
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
