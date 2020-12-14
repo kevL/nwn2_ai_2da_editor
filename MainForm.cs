@@ -428,130 +428,67 @@ namespace nwn2_ai_2da_editor
 			string[] fields;
 			string field;
 
-			if (!hasLabels) // does not have "Label" col
+			foreach (string row in rows)
 			{
-				foreach (string row in rows)
+				if (!String.IsNullOrEmpty(row))
 				{
-					if (!String.IsNullOrEmpty(row))
+					fields = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
+
+					int id;
+					if (Int32.TryParse(fields[0], out id)) // is a valid 2da row
 					{
-						fields = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
+						var spell = new Spell();
 
-						int id;
-						if (Int32.TryParse(fields[0], out id)) // is a valid 2da row
-						{
-							var spell = new Spell();
+						spell.id        = id;
+						spell.isChanged = false;
+						spell.differ    = bit_clear;
 
-							spell.id        = id;
-							spell.isChanged = false;
-							spell.differ    = bit_clear;
-							spell.label     = String.Empty;
+						int col = 0;
 
-							if ((field = fields[1]) != blank)
-								spell.spellinfo = Int32.Parse(field);
-							else
-								spell.spellinfo = 0;
+						if (hasLabels && (field = fields[++col]) != blank)
+							spell.label = field;
+						else
+							spell.label = String.Empty;
 
-							if ((field = fields[2]) != blank)
-								spell.targetinfo = Int32.Parse(field);
-							else
-								spell.targetinfo = 0;
+						if ((field = fields[++col]) != blank)
+							spell.spellinfo = Int32.Parse(field);
+						else
+							spell.spellinfo = 0;
 
-							if ((field = fields[3]) != blank)
-								spell.effectweight = Single.Parse(field);
-							else
-								spell.effectweight = 0.0f;
+						if ((field = fields[++col]) != blank)
+							spell.targetinfo = Int32.Parse(field);
+						else
+							spell.targetinfo = 0;
 
-							if ((field = fields[4]) != blank)
-								spell.effecttypes = Int32.Parse(field);
-							else
-								spell.effecttypes = 0;
+						if ((field = fields[++col]) != blank)
+							spell.effectweight = Single.Parse(field);
+						else
+							spell.effectweight = 0.0f;
 
-							if ((field = fields[5]) != blank)
-								spell.damageinfo = Int32.Parse(field);
-							else
-								spell.damageinfo = 0;
+						if ((field = fields[++col]) != blank)
+							spell.effecttypes = Int32.Parse(field);
+						else
+							spell.effecttypes = 0;
 
-							if ((field = fields[6]) != blank)
-								spell.savetype = Int32.Parse(field);
-							else
-								spell.savetype = 0;
+						if ((field = fields[++col]) != blank)
+							spell.damageinfo = Int32.Parse(field);
+						else
+							spell.damageinfo = 0;
 
-							if ((field = fields[7]) != blank)
-								spell.savedctype = Int32.Parse(field);
-							else
-								spell.savedctype = 0;
+						if ((field = fields[++col]) != blank)
+							spell.savetype = Int32.Parse(field);
+						else
+							spell.savetype = 0;
 
-							Spells.Add(spell);
-						}
-					}
-				}
-			}
-			else // has "Label" col
-			{
-				foreach (string row in rows)
-				{
-					if (!String.IsNullOrEmpty(row))
-					{
-						fields = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
+						if ((field = fields[++col]) != blank)
+							spell.savedctype = Int32.Parse(field);
+						else
+							spell.savedctype = 0;
 
-						int id;
-						if (Int32.TryParse(fields[0], out id)) // is a valid 2da row
-						{
-							var spell = new Spell();
-
-							spell.id        = id;
-							spell.isChanged = false;
-							spell.differ    = bit_clear;
-
-							if ((field = fields[1]) != blank)
-								spell.label = field;
-							else
-								spell.label = String.Empty;
-
-							if ((field = fields[2]) != blank)
-								spell.spellinfo = Int32.Parse(field);
-							else
-								spell.spellinfo = 0;
-
-							if ((field = fields[3]) != blank)
-								spell.targetinfo = Int32.Parse(field);
-							else
-								spell.targetinfo = 0;
-
-							if ((field = fields[4]) != blank)
-								spell.effectweight = Single.Parse(field);
-							else
-								spell.effectweight = 0.0f;
-
-							if ((field = fields[5]) != blank)
-								spell.effecttypes = Int32.Parse(field);
-							else
-								spell.effecttypes = 0;
-
-							if ((field = fields[6]) != blank)
-								spell.damageinfo = Int32.Parse(field);
-							else
-								spell.damageinfo = 0;
-
-							if ((field = fields[7]) != blank)
-								spell.savetype = Int32.Parse(field);
-							else
-								spell.savetype = 0;
-
-							if ((field = fields[8]) != blank)
-								spell.savedctype = Int32.Parse(field);
-							else
-								spell.savedctype = 0;
-
-							Spells.Add(spell);
-						}
-					}
-				}
-			}
-			// spell-structs can now be referenced in the 'Spells' list by their
-			// - Spells[id]
-			// - HenchSpells.2da row#
-			// - SpellID (Spells.2da row#)
+						Spells.Add(spell);	// spell-structs can now be referenced in the 'Spells' list by their
+					}						// - Spells[id]
+				}							// - HenchSpells.2da row#
+			}								// - SpellID (Spells.2da row#)
 
 			TreeGrowth();
 
@@ -692,37 +629,44 @@ namespace nwn2_ai_2da_editor
 						race.isChanged = false;
 						race.differ    = bit_clear;
 
-						if ((field = fields[1]) != blank)
+						int col = 0;
+
+						if (hasLabels && (field = fields[++col]) != blank)
+							race.label = field;
+						else
+							race.label = String.Empty;
+
+						if ((field = fields[++col]) != blank)
 							race.flags = Int32.Parse(field);
 						else
 							race.flags = 0;
 
-						if ((field = fields[2]) != blank)
+						if ((field = fields[++col]) != blank)
 							race.feat1 = Int32.Parse(field);
 						else
 							race.feat1 = 0;
 
-						if ((field = fields[3]) != blank)
+						if ((field = fields[++col]) != blank)
 							race.feat2 = Int32.Parse(field);
 						else
 							race.feat2 = 0;
 
-						if ((field = fields[4]) != blank)
+						if ((field = fields[++col]) != blank)
 							race.feat3 = Int32.Parse(field);
 						else
 							race.feat3 = 0;
 
-						if ((field = fields[5]) != blank)
+						if ((field = fields[++col]) != blank)
 							race.feat4 = Int32.Parse(field);
 						else
 							race.feat4 = 0;
 
-						if ((field = fields[6]) != blank)
+						if ((field = fields[++col]) != blank)
 							race.feat5 = Int32.Parse(field);
 						else
 							race.feat5 = 0;
 
-						Races.Add(race);	// race-structs can now be referenced in the list by their
+						Races.Add(race);	// race-structs can now be referenced in the 'Races' list by their
 					}						// - Races[id]
 				}							// - HenchRacial.2da row#
 			}								// - SubRaceID (RacialSubtypes.2da row#)
@@ -837,67 +781,74 @@ namespace nwn2_ai_2da_editor
 						clas.isChanged = false;
 						clas.differ    = bit_clear;
 
-						if ((field = fields[1]) != blank)
+						int col = 0;
+
+						if (hasLabels && (field = fields[++col]) != blank)
+							clas.label = field;
+						else
+							clas.label = String.Empty;
+
+						if ((field = fields[++col]) != blank)
 							clas.flags = Int32.Parse(field);
 						else
 							clas.flags = 0;
 
-						if ((field = fields[2]) != blank)
+						if ((field = fields[++col]) != blank)
 							clas.feat1 = Int32.Parse(field);
 						else
 							clas.feat1 = 0;
 
-						if ((field = fields[3]) != blank)
+						if ((field = fields[++col]) != blank)
 							clas.feat2 = Int32.Parse(field);
 						else
 							clas.feat2 = 0;
 
-						if ((field = fields[4]) != blank)
+						if ((field = fields[++col]) != blank)
 							clas.feat3 = Int32.Parse(field);
 						else
 							clas.feat3 = 0;
 
-						if ((field = fields[5]) != blank)
+						if ((field = fields[++col]) != blank)
 							clas.feat4 = Int32.Parse(field);
 						else
 							clas.feat4 = 0;
 
-						if ((field = fields[6]) != blank)
+						if ((field = fields[++col]) != blank)
 							clas.feat5 = Int32.Parse(field);
 						else
 							clas.feat5 = 0;
 
-						if ((field = fields[7]) != blank)
+						if ((field = fields[++col]) != blank)
 							clas.feat6 = Int32.Parse(field);
 						else
 							clas.feat6 = 0;
 
-						if ((field = fields[8]) != blank)
+						if ((field = fields[++col]) != blank)
 							clas.feat7 = Int32.Parse(field);
 						else
 							clas.feat7 = 0;
 
-						if ((field = fields[9]) != blank)
+						if ((field = fields[++col]) != blank)
 							clas.feat8 = Int32.Parse(field);
 						else
 							clas.feat8 = 0;
 
-						if ((field = fields[10]) != blank)
+						if ((field = fields[++col]) != blank)
 							clas.feat9 = Int32.Parse(field);
 						else
 							clas.feat9 = 0;
 
-						if ((field = fields[11]) != blank)
+						if ((field = fields[++col]) != blank)
 							clas.feat10 = Int32.Parse(field);
 						else
 							clas.feat10 = 0;
 
-						if ((field = fields[12]) != blank)
+						if ((field = fields[++col]) != blank)
 							clas.feat11 = Int32.Parse(field);
 						else
 							clas.feat11 = 0;
 
-						Classes.Add(clas);	// class-structs can now be referenced in the list by their
+						Classes.Add(clas);	// class-structs can now be referenced in the 'Classes' list by their
 					}						// - Classes[id]
 				}							// - HenchClasses.2da row#
 			}								// - ClassID (Classes.2da row#)
@@ -2209,6 +2160,7 @@ namespace nwn2_ai_2da_editor
 	struct Race
 	{
 		public int id;
+		public string label;
 
 		public int flags;
 		public int feat1;
@@ -2249,6 +2201,7 @@ namespace nwn2_ai_2da_editor
 	struct Class
 	{
 		public int id;
+		public string label;
 
 		public int flags;
 		public int feat1;
