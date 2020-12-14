@@ -217,7 +217,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Determines which file to load: HenchSpells, HenchRacial, or
 		/// HenchClasses.
-		/// The fullpath of the file must be stored in '_pfe'.
+		/// The fullpath of the file must already be stored in '_pfe'.
 		/// NOTE: "pfe" stands for "path_file_extension"
 		/// </summary>
 		void Load_file()
@@ -260,37 +260,108 @@ namespace nwn2_ai_2da_editor
 					{
 						fields = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
 
-						int id;
-						if (Int32.TryParse(fields[0], out id)) // is first valid 2da row
+						if (fields.Length > 5) // bypass 2da version header
 						{
-							switch (fields.Length)
+							// resolve what 2da is being loaded ->
+
+							// HenchSpells.2da colheads
+							// Label SpellInfo TargetInfo EffectWeight EffectTypes DamageInfo SaveType SaveDCType
+
+							// HenchRacial.2da colheads
+							// Label Flags FeatSpell1 FeatSpell2 FeatSpell3 FeatSpell4 FeatSpell5
+
+							// HenchClasses.2da colheads
+							// Label Flags FeatSpell1 FeatSpell2 FeatSpell3 FeatSpell4 FeatSpell5 FeatSpell6 FeatSpell7 FeatSpell8 FeatSpell9 FeatSpell10 FeatSpell11
+
+							if (fields.Length == 7								// henchspells w/out "Label" col
+								&& fields[0].ToLowerInvariant() == "spellinfo"
+								&& fields[1].ToLowerInvariant() == "targetinfo"
+								&& fields[2].ToLowerInvariant() == "effectweight"
+								&& fields[3].ToLowerInvariant() == "effecttypes"
+								&& fields[4].ToLowerInvariant() == "damageinfo"
+								&& fields[5].ToLowerInvariant() == "savetype"
+								&& fields[6].ToLowerInvariant() == "savedctype")
 							{
-								case 8:
-									Load_HenchSpells(rows, false);	// henchspells w/out "Label" col
-									break;
-
-								case 9:
-									Load_HenchSpells(rows, true);	// henchspells w/ "Label" col
-									break;
-
-								case 7:
-									Load_HenchRacial(rows);			// henchracial
-									break;
-
-								case 13:
-									Load_HenchClasses(rows);		// henchclasses
-									break;
-
-								default:
-									ResumeLayout();
-
-									MessageBox.Show("That file does not appear to be HenchSpells, HenchRacial, or HenchClasses.2da",
-													"  ERROR",
-													MessageBoxButtons.OK,
-													MessageBoxIcon.Error,
-													MessageBoxDefaultButton.Button1);
-									return;
+								Load_HenchSpells(rows, false);
 							}
+							else if (fields.Length == 8							// henchspells w/ "Label" col
+								&& fields[0].ToLowerInvariant() == "label"
+								&& fields[1].ToLowerInvariant() == "spellinfo"
+								&& fields[2].ToLowerInvariant() == "targetinfo"
+								&& fields[3].ToLowerInvariant() == "effectweight"
+								&& fields[4].ToLowerInvariant() == "effecttypes"
+								&& fields[5].ToLowerInvariant() == "damageinfo"
+								&& fields[6].ToLowerInvariant() == "savetype"
+								&& fields[7].ToLowerInvariant() == "savedctype")
+							{
+								Load_HenchSpells(rows, true);
+							}
+							else if (fields.Length == 6							// henchracial w/out "Label" col
+								&& fields[0].ToLowerInvariant() == "flags"
+								&& fields[1].ToLowerInvariant() == "featspell1"
+								&& fields[2].ToLowerInvariant() == "featspell2"
+								&& fields[3].ToLowerInvariant() == "featspell3"
+								&& fields[4].ToLowerInvariant() == "featspell4"
+								&& fields[5].ToLowerInvariant() == "featspell5")
+							{
+								Load_HenchRacial(rows, false);
+							}
+							else if (fields.Length == 7							// henchracial w/ "Label" col
+								&& fields[0].ToLowerInvariant() == "label"
+								&& fields[1].ToLowerInvariant() == "flags"
+								&& fields[2].ToLowerInvariant() == "featspell1"
+								&& fields[3].ToLowerInvariant() == "featspell2"
+								&& fields[4].ToLowerInvariant() == "featspell3"
+								&& fields[5].ToLowerInvariant() == "featspell4"
+								&& fields[6].ToLowerInvariant() == "featspell5")
+							{
+								Load_HenchRacial(rows, true);
+							}
+							else if (fields.Length == 12						// henchclasses w/out "Label" col
+								&& fields[ 0].ToLowerInvariant() == "flags"
+								&& fields[ 1].ToLowerInvariant() == "featspell1"
+								&& fields[ 2].ToLowerInvariant() == "featspell2"
+								&& fields[ 3].ToLowerInvariant() == "featspell3"
+								&& fields[ 4].ToLowerInvariant() == "featspell4"
+								&& fields[ 5].ToLowerInvariant() == "featspell5"
+								&& fields[ 6].ToLowerInvariant() == "featspell6"
+								&& fields[ 7].ToLowerInvariant() == "featspell7"
+								&& fields[ 8].ToLowerInvariant() == "featspell8"
+								&& fields[ 9].ToLowerInvariant() == "featspell9"
+								&& fields[10].ToLowerInvariant() == "featspell10"
+								&& fields[11].ToLowerInvariant() == "featspell11")
+							{
+								Load_HenchClasses(rows, false);
+							}
+							else if (fields.Length == 13						// henchclasses w/ "Label" col
+								&& fields[ 0].ToLowerInvariant() == "label"
+								&& fields[ 1].ToLowerInvariant() == "flags"
+								&& fields[ 2].ToLowerInvariant() == "featspell1"
+								&& fields[ 3].ToLowerInvariant() == "featspell2"
+								&& fields[ 4].ToLowerInvariant() == "featspell3"
+								&& fields[ 5].ToLowerInvariant() == "featspell4"
+								&& fields[ 6].ToLowerInvariant() == "featspell5"
+								&& fields[ 7].ToLowerInvariant() == "featspell6"
+								&& fields[ 8].ToLowerInvariant() == "featspell7"
+								&& fields[ 9].ToLowerInvariant() == "featspell8"
+								&& fields[10].ToLowerInvariant() == "featspell9"
+								&& fields[11].ToLowerInvariant() == "featspell10"
+								&& fields[12].ToLowerInvariant() == "featspell11")
+							{
+								Load_HenchClasses(rows, true);
+							}
+							else
+							{
+								ResumeLayout();
+
+								MessageBox.Show("That file does not appear to be HenchSpells, HenchRacial, or HenchClasses.2da",
+												"  ERROR",
+												MessageBoxButtons.OK,
+												MessageBoxIcon.Error,
+												MessageBoxDefaultButton.Button1);
+								return;
+							}
+
 
 							Text = "nwn2_ai_2da_editor - " + _pfe; // titlebar text (append path of current file)
 
@@ -584,7 +655,8 @@ namespace nwn2_ai_2da_editor
 		/// off.
 		/// </summary>
 		/// <param name="rows"></param>
-		void Load_HenchRacial(string[] rows)
+		/// <param name="hasLabels"></param>
+		void Load_HenchRacial(string[] rows, bool hasLabels)
 		{
 			Type = Type2da.TYPE_RACIAL;
 
@@ -722,7 +794,8 @@ namespace nwn2_ai_2da_editor
 		/// off.
 		/// </summary>
 		/// <param name="rows"></param>
-		void Load_HenchClasses(string[] rows)
+		/// <param name="hasLabels"></param>
+		void Load_HenchClasses(string[] rows, bool hasLabels)
 		{
 			Type = Type2da.TYPE_CLASSES;
 
