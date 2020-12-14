@@ -11,6 +11,7 @@ namespace nwn2_ai_2da_editor
 		/// Designer variable used to keep track of non-visual components.
 		/// </summary>
 		private IContainer components = null;
+
 		private TabControl cols_HenchSpells;
 		private TabPage page_SpellInfo;
 		private TabPage page_TargetInfo;
