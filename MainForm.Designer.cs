@@ -1347,7 +1347,7 @@ namespace nwn2_ai_2da_editor
 			this.tree_Highlight.Size = new System.Drawing.Size(105, 20);
 			this.tree_Highlight.Text = "turtles";
 			this.tree_Highlight.Visible = false;
-			this.tree_Highlight.Click += new System.EventHandler(this.Click_menuHighlight);
+			this.tree_Highlight.Click += new System.EventHandler(this.Click_treeHighlight);
 			// 
 			// splitContainer1
 			// 

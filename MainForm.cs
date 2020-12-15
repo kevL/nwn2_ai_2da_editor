@@ -1943,7 +1943,7 @@ namespace nwn2_ai_2da_editor
 
 
 		#region treeview ContextMenu
-		void Click_menuHighlight(object sender, EventArgs e)
+		void Click_treeHighlight(object sender, EventArgs e)
 		{
 			switch (Type)
 			{
