@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
 using System.IO;
 using System.Reflection;
@@ -24,7 +23,7 @@ namespace nwn2_ai_2da_editor
 		/// A list that holds labels for races in Races.2da.
 		/// - optional
 		/// </summary>
-		List<string> racesLabels = new List<string>();
+		List<string> raceLabels = new List<string>();
 
 		/// <summary>
 		/// A list that holds labels for spells in Spells.2da.
@@ -230,11 +229,9 @@ namespace nwn2_ai_2da_editor
 								System.Media.SystemSounds.Beep.Play();
 								break;
 							}
-		
+
 							if (++id == total) // wrap to first node
-							{
 								id = 0;
-							}
 						}
 						break;
 
@@ -246,11 +243,9 @@ namespace nwn2_ai_2da_editor
 								System.Media.SystemSounds.Beep.Play();
 								break;
 							}
-		
+
 							if (++id == total) // wrap to first node
-							{
 								id = 0;
-							}
 						}
 						break;
 
@@ -262,11 +257,9 @@ namespace nwn2_ai_2da_editor
 								System.Media.SystemSounds.Beep.Play();
 								break;
 							}
-		
+
 							if (++id == total) // wrap to first node
-							{
 								id = 0;
-							}
 						}
 						break;
 				}
@@ -347,9 +340,8 @@ namespace nwn2_ai_2da_editor
 						case 2: // NOTE: The menuitem shall be enabled for Copy_decimal only.
 							info = EffectWeight_text.Text;
 							if (Single.TryParse(info, out f))
-							{
 								return info;
-							}
+
 							return String.Empty;
 
 						case 0: info = SpellInfo_text  .Text; break;
@@ -393,9 +385,8 @@ namespace nwn2_ai_2da_editor
 			}
 
 			if (Int32.TryParse(info, out i))
-			{
 				return info;
-			}
+
 			return String.Empty;
 		}
 		#endregion Edit
@@ -406,6 +397,12 @@ namespace nwn2_ai_2da_editor
 		{
 			it_insertSpellLabels.Enabled = pathSpells.Checked
 										&& Type == Type2da.TYPE_SPELLS;
+
+			it_insertRaceLabels .Enabled = pathRacialSubtypes.Checked
+										&& Type == Type2da.TYPE_RACIAL;
+
+			it_insertClassLabels.Enabled = pathClasses.Checked
+										&& Type == Type2da.TYPE_CLASSES;
 		}
 
 		/// <summary>
@@ -421,23 +418,25 @@ namespace nwn2_ai_2da_editor
 			{
 				using (var ofd = new OpenFileDialog())
 				{
-					ofd.Title  = "Select RacialSubtypes.2da";
-					ofd.Filter = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
+					ofd.Title    = "Select RacialSubtypes.2da";
+					ofd.Filter   = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
+					ofd.FileName = "racialsubtypes.2da";
 
 					if (ofd.ShowDialog() == DialogResult.OK)
 					{
-						GropeLabels(ofd.FileName, racesLabels, pathRacialSubtypes);
+						GropeLabels(ofd.FileName, raceLabels, pathRacialSubtypes);
 
-						if (racesLabels.Count != 0
-							&& Type == Type2da.TYPE_RACIAL)
+						if (!hasLabels
+							&& Type == Type2da.TYPE_RACIAL
+							&& raceLabels.Count != 0)
 						{
-							int id = 0;
+							int id = -1;
 							int total = Tree.Nodes.Count;
-							foreach (var label in racesLabels)
+							foreach (var label in raceLabels)
 							{
-								if (id < total)
+								if (++id < total)
 								{
-									Tree.Nodes[id++].Text += " " + label;
+									Tree.Nodes[id].Text += " " + label;
 								}
 								else
 									break;
@@ -449,9 +448,10 @@ namespace nwn2_ai_2da_editor
 			else
 			{
 				pathRacialSubtypes.Checked = false;
-				racesLabels.Clear();
+				raceLabels.Clear();
 
-				if (Type == Type2da.TYPE_RACIAL)
+				if (!hasLabels
+					&& Type == Type2da.TYPE_RACIAL)
 				{
 					int total = Tree.Nodes.Count;
 					for (int id = 0; id != total; ++id)
@@ -474,23 +474,25 @@ namespace nwn2_ai_2da_editor
 			{
 				using (var ofd = new OpenFileDialog())
 				{
-					ofd.Title  = "Select Classes.2da";
-					ofd.Filter = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
+					ofd.Title    = "Select Classes.2da";
+					ofd.Filter   = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
+					ofd.FileName = "classes.2da";
 
 					if (ofd.ShowDialog() == DialogResult.OK)
 					{
 						GropeLabels(ofd.FileName, classLabels, pathClasses);
 
-						if (classLabels.Count != 0
-							&& Type == Type2da.TYPE_CLASSES)
+						if (!hasLabels
+							&& Type == Type2da.TYPE_CLASSES
+							&& classLabels.Count != 0)
 						{
-							int id = 0;
+							int id = -1;
 							int total = Tree.Nodes.Count;
 							foreach (var label in classLabels)
 							{
-								if (id < total)
+								if (++id < total)
 								{
-									Tree.Nodes[id++].Text += " " + label;
+									Tree.Nodes[id].Text += " " + label;
 								}
 								else
 									break;
@@ -504,7 +506,8 @@ namespace nwn2_ai_2da_editor
 				pathClasses.Checked = false;
 				classLabels.Clear();
 
-				if (Type == Type2da.TYPE_CLASSES)
+				if (!hasLabels
+					&& Type == Type2da.TYPE_CLASSES)
 				{
 					int total = Tree.Nodes.Count;
 					for (int id = 0; id != total; ++id)
@@ -527,12 +530,30 @@ namespace nwn2_ai_2da_editor
 			{
 				using (var ofd = new OpenFileDialog())
 				{
-					ofd.Title  = "Select Spells.2da";
-					ofd.Filter = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
+					ofd.Title    = "Select Spells.2da";
+					ofd.Filter   = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
+					ofd.FileName = "spells.2da";
 
 					if (ofd.ShowDialog() == DialogResult.OK)
 					{
 						GropeLabels(ofd.FileName, spellLabels, pathSpells);
+
+						if (!hasLabels
+							&& Type == Type2da.TYPE_SPELLS
+							&& spellLabels.Count != 0)
+						{
+							int id = -1;
+							int total = Tree.Nodes.Count;
+							foreach (var label in spellLabels)
+							{
+								if (++id < total)
+								{
+									Tree.Nodes[id].Text += " " + label;
+								}
+								else
+									break;
+							}
+						}
 					}
 				}
 			}
@@ -540,6 +561,16 @@ namespace nwn2_ai_2da_editor
 			{
 				pathSpells.Checked = false;
 				spellLabels.Clear();
+
+				if (!hasLabels
+					&& Type == Type2da.TYPE_SPELLS)
+				{
+					int total = Tree.Nodes.Count;
+					for (int id = 0; id != total; ++id)
+					{
+						Tree.Nodes[id].Text = id.ToString();
+					}
+				}
 			}
 		}
 
@@ -555,8 +586,9 @@ namespace nwn2_ai_2da_editor
 			{
 				using (var ofd = new OpenFileDialog())
 				{
-					ofd.Title  = "Select Feat.2da";
-					ofd.Filter = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
+					ofd.Title    = "Select Feat.2da";
+					ofd.Filter   = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
+					ofd.FileName = "feat.2da";
 
 					if (ofd.ShowDialog() == DialogResult.OK)
 					{
@@ -670,7 +702,8 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// 
+		/// Inserts labels of a groped Spells.2da into the 'Spells' list and the
+		/// tree.
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -678,17 +711,81 @@ namespace nwn2_ai_2da_editor
 		{
 			if (spellLabels.Count != 0)
 			{
+				hasLabels = true;
+
 				Spell spell;
 
-				int j = 0;
+				int j = -1;
 				int total = spellLabels.Count;
 				for (int i = 0; i != Spells.Count; ++i)
 				{
-					if (j < total)
+					if (++j < total)
 					{
 						spell = Spells[i];
-						spell.label = spellLabels[j++];
+						spell.label = spellLabels[j];
 						Spells[i] = spell;
+					}
+					else
+						break;
+				}
+				GrowTree();
+			}
+		}
+
+		/// <summary>
+		/// Inserts labels of a groped RacialSubtypes.2da into the 'Races' list
+		/// and the tree.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void Click_insertRaceLabels(object sender, EventArgs e)
+		{
+			if (raceLabels.Count != 0)
+			{
+				hasLabels = true;
+
+				Race race;
+
+				int j = -1;
+				int total = raceLabels.Count;
+				for (int i = 0; i != Races.Count; ++i)
+				{
+					if (++j < total)
+					{
+						race = Races[i];
+						race.label = raceLabels[j];
+						Races[i] = race;
+					}
+					else
+						break;
+				}
+				GrowTree();
+			}
+		}
+
+		/// <summary>
+		/// Inserts labels of a groped Classes.2da into the 'Classes' list and
+		/// the tree.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void Click_insertClassLabels(object sender, EventArgs e)
+		{
+			if (classLabels.Count != 0)
+			{
+				hasLabels = true;
+
+				Class clas;
+
+				int j = -1;
+				int total = classLabels.Count;
+				for (int i = 0; i != Classes.Count; ++i)
+				{
+					if (++j < total)
+					{
+						clas = Classes[i];
+						clas.label = classLabels[j];
+						Classes[i] = clas;
 					}
 					else
 						break;
@@ -778,9 +875,7 @@ namespace nwn2_ai_2da_editor
 					foreach (var spell in Spells)
 					{
 						if (spell.isChanged)
-						{
 							return true;
-						}
 					}
 					break;
 
@@ -788,9 +883,7 @@ namespace nwn2_ai_2da_editor
 					foreach (var race in Races)
 					{
 						if (race.isChanged)
-						{
 							return true;
-						}
 					}
 					break;
 
@@ -798,9 +891,7 @@ namespace nwn2_ai_2da_editor
 					foreach (var clas in Classes)
 					{
 						if (clas.isChanged)
-						{
 							return true;
-						}
 					}
 					break;
 			}
@@ -818,23 +909,20 @@ namespace nwn2_ai_2da_editor
 			{
 				case Type2da.TYPE_SPELLS:
 					if (SpellsChanged.Count != 0)
-					{
 						return true;
-					}
+
 					break;
 
 				case Type2da.TYPE_RACIAL:
 					if (RacesChanged.Count != 0)
-					{
 						return true;
-					}
+
 					break;
 
 				case Type2da.TYPE_CLASSES:
 					if (ClassesChanged.Count != 0)
-					{
 						return true;
-					}
+
 					break;
 			}
 			return false;

@@ -100,8 +100,6 @@ namespace nwn2_ai_2da_editor
 		{ get; set; }
 
 
-//		const int PAD_SPELLLABEL = 4; // good to id# 9999
-
 		/// <summary>
 		/// The fullpath of the currently opened 2da file.
 		/// </summary>
@@ -938,33 +936,36 @@ namespace nwn2_ai_2da_editor
 			{
 				case Type2da.TYPE_SPELLS:
 				{
-					var pb = new ProgBar(); // populating the spells-tree takes a second.
+					var pb = new ProgBar(); // populating the spells-tree takes a second or 3.
 					pb.ValTop = Spells.Count;
 					pb.Show();
 
-//					int digits;
-//					string pad;
-
 					string text;
+
+					int preLength = (Spells.Count - 1).ToString().Length + 1;
 
 					foreach (var spell in Spells)
 					{
-//						pad = String.Empty;
-//						digits = spell.id.ToString().Length;
-//						while (digits++ < PAD_SPELLLABEL)
-//						{
-//							pad += " ";
-//						}
-//						Tree.Nodes.Add(spell.id + pad + " " + spell.label);
-
 						text = spell.id.ToString();
 						if (hasLabels)
 						{
-							text += " " + spell.label;
+							if (!String.IsNullOrEmpty(spell.label))
+							{
+								while (text.Length != preLength)
+									text += " ";
+
+								text += spell.label;
+							}
 						}
 						else if (spellLabels.Count != 0 && spellLabels.Count > spell.id)
 						{
-							text += " " + spellLabels[spell.id];
+							if (!String.IsNullOrEmpty(spellLabels[spell.id]))
+							{
+								while (text.Length != preLength)
+									text += " ";
+
+								text += spellLabels[spell.id];
+							}
 						}
 						Tree.Nodes.Add(text);
 
@@ -977,16 +978,30 @@ namespace nwn2_ai_2da_editor
 				{
 					string text;
 
+					int preLength = (Races.Count - 1).ToString().Length + 1;
+
 					foreach (var race in Races)
 					{
 						text = race.id.ToString();
 						if (hasLabels)
 						{
-							text += " " + race.label;
+							if (!String.IsNullOrEmpty(race.label))
+							{
+								while (text.Length != preLength)
+									text += " ";
+
+								text += race.label;
+							}
 						}
-						else if (racesLabels.Count != 0 && racesLabels.Count > race.id)
+						else if (raceLabels.Count != 0 && raceLabels.Count > race.id)
 						{
-							text += " " + racesLabels[race.id];
+							if (!String.IsNullOrEmpty(spellLabels[race.id]))
+							{
+								while (text.Length != preLength)
+									text += " ";
+
+								text += spellLabels[race.id];
+							}
 						}
 						Tree.Nodes.Add(text);
 					}
@@ -997,16 +1012,30 @@ namespace nwn2_ai_2da_editor
 				{
 					string text;
 
+					int preLength = (Classes.Count - 1).ToString().Length + 1;
+
 					foreach (var clas in Classes)
 					{
 						text = clas.id.ToString();
 						if (hasLabels)
 						{
-							text += " " + clas.label;
+							if (!String.IsNullOrEmpty(clas.label))
+							{
+								while (text.Length != preLength)
+									text += " ";
+
+								text += clas.label;
+							}
 						}
 						else if (classLabels.Count != 0 && classLabels.Count > clas.id)
 						{
-							text += " " + classLabels[clas.id];
+							if (!String.IsNullOrEmpty(spellLabels[clas.id]))
+							{
+								while (text.Length != preLength)
+									text += " ";
+
+								text += spellLabels[clas.id];
+							}
 						}
 						Tree.Nodes.Add(text);
 					}
@@ -1073,8 +1102,7 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void SelectSpell()
 		{
-			// clear the info-fields to force TextChanged events
-			SpellInfo_text   .Clear();
+			SpellInfo_text   .Clear(); // clear the info-fields to force TextChanged events ->
 			TargetInfo_text  .Clear();
 			EffectWeight_text.Clear();
 			EffectTypes_text .Clear();
@@ -1163,8 +1191,7 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void SelectRace()
 		{
-			// clear the info-fields to force TextChanged events
-			RacialFlags_text.Clear();
+			RacialFlags_text.Clear(); // clear the info-fields to force TextChanged events ->
 			RacialFeat1_text.Clear();
 			RacialFeat2_text.Clear();
 			RacialFeat3_text.Clear();
@@ -1242,8 +1269,7 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void SelectClass()
 		{
-			// clear the info-fields to force TextChanged events
-			ClassFlags_text .Clear();
+			ClassFlags_text .Clear(); // clear the info-fields to force TextChanged events ->
 			ClassFeat1_text .Clear();
 			ClassFeat2_text .Clear();
 			ClassFeat3_text .Clear();
@@ -1584,7 +1610,7 @@ namespace nwn2_ai_2da_editor
 						clas.differ = bit_clear;
 						clas.isChanged = true;
 
-						var claschanged = ClassesChanged[Id];
+						ClassChanged claschanged = ClassesChanged[Id];
 
 						clas.flags  = claschanged.flags;
 						clas.feat1  = claschanged.feat1;

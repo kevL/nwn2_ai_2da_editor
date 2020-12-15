@@ -606,6 +606,8 @@ namespace nwn2_ai_2da_editor
 		private ContextMenuStrip treeMenu;
 		private ToolStripMenuItem menu_Highlight;
 		private ToolStripMenuItem it_insertSpellLabels;
+		private ToolStripMenuItem it_insertRaceLabels;
+		private ToolStripMenuItem it_insertClassLabels;
 
 
 		/// <summary>
@@ -935,6 +937,8 @@ namespace nwn2_ai_2da_editor
 			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
 			this.setCoreAIver = new System.Windows.Forms.ToolStripMenuItem();
 			this.it_insertSpellLabels = new System.Windows.Forms.ToolStripMenuItem();
+			this.it_insertRaceLabels = new System.Windows.Forms.ToolStripMenuItem();
+			this.it_insertClassLabels = new System.Windows.Forms.ToolStripMenuItem();
 			this.help = new System.Windows.Forms.ToolStripMenuItem();
 			this.About = new System.Windows.Forms.ToolStripMenuItem();
 			this.Tree = new System.Windows.Forms.TreeView();
@@ -4744,7 +4748,9 @@ namespace nwn2_ai_2da_editor
 			this.pathFeat,
 			this.toolStripSeparator4,
 			this.setCoreAIver,
-			this.it_insertSpellLabels});
+			this.it_insertSpellLabels,
+			this.it_insertRaceLabels,
+			this.it_insertClassLabels});
 			this.options.Name = "options";
 			this.options.Size = new System.Drawing.Size(52, 20);
 			this.options.Text = "Options";
@@ -4804,6 +4810,24 @@ namespace nwn2_ai_2da_editor
 			this.it_insertSpellLabels.Size = new System.Drawing.Size(185, 20);
 			this.it_insertSpellLabels.Text = "insert spell labels";
 			this.it_insertSpellLabels.Click += new System.EventHandler(this.Click_insertSpellLabels);
+			// 
+			// it_insertRaceLabels
+			// 
+			this.it_insertRaceLabels.Enabled = false;
+			this.it_insertRaceLabels.Name = "it_insertRaceLabels";
+			this.it_insertRaceLabels.Padding = new System.Windows.Forms.Padding(0);
+			this.it_insertRaceLabels.Size = new System.Drawing.Size(185, 20);
+			this.it_insertRaceLabels.Text = "insert race labels";
+			this.it_insertRaceLabels.Click += new System.EventHandler(this.Click_insertRaceLabels);
+			// 
+			// it_insertClassLabels
+			// 
+			this.it_insertClassLabels.Enabled = false;
+			this.it_insertClassLabels.Name = "it_insertClassLabels";
+			this.it_insertClassLabels.Padding = new System.Windows.Forms.Padding(0);
+			this.it_insertClassLabels.Size = new System.Drawing.Size(185, 20);
+			this.it_insertClassLabels.Text = "insert class labels";
+			this.it_insertClassLabels.Click += new System.EventHandler(this.Click_insertClassLabels);
 			// 
 			// help
 			// 
