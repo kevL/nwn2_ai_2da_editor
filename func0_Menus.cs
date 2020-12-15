@@ -406,8 +406,47 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
+		/// Handles clicking the PathSpells menuitem.
+		/// Intended to add labels from Spells.2da to the 'spellLabels' list.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void Click_pathSpells(object sender, EventArgs e)
+		{
+			if (!pathSpells.Checked)
+			{
+				using (var ofd = new OpenFileDialog())
+				{
+					ofd.Title    = "Select Spells.2da";
+					ofd.Filter   = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
+					ofd.FileName = "spells.2da";
+
+					if (ofd.ShowDialog() == DialogResult.OK)
+					{
+						GropeLabels(ofd.FileName, spellLabels, pathSpells);
+
+						if (!hasLabels
+							&& Type == Type2da.TYPE_SPELLS
+							&& spellLabels.Count != 0)
+						{
+							LabelTreenodes(spellLabels);
+						}
+					}
+				}
+			}
+			else
+			{
+				pathSpells.Checked = false;
+				spellLabels.Clear();
+
+				if (!hasLabels && Type == Type2da.TYPE_SPELLS)
+					ClearTreenodeLabels();
+			}
+		}
+
+		/// <summary>
 		/// Handles clicking the PathRacialSubtypes menuitem.
-		/// Intended to add labels from RacialSubtypes.2da to the 'racesLabels'
+		/// Intended to add labels from RacialSubtypes.2da to the 'raceLabels'
 		/// list.
 		/// </summary>
 		/// <param name="sender"></param>
@@ -480,45 +519,6 @@ namespace nwn2_ai_2da_editor
 				classLabels.Clear();
 
 				if (!hasLabels && Type == Type2da.TYPE_CLASSES)
-					ClearTreenodeLabels();
-			}
-		}
-
-		/// <summary>
-		/// Handles clicking the PathSpells menuitem.
-		/// Intended to add labels from Spells.2da to the 'spellLabels' list.
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		void Click_pathSpells(object sender, EventArgs e)
-		{
-			if (!pathSpells.Checked)
-			{
-				using (var ofd = new OpenFileDialog())
-				{
-					ofd.Title    = "Select Spells.2da";
-					ofd.Filter   = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
-					ofd.FileName = "spells.2da";
-
-					if (ofd.ShowDialog() == DialogResult.OK)
-					{
-						GropeLabels(ofd.FileName, spellLabels, pathSpells);
-
-						if (!hasLabels
-							&& Type == Type2da.TYPE_SPELLS
-							&& spellLabels.Count != 0)
-						{
-							LabelTreenodes(spellLabels);
-						}
-					}
-				}
-			}
-			else
-			{
-				pathSpells.Checked = false;
-				spellLabels.Clear();
-
-				if (!hasLabels && Type == Type2da.TYPE_SPELLS)
 					ClearTreenodeLabels();
 			}
 		}
