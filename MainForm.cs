@@ -940,6 +940,7 @@ namespace nwn2_ai_2da_editor
 					pb.ValTop = Spells.Count;
 					pb.Show();
 
+					TreeNode node;
 					string text;
 
 					int preLength = (Spells.Count - 1).ToString().Length + 1;
@@ -967,7 +968,10 @@ namespace nwn2_ai_2da_editor
 								text += spellLabels[spell.id];
 							}
 						}
-						Tree.Nodes.Add(text);
+						node = Tree.Nodes.Add(text);
+
+						if (spell.isChanged) // after Click_insertSpellLabels()
+							node.ForeColor = Color.Blue;
 
 						pb.Step();
 					}
@@ -976,6 +980,7 @@ namespace nwn2_ai_2da_editor
 
 				case Type2da.TYPE_RACIAL:
 				{
+					TreeNode node;
 					string text;
 
 					int preLength = (Races.Count - 1).ToString().Length + 1;
@@ -995,21 +1000,25 @@ namespace nwn2_ai_2da_editor
 						}
 						else if (raceLabels.Count != 0 && raceLabels.Count > race.id)
 						{
-							if (!String.IsNullOrEmpty(spellLabels[race.id]))
+							if (!String.IsNullOrEmpty(raceLabels[race.id]))
 							{
 								while (text.Length != preLength)
 									text += " ";
 
-								text += spellLabels[race.id];
+								text += raceLabels[race.id];
 							}
 						}
-						Tree.Nodes.Add(text);
+						node = Tree.Nodes.Add(text);
+
+						if (race.isChanged) // after Click_insertRaceLabels()
+							node.ForeColor = Color.Blue;
 					}
 					break;
 				}
 
 				case Type2da.TYPE_CLASSES:
 				{
+					TreeNode node;
 					string text;
 
 					int preLength = (Classes.Count - 1).ToString().Length + 1;
@@ -1029,15 +1038,18 @@ namespace nwn2_ai_2da_editor
 						}
 						else if (classLabels.Count != 0 && classLabels.Count > clas.id)
 						{
-							if (!String.IsNullOrEmpty(spellLabels[clas.id]))
+							if (!String.IsNullOrEmpty(classLabels[clas.id]))
 							{
 								while (text.Length != preLength)
 									text += " ";
 
-								text += spellLabels[clas.id];
+								text += classLabels[clas.id];
 							}
 						}
-						Tree.Nodes.Add(text);
+						node = Tree.Nodes.Add(text);
+
+						if (clas.isChanged) // after Click_insertClassLabels()
+							node.ForeColor = Color.Blue;
 					}
 					break;
 				}
@@ -1507,13 +1519,14 @@ namespace nwn2_ai_2da_editor
 
 		/// <summary>
 		/// Handler for the "apply changed data to currently selected
-		/// spell/race/class" button.
-		/// Cf. ApplyDirtyData()
+		/// spell/race/class" button. See also <see cref="ApplyDirtyData"/>
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		void Click_apply(object sender, EventArgs e)
 		{
+			Text = "nwn2_ai_2da_editor - " + _pfe + " *"; // titlebar text (append path of saved file + asterisk)
+
 			switch (Type)
 			{
 				case Type2da.TYPE_SPELLS:

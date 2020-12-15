@@ -430,17 +430,7 @@ namespace nwn2_ai_2da_editor
 							&& Type == Type2da.TYPE_RACIAL
 							&& raceLabels.Count != 0)
 						{
-							int id = -1;
-							int total = Tree.Nodes.Count;
-							foreach (var label in raceLabels)
-							{
-								if (++id < total)
-								{
-									Tree.Nodes[id].Text += " " + label;
-								}
-								else
-									break;
-							}
+							LabelTreenodes(raceLabels);
 						}
 					}
 				}
@@ -450,15 +440,8 @@ namespace nwn2_ai_2da_editor
 				pathRacialSubtypes.Checked = false;
 				raceLabels.Clear();
 
-				if (!hasLabels
-					&& Type == Type2da.TYPE_RACIAL)
-				{
-					int total = Tree.Nodes.Count;
-					for (int id = 0; id != total; ++id)
-					{
-						Tree.Nodes[id].Text = id.ToString();
-					}
-				}
+				if (!hasLabels && Type == Type2da.TYPE_RACIAL)
+					ClearTreenodeLabels();
 			}
 		}
 
@@ -486,17 +469,7 @@ namespace nwn2_ai_2da_editor
 							&& Type == Type2da.TYPE_CLASSES
 							&& classLabels.Count != 0)
 						{
-							int id = -1;
-							int total = Tree.Nodes.Count;
-							foreach (var label in classLabels)
-							{
-								if (++id < total)
-								{
-									Tree.Nodes[id].Text += " " + label;
-								}
-								else
-									break;
-							}
+							LabelTreenodes(classLabels);
 						}
 					}
 				}
@@ -506,15 +479,8 @@ namespace nwn2_ai_2da_editor
 				pathClasses.Checked = false;
 				classLabels.Clear();
 
-				if (!hasLabels
-					&& Type == Type2da.TYPE_CLASSES)
-				{
-					int total = Tree.Nodes.Count;
-					for (int id = 0; id != total; ++id)
-					{
-						Tree.Nodes[id].Text = id.ToString();
-					}
-				}
+				if (!hasLabels && Type == Type2da.TYPE_CLASSES)
+					ClearTreenodeLabels();
 			}
 		}
 
@@ -542,17 +508,7 @@ namespace nwn2_ai_2da_editor
 							&& Type == Type2da.TYPE_SPELLS
 							&& spellLabels.Count != 0)
 						{
-							int id = -1;
-							int total = Tree.Nodes.Count;
-							foreach (var label in spellLabels)
-							{
-								if (++id < total)
-								{
-									Tree.Nodes[id].Text += " " + label;
-								}
-								else
-									break;
-							}
+							LabelTreenodes(spellLabels);
 						}
 					}
 				}
@@ -562,15 +518,52 @@ namespace nwn2_ai_2da_editor
 				pathSpells.Checked = false;
 				spellLabels.Clear();
 
-				if (!hasLabels
-					&& Type == Type2da.TYPE_SPELLS)
+				if (!hasLabels && Type == Type2da.TYPE_SPELLS)
+					ClearTreenodeLabels();
+			}
+		}
+
+		/// <summary>
+		/// Labels the treenodes after groping a 2da for labels.
+		/// </summary>
+		/// <param name="labels">a list of labels to assign to treenodes</param>
+		void LabelTreenodes(List<string> labels)
+		{
+			int total = Tree.Nodes.Count;
+
+			int preLength = (total - 1).ToString().Length + 1;
+			string pre;
+
+			int id = -1;
+			foreach (var label in labels)
+			{
+				if (++id < total)
 				{
-					int total = Tree.Nodes.Count;
-					for (int id = 0; id != total; ++id)
+					if (!String.IsNullOrEmpty(label))
 					{
-						Tree.Nodes[id].Text = id.ToString();
+						pre = id.ToString();
+						while (pre.Length != preLength)
+							pre += " ";
 					}
+					else
+						pre = String.Empty;
+
+					Tree.Nodes[id].Text = pre + label;
 				}
+				else
+					break;
+			}
+		}
+
+		/// <summary>
+		/// Clears the treenode labels after degroping a pathed 2da.
+		/// </summary>
+		void ClearTreenodeLabels()
+		{
+			int total = Tree.Nodes.Count;
+			for (int id = 0; id != total; ++id)
+			{
+				Tree.Nodes[id].Text = id.ToString();
 			}
 		}
 
@@ -711,6 +704,8 @@ namespace nwn2_ai_2da_editor
 		{
 			if (spellLabels.Count != 0)
 			{
+				Text = "nwn2_ai_2da_editor - " + _pfe + " *"; // titlebar text (append path of saved file + asterisk)
+
 				hasLabels = true;
 
 				Spell spell;
@@ -723,6 +718,7 @@ namespace nwn2_ai_2da_editor
 					{
 						spell = Spells[i];
 						spell.label = spellLabels[j];
+						spell.isChanged = true;
 						Spells[i] = spell;
 					}
 					else
@@ -742,6 +738,8 @@ namespace nwn2_ai_2da_editor
 		{
 			if (raceLabels.Count != 0)
 			{
+				Text = "nwn2_ai_2da_editor - " + _pfe + " *"; // titlebar text (append path of saved file + asterisk)
+
 				hasLabels = true;
 
 				Race race;
@@ -754,6 +752,7 @@ namespace nwn2_ai_2da_editor
 					{
 						race = Races[i];
 						race.label = raceLabels[j];
+						race.isChanged = true;
 						Races[i] = race;
 					}
 					else
@@ -773,6 +772,8 @@ namespace nwn2_ai_2da_editor
 		{
 			if (classLabels.Count != 0)
 			{
+				Text = "nwn2_ai_2da_editor - " + _pfe + " *"; // titlebar text (append path of saved file + asterisk)
+
 				hasLabels = true;
 
 				Class clas;
@@ -785,6 +786,7 @@ namespace nwn2_ai_2da_editor
 					{
 						clas = Classes[i];
 						clas.label = classLabels[j];
+						clas.isChanged = true;
 						Classes[i] = clas;
 					}
 					else
@@ -931,10 +933,13 @@ namespace nwn2_ai_2da_editor
 
 
 		/// <summary>
-		/// Applies modified data to any struct that has changed.
+		/// Applies modified data to any struct that has changed. See also
+		/// <see cref="Click_apply"/>
 		/// </summary>
 		void ApplyDirtyData()
 		{
+			Text = "nwn2_ai_2da_editor - " + _pfe + " *"; // titlebar text (append path of saved file + asterisk)
+
 			applyGlobal.Enabled = false;
 
 			int total;
