@@ -658,7 +658,7 @@ namespace nwn2_ai_2da_editor
 
 
 		/// <summary>
-		/// Invokes and handles the SetCoreAiVersion inputbox via the Options.
+		/// Invokes and handles the SetCoreAiVersion inputbox via the Edit.
 		/// NOTE: The version is not really the version of the CoreAI. It's the
 		/// version of the data of each entry. Apparently it can be updated IG
 		/// (after info-data has already been cached to the module-object) such
@@ -692,6 +692,11 @@ namespace nwn2_ai_2da_editor
 					gotoNextChanged.Enabled = ClassesChanged.Count != 0 || SpareChange();
 					break;
 			}
+		}
+
+		void Click_clearCoreAiVersion(object sender, EventArgs e)
+		{
+			
 		}
 
 		/// <summary>

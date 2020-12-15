@@ -209,6 +209,7 @@ namespace nwn2_ai_2da_editor
 		TextBox si_Child1;
 		ToolStripMenuItem options;
 		ToolStripMenuItem setCoreAIver;
+		ToolStripMenuItem clearCoreAIver;
 		GroupBox ti_FlagsGrp;
 		CheckBox ti_Regular;
 		CheckBox ti_Necromancy;
@@ -1231,6 +1232,7 @@ namespace nwn2_ai_2da_editor
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
 			this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
 			this.setCoreAIver = new System.Windows.Forms.ToolStripMenuItem();
+			this.clearCoreAIver = new System.Windows.Forms.ToolStripMenuItem();
 			this.cols_HenchSpells.SuspendLayout();
 			this.page_SpellInfo.SuspendLayout();
 			this.si_ChildIDGrp.SuspendLayout();
@@ -4678,7 +4680,8 @@ namespace nwn2_ai_2da_editor
 			this.Copy_hexadecimal,
 			this.Copy_binary,
 			this.toolStripSeparator6,
-			this.setCoreAIver});
+			this.setCoreAIver,
+			this.clearCoreAIver});
 			this.edit.Name = "edit";
 			this.edit.Size = new System.Drawing.Size(37, 20);
 			this.edit.Text = "Edit";
@@ -8069,6 +8072,16 @@ namespace nwn2_ai_2da_editor
 			this.setCoreAIver.Padding = new System.Windows.Forms.Padding(0);
 			this.setCoreAIver.Size = new System.Drawing.Size(195, 20);
 			this.setCoreAIver.Text = "Set CoreAI version";
+			this.setCoreAIver.Click += new System.EventHandler(this.Click_setCoreAiVersion);
+			// 
+			// clearCoreAIver
+			// 
+			this.clearCoreAIver.Enabled = false;
+			this.clearCoreAIver.Name = "clearCoreAIver";
+			this.clearCoreAIver.Padding = new System.Windows.Forms.Padding(0);
+			this.clearCoreAIver.Size = new System.Drawing.Size(195, 20);
+			this.clearCoreAIver.Text = "Clear CoreAI version";
+			this.clearCoreAIver.Click += new System.EventHandler(this.Click_clearCoreAiVersion);
 			// 
 			// MainForm
 			// 
