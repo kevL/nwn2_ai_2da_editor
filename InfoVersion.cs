@@ -10,6 +10,8 @@ namespace nwn2_ai_2da_editor
 	/// </summary>
 	partial class MainForm
 	{
+		const int HENCH_SPELL_INFO_VERSION_SHIFT = 24;
+
 		/// <summary>
 		/// An inputbox with which to set CoreAI version information.
 		/// </summary>
@@ -149,8 +151,6 @@ namespace nwn2_ai_2da_editor
 			}
 		}
 
-
-		const int HENCH_SPELL_INFO_VERSION_SHIFT = 24;
 
 		/// <summary>
 		/// Sets the InfoVersion of spell IDs.
