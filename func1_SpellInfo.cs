@@ -693,11 +693,11 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		/// <param name="group"></param>
 		/// <param name="color"></param>
-		void GroupColor(Control group, Color color)
+		void GroupColor(Control @group, Color color)
 		{
-			group.ForeColor = color;
+			@group.ForeColor = color;
 
-			foreach (Control control in group.Controls)
+			foreach (Control control in @group.Controls)
 			{
 				control.ForeColor = color;
 			}
