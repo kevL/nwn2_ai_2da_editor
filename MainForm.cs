@@ -1706,7 +1706,7 @@ namespace nwn2_ai_2da_editor
 			if (spell.targetinfo != spellchanged.targetinfo)
 				differ |= bit_targetinfo;
 
-			if (!CompareFloats(spell.effectweight, spellchanged.effectweight))
+			if (!FloatsEqual(spell.effectweight, spellchanged.effectweight))
 				differ |= bit_effectweight;
 
 			if (spell.effecttypes != spellchanged.effecttypes)
@@ -1826,7 +1826,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Value of epsilon.
 		/// </summary>
-		const float epsilon = 0.000001f;
+		const float epsilon = 0.0001f;
 
 		/// <summary>
 		/// Checks if two floats are within epsilon.
@@ -1835,7 +1835,7 @@ namespace nwn2_ai_2da_editor
 		/// <param name="a"></param>
 		/// <param name="b"></param>
 		/// <returns>true if equal enough</returns>
-		static bool CompareFloats(float a, float b)
+		static bool FloatsEqual(float a, float b)
 		{
 			return Math.Abs(b - a) < epsilon;
 		}

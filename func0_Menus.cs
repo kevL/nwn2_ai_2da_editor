@@ -1188,7 +1188,7 @@ namespace nwn2_ai_2da_editor
 
 					line += " ";
 
-					if (!CompareFloats(spell.effectweight, 0.0f))
+					if (!FloatsEqual(spell.effectweight, 0.0f))
 					{
 						line += FormatFloat(spell.effectweight);
 					}
