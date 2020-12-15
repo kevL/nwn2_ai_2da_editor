@@ -299,7 +299,7 @@ namespace nwn2_ai_2da_editor
 						{
 							SpellsChanged.Remove(id);
 	
-							if (spell.isChanged) // this is set by the Apply btn only.
+							if (spell.isChanged)
 							{
 								color = Color.Blue;
 							}
@@ -438,7 +438,7 @@ namespace nwn2_ai_2da_editor
 						{
 							RacesChanged.Remove(id);
 	
-							if (race.isChanged) // this is set by the Apply btn only.
+							if (race.isChanged)
 							{
 								color = Color.Blue;
 							}
@@ -578,7 +578,7 @@ namespace nwn2_ai_2da_editor
 						{
 							ClassesChanged.Remove(id);
 	
-							if (clas.isChanged) // this is set by the Apply btn only.
+							if (clas.isChanged)
 							{
 								color = Color.Blue;
 							}

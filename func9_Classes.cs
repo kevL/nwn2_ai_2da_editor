@@ -218,7 +218,7 @@ namespace nwn2_ai_2da_editor
 					{
 						ClassesChanged.Remove(Id);
 
-						if (clas.isChanged) // this is set by the Apply btn only.
+						if (clas.isChanged)
 						{
 							color = Color.Blue;
 						}
@@ -310,7 +310,7 @@ namespace nwn2_ai_2da_editor
 				{
 					ClassesChanged.Remove(Id);
 
-					if (clas.isChanged) // this is set by the Apply btn only.
+					if (clas.isChanged)
 					{
 						color = Color.Blue;
 					}
@@ -422,7 +422,7 @@ namespace nwn2_ai_2da_editor
 				{
 					ClassesChanged.Remove(Id);
 
-					if (clas.isChanged) // this is set by the Apply btn only.
+					if (clas.isChanged)
 					{
 						Tree.SelectedNode.ForeColor = Color.Blue;
 					}

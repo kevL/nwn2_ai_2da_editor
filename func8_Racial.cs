@@ -146,7 +146,7 @@ namespace nwn2_ai_2da_editor
 					{
 						RacesChanged.Remove(Id);
 
-						if (race.isChanged) // this is set by the Apply btn only.
+						if (race.isChanged)
 						{
 							color = Color.Blue;
 						}
@@ -232,7 +232,7 @@ namespace nwn2_ai_2da_editor
 				{
 					RacesChanged.Remove(Id);
 
-					if (race.isChanged) // this is set by the Apply btn only.
+					if (race.isChanged)
 					{
 						color = Color.Blue;
 					}
@@ -308,7 +308,7 @@ namespace nwn2_ai_2da_editor
 				{
 					RacesChanged.Remove(Id);
 
-					if (race.isChanged) // this is set by the Apply btn only.
+					if (race.isChanged)
 					{
 						Tree.SelectedNode.ForeColor = Color.Blue;
 					}

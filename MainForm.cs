@@ -970,7 +970,7 @@ namespace nwn2_ai_2da_editor
 						}
 						node = Tree.Nodes.Add(text);
 
-						if (spell.isChanged) // after Click_insertSpellLabels()
+						if (spell.isChanged) // for Click_insertSpellLabels()
 							node.ForeColor = Color.Blue;
 
 						pb.Step();
@@ -1010,7 +1010,7 @@ namespace nwn2_ai_2da_editor
 						}
 						node = Tree.Nodes.Add(text);
 
-						if (race.isChanged) // after Click_insertRaceLabels()
+						if (race.isChanged) // for Click_insertRaceLabels()
 							node.ForeColor = Color.Blue;
 					}
 					break;
@@ -1048,7 +1048,7 @@ namespace nwn2_ai_2da_editor
 						}
 						node = Tree.Nodes.Add(text);
 
-						if (clas.isChanged) // after Click_insertClassLabels()
+						if (clas.isChanged) // for Click_insertClassLabels()
 							node.ForeColor = Color.Blue;
 					}
 					break;
@@ -2183,9 +2183,21 @@ namespace nwn2_ai_2da_editor
 
 		// NOTE: The following fields are not saved to file ->
 
-		public int differ;		// bitwise int that holds flags for changed fields (also colors the tree-node red if not 0)
-		public bool isChanged;	// boolean used (along with the differ) to warn if there is modified data when exiting the app
-	}							// (also colors the tree-node blue if true)
+		/// <summary>
+		/// bitwise int that holds flags for changed fields (also colors the
+		/// tree-node red if not 0)
+		/// </summary>
+		public int differ;
+
+		/// <summary>
+		/// boolean used (along with the differ) to warn if there is modified
+		/// data when exiting the app (also colors the tree-node blue if true).
+		/// Set true by the Apply buttons (on local spell or by global
+		/// edit-operation) or by inserting labels; cleared by saving
+		/// HenchSpells.2da
+		/// </summary>
+		public bool isChanged;
+	}
 
 	/// <summary>
 	/// Struct that holds changed data of any spell that has been modified in
@@ -2225,9 +2237,21 @@ namespace nwn2_ai_2da_editor
 
 		// NOTE: The following fields are not saved to file ->
 
-		public int differ;		// bitwise int that holds flags for changed fields (also colors the tree-node red if not 0)
-		public bool isChanged;	// boolean used (along with the differ) to warn if there is modified data when exiting the app
-	}							// (also colors the tree-node blue if true)
+		/// <summary>
+		/// bitwise int that holds flags for changed fields (also colors the
+		/// tree-node red if not 0)
+		/// </summary>
+		public int differ;
+
+		/// <summary>
+		/// boolean used (along with the differ) to warn if there is modified
+		/// data when exiting the app (also colors the tree-node blue if true).
+		/// Set true by the Apply buttons (on local race or by global
+		/// edit-operation) or by inserting labels; cleared by saving
+		/// HenchRacial.2da
+		/// </summary>
+		public bool isChanged;
+	}
 
 	/// <summary>
 	/// Struct that holds changed data of any race that has been modified in
@@ -2272,9 +2296,21 @@ namespace nwn2_ai_2da_editor
 
 		// NOTE: The following fields are not saved to file ->
 
-		public int differ;		// bitwise int that holds flags for changed fields (also colors the tree-node red if not 0)
-		public bool isChanged;	// boolean used (along with the differ) to warn if there is modified data when exiting the app
-	}							// (also colors the tree-node blue if true)
+		/// <summary>
+		/// bitwise int that holds flags for changed fields (also colors the
+		/// tree-node red if not 0)
+		/// </summary>
+		public int differ;
+
+		/// <summary>
+		/// boolean used (along with the differ) to warn if there is modified
+		/// data when exiting the app (also colors the tree-node blue if true).
+		/// Set true by the Apply buttons (on local class or by global
+		/// edit-operation) or by inserting labels; cleared by saving
+		/// HenchClasses.2da
+		/// </summary>
+		public bool isChanged;
+	}
 
 	/// <summary>
 	/// Struct that holds changed data of any class that has been modified in

@@ -68,7 +68,7 @@ namespace nwn2_ai_2da_editor
 					{
 						SpellsChanged.Remove(Id);
 
-						if (spell.isChanged) // this is set by the Apply btn only.
+						if (spell.isChanged)
 						{
 							color = Color.Blue;
 						}
@@ -148,7 +148,7 @@ namespace nwn2_ai_2da_editor
 				{
 					SpellsChanged.Remove(Id);
 
-					if (spell.isChanged) // this is set by the Apply btn only.
+					if (spell.isChanged)
 					{
 						Tree.SelectedNode.ForeColor = Color.Blue;
 					}
