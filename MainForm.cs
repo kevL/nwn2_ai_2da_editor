@@ -520,10 +520,10 @@ namespace nwn2_ai_2da_editor
 			if (Height < 530) Height = 530;
 
 			apply         .Text = "apply this spell\'s data";
-			menu_Highlight.Text = "highlight blank SpellInfo nodes";
+			tree_Highlight.Text = "highlight blank SpellInfo nodes";
 //			addNode       .Text = "add node: spell";
 
-			menu_Highlight.Checked = false;
+			tree_Highlight.Checked = false;
 		}
 
 		/// <summary>
@@ -687,10 +687,10 @@ namespace nwn2_ai_2da_editor
 			if (Height < 350) Height = 350;
 
 			apply         .Text = "apply this race\'s data";
-			menu_Highlight.Text = "turtles";
+			tree_Highlight.Text = "highlight blank Racial flags nodes";
 //			addNode       .Text = "add node: race";
 
-			menu_Highlight.Checked = false;
+			tree_Highlight.Checked = false;
 		}
 
 		/// <summary>
@@ -867,10 +867,10 @@ namespace nwn2_ai_2da_editor
 			if (Height <  400) Height = 400;
 
 			apply         .Text = "apply this class\' data";
-			menu_Highlight.Text = "turtles";
+			tree_Highlight.Text = "highlight blank Class flags nodes";
 //			addNode       .Text = "add node: class";
 
-			menu_Highlight.Checked = false;
+			tree_Highlight.Checked = false;
 		}
 
 		/// <summary>
@@ -1076,6 +1076,8 @@ namespace nwn2_ai_2da_editor
 
 			setCoreAIver    .Enabled = true;
 			clearCoreAIver  .Enabled = true; // TODO: Refine. TonyAI 2.2 SpellInfo bits are totally incompatible w/ 2.3+
+
+			tree_Highlight  .Visible = true;
 		}
 		#endregion Load
 
@@ -1948,14 +1950,12 @@ namespace nwn2_ai_2da_editor
 				case Type2da.TYPE_SPELLS:
 				{
 					int total = Spells.Count;
-					if ((menu_Highlight.Checked = !menu_Highlight.Checked) == true)
+					if (tree_Highlight.Checked = !tree_Highlight.Checked)
 					{
 						for (int id = 0; id != total; ++id)
 						{
 							if (Spells[id].spellinfo == 0)
-							{
 								Tree.Nodes[id].ForeColor = Color.DarkTurquoise;
-							}
 						}
 					}
 					else
@@ -1965,16 +1965,65 @@ namespace nwn2_ai_2da_editor
 						for (int id = 0; id != total; ++id)
 						{
 							spell = Spells[id];
-							if (spell.differ != bit_clear)
-							{
-								color = Color.Crimson;
-							}
-							else if (spell.isChanged)
-							{
-								color = Color.Blue;
-							}
-							else
-								color = DefaultForeColor;
+							if (spell.differ != bit_clear) color = Color.Crimson;
+							else if (spell.isChanged)      color = Color.Blue;
+							else                           color = DefaultForeColor;
+
+							Tree.Nodes[id].ForeColor = color;
+						}
+					}
+					break;
+				}
+
+				case Type2da.TYPE_RACIAL:
+				{
+					int total = Races.Count;
+					if (tree_Highlight.Checked = !tree_Highlight.Checked)
+					{
+						for (int id = 0; id != total; ++id)
+						{
+							if (Races[id].flags == 0)
+								Tree.Nodes[id].ForeColor = Color.DarkTurquoise;
+						}
+					}
+					else
+					{
+						Color color;
+						Race race;
+						for (int id = 0; id != total; ++id)
+						{
+							race = Races[id];
+							if (race.differ != bit_clear) color = Color.Crimson;
+							else if (race.isChanged)      color = Color.Blue;
+							else                          color = DefaultForeColor;
+
+							Tree.Nodes[id].ForeColor = color;
+						}
+					}
+					break;
+				}
+
+				case Type2da.TYPE_CLASSES:
+				{
+					int total = Classes.Count;
+					if (tree_Highlight.Checked = !tree_Highlight.Checked)
+					{
+						for (int id = 0; id != total; ++id)
+						{
+							if (Classes[id].flags == 0)
+								Tree.Nodes[id].ForeColor = Color.DarkTurquoise;
+						}
+					}
+					else
+					{
+						Color color;
+						Class clas;
+						for (int id = 0; id != total; ++id)
+						{
+							clas = Classes[id];
+							if (clas.differ != bit_clear) color = Color.Crimson;
+							else if (clas.isChanged)      color = Color.Blue;
+							else                          color = DefaultForeColor;
 
 							Tree.Nodes[id].ForeColor = color;
 						}
@@ -1995,12 +2044,12 @@ namespace nwn2_ai_2da_editor
 		// in 'inputbox.cs' along with the "addNode.Text = " lines in the
 		// Load_Hench*() functs. And uncomment Type2da.TYPE_NONE
 		//
-		// ps. "addNode" has been repurposed to "menu_Highlight". So you'd have
+		// ps. "addNode" has been repurposed to "tree_Highlight". So you'd have
 		// to create a new menu-item.
 		//
 		// But the whole idea would need a large amount of effort; it should
 		// jive with the path-options (to so-called external 2das) as well as
-		// be able to create and delete ranges of rows in the Hench.2das - this
+		// be able to create and delete ranges of rows in the Hench*.2das - this
 		// could easily cause nontrivial inconsistencies between HenchSpells.2da
 		// and Spells.2da eg ....
 		//
@@ -2104,9 +2153,9 @@ namespace nwn2_ai_2da_editor
 		{
 			string label = String.Empty;
 
-			if (racesLabels.Count >= id)
+			if (raceLabels.Count >= id)
 			{
-				label = racesLabels[id];
+				label = raceLabels[id];
 			}
 			else
 			{
@@ -2332,5 +2381,30 @@ namespace nwn2_ai_2da_editor
 		public int feat9;
 		public int feat10;
 		public int feat11;
+	}
+
+
+
+	/// <summary>
+	/// Derived class for TreeView.
+	/// </summary>
+	sealed class CompositedTreeView
+		:
+			TreeView
+	{
+		#region Properties (override)
+		/// <summary>
+		/// Prevents flicker.
+		/// </summary>
+		protected override CreateParams CreateParams
+		{
+			get
+			{
+				CreateParams cp = base.CreateParams;
+				cp.ExStyle |= 0x02000000; // enable 'WS_EX_COMPOSITED'
+				return cp;
+			}
+		}
+		#endregion Properties (override)
 	}
 }
