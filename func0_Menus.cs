@@ -392,8 +392,8 @@ namespace nwn2_ai_2da_editor
 		#endregion Edit
 
 
-		#region Options
-		void dropdownopening_Options(object sender, EventArgs e)
+		#region Labels
+		void dropdownopening_Labels(object sender, EventArgs e)
 		{
 			it_insertSpellLabels.Enabled = pathSpells.Checked
 										&& Type == Type2da.TYPE_SPELLS;
@@ -800,7 +800,7 @@ namespace nwn2_ai_2da_editor
 				GrowTree();
 			}
 		}
-		#endregion Options
+		#endregion Labels
 
 
 		#region Help

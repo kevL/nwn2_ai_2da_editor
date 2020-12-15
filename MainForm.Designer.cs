@@ -207,7 +207,7 @@ namespace nwn2_ai_2da_editor
 		TextBox si_Child3;
 		TextBox si_Child2;
 		TextBox si_Child1;
-		ToolStripMenuItem options;
+		ToolStripMenuItem tsmi_labels;
 		ToolStripMenuItem setCoreAIver;
 		ToolStripMenuItem clearCoreAIver;
 		GroupBox ti_FlagsGrp;
@@ -931,7 +931,7 @@ namespace nwn2_ai_2da_editor
 			this.Copy_decimal = new System.Windows.Forms.ToolStripMenuItem();
 			this.Copy_hexadecimal = new System.Windows.Forms.ToolStripMenuItem();
 			this.Copy_binary = new System.Windows.Forms.ToolStripMenuItem();
-			this.options = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsmi_labels = new System.Windows.Forms.ToolStripMenuItem();
 			this.pathRacialSubtypes = new System.Windows.Forms.ToolStripMenuItem();
 			this.pathClasses = new System.Windows.Forms.ToolStripMenuItem();
 			this.pathSpells = new System.Windows.Forms.ToolStripMenuItem();
@@ -4600,7 +4600,7 @@ namespace nwn2_ai_2da_editor
 			this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
 			this.file,
 			this.edit,
-			this.options,
+			this.tsmi_labels,
 			this.help});
 			this.menuStrip.Location = new System.Drawing.Point(0, 0);
 			this.menuStrip.Name = "menuStrip";
@@ -4746,9 +4746,9 @@ namespace nwn2_ai_2da_editor
 			this.Copy_binary.Text = "Copy binary";
 			this.Copy_binary.Click += new System.EventHandler(this.Click_copy_binary);
 			// 
-			// options
+			// tsmi_labels
 			// 
-			this.options.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.tsmi_labels.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
 			this.pathSpells,
 			this.pathRacialSubtypes,
 			this.pathClasses,
@@ -4757,10 +4757,10 @@ namespace nwn2_ai_2da_editor
 			this.it_insertSpellLabels,
 			this.it_insertRaceLabels,
 			this.it_insertClassLabels});
-			this.options.Name = "options";
-			this.options.Size = new System.Drawing.Size(52, 20);
-			this.options.Text = "Options";
-			this.options.DropDownOpening += new System.EventHandler(this.dropdownopening_Options);
+			this.tsmi_labels.Name = "tsmi_labels";
+			this.tsmi_labels.Size = new System.Drawing.Size(52, 20);
+			this.tsmi_labels.Text = "Labels";
+			this.tsmi_labels.DropDownOpening += new System.EventHandler(this.dropdownopening_Labels);
 			// 
 			// pathRacialSubtypes
 			// 
