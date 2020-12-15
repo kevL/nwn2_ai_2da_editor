@@ -1067,14 +1067,15 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void MenuEnable()
 		{
-			Save            .Enabled =			// file ->
+			Save            .Enabled = // file ->
 			Saveas          .Enabled =
 
-			Copy_decimal    .Enabled =			// edit ->
+			Copy_decimal    .Enabled = // edit ->
 			Copy_hexadecimal.Enabled =
 			Copy_binary     .Enabled =
 
-			setCoreAIver    .Enabled = true;	// options.
+			setCoreAIver    .Enabled = true;
+			clearCoreAIver  .Enabled = true; // TODO: Refine. TonyAI 2.2 SpellInfo bits are totally incompatible w/ 2.3+
 		}
 		#endregion Load
 
