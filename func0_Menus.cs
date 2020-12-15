@@ -1256,13 +1256,22 @@ namespace nwn2_ai_2da_editor
 			{
 				sw.WriteLine("2DA V2.0");
 				sw.WriteLine("");
-				sw.WriteLine(" Flags FeatSpell1 FeatSpell2 FeatSpell3 FeatSpell4 FeatSpell5");
+				sw.WriteLine(" Label Flags FeatSpell1 FeatSpell2 FeatSpell3 FeatSpell4 FeatSpell5");
 
 				string line;
 
 				foreach (var race in Races) // this writes Applied data only.
 				{
 					line = race.id + " ";
+
+					if (!String.IsNullOrEmpty(race.label))
+					{
+						line += race.label;
+					}
+					else
+						line += blank;
+
+					line += " ";
 
 					if (race.flags != 0)
 					{
@@ -1346,13 +1355,22 @@ namespace nwn2_ai_2da_editor
 			{
 				sw.WriteLine("2DA V2.0");
 				sw.WriteLine("");
-				sw.WriteLine(" Flags FeatSpell1 FeatSpell2 FeatSpell3 FeatSpell4 FeatSpell5 FeatSpell6 FeatSpell7 FeatSpell8 FeatSpell9 FeatSpell10 FeatSpell11");
+				sw.WriteLine(" Label Flags FeatSpell1 FeatSpell2 FeatSpell3 FeatSpell4 FeatSpell5 FeatSpell6 FeatSpell7 FeatSpell8 FeatSpell9 FeatSpell10 FeatSpell11");
 
 				string line;
 
 				foreach (var clas in Classes) // this writes Applied data only.
 				{
 					line = clas.id + " ";
+
+					if (!String.IsNullOrEmpty(clas.label))
+					{
+						line += clas.label;
+					}
+					else
+						line += blank;
+
+					line += " ";
 
 					if (clas.flags != 0)
 					{
