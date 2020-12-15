@@ -1943,6 +1943,11 @@ namespace nwn2_ai_2da_editor
 
 
 		#region treeview ContextMenu
+		/// <summary>
+		/// Highlights nodes on the tree that don't have info.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		void Click_treeHighlight(object sender, EventArgs e)
 		{
 			switch (Type)
