@@ -1130,7 +1130,7 @@ namespace nwn2_ai_2da_editor
 		{
 			Spell clear;
 
-			int total = Spells.Count; // clear any isChanged flags
+			int total = Spells.Count; // clear any 'isChanged' flags
 			for (int id = 0; id != total; ++id)
 			{
 				clear = Spells[id];
@@ -1238,7 +1238,7 @@ namespace nwn2_ai_2da_editor
 		{
 			Race clear;
 
-			int total = Races.Count; // clear any isChanged flags
+			int total = Races.Count; // clear any 'isChanged' flags
 			for (int id = 0; id != total; ++id)
 			{
 				clear = Races[id];
@@ -1337,7 +1337,7 @@ namespace nwn2_ai_2da_editor
 		{
 			Class clear;
 
-			int total = Classes.Count; // clear any isChanged flags
+			int total = Classes.Count; // clear any 'isChanged' flags
 			for (int id = 0; id != total; ++id)
 			{
 				clear = Classes[id];
