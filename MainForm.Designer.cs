@@ -608,6 +608,7 @@ namespace nwn2_ai_2da_editor
 		ToolStripMenuItem it_insertSpellLabels;
 		ToolStripMenuItem it_insertRaceLabels;
 		ToolStripMenuItem it_insertClassLabels;
+		ToolStripSeparator toolStripSeparator6;
 
 
 		/// <summary>
@@ -935,7 +936,6 @@ namespace nwn2_ai_2da_editor
 			this.pathSpells = new System.Windows.Forms.ToolStripMenuItem();
 			this.pathFeat = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-			this.setCoreAIver = new System.Windows.Forms.ToolStripMenuItem();
 			this.it_insertSpellLabels = new System.Windows.Forms.ToolStripMenuItem();
 			this.it_insertRaceLabels = new System.Windows.Forms.ToolStripMenuItem();
 			this.it_insertClassLabels = new System.Windows.Forms.ToolStripMenuItem();
@@ -1229,6 +1229,8 @@ namespace nwn2_ai_2da_editor
 			this.RacialFeat5_reset = new System.Windows.Forms.Button();
 			this.apply = new System.Windows.Forms.Button();
 			this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+			this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+			this.setCoreAIver = new System.Windows.Forms.ToolStripMenuItem();
 			this.cols_HenchSpells.SuspendLayout();
 			this.page_SpellInfo.SuspendLayout();
 			this.si_ChildIDGrp.SuspendLayout();
@@ -4668,13 +4670,15 @@ namespace nwn2_ai_2da_editor
 			// edit
 			// 
 			this.edit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-			this.gotoNextChanged,
-			this.toolStripSeparator5,
 			this.applyGlobal,
+			this.toolStripSeparator5,
+			this.gotoNextChanged,
 			this.toolStripSeparator3,
 			this.Copy_decimal,
 			this.Copy_hexadecimal,
-			this.Copy_binary});
+			this.Copy_binary,
+			this.toolStripSeparator6,
+			this.setCoreAIver});
 			this.edit.Name = "edit";
 			this.edit.Size = new System.Drawing.Size(37, 20);
 			this.edit.Text = "Edit";
@@ -4742,12 +4746,11 @@ namespace nwn2_ai_2da_editor
 			// options
 			// 
 			this.options.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.pathSpells,
 			this.pathRacialSubtypes,
 			this.pathClasses,
-			this.pathSpells,
 			this.pathFeat,
 			this.toolStripSeparator4,
-			this.setCoreAIver,
 			this.it_insertSpellLabels,
 			this.it_insertRaceLabels,
 			this.it_insertClassLabels});
@@ -4792,15 +4795,6 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.toolStripSeparator4.Name = "toolStripSeparator4";
 			this.toolStripSeparator4.Size = new System.Drawing.Size(182, 6);
-			// 
-			// setCoreAIver
-			// 
-			this.setCoreAIver.Enabled = false;
-			this.setCoreAIver.Name = "setCoreAIver";
-			this.setCoreAIver.Padding = new System.Windows.Forms.Padding(0);
-			this.setCoreAIver.Size = new System.Drawing.Size(185, 20);
-			this.setCoreAIver.Text = "Set CoreAI version";
-			this.setCoreAIver.Click += new System.EventHandler(this.Click_setCoreAiVersion);
 			// 
 			// it_insertSpellLabels
 			// 
@@ -8062,6 +8056,19 @@ namespace nwn2_ai_2da_editor
 			this.toolTip1.AutoPopDelay = 10000;
 			this.toolTip1.InitialDelay = 500;
 			this.toolTip1.ReshowDelay = 100;
+			// 
+			// toolStripSeparator6
+			// 
+			this.toolStripSeparator6.Name = "toolStripSeparator6";
+			this.toolStripSeparator6.Size = new System.Drawing.Size(192, 6);
+			// 
+			// setCoreAIver
+			// 
+			this.setCoreAIver.Enabled = false;
+			this.setCoreAIver.Name = "setCoreAIver";
+			this.setCoreAIver.Padding = new System.Windows.Forms.Padding(0);
+			this.setCoreAIver.Size = new System.Drawing.Size(195, 20);
+			this.setCoreAIver.Text = "Set CoreAI version";
 			// 
 			// MainForm
 			// 
