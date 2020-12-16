@@ -942,6 +942,10 @@ namespace nwn2_ai_2da_editor
 
 			Tree.Nodes.Clear();
 
+
+			TreeNode node;
+			string text;
+
 			switch (Type)
 			{
 				case Type2da.TYPE_SPELLS:
@@ -949,9 +953,6 @@ namespace nwn2_ai_2da_editor
 					var pb = new ProgBar(); // populating the spells-tree takes a second or 3.
 					pb.ValTop = Spells.Count;
 					pb.Show();
-
-					TreeNode node;
-					string text;
 
 					int preLength = (Spells.Count - 1).ToString().Length + 1;
 
@@ -990,9 +991,6 @@ namespace nwn2_ai_2da_editor
 
 				case Type2da.TYPE_RACIAL:
 				{
-					TreeNode node;
-					string text;
-
 					int preLength = (Races.Count - 1).ToString().Length + 1;
 
 					foreach (var race in Races)
@@ -1028,9 +1026,6 @@ namespace nwn2_ai_2da_editor
 
 				case Type2da.TYPE_CLASSES:
 				{
-					TreeNode node;
-					string text;
-
 					int preLength = (Classes.Count - 1).ToString().Length + 1;
 
 					foreach (var clas in Classes)
@@ -1064,6 +1059,21 @@ namespace nwn2_ai_2da_editor
 					break;
 				}
 			}
+
+
+			text = String.Empty;
+			int width = 0;
+			for (int i = 0; i != Tree.Nodes.Count; ++i)
+			{
+				if ((node = Tree.Nodes[i]).Text.Length > width)
+				{
+					text  = node.Text;
+					width = node.Text.Length;
+				}
+			}
+			width = Math.Max(225, TextRenderer.MeasureText(text, Font).Width + 22);
+			splitContainer1.SplitterDistance = width;
+
 
 			Tree.EndUpdate();
 

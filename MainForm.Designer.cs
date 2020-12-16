@@ -1362,7 +1362,7 @@ namespace nwn2_ai_2da_editor
 			this.splitContainer1.Panel1.Controls.Add(this.btn_Search_d);
 			this.splitContainer1.Panel1.Controls.Add(this.tb_Search);
 			this.splitContainer1.Panel1.Controls.Add(this.Tree);
-			this.splitContainer1.Panel1MinSize = 20;
+			this.splitContainer1.Panel1MinSize = 0;
 			// 
 			// splitContainer1.Panel2
 			// 
