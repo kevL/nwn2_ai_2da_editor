@@ -34,7 +34,7 @@ namespace nwn2_ai_2da_editor
 					// ensure that spellinfo has a CoreAI version
 					// although strictly speaking I believe that GetSpellInfo()
 					// will gracefully handle spell-data that has no version set.
-					if (spellinfo != 0)
+					if (!bypassInfoVersion && spellinfo != 0)
 					{
 						int ver = (spellinfo & HENCH_SPELL_INFO_VERSION_MASK);
 

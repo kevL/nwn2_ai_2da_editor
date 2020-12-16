@@ -398,7 +398,13 @@ namespace nwn2_ai_2da_editor
 
 				if ((racialflags0 & HENCH_SPELL_INFO_VERSION_MASK) != ver)
 				{
-					racialflags = ((racialflags0 & ~HENCH_SPELL_INFO_VERSION_MASK) | ver);
+					if (!bypassInfoVersion)
+					{
+						racialflags = ((racialflags0 & ~HENCH_SPELL_INFO_VERSION_MASK) | ver);
+					}
+					else
+						racialflags =  (racialflags0 & ~HENCH_SPELL_INFO_VERSION_MASK); // wipe version info for TonyAI 2.3+
+
 
 					if (id == Id)
 					{
@@ -437,7 +443,7 @@ namespace nwn2_ai_2da_editor
 						else
 						{
 							RacesChanged.Remove(id);
-	
+
 							if (race.isChanged)
 							{
 								color = Color.Blue;
@@ -532,7 +538,12 @@ namespace nwn2_ai_2da_editor
 
 				if ((clasflags0 & HENCH_SPELL_INFO_VERSION_MASK) != ver)
 				{
-					clasflags = ((clasflags0 & ~HENCH_SPELL_INFO_VERSION_MASK) | ver);
+					if (!bypassInfoVersion)
+					{
+						clasflags = ((clasflags0 & ~HENCH_SPELL_INFO_VERSION_MASK) | ver);
+					}
+					else
+						clasflags =  (clasflags0 & ~HENCH_SPELL_INFO_VERSION_MASK); // wipe version info for TonyAI 2.3+
 
 					if (id == Id)
 					{

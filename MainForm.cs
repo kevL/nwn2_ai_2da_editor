@@ -90,6 +90,16 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		bool bypassDiffer;
 
+		/// <summary>
+		/// A boolean that bypasses forcibly inserting an InfoVersion into
+		/// struct-data. This needs to be set to cope with 2das that are
+		/// compatible with Tony AI 2.3+
+		/// </summary>
+		bool bypassInfoVersion;
+
+		/// <summary>
+		/// A boolean indicating that the currently loaded 2da has a "Label" col.
+		/// </summary>
 		bool hasLabels;
 
 		/// <summary>

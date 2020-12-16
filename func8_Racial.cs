@@ -10,6 +10,8 @@ namespace nwn2_ai_2da_editor
 	/// </summary>
 	partial class MainForm
 	{
+		const int HENCH_FEAT_SPELL_SHIFT_SPELL = 16;
+
 		/// <summary>
 		/// Handles TextChanged event on the Racial pages.
 		/// </summary>
@@ -35,11 +37,11 @@ namespace nwn2_ai_2da_editor
 
 				if (isFlags)
 				{
-					if (InfoVersionChange_racial(ref val))
-					{
-						RacialFlags_text.Text = val.ToString();
-						return; // refire this funct.
-					}
+//					if (InfoVersionChange_racial(ref val)) // TonyAI 2.3+ allow racial InfoVersion to be 0.
+//					{
+//						RacialFlags_text.Text = val.ToString();
+//						return; // refire this funct.
+//					}
 
 					btn    = RacialFlags_reset;
 					tb_hex = RacialFlags_hex;
@@ -598,8 +600,5 @@ namespace nwn2_ai_2da_editor
 				}
 			}
 		}
-
-
-		const int HENCH_FEAT_SPELL_SHIFT_SPELL = 16;
 	}
 }

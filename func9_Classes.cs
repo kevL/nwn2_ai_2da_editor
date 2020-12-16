@@ -10,6 +10,9 @@ namespace nwn2_ai_2da_editor
 	/// </summary>
 	partial class MainForm
 	{
+		const int HENCH_CLASS_BUFF_OTHERS_SHIFT = 10;
+		const int HENCH_CLASS_ATTACK_SHIFT      = 12;
+
 		/// <summary>
 		/// Handles TextChanged event on the Classes pages.
 		/// </summary>
@@ -35,11 +38,11 @@ namespace nwn2_ai_2da_editor
 
 				if (isFlags)
 				{
-					if (InfoVersionChange_class(ref val))
-					{
-						ClassFlags_text.Text = val.ToString();
-						return; // refire this funct.
-					}
+//					if (InfoVersionChange_class(ref val)) // TonyAI 2.3+ allow class InfoVersion to be 0.
+//					{
+//						ClassFlags_text.Text = val.ToString();
+//						return; // refire this funct.
+//					}
 
 					btn    = ClassFlags_reset;
 					tb_hex = ClassFlags_hex;
@@ -871,9 +874,6 @@ namespace nwn2_ai_2da_editor
 			cf_infoversion.Text = flags.ToString();
 		}
 
-
-		const int HENCH_CLASS_BUFF_OTHERS_SHIFT = 10;
-		const int HENCH_CLASS_ATTACK_SHIFT      = 12;
 
 		/// <summary>
 		/// Sets the checkers on the ClassFlags page to reflect the current

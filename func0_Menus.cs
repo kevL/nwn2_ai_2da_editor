@@ -123,11 +123,11 @@ namespace nwn2_ai_2da_editor
 			{
 				string info = "There is data that has been modified but not applied."
 							+ Environment.NewLine + Environment.NewLine
-							+ "\tabort : Cancel the operation"
+							+ "\tabort\t Cancel the operation"
 							+ Environment.NewLine
-							+ "\tretry : Apply all modified data and Save"
+							+ "\tretry\t Apply all modified data and Save"
 							+ Environment.NewLine
-							+ "\tignore : Save currently applied data only";
+							+ "\tignore\t Save currently applied data only";
 
 				switch (MessageBox.Show(info,
 										"  Attention",
@@ -172,8 +172,8 @@ namespace nwn2_ai_2da_editor
 		{
 			using (var sfd = new SaveFileDialog())
 			{
-				sfd.Title = "Save as ...";
-				sfd.Filter = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
+				sfd.Title    = "Save as ...";
+				sfd.Filter   = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
 				sfd.FileName = Path.GetFileName(_pfe);
 
 				if (sfd.ShowDialog() == DialogResult.OK)
@@ -694,9 +694,42 @@ namespace nwn2_ai_2da_editor
 			}
 		}
 
+		/// <summary>
+		/// IMPORTANT: This is an interim function that forcefully clears the
+		/// InfoVersion bits. InfoVersion is obsolete in TonyAI 2.3+ - the bits
+		/// have been repurposed.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		void Click_clearCoreAiVersion(object sender, EventArgs e)
 		{
-			
+			bypassInfoVersion = true;
+
+			switch (Type)
+			{
+				case Type2da.TYPE_SPELLS:
+					SetInfoVersion_spells("0", true);
+
+					applyGlobal    .Enabled = SpellsChanged.Count != 0;
+					gotoNextChanged.Enabled = SpellsChanged.Count != 0 || SpareChange();
+					break;
+
+				case Type2da.TYPE_RACIAL:
+					SetInfoVersion_racial("0", true);
+
+					applyGlobal    .Enabled = RacesChanged.Count != 0;
+					gotoNextChanged.Enabled = RacesChanged.Count != 0 || SpareChange();
+					break;
+
+				case Type2da.TYPE_CLASSES:
+					SetInfoVersion_classes("0", true);
+
+					applyGlobal    .Enabled = ClassesChanged.Count != 0;
+					gotoNextChanged.Enabled = ClassesChanged.Count != 0 || SpareChange();
+					break;
+			}
+
+			bypassInfoVersion = false;
 		}
 
 		/// <summary>
