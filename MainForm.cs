@@ -508,7 +508,7 @@ namespace nwn2_ai_2da_editor
 			GrowTree();
 
 			// check if any info-version(s) need to be updated in spellinfo-int.
-			InfoVersionLoad_spells();
+//			InfoVersionLoad_spells();
 
 			// Groups on SpellInfo and TargetInfo generally stay green
 			// unless SpellInfo is flagged as a MasterID
@@ -536,7 +536,7 @@ namespace nwn2_ai_2da_editor
 			tree_Highlight.Checked = false;
 		}
 
-		/// <summary>
+		/* <summary>
 		/// Updates any InfoVersion for the spells when the 2da loads. Ensures
 		/// that spell-info does not have a CoreAI version if there's no other
 		/// data and that it does have a CoreAI version if there is.
@@ -597,7 +597,7 @@ namespace nwn2_ai_2da_editor
 			InfoVersionUpdate       =
 			applyGlobal    .Enabled =
 			gotoNextChanged.Enabled = (SpellsChanged.Count != 0);
-		}
+		} */
 
 
 		/// <summary>
@@ -688,7 +688,7 @@ namespace nwn2_ai_2da_editor
 			GrowTree();
 
 			// check if any info-version(s) need to be updated in flags-int.
-			InfoVersionLoad_racial();
+//			InfoVersionLoad_racial();
 
 
 			// TODO: this doesn't work as intended if the window is currently
@@ -703,7 +703,7 @@ namespace nwn2_ai_2da_editor
 			tree_Highlight.Checked = false;
 		}
 
-		/// <summary>
+		/* <summary>
 		/// Updates any InfoVersion for the races when the 2da loads. Ensures
 		/// that racial-flags has a CoreAI version - RacialFlags always has a
 		/// Version (unlike spellinfo).
@@ -742,7 +742,7 @@ namespace nwn2_ai_2da_editor
 			InfoVersionUpdate       =
 			applyGlobal    .Enabled =
 			gotoNextChanged.Enabled = (RacesChanged.Count != 0);
-		}
+		} */
 
 
 		/// <summary>
@@ -869,7 +869,7 @@ namespace nwn2_ai_2da_editor
 			GrowTree();
 
 			// check if any info-version(s) need to be updated in flags-int.
-			InfoVersionLoad_classes();
+//			InfoVersionLoad_classes();
 
 			// TODO: this doesn't work as intended if the window is currently
 			// maximized.
@@ -883,7 +883,7 @@ namespace nwn2_ai_2da_editor
 			tree_Highlight.Checked = false;
 		}
 
-		/// <summary>
+		/* <summary>
 		/// Updates any InfoVersion for the classes when the 2da loads. Ensures
 		/// that class-flags has a CoreAI version - ClassFlags always has a
 		/// Version (unlike spellinfo).
@@ -928,7 +928,7 @@ namespace nwn2_ai_2da_editor
 			InfoVersionUpdate       =
 			applyGlobal    .Enabled =
 			gotoNextChanged.Enabled = (ClassesChanged.Count != 0);
-		}
+		} */
 
 
 		/// <summary>
