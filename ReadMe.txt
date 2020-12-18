@@ -1,11 +1,11 @@
 nwn2_ai_2da_editor
-A Hench*.2da editor for TonyK's Companion and Monster AI 2.2
+A Hench*.2da editor for TonyK's Companion and Monster AI 2.3+
 
-- not entirely compatible with the SoZ AI but it should cut mustard
+- for use ONLY with the Companion and Monster AI 2.3+
 
 --
-ver 1.3.1.0
-2020 jul 14
+ver 2.0.0.0
+2020 dec 18
 
 --
 Overview
