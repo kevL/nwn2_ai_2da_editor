@@ -5,15 +5,16 @@ using System.Windows.Forms;
 namespace nwn2_ai_2da_editor
 {
 	/// <summary>
-	/// A bitwise editor for the CoreAI 2das in Neverwinter Nights 2.
+	/// A bitwise editor for TonyK's Companion and Monster AI 2.3+ CoreAI 2das
+	/// in Neverwinter Nights 2.
 	/// </summary>
-	internal sealed class Program
+	sealed class Program
 	{
 		/// <summary>
 		/// Program entry point.
 		/// </summary>
 		[STAThread]
-		private static void Main()
+		static void Main()
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
