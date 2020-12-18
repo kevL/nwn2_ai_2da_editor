@@ -709,83 +709,83 @@ namespace nwn2_ai_2da_editor
 					int id;
 					if (Int32.TryParse(fields[0], out id)) // is a valid 2da row
 					{
-						var clas = new Class();
+						var @class = new Class();
 
-						clas.id        = id;
-						clas.isChanged = false;
-						clas.differ    = tabcontrol_Classes.bit_clear;
+						@class.id        = id;
+						@class.isChanged = false;
+						@class.differ    = tabcontrol_Classes.bit_clear;
 
 						int col = 0;
 
 						if (hasLabels && (field = fields[++col]) != blank)
-							clas.label = field;
+							@class.label = field;
 						else
-							clas.label = String.Empty;
+							@class.label = String.Empty;
 
 						if ((field = fields[++col]) != blank)
-							clas.flags = Int32.Parse(field);
+							@class.flags = Int32.Parse(field);
 						else
-							clas.flags = 0;
+							@class.flags = 0;
 
 						if ((field = fields[++col]) != blank)
-							clas.feat1 = Int32.Parse(field);
+							@class.feat1 = Int32.Parse(field);
 						else
-							clas.feat1 = 0;
+							@class.feat1 = 0;
 
 						if ((field = fields[++col]) != blank)
-							clas.feat2 = Int32.Parse(field);
+							@class.feat2 = Int32.Parse(field);
 						else
-							clas.feat2 = 0;
+							@class.feat2 = 0;
 
 						if ((field = fields[++col]) != blank)
-							clas.feat3 = Int32.Parse(field);
+							@class.feat3 = Int32.Parse(field);
 						else
-							clas.feat3 = 0;
+							@class.feat3 = 0;
 
 						if ((field = fields[++col]) != blank)
-							clas.feat4 = Int32.Parse(field);
+							@class.feat4 = Int32.Parse(field);
 						else
-							clas.feat4 = 0;
+							@class.feat4 = 0;
 
 						if ((field = fields[++col]) != blank)
-							clas.feat5 = Int32.Parse(field);
+							@class.feat5 = Int32.Parse(field);
 						else
-							clas.feat5 = 0;
+							@class.feat5 = 0;
 
 						if ((field = fields[++col]) != blank)
-							clas.feat6 = Int32.Parse(field);
+							@class.feat6 = Int32.Parse(field);
 						else
-							clas.feat6 = 0;
+							@class.feat6 = 0;
 
 						if ((field = fields[++col]) != blank)
-							clas.feat7 = Int32.Parse(field);
+							@class.feat7 = Int32.Parse(field);
 						else
-							clas.feat7 = 0;
+							@class.feat7 = 0;
 
 						if ((field = fields[++col]) != blank)
-							clas.feat8 = Int32.Parse(field);
+							@class.feat8 = Int32.Parse(field);
 						else
-							clas.feat8 = 0;
+							@class.feat8 = 0;
 
 						if ((field = fields[++col]) != blank)
-							clas.feat9 = Int32.Parse(field);
+							@class.feat9 = Int32.Parse(field);
 						else
-							clas.feat9 = 0;
+							@class.feat9 = 0;
 
 						if ((field = fields[++col]) != blank)
-							clas.feat10 = Int32.Parse(field);
+							@class.feat10 = Int32.Parse(field);
 						else
-							clas.feat10 = 0;
+							@class.feat10 = 0;
 
 						if ((field = fields[++col]) != blank)
-							clas.feat11 = Int32.Parse(field);
+							@class.feat11 = Int32.Parse(field);
 						else
-							clas.feat11 = 0;
+							@class.feat11 = 0;
 
-						Classes.Add(clas);	// class-structs can now be referenced in the 'Classes' list by their
-					}						// - Classes[id]
-				}							// - HenchClasses.2da row#
-			}								// - ClassID (Classes.2da row#)
+						Classes.Add(@class);	// class-structs can now be referenced in the 'Classes' list by their
+					}							// - Classes[id]
+				}								// - HenchClasses.2da row#
+			}									// - ClassID (Classes.2da row#)
 
 			GrowTree();
 
@@ -815,34 +815,34 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void InfoVersionLoad_classes()
 		{
-			Class clas;
+			Class @class;
 
 			int total = Classes.Count;
 			for (int id = 0; id != total; ++id)
 			{
-				clas = Classes[id];
-				if ((clas.flags & HENCH_SPELL_INFO_VERSION_MASK) == 0)
+				@class = Classes[id];
+				if ((@class.flags & HENCH_SPELL_INFO_VERSION_MASK) == 0)
 				{
-					var claschanged = new ClassChanged();
+					var classchanged = new ClassChanged();
 
-					claschanged.feat1  = clas.feat1;
-					claschanged.feat2  = clas.feat2;
-					claschanged.feat3  = clas.feat3;
-					claschanged.feat4  = clas.feat4;
-					claschanged.feat5  = clas.feat5;
-					claschanged.feat6  = clas.feat6;
-					claschanged.feat7  = clas.feat7;
-					claschanged.feat8  = clas.feat8;
-					claschanged.feat9  = clas.feat9;
-					claschanged.feat10 = clas.feat10;
-					claschanged.feat11 = clas.feat11;
+					classchanged.feat1  = @class.feat1;
+					classchanged.feat2  = @class.feat2;
+					classchanged.feat3  = @class.feat3;
+					classchanged.feat4  = @class.feat4;
+					classchanged.feat5  = @class.feat5;
+					classchanged.feat6  = @class.feat6;
+					classchanged.feat7  = @class.feat7;
+					classchanged.feat8  = @class.feat8;
+					classchanged.feat9  = @class.feat9;
+					classchanged.feat10 = @class.feat10;
+					classchanged.feat11 = @class.feat11;
 
-					claschanged.flags = (clas.flags | HENCH_SPELL_INFO_VERSION); // insert the default version #
+					classchanged.flags = (@class.flags | HENCH_SPELL_INFO_VERSION); // insert the default version #
 
-					ClassesChanged[id] = claschanged;
+					ClassesChanged[id] = classchanged;
 
-					clas.differ = bit_flags;
-					Classes[id] = clas;
+					@class.differ = bit_flags;
+					Classes[id] = @class;
 
 					Tree.Nodes[id].ForeColor = Color.Crimson;
 				}
@@ -951,32 +951,32 @@ namespace nwn2_ai_2da_editor
 				{
 					int preLength = (Classes.Count - 1).ToString().Length + 1;
 
-					foreach (var clas in Classes)
+					foreach (var @class in Classes)
 					{
-						text = clas.id.ToString();
+						text = @class.id.ToString();
 						if (hasLabels)
 						{
-							if (!String.IsNullOrEmpty(clas.label))
+							if (!String.IsNullOrEmpty(@class.label))
 							{
 								while (text.Length != preLength)
 									text += " ";
 
-								text += clas.label;
+								text += @class.label;
 							}
 						}
-						else if (classLabels.Count != 0 && classLabels.Count > clas.id)
+						else if (classLabels.Count != 0 && classLabels.Count > @class.id)
 						{
-							if (!String.IsNullOrEmpty(classLabels[clas.id]))
+							if (!String.IsNullOrEmpty(classLabels[@class.id]))
 							{
 								while (text.Length != preLength)
 									text += " ";
 
-								text += classLabels[clas.id];
+								text += classLabels[@class.id];
 							}
 						}
 						node = Tree.Nodes.Add(text);
 
-						if (clas.isChanged) // for Click_insertClassLabels()
+						if (@class.isChanged) // for Click_insertClassLabels()
 							node.ForeColor = Color.Blue;
 					}
 					break;
@@ -1202,28 +1202,28 @@ namespace nwn2_ai_2da_editor
 
 				case Type2da.TYPE_CLASSES:
 				{
-					Class clas = Classes[Id];
-					if (clas.differ != tabcontrol_Classes.bit_clear)
+					Class @class = Classes[Id];
+					if (@class.differ != tabcontrol_Classes.bit_clear)
 					{
-						clas.differ = tabcontrol_Classes.bit_clear;
-						clas.isChanged = true;
+						@class.differ = tabcontrol_Classes.bit_clear;
+						@class.isChanged = true;
 
-						ClassChanged claschanged = ClassesChanged[Id];
+						ClassChanged classchanged = ClassesChanged[Id];
 
-						clas.flags  = claschanged.flags;
-						clas.feat1  = claschanged.feat1;
-						clas.feat2  = claschanged.feat2;
-						clas.feat3  = claschanged.feat3;
-						clas.feat4  = claschanged.feat4;
-						clas.feat5  = claschanged.feat5;
-						clas.feat6  = claschanged.feat6;
-						clas.feat7  = claschanged.feat7;
-						clas.feat8  = claschanged.feat8;
-						clas.feat9  = claschanged.feat9;
-						clas.feat10 = claschanged.feat10;
-						clas.feat11 = claschanged.feat11;
+						@class.flags  = classchanged.flags;
+						@class.feat1  = classchanged.feat1;
+						@class.feat2  = classchanged.feat2;
+						@class.feat3  = classchanged.feat3;
+						@class.feat4  = classchanged.feat4;
+						@class.feat5  = classchanged.feat5;
+						@class.feat6  = classchanged.feat6;
+						@class.feat7  = classchanged.feat7;
+						@class.feat8  = classchanged.feat8;
+						@class.feat9  = classchanged.feat9;
+						@class.feat10 = classchanged.feat10;
+						@class.feat11 = classchanged.feat11;
 
-						Classes[Id] = clas;
+						Classes[Id] = @class;
 
 						ClassesChanged.Remove(Id);
 

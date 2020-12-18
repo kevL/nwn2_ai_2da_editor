@@ -389,47 +389,47 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Gets a bitwise value containing flags for fields that have changed.
 		/// </summary>
-		/// <param name="clas">a Class struct</param>
-		/// <param name="claschanged">a ClassChanged struct</param>
+		/// <param name="class">a Class struct</param>
+		/// <param name="classchanged">a ClassChanged struct</param>
 		/// <returns>bitwise value containing flags for fields that have changed</returns>
-		internal static int ClassDiffer(Class clas, ClassChanged claschanged)
+		internal static int ClassDiffer(Class @class, ClassChanged classchanged)
 		{
 			int differ = tabcontrol_Classes.bit_clear;
 
-			if (clas.flags != claschanged.flags)
+			if (@class.flags != classchanged.flags)
 				differ |= tabcontrol_Classes.bit_flags;
 
-			if (clas.feat1 != claschanged.feat1)
+			if (@class.feat1 != classchanged.feat1)
 				differ |= tabcontrol_Classes.bit_feat1;
 
-			if (clas.feat2 != claschanged.feat2)
+			if (@class.feat2 != classchanged.feat2)
 				differ |= tabcontrol_Classes.bit_feat2;
 
-			if (clas.feat3 != claschanged.feat3)
+			if (@class.feat3 != classchanged.feat3)
 				differ |= tabcontrol_Classes.bit_feat3;
 
-			if (clas.feat4 != claschanged.feat4)
+			if (@class.feat4 != classchanged.feat4)
 				differ |= tabcontrol_Classes.bit_feat4;
 
-			if (clas.feat5 != claschanged.feat5)
+			if (@class.feat5 != classchanged.feat5)
 				differ |= tabcontrol_Classes.bit_feat5;
 
-			if (clas.feat6 != claschanged.feat6)
+			if (@class.feat6 != classchanged.feat6)
 				differ |= tabcontrol_Classes.bit_feat6;
 
-			if (clas.feat7 != claschanged.feat7)
+			if (@class.feat7 != classchanged.feat7)
 				differ |= tabcontrol_Classes.bit_feat7;
 
-			if (clas.feat8 != claschanged.feat8)
+			if (@class.feat8 != classchanged.feat8)
 				differ |= tabcontrol_Classes.bit_feat8;
 
-			if (clas.feat9 != claschanged.feat9)
+			if (@class.feat9 != classchanged.feat9)
 				differ |= tabcontrol_Classes.bit_feat9;
 
-			if (clas.feat10 != claschanged.feat10)
+			if (@class.feat10 != classchanged.feat10)
 				differ |= tabcontrol_Classes.bit_feat10;
 
-			if (clas.feat11 != claschanged.feat11)
+			if (@class.feat11 != classchanged.feat11)
 				differ |= tabcontrol_Classes.bit_feat11;
 
 			return differ;

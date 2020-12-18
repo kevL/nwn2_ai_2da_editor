@@ -769,7 +769,7 @@ namespace nwn2_ai_2da_editor
 
 				hasLabels = true;
 
-				Class clas;
+				Class @class;
 
 				int j = -1;
 				int total = classLabels.Count;
@@ -777,10 +777,10 @@ namespace nwn2_ai_2da_editor
 				{
 					if (++j < total)
 					{
-						clas = Classes[i];
-						clas.label = classLabels[j];
-						clas.isChanged = true;
-						Classes[i] = clas;
+						@class = Classes[i];
+						@class.label = classLabels[j];
+						@class.isChanged = true;
+						Classes[i] = @class;
 					}
 					else
 						break;
@@ -847,9 +847,9 @@ namespace nwn2_ai_2da_editor
 					break;
 
 				case Type2da.TYPE_CLASSES:
-					foreach (var clas in Classes)
+					foreach (var @class in Classes)
 					{
-						if (clas.isChanged || clas.differ != tabcontrol_Classes.bit_clear)
+						if (@class.isChanged || @class.differ != tabcontrol_Classes.bit_clear)
 							return true;
 					}
 					break;
@@ -883,9 +883,9 @@ namespace nwn2_ai_2da_editor
 					break;
 
 				case Type2da.TYPE_CLASSES:
-					foreach (var clas in Classes)
+					foreach (var @class in Classes)
 					{
-						if (clas.isChanged)
+						if (@class.isChanged)
 							return true;
 					}
 					break;
@@ -1328,121 +1328,121 @@ namespace nwn2_ai_2da_editor
 
 				string line;
 
-				foreach (var clas in Classes) // this writes Applied data only.
+				foreach (var @class in Classes) // this writes Applied data only.
 				{
-					line = clas.id + " ";
+					line = @class.id + " ";
 
-					if (!String.IsNullOrEmpty(clas.label))
+					if (!String.IsNullOrEmpty(@class.label))
 					{
-						line += clas.label;
+						line += @class.label;
 					}
 					else
 						line += blank;
 
 					line += " ";
 
-					if (clas.flags != 0)
+					if (@class.flags != 0)
 					{
-						line += clas.flags.ToString();
+						line += @class.flags.ToString();
 					}
 					else
 						line += blank;
 
 					line += " ";
 
-					if (clas.feat1 != 0)
+					if (@class.feat1 != 0)
 					{
-						line += clas.feat1.ToString();
+						line += @class.feat1.ToString();
 					}
 					else
 						line += blank;
 
 					line += " ";
 
-					if (clas.feat2 != 0)
+					if (@class.feat2 != 0)
 					{
-						line += clas.feat2.ToString();
+						line += @class.feat2.ToString();
 					}
 					else
 						line += blank;
 
 					line += " ";
 
-					if (clas.feat3 != 0)
+					if (@class.feat3 != 0)
 					{
-						line += clas.feat3.ToString();
+						line += @class.feat3.ToString();
 					}
 					else
 						line += blank;
 
 					line += " ";
 
-					if (clas.feat4 != 0)
+					if (@class.feat4 != 0)
 					{
-						line += clas.feat4.ToString();
+						line += @class.feat4.ToString();
 					}
 					else
 						line += blank;
 
 					line += " ";
 
-					if (clas.feat5 != 0)
+					if (@class.feat5 != 0)
 					{
-						line += clas.feat5.ToString();
+						line += @class.feat5.ToString();
 					}
 					else
 						line += blank;
 
 					line += " ";
 
-					if (clas.feat6 != 0)
+					if (@class.feat6 != 0)
 					{
-						line += clas.feat6.ToString();
+						line += @class.feat6.ToString();
 					}
 					else
 						line += blank;
 
 					line += " ";
 
-					if (clas.feat7 != 0)
+					if (@class.feat7 != 0)
 					{
-						line += clas.feat7.ToString();
+						line += @class.feat7.ToString();
 					}
 					else
 						line += blank;
 
 					line += " ";
 
-					if (clas.feat8 != 0)
+					if (@class.feat8 != 0)
 					{
-						line += clas.feat8.ToString();
+						line += @class.feat8.ToString();
 					}
 					else
 						line += blank;
 
 					line += " ";
 
-					if (clas.feat9 != 0)
+					if (@class.feat9 != 0)
 					{
-						line += clas.feat9.ToString();
+						line += @class.feat9.ToString();
 					}
 					else
 						line += blank;
 
 					line += " ";
 
-					if (clas.feat10 != 0)
+					if (@class.feat10 != 0)
 					{
-						line += clas.feat10.ToString();
+						line += @class.feat10.ToString();
 					}
 					else
 						line += blank;
 
 					line += " ";
 
-					if (clas.feat11 != 0)
+					if (@class.feat11 != 0)
 					{
-						line += clas.feat11.ToString();
+						line += @class.feat11.ToString();
 					}
 					else
 						line += blank;

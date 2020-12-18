@@ -267,50 +267,50 @@ namespace nwn2_ai_2da_editor
 			{
 				val |= hc.HENCH_SPELL_INFO_VERSION; // insert the default version #
 
-				Class clas = MainForm.Classes[MainForm.Id];
+				Class @class = MainForm.Classes[MainForm.Id];
 
-				ClassChanged claschanged;
+				ClassChanged classchanged;
 
-				if (clas.differ != bit_clear)
+				if (@class.differ != bit_clear)
 				{
-					claschanged = MainForm.ClassesChanged[MainForm.Id];
+					classchanged = MainForm.ClassesChanged[MainForm.Id];
 				}
 				else
 				{
-					claschanged = new ClassChanged();
+					classchanged = new ClassChanged();
 
-					claschanged.feat1  = clas.feat1;
-					claschanged.feat2  = clas.feat2;
-					claschanged.feat3  = clas.feat3;
-					claschanged.feat4  = clas.feat4;
-					claschanged.feat5  = clas.feat5;
-					claschanged.feat6  = clas.feat6;
-					claschanged.feat7  = clas.feat7;
-					claschanged.feat8  = clas.feat8;
-					claschanged.feat9  = clas.feat9;
-					claschanged.feat10 = clas.feat10;
-					claschanged.feat11 = clas.feat11;
+					classchanged.feat1  = @class.feat1;
+					classchanged.feat2  = @class.feat2;
+					classchanged.feat3  = @class.feat3;
+					classchanged.feat4  = @class.feat4;
+					classchanged.feat5  = @class.feat5;
+					classchanged.feat6  = @class.feat6;
+					classchanged.feat7  = @class.feat7;
+					classchanged.feat8  = @class.feat8;
+					classchanged.feat9  = @class.feat9;
+					classchanged.feat10 = @class.feat10;
+					classchanged.feat11 = @class.feat11;
 				}
 
-				claschanged.flags = val;
+				classchanged.flags = val;
 
 				// check it
-				int differ = ClassDiffer(clas, claschanged);
-				clas.differ = differ;
-				MainForm.Classes[MainForm.Id] = clas;
+				int differ = ClassDiffer(@class, classchanged);
+				@class.differ = differ;
+				MainForm.Classes[MainForm.Id] = @class;
 
 				Color color;
 				if (differ != bit_clear)
 				{
-					MainForm.ClassesChanged[MainForm.Id] = claschanged;
+					MainForm.ClassesChanged[MainForm.Id] = classchanged;
 					color = Color.Crimson;
 				}
 				else
 				{
 					MainForm.ClassesChanged.Remove(MainForm.Id);
 
-					if (clas.isChanged) color = Color.Blue;
-					else                color = DefaultForeColor;
+					if (@class.isChanged) color = Color.Blue;
+					else                  color = DefaultForeColor;
 				}
 				MainForm.that.SetNodeColor(color);
 
@@ -334,92 +334,92 @@ namespace nwn2_ai_2da_editor
 				int bit, info;
 				TextBox tb;
 
-				Class clas = MainForm.Classes[MainForm.Id];
+				Class @class = MainForm.Classes[MainForm.Id];
 
 				var btn = sender as Button;
 				if (btn == ClassFlags_reset)
 				{
 					bit  = bit_flags;
-					info = clas.flags;
+					info = @class.flags;
 					tb   = ClassFlags_text;
 				}
 				else if (btn == ClassFeat1_reset)
 				{
 					bit  = bit_feat1;
-					info = clas.feat1;
+					info = @class.feat1;
 					tb   = ClassFeat1_text;
 				}
 				else if (btn == ClassFeat2_reset)
 				{
 					bit  = bit_feat2;
-					info = clas.feat2;
+					info = @class.feat2;
 					tb   = ClassFeat2_text;
 				}
 				else if (btn == ClassFeat3_reset)
 				{
 					bit  = bit_feat3;
-					info = clas.feat3;
+					info = @class.feat3;
 					tb   = ClassFeat3_text;
 				}
 				else if (btn == ClassFeat4_reset)
 				{
 					bit  = bit_feat4;
-					info = clas.feat4;
+					info = @class.feat4;
 					tb   = ClassFeat4_text;
 				}
 				else if (btn == ClassFeat5_reset)
 				{
 					bit  = bit_feat5;
-					info = clas.feat5;
+					info = @class.feat5;
 					tb   = ClassFeat5_text;
 				}
 				else if (btn == ClassFeat6_reset)
 				{
 					bit  = bit_feat6;
-					info = clas.feat6;
+					info = @class.feat6;
 					tb   = ClassFeat6_text;
 				}
 				else if (btn == ClassFeat7_reset)
 				{
 					bit  = bit_feat7;
-					info = clas.feat7;
+					info = @class.feat7;
 					tb   = ClassFeat7_text;
 				}
 				else if (btn == ClassFeat8_reset)
 				{
 					bit  = bit_feat8;
-					info = clas.feat8;
+					info = @class.feat8;
 					tb   = ClassFeat8_text;
 				}
 				else if (btn == ClassFeat9_reset)
 				{
 					bit  = bit_feat9;
-					info = clas.feat9;
+					info = @class.feat9;
 					tb   = ClassFeat9_text;
 				}
 				else if (btn == ClassFeat10_reset)
 				{
 					bit  = bit_feat10;
-					info = clas.feat10;
+					info = @class.feat10;
 					tb   = ClassFeat10_text;
 				}
 				else //if (btn == ClassFeat11_reset)
 				{
 					bit  = bit_feat11;
-					info = clas.feat11;
+					info = @class.feat11;
 					tb   = ClassFeat11_text;
 				}
 
-				clas.differ &= ~bit;
-				MainForm.Classes[MainForm.Id] = clas;
+				@class.differ &= ~bit;
+				MainForm.Classes[MainForm.Id] = @class;
 
-				if (clas.differ == bit_clear)
+				if (@class.differ == bit_clear)
 				{
 					MainForm.ClassesChanged.Remove(MainForm.Id);
 
 					Color color;
-					if (clas.isChanged) color = Color.Blue;
-					else                color = DefaultForeColor;
+					if (@class.isChanged) color = Color.Blue;
+					else                  color = DefaultForeColor;
 
 					MainForm.that.SetNodeColor(color);
 				}
