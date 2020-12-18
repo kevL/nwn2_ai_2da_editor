@@ -10,7 +10,7 @@ namespace nwn2_ai_2da_editor
 	/// </summary>
 	partial class MainForm
 	{
-		const int HENCH_SPELL_INFO_VERSION_SHIFT = 24;
+		internal const int HENCH_SPELL_INFO_VERSION_SHIFT = 24;
 
 		/// <summary>
 		/// An inputbox with which to set CoreAI version information.
@@ -140,7 +140,7 @@ namespace nwn2_ai_2da_editor
 			if (!Int32.TryParse(tb.Text, out ver)
 				|| ver < 1 || ver > 255)
 			{
-				tb.Text = (HENCH_SPELL_INFO_VERSION >> HENCH_SPELL_INFO_VERSION_SHIFT).ToString();
+				tb.Text = (hc.HENCH_SPELL_INFO_VERSION >> HENCH_SPELL_INFO_VERSION_SHIFT).ToString();
 				tb.SelectionStart = tb.Text.Length;
 
 				MessageBox.Show("Integer must be in range 1 to 255",
@@ -160,17 +160,17 @@ namespace nwn2_ai_2da_editor
 			Spell spell = Spells[Id];											// use the current spell's ver as a basis
 
 			int spellinfo;
-			if ((spell.differ & bit_spellinfo) != 0)
+			if ((spell.differ & tabcontrol_Spells.bit_spellinfo) != 0)
 			{
 				spellinfo = SpellsChanged[Id].spellinfo;
 			}
 			else
 				spellinfo = spell.spellinfo;
 
-			int ver0 = (spellinfo & HENCH_SPELL_INFO_VERSION_MASK);
+			int ver0 = (spellinfo & hc.HENCH_SPELL_INFO_VERSION_MASK);
 			if (ver0 == 0)
 			{
-				ver0 = HENCH_SPELL_INFO_VERSION;
+				ver0 = hc.HENCH_SPELL_INFO_VERSION;
 			}
 			ver0 >>= HENCH_SPELL_INFO_VERSION_SHIFT;
 
@@ -179,12 +179,12 @@ namespace nwn2_ai_2da_editor
 			switch (InfoVersion(Type2da.TYPE_SPELLS, ref str))					// get user-input w/ InfoVersion dialog
 			{
 				case DialogResult.OK:											// change the current spell's version only
-					if ((spellinfo & ~HENCH_SPELL_INFO_VERSION_MASK) == 0)		// force-clear the version if the rest of spellinfo is blank
+					if ((spellinfo & ~hc.HENCH_SPELL_INFO_VERSION_MASK) == 0)	// force-clear the version if the rest of spellinfo is blank
 					{
 						if (spellinfo != 0)
 						{
 							spellinfo = 0;
-							SpellInfo_text.Text = spellinfo.ToString();			// firing the TextChanged event takes care of it.
+							(HenchControl as tabcontrol_Spells).SetMasterText(spellinfo.ToString()); // firing the TextChanged event takes care of it.
 						}
 					}
 					else
@@ -192,9 +192,9 @@ namespace nwn2_ai_2da_editor
 						int ver = Int32.Parse(str);								// the return from the dialog.
 						if (ver != ver0)										// check that user actually changed the value
 						{
-							spellinfo &= ~HENCH_SPELL_INFO_VERSION_MASK;
+							spellinfo &= ~hc.HENCH_SPELL_INFO_VERSION_MASK;
 							spellinfo |= (ver << HENCH_SPELL_INFO_VERSION_SHIFT);
-							SpellInfo_text.Text = spellinfo.ToString();			// firing the TextChanged event takes care of it.
+							(HenchControl as tabcontrol_Spells).SetMasterText(spellinfo.ToString()); // firing the TextChanged event takes care of it.
 						}
 					}
 					break;
@@ -233,7 +233,7 @@ namespace nwn2_ai_2da_editor
 			{
 				spell = Spells[id];
 
-				if (dirty = ((spell.differ & bit_spellinfo) != 0))
+				if (dirty = ((spell.differ & tabcontrol_Spells.bit_spellinfo) != 0))
 				{
 					spellinfo0 = SpellsChanged[id].spellinfo;
 				}
@@ -250,19 +250,19 @@ namespace nwn2_ai_2da_editor
 				}
 
 
-				if ((spellinfo0 & ~HENCH_SPELL_INFO_VERSION_MASK) == 0)			// force-clear the version if the rest of spellinfo is blank
+				if ((spellinfo0 & ~hc.HENCH_SPELL_INFO_VERSION_MASK) == 0)		// force-clear the version if the rest of spellinfo is blank
 				{
 					spellinfo = 0;
 				}
 				else
-					spellinfo = ((spellinfo0 & ~HENCH_SPELL_INFO_VERSION_MASK) | ver);
+					spellinfo = ((spellinfo0 & ~hc.HENCH_SPELL_INFO_VERSION_MASK) | ver);
 
 
 				if (spellinfo != spellinfo0)
 				{
 					if (id == Id)
 					{
-						SpellInfo_text.Text = spellinfo.ToString();				// firing the TextChanged event takes care of it.
+						(HenchControl as tabcontrol_Spells).SetMasterText(spellinfo.ToString()); // firing the TextChanged event takes care of it.
 					}
 					else
 					{
@@ -285,12 +285,12 @@ namespace nwn2_ai_2da_editor
 						spellchanged.spellinfo = spellinfo;
 
 						// check it
-						differ = SpellDiffer(spell, spellchanged);
+						differ = tabcontrol_Spells.SpellDiffer(spell, spellchanged);
 						spell.differ = differ;
 						Spells[id] = spell;
 
 						Color color;
-						if (differ != bit_clear)
+						if (differ != tabcontrol_Spells.bit_clear)
 						{
 							SpellsChanged[id] = spellchanged;
 							color = Color.Crimson;
@@ -298,13 +298,9 @@ namespace nwn2_ai_2da_editor
 						else
 						{
 							SpellsChanged.Remove(id);
-	
-							if (spell.isChanged)
-							{
-								color = Color.Blue;
-							}
-							else
-								color = DefaultForeColor;
+
+							if (spell.isChanged) color = Color.Blue;
+							else                 color = DefaultForeColor;
 						}
 						Tree.Nodes[id].ForeColor = color;
 					}
@@ -321,14 +317,14 @@ namespace nwn2_ai_2da_editor
 			Race race = Races[Id];												// use the current race's ver as a basis
 
 			int racialflags;
-			if ((race.differ & bit_flags) != 0)
+			if ((race.differ & tabcontrol_Racial.bit_flags) != 0)
 			{
 				racialflags = RacesChanged[Id].flags;
 			}
 			else
 				racialflags = race.flags;
 
-			int ver0 = (racialflags & HENCH_SPELL_INFO_VERSION_MASK) >> HENCH_SPELL_INFO_VERSION_SHIFT;
+			int ver0 = (racialflags & hc.HENCH_SPELL_INFO_VERSION_MASK) >> HENCH_SPELL_INFO_VERSION_SHIFT;
 
 			string str = ver0.ToString();
 			switch (InfoVersion(Type2da.TYPE_RACIAL, ref str))					// get user-input w/ InfoVersion dialog
@@ -338,9 +334,9 @@ namespace nwn2_ai_2da_editor
 					int ver = Int32.Parse(str);									// the return from the dialog.
 					if (ver != ver0)											// check that user actually changed the value
 					{
-						racialflags &= ~HENCH_SPELL_INFO_VERSION_MASK;
+						racialflags &= ~hc.HENCH_SPELL_INFO_VERSION_MASK;
 						racialflags |= (ver << HENCH_SPELL_INFO_VERSION_SHIFT);
-						RacialFlags_text.Text = racialflags.ToString();			// firing the TextChanged event takes care of it.
+						(HenchControl as tabcontrol_Racial).SetMasterText(racialflags.ToString()); // firing the TextChanged event takes care of it.
 					}
 					break;
 				}
@@ -384,7 +380,7 @@ namespace nwn2_ai_2da_editor
 			{
 				race = Races[id];
 
-				if (dirty = ((race.differ & bit_flags) != 0))
+				if (dirty = ((race.differ & tabcontrol_Racial.bit_flags) != 0))
 				{
 					racialflags0 = RacesChanged[id].flags;
 				}
@@ -396,19 +392,19 @@ namespace nwn2_ai_2da_editor
 					continue;													// ignore clean racial-structs if !all
 
 
-				if ((racialflags0 & HENCH_SPELL_INFO_VERSION_MASK) != ver)
+				if ((racialflags0 & hc.HENCH_SPELL_INFO_VERSION_MASK) != ver)
 				{
-					if (!bypassInfoVersion)
+					if (!BypassInfoVersion)
 					{
-						racialflags = ((racialflags0 & ~HENCH_SPELL_INFO_VERSION_MASK) | ver);
+						racialflags = ((racialflags0 & ~hc.HENCH_SPELL_INFO_VERSION_MASK) | ver);
 					}
 					else
-						racialflags =  (racialflags0 & ~HENCH_SPELL_INFO_VERSION_MASK); // wipe version info for TonyAI 2.3+
+						racialflags =  (racialflags0 & ~hc.HENCH_SPELL_INFO_VERSION_MASK); // wipe version info for TonyAI 2.3+
 
 
 					if (id == Id)
 					{
-						RacialFlags_text.Text = racialflags.ToString();			// firing the TextChanged event takes care of it.
+						(HenchControl as tabcontrol_Racial).SetMasterText(racialflags.ToString()); // firing the TextChanged event takes care of it.
 					}
 					else
 					{
@@ -430,12 +426,12 @@ namespace nwn2_ai_2da_editor
 						racechanged.flags = racialflags;
 
 						// check it
-						differ = RaceDiffer(race, racechanged);
+						differ = tabcontrol_Racial.RaceDiffer(race, racechanged);
 						race.differ = differ;
 						Races[id] = race;
 
 						Color color;
-						if (differ != bit_clear)
+						if (differ != tabcontrol_Racial.bit_clear)
 						{
 							RacesChanged[id] = racechanged;
 							color = Color.Crimson;
@@ -444,12 +440,8 @@ namespace nwn2_ai_2da_editor
 						{
 							RacesChanged.Remove(id);
 
-							if (race.isChanged)
-							{
-								color = Color.Blue;
-							}
-							else
-								color = DefaultForeColor;
+							if (race.isChanged) color = Color.Blue;
+							else                color = DefaultForeColor;
 						}
 						Tree.Nodes[id].ForeColor = color;
 					}
@@ -463,17 +455,17 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void SetInfoVersion_classes()
 		{
-			Class clas = Classes[Id];											// use the current class' ver as a basis
+			Class @class = Classes[Id];											// use the current class' ver as a basis
 
-			int clasflags;
-			if ((clas.differ & bit_flags) != 0)
+			int classflags;
+			if ((@class.differ & tabcontrol_Classes.bit_flags) != 0)
 			{
-				clasflags = ClassesChanged[Id].flags;
+				classflags = ClassesChanged[Id].flags;
 			}
 			else
-				clasflags = clas.flags;
+				classflags = @class.flags;
 
-			int ver0 = (clasflags & HENCH_SPELL_INFO_VERSION_MASK) >> HENCH_SPELL_INFO_VERSION_SHIFT;
+			int ver0 = (classflags & hc.HENCH_SPELL_INFO_VERSION_MASK) >> HENCH_SPELL_INFO_VERSION_SHIFT;
 
 			string str = ver0.ToString();
 			switch (InfoVersion(Type2da.TYPE_CLASSES, ref str))					// get user-input w/ InfoVersion dialog
@@ -483,9 +475,9 @@ namespace nwn2_ai_2da_editor
 					int ver = Int32.Parse(str);									// the return from the dialog.
 					if (ver != ver0)											// check that user actually changed the value
 					{
-						clasflags &= ~HENCH_SPELL_INFO_VERSION_MASK;
-						clasflags |= (ver << HENCH_SPELL_INFO_VERSION_SHIFT);
-						ClassFlags_text.Text = clasflags.ToString();			// firing the TextChanged event takes care of it.
+						classflags &= ~hc.HENCH_SPELL_INFO_VERSION_MASK;
+						classflags |= (ver << HENCH_SPELL_INFO_VERSION_SHIFT);
+						(HenchControl as tabcontrol_Classes).SetMasterText(classflags.ToString()); // firing the TextChanged event takes care of it.
 					}
 					break;
 				}
@@ -510,10 +502,10 @@ namespace nwn2_ai_2da_editor
 		/// <param name="all"></param>
 		void SetInfoVersion_classes(string str, bool all)
 		{
-			Class clas;
-			ClassChanged claschanged;
+			Class @class;
+			ClassChanged classchanged;
 
-			int clasflags0, clasflags, differ;
+			int classflags0, classflags, differ;
 			bool dirty;
 
 			int ver = (Int32.Parse(str) << HENCH_SPELL_INFO_VERSION_SHIFT);		// the return from the dialog.
@@ -522,79 +514,75 @@ namespace nwn2_ai_2da_editor
 			int total = Classes.Count;
 			for (int id = 0; id != total; ++id)
 			{
-				clas = Classes[id];
+				@class = Classes[id];
 
-				if (dirty = ((clas.differ & bit_flags) != 0))
+				if (dirty = ((@class.differ & tabcontrol_Classes.bit_flags) != 0))
 				{
-					clasflags0 = ClassesChanged[id].flags;
+					classflags0 = ClassesChanged[id].flags;
 				}
-				else if (all || clas.isChanged)
+				else if (all || @class.isChanged)
 				{
-					clasflags0 = clas.flags;
+					classflags0 = @class.flags;
 				}
 				else
 					continue;													// ignore clean class-structs if !all
 
 
-				if ((clasflags0 & HENCH_SPELL_INFO_VERSION_MASK) != ver)
+				if ((classflags0 & hc.HENCH_SPELL_INFO_VERSION_MASK) != ver)
 				{
-					if (!bypassInfoVersion)
+					if (!BypassInfoVersion)
 					{
-						clasflags = ((clasflags0 & ~HENCH_SPELL_INFO_VERSION_MASK) | ver);
+						classflags = ((classflags0 & ~hc.HENCH_SPELL_INFO_VERSION_MASK) | ver);
 					}
 					else
-						clasflags =  (clasflags0 & ~HENCH_SPELL_INFO_VERSION_MASK); // wipe version info for TonyAI 2.3+
+						classflags =  (classflags0 & ~hc.HENCH_SPELL_INFO_VERSION_MASK); // wipe version info for TonyAI 2.3+
 
 					if (id == Id)
 					{
-						ClassFlags_text.Text = clasflags.ToString();			// firing the TextChanged event takes care of it.
+						(HenchControl as tabcontrol_Classes).SetMasterText(classflags.ToString()); // firing the TextChanged event takes care of it.
 					}
 					else
 					{
 						if (dirty)
 						{
-							claschanged = ClassesChanged[id];
+							classchanged = ClassesChanged[id];
 						}
 						else
 						{
-							claschanged = new ClassChanged();
+							classchanged = new ClassChanged();
 
-							claschanged.feat1  = clas.feat1;
-							claschanged.feat2  = clas.feat2;
-							claschanged.feat3  = clas.feat3;
-							claschanged.feat4  = clas.feat4;
-							claschanged.feat5  = clas.feat5;
-							claschanged.feat6  = clas.feat6;
-							claschanged.feat7  = clas.feat7;
-							claschanged.feat8  = clas.feat8;
-							claschanged.feat9  = clas.feat9;
-							claschanged.feat10 = clas.feat10;
-							claschanged.feat11 = clas.feat11;
+							classchanged.feat1  = @class.feat1;
+							classchanged.feat2  = @class.feat2;
+							classchanged.feat3  = @class.feat3;
+							classchanged.feat4  = @class.feat4;
+							classchanged.feat5  = @class.feat5;
+							classchanged.feat6  = @class.feat6;
+							classchanged.feat7  = @class.feat7;
+							classchanged.feat8  = @class.feat8;
+							classchanged.feat9  = @class.feat9;
+							classchanged.feat10 = @class.feat10;
+							classchanged.feat11 = @class.feat11;
 						}
 
-						claschanged.flags = clasflags;
+						classchanged.flags = classflags;
 
 						// check it
-						differ = ClassDiffer(clas, claschanged);
-						clas.differ = differ;
-						Classes[id] = clas;
+						differ = tabcontrol_Classes.ClassDiffer(@class, classchanged);
+						@class.differ = differ;
+						Classes[id] = @class;
 
 						Color color;
-						if (differ != bit_clear)
+						if (differ != tabcontrol_Classes.bit_clear)
 						{
-							ClassesChanged[id] = claschanged;
+							ClassesChanged[id] = classchanged;
 							color = Color.Crimson;
 						}
 						else
 						{
 							ClassesChanged.Remove(id);
 	
-							if (clas.isChanged)
-							{
-								color = Color.Blue;
-							}
-							else
-								color = DefaultForeColor;
+							if (@class.isChanged) color = Color.Blue;
+							else                  color = DefaultForeColor;
 						}
 						Tree.Nodes[id].ForeColor = color;
 					}

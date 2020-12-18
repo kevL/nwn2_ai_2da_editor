@@ -13,32 +13,34 @@ namespace nwn2_ai_2da_editor
 	/// </summary>
 	partial class MainForm
 	{
+		#region Fields (static)
 		/// <summary>
-		/// A list that holds labels for classes in Classes.2da.
+		/// A list that holds labels for spells in Spells.2da.
 		/// - optional
 		/// </summary>
-		List<string> classLabels = new List<string>();
+		internal static List<string> spellLabels = new List<string>();
 
 		/// <summary>
 		/// A list that holds labels for races in Races.2da.
 		/// - optional
 		/// </summary>
-		List<string> raceLabels = new List<string>();
+		internal static List<string> raceLabels = new List<string>();
 
 		/// <summary>
-		/// A list that holds labels for spells in Spells.2da.
+		/// A list that holds labels for classes in Classes.2da.
 		/// - optional
 		/// </summary>
-		List<string> spellLabels = new List<string>();
+		internal static List<string> classLabels = new List<string>();
 
 		/// <summary>
 		/// A list that holds labels for feats in Feat.2da.
 		/// - optional
 		/// </summary>
-		List<string> featsLabels = new List<string>();
+		internal static List<string> featsLabels = new List<string>();
+		#endregion Fields (static)
 
 
-
+		#region Events (override)
 		protected override void OnFormClosing(FormClosingEventArgs e)
 		{
 			if (e.CloseReason != CloseReason.WindowsShutDown)
@@ -52,7 +54,7 @@ namespace nwn2_ai_2da_editor
 			}
 			base.OnFormClosing(e);
 		}
-
+		#endregion Events (override)
 
 
 		#region File
@@ -222,7 +224,7 @@ namespace nwn2_ai_2da_editor
 				switch (Type)
 				{
 					case Type2da.TYPE_SPELLS:
-						while (!Spells[id].isChanged && Spells[id].differ == bit_clear)
+						while (!Spells[id].isChanged && Spells[id].differ == tabcontrol_Spells.bit_clear)
 						{
 							if (id == Id) // not found.
 							{
@@ -236,7 +238,7 @@ namespace nwn2_ai_2da_editor
 						break;
 
 					case Type2da.TYPE_RACIAL:
-						while (!Races[id].isChanged && Races[id].differ == bit_clear)
+						while (!Races[id].isChanged && Races[id].differ == tabcontrol_Racial.bit_clear)
 						{
 							if (id == Id) // not found.
 							{
@@ -250,7 +252,7 @@ namespace nwn2_ai_2da_editor
 						break;
 
 					case Type2da.TYPE_CLASSES:
-						while (!Classes[id].isChanged && Classes[id].differ == bit_clear)
+						while (!Classes[id].isChanged && Classes[id].differ == tabcontrol_Classes.bit_clear)
 						{
 							if (id == Id) // not found.
 							{
@@ -329,64 +331,17 @@ namespace nwn2_ai_2da_editor
 		string GetTextInfo()
 		{
 			string info = String.Empty;
-			int i;
-			float f;
-
 			switch (Type)
 			{
 				case Type2da.TYPE_SPELLS:
-					switch (cols_HenchSpells.SelectedIndex)
-					{
-						case 2: // NOTE: The menuitem shall be enabled for Copy_decimal only.
-							info = EffectWeight_text.Text;
-							if (Single.TryParse(info, out f))
-								return info;
-
-							return String.Empty;
-
-						case 0: info = SpellInfo_text  .Text; break;
-						case 1: info = TargetInfo_text .Text; break;
-						case 3: info = EffectTypes_text.Text; break;
-						case 4: info = DamageInfo_text .Text; break;
-						case 5: info = SaveType_text   .Text; break;
-						case 6: info = SaveDCType_text .Text; break;
-					}
-					break;
+					return (HenchControl as tabcontrol_Spells).GetMasterText();
 
 				case Type2da.TYPE_RACIAL:
-					switch (cols_HenchRacial.SelectedIndex)
-					{
-						case 0: info = RacialFlags_text.Text; break;
-						case 1: info = RacialFeat1_text.Text; break;
-						case 2: info = RacialFeat2_text.Text; break;
-						case 3: info = RacialFeat3_text.Text; break;
-						case 4: info = RacialFeat4_text.Text; break;
-						case 5: info = RacialFeat5_text.Text; break;
-					}
-					break;
+					return (HenchControl as tabcontrol_Racial).GetMasterText();
 
 				case Type2da.TYPE_CLASSES:
-					switch (cols_HenchClasses.SelectedIndex)
-					{
-						case  0: info = ClassFlags_text .Text; break;
-						case  1: info = ClassFeat1_text .Text; break;
-						case  2: info = ClassFeat2_text .Text; break;
-						case  3: info = ClassFeat3_text .Text; break;
-						case  4: info = ClassFeat4_text .Text; break;
-						case  5: info = ClassFeat5_text .Text; break;
-						case  6: info = ClassFeat6_text .Text; break;
-						case  7: info = ClassFeat7_text .Text; break;
-						case  8: info = ClassFeat8_text .Text; break;
-						case  9: info = ClassFeat9_text .Text; break;
-						case 10: info = ClassFeat10_text.Text; break;
-						case 11: info = ClassFeat11_text.Text; break;
-					}
-					break;
+					return (HenchControl as tabcontrol_Classes).GetMasterText();
 			}
-
-			if (Int32.TryParse(info, out i))
-				return info;
-
 			return String.Empty;
 		}
 		#endregion Edit
@@ -703,7 +658,7 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_clearCoreAiVersion(object sender, EventArgs e)
 		{
-			bypassInfoVersion = true;
+			BypassInfoVersion = true;
 
 			switch (Type)
 			{
@@ -729,7 +684,7 @@ namespace nwn2_ai_2da_editor
 					break;
 			}
 
-			bypassInfoVersion = false;
+			BypassInfoVersion = false;
 		}
 
 		/// <summary>
@@ -878,7 +833,7 @@ namespace nwn2_ai_2da_editor
 				case Type2da.TYPE_SPELLS:
 					foreach (var spell in Spells)
 					{
-						if (spell.isChanged || spell.differ != bit_clear)
+						if (spell.isChanged || spell.differ != tabcontrol_Spells.bit_clear)
 							return true;
 					}
 					break;
@@ -886,7 +841,7 @@ namespace nwn2_ai_2da_editor
 				case Type2da.TYPE_RACIAL:
 					foreach (var race in Races)
 					{
-						if (race.isChanged || race.differ != bit_clear)
+						if (race.isChanged || race.differ != tabcontrol_Racial.bit_clear)
 							return true;
 					}
 					break;
@@ -894,7 +849,7 @@ namespace nwn2_ai_2da_editor
 				case Type2da.TYPE_CLASSES:
 					foreach (var clas in Classes)
 					{
-						if (clas.isChanged || clas.differ != bit_clear)
+						if (clas.isChanged || clas.differ != tabcontrol_Classes.bit_clear)
 							return true;
 					}
 					break;
@@ -993,9 +948,9 @@ namespace nwn2_ai_2da_editor
 					{
 						spell = Spells[id];
 
-						if (spell.differ != bit_clear)
+						if (spell.differ != tabcontrol_Spells.bit_clear)
 						{
-							spell.differ = bit_clear;
+							spell.differ = tabcontrol_Spells.bit_clear;
 							spell.isChanged = true; // this flag will be cleared by Write2daFile()
 
 							SpellChanged spellchanged = SpellsChanged[id];
@@ -1014,14 +969,7 @@ namespace nwn2_ai_2da_editor
 
 							if (id == Id) // is currently selected tree-node
 							{
-								SpellInfo_reset   .ForeColor = DefaultForeColor;
-								TargetInfo_reset  .ForeColor = DefaultForeColor;
-								EffectWeight_reset.ForeColor = DefaultForeColor;
-								EffectTypes_reset .ForeColor = DefaultForeColor;
-								DamageInfo_reset  .ForeColor = DefaultForeColor;
-								SaveType_reset    .ForeColor = DefaultForeColor;
-								SaveDCType_reset  .ForeColor = DefaultForeColor;
-
+								(HenchControl as tabcontrol_Spells).SetResetColor(DefaultForeColor);
 								AfterSelect_node(null, null); // refresh all displayed data for the current spell jic
 							}
 
@@ -1040,9 +988,9 @@ namespace nwn2_ai_2da_editor
 					{
 						race = Races[id];
 
-						if (race.differ != bit_clear)
+						if (race.differ != tabcontrol_Racial.bit_clear)
 						{
-							race.differ = bit_clear;
+							race.differ = tabcontrol_Racial.bit_clear;
 							race.isChanged = true; // this flag will be cleared by Write2daFile()
 
 							RaceChanged racechanged = RacesChanged[id];
@@ -1060,13 +1008,7 @@ namespace nwn2_ai_2da_editor
 
 							if (id == Id) // is currently selected tree-node
 							{
-								RacialFlags_reset.ForeColor = DefaultForeColor;
-								RacialFeat1_reset.ForeColor = DefaultForeColor;
-								RacialFeat2_reset.ForeColor = DefaultForeColor;
-								RacialFeat3_reset.ForeColor = DefaultForeColor;
-								RacialFeat4_reset.ForeColor = DefaultForeColor;
-								RacialFeat5_reset.ForeColor = DefaultForeColor;
-
+								(HenchControl as tabcontrol_Racial).SetResetColor(DefaultForeColor);
 								AfterSelect_node(null, null); // refresh all displayed data for the current race jic
 							}
 
@@ -1078,52 +1020,40 @@ namespace nwn2_ai_2da_editor
 
 				case Type2da.TYPE_CLASSES:
 				{
-					Class clas;
+					Class @class;
 
 					total = Classes.Count;
 					for (int id = 0; id != total; ++id)
 					{
-						clas = Classes[id];
+						@class = Classes[id];
 
-						if (clas.differ != bit_clear)
+						if (@class.differ != tabcontrol_Classes.bit_clear)
 						{
-							clas.differ = bit_clear;
-							clas.isChanged = true; // this flag will be cleared by Write2daFile()
+							@class.differ = tabcontrol_Classes.bit_clear;
+							@class.isChanged = true; // this flag will be cleared by Write2daFile()
 
-							ClassChanged claschanged = ClassesChanged[id];
+							ClassChanged classchanged = ClassesChanged[id];
 
-							clas.flags  = claschanged.flags;
-							clas.feat1  = claschanged.feat1;
-							clas.feat2  = claschanged.feat2;
-							clas.feat3  = claschanged.feat3;
-							clas.feat4  = claschanged.feat4;
-							clas.feat5  = claschanged.feat5;
-							clas.feat6  = claschanged.feat6;
-							clas.feat7  = claschanged.feat7;
-							clas.feat8  = claschanged.feat8;
-							clas.feat9  = claschanged.feat9;
-							clas.feat10 = claschanged.feat10;
-							clas.feat11 = claschanged.feat11;
+							@class.flags  = classchanged.flags;
+							@class.feat1  = classchanged.feat1;
+							@class.feat2  = classchanged.feat2;
+							@class.feat3  = classchanged.feat3;
+							@class.feat4  = classchanged.feat4;
+							@class.feat5  = classchanged.feat5;
+							@class.feat6  = classchanged.feat6;
+							@class.feat7  = classchanged.feat7;
+							@class.feat8  = classchanged.feat8;
+							@class.feat9  = classchanged.feat9;
+							@class.feat10 = classchanged.feat10;
+							@class.feat11 = classchanged.feat11;
 
-							Classes[id] = clas;
+							Classes[id] = @class;
 
 							ClassesChanged.Remove(id);
 
 							if (id == Id) // is currently selected tree-node
 							{
-								ClassFlags_reset .ForeColor = DefaultForeColor;
-								ClassFeat1_reset .ForeColor = DefaultForeColor;
-								ClassFeat2_reset .ForeColor = DefaultForeColor;
-								ClassFeat3_reset .ForeColor = DefaultForeColor;
-								ClassFeat4_reset .ForeColor = DefaultForeColor;
-								ClassFeat5_reset .ForeColor = DefaultForeColor;
-								ClassFeat6_reset .ForeColor = DefaultForeColor;
-								ClassFeat7_reset .ForeColor = DefaultForeColor;
-								ClassFeat8_reset .ForeColor = DefaultForeColor;
-								ClassFeat9_reset .ForeColor = DefaultForeColor;
-								ClassFeat10_reset.ForeColor = DefaultForeColor;
-								ClassFeat11_reset.ForeColor = DefaultForeColor;
-
+								(HenchControl as tabcontrol_Classes).SetResetColor(DefaultForeColor);
 								AfterSelect_node(null, null); // refresh all displayed data for the current class jic
 							}
 
@@ -1136,6 +1066,7 @@ namespace nwn2_ai_2da_editor
 		}
 
 
+		#region Write
 		/// <summary>
 		/// Writes all Applied data to 2da-file.
 		/// </summary>
@@ -1223,7 +1154,7 @@ namespace nwn2_ai_2da_editor
 
 					if (!FloatsEqual(spell.effectweight, 0.0f))
 					{
-						line += FormatFloat(spell.effectweight);
+						line += Float2daFormat(spell.effectweight);
 					}
 					else
 						line += blank;
@@ -1520,6 +1451,7 @@ namespace nwn2_ai_2da_editor
 				}
 			}
 		}
+		#endregion Write
 	}
 
 

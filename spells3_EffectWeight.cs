@@ -7,7 +7,7 @@ namespace nwn2_ai_2da_editor
 	/// <summary>
 	/// Functions for the EffectWeight page.
 	/// </summary>
-	partial class MainForm
+	partial class tabcontrol_Spells
 	{
 		/// <summary>
 		/// Handles TextChanged event on the EffectWeight page.
@@ -23,15 +23,15 @@ namespace nwn2_ai_2da_editor
 			{
 				int differ;
 
-				if (!bypassDiffer)
+				if (!MainForm.BypassDiffer)
 				{
-					Spell spell = Spells[Id];
+					Spell spell = MainForm.Spells[MainForm.Id];
 
 					SpellChanged spellchanged;
 
 					if (spell.differ != bit_clear)
 					{
-						spellchanged = SpellsChanged[Id];
+						spellchanged = MainForm.SpellsChanged[MainForm.Id];
 					}
 					else
 					{
@@ -50,29 +50,25 @@ namespace nwn2_ai_2da_editor
 					// check it
 					differ = SpellDiffer(spell, spellchanged);
 					spell.differ = differ;
-					Spells[Id] = spell;
+					MainForm.Spells[MainForm.Id] = spell;
 
 					Color color;
 					if (differ != bit_clear)
 					{
-						SpellsChanged[Id] = spellchanged;
+						MainForm.SpellsChanged[MainForm.Id] = spellchanged;
 						color = Color.Crimson;
 					}
 					else
 					{
-						SpellsChanged.Remove(Id);
+						MainForm.SpellsChanged.Remove(MainForm.Id);
 
-						if (spell.isChanged)
-						{
-							color = Color.Blue;
-						}
-						else
-							color = DefaultForeColor;
+						if (spell.isChanged) color = Color.Blue;
+						else                 color = DefaultForeColor;
 					}
-					Tree.SelectedNode.ForeColor = color;
+					MainForm.that.SetNodeColor(color);
 				}
 
-				differ = Spells[Id].differ;
+				differ = MainForm.Spells[MainForm.Id].differ;
 
 				if ((differ & bit_effectweight) != 0)
 				{
@@ -81,9 +77,7 @@ namespace nwn2_ai_2da_editor
 				else
 					EffectWeight_reset.ForeColor = DefaultForeColor;
 
-				apply          .Enabled = (differ != bit_clear);
-				applyGlobal    .Enabled = (differ != bit_clear) || (SpellsChanged.Count != 0);
-				gotoNextChanged.Enabled = (differ != bit_clear) || (SpellsChanged.Count != 0) || SpareChange();
+				MainForm.that.SetEnabled(differ != bit_clear);
 			}
 			// else TODO: error dialog here.
 		}
@@ -97,27 +91,25 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_ew_reset(object sender, EventArgs e)
 		{
-			Spell spell = Spells[Id];
+			Spell spell = MainForm.Spells[MainForm.Id];
 			if ((spell.differ & bit_effectweight) != 0)
 			{
 				spell.differ &= ~bit_effectweight;
-				Spells[Id] = spell;
+				MainForm.Spells[MainForm.Id] = spell;
 
 				if (spell.differ == bit_clear)
 				{
-					SpellsChanged.Remove(Id);
+					MainForm.SpellsChanged.Remove(MainForm.Id);
 
-					if (spell.isChanged)
-					{
-						Tree.SelectedNode.ForeColor = Color.Blue;
-					}
-					else
-						Tree.SelectedNode.ForeColor = DefaultForeColor;
+					Color color;
+					if (spell.isChanged) color = Color.Blue;
+					else                 color = DefaultForeColor;
+					MainForm.that.SetNodeColor(color);
 				}
 
 				EffectWeight_reset.ForeColor = DefaultForeColor;
 
-				EffectWeight_text.Text = FormatFloat(spell.effectweight);
+				EffectWeight_text.Text = MainForm.Float2daFormat(spell.effectweight);
 			}
 		}
 	}

@@ -8,7 +8,7 @@ namespace nwn2_ai_2da_editor
 	/// <summary>
 	/// Functions for the Racial pages.
 	/// </summary>
-	partial class MainForm
+	partial class tabcontrol_Racial
 	{
 		const int HENCH_FEAT_SPELL_SHIFT_SPELL = 16;
 
@@ -86,15 +86,15 @@ namespace nwn2_ai_2da_editor
 
 				int differ;
 
-				if (!bypassDiffer)
+				if (!MainForm.BypassDiffer)
 				{
-					Race race = Races[Id];
+					Race race = MainForm.Races[MainForm.Id];
 
 					RaceChanged racechanged;
 
 					if (race.differ != bit_clear)
 					{
-						racechanged = RacesChanged[Id];
+						racechanged = MainForm.RacesChanged[MainForm.Id];
 					}
 					else
 					{
@@ -136,31 +136,27 @@ namespace nwn2_ai_2da_editor
 					// check it
 					differ = RaceDiffer(race, racechanged);
 					race.differ = differ;
-					Races[Id] = race;
+					MainForm.Races[MainForm.Id] = race;
 
 					Color color;
 					if (differ != bit_clear)
 					{
-						RacesChanged[Id] = racechanged;
+						MainForm.RacesChanged[MainForm.Id] = racechanged;
 						color = Color.Crimson;
 					}
 					else
 					{
-						RacesChanged.Remove(Id);
+						MainForm.RacesChanged.Remove(MainForm.Id);
 
-						if (race.isChanged)
-						{
-							color = Color.Blue;
-						}
-						else
-							color = DefaultForeColor;
+						if (race.isChanged) color = Color.Blue;
+						else                color = DefaultForeColor;
 					}
-					Tree.SelectedNode.ForeColor = color;
+					MainForm.that.SetNodeColor(color);
 				}
 
-				PrintCurrent(val, tb_hex, tb_bin);
+				MainForm.PrintCurrent(val, tb_hex, tb_bin);
 
-				differ = Races[Id].differ;
+				differ = MainForm.Races[MainForm.Id].differ;
 
 				if ((differ & bit) != 0)
 				{
@@ -172,15 +168,13 @@ namespace nwn2_ai_2da_editor
 				if (isFlags)
 				{
 					CheckRacialFlagsCheckers(val);
-					PrintInfoVersion_race(val);
+//					PrintInfoVersion_race(val);
 				}
 				else
 					CheckRacialFeatsCheckers(tb);
 
 
-				apply          .Enabled = (differ != bit_clear);
-				applyGlobal    .Enabled = (differ != bit_clear) || (RacesChanged.Count != 0);
-				gotoNextChanged.Enabled = (differ != bit_clear) || (RacesChanged.Count != 0) || SpareChange();
+				MainForm.that.SetEnabled(differ != bit_clear);
 			}
 			// else TODO: error dialog here.
 		}
@@ -194,17 +188,17 @@ namespace nwn2_ai_2da_editor
 		{
 			// ensure that racial-flags has a CoreAI version
 			// NOTE that RacialFlags always has a Version (unlike spellinfo)
-			if ((val & HENCH_SPELL_INFO_VERSION_MASK) == 0)
+			if ((val & hc.HENCH_SPELL_INFO_VERSION_MASK) == 0)
 			{
-				val |= HENCH_SPELL_INFO_VERSION; // insert the default version #
+				val |= hc.HENCH_SPELL_INFO_VERSION; // insert the default version #
 
-				Race race = Races[Id];
+				Race race = MainForm.Races[MainForm.Id];
 
 				RaceChanged racechanged;
 
 				if (race.differ != bit_clear)
 				{
-					racechanged = RacesChanged[Id];
+					racechanged = MainForm.RacesChanged[MainForm.Id];
 				}
 				else
 				{
@@ -222,26 +216,22 @@ namespace nwn2_ai_2da_editor
 				// check it
 				int differ = RaceDiffer(race, racechanged);
 				race.differ = differ;
-				Races[Id] = race;
+				MainForm.Races[MainForm.Id] = race;
 
 				Color color;
 				if (differ != bit_clear)
 				{
-					RacesChanged[Id] = racechanged;
+					MainForm.RacesChanged[MainForm.Id] = racechanged;
 					color = Color.Crimson;
 				}
 				else
 				{
-					RacesChanged.Remove(Id);
+					MainForm.RacesChanged.Remove(MainForm.Id);
 
-					if (race.isChanged)
-					{
-						color = Color.Blue;
-					}
-					else
-						color = DefaultForeColor;
+					if (race.isChanged) color = Color.Blue;
+					else                color = DefaultForeColor;
 				}
-				Tree.SelectedNode.ForeColor = color;
+				MainForm.that.SetNodeColor(color);
 
 				return true;
 			}
@@ -258,12 +248,12 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_racial_reset(object sender, EventArgs e)
 		{
-			if (RacesChanged.ContainsKey(Id))
+			if (MainForm.RacesChanged.ContainsKey(MainForm.Id))
 			{
 				int bit, info;
 				TextBox tb;
 
-				Race race = Races[Id];
+				Race race = MainForm.Races[MainForm.Id];
 
 				var btn = sender as Button;
 				if (btn == RacialFlags_reset)
@@ -304,18 +294,17 @@ namespace nwn2_ai_2da_editor
 				}
 
 				race.differ &= ~bit;
-				Races[Id] = race;
+				MainForm.Races[MainForm.Id] = race;
 
 				if (race.differ == bit_clear)
 				{
-					RacesChanged.Remove(Id);
+					MainForm.RacesChanged.Remove(MainForm.Id);
 
-					if (race.isChanged)
-					{
-						Tree.SelectedNode.ForeColor = Color.Blue;
-					}
-					else
-						Tree.SelectedNode.ForeColor = DefaultForeColor;
+					Color color;
+					if (race.isChanged) color = Color.Blue;
+					else                color = DefaultForeColor;
+
+					MainForm.that.SetNodeColor(color);
 				}
 
 				btn.ForeColor = DefaultForeColor;
@@ -337,10 +326,10 @@ namespace nwn2_ai_2da_editor
 			{
 				if (rf_HasFeatSpells.Checked)
 				{
-					flags |= HENCH_RACIAL_FEAT_SPELLS;
+					flags |= hc.HENCH_RACIAL_FEAT_SPELLS;
 				}
 				else
-					flags &= ~HENCH_RACIAL_FEAT_SPELLS;
+					flags &= ~hc.HENCH_RACIAL_FEAT_SPELLS;
 
 				RacialFlags_text.Text = flags.ToString();
 			}
@@ -380,10 +369,10 @@ namespace nwn2_ai_2da_editor
 			{
 				if (cb.Checked)
 				{
-					feat |= HENCH_FEAT_SPELL_CHEAT_CAST;
+					feat |= hc.HENCH_FEAT_SPELL_CHEAT_CAST;
 				}
 				else
-					feat &= ~HENCH_FEAT_SPELL_CHEAT_CAST;
+					feat &= ~hc.HENCH_FEAT_SPELL_CHEAT_CAST;
 
 				tb.Text = feat.ToString();
 			}
@@ -438,7 +427,7 @@ namespace nwn2_ai_2da_editor
 					}
 
 					int feaT = Int32.Parse(tb.Text);
-					feaT &= ~HENCH_FEAT_SPELL_MASK_FEAT;
+					feaT &= ~hc.HENCH_FEAT_SPELL_MASK_FEAT;
 
 					tb.Text = (feaT | feat).ToString();
 				}
@@ -492,7 +481,7 @@ namespace nwn2_ai_2da_editor
 					}
 
 					int feaT = Int32.Parse(tb.Text);
-					feaT &= ~HENCH_FEAT_SPELL_MASK_SPELL;
+					feaT &= ~hc.HENCH_FEAT_SPELL_MASK_SPELL;
 
 					spell <<= HENCH_FEAT_SPELL_SHIFT_SPELL;
 					tb.Text = (feaT | spell).ToString();
@@ -501,17 +490,17 @@ namespace nwn2_ai_2da_editor
 		}
 
 
-		/// <summary>
-		/// Prints the info-version of the currently selected race ID.
-		/// <param name="flags"></param>
-		/// </summary>
-		void PrintInfoVersion_race(int flags)
-		{
-			flags &= HENCH_SPELL_INFO_VERSION_MASK;
-			flags >>= HENCH_SPELL_INFO_VERSION_SHIFT;
-
-			rf_infoversion.Text = flags.ToString();
-		}
+//		/// <summary>
+//		/// Prints the info-version of the currently selected race ID.
+//		/// <param name="flags"></param>
+//		/// </summary>
+//		void PrintInfoVersion_race(int flags)
+//		{
+//			flags &= hc.HENCH_SPELL_INFO_VERSION_MASK;
+//			flags >>= MainForm.HENCH_SPELL_INFO_VERSION_SHIFT;
+//
+//			rf_infoversion.Text = flags.ToString();
+//		}
 
 
 		/// <summary>
@@ -521,7 +510,7 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void CheckRacialFlagsCheckers(int flags)
 		{
-			rf_HasFeatSpells.Checked = (flags & HENCH_RACIAL_FEAT_SPELLS) != 0;
+			rf_HasFeatSpells.Checked = (flags & hc.HENCH_RACIAL_FEAT_SPELLS) != 0;
 		}
 
 		/// <summary>
@@ -579,24 +568,24 @@ namespace nwn2_ai_2da_editor
 					lbl_spell = rf5_SpellLabel;
 				}
 
-				cb.Checked = (feat & HENCH_FEAT_SPELL_CHEAT_CAST) != 0;
+				cb.Checked = (feat & hc.HENCH_FEAT_SPELL_CHEAT_CAST) != 0;
 
-				int val = (feat & HENCH_FEAT_SPELL_MASK_FEAT);
+				int val = (feat & hc.HENCH_FEAT_SPELL_MASK_FEAT);
 				tb_feat.Text = val.ToString();
 
-				if (featsLabels.Count != 0
-					&& val < featsLabels.Count)
+				if (MainForm.featsLabels.Count != 0
+					&& val < MainForm.featsLabels.Count)
 				{
-					lbl_feat.Text = featsLabels[val];
+					lbl_feat.Text = MainForm.featsLabels[val];
 				}
 
-				val = (feat & HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
+				val = (feat & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
 				tb_spell.Text = val.ToString();
 
-				if (spellLabels.Count != 0
-					&& val < spellLabels.Count)
+				if (MainForm.spellLabels.Count != 0
+					&& val < MainForm.spellLabels.Count)
 				{
-					lbl_spell.Text = spellLabels[val];
+					lbl_spell.Text = MainForm.spellLabels[val];
 				}
 			}
 		}

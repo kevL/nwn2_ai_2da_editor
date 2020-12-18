@@ -8,8 +8,13 @@ namespace nwn2_ai_2da_editor
 	/// <summary>
 	/// Functions for the SaveDCType page.
 	/// </summary>
-	partial class MainForm
+	partial class tabcontrol_Spells
 	{
+		/// <summary>
+		/// Mask for all allowable ArmorCheckType bits.
+		/// </summary>
+		const int HENCH_SAVEDCTYPE_ARMORCHECK_MASK = 0x10000003;
+
 		/// <summary>
 		/// Handles TextChanged event on the SaveDCType page.
 		/// </summary>
@@ -24,15 +29,15 @@ namespace nwn2_ai_2da_editor
 			{
 				int differ;
 
-				if (!bypassDiffer)
+				if (!MainForm.BypassDiffer)
 				{
-					Spell spell = Spells[Id];
+					Spell spell = MainForm.Spells[MainForm.Id];
 
 					SpellChanged spellchanged;
 
 					if (spell.differ != bit_clear)
 					{
-						spellchanged = SpellsChanged[Id];
+						spellchanged = MainForm.SpellsChanged[MainForm.Id];
 					}
 					else
 					{
@@ -51,31 +56,27 @@ namespace nwn2_ai_2da_editor
 					// check it
 					differ = SpellDiffer(spell, spellchanged);
 					spell.differ = differ;
-					Spells[Id] = spell;
+					MainForm.Spells[MainForm.Id] = spell;
 
 					Color color;
 					if (differ != bit_clear)
 					{
-						SpellsChanged[Id] = spellchanged;
+						MainForm.SpellsChanged[MainForm.Id] = spellchanged;
 						color = Color.Crimson;
 					}
 					else
 					{
-						SpellsChanged.Remove(Id);
+						MainForm.SpellsChanged.Remove(MainForm.Id);
 
-						if (spell.isChanged)
-						{
-							color = Color.Blue;
-						}
-						else
-							color = DefaultForeColor;
+						if (spell.isChanged) color = Color.Blue;
+						else                 color = DefaultForeColor;
 					}
-					Tree.SelectedNode.ForeColor = color;
+					MainForm.that.SetNodeColor(color);
 				}
 
-				PrintCurrent(savedctype, SaveDCType_hex, SaveDCType_bin);
+				MainForm.PrintCurrent(savedctype, SaveDCType_hex, SaveDCType_bin);
 
-				differ = Spells[Id].differ;
+				differ = MainForm.Spells[MainForm.Id].differ;
 
 				if ((differ & bit_savedctype) != 0)
 				{
@@ -101,9 +102,7 @@ namespace nwn2_ai_2da_editor
 				// TODO: should probably disable if savedctype is negative.
 				dc_ArmorCheckGrp.Enabled = (savedctype & ~HENCH_SAVEDCTYPE_ARMORCHECK_MASK) == 0;
 
-				apply          .Enabled = (differ != bit_clear);
-				applyGlobal    .Enabled = (differ != bit_clear) || (SpellsChanged.Count != 0);
-				gotoNextChanged.Enabled = (differ != bit_clear) || (SpellsChanged.Count != 0) || SpareChange();
+				MainForm.that.SetEnabled(differ != bit_clear);
 			}
 			// else TODO: error dialog here.
 		}
@@ -118,63 +117,26 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_dc_reset(object sender, EventArgs e)
 		{
-			Spell spell = Spells[Id];
+			Spell spell = MainForm.Spells[MainForm.Id];
 			if ((spell.differ & bit_savedctype) != 0)
 			{
 				spell.differ &= ~bit_savedctype;
-				Spells[Id] = spell;
+				MainForm.Spells[MainForm.Id] = spell;
 
 				if (spell.differ == bit_clear)
 				{
-					SpellsChanged.Remove(Id);
+					MainForm.SpellsChanged.Remove(MainForm.Id);
 
-					if (spell.isChanged)
-					{
-						Tree.SelectedNode.ForeColor = Color.Blue;
-					}
-					else
-						Tree.SelectedNode.ForeColor = DefaultForeColor;
+					Color color;
+					if (spell.isChanged) color = Color.Blue;
+					else                 color = DefaultForeColor;
+					MainForm.that.SetNodeColor(color);
 				}
 
 				SaveDCType_reset.ForeColor = DefaultForeColor;
 
 				SaveDCType_text.Text = spell.savedctype.ToString();
 			}
-		}
-
-
-		/// <summary>
-		/// Populates the SaveDCType dropdown-lists.
-		/// </summary>
-		void PopulateSaveDcTypeComboboxes()
-		{
-			// populate the dropdown list for SaveDCType
-			cbo_dc_SaveDC.Items.Add("spell dc standard");			// -1000
-			cbo_dc_SaveDC.Items.Add("no save");						// 0
-			cbo_dc_SaveDC.Items.Add("dc = 10 + hd");				// 1000
-			cbo_dc_SaveDC.Items.Add("dc = 10 + hd / 2");			// 1001
-			cbo_dc_SaveDC.Items.Add("dc = 10 + hd / 4");			// 1002
-			cbo_dc_SaveDC.Items.Add("dc = 10 + hd / 2 + Con");		// 1003
-			cbo_dc_SaveDC.Items.Add("dc = 10 + hd / 2 + Con - 5");	// 1004
-			cbo_dc_SaveDC.Items.Add("dc = 10 + hd / 2 + Wis");		// 1005
-			cbo_dc_SaveDC.Items.Add("dc = 10 + hd / 2 + 5");		// 1006
-			cbo_dc_SaveDC.Items.Add("dc = 10 + hd / 2 + Cha");		// 1007
-			cbo_dc_SaveDC.Items.Add("disease bolt");				// 1010
-			cbo_dc_SaveDC.Items.Add("disease cone");				// 1011
-			cbo_dc_SaveDC.Items.Add("disease pulse");				// 1012
-			cbo_dc_SaveDC.Items.Add("poison");						// 1013
-			cbo_dc_SaveDC.Items.Add("epic dc");						// 1014
-			cbo_dc_SaveDC.Items.Add("deathless master touch");		// 1020
-			cbo_dc_SaveDC.Items.Add("undead graft");				// 1021
-			cbo_dc_SaveDC.Items.Add("caster dc (n/a spell-level)");	// 1022
-			cbo_dc_SaveDC.Items.Add("bardic slow");					// 1024
-			cbo_dc_SaveDC.Items.Add("bardic fascinate");			// 1025
-
-			// populate the dropdown list for SaveDCType - WeaponBonusType
-			cbo_dc_WeaponBonus.Items.Add("none");									// 0
-			cbo_dc_WeaponBonus.Items.Add("weapon bonus - (casterlevel / 4)");		// 100
-			cbo_dc_WeaponBonus.Items.Add("weapon bonus - (casterlevel + 1) / 3");	// 101
-			cbo_dc_WeaponBonus.Items.Add("weapon bonus - (casterlevel / 3) - 1");	// 102
 		}
 
 
@@ -195,31 +157,31 @@ namespace nwn2_ai_2da_editor
 			string text = String.Empty;
 			switch (sel)
 			{
-				case  0: text = HENCH_SAVEDC_SPELL.ToString();                  break; // -1000
+				case  0: text = hc.HENCH_SAVEDC_SPELL.ToString();                  break; // -1000
 
-				case  1: text = HENCH_SAVEDC_NONE.ToString();                   break; // 0
+				case  1: text = hc.HENCH_SAVEDC_NONE.ToString();                   break; // 0
 
-				case  2: text = HENCH_SAVEDC_HD_1.ToString();                   break; // 1000
-				case  3: text = HENCH_SAVEDC_HD_2.ToString();                   break; // 1001
-				case  4: text = HENCH_SAVEDC_HD_4.ToString();                   break; // 1002
-				case  5: text = HENCH_SAVEDC_HD_2_CONST.ToString();             break; // 1003
-				case  6: text = HENCH_SAVEDC_HD_2_CONST_MINUS_5.ToString();     break; // 1004
-				case  7: text = HENCH_SAVEDC_HD_2_WIS.ToString();               break; // 1005
-				case  8: text = HENCH_SAVEDC_HD_2_PLUS_5.ToString();            break; // 1006
-				case  9: text = HENCH_SAVEDC_HD_2_CHA.ToString();               break; // 1007
+				case  2: text = hc.HENCH_SAVEDC_HD_1.ToString();                   break; // 1000
+				case  3: text = hc.HENCH_SAVEDC_HD_2.ToString();                   break; // 1001
+				case  4: text = hc.HENCH_SAVEDC_HD_4.ToString();                   break; // 1002
+				case  5: text = hc.HENCH_SAVEDC_HD_2_CONST.ToString();             break; // 1003
+				case  6: text = hc.HENCH_SAVEDC_HD_2_CONST_MINUS_5.ToString();     break; // 1004
+				case  7: text = hc.HENCH_SAVEDC_HD_2_WIS.ToString();               break; // 1005
+				case  8: text = hc.HENCH_SAVEDC_HD_2_PLUS_5.ToString();            break; // 1006
+				case  9: text = hc.HENCH_SAVEDC_HD_2_CHA.ToString();               break; // 1007
 
-				case 10: text = HENCH_SAVEDC_DISEASE_BOLT.ToString();           break; // 1010
-				case 11: text = HENCH_SAVEDC_DISEASE_CONE.ToString();           break; // 1011
-				case 12: text = HENCH_SAVEDC_DISEASE_PULSE.ToString();          break; // 1012
-				case 13: text = HENCH_SAVEDC_POISON.ToString();                 break; // 1013
-				case 14: text = HENCH_SAVEDC_EPIC.ToString();                   break; // 1014
+				case 10: text = hc.HENCH_SAVEDC_DISEASE_BOLT.ToString();           break; // 1010
+				case 11: text = hc.HENCH_SAVEDC_DISEASE_CONE.ToString();           break; // 1011
+				case 12: text = hc.HENCH_SAVEDC_DISEASE_PULSE.ToString();          break; // 1012
+				case 13: text = hc.HENCH_SAVEDC_POISON.ToString();                 break; // 1013
+				case 14: text = hc.HENCH_SAVEDC_EPIC.ToString();                   break; // 1014
 
-				case 15: text = HENCH_SAVEDC_DEATHLESS_MASTER_TOUCH.ToString(); break; // 1020
-				case 16: text = HENCH_SAVEDC_UNDEAD_GRAFT.ToString();           break; // 1021
-				case 17: text = HENCH_SAVEDC_SPELL_NO_SPELL_LEVEL.ToString();   break; // 1022
+				case 15: text = hc.HENCH_SAVEDC_DEATHLESS_MASTER_TOUCH.ToString(); break; // 1020
+				case 16: text = hc.HENCH_SAVEDC_UNDEAD_GRAFT.ToString();           break; // 1021
+				case 17: text = hc.HENCH_SAVEDC_SPELL_NO_SPELL_LEVEL.ToString();   break; // 1022
 
-				case 18: text = HENCH_SAVEDC_BARD_SLOWING.ToString();           break; // 1024
-				case 19: text = HENCH_SAVEDC_BARD_FASCINATE.ToString();         break; // 1025
+				case 18: text = hc.HENCH_SAVEDC_BARD_SLOWING.ToString();           break; // 1024
+				case 19: text = hc.HENCH_SAVEDC_BARD_FASCINATE.ToString();         break; // 1025
 			}
 
 			SaveDCType_text.Text = text;
@@ -268,17 +230,12 @@ namespace nwn2_ai_2da_editor
 				case 0: text = "0";   break;
 				case 1: text = "100"; break; // no constants defined in CoreAI ->
 				case 2: text = "101"; break; // See 'hench_i0_buff' HenchCheckWeaponBuff()
-				case 3: text = "102"; break; // spelltype - HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF
+				case 3: text = "102"; break; // spelltype - hc.HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF
 			}
 
 			SaveDCType_text.Text = text;
 		}
 
-
-		/// <summary>
-		/// Mask for all allowable ArmorCheckType bits.
-		/// </summary>
-		const int HENCH_SAVEDCTYPE_ARMORCHECK_MASK = 0x10000003;
 
 		/// <summary>
 		/// Handler for the SaveDCType - ArmorCheckType checkboxes.
@@ -301,15 +258,15 @@ namespace nwn2_ai_2da_editor
 				var cb = sender as CheckBox;
 				if (cb == savedc_ac1)
 				{
-					bit = HENCH_AC_CHECK_ARMOR; // 0x00000001
+					bit = hc.HENCH_AC_CHECK_ARMOR; // 0x00000001
 				}
 				else if (cb == savedc_ac2)
 				{
-					bit = HENCH_AC_CHECK_SHIELD; // 0x00000002
+					bit = hc.HENCH_AC_CHECK_SHIELD; // 0x00000002
 				}
 				else //if (cb == savedc_ac3)
 				{
-					bit = HENCH_AC_CHECK_MOVEMENT_SPEED_DECREASE; // 0x10000000
+					bit = hc.HENCH_AC_CHECK_MOVEMENT_SPEED_DECREASE; // 0x10000000
 				}
 
 				if (cb.Checked)
@@ -334,9 +291,9 @@ namespace nwn2_ai_2da_editor
 // ArmorCheck checkboxes
 			bool b = (savedctype > -1); // a negative value wreaks havoc on the speed-decrease bit ...
 
-			savedc_ac1.Checked = b && (savedctype & HENCH_AC_CHECK_ARMOR)                   != 0;
-			savedc_ac2.Checked = b && (savedctype & HENCH_AC_CHECK_SHIELD)                  != 0;
-			savedc_ac3.Checked = b && (savedctype & HENCH_AC_CHECK_MOVEMENT_SPEED_DECREASE) != 0;
+			savedc_ac1.Checked = b && (savedctype & hc.HENCH_AC_CHECK_ARMOR)                   != 0;
+			savedc_ac2.Checked = b && (savedctype & hc.HENCH_AC_CHECK_SHIELD)                  != 0;
+			savedc_ac3.Checked = b && (savedctype & hc.HENCH_AC_CHECK_MOVEMENT_SPEED_DECREASE) != 0;
 
 			int val;
 

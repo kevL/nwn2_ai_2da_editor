@@ -16,6 +16,15 @@ namespace nwn2_ai_2da_editor
 			Form
 	{
 		#region class Vars
+		internal static MainForm that;
+
+		/// <summary>
+		/// The control added to 'splitContainer1.Panel2' that displays a
+		/// TabControl for spells, races, or classes. It will be created and
+		/// disposed dynamically.
+		/// </summary>
+		UserControl HenchControl;
+
 		/// <summary>
 		/// The 'blank' 2da-string.
 		/// </summary>
@@ -45,42 +54,42 @@ namespace nwn2_ai_2da_editor
 		/// A list-object that contains structs of all spells currently in
 		/// HenchSpells.2da.
 		/// </summary>
-		List<Spell> Spells = new List<Spell>();
+		internal static List<Spell> Spells = new List<Spell>();
 
 		/// <summary>
 		/// A dictionary-object that contains structs of any spell that has been
 		/// changed by the editor.
 		/// </summary>
-		Dictionary<int, SpellChanged> SpellsChanged = new Dictionary<int, SpellChanged>();
+		internal static Dictionary<int, SpellChanged> SpellsChanged = new Dictionary<int, SpellChanged>();
 
 		/// <summary>
 		/// A list-object that contains structs of all races currently in
 		/// HenchRacial.2da.
 		/// </summary>
-		List<Race> Races = new List<Race>();
+		internal static List<Race> Races = new List<Race>();
 
 		/// <summary>
 		/// A dictionary-object that contains structs of any race that has been
 		/// changed by the editor.
 		/// </summary>
-		Dictionary<int, RaceChanged> RacesChanged = new Dictionary<int, RaceChanged>();
+		internal static Dictionary<int, RaceChanged> RacesChanged = new Dictionary<int, RaceChanged>();
 
 		/// <summary>
 		/// A list-object that contains structs of all classes currently in
 		/// HenchClasses.2da.
 		/// </summary>
-		List<Class> Classes = new List<Class>();
+		internal static List<Class> Classes = new List<Class>();
 
 		/// <summary>
 		/// A dictionary-object that contains structs of any class that has been
 		/// changed by the editor.
 		/// </summary>
-		Dictionary<int, ClassChanged> ClassesChanged = new Dictionary<int, ClassChanged>();
+		internal static Dictionary<int, ClassChanged> ClassesChanged = new Dictionary<int, ClassChanged>();
 
 		/// <summary>
 		/// The currently selected node in the Tree.
 		/// </summary>
-		int Id
+		internal static int Id
 		{ get; set; }
 
 		/// <summary>
@@ -88,14 +97,14 @@ namespace nwn2_ai_2da_editor
 		/// That is don't fire the text-changed event when the tree is initially
 		/// populated or is being re-populated.
 		/// </summary>
-		bool bypassDiffer;
+		internal static bool BypassDiffer;
 
 		/// <summary>
 		/// A boolean that bypasses forcibly inserting an InfoVersion into
 		/// struct-data. This needs to be set to cope with 2das that are
 		/// compatible with Tony AI 2.3+
 		/// </summary>
-		bool bypassInfoVersion;
+		internal static bool BypassInfoVersion;
 
 		/// <summary>
 		/// A boolean indicating that the currently loaded 2da has a "Label" col.
@@ -135,69 +144,7 @@ namespace nwn2_ai_2da_editor
 			//
 			// The logfile ought appear in the directory with the executable.
 
-
-// HenchSpells
-			SpellInfo_hex  .BackColor = // set the backgrounds of the hexadecimal and binary
-			SpellInfo_bin  .BackColor = // textboxes to blend in with the Form's background
-			TargetInfo_hex .BackColor =
-			TargetInfo_bin .BackColor =
-			EffectTypes_hex.BackColor =
-			EffectTypes_bin.BackColor =
-			DamageInfo_hex .BackColor =
-			DamageInfo_bin .BackColor =
-			SaveType_hex   .BackColor =
-			SaveType_bin   .BackColor =
-			SaveDCType_hex .BackColor =
-			SaveDCType_bin .BackColor =
-
-// HenchRacial
-			RacialFlags_hex.BackColor =
-			RacialFlags_bin.BackColor =
-			RacialFeat1_hex.BackColor =
-			RacialFeat1_bin.BackColor =
-			RacialFeat2_hex.BackColor =
-			RacialFeat2_bin.BackColor =
-			RacialFeat3_hex.BackColor =
-			RacialFeat3_bin.BackColor =
-			RacialFeat4_hex.BackColor =
-			RacialFeat4_bin.BackColor =
-			RacialFeat5_hex.BackColor =
-			RacialFeat5_bin.BackColor =
-
-// HenchClasses
-			ClassFlags_hex .BackColor =
-			ClassFlags_bin .BackColor =
-			ClassFeat1_hex .BackColor =
-			ClassFeat1_bin .BackColor =
-			ClassFeat2_hex .BackColor =
-			ClassFeat2_bin .BackColor =
-			ClassFeat3_hex .BackColor =
-			ClassFeat3_bin .BackColor =
-			ClassFeat4_hex .BackColor =
-			ClassFeat4_bin .BackColor =
-			ClassFeat5_hex .BackColor =
-			ClassFeat5_bin .BackColor =
-			ClassFeat6_hex .BackColor =
-			ClassFeat6_bin .BackColor =
-			ClassFeat7_hex .BackColor =
-			ClassFeat7_bin .BackColor =
-			ClassFeat8_hex .BackColor =
-			ClassFeat8_bin .BackColor =
-			ClassFeat9_hex .BackColor =
-			ClassFeat9_bin .BackColor =
-			ClassFeat10_hex.BackColor =
-			ClassFeat10_bin.BackColor =
-			ClassFeat11_hex.BackColor =
-			ClassFeat11_bin.BackColor = BackColor;
-
-
-			PopulateSpellInfoComboboxes();
-			PopulateTargetInfoComboboxes();
-			PopulateDamageInfoComboboxes();
-			PopulateSaveTypeComboboxes();
-			PopulateSaveDcTypeComboboxes();
-
-			PopulateClassComboboxes();
+			that = this;
 
 
 			// set unicode text on the up/down Search btns.
@@ -208,10 +155,6 @@ namespace nwn2_ai_2da_editor
 
 
 			Size = new Size(800, 480);
-
-			// position the Racial and Classes tab-pages to their appropriate location
-			cols_HenchRacial .Location =
-			cols_HenchClasses.Location = cols_HenchSpells.Location;
 
 
 			// NOTE: quickload a 2da for testing ONLY.
@@ -423,21 +366,17 @@ namespace nwn2_ai_2da_editor
 		/// <param name="rows"></param>
 		void Load_HenchSpells(string[] rows)
 		{
+			if (HenchControl != null)
+				HenchControl.Dispose(); // <- also removes the control from its collection
+
+			HenchControl = new tabcontrol_Spells();
+			splitContainer1.Panel2.Controls.Add(HenchControl);
+
+			// TODO: size the form appropriately
+
 			Type = Type2da.TYPE_SPELLS;
 
 			ClearData();
-
-			cols_HenchSpells .Visible = true;
-			cols_HenchRacial .Visible =
-			cols_HenchClasses.Visible = false;
-
-			SpellInfo_reset   .ForeColor =
-			TargetInfo_reset  .ForeColor =
-			EffectWeight_reset.ForeColor =
-			EffectTypes_reset .ForeColor =
-			DamageInfo_reset  .ForeColor =
-			SaveType_reset    .ForeColor =
-			SaveDCType_reset  .ForeColor = DefaultForeColor;
 
 
 			string[] fields;
@@ -456,7 +395,7 @@ namespace nwn2_ai_2da_editor
 
 						spell.id        = id;
 						spell.isChanged = false;
-						spell.differ    = bit_clear;
+						spell.differ    = tabcontrol_Spells.bit_clear;
 
 						int col = 0;
 
@@ -507,29 +446,21 @@ namespace nwn2_ai_2da_editor
 
 			GrowTree();
 
+			EnableCopy(true);
+
 			// check if any info-version(s) need to be updated in spellinfo-int.
 //			InfoVersionLoad_spells();
 
 			// Groups on SpellInfo and TargetInfo generally stay green
 			// unless SpellInfo is flagged as a MasterID
-			GroupColor(si_SpelltypeGrp,  Color.LimeGreen);
-			GroupColor(si_FlagsGrp,      Color.LimeGreen);
-			GroupColor(si_SpelllevelGrp, Color.LimeGreen);
-			GroupColor(si_ChildIDGrp,    Color.LimeGreen);
-
-			GroupColor(ti_FlagsGrp,  Color.LimeGreen);
-			GroupColor(ti_ShapeGrp,  Color.LimeGreen);
-			GroupColor(ti_RangeGrp,  Color.LimeGreen);
-			GroupColor(ti_RadiusGrp, Color.LimeGreen);
-
-			si_hostile.ForeColor = DefaultForeColor; // set the DETRIMENTAL/BENEFICIAL label back to default-color.
+			(HenchControl as tabcontrol_Spells).SetDefaultGroupColors();
 
 			// TODO: this doesn't work as intended if the window is currently
 			// maximized.
 			if (Width < 1105) Width = 1105;
 			if (Height < 530) Height = 530;
 
-			apply         .Text = "apply this spell\'s data";
+			btn_Apply     .Text = "apply this spell\'s data";
 			tree_Highlight.Text = "highlight blank SpellInfo nodes";
 //			addNode       .Text = "add node: spell";
 
@@ -609,20 +540,17 @@ namespace nwn2_ai_2da_editor
 		/// <param name="rows"></param>
 		void Load_HenchRacial(string[] rows)
 		{
+			if (HenchControl != null)
+				HenchControl.Dispose(); // <- also removes the control from its collection
+
+			HenchControl = new tabcontrol_Racial();
+			splitContainer1.Panel2.Controls.Add(HenchControl);
+
+			// TODO: size the form appropriately
+
 			Type = Type2da.TYPE_RACIAL;
 
 			ClearData();
-
-			cols_HenchSpells .Visible = false;
-			cols_HenchRacial .Visible = true;
-			cols_HenchClasses.Visible = false;
-
-			RacialFlags_reset.ForeColor =
-			RacialFeat1_reset.ForeColor =
-			RacialFeat2_reset.ForeColor =
-			RacialFeat3_reset.ForeColor =
-			RacialFeat4_reset.ForeColor =
-			RacialFeat5_reset.ForeColor = DefaultForeColor;
 
 
 			string[] fields;
@@ -641,7 +569,7 @@ namespace nwn2_ai_2da_editor
 
 						race.id        = id;
 						race.isChanged = false;
-						race.differ    = bit_clear;
+						race.differ    = tabcontrol_Racial.bit_clear;
 
 						int col = 0;
 
@@ -687,6 +615,8 @@ namespace nwn2_ai_2da_editor
 
 			GrowTree();
 
+			EnableCopy(true);
+
 			// check if any info-version(s) need to be updated in flags-int.
 //			InfoVersionLoad_racial();
 
@@ -696,7 +626,7 @@ namespace nwn2_ai_2da_editor
 			if (Width  < 905) Width  = 905;
 			if (Height < 350) Height = 350;
 
-			apply         .Text = "apply this race\'s data";
+			btn_Apply     .Text = "apply this race\'s data";
 			tree_Highlight.Text = "highlight blank Racial flags nodes";
 //			addNode       .Text = "add node: race";
 
@@ -754,26 +684,17 @@ namespace nwn2_ai_2da_editor
 		/// <param name="rows"></param>
 		void Load_HenchClasses(string[] rows)
 		{
+			if (HenchControl != null)
+				HenchControl.Dispose(); // <- also removes the control from its collection
+
+			HenchControl = new tabcontrol_Classes();
+			splitContainer1.Panel2.Controls.Add(HenchControl);
+
+			// TODO: size the form appropriately
+
 			Type = Type2da.TYPE_CLASSES;
 
 			ClearData();
-
-			cols_HenchSpells .Visible =
-			cols_HenchRacial .Visible = false;
-			cols_HenchClasses.Visible = true;
-
-			ClassFlags_reset .ForeColor =
-			ClassFeat1_reset .ForeColor =
-			ClassFeat2_reset .ForeColor =
-			ClassFeat3_reset .ForeColor =
-			ClassFeat4_reset .ForeColor =
-			ClassFeat5_reset .ForeColor =
-			ClassFeat6_reset .ForeColor =
-			ClassFeat7_reset .ForeColor =
-			ClassFeat8_reset .ForeColor =
-			ClassFeat9_reset .ForeColor =
-			ClassFeat10_reset.ForeColor =
-			ClassFeat11_reset.ForeColor = DefaultForeColor;
 
 
 			string[] fields;
@@ -792,7 +713,7 @@ namespace nwn2_ai_2da_editor
 
 						clas.id        = id;
 						clas.isChanged = false;
-						clas.differ    = bit_clear;
+						clas.differ    = tabcontrol_Classes.bit_clear;
 
 						int col = 0;
 
@@ -868,6 +789,8 @@ namespace nwn2_ai_2da_editor
 
 			GrowTree();
 
+			EnableCopy(true);
+
 			// check if any info-version(s) need to be updated in flags-int.
 //			InfoVersionLoad_classes();
 
@@ -876,7 +799,7 @@ namespace nwn2_ai_2da_editor
 			if (Width  < 1355) Width  = 1355;
 			if (Height <  400) Height = 400;
 
-			apply         .Text = "apply this class\' data";
+			btn_Apply     .Text = "apply this class\' data";
 			tree_Highlight.Text = "highlight blank Class flags nodes";
 //			addNode       .Text = "add node: class";
 
@@ -1112,354 +1035,51 @@ namespace nwn2_ai_2da_editor
 		{
 			Id = Tree.SelectedNode.Index;
 
-			bypassDiffer = true;
+			BypassDiffer = true;
 
 			switch (Type)
 			{
 				case Type2da.TYPE_SPELLS:
-					SelectSpell();
+					(HenchControl as tabcontrol_Spells).SelectSpell(Spells[Id], SpellsChanged, Id);
 					break;
 
 				case Type2da.TYPE_RACIAL:
-					SelectRace();
+					(HenchControl as tabcontrol_Racial).SelectRace(Races[Id], RacesChanged, Id);
 					break;
 
 				case Type2da.TYPE_CLASSES:
-					SelectClass();
+					(HenchControl as tabcontrol_Classes).SelectClass(Classes[Id], ClassesChanged, Id);
 					break;
 			}
 
-			bypassDiffer = false;
-		}
-
-		/// <summary>
-		/// Fills displayed fields w/ data from the spell's Id.
-		/// </summary>
-		void SelectSpell()
-		{
-			SpellInfo_text   .Clear(); // clear the info-fields to force TextChanged events ->
-			TargetInfo_text  .Clear();
-			EffectWeight_text.Clear();
-			EffectTypes_text .Clear();
-			DamageInfo_text  .Clear();
-			SaveType_text    .Clear();
-			SaveDCType_text  .Clear();
-
-
-			Spell spell = Spells[Id];
-
-			bool dirty = (spell.differ != bit_clear);
-
-// SpellInfo
-			int val = spell.spellinfo;
-			SpellInfo_reset.Text = val.ToString();
-
-			if (dirty)
-			{
-				val = SpellsChanged[Id].spellinfo;
-			}
-			SpellInfo_text.Text = val.ToString();
-
-// TargetInfo
-			val = spell.targetinfo;
-			TargetInfo_reset.Text = val.ToString();
-
-			if (dirty)
-			{
-				val = SpellsChanged[Id].targetinfo;
-			}
-			TargetInfo_text.Text = val.ToString();
-
-// EffectWeight
-			string text = FormatFloat(spell.effectweight);
-			EffectWeight_reset.Text = text;
-
-			if (dirty)
-			{
-				text = FormatFloat(SpellsChanged[Id].effectweight);
-			}
-			EffectWeight_text.Text = text;
-
-// EffectTypes
-			val = spell.effecttypes;
-			EffectTypes_reset.Text = val.ToString();
-
-			if (dirty)
-			{
-				val = SpellsChanged[Id].effecttypes;
-			}
-			EffectTypes_text.Text = val.ToString();
-
-// DamageInfo
-			val = spell.damageinfo;
-			DamageInfo_reset.Text = val.ToString();
-
-			if (dirty)
-			{
-				val = SpellsChanged[Id].damageinfo;
-			}
-			DamageInfo_text.Text = val.ToString();
-
-// SaveType
-			val = spell.savetype;
-			SaveType_reset.Text = val.ToString();
-
-			if (dirty)
-			{
-				val = SpellsChanged[Id].savetype;
-			}
-			SaveType_text.Text = val.ToString();
-
-// SaveDCType
-			val = spell.savedctype;
-			SaveDCType_reset.Text = val.ToString();
-
-			if (dirty)
-			{
-				val = SpellsChanged[Id].savedctype;
-			}
-			SaveDCType_text.Text = val.ToString();
-		}
-
-		/// <summary>
-		/// Fills displayed fields w/ data from the race's Id.
-		/// </summary>
-		void SelectRace()
-		{
-			RacialFlags_text.Clear(); // clear the info-fields to force TextChanged events ->
-			RacialFeat1_text.Clear();
-			RacialFeat2_text.Clear();
-			RacialFeat3_text.Clear();
-			RacialFeat4_text.Clear();
-			RacialFeat5_text.Clear();
-
-
-			Race race = Races[Id];
-
-			bool dirty = (race.differ != bit_clear);
-
-// Flags
-			int val = race.flags;
-			RacialFlags_reset.Text = val.ToString();
-
-			if (dirty)
-			{
-				val = RacesChanged[Id].flags;
-			}
-			RacialFlags_text.Text = val.ToString();
-
-// Feat1
-			val = race.feat1;
-			RacialFeat1_reset.Text = val.ToString();
-
-			if (dirty)
-			{
-				val = RacesChanged[Id].feat1;
-			}
-			RacialFeat1_text.Text = val.ToString();
-
-// Feat2
-			val = race.feat2;
-			RacialFeat2_reset.Text = val.ToString();
-
-			if (dirty)
-			{
-				val = RacesChanged[Id].feat2;
-			}
-			RacialFeat2_text.Text = val.ToString();
-
-// Feat3
-			val = race.feat3;
-			RacialFeat3_reset.Text = val.ToString();
-
-			if (dirty)
-			{
-				val = RacesChanged[Id].feat3;
-			}
-			RacialFeat3_text.Text = val.ToString();
-
-// Feat4
-			val = race.feat4;
-			RacialFeat4_reset.Text = val.ToString();
-
-			if (dirty)
-			{
-				val = RacesChanged[Id].feat4;
-			}
-			RacialFeat4_text.Text = val.ToString();
-
-// Feat5
-			val = race.feat5;
-			RacialFeat5_reset.Text = val.ToString();
-
-			if (dirty)
-			{
-				val = RacesChanged[Id].feat5;
-			}
-			RacialFeat5_text.Text = val.ToString();
-		}
-
-		/// <summary>
-		/// Fills displayed fields w/ data from the class' Id.
-		/// </summary>
-		void SelectClass()
-		{
-			ClassFlags_text .Clear(); // clear the info-fields to force TextChanged events ->
-			ClassFeat1_text .Clear();
-			ClassFeat2_text .Clear();
-			ClassFeat3_text .Clear();
-			ClassFeat4_text .Clear();
-			ClassFeat5_text .Clear();
-			ClassFeat6_text .Clear();
-			ClassFeat7_text .Clear();
-			ClassFeat8_text .Clear();
-			ClassFeat9_text .Clear();
-			ClassFeat10_text.Clear();
-			ClassFeat11_text.Clear();
-
-
-			Class clas = Classes[Id];
-
-			bool dirty = (clas.differ != bit_clear);
-
-// Flags
-			int val = clas.flags;
-			ClassFlags_reset.Text = val.ToString();
-
-			if (dirty)
-			{
-				val = ClassesChanged[Id].flags;
-			}
-			ClassFlags_text.Text = val.ToString();
-
-// Feat1
-			val = clas.feat1;
-			ClassFeat1_reset.Text = val.ToString();
-
-			if (dirty)
-			{
-				val = ClassesChanged[Id].feat1;
-			}
-			ClassFeat1_text.Text = val.ToString();
-
-// Feat2
-			val = clas.feat2;
-			ClassFeat2_reset.Text = val.ToString();
-
-			if (dirty)
-			{
-				val = ClassesChanged[Id].feat2;
-			}
-			ClassFeat2_text.Text = val.ToString();
-
-// Feat3
-			val = clas.feat3;
-			ClassFeat3_reset.Text = val.ToString();
-
-			if (dirty)
-			{
-				val = ClassesChanged[Id].feat3;
-			}
-			ClassFeat3_text.Text = val.ToString();
-
-// Feat4
-			val = clas.feat4;
-			ClassFeat4_reset.Text = val.ToString();
-
-			if (dirty)
-			{
-				val = ClassesChanged[Id].feat4;
-			}
-			ClassFeat4_text.Text = val.ToString();
-
-// Feat5
-			val = clas.feat5;
-			ClassFeat5_reset.Text = val.ToString();
-
-			if (dirty)
-			{
-				val = ClassesChanged[Id].feat5;
-			}
-			ClassFeat5_text.Text = val.ToString();
-
-// Feat6
-			val = clas.feat6;
-			ClassFeat6_reset.Text = val.ToString();
-
-			if (dirty)
-			{
-				val = ClassesChanged[Id].feat6;
-			}
-			ClassFeat6_text.Text = val.ToString();
-
-// Feat7
-			val = clas.feat7;
-			ClassFeat7_reset.Text = val.ToString();
-
-			if (dirty)
-			{
-				val = ClassesChanged[Id].feat7;
-			}
-			ClassFeat7_text.Text = val.ToString();
-
-// Feat8
-			val = clas.feat8;
-			ClassFeat8_reset.Text = val.ToString();
-
-			if (dirty)
-			{
-				val = ClassesChanged[Id].feat8;
-			}
-			ClassFeat8_text.Text = val.ToString();
-
-// Feat9
-			val = clas.feat9;
-			ClassFeat9_reset.Text = val.ToString();
-
-			if (dirty)
-			{
-				val = ClassesChanged[Id].feat9;
-			}
-			ClassFeat9_text.Text = val.ToString();
-
-// Feat10
-			val = clas.feat10;
-			ClassFeat10_reset.Text = val.ToString();
-
-			if (dirty)
-			{
-				val = ClassesChanged[Id].feat10;
-			}
-			ClassFeat10_text.Text = val.ToString();
-
-// Feat11
-			val = clas.feat11;
-			ClassFeat11_reset.Text = val.ToString();
-
-			if (dirty)
-			{
-				val = ClassesChanged[Id].feat11;
-			}
-			ClassFeat11_text.Text = val.ToString();
+			BypassDiffer = false;
 		}
 		#endregion SpellTree node-select
 
 
-		/// <summary>
-		/// Handler for selecting a tab-page.
-		/// Disables the "Copy" menu-items for hexadecimal and binary if the
-		/// current page is EffectWeight since its field is a float.
-		/// Note: This does not fire when the program starts (and the SpellInfo
-		/// tab is auto-selected) but the defaults are appropriate.
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		void SelectedIndexChanged_tab(object sender, EventArgs e)
+		internal void EnableCopy(bool enabled)
 		{
 			Copy_hexadecimal.Enabled =
-			Copy_binary     .Enabled = Type != Type2da.TYPE_SPELLS
-									|| (cols_HenchSpells.SelectedIndex != 2);
-//									|| (cols_HenchSpells.SelectedTab == cols_HenchSpells.TabPages["page_EffectWeight"]);
+			Copy_binary     .Enabled = enabled;
+		}
+
+		internal void SetNodeColor(Color color)
+		{
+			Tree.SelectedNode.ForeColor = color;
+		}
+
+		internal void SetEnabled(bool differs)
+		{
+			bool changes = false;
+			switch (Type)
+			{
+				case Type2da.TYPE_SPELLS:  changes = (SpellsChanged .Count != 0); break;
+				case Type2da.TYPE_RACIAL:  changes = (RacesChanged  .Count != 0); break;
+				case Type2da.TYPE_CLASSES: changes = (ClassesChanged.Count != 0); break;
+			}
+			btn_Apply      .Enabled = differs;
+			applyGlobal    .Enabled = differs || changes;
+			gotoNextChanged.Enabled = differs || changes || SpareChange();
 		}
 
 		/// <summary>
@@ -1469,9 +1089,9 @@ namespace nwn2_ai_2da_editor
 		/// <param name="val"></param>
 		/// <param name="hexbox"></param>
 		/// <param name="binbox"></param>
-		void PrintCurrent(int val, Control hexbox, Control binbox)
+		internal static void PrintCurrent(int val, Control hexbox, Control binbox)
 		{
-			string text = val.ToString("x8");
+			string text = val.ToString("X8");
 			text = text.Insert(7, "    ");
 			text = text.Insert(6, "    ");
 			text = text.Insert(5, "    ");
@@ -1495,52 +1115,6 @@ namespace nwn2_ai_2da_editor
 
 
 		/// <summary>
-		/// Handler for any of the Clear-buttons.
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		void Click_clear(object sender, EventArgs e)
-		{
-			var btn = sender as Button;
-			switch (Type)
-			{
-				case Type2da.TYPE_SPELLS:
-					if      (btn == si_Clear) SpellInfo_text   .Text = "0";
-					else if (btn == ti_Clear) TargetInfo_text  .Text = "0";
-					else if (btn == ew_Clear) EffectWeight_text.Text = "0.0";
-					else if (btn == et_Clear) EffectTypes_text .Text = "0";
-					else if (btn == di_Clear) DamageInfo_text  .Text = "0";
-					else if (btn == st_Clear) SaveType_text    .Text = "0";
-					else                      SaveDCType_text  .Text = "0"; //if (btn == dc_Clear)
-					break;
-
-				case Type2da.TYPE_RACIAL:
-					if      (btn ==  rf_Clear) RacialFlags_text.Text = "0";
-					else if (btn == rf1_Clear) RacialFeat1_text.Text = "0";
-					else if (btn == rf2_Clear) RacialFeat2_text.Text = "0";
-					else if (btn == rf3_Clear) RacialFeat3_text.Text = "0";
-					else if (btn == rf4_Clear) RacialFeat4_text.Text = "0";
-					else                       RacialFeat5_text.Text = "0"; //if (btn == rf5_Clear)
-					break;
-
-				case Type2da.TYPE_CLASSES:
-					if      (btn ==   cf_Clear) ClassFlags_text .Text = "0";
-					else if (btn ==  cf1_Clear) ClassFeat1_text .Text = "0";
-					else if (btn ==  cf2_Clear) ClassFeat2_text .Text = "0";
-					else if (btn ==  cf3_Clear) ClassFeat3_text .Text = "0";
-					else if (btn ==  cf4_Clear) ClassFeat4_text .Text = "0";
-					else if (btn ==  cf5_Clear) ClassFeat5_text .Text = "0";
-					else if (btn ==  cf6_Clear) ClassFeat6_text .Text = "0";
-					else if (btn ==  cf7_Clear) ClassFeat7_text .Text = "0";
-					else if (btn ==  cf8_Clear) ClassFeat8_text .Text = "0";
-					else if (btn ==  cf9_Clear) ClassFeat9_text .Text = "0";
-					else if (btn == cf10_Clear) ClassFeat10_text.Text = "0";
-					else                        ClassFeat11_text.Text = "0"; //if (btn == cf11_Clear)
-					break;
-			}
-		}
-
-		/// <summary>
 		/// Handler for the "apply changed data to currently selected
 		/// spell/race/class" button. See also <see cref="ApplyDirtyData"/>
 		/// </summary>
@@ -1555,9 +1129,9 @@ namespace nwn2_ai_2da_editor
 				case Type2da.TYPE_SPELLS:
 				{
 					Spell spell = Spells[Id];
-					if (spell.differ != bit_clear)
+					if (spell.differ != tabcontrol_Spells.bit_clear)
 					{
-						spell.differ = bit_clear;
+						spell.differ = tabcontrol_Spells.bit_clear;
 						spell.isChanged = true;
 
 						SpellChanged spellchanged = SpellsChanged[Id];
@@ -1574,14 +1148,7 @@ namespace nwn2_ai_2da_editor
 
 						SpellsChanged.Remove(Id);
 
-						SpellInfo_reset   .ForeColor =
-						TargetInfo_reset  .ForeColor =
-						EffectWeight_reset.ForeColor =
-						EffectTypes_reset .ForeColor =
-						DamageInfo_reset  .ForeColor =
-						SaveType_reset    .ForeColor =
-						SaveDCType_reset  .ForeColor = DefaultForeColor;
-
+						(HenchControl as tabcontrol_Spells).SetResetColor(DefaultForeColor);
 						AfterSelect_node(null, null); // refresh all displayed data for the current spell jic
 					}
 
@@ -1599,9 +1166,9 @@ namespace nwn2_ai_2da_editor
 				case Type2da.TYPE_RACIAL:
 				{
 					Race race = Races[Id];
-					if (race.differ != bit_clear)
+					if (race.differ != tabcontrol_Racial.bit_clear)
 					{
-						race.differ = bit_clear;
+						race.differ = tabcontrol_Racial.bit_clear;
 						race.isChanged = true;
 
 						RaceChanged racechanged = RacesChanged[Id];
@@ -1617,12 +1184,7 @@ namespace nwn2_ai_2da_editor
 
 						RacesChanged.Remove(Id);
 
-						RacialFlags_reset.ForeColor =
-						RacialFeat1_reset.ForeColor =
-						RacialFeat2_reset.ForeColor =
-						RacialFeat3_reset.ForeColor =
-						RacialFeat4_reset.ForeColor =
-						RacialFeat5_reset.ForeColor = DefaultForeColor;
+						(HenchControl as tabcontrol_Racial).SetResetColor(DefaultForeColor);
 
 						AfterSelect_node(null, null); // refresh all displayed data for the current node jic
 					}
@@ -1641,9 +1203,9 @@ namespace nwn2_ai_2da_editor
 				case Type2da.TYPE_CLASSES:
 				{
 					Class clas = Classes[Id];
-					if (clas.differ != bit_clear)
+					if (clas.differ != tabcontrol_Classes.bit_clear)
 					{
-						clas.differ = bit_clear;
+						clas.differ = tabcontrol_Classes.bit_clear;
 						clas.isChanged = true;
 
 						ClassChanged claschanged = ClassesChanged[Id];
@@ -1665,19 +1227,7 @@ namespace nwn2_ai_2da_editor
 
 						ClassesChanged.Remove(Id);
 
-						ClassFlags_reset .ForeColor =
-						ClassFeat1_reset .ForeColor =
-						ClassFeat2_reset .ForeColor =
-						ClassFeat3_reset .ForeColor =
-						ClassFeat4_reset .ForeColor =
-						ClassFeat5_reset .ForeColor =
-						ClassFeat6_reset .ForeColor =
-						ClassFeat7_reset .ForeColor =
-						ClassFeat8_reset .ForeColor =
-						ClassFeat9_reset .ForeColor =
-						ClassFeat10_reset.ForeColor =
-						ClassFeat11_reset.ForeColor = DefaultForeColor;
-
+						(HenchControl as tabcontrol_Classes).SetResetColor(DefaultForeColor);
 						AfterSelect_node(null, null); // refresh all displayed data for the current node jic
 					}
 
@@ -1697,153 +1247,6 @@ namespace nwn2_ai_2da_editor
 
 		#region Utilities
 		/// <summary>
-		/// Bitflags for spell-fields that have changed.
-		/// note: The master-int 'differ' is tracked in each spell-struct but is
-		/// not saved to file.
-		/// </summary>
-		const int bit_clear        = 0x00;
-		const int bit_spellinfo    = 0x01;
-		const int bit_targetinfo   = 0x02;
-		const int bit_effectweight = 0x04;
-		const int bit_effecttypes  = 0x08;
-		const int bit_damageinfo   = 0x10;
-		const int bit_savetype     = 0x20;
-		const int bit_savedctype   = 0x40;
-
-		/// <summary>
-		/// Gets a bitwise value containing flags for fields that have changed.
-		/// </summary>
-		/// <param name="spell">a Spell struct</param>
-		/// <param name="spellchanged">a SpellChanged struct</param>
-		/// <returns>bitwise value containing flags for fields that have changed</returns>
-		static int SpellDiffer(Spell spell, SpellChanged spellchanged)
-		{
-			int differ = bit_clear;
-
-			if (spell.spellinfo != spellchanged.spellinfo)
-				differ |= bit_spellinfo;
-
-			if (spell.targetinfo != spellchanged.targetinfo)
-				differ |= bit_targetinfo;
-
-			if (!FloatsEqual(spell.effectweight, spellchanged.effectweight))
-				differ |= bit_effectweight;
-
-			if (spell.effecttypes != spellchanged.effecttypes)
-				differ |= bit_effecttypes;
-
-			if (spell.damageinfo != spellchanged.damageinfo)
-				differ |= bit_damageinfo;
-
-			if (spell.savetype != spellchanged.savetype)
-				differ |= bit_savetype;
-
-			if (spell.savedctype != spellchanged.savedctype)
-				differ |= bit_savedctype;
-
-			return differ;
-		}
-
-		/// <summary>
-		/// Bitflags for race- and class-fields that have changed.
-		/// note: The master-int 'differ' is tracked in each struct but is not
-		/// saved to file.
-		/// </summary>
-		const int bit_flags  = 0x001;
-		const int bit_feat1  = 0x002;
-		const int bit_feat2  = 0x004;
-		const int bit_feat3  = 0x008;
-		const int bit_feat4  = 0x010;
-		const int bit_feat5  = 0x020;
-		const int bit_feat6  = 0x040;
-		const int bit_feat7  = 0x080;
-		const int bit_feat8  = 0x100;
-		const int bit_feat9  = 0x200;
-		const int bit_feat10 = 0x400;
-		const int bit_feat11 = 0x800;
-
-		/// <summary>
-		/// Gets a bitwise value containing flags for fields that have changed.
-		/// </summary>
-		/// <param name="race">a Race struct</param>
-		/// <param name="racechanged">a RaceChanged struct</param>
-		/// <returns>bitwise value containing flags for fields that have changed</returns>
-		static int RaceDiffer(Race race, RaceChanged racechanged)
-		{
-			int differ = bit_clear;
-
-			if (race.flags != racechanged.flags)
-				differ |= bit_flags;
-
-			if (race.feat1 != racechanged.feat1)
-				differ |= bit_feat1;
-
-			if (race.feat2 != racechanged.feat2)
-				differ |= bit_feat2;
-
-			if (race.feat3 != racechanged.feat3)
-				differ |= bit_feat3;
-
-			if (race.feat4 != racechanged.feat4)
-				differ |= bit_feat4;
-
-			if (race.feat5 != racechanged.feat5)
-				differ |= bit_feat5;
-
-			return differ;
-		}
-
-		/// <summary>
-		/// Gets a bitwise value containing flags for fields that have changed.
-		/// </summary>
-		/// <param name="clas">a Class struct</param>
-		/// <param name="claschanged">a ClassChanged struct</param>
-		/// <returns>bitwise value containing flags for fields that have changed</returns>
-		static int ClassDiffer(Class clas, ClassChanged claschanged)
-		{
-			int differ = bit_clear;
-
-			if (clas.flags != claschanged.flags)
-				differ |= bit_flags;
-
-			if (clas.feat1 != claschanged.feat1)
-				differ |= bit_feat1;
-
-			if (clas.feat2 != claschanged.feat2)
-				differ |= bit_feat2;
-
-			if (clas.feat3 != claschanged.feat3)
-				differ |= bit_feat3;
-
-			if (clas.feat4 != claschanged.feat4)
-				differ |= bit_feat4;
-
-			if (clas.feat5 != claschanged.feat5)
-				differ |= bit_feat5;
-
-			if (clas.feat6 != claschanged.feat6)
-				differ |= bit_feat6;
-
-			if (clas.feat7 != claschanged.feat7)
-				differ |= bit_feat7;
-
-			if (clas.feat8 != claschanged.feat8)
-				differ |= bit_feat8;
-
-			if (clas.feat9 != claschanged.feat9)
-				differ |= bit_feat9;
-
-			if (clas.feat10 != claschanged.feat10)
-				differ |= bit_feat10;
-
-			if (clas.feat11 != claschanged.feat11)
-				differ |= bit_feat11;
-
-			return differ;
-		}
-
-
-		/// <summary>
 		/// Value of epsilon.
 		/// </summary>
 		const float epsilon = 0.0001f;
@@ -1855,7 +1258,7 @@ namespace nwn2_ai_2da_editor
 		/// <param name="a"></param>
 		/// <param name="b"></param>
 		/// <returns>true if equal enough</returns>
-		static bool FloatsEqual(float a, float b)
+		internal static bool FloatsEqual(float a, float b)
 		{
 			return Math.Abs(b - a) < epsilon;
 		}
@@ -1865,7 +1268,7 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		/// <param name="f"></param>
 		/// <returns>string of a float</returns>
-		static string FormatFloat(float f)
+		internal static string Float2daFormat(float f)
 		{
 			string str = f.ToString();
 			return (str.IndexOf('.') == -1) ? str.Insert(str.Length, ".0")
@@ -1964,7 +1367,7 @@ namespace nwn2_ai_2da_editor
 
 		#region treeview ContextMenu
 		/// <summary>
-		/// Highlights nodes on the tree that don't have info.
+		/// Highlights nodes on the tree that don't have page1 info.
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -1990,9 +1393,9 @@ namespace nwn2_ai_2da_editor
 						for (int id = 0; id != total; ++id)
 						{
 							spell = Spells[id];
-							if (spell.differ != bit_clear) color = Color.Crimson;
-							else if (spell.isChanged)      color = Color.Blue;
-							else                           color = DefaultForeColor;
+							if      (spell.differ != tabcontrol_Spells.bit_clear) color = Color.Crimson;
+							else if (spell.isChanged)                             color = Color.Blue;
+							else                                                  color = DefaultForeColor;
 
 							Tree.Nodes[id].ForeColor = color;
 						}
@@ -2018,9 +1421,9 @@ namespace nwn2_ai_2da_editor
 						for (int id = 0; id != total; ++id)
 						{
 							race = Races[id];
-							if (race.differ != bit_clear) color = Color.Crimson;
-							else if (race.isChanged)      color = Color.Blue;
-							else                          color = DefaultForeColor;
+							if      (race.differ != tabcontrol_Racial.bit_clear) color = Color.Crimson;
+							else if (race.isChanged)                             color = Color.Blue;
+							else                                                 color = DefaultForeColor;
 
 							Tree.Nodes[id].ForeColor = color;
 						}
@@ -2042,13 +1445,13 @@ namespace nwn2_ai_2da_editor
 					else
 					{
 						Color color;
-						Class clas;
+						Class @class;
 						for (int id = 0; id != total; ++id)
 						{
-							clas = Classes[id];
-							if (clas.differ != bit_clear) color = Color.Crimson;
-							else if (clas.isChanged)      color = Color.Blue;
-							else                          color = DefaultForeColor;
+							@class = Classes[id];
+							if      (@class.differ != tabcontrol_Classes.bit_clear) color = Color.Crimson;
+							else if (@class.isChanged)                              color = Color.Blue;
+							else                                                    color = DefaultForeColor;
 
 							Tree.Nodes[id].ForeColor = color;
 						}
@@ -2233,180 +1636,6 @@ namespace nwn2_ai_2da_editor
 		#endregion treeview ContextMenu
 	}
 	#endregion MainForm
-
-
-
-	/// <summary>
-	/// Struct that holds data of each spell in HenchSpells.2da.
-	/// NOTE: This data can change when the Apply-btn is clicked (but only if
-	/// the spell-data has in fact been changed of c).
-	/// NOTE: This is the data that gets saved to file on File|Save.
-	/// </summary>
-	struct Spell
-	{
-		public int id;
-		public string label;
-
-		public int   spellinfo;
-		public int   targetinfo;
-		public float effectweight;
-		public int   effecttypes;
-		public int   damageinfo;
-		public int   savetype;
-		public int   savedctype;
-
-		// NOTE: The following fields are not saved to file ->
-
-		/// <summary>
-		/// bitwise int that holds flags for changed fields (also colors the
-		/// tree-node red if not 0)
-		/// </summary>
-		public int differ;
-
-		/// <summary>
-		/// boolean used (along with the differ) to warn if there is modified
-		/// data when exiting the app (also colors the tree-node blue if true).
-		/// Set true by the Apply buttons (on local spell or by global
-		/// edit-operation) or by inserting labels; cleared by saving
-		/// HenchSpells.2da
-		/// </summary>
-		public bool isChanged;
-	}
-
-	/// <summary>
-	/// Struct that holds changed data of any spell that has been modified in
-	/// the editor.
-	/// NOTE: These structs get created and deleted on-the-fly as stuff changes
-	/// in the editor.
-	/// </summary>
-	struct SpellChanged
-	{
-		public int   spellinfo;
-		public int   targetinfo;
-		public float effectweight;
-		public int   effecttypes;
-		public int   damageinfo;
-		public int   savetype;
-		public int   savedctype;
-	}
-
-
-	/// <summary>
-	/// Struct that holds data of each race in HenchRacial.2da.
-	/// NOTE: This data can change when the Apply-btn is clicked (but only if
-	/// the race-data has in fact been changed of c).
-	/// NOTE: This is the data that gets saved to file on File|Save.
-	/// </summary>
-	struct Race
-	{
-		public int id;
-		public string label;
-
-		public int flags;
-		public int feat1;
-		public int feat2;
-		public int feat3;
-		public int feat4;
-		public int feat5;
-
-		// NOTE: The following fields are not saved to file ->
-
-		/// <summary>
-		/// bitwise int that holds flags for changed fields (also colors the
-		/// tree-node red if not 0)
-		/// </summary>
-		public int differ;
-
-		/// <summary>
-		/// boolean used (along with the differ) to warn if there is modified
-		/// data when exiting the app (also colors the tree-node blue if true).
-		/// Set true by the Apply buttons (on local race or by global
-		/// edit-operation) or by inserting labels; cleared by saving
-		/// HenchRacial.2da
-		/// </summary>
-		public bool isChanged;
-	}
-
-	/// <summary>
-	/// Struct that holds changed data of any race that has been modified in
-	/// the editor.
-	/// NOTE: These structs get created and deleted on-the-fly as stuff changes
-	/// in the editor.
-	/// </summary>
-	struct RaceChanged
-	{
-		public int flags;
-		public int feat1;
-		public int feat2;
-		public int feat3;
-		public int feat4;
-		public int feat5;
-	}
-
-
-	/// <summary>
-	/// Struct that holds data of each class in HenchClasses.2da.
-	/// NOTE: This data can change when the Apply-btn is clicked (but only if
-	/// the class-data has in fact been changed of c).
-	/// NOTE: This is the data that gets saved to file on File|Save.
-	/// </summary>
-	struct Class
-	{
-		public int id;
-		public string label;
-
-		public int flags;
-		public int feat1;
-		public int feat2;
-		public int feat3;
-		public int feat4;
-		public int feat5;
-		public int feat6;
-		public int feat7;
-		public int feat8;
-		public int feat9;
-		public int feat10;
-		public int feat11;
-
-		// NOTE: The following fields are not saved to file ->
-
-		/// <summary>
-		/// bitwise int that holds flags for changed fields (also colors the
-		/// tree-node red if not 0)
-		/// </summary>
-		public int differ;
-
-		/// <summary>
-		/// boolean used (along with the differ) to warn if there is modified
-		/// data when exiting the app (also colors the tree-node blue if true).
-		/// Set true by the Apply buttons (on local class or by global
-		/// edit-operation) or by inserting labels; cleared by saving
-		/// HenchClasses.2da
-		/// </summary>
-		public bool isChanged;
-	}
-
-	/// <summary>
-	/// Struct that holds changed data of any class that has been modified in
-	/// the editor.
-	/// NOTE: These structs get created and deleted on-the-fly as stuff changes
-	/// in the editor.
-	/// </summary>
-	struct ClassChanged
-	{
-		public int flags;
-		public int feat1;
-		public int feat2;
-		public int feat3;
-		public int feat4;
-		public int feat5;
-		public int feat6;
-		public int feat7;
-		public int feat8;
-		public int feat9;
-		public int feat10;
-		public int feat11;
-	}
 
 
 

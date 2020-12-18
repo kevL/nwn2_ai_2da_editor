@@ -8,19 +8,28 @@ namespace nwn2_ai_2da_editor
 	// TODO:
 	//
 	// If spell uses an AttributeType then damageinfo will contain only the AttributeTypeBonus power.
-	// SpellInfo SpellType - HENCH_SPELL_INFO_SPELL_TYPE_ATTR_BUFF
+	// SpellInfo SpellType - hc.HENCH_SPELL_INFO_SPELL_TYPE_ATTR_BUFF
 	// eg. HenchCheckAttributeBuff() 'hench_i0_buff'
 	//
 	// If spell uses a DamageType then damageinfo will contain only the DamageType nwscript-constant.
-	// SpellInfo SpellType - HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF
+	// SpellInfo SpellType - hc.HENCH_SPELL_INFO_SPELL_TYPE_WEAPON_BUFF
 	// eg. HenchCheckWeaponBuff() 'hench_i0_buff
 
 
 	/// <summary>
 	/// Functions for the DamageInfo page.
 	/// </summary>
-	partial class MainForm
+	partial class tabcontrol_Spells
 	{
+		const int HENCH_SPELL_INFO_BUFF_LEVEL_LIMIT_SHIFT   =  8;
+		const int HENCH_SPELL_INFO_BUFF_LEVEL_DIV_SHIFT     = 16;
+		const int HENCH_SPELL_INFO_BUFF_LEVEL_DECR_SHIFT    = 20;
+
+		const int HENCH_SPELL_INFO_DAMAGE_AMOUNT_SHIFT      = 12;
+		const int HENCH_SPELL_INFO_DAMAGE_LEVEL_LIMIT_SHIFT = 20;
+		const int HENCH_SPELL_INFO_DAMAGE_LEVEL_DIV_SHIFT   = 26;
+		const int HENCH_SPELL_INFO_DAMAGE_FIXED_COUNT_SHIFT = 24;
+
 		/// <summary>
 		/// Handles TextChanged event on the DamageInfo page.
 		/// </summary>
@@ -40,15 +49,15 @@ namespace nwn2_ai_2da_editor
 			{
 				int differ;
 
-				if (!bypassDiffer)
+				if (!MainForm.BypassDiffer)
 				{
-					Spell spell = Spells[Id];
+					Spell spell = MainForm.Spells[MainForm.Id];
 
 					SpellChanged spellchanged;
 
 					if (spell.differ != bit_clear)
 					{
-						spellchanged = SpellsChanged[Id];
+						spellchanged = MainForm.SpellsChanged[MainForm.Id];
 					}
 					else
 					{
@@ -67,31 +76,27 @@ namespace nwn2_ai_2da_editor
 					// check it
 					differ = SpellDiffer(spell, spellchanged);
 					spell.differ = differ;
-					Spells[Id] = spell;
+					MainForm.Spells[MainForm.Id] = spell;
 
 					Color color;
 					if (differ != bit_clear)
 					{
-						SpellsChanged[Id] = spellchanged;
+						MainForm.SpellsChanged[MainForm.Id] = spellchanged;
 						color = Color.Crimson;
 					}
 					else
 					{
-						SpellsChanged.Remove(Id);
+						MainForm.SpellsChanged.Remove(MainForm.Id);
 
-						if (spell.isChanged)
-						{
-							color = Color.Blue;
-						}
-						else
-							color = DefaultForeColor;
+						if (spell.isChanged) color = Color.Blue;
+						else                 color = DefaultForeColor;
 					}
-					Tree.SelectedNode.ForeColor = color;
+					MainForm.that.SetNodeColor(color);
 				}
 
-				PrintCurrent(damageinfo, DamageInfo_hex, DamageInfo_bin);
+				MainForm.PrintCurrent(damageinfo, DamageInfo_hex, DamageInfo_bin);
 
-				differ = Spells[Id].differ;
+				differ = MainForm.Spells[MainForm.Id].differ;
 
 				if ((differ & bit_damageinfo) != 0)
 				{
@@ -109,9 +114,7 @@ namespace nwn2_ai_2da_editor
 					si_Child3.Text = DamageInfo_text.Text;
 				}
 
-				apply          .Enabled = (differ != bit_clear);
-				applyGlobal    .Enabled = (differ != bit_clear) || (SpellsChanged.Count != 0);
-				gotoNextChanged.Enabled = (differ != bit_clear) || (SpellsChanged.Count != 0) || SpareChange();
+				MainForm.that.SetEnabled(differ != bit_clear);
 			}
 			// else TODO: error dialog here.
 		}
@@ -126,79 +129,26 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_di_reset(object sender, EventArgs e)
 		{
-			Spell spell = Spells[Id];
+			Spell spell = MainForm.Spells[MainForm.Id];
 			if ((spell.differ & bit_damageinfo) != 0)
 			{
 				spell.differ &= ~bit_damageinfo;
-				Spells[Id] = spell;
+				MainForm.Spells[MainForm.Id] = spell;
 
 				if (spell.differ == bit_clear)
 				{
-					SpellsChanged.Remove(Id);
+					MainForm.SpellsChanged.Remove(MainForm.Id);
 
-					if (spell.isChanged)
-					{
-						Tree.SelectedNode.ForeColor = Color.Blue;
-					}
-					else
-						Tree.SelectedNode.ForeColor = DefaultForeColor;
+					Color color;
+					if (spell.isChanged) color = Color.Blue;
+					else                 color = DefaultForeColor;
+					MainForm.that.SetNodeColor(color);
 				}
 
 				DamageInfo_reset.ForeColor = DefaultForeColor;
 
 				DamageInfo_text.Text = spell.damageinfo.ToString();
 			}
-		}
-
-
-		/// <summary>
-		/// Populates the DamageInfo dropdown-lists.
-		/// </summary>
-		void PopulateDamageInfoComboboxes()
-		{
-			// populate the dropdown list for DamageInfo - beneficial PowerBase
-			// NOTE: These cases are considered in 'hench_i0_spells' GetCurrentSpellBuffAmount()
-			cbo_di_BenPowerbase.Items.Add("none");					// 0
-			cbo_di_BenPowerbase.Items.Add("casterlevel");			// 1
-			cbo_di_BenPowerbase.Items.Add("hd");					// 2
-			cbo_di_BenPowerbase.Items.Add("fixed");					// 3
-			cbo_di_BenPowerbase.Items.Add("charisma");				// 4
-			cbo_di_BenPowerbase.Items.Add("bard level [not used]");	// 5
-			cbo_di_BenPowerbase.Items.Add("dragon");				// 6
-
-			// populate the dropdown list for DamageInfo - beneficial LevelType
-			// NOTE: These cases are considered in 'hench_i0_spells' GetCurrentSpellBuffAmount()
-			// NOTE: These are bit-exclusive and so could be checkboxes but ....
-			cbo_di_BenLeveltype.Items.Add("dice");				// 0
-			cbo_di_BenLeveltype.Items.Add("adjust");			// 1
-			cbo_di_BenLeveltype.Items.Add("count [not used]");	// 2
-			cbo_di_BenLeveltype.Items.Add("const");				// 3
-
-
-			// populate the dropdown list for DamageInfo - detrimental DamageBase
-			// NOTE: These cases are considered in 'hench_i0_spells' GetCurrentSpellDamage()
-			cbo_di_DetDamagebase.Items.Add("casterlevel");			//  0
-			cbo_di_DetDamagebase.Items.Add("hd");					//  1
-			cbo_di_DetDamagebase.Items.Add("fixed");				//  2
-			cbo_di_DetDamagebase.Items.Add("cure");					//  3
-			cbo_di_DetDamagebase.Items.Add("dragon");				//  4
-			cbo_di_DetDamagebase.Items.Add("special count");		//  5
-			cbo_di_DetDamagebase.Items.Add("custom");				//  6
-			cbo_di_DetDamagebase.Items.Add("dragon disciple");		//  7
-			cbo_di_DetDamagebase.Items.Add("arcane archer");		//  8
-			cbo_di_DetDamagebase.Items.Add("warpriest [not used]");	//  9
-			cbo_di_DetDamagebase.Items.Add("lay on hands");			// 10
-			cbo_di_DetDamagebase.Items.Add("charisma");				// 11
-			cbo_di_DetDamagebase.Items.Add("bard perform");			// 12
-			cbo_di_DetDamagebase.Items.Add("warlock");				// 13
-
-			// populate the dropdown list for DamageInfo - detrimental LevelType
-			// NOTE: These cases are considered in 'hench_i0_spells' GetCurrentSpellDamage()
-			// NOTE: These are bit-exclusive and so could be checkboxes but ....
-			cbo_di_DetLeveltype.Items.Add("dice");		// 0
-			cbo_di_DetLeveltype.Items.Add("adjust");	// 1
-			cbo_di_DetLeveltype.Items.Add("count");		// 2
-			cbo_di_DetLeveltype.Items.Add("const");		// 3
 		}
 
 
@@ -214,7 +164,7 @@ namespace nwn2_ai_2da_editor
 			int damageinfo;
 			if (Int32.TryParse(DamageInfo_text.Text, out damageinfo))
 			{
-				damageinfo &= ~HENCH_SPELL_INFO_BUFF_MASK; // 0x0f000000 - clear specific bits
+				damageinfo &= ~hc.HENCH_SPELL_INFO_BUFF_MASK; // 0x0f000000 - clear specific bits
 
 				int val;
 				switch (cbo_di_BenPowerbase.SelectedIndex)
@@ -222,12 +172,12 @@ namespace nwn2_ai_2da_editor
 					// TODO: case -1 for all comboboxes in the editor.
 
 					default: val = 0;                                  break;
-					case 1:  val = HENCH_SPELL_INFO_BUFF_CASTER_LEVEL; break; // 0x01000000
-					case 2:  val = HENCH_SPELL_INFO_BUFF_HD_LEVEL;     break; // 0x02000000
-					case 3:  val = HENCH_SPELL_INFO_BUFF_FIXED;        break; // 0x03000000
-					case 4:  val = HENCH_SPELL_INFO_BUFF_CHARISMA;     break; // 0x0b000000
-					case 5:  val = HENCH_SPELL_INFO_BUFF_BARD_LEVEL;   break; // 0x0c000000 - not used in CoreAI.
-					case 6:  val = HENCH_SPELL_INFO_BUFF_DRAGON;       break; // 0x0d000000
+					case 1:  val = hc.HENCH_SPELL_INFO_BUFF_CASTER_LEVEL; break; // 0x01000000
+					case 2:  val = hc.HENCH_SPELL_INFO_BUFF_HD_LEVEL;     break; // 0x02000000
+					case 3:  val = hc.HENCH_SPELL_INFO_BUFF_FIXED;        break; // 0x03000000
+					case 4:  val = hc.HENCH_SPELL_INFO_BUFF_CHARISMA;     break; // 0x0b000000
+					case 5:  val = hc.HENCH_SPELL_INFO_BUFF_BARD_LEVEL;   break; // 0x0c000000 - not used in CoreAI.
+					case 6:  val = hc.HENCH_SPELL_INFO_BUFF_DRAGON;       break; // 0x0d000000
 				}
 				DamageInfo_text.Text = (damageinfo | val).ToString();
 			}
@@ -245,15 +195,15 @@ namespace nwn2_ai_2da_editor
 			int damageinfo;
 			if (Int32.TryParse(DamageInfo_text.Text, out damageinfo))
 			{
-				damageinfo &= ~HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_MASK; // 0x0000c000 - clear specific bits
+				damageinfo &= ~hc.HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_MASK; // 0x0000c000 - clear specific bits
 
 				int val;
 				switch (cbo_di_BenLeveltype.SelectedIndex)
 				{
-					default: val = HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_DICE;  break; // 0x00000000
-					case 1:  val = HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_ADJ;   break; // 0x00004000
-					case 2:  val = HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_COUNT; break; // 0x00008000 - not used in CoreAI.
-					case 3:  val = HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_CONST; break; // 0x0000c000
+					default: val = hc.HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_DICE;  break; // 0x00000000
+					case 1:  val = hc.HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_ADJ;   break; // 0x00004000
+					case 2:  val = hc.HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_COUNT; break; // 0x00008000 - not used in CoreAI.
+					case 3:  val = hc.HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_CONST; break; // 0x0000c000
 				}
 				DamageInfo_text.Text = (damageinfo | val).ToString();
 			}
@@ -271,25 +221,25 @@ namespace nwn2_ai_2da_editor
 			int damageinfo;
 			if (Int32.TryParse(DamageInfo_text.Text, out damageinfo))
 			{
-				damageinfo &= ~HENCH_SPELL_INFO_DAMAGE_MASK; // 0xf0000000 - clear specific bits
+				damageinfo &= ~hc.HENCH_SPELL_INFO_DAMAGE_MASK; // 0xf0000000 - clear specific bits
 
 				int val;
 				switch (cbo_di_DetDamagebase.SelectedIndex)
 				{
-					default: val = HENCH_SPELL_INFO_DAMAGE_CASTER_LEVEL;  break; // 0x00000000
-					case  1: val = HENCH_SPELL_INFO_DAMAGE_HD_LEVEL;      break; // 0x10000000
-					case  2: val = HENCH_SPELL_INFO_DAMAGE_FIXED;         break; // 0x20000000
-					case  3: val = HENCH_SPELL_INFO_DAMAGE_CURE;          break; // 0x30000000
-					case  4: val = HENCH_SPELL_INFO_DAMAGE_DRAGON;        break; // 0x40000000
-					case  5: val = HENCH_SPELL_INFO_DAMAGE_SPECIAL_COUNT; break; // 0x50000000
-					case  6: val = HENCH_SPELL_INFO_DAMAGE_CUSTOM;        break; // 0x60000000
-					case  7: val = HENCH_SPELL_INFO_DAMAGE_DRAG_DISC;     break; // 0x70000000
-					case  8: val = HENCH_SPELL_INFO_DAMAGE_AA_LEVEL;      break; // 0x80000000
-					case  9: val = HENCH_SPELL_INFO_DAMAGE_WP_LEVEL;      break; // 0x90000000 - not used in CoreAI.
-					case 10: val = HENCH_SPELL_INFO_DAMAGE_LAY_ON_HANDS;  break; // 0xa0000000
-					case 11: val = HENCH_SPELL_INFO_DAMAGE_CHARISMA;      break; // 0xb0000000
-					case 12: val = HENCH_SPELL_INFO_DAMAGE_BARD_PERFORM;  break; // 0xc0000000
-					case 13: val = HENCH_SPELL_INFO_DAMAGE_WARLOCK;       break; // 0xd0000000
+					default: val = hc.HENCH_SPELL_INFO_DAMAGE_CASTER_LEVEL;  break; // 0x00000000
+					case  1: val = hc.HENCH_SPELL_INFO_DAMAGE_HD_LEVEL;      break; // 0x10000000
+					case  2: val = hc.HENCH_SPELL_INFO_DAMAGE_FIXED;         break; // 0x20000000
+					case  3: val = hc.HENCH_SPELL_INFO_DAMAGE_CURE;          break; // 0x30000000
+					case  4: val = hc.HENCH_SPELL_INFO_DAMAGE_DRAGON;        break; // 0x40000000
+					case  5: val = hc.HENCH_SPELL_INFO_DAMAGE_SPECIAL_COUNT; break; // 0x50000000
+					case  6: val = hc.HENCH_SPELL_INFO_DAMAGE_CUSTOM;        break; // 0x60000000
+					case  7: val = hc.HENCH_SPELL_INFO_DAMAGE_DRAG_DISC;     break; // 0x70000000
+					case  8: val = hc.HENCH_SPELL_INFO_DAMAGE_AA_LEVEL;      break; // 0x80000000
+					case  9: val = hc.HENCH_SPELL_INFO_DAMAGE_WP_LEVEL;      break; // 0x90000000 - not used in CoreAI.
+					case 10: val = hc.HENCH_SPELL_INFO_DAMAGE_LAY_ON_HANDS;  break; // 0xa0000000
+					case 11: val = hc.HENCH_SPELL_INFO_DAMAGE_CHARISMA;      break; // 0xb0000000
+					case 12: val = hc.HENCH_SPELL_INFO_DAMAGE_BARD_PERFORM;  break; // 0xc0000000
+					case 13: val = hc.HENCH_SPELL_INFO_DAMAGE_WARLOCK;       break; // 0xd0000000
 				}
 				DamageInfo_text.Text = (damageinfo | val).ToString();
 			}
@@ -307,15 +257,15 @@ namespace nwn2_ai_2da_editor
 			int damageinfo;
 			if (Int32.TryParse(DamageInfo_text.Text, out damageinfo))
 			{
-				damageinfo &= ~HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_MASK; // 0x03000000 - clear specific bits - overlaps FixedCount
+				damageinfo &= ~hc.HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_MASK; // 0x03000000 - clear specific bits - overlaps FixedCount
 
 				int val;
 				switch (cbo_di_DetLeveltype.SelectedIndex)
 				{
-					default: val = HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_DICE;  break; // 0x00000000
-					case 1:  val = HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_ADJ;   break; // 0x01000000
-					case 2:  val = HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_COUNT; break; // 0x02000000
-					case 3:  val = HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_CONST; break; // 0x03000000
+					default: val = hc.HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_DICE;  break; // 0x00000000
+					case 1:  val = hc.HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_ADJ;   break; // 0x01000000
+					case 2:  val = hc.HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_COUNT; break; // 0x02000000
+					case 3:  val = hc.HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_CONST; break; // 0x03000000
 				}
 				DamageInfo_text.Text = (damageinfo | val).ToString();
 			}
@@ -341,15 +291,15 @@ namespace nwn2_ai_2da_editor
 				var cb = sender as CheckBox;
 				if (cb == di_Breach)
 				{
-					bit = HENCH_SPELL_INFO_DAMAGE_BREACH; // 0x00000001;
+					bit = hc.HENCH_SPELL_INFO_DAMAGE_BREACH; // 0x00000001;
 				}
 				else if (cb == di_Dispel)
 				{
-					bit = HENCH_SPELL_INFO_DAMAGE_DISPEL; // 0x00000002;
+					bit = hc.HENCH_SPELL_INFO_DAMAGE_DISPEL; // 0x00000002;
 				}
 				else //if (cb == di_Resist)
 				{
-					bit = HENCH_SPELL_INFO_DAMAGE_RESIST; // 0x00000004;
+					bit = hc.HENCH_SPELL_INFO_DAMAGE_RESIST; // 0x00000004;
 				}
 
 				if (cb.Checked)
@@ -391,51 +341,51 @@ namespace nwn2_ai_2da_editor
 				var cb = sender as CheckBox;
 				if (cb == di_Bludgeoning)
 				{
-					bit = DAMAGE_TYPE_BLUDGEONING;
+					bit = hc.DAMAGE_TYPE_BLUDGEONING;
 				}
 				else if (cb == di_Piercing)
 				{
-					bit = DAMAGE_TYPE_PIERCING;
+					bit = hc.DAMAGE_TYPE_PIERCING;
 				}
 				else if (cb == di_Slashing)
 				{
-					bit = DAMAGE_TYPE_SLASHING;
+					bit = hc.DAMAGE_TYPE_SLASHING;
 				}
 				else if (cb == di_Magical)
 				{
-					bit = DAMAGE_TYPE_MAGICAL;
+					bit = hc.DAMAGE_TYPE_MAGICAL;
 				}
 				else if (cb == di_Acid)
 				{
-					bit = DAMAGE_TYPE_ACID;
+					bit = hc.DAMAGE_TYPE_ACID;
 				}
 				else if (cb == di_Cold)
 				{
-					bit = DAMAGE_TYPE_COLD;
+					bit = hc.DAMAGE_TYPE_COLD;
 				}
 				else if (cb == di_Divine)
 				{
-					bit = DAMAGE_TYPE_DIVINE;
+					bit = hc.DAMAGE_TYPE_DIVINE;
 				}
 				else if (cb == di_Electrical)
 				{
-					bit = DAMAGE_TYPE_ELECTRICAL;
+					bit = hc.DAMAGE_TYPE_ELECTRICAL;
 				}
 				else if (cb == di_Fire)
 				{
-					bit = DAMAGE_TYPE_FIRE;
+					bit = hc.DAMAGE_TYPE_FIRE;
 				}
 				else if (cb == di_Negative)
 				{
-					bit = DAMAGE_TYPE_NEGATIVE;
+					bit = hc.DAMAGE_TYPE_NEGATIVE;
 				}
 				else if (cb == di_Positive)
 				{
-					bit = DAMAGE_TYPE_POSITIVE;
+					bit = hc.DAMAGE_TYPE_POSITIVE;
 				}
 				else //if (cb == di_Sonic)
 				{
-					bit = DAMAGE_TYPE_SONIC;
+					bit = hc.DAMAGE_TYPE_SONIC;
 				}
 
 				if (cb.Checked)
@@ -474,7 +424,7 @@ namespace nwn2_ai_2da_editor
 				else
 				{
 					int damageinfo = Int32.Parse(DamageInfo_text.Text);
-					damageinfo &= ~HENCH_SPELL_INFO_BUFF_AMOUNT_MASK; // 0x000000ff
+					damageinfo &= ~hc.HENCH_SPELL_INFO_BUFF_AMOUNT_MASK; // 0x000000ff
 
 					DamageInfo_text.Text = (damageinfo | power).ToString();
 				}
@@ -506,7 +456,7 @@ namespace nwn2_ai_2da_editor
 				else
 				{
 					int damageinfo = Int32.Parse(DamageInfo_text.Text);
-					damageinfo &= ~HENCH_SPELL_INFO_BUFF_LEVEL_LIMIT_MASK; // 0x00003f00
+					damageinfo &= ~hc.HENCH_SPELL_INFO_BUFF_LEVEL_LIMIT_MASK; // 0x00003f00
 
 					levellimit <<= HENCH_SPELL_INFO_BUFF_LEVEL_LIMIT_SHIFT;
 					DamageInfo_text.Text = (damageinfo | levellimit).ToString();
@@ -539,7 +489,7 @@ namespace nwn2_ai_2da_editor
 				else
 				{
 					int damageinfo = Int32.Parse(DamageInfo_text.Text);
-					damageinfo &= ~HENCH_SPELL_INFO_BUFF_LEVEL_DIV_MASK; // 0x000f0000
+					damageinfo &= ~hc.HENCH_SPELL_INFO_BUFF_LEVEL_DIV_MASK; // 0x000f0000
 
 					leveldivisor <<= HENCH_SPELL_INFO_BUFF_LEVEL_DIV_SHIFT;
 					DamageInfo_text.Text = (damageinfo | leveldivisor).ToString();
@@ -572,7 +522,7 @@ namespace nwn2_ai_2da_editor
 				else
 				{
 					int damageinfo = Int32.Parse(DamageInfo_text.Text);
-					damageinfo &= ~HENCH_SPELL_INFO_BUFF_LEVEL_DECR_MASK; // 0x00f00000
+					damageinfo &= ~hc.HENCH_SPELL_INFO_BUFF_LEVEL_DECR_MASK; // 0x00f00000
 
 					leveldecrease <<= HENCH_SPELL_INFO_BUFF_LEVEL_DECR_SHIFT;
 					DamageInfo_text.Text = (damageinfo | leveldecrease).ToString();
@@ -606,7 +556,7 @@ namespace nwn2_ai_2da_editor
 				else
 				{
 					int damageinfo = Int32.Parse(DamageInfo_text.Text);
-					damageinfo &= ~HENCH_SPELL_INFO_DAMAGE_AMOUNT_MASK; // 0x000ff000
+					damageinfo &= ~hc.HENCH_SPELL_INFO_DAMAGE_AMOUNT_MASK; // 0x000ff000
 
 					damage <<= HENCH_SPELL_INFO_DAMAGE_AMOUNT_SHIFT;
 					DamageInfo_text.Text = (damageinfo | damage).ToString();
@@ -639,7 +589,7 @@ namespace nwn2_ai_2da_editor
 				else
 				{
 					int damageinfo = Int32.Parse(DamageInfo_text.Text);
-					damageinfo &= ~HENCH_SPELL_INFO_DAMAGE_LEVEL_LIMIT_MASK; // 0x00f00000
+					damageinfo &= ~hc.HENCH_SPELL_INFO_DAMAGE_LEVEL_LIMIT_MASK; // 0x00f00000
 
 					levellimit <<= HENCH_SPELL_INFO_DAMAGE_LEVEL_LIMIT_SHIFT;
 					DamageInfo_text.Text = (damageinfo | levellimit).ToString();
@@ -672,7 +622,7 @@ namespace nwn2_ai_2da_editor
 				else
 				{
 					int damageinfo = Int32.Parse(DamageInfo_text.Text);
-					damageinfo &= ~HENCH_SPELL_INFO_DAMAGE_LEVEL_DIV_MASK; // 0x0c000000 - overlaps FixedCount
+					damageinfo &= ~hc.HENCH_SPELL_INFO_DAMAGE_LEVEL_DIV_MASK; // 0x0c000000 - overlaps FixedCount
 
 					leveldivisor <<= HENCH_SPELL_INFO_DAMAGE_LEVEL_DIV_SHIFT;
 					DamageInfo_text.Text = (damageinfo | leveldivisor).ToString();
@@ -706,23 +656,13 @@ namespace nwn2_ai_2da_editor
 				else
 				{
 					int damageinfo = Int32.Parse(DamageInfo_text.Text);
-					damageinfo &= ~HENCH_SPELL_INFO_DAMAGE_FIXED_COUNT; // 0x0f000000 - overlaps LevelType and LevelDivisor
+					damageinfo &= ~hc.HENCH_SPELL_INFO_DAMAGE_FIXED_COUNT; // 0x0f000000 - overlaps LevelType and LevelDivisor
 
 					fixedcount <<= HENCH_SPELL_INFO_DAMAGE_FIXED_COUNT_SHIFT;
 					DamageInfo_text.Text = (damageinfo | fixedcount).ToString();
 				}
 			}
 		}
-
-
-		const int HENCH_SPELL_INFO_BUFF_LEVEL_LIMIT_SHIFT   =  8;
-		const int HENCH_SPELL_INFO_BUFF_LEVEL_DIV_SHIFT     = 16;
-		const int HENCH_SPELL_INFO_BUFF_LEVEL_DECR_SHIFT    = 20;
-
-		const int HENCH_SPELL_INFO_DAMAGE_AMOUNT_SHIFT      = 12;
-		const int HENCH_SPELL_INFO_DAMAGE_LEVEL_LIMIT_SHIFT = 20;
-		const int HENCH_SPELL_INFO_DAMAGE_LEVEL_DIV_SHIFT   = 26;
-		const int HENCH_SPELL_INFO_DAMAGE_FIXED_COUNT_SHIFT = 24;
 
 
 		/// <summary>
@@ -733,36 +673,36 @@ namespace nwn2_ai_2da_editor
 		void CheckDamageInfoCheckers(int damageinfo)
 		{
 // DispelTypes checkboxes
-			di_Breach.Checked = (damageinfo & HENCH_SPELL_INFO_DAMAGE_BREACH) != 0;
-			di_Dispel.Checked = (damageinfo & HENCH_SPELL_INFO_DAMAGE_DISPEL) != 0;
-			di_Resist.Checked = (damageinfo & HENCH_SPELL_INFO_DAMAGE_RESIST) != 0;
+			di_Breach.Checked = (damageinfo & hc.HENCH_SPELL_INFO_DAMAGE_BREACH) != 0;
+			di_Dispel.Checked = (damageinfo & hc.HENCH_SPELL_INFO_DAMAGE_DISPEL) != 0;
+			di_Resist.Checked = (damageinfo & hc.HENCH_SPELL_INFO_DAMAGE_RESIST) != 0;
 
 // DamageTypes checkboxes
-			di_Bludgeoning.Checked = (damageinfo & DAMAGE_TYPE_BLUDGEONING) != 0;
-			di_Piercing   .Checked = (damageinfo & DAMAGE_TYPE_PIERCING)    != 0;
-			di_Slashing   .Checked = (damageinfo & DAMAGE_TYPE_SLASHING)    != 0;
-			di_Magical    .Checked = (damageinfo & DAMAGE_TYPE_MAGICAL)     != 0;
-			di_Acid       .Checked = (damageinfo & DAMAGE_TYPE_ACID)        != 0;
-			di_Cold       .Checked = (damageinfo & DAMAGE_TYPE_COLD)        != 0;
-			di_Divine     .Checked = (damageinfo & DAMAGE_TYPE_DIVINE)      != 0;
-			di_Electrical .Checked = (damageinfo & DAMAGE_TYPE_ELECTRICAL)  != 0;
-			di_Fire       .Checked = (damageinfo & DAMAGE_TYPE_FIRE)        != 0;
-			di_Negative   .Checked = (damageinfo & DAMAGE_TYPE_NEGATIVE)    != 0;
-			di_Positive   .Checked = (damageinfo & DAMAGE_TYPE_POSITIVE)    != 0;
-			di_Sonic      .Checked = (damageinfo & DAMAGE_TYPE_SONIC)       != 0;
+			di_Bludgeoning.Checked = (damageinfo & hc.DAMAGE_TYPE_BLUDGEONING) != 0;
+			di_Piercing   .Checked = (damageinfo & hc.DAMAGE_TYPE_PIERCING)    != 0;
+			di_Slashing   .Checked = (damageinfo & hc.DAMAGE_TYPE_SLASHING)    != 0;
+			di_Magical    .Checked = (damageinfo & hc.DAMAGE_TYPE_MAGICAL)     != 0;
+			di_Acid       .Checked = (damageinfo & hc.DAMAGE_TYPE_ACID)        != 0;
+			di_Cold       .Checked = (damageinfo & hc.DAMAGE_TYPE_COLD)        != 0;
+			di_Divine     .Checked = (damageinfo & hc.DAMAGE_TYPE_DIVINE)      != 0;
+			di_Electrical .Checked = (damageinfo & hc.DAMAGE_TYPE_ELECTRICAL)  != 0;
+			di_Fire       .Checked = (damageinfo & hc.DAMAGE_TYPE_FIRE)        != 0;
+			di_Negative   .Checked = (damageinfo & hc.DAMAGE_TYPE_NEGATIVE)    != 0;
+			di_Positive   .Checked = (damageinfo & hc.DAMAGE_TYPE_POSITIVE)    != 0;
+			di_Sonic      .Checked = (damageinfo & hc.DAMAGE_TYPE_SONIC)       != 0;
 
 			int val;
 
 // beneficial PowerBase dropdown
-			switch (damageinfo & HENCH_SPELL_INFO_BUFF_MASK) // 0x0f000000
+			switch (damageinfo & hc.HENCH_SPELL_INFO_BUFF_MASK) // 0x0f000000
 			{
 				case 0:                                  val = 0; break;
-				case HENCH_SPELL_INFO_BUFF_CASTER_LEVEL: val = 1; break;
-				case HENCH_SPELL_INFO_BUFF_HD_LEVEL:     val = 2; break;
-				case HENCH_SPELL_INFO_BUFF_FIXED:        val = 3; break;
-				case HENCH_SPELL_INFO_BUFF_CHARISMA:     val = 4; break;
-				case HENCH_SPELL_INFO_BUFF_BARD_LEVEL:   val = 5; break; // not used in CoreAI.
-				case HENCH_SPELL_INFO_BUFF_DRAGON:       val = 6; break;
+				case hc.HENCH_SPELL_INFO_BUFF_CASTER_LEVEL: val = 1; break;
+				case hc.HENCH_SPELL_INFO_BUFF_HD_LEVEL:     val = 2; break;
+				case hc.HENCH_SPELL_INFO_BUFF_FIXED:        val = 3; break;
+				case hc.HENCH_SPELL_INFO_BUFF_CHARISMA:     val = 4; break;
+				case hc.HENCH_SPELL_INFO_BUFF_BARD_LEVEL:   val = 5; break; // not used in CoreAI.
+				case hc.HENCH_SPELL_INFO_BUFF_DRAGON:       val = 6; break;
 
 				default:
 					val = -1;
@@ -784,12 +724,12 @@ namespace nwn2_ai_2da_editor
 			cbo_di_BenPowerbase.SelectedIndex = val;
 
 // beneficial LevelType dropdown
-			switch (val = (damageinfo & HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_MASK)) // 0x0000c000
+			switch (val = (damageinfo & hc.HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_MASK)) // 0x0000c000
 			{
-				case HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_DICE:  val = 0; break;
-				case HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_ADJ:   val = 1; break;
-				case HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_COUNT: val = 2; break; // not used in CoreAI.
-				case HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_CONST: val = 3; break;
+				case hc.HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_DICE:  val = 0; break;
+				case hc.HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_ADJ:   val = 1; break;
+				case hc.HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_COUNT: val = 2; break; // not used in CoreAI.
+				case hc.HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_CONST: val = 3; break;
 
 				default:
 					val = -1;
@@ -811,22 +751,22 @@ namespace nwn2_ai_2da_editor
 			cbo_di_BenLeveltype.SelectedIndex = val;
 
 // detrimental DamageBase dropdown
-			switch (damageinfo & HENCH_SPELL_INFO_DAMAGE_MASK) // 0xf0000000
+			switch (damageinfo & hc.HENCH_SPELL_INFO_DAMAGE_MASK) // 0xf0000000
 			{
-				case HENCH_SPELL_INFO_DAMAGE_CASTER_LEVEL:  val =  0; break;
-				case HENCH_SPELL_INFO_DAMAGE_HD_LEVEL:      val =  1; break;
-				case HENCH_SPELL_INFO_DAMAGE_FIXED:         val =  2; break;
-				case HENCH_SPELL_INFO_DAMAGE_CURE:          val =  3; break;
-				case HENCH_SPELL_INFO_DAMAGE_DRAGON:        val =  4; break;
-				case HENCH_SPELL_INFO_DAMAGE_SPECIAL_COUNT: val =  5; break;
-				case HENCH_SPELL_INFO_DAMAGE_CUSTOM:        val =  6; break;
-				case HENCH_SPELL_INFO_DAMAGE_DRAG_DISC:     val =  7; break;
-				case HENCH_SPELL_INFO_DAMAGE_AA_LEVEL:      val =  8; break;
-				case HENCH_SPELL_INFO_DAMAGE_WP_LEVEL:      val =  9; break; // not used in CoreAI.
-				case HENCH_SPELL_INFO_DAMAGE_LAY_ON_HANDS:  val = 10; break;
-				case HENCH_SPELL_INFO_DAMAGE_CHARISMA:      val = 11; break;
-				case HENCH_SPELL_INFO_DAMAGE_BARD_PERFORM:  val = 12; break;
-				case HENCH_SPELL_INFO_DAMAGE_WARLOCK:       val = 13; break;
+				case hc.HENCH_SPELL_INFO_DAMAGE_CASTER_LEVEL:  val =  0; break;
+				case hc.HENCH_SPELL_INFO_DAMAGE_HD_LEVEL:      val =  1; break;
+				case hc.HENCH_SPELL_INFO_DAMAGE_FIXED:         val =  2; break;
+				case hc.HENCH_SPELL_INFO_DAMAGE_CURE:          val =  3; break;
+				case hc.HENCH_SPELL_INFO_DAMAGE_DRAGON:        val =  4; break;
+				case hc.HENCH_SPELL_INFO_DAMAGE_SPECIAL_COUNT: val =  5; break;
+				case hc.HENCH_SPELL_INFO_DAMAGE_CUSTOM:        val =  6; break;
+				case hc.HENCH_SPELL_INFO_DAMAGE_DRAG_DISC:     val =  7; break;
+				case hc.HENCH_SPELL_INFO_DAMAGE_AA_LEVEL:      val =  8; break;
+				case hc.HENCH_SPELL_INFO_DAMAGE_WP_LEVEL:      val =  9; break; // not used in CoreAI.
+				case hc.HENCH_SPELL_INFO_DAMAGE_LAY_ON_HANDS:  val = 10; break;
+				case hc.HENCH_SPELL_INFO_DAMAGE_CHARISMA:      val = 11; break;
+				case hc.HENCH_SPELL_INFO_DAMAGE_BARD_PERFORM:  val = 12; break;
+				case hc.HENCH_SPELL_INFO_DAMAGE_WARLOCK:       val = 13; break;
 
 				default:
 					val = -1;
@@ -848,12 +788,12 @@ namespace nwn2_ai_2da_editor
 			cbo_di_DetDamagebase.SelectedIndex = val;
 
 // detrimental LevelType dropdown
-			switch (damageinfo & HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_MASK) // 0x03000000 - overlaps FixedCount
+			switch (damageinfo & hc.HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_MASK) // 0x03000000 - overlaps FixedCount
 			{
-				case HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_DICE:  val = 0; break;
-				case HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_ADJ:   val = 1; break;
-				case HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_COUNT: val = 2; break;
-				case HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_CONST: val = 3; break;
+				case hc.HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_DICE:  val = 0; break;
+				case hc.HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_ADJ:   val = 1; break;
+				case hc.HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_COUNT: val = 2; break;
+				case hc.HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_CONST: val = 3; break;
 
 				default:
 					val = -1;
@@ -875,41 +815,41 @@ namespace nwn2_ai_2da_editor
 			cbo_di_DetLeveltype.SelectedIndex = val;
 
 // ben Power texbox
-			val = (damageinfo & HENCH_SPELL_INFO_BUFF_AMOUNT_MASK);			// 0x000000ff
+			val = (damageinfo & hc.HENCH_SPELL_INFO_BUFF_AMOUNT_MASK);			// 0x000000ff
 			di_BenPower.Text = val.ToString();
 
 // ben LevelLimit textbox
-			val = (damageinfo & HENCH_SPELL_INFO_BUFF_LEVEL_LIMIT_MASK);	// 0x00003f00
+			val = (damageinfo & hc.HENCH_SPELL_INFO_BUFF_LEVEL_LIMIT_MASK);	// 0x00003f00
 			val >>= HENCH_SPELL_INFO_BUFF_LEVEL_LIMIT_SHIFT;
 			di_BenLevellimit.Text = val.ToString();
 
 // ben LevelDivisor textbox
-			val = (damageinfo & HENCH_SPELL_INFO_BUFF_LEVEL_DIV_MASK);		// 0x000f0000
+			val = (damageinfo & hc.HENCH_SPELL_INFO_BUFF_LEVEL_DIV_MASK);		// 0x000f0000
 			val >>= HENCH_SPELL_INFO_BUFF_LEVEL_DIV_SHIFT;
 			di_BenLeveldivisor.Text = val.ToString();
 
 // ben LevelDecrease textbox
-			val = (damageinfo & HENCH_SPELL_INFO_BUFF_LEVEL_DECR_MASK);		// 0x00f00000
+			val = (damageinfo & hc.HENCH_SPELL_INFO_BUFF_LEVEL_DECR_MASK);		// 0x00f00000
 			val >>= HENCH_SPELL_INFO_BUFF_LEVEL_DECR_SHIFT;
 			di_BenLeveldecrease.Text = val.ToString();
 
 // det Damage textbox
-			val = (damageinfo & HENCH_SPELL_INFO_DAMAGE_AMOUNT_MASK);		// 0x000ff000
+			val = (damageinfo & hc.HENCH_SPELL_INFO_DAMAGE_AMOUNT_MASK);		// 0x000ff000
 			val >>= HENCH_SPELL_INFO_DAMAGE_AMOUNT_SHIFT;
 			di_DetDamage.Text = val.ToString();
 
 // det LevelLimit textbox
-			val = (damageinfo & HENCH_SPELL_INFO_DAMAGE_LEVEL_LIMIT_MASK);	// 0x00f00000
+			val = (damageinfo & hc.HENCH_SPELL_INFO_DAMAGE_LEVEL_LIMIT_MASK);	// 0x00f00000
 			val >>= HENCH_SPELL_INFO_DAMAGE_LEVEL_LIMIT_SHIFT;
 			di_DetLevellimit.Text = val.ToString();
 
 // det LevelDivisor textbox
-			val = (damageinfo & HENCH_SPELL_INFO_DAMAGE_LEVEL_DIV_MASK);	// 0x0c000000 - overlaps FixedCount
+			val = (damageinfo & hc.HENCH_SPELL_INFO_DAMAGE_LEVEL_DIV_MASK);	// 0x0c000000 - overlaps FixedCount
 			val >>= HENCH_SPELL_INFO_DAMAGE_LEVEL_DIV_SHIFT;
 			di_DetLeveldivisor.Text = val.ToString();
 
 // det FixedCount textbox
-			val = (damageinfo & HENCH_SPELL_INFO_DAMAGE_FIXED_COUNT);		// 0x0f000000 - overlaps LevelType and LevelDivisor
+			val = (damageinfo & hc.HENCH_SPELL_INFO_DAMAGE_FIXED_COUNT);		// 0x0f000000 - overlaps LevelType and LevelDivisor
 			val >>= HENCH_SPELL_INFO_DAMAGE_FIXED_COUNT_SHIFT;
 			di_DetFixedcount.Text = val.ToString();
 		}
