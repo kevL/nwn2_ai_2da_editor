@@ -612,42 +612,42 @@ namespace nwn2_ai_2da_editor
 		}
 
 
-		/// <summary>
-		/// Invokes and handles the SetCoreAiVersion inputbox via the Edit.
-		/// NOTE: The version is not really the version of the CoreAI. It's the
-		/// version of the data of each entry. Apparently it can be updated IG
-		/// (after info-data has already been cached to the module-object) such
-		/// that that stale data will be bypassed in favor of the new data. But
-		/// I haven't looked into it thoroughly.
-		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
-		void Click_setCoreAiVersion(object sender, EventArgs e)
-		{
-			switch (Type)
-			{
-				case Type2da.TYPE_SPELLS:
-					SetInfoVersion_spells();
-
-					applyGlobal    .Enabled = SpellsChanged.Count != 0;
-					gotoNextChanged.Enabled = SpellsChanged.Count != 0 || SpareChange();
-					break;
-
-				case Type2da.TYPE_RACIAL:
-					SetInfoVersion_racial();
-
-					applyGlobal    .Enabled = RacesChanged.Count != 0;
-					gotoNextChanged.Enabled = RacesChanged.Count != 0 || SpareChange();
-					break;
-
-				case Type2da.TYPE_CLASSES:
-					SetInfoVersion_classes();
-
-					applyGlobal    .Enabled = ClassesChanged.Count != 0;
-					gotoNextChanged.Enabled = ClassesChanged.Count != 0 || SpareChange();
-					break;
-			}
-		}
+//		/// <summary>
+//		/// Invokes and handles the SetCoreAiVersion inputbox via the Edit.
+//		/// NOTE: The version is not really the version of the CoreAI. It's the
+//		/// version of the data of each entry. Apparently it can be updated IG
+//		/// (after info-data has already been cached to the module-object) such
+//		/// that that stale data will be bypassed in favor of the new data. But
+//		/// I haven't looked into it thoroughly.
+//		/// </summary>
+//		/// <param name="sender"></param>
+//		/// <param name="e"></param>
+//		void Click_setCoreAiVersion(object sender, EventArgs e)
+//		{
+//			switch (Type)
+//			{
+//				case Type2da.TYPE_SPELLS:
+//					SetInfoVersion_spells();
+//
+//					it_ApplyGlobal.Enabled = SpellsChanged.Count != 0;
+//					it_GotoChanged.Enabled = SpellsChanged.Count != 0 || SpareChange();
+//					break;
+//
+//				case Type2da.TYPE_RACIAL:
+//					SetInfoVersion_racial();
+//
+//					it_ApplyGlobal.Enabled = RacesChanged.Count != 0;
+//					it_GotoChanged.Enabled = RacesChanged.Count != 0 || SpareChange();
+//					break;
+//
+//				case Type2da.TYPE_CLASSES:
+//					SetInfoVersion_classes();
+//
+//					it_ApplyGlobal.Enabled = ClassesChanged.Count != 0;
+//					it_GotoChanged.Enabled = ClassesChanged.Count != 0 || SpareChange();
+//					break;
+//			}
+//		}
 
 		/// <summary>
 		/// IMPORTANT: This is an interim function that forcefully clears the
@@ -665,22 +665,22 @@ namespace nwn2_ai_2da_editor
 				case Type2da.TYPE_SPELLS:
 					SetInfoVersion_spells("0", true);
 
-					applyGlobal    .Enabled = SpellsChanged.Count != 0;
-					gotoNextChanged.Enabled = SpellsChanged.Count != 0 || SpareChange();
+					it_ApplyGlobal.Enabled = SpellsChanged.Count != 0;
+					it_GotoChanged.Enabled = SpellsChanged.Count != 0 || SpareChange();
 					break;
 
 				case Type2da.TYPE_RACIAL:
 					SetInfoVersion_racial("0", true);
 
-					applyGlobal    .Enabled = RacesChanged.Count != 0;
-					gotoNextChanged.Enabled = RacesChanged.Count != 0 || SpareChange();
+					it_ApplyGlobal.Enabled = RacesChanged.Count != 0;
+					it_GotoChanged.Enabled = RacesChanged.Count != 0 || SpareChange();
 					break;
 
 				case Type2da.TYPE_CLASSES:
 					SetInfoVersion_classes("0", true);
 
-					applyGlobal    .Enabled = ClassesChanged.Count != 0;
-					gotoNextChanged.Enabled = ClassesChanged.Count != 0 || SpareChange();
+					it_ApplyGlobal.Enabled = ClassesChanged.Count != 0;
+					it_GotoChanged.Enabled = ClassesChanged.Count != 0 || SpareChange();
 					break;
 			}
 
@@ -933,7 +933,7 @@ namespace nwn2_ai_2da_editor
 		{
 			Text = "nwn2_ai_2da_editor - " + _pfe + " *"; // titlebar text (append path of saved file + asterisk)
 
-			applyGlobal.Enabled = false;
+			it_ApplyGlobal.Enabled = false;
 
 			int total;
 
@@ -1074,7 +1074,7 @@ namespace nwn2_ai_2da_editor
 		{
 			Text = "nwn2_ai_2da_editor - " + _pfe; // titlebar text (append path of saved file)
 
-			gotoNextChanged.Enabled = false;
+			it_GotoChanged.Enabled = false;
 
 			switch (Type)
 			{

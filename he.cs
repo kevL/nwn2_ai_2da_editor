@@ -320,15 +320,15 @@ namespace nwn2_ai_2da_editor
 							// Not necessarily ...
 							Tree.SelectedNode = Tree.Nodes[0];
 
-							if (InfoVersionUpdate)
-							{
-								InfoVersionUpdate = false;
-								MessageBox.Show("InfoVersion(s) have been updated.",
-												"  InfoVersion update",
-												MessageBoxButtons.OK,
-												MessageBoxIcon.Information,
-												MessageBoxDefaultButton.Button1);
-							}
+//							if (InfoVersionUpdate) // no InfoVersion in TonyAI 2.3+
+//							{
+//								InfoVersionUpdate = false;
+//								MessageBox.Show("InfoVersion(s) have been updated.",
+//												"  InfoVersion update",
+//												MessageBoxButtons.OK,
+//												MessageBoxIcon.Information,
+//												MessageBoxDefaultButton.Button1);
+//							}
 							break;
 						}
 					}
@@ -1009,7 +1009,6 @@ namespace nwn2_ai_2da_editor
 			Copy_hexadecimal.Enabled =
 			Copy_binary     .Enabled =
 
-			setCoreAIver    .Enabled = true;
 			clearCoreAIver  .Enabled = true; // TODO: Refine. TonyAI 2.2 SpellInfo bits are totally incompatible w/ 2.3+
 
 			tree_Highlight  .Visible = true;
@@ -1069,9 +1068,9 @@ namespace nwn2_ai_2da_editor
 				case Type2da.TYPE_RACIAL:  changes = (RacesChanged  .Count != 0); break;
 				case Type2da.TYPE_CLASSES: changes = (ClassesChanged.Count != 0); break;
 			}
-			btn_Apply      .Enabled = differs;
-			applyGlobal    .Enabled = differs || changes;
-			gotoNextChanged.Enabled = differs || changes || SpareChange();
+			btn_Apply     .Enabled = differs;
+			it_ApplyGlobal.Enabled = differs || changes;
+			it_GotoChanged.Enabled = differs || changes || SpareChange();
 		}
 
 		/// <summary>

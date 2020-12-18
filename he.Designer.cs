@@ -34,15 +34,14 @@ namespace nwn2_ai_2da_editor
 		ToolStripSeparator toolStripSeparator2;
 		ToolStripMenuItem Quit;
 		ToolStripMenuItem tsmi_edit;
-		ToolStripMenuItem applyGlobal;
+		ToolStripMenuItem it_ApplyGlobal;
 		ToolStripSeparator toolStripSeparator5;
-		ToolStripMenuItem gotoNextChanged;
+		ToolStripMenuItem it_GotoChanged;
 		ToolStripSeparator toolStripSeparator3;
 		ToolStripMenuItem Copy_decimal;
 		ToolStripMenuItem Copy_hexadecimal;
 		ToolStripMenuItem Copy_binary;
 		ToolStripSeparator toolStripSeparator6;
-		ToolStripMenuItem setCoreAIver;
 		ToolStripMenuItem clearCoreAIver;
 		ToolStripMenuItem tsmi_labels;
 		ToolStripMenuItem pathSpells;
@@ -82,15 +81,14 @@ namespace nwn2_ai_2da_editor
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
 			this.Quit = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsmi_edit = new System.Windows.Forms.ToolStripMenuItem();
-			this.applyGlobal = new System.Windows.Forms.ToolStripMenuItem();
+			this.it_ApplyGlobal = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-			this.gotoNextChanged = new System.Windows.Forms.ToolStripMenuItem();
+			this.it_GotoChanged = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
 			this.Copy_decimal = new System.Windows.Forms.ToolStripMenuItem();
 			this.Copy_hexadecimal = new System.Windows.Forms.ToolStripMenuItem();
 			this.Copy_binary = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-			this.setCoreAIver = new System.Windows.Forms.ToolStripMenuItem();
 			this.clearCoreAIver = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsmi_labels = new System.Windows.Forms.ToolStripMenuItem();
 			this.pathSpells = new System.Windows.Forms.ToolStripMenuItem();
@@ -199,44 +197,43 @@ namespace nwn2_ai_2da_editor
 			// tsmi_edit
 			// 
 			this.tsmi_edit.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-			this.applyGlobal,
+			this.it_ApplyGlobal,
 			this.toolStripSeparator5,
-			this.gotoNextChanged,
+			this.it_GotoChanged,
 			this.toolStripSeparator3,
 			this.Copy_decimal,
 			this.Copy_hexadecimal,
 			this.Copy_binary,
 			this.toolStripSeparator6,
-			this.setCoreAIver,
 			this.clearCoreAIver});
 			this.tsmi_edit.Name = "tsmi_edit";
 			this.tsmi_edit.Size = new System.Drawing.Size(37, 24);
 			this.tsmi_edit.Text = "Edit";
 			// 
-			// applyGlobal
+			// it_ApplyGlobal
 			// 
-			this.applyGlobal.Enabled = false;
-			this.applyGlobal.Name = "applyGlobal";
-			this.applyGlobal.Padding = new System.Windows.Forms.Padding(0);
-			this.applyGlobal.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
-			this.applyGlobal.Size = new System.Drawing.Size(195, 20);
-			this.applyGlobal.Text = "global Apply";
-			this.applyGlobal.Click += new System.EventHandler(this.Click_applyGlobal);
+			this.it_ApplyGlobal.Enabled = false;
+			this.it_ApplyGlobal.Name = "it_ApplyGlobal";
+			this.it_ApplyGlobal.Padding = new System.Windows.Forms.Padding(0);
+			this.it_ApplyGlobal.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
+			this.it_ApplyGlobal.Size = new System.Drawing.Size(195, 20);
+			this.it_ApplyGlobal.Text = "global Apply";
+			this.it_ApplyGlobal.Click += new System.EventHandler(this.Click_applyGlobal);
 			// 
 			// toolStripSeparator5
 			// 
 			this.toolStripSeparator5.Name = "toolStripSeparator5";
 			this.toolStripSeparator5.Size = new System.Drawing.Size(192, 6);
 			// 
-			// gotoNextChanged
+			// it_GotoChanged
 			// 
-			this.gotoNextChanged.Enabled = false;
-			this.gotoNextChanged.Name = "gotoNextChanged";
-			this.gotoNextChanged.Padding = new System.Windows.Forms.Padding(0);
-			this.gotoNextChanged.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-			this.gotoNextChanged.Size = new System.Drawing.Size(195, 20);
-			this.gotoNextChanged.Text = "go to next changed";
-			this.gotoNextChanged.Click += new System.EventHandler(this.Click_gotonextchanged);
+			this.it_GotoChanged.Enabled = false;
+			this.it_GotoChanged.Name = "it_GotoChanged";
+			this.it_GotoChanged.Padding = new System.Windows.Forms.Padding(0);
+			this.it_GotoChanged.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+			this.it_GotoChanged.Size = new System.Drawing.Size(195, 20);
+			this.it_GotoChanged.Text = "go to next changed";
+			this.it_GotoChanged.Click += new System.EventHandler(this.Click_gotonextchanged);
 			// 
 			// toolStripSeparator3
 			// 
@@ -277,15 +274,6 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.toolStripSeparator6.Name = "toolStripSeparator6";
 			this.toolStripSeparator6.Size = new System.Drawing.Size(192, 6);
-			// 
-			// setCoreAIver
-			// 
-			this.setCoreAIver.Enabled = false;
-			this.setCoreAIver.Name = "setCoreAIver";
-			this.setCoreAIver.Padding = new System.Windows.Forms.Padding(0);
-			this.setCoreAIver.Size = new System.Drawing.Size(195, 20);
-			this.setCoreAIver.Text = "Set CoreAI version";
-			this.setCoreAIver.Click += new System.EventHandler(this.Click_setCoreAiVersion);
 			// 
 			// clearCoreAIver
 			// 
