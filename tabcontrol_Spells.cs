@@ -26,11 +26,15 @@ namespace nwn2_ai_2da_editor
 		internal const int bit_savetype     = 0x20;
 		internal const int bit_savedctype   = 0x40;
 
+		he _he;
+
 
 		#region cTor
-		internal tabcontrol_Spells()
+		internal tabcontrol_Spells(he he)
 		{
 			InitializeComponent();
+
+			_he = he;
 
 			SpellInfo_hex  .BackColor = // set the backgrounds of the hexadecimal and binary
 			SpellInfo_bin  .BackColor = // textboxes to blend in with the background
@@ -309,7 +313,7 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		internal void SelectedIndexChanged_tab(object sender, EventArgs e)
 		{
-			he.that.EnableCopy(tc_Spells.SelectedIndex != 2);
+			_he.EnableCopy(tc_Spells.SelectedIndex != 2);
 		}
 
 		internal void Click_clear(object sender, EventArgs e)

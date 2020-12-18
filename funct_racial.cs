@@ -151,7 +151,7 @@ namespace nwn2_ai_2da_editor
 						if (race.isChanged) color = Color.Blue;
 						else                color = DefaultForeColor;
 					}
-					he.that.SetNodeColor(color);
+					_he.SetNodeColor(color);
 				}
 
 				he.PrintCurrent(val, tb_hex, tb_bin);
@@ -174,7 +174,7 @@ namespace nwn2_ai_2da_editor
 					CheckRacialFeatsCheckers(tb);
 
 
-				he.that.SetEnabled(differ != bit_clear);
+				_he.SetEnabled(differ != bit_clear);
 			}
 			// else TODO: error dialog here.
 		}
@@ -231,7 +231,7 @@ namespace nwn2_ai_2da_editor
 					if (race.isChanged) color = Color.Blue;
 					else                color = DefaultForeColor;
 				}
-				he.that.SetNodeColor(color);
+				_he.SetNodeColor(color);
 
 				return true;
 			}
@@ -304,7 +304,7 @@ namespace nwn2_ai_2da_editor
 					if (race.isChanged) color = Color.Blue;
 					else                color = DefaultForeColor;
 
-					he.that.SetNodeColor(color);
+					_he.SetNodeColor(color);
 				}
 
 				btn.ForeColor = DefaultForeColor;

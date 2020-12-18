@@ -25,11 +25,15 @@ namespace nwn2_ai_2da_editor
 		internal const int bit_feat4 = 0x10;
 		internal const int bit_feat5 = 0x20;
 
+		he _he;
+
 
 		#region cTor
-		internal tabcontrol_Racial()
+		internal tabcontrol_Racial(he he)
 		{
 			InitializeComponent();
+
+			_he = he;
 
 			RacialFlags_hex.BackColor =
 			RacialFlags_bin.BackColor =

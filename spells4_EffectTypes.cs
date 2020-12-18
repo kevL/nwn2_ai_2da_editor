@@ -73,7 +73,7 @@ namespace nwn2_ai_2da_editor
 						if (spell.isChanged) color = Color.Blue;
 						else                 color = DefaultForeColor;
 					}
-					he.that.SetNodeColor(color);
+					_he.SetNodeColor(color);
 				}
 
 				he.PrintCurrent(effecttypes, EffectTypes_hex, EffectTypes_bin);
@@ -96,7 +96,7 @@ namespace nwn2_ai_2da_editor
 					si_Child2.Text = EffectTypes_text.Text;
 				}
 
-				he.that.SetEnabled(differ != bit_clear);
+				_he.SetEnabled(differ != bit_clear);
 			}
 			// else TODO: error dialog here.
 		}
@@ -124,7 +124,8 @@ namespace nwn2_ai_2da_editor
 					Color color;
 					if (spell.isChanged) color = Color.Blue;
 					else                 color = DefaultForeColor;
-					he.that.SetNodeColor(color);
+
+					_he.SetNodeColor(color);
 				}
 
 				EffectTypes_reset.ForeColor = DefaultForeColor;

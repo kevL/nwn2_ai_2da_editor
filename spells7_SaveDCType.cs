@@ -71,7 +71,7 @@ namespace nwn2_ai_2da_editor
 						if (spell.isChanged) color = Color.Blue;
 						else                 color = DefaultForeColor;
 					}
-					he.that.SetNodeColor(color);
+					_he.SetNodeColor(color);
 				}
 
 				he.PrintCurrent(savedctype, SaveDCType_hex, SaveDCType_bin);
@@ -102,7 +102,7 @@ namespace nwn2_ai_2da_editor
 				// TODO: should probably disable if savedctype is negative.
 				dc_ArmorCheckGrp.Enabled = (savedctype & ~HENCH_SAVEDCTYPE_ARMORCHECK_MASK) == 0;
 
-				he.that.SetEnabled(differ != bit_clear);
+				_he.SetEnabled(differ != bit_clear);
 			}
 			// else TODO: error dialog here.
 		}
@@ -130,7 +130,8 @@ namespace nwn2_ai_2da_editor
 					Color color;
 					if (spell.isChanged) color = Color.Blue;
 					else                 color = DefaultForeColor;
-					he.that.SetNodeColor(color);
+
+					_he.SetNodeColor(color);
 				}
 
 				SaveDCType_reset.ForeColor = DefaultForeColor;

@@ -16,8 +16,6 @@ namespace nwn2_ai_2da_editor
 			Form
 	{
 		#region class Vars
-		internal static he that;
-
 		/// <summary>
 		/// The control added to 'splitContainer1.Panel2' that displays a
 		/// TabControl for spells, races, or classes. It will be created and
@@ -143,18 +141,13 @@ namespace nwn2_ai_2da_editor
 			//
 			// The logfile ought appear in the directory with the executable.
 
-			that = this;
-
-
 			// set unicode text on the up/down Search btns.
 			btn_Search_d.Text = "\u25bc"; // down triangle
 			btn_Search_u.Text = "\u25b2"; // up triangle
 
 			ActiveControl = tb_Search; // focus the Search-box
 
-
 			Size = new Size(800, 480);
-
 
 			// NOTE: quickload a 2da for testing ONLY.
 //			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchspells.2da";
@@ -368,7 +361,7 @@ namespace nwn2_ai_2da_editor
 			if (HenchControl != null)
 				HenchControl.Dispose(); // <- also removes the control from its collection
 
-			HenchControl = new tabcontrol_Spells();
+			HenchControl = new tabcontrol_Spells(this);
 			splitContainer1.Panel2.Controls.Add(HenchControl);
 
 			// TODO: size the form appropriately
@@ -542,7 +535,7 @@ namespace nwn2_ai_2da_editor
 			if (HenchControl != null)
 				HenchControl.Dispose(); // <- also removes the control from its collection
 
-			HenchControl = new tabcontrol_Racial();
+			HenchControl = new tabcontrol_Racial(this);
 			splitContainer1.Panel2.Controls.Add(HenchControl);
 
 			// TODO: size the form appropriately
@@ -686,7 +679,7 @@ namespace nwn2_ai_2da_editor
 			if (HenchControl != null)
 				HenchControl.Dispose(); // <- also removes the control from its collection
 
-			HenchControl = new tabcontrol_Classes();
+			HenchControl = new tabcontrol_Classes(this);
 			splitContainer1.Panel2.Controls.Add(HenchControl);
 
 			// TODO: size the form appropriately

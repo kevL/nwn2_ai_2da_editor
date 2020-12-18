@@ -31,11 +31,15 @@ namespace nwn2_ai_2da_editor
 		internal const int bit_feat10 = 0x400;
 		internal const int bit_feat11 = 0x800;
 
+		he _he;
+
 
 		#region cTor
-		internal tabcontrol_Classes()
+		internal tabcontrol_Classes(he he)
 		{
 			InitializeComponent();
+
+			_he = he;
 
 			ClassFlags_hex .BackColor =
 			ClassFlags_bin .BackColor =

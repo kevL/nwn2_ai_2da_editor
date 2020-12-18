@@ -73,7 +73,7 @@ namespace nwn2_ai_2da_editor
 						if (spell.isChanged) color = Color.Blue;
 						else                 color = DefaultForeColor;
 					}
-					he.that.SetNodeColor(color);
+					_he.SetNodeColor(color);
 				}
 
 				he.PrintCurrent(targetinfo, TargetInfo_hex, TargetInfo_bin);
@@ -115,11 +115,10 @@ namespace nwn2_ai_2da_editor
 							GroupColor(di_BeneficialGrp,  Color.Crimson);
 							GroupColor(di_DetrimentalGrp, Color.LimeGreen);
 						}
-
 						break;
 				}
 
-				he.that.SetEnabled(differ != bit_clear);
+				_he.SetEnabled(differ != bit_clear);
 			}
 			// else TODO: error dialog here.
 		}
@@ -147,7 +146,8 @@ namespace nwn2_ai_2da_editor
 					Color color;
 					if (spell.isChanged) color = Color.Blue;
 					else                 color = DefaultForeColor;
-					he.that.SetNodeColor(color);
+
+					_he.SetNodeColor(color);
 				}
 
 				TargetInfo_reset.ForeColor = DefaultForeColor;
