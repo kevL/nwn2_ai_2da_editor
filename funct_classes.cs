@@ -131,15 +131,15 @@ namespace nwn2_ai_2da_editor
 
 				int differ;
 
-				if (!MainForm.BypassDiffer)
+				if (!he.BypassDiffer)
 				{
-					Class @class = MainForm.Classes[MainForm.Id];
+					Class @class = he.Classes[he.Id];
 
 					ClassChanged classchanged;
 
 					if (@class.differ != bit_clear)
 					{
-						classchanged = MainForm.ClassesChanged[MainForm.Id];
+						classchanged = he.ClassesChanged[he.Id];
 					}
 					else
 					{
@@ -211,27 +211,27 @@ namespace nwn2_ai_2da_editor
 					// check it
 					differ = ClassDiffer(@class, classchanged);
 					@class.differ = differ;
-					MainForm.Classes[MainForm.Id] = @class;
+					he.Classes[he.Id] = @class;
 
 					Color color;
 					if (differ != bit_clear)
 					{
-						MainForm.ClassesChanged[MainForm.Id] = classchanged;
+						he.ClassesChanged[he.Id] = classchanged;
 						color = Color.Crimson;
 					}
 					else
 					{
-						MainForm.ClassesChanged.Remove(MainForm.Id);
+						he.ClassesChanged.Remove(he.Id);
 
 						if (@class.isChanged) color = Color.Blue;
 						else                  color = DefaultForeColor;
 					}
-					MainForm.that.SetNodeColor(color);
+					he.that.SetNodeColor(color);
 				}
 
-				MainForm.PrintCurrent(val, tb_hex, tb_bin);
+				he.PrintCurrent(val, tb_hex, tb_bin);
 
-				differ = MainForm.Classes[MainForm.Id].differ;
+				differ = he.Classes[he.Id].differ;
 
 				if ((differ & bit) != 0)
 				{
@@ -249,7 +249,7 @@ namespace nwn2_ai_2da_editor
 					CheckClassFeatsCheckers(tb);
 
 
-				MainForm.that.SetEnabled(differ != bit_clear);
+				he.that.SetEnabled(differ != bit_clear);
 			}
 			// else TODO: error dialog here.
 		}
@@ -267,13 +267,13 @@ namespace nwn2_ai_2da_editor
 			{
 				val |= hc.HENCH_SPELL_INFO_VERSION; // insert the default version #
 
-				Class @class = MainForm.Classes[MainForm.Id];
+				Class @class = he.Classes[he.Id];
 
 				ClassChanged classchanged;
 
 				if (@class.differ != bit_clear)
 				{
-					classchanged = MainForm.ClassesChanged[MainForm.Id];
+					classchanged = he.ClassesChanged[he.Id];
 				}
 				else
 				{
@@ -297,22 +297,22 @@ namespace nwn2_ai_2da_editor
 				// check it
 				int differ = ClassDiffer(@class, classchanged);
 				@class.differ = differ;
-				MainForm.Classes[MainForm.Id] = @class;
+				he.Classes[he.Id] = @class;
 
 				Color color;
 				if (differ != bit_clear)
 				{
-					MainForm.ClassesChanged[MainForm.Id] = classchanged;
+					he.ClassesChanged[he.Id] = classchanged;
 					color = Color.Crimson;
 				}
 				else
 				{
-					MainForm.ClassesChanged.Remove(MainForm.Id);
+					he.ClassesChanged.Remove(he.Id);
 
 					if (@class.isChanged) color = Color.Blue;
 					else                  color = DefaultForeColor;
 				}
-				MainForm.that.SetNodeColor(color);
+				he.that.SetNodeColor(color);
 
 				return true;
 			}
@@ -329,12 +329,12 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_classes_reset(object sender, EventArgs e)
 		{
-			if (MainForm.ClassesChanged.ContainsKey(MainForm.Id))
+			if (he.ClassesChanged.ContainsKey(he.Id))
 			{
 				int bit, info;
 				TextBox tb;
 
-				Class @class = MainForm.Classes[MainForm.Id];
+				Class @class = he.Classes[he.Id];
 
 				var btn = sender as Button;
 				if (btn == ClassFlags_reset)
@@ -411,17 +411,17 @@ namespace nwn2_ai_2da_editor
 				}
 
 				@class.differ &= ~bit;
-				MainForm.Classes[MainForm.Id] = @class;
+				he.Classes[he.Id] = @class;
 
 				if (@class.differ == bit_clear)
 				{
-					MainForm.ClassesChanged.Remove(MainForm.Id);
+					he.ClassesChanged.Remove(he.Id);
 
 					Color color;
 					if (@class.isChanged) color = Color.Blue;
 					else                  color = DefaultForeColor;
 
-					MainForm.that.SetNodeColor(color);
+					he.that.SetNodeColor(color);
 				}
 
 				btn.ForeColor = DefaultForeColor;
@@ -815,7 +815,7 @@ namespace nwn2_ai_2da_editor
 //		void PrintInfoVersion_class(int flags)
 //		{
 //			flags &= hc.HENCH_SPELL_INFO_VERSION_MASK;
-//			flags >>= MainForm.HENCH_SPELL_INFO_VERSION_SHIFT;
+//			flags >>= he.HENCH_SPELL_INFO_VERSION_SHIFT;
 //
 //			cf_infoversion.Text = flags.ToString();
 //		}
@@ -1021,19 +1021,19 @@ namespace nwn2_ai_2da_editor
 				int val = (feat & hc.HENCH_FEAT_SPELL_MASK_FEAT);
 				tb_feat.Text = val.ToString();
 
-				if (MainForm.featsLabels.Count != 0
-					&& val < MainForm.featsLabels.Count)
+				if (he.featsLabels.Count != 0
+					&& val < he.featsLabels.Count)
 				{
-					lbl_feat.Text = MainForm.featsLabels[val];
+					lbl_feat.Text = he.featsLabels[val];
 				}
 
 				val = (feat & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
 				tb_spell.Text = val.ToString();
 
-				if (MainForm.spellLabels.Count != 0
-					&& val < MainForm.spellLabels.Count)
+				if (he.spellLabels.Count != 0
+					&& val < he.spellLabels.Count)
 				{
-					lbl_spell.Text = MainForm.spellLabels[val];
+					lbl_spell.Text = he.spellLabels[val];
 				}
 			}
 		}

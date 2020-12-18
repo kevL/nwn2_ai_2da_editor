@@ -7,16 +7,16 @@ using System.Windows.Forms;
 
 namespace nwn2_ai_2da_editor
 {
-	#region MainForm
+	#region he
 	/// <summary>
-	/// The MainForm is the only form.
+	/// The he is the only form.
 	/// </summary>
-	public partial class MainForm
+	public partial class he // short for "HenchEditor"
 		:
 			Form
 	{
 		#region class Vars
-		internal static MainForm that;
+		internal static he that;
 
 		/// <summary>
 		/// The control added to 'splitContainer1.Panel2' that displays a
@@ -131,7 +131,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// cTor.
 		/// </summary>
-		public MainForm()
+		public he()
 		{
 			// The InitializeComponent() call is required for Windows Forms designer support.
 			InitializeComponent();
@@ -1634,5 +1634,5 @@ namespace nwn2_ai_2da_editor
 		{} */
 		#endregion treeview ContextMenu
 	}
-	#endregion MainForm
+	#endregion he
 }

@@ -11,7 +11,7 @@ namespace nwn2_ai_2da_editor
 	/// <summary>
 	/// Event handlers for menu-items and related stuff.
 	/// </summary>
-	partial class MainForm
+	partial class he
 	{
 		#region Fields (static)
 		/// <summary>

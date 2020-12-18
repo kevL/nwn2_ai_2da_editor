@@ -29,12 +29,12 @@ namespace nwn2_ai_2da_editor
 			{
 				int differ;
 
-				if (!MainForm.BypassDiffer)
+				if (!he.BypassDiffer)
 				{
 					// ensure that spellinfo has a CoreAI version
 					// although strictly speaking I believe that GetSpellInfo()
 					// will gracefully handle spell-data that has no version set.
-					if (!MainForm.BypassInfoVersion && spellinfo != 0)
+					if (!he.BypassInfoVersion && spellinfo != 0)
 					{
 						int ver = (spellinfo & hc.HENCH_SPELL_INFO_VERSION_MASK);
 
@@ -57,13 +57,13 @@ namespace nwn2_ai_2da_editor
 					}
 
 
-					Spell spell = MainForm.Spells[MainForm.Id];
+					Spell spell = he.Spells[he.Id];
 
 					SpellChanged spellchanged;
 
 					if (spell.differ != bit_clear)
 					{
-						spellchanged = MainForm.SpellsChanged[MainForm.Id];
+						spellchanged = he.SpellsChanged[he.Id];
 					}
 					else
 					{
@@ -82,27 +82,27 @@ namespace nwn2_ai_2da_editor
 					// check it
 					differ = SpellDiffer(spell, spellchanged);
 					spell.differ = differ;
-					MainForm.Spells[MainForm.Id] = spell;
+					he.Spells[he.Id] = spell;
 
 					Color color;
 					if (differ != bit_clear)
 					{
-						MainForm.SpellsChanged[MainForm.Id] = spellchanged;
+						he.SpellsChanged[he.Id] = spellchanged;
 						color = Color.Crimson;
 					}
 					else
 					{
-						MainForm.SpellsChanged.Remove(MainForm.Id);
+						he.SpellsChanged.Remove(he.Id);
 
 						if (spell.isChanged) color = Color.Blue;
 						else                 color = DefaultForeColor;
 					}
-					MainForm.that.SetNodeColor(color);
+					he.that.SetNodeColor(color);
 				}
 
-				MainForm.PrintCurrent(spellinfo, SpellInfo_hex, SpellInfo_bin);
+				he.PrintCurrent(spellinfo, SpellInfo_hex, SpellInfo_bin);
 
-				differ = MainForm.Spells[MainForm.Id].differ;
+				differ = he.Spells[he.Id].differ;
 
 				if ((differ & bit_spellinfo) != 0)
 				{
@@ -126,7 +126,7 @@ namespace nwn2_ai_2da_editor
 
 //				PrintInfoVersion_spell(spellinfo);
 
-				MainForm.that.SetEnabled(differ != bit_clear);
+				he.that.SetEnabled(differ != bit_clear);
 			}
 			// else TODO: error dialog here.
 		}
@@ -141,20 +141,20 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_si_reset(object sender, EventArgs e)
 		{
-			Spell spell = MainForm.Spells[MainForm.Id];
+			Spell spell = he.Spells[he.Id];
 			if ((spell.differ & bit_spellinfo) != 0)
 			{
 				spell.differ &= ~bit_spellinfo;
-				MainForm.Spells[MainForm.Id] = spell;
+				he.Spells[he.Id] = spell;
 
 				if (spell.differ == bit_clear)
 				{
-					MainForm.SpellsChanged.Remove(MainForm.Id);
+					he.SpellsChanged.Remove(he.Id);
 
 					Color color;
 					if (spell.isChanged) color = Color.Blue;
 					else                 color = DefaultForeColor;
-					MainForm.that.SetNodeColor(color);
+					he.that.SetNodeColor(color);
 				}
 
 				SpellInfo_reset.ForeColor = DefaultForeColor;
@@ -322,10 +322,10 @@ namespace nwn2_ai_2da_editor
 						lbl_child = si_ChildLabel5;
 					}
 
-					if (MainForm.spellLabels.Count != 0
-						&& childId < MainForm.spellLabels.Count)
+					if (he.spellLabels.Count != 0
+						&& childId < he.spellLabels.Count)
 					{
-						lbl_child.Text = MainForm.spellLabels[childId];
+						lbl_child.Text = he.spellLabels[childId];
 					}
 				}
 			}
@@ -339,7 +339,7 @@ namespace nwn2_ai_2da_editor
 //		void PrintInfoVersion_spell(int spellinfo)
 //		{
 //			spellinfo &= hc.HENCH_SPELL_INFO_VERSION_MASK;
-//			spellinfo >>= MainForm.HENCH_SPELL_INFO_VERSION_SHIFT;
+//			spellinfo >>= he.HENCH_SPELL_INFO_VERSION_SHIFT;
 //
 //			si_infoversion.Text = spellinfo.ToString();
 //		}

@@ -8,7 +8,7 @@ namespace nwn2_ai_2da_editor
 	/// <summary>
 	/// Contains functions for changing the InfoVersion of spells/races/classes.
 	/// </summary>
-	partial class MainForm
+	partial class he
 	{
 		internal const int HENCH_SPELL_INFO_VERSION_SHIFT = 24;
 

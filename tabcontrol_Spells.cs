@@ -309,7 +309,7 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		internal void SelectedIndexChanged_tab(object sender, EventArgs e)
 		{
-			MainForm.that.EnableCopy(tc_Spells.SelectedIndex != 2);
+			he.that.EnableCopy(tc_Spells.SelectedIndex != 2);
 		}
 
 		internal void Click_clear(object sender, EventArgs e)
@@ -705,12 +705,12 @@ namespace nwn2_ai_2da_editor
 			TargetInfo_text.Text = val.ToString();
 
 // EffectWeight
-			string text = MainForm.Float2daFormat(spell.effectweight);
+			string text = he.Float2daFormat(spell.effectweight);
 			EffectWeight_reset.Text = text;
 
 			if (dirty)
 			{
-				text = MainForm.Float2daFormat(spellschanged[id].effectweight);
+				text = he.Float2daFormat(spellschanged[id].effectweight);
 			}
 			EffectWeight_text.Text = text;
 
@@ -772,7 +772,7 @@ namespace nwn2_ai_2da_editor
 			if (spell.targetinfo != spellchanged.targetinfo)
 				differ |= tabcontrol_Spells.bit_targetinfo;
 
-			if (!MainForm.FloatsEqual(spell.effectweight, spellchanged.effectweight))
+			if (!he.FloatsEqual(spell.effectweight, spellchanged.effectweight))
 				differ |= tabcontrol_Spells.bit_effectweight;
 
 			if (spell.effecttypes != spellchanged.effecttypes)

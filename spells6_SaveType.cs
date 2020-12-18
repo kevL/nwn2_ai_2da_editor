@@ -30,15 +30,15 @@ namespace nwn2_ai_2da_editor
 			{
 				int differ;
 
-				if (!MainForm.BypassDiffer)
+				if (!he.BypassDiffer)
 				{
-					Spell spell = MainForm.Spells[MainForm.Id];
+					Spell spell = he.Spells[he.Id];
 
 					SpellChanged spellchanged;
 
 					if (spell.differ != bit_clear)
 					{
-						spellchanged = MainForm.SpellsChanged[MainForm.Id];
+						spellchanged = he.SpellsChanged[he.Id];
 					}
 					else
 					{
@@ -57,27 +57,27 @@ namespace nwn2_ai_2da_editor
 					// check it
 					differ = SpellDiffer(spell, spellchanged);
 					spell.differ = differ;
-					MainForm.Spells[MainForm.Id] = spell;
+					he.Spells[he.Id] = spell;
 
 					Color color;
 					if (differ != bit_clear)
 					{
-						MainForm.SpellsChanged[MainForm.Id] = spellchanged;
+						he.SpellsChanged[he.Id] = spellchanged;
 						color = Color.Crimson;
 					}
 					else
 					{
-						MainForm.SpellsChanged.Remove(MainForm.Id);
+						he.SpellsChanged.Remove(he.Id);
 
 						if (spell.isChanged) color = Color.Blue;
 						else                 color = DefaultForeColor;
 					}
-					MainForm.that.SetNodeColor(color);
+					he.that.SetNodeColor(color);
 				}
 
-				MainForm.PrintCurrent(savetype, SaveType_hex, SaveType_bin);
+				he.PrintCurrent(savetype, SaveType_hex, SaveType_bin);
 
-				differ = MainForm.Spells[MainForm.Id].differ;
+				differ = he.Spells[he.Id].differ;
 
 				if ((differ & bit_savetype) != 0)
 				{
@@ -95,7 +95,7 @@ namespace nwn2_ai_2da_editor
 					si_Child4.Text = SaveType_text.Text;
 				}
 
-				MainForm.that.SetEnabled(differ != bit_clear);
+				he.that.SetEnabled(differ != bit_clear);
 			}
 			// else TODO: error dialog here.
 		}
@@ -110,20 +110,20 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_st_reset(object sender, EventArgs e)
 		{
-			Spell spell = MainForm.Spells[MainForm.Id];
+			Spell spell = he.Spells[he.Id];
 			if ((spell.differ & bit_savetype) != 0)
 			{
 				spell.differ &= ~bit_savetype;
-				MainForm.Spells[MainForm.Id] = spell;
+				he.Spells[he.Id] = spell;
 
 				if (spell.differ == bit_clear)
 				{
-					MainForm.SpellsChanged.Remove(MainForm.Id);
+					he.SpellsChanged.Remove(he.Id);
 
 					Color color;
 					if (spell.isChanged) color = Color.Blue;
 					else                 color = DefaultForeColor;
-					MainForm.that.SetNodeColor(color);
+					he.that.SetNodeColor(color);
 				}
 
 				SaveType_reset.ForeColor = DefaultForeColor;

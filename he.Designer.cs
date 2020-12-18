@@ -5,7 +5,7 @@ using System.Windows.Forms;
 
 namespace nwn2_ai_2da_editor
 {
-	partial class MainForm
+	partial class he
 	{
 		/// <summary>
 		/// Disposes resources used by the form.
@@ -510,14 +510,14 @@ namespace nwn2_ai_2da_editor
 			this.btn_Apply.UseVisualStyleBackColor = true;
 			this.btn_Apply.Click += new System.EventHandler(this.Click_apply);
 			// 
-			// MainForm
+			// he
 			// 
 			this.ClientSize = new System.Drawing.Size(992, 574);
 			this.Controls.Add(this.splitContainer1);
 			this.Controls.Add(this.menubar);
 			this.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.MainMenuStrip = this.menubar;
-			this.Name = "MainForm";
+			this.Name = "he";
 			this.Text = "nwn2_ai_2da_editor";
 			this.menubar.ResumeLayout(false);
 			this.menubar.PerformLayout();

@@ -17,7 +17,7 @@ namespace nwn2_ai_2da_editor
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new MainForm());
+			Application.Run(new he());
 		}
 	}
 }

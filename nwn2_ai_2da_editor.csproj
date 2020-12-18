@@ -68,9 +68,9 @@
     <Compile Include="funct_classes.cs" />
     <Compile Include="HenchStructs.cs" />
     <Compile Include="InfoVersion.cs" />
-    <Compile Include="MainForm.cs" />
-    <Compile Include="MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="he.cs" />
+    <Compile Include="he.Designer.cs">
+      <DependentUpon>he.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -90,8 +90,8 @@
     <Compile Include="util\progbar.cs" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <EmbeddedResource Include="he.resx">
+      <DependentUpon>he.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="tabcontrol_Classes.resx">
       <DependentUpon>tabcontrol_Classes.cs</DependentUpon>
