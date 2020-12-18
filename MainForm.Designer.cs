@@ -416,6 +416,8 @@ namespace nwn2_ai_2da_editor
 			// 
 			// Tree
 			// 
+			this.Tree.BackColor = System.Drawing.Color.AliceBlue;
+			this.Tree.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.Tree.ContextMenuStrip = this.treeMenu;
 			this.Tree.Dock = System.Windows.Forms.DockStyle.Fill;
 			this.Tree.FullRowSelect = true;

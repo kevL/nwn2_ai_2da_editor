@@ -10,7 +10,7 @@ namespace nwn2_ai_2da_editor
 //		tp_Flags.Controls.Add(this.cf_infoversion_lbl);
 
 		#region Designer
-		TabControl tc_Classes;
+		CompositedTabControl tc_Classes;
 
 		TabPage tp_Flags;
 		TabPage tp_Feat1;
@@ -257,7 +257,7 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void InitializeComponent()
 		{
-			this.tc_Classes = new System.Windows.Forms.TabControl();
+			this.tc_Classes = new nwn2_ai_2da_editor.CompositedTabControl();
 			this.tp_Flags = new System.Windows.Forms.TabPage();
 			this.ClassFlags_reset = new System.Windows.Forms.Button();
 			this.ClassFlags_text = new System.Windows.Forms.TextBox();
@@ -487,6 +487,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// tp_Flags
 			// 
+			this.tp_Flags.BackColor = System.Drawing.Color.OldLace;
 			this.tp_Flags.Controls.Add(this.ClassFlags_reset);
 			this.tp_Flags.Controls.Add(this.ClassFlags_text);
 			this.tp_Flags.Controls.Add(this.ClassFlags_hex);
@@ -516,7 +517,6 @@ namespace nwn2_ai_2da_editor
 			this.tp_Flags.Size = new System.Drawing.Size(972, 133);
 			this.tp_Flags.TabIndex = 0;
 			this.tp_Flags.Text = "flags";
-			this.tp_Flags.UseVisualStyleBackColor = true;
 			// 
 			// ClassFlags_reset
 			// 
@@ -751,6 +751,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// tp_Feat1
 			// 
+			this.tp_Feat1.BackColor = System.Drawing.Color.OldLace;
 			this.tp_Feat1.Controls.Add(this.ClassFeat1_reset);
 			this.tp_Feat1.Controls.Add(this.ClassFeat1_text);
 			this.tp_Feat1.Controls.Add(this.ClassFeat1_hex);
@@ -771,7 +772,6 @@ namespace nwn2_ai_2da_editor
 			this.tp_Feat1.Size = new System.Drawing.Size(972, 133);
 			this.tp_Feat1.TabIndex = 1;
 			this.tp_Feat1.Text = "feat1";
-			this.tp_Feat1.UseVisualStyleBackColor = true;
 			// 
 			// ClassFeat1_reset
 			// 
@@ -912,6 +912,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// tp_Feat2
 			// 
+			this.tp_Feat2.BackColor = System.Drawing.Color.OldLace;
 			this.tp_Feat2.Controls.Add(this.ClassFeat2_reset);
 			this.tp_Feat2.Controls.Add(this.ClassFeat2_text);
 			this.tp_Feat2.Controls.Add(this.ClassFeat2_hex);
@@ -932,7 +933,6 @@ namespace nwn2_ai_2da_editor
 			this.tp_Feat2.Size = new System.Drawing.Size(972, 133);
 			this.tp_Feat2.TabIndex = 2;
 			this.tp_Feat2.Text = "feat2";
-			this.tp_Feat2.UseVisualStyleBackColor = true;
 			// 
 			// ClassFeat2_reset
 			// 
@@ -1073,6 +1073,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// tp_Feat3
 			// 
+			this.tp_Feat3.BackColor = System.Drawing.Color.OldLace;
 			this.tp_Feat3.Controls.Add(this.ClassFeat3_reset);
 			this.tp_Feat3.Controls.Add(this.ClassFeat3_text);
 			this.tp_Feat3.Controls.Add(this.ClassFeat3_hex);
@@ -1093,7 +1094,6 @@ namespace nwn2_ai_2da_editor
 			this.tp_Feat3.Size = new System.Drawing.Size(972, 133);
 			this.tp_Feat3.TabIndex = 3;
 			this.tp_Feat3.Text = "feat3";
-			this.tp_Feat3.UseVisualStyleBackColor = true;
 			// 
 			// ClassFeat3_reset
 			// 
@@ -1234,6 +1234,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// tp_Feat4
 			// 
+			this.tp_Feat4.BackColor = System.Drawing.Color.OldLace;
 			this.tp_Feat4.Controls.Add(this.ClassFeat4_reset);
 			this.tp_Feat4.Controls.Add(this.ClassFeat4_text);
 			this.tp_Feat4.Controls.Add(this.ClassFeat4_hex);
@@ -1254,7 +1255,6 @@ namespace nwn2_ai_2da_editor
 			this.tp_Feat4.Size = new System.Drawing.Size(972, 133);
 			this.tp_Feat4.TabIndex = 4;
 			this.tp_Feat4.Text = "feat4";
-			this.tp_Feat4.UseVisualStyleBackColor = true;
 			// 
 			// ClassFeat4_reset
 			// 
@@ -1395,6 +1395,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// tp_Feat5
 			// 
+			this.tp_Feat5.BackColor = System.Drawing.Color.OldLace;
 			this.tp_Feat5.Controls.Add(this.ClassFeat5_reset);
 			this.tp_Feat5.Controls.Add(this.ClassFeat5_text);
 			this.tp_Feat5.Controls.Add(this.ClassFeat5_hex);
@@ -1415,7 +1416,6 @@ namespace nwn2_ai_2da_editor
 			this.tp_Feat5.Size = new System.Drawing.Size(972, 133);
 			this.tp_Feat5.TabIndex = 5;
 			this.tp_Feat5.Text = "feat5";
-			this.tp_Feat5.UseVisualStyleBackColor = true;
 			// 
 			// ClassFeat5_reset
 			// 
@@ -1556,6 +1556,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// tp_Feat6
 			// 
+			this.tp_Feat6.BackColor = System.Drawing.Color.OldLace;
 			this.tp_Feat6.Controls.Add(this.ClassFeat6_reset);
 			this.tp_Feat6.Controls.Add(this.ClassFeat6_text);
 			this.tp_Feat6.Controls.Add(this.ClassFeat6_hex);
@@ -1576,7 +1577,6 @@ namespace nwn2_ai_2da_editor
 			this.tp_Feat6.Size = new System.Drawing.Size(972, 133);
 			this.tp_Feat6.TabIndex = 5;
 			this.tp_Feat6.Text = "feat6";
-			this.tp_Feat6.UseVisualStyleBackColor = true;
 			// 
 			// ClassFeat6_reset
 			// 
@@ -1717,6 +1717,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// tp_Feat7
 			// 
+			this.tp_Feat7.BackColor = System.Drawing.Color.OldLace;
 			this.tp_Feat7.Controls.Add(this.ClassFeat7_reset);
 			this.tp_Feat7.Controls.Add(this.ClassFeat7_text);
 			this.tp_Feat7.Controls.Add(this.ClassFeat7_hex);
@@ -1737,7 +1738,6 @@ namespace nwn2_ai_2da_editor
 			this.tp_Feat7.Size = new System.Drawing.Size(972, 133);
 			this.tp_Feat7.TabIndex = 5;
 			this.tp_Feat7.Text = "feat7";
-			this.tp_Feat7.UseVisualStyleBackColor = true;
 			// 
 			// ClassFeat7_reset
 			// 
@@ -1878,6 +1878,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// tp_Feat8
 			// 
+			this.tp_Feat8.BackColor = System.Drawing.Color.OldLace;
 			this.tp_Feat8.Controls.Add(this.ClassFeat8_reset);
 			this.tp_Feat8.Controls.Add(this.ClassFeat8_text);
 			this.tp_Feat8.Controls.Add(this.ClassFeat8_hex);
@@ -1898,7 +1899,6 @@ namespace nwn2_ai_2da_editor
 			this.tp_Feat8.Size = new System.Drawing.Size(972, 133);
 			this.tp_Feat8.TabIndex = 5;
 			this.tp_Feat8.Text = "feat8";
-			this.tp_Feat8.UseVisualStyleBackColor = true;
 			// 
 			// ClassFeat8_reset
 			// 
@@ -2039,6 +2039,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// tp_Feat9
 			// 
+			this.tp_Feat9.BackColor = System.Drawing.Color.OldLace;
 			this.tp_Feat9.Controls.Add(this.ClassFeat9_reset);
 			this.tp_Feat9.Controls.Add(this.ClassFeat9_text);
 			this.tp_Feat9.Controls.Add(this.ClassFeat9_hex);
@@ -2059,7 +2060,6 @@ namespace nwn2_ai_2da_editor
 			this.tp_Feat9.Size = new System.Drawing.Size(972, 133);
 			this.tp_Feat9.TabIndex = 5;
 			this.tp_Feat9.Text = "feat9";
-			this.tp_Feat9.UseVisualStyleBackColor = true;
 			// 
 			// ClassFeat9_reset
 			// 
@@ -2200,6 +2200,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// tp_Feat10
 			// 
+			this.tp_Feat10.BackColor = System.Drawing.Color.OldLace;
 			this.tp_Feat10.Controls.Add(this.ClassFeat10_reset);
 			this.tp_Feat10.Controls.Add(this.ClassFeat10_text);
 			this.tp_Feat10.Controls.Add(this.ClassFeat10_hex);
@@ -2220,7 +2221,6 @@ namespace nwn2_ai_2da_editor
 			this.tp_Feat10.Size = new System.Drawing.Size(972, 133);
 			this.tp_Feat10.TabIndex = 5;
 			this.tp_Feat10.Text = "feat10";
-			this.tp_Feat10.UseVisualStyleBackColor = true;
 			// 
 			// ClassFeat10_reset
 			// 
@@ -2361,6 +2361,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// tp_Feat11
 			// 
+			this.tp_Feat11.BackColor = System.Drawing.Color.OldLace;
 			this.tp_Feat11.Controls.Add(this.ClassFeat11_reset);
 			this.tp_Feat11.Controls.Add(this.ClassFeat11_text);
 			this.tp_Feat11.Controls.Add(this.ClassFeat11_hex);
@@ -2381,7 +2382,6 @@ namespace nwn2_ai_2da_editor
 			this.tp_Feat11.Size = new System.Drawing.Size(972, 133);
 			this.tp_Feat11.TabIndex = 5;
 			this.tp_Feat11.Text = "feat11";
-			this.tp_Feat11.UseVisualStyleBackColor = true;
 			// 
 			// ClassFeat11_reset
 			// 

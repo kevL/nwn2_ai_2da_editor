@@ -42,7 +42,7 @@ namespace nwn2_ai_2da_editor
 			RacialFeat4_hex.BackColor =
 			RacialFeat4_bin.BackColor =
 			RacialFeat5_hex.BackColor =
-			RacialFeat5_bin.BackColor = BackColor;
+			RacialFeat5_bin.BackColor = tp_Flags.BackColor;
 
 
 // handlers for Flags ->

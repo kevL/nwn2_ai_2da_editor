@@ -137,7 +137,6 @@ namespace nwn2_ai_2da_editor
 			InitializeComponent();
 			// Add constructor code after the InitializeComponent() call.
 
-
 			logfile.CreateLog(); // NOTE: The logfile works in debug-builds only.
 			// To write a line to the logfile:
 			// logfile.Log("what you want to know here");
@@ -1636,29 +1635,4 @@ namespace nwn2_ai_2da_editor
 		#endregion treeview ContextMenu
 	}
 	#endregion MainForm
-
-
-
-	/// <summary>
-	/// Derived class for TreeView.
-	/// </summary>
-	sealed class CompositedTreeView
-		:
-			TreeView
-	{
-		#region Properties (override)
-		/// <summary>
-		/// Prevents flicker.
-		/// </summary>
-		protected override CreateParams CreateParams
-		{
-			get
-			{
-				CreateParams cp = base.CreateParams;
-				cp.ExStyle |= 0x02000000; // enable 'WS_EX_COMPOSITED'
-				return cp;
-			}
-		}
-		#endregion Properties (override)
-	}
 }

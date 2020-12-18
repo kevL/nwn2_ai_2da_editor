@@ -9,7 +9,7 @@ namespace nwn2_ai_2da_editor
 //		tp_SpellInfo.Controls.Add(si_infoversion);
 //		tp_SpellInfo.Controls.Add(si_infoversion_lbl);
 
-		TabControl tc_Spells;
+		CompositedTabControl tc_Spells;
 
 		TabPage tp_SpellInfo;
 		TabPage tp_TargetInfo;
@@ -394,7 +394,7 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void InitializeComponent()
 		{
-			this.tc_Spells = new System.Windows.Forms.TabControl();
+			this.tc_Spells = new nwn2_ai_2da_editor.CompositedTabControl();
 			this.tp_SpellInfo = new System.Windows.Forms.TabPage();
 			this.SpellInfo_reset = new System.Windows.Forms.Button();
 			this.SpellInfo_text = new System.Windows.Forms.TextBox();
@@ -746,6 +746,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// tp_SpellInfo
 			// 
+			this.tp_SpellInfo.BackColor = System.Drawing.Color.OldLace;
 			this.tp_SpellInfo.Controls.Add(this.SpellInfo_reset);
 			this.tp_SpellInfo.Controls.Add(this.SpellInfo_text);
 			this.tp_SpellInfo.Controls.Add(this.SpellInfo_hex);
@@ -768,7 +769,6 @@ namespace nwn2_ai_2da_editor
 			this.tp_SpellInfo.Size = new System.Drawing.Size(815, 423);
 			this.tp_SpellInfo.TabIndex = 0;
 			this.tp_SpellInfo.Text = "SpellInfo";
-			this.tp_SpellInfo.UseVisualStyleBackColor = true;
 			// 
 			// SpellInfo_reset
 			// 
@@ -1168,6 +1168,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// tp_TargetInfo
 			// 
+			this.tp_TargetInfo.BackColor = System.Drawing.Color.OldLace;
 			this.tp_TargetInfo.Controls.Add(this.TargetInfo_reset);
 			this.tp_TargetInfo.Controls.Add(this.TargetInfo_text);
 			this.tp_TargetInfo.Controls.Add(this.TargetInfo_hex);
@@ -1185,7 +1186,6 @@ namespace nwn2_ai_2da_editor
 			this.tp_TargetInfo.Size = new System.Drawing.Size(815, 423);
 			this.tp_TargetInfo.TabIndex = 1;
 			this.tp_TargetInfo.Text = "TargetInfo";
-			this.tp_TargetInfo.UseVisualStyleBackColor = true;
 			// 
 			// TargetInfo_reset
 			// 
@@ -1444,6 +1444,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// tp_EffectWeight
 			// 
+			this.tp_EffectWeight.BackColor = System.Drawing.Color.OldLace;
 			this.tp_EffectWeight.Controls.Add(this.ew_Clear);
 			this.tp_EffectWeight.Controls.Add(this.f2);
 			this.tp_EffectWeight.Controls.Add(this.f1);
@@ -1455,7 +1456,6 @@ namespace nwn2_ai_2da_editor
 			this.tp_EffectWeight.Size = new System.Drawing.Size(815, 423);
 			this.tp_EffectWeight.TabIndex = 2;
 			this.tp_EffectWeight.Text = "EffectWeight";
-			this.tp_EffectWeight.UseVisualStyleBackColor = true;
 			// 
 			// ew_Clear
 			// 
@@ -1505,6 +1505,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// tp_EffectTypes
 			// 
+			this.tp_EffectTypes.BackColor = System.Drawing.Color.OldLace;
 			this.tp_EffectTypes.Controls.Add(this.EffectTypes_reset);
 			this.tp_EffectTypes.Controls.Add(this.EffectTypes_text);
 			this.tp_EffectTypes.Controls.Add(this.EffectTypes_hex);
@@ -1520,7 +1521,6 @@ namespace nwn2_ai_2da_editor
 			this.tp_EffectTypes.Size = new System.Drawing.Size(815, 423);
 			this.tp_EffectTypes.TabIndex = 3;
 			this.tp_EffectTypes.Text = "EffectTypes";
-			this.tp_EffectTypes.UseVisualStyleBackColor = true;
 			// 
 			// EffectTypes_reset
 			// 
@@ -2221,6 +2221,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// tp_DamageInfo
 			// 
+			this.tp_DamageInfo.BackColor = System.Drawing.Color.OldLace;
 			this.tp_DamageInfo.Controls.Add(this.DamageInfo_reset);
 			this.tp_DamageInfo.Controls.Add(this.DamageInfo_text);
 			this.tp_DamageInfo.Controls.Add(this.DamageInfo_hex);
@@ -2237,7 +2238,6 @@ namespace nwn2_ai_2da_editor
 			this.tp_DamageInfo.Size = new System.Drawing.Size(815, 423);
 			this.tp_DamageInfo.TabIndex = 25;
 			this.tp_DamageInfo.Text = "DamageInfo";
-			this.tp_DamageInfo.UseVisualStyleBackColor = true;
 			// 
 			// DamageInfo_reset
 			// 
@@ -2784,6 +2784,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// tp_SaveType
 			// 
+			this.tp_SaveType.BackColor = System.Drawing.Color.OldLace;
 			this.tp_SaveType.Controls.Add(this.SaveType_reset);
 			this.tp_SaveType.Controls.Add(this.SaveType_text);
 			this.tp_SaveType.Controls.Add(this.SaveType_hex);
@@ -2802,7 +2803,6 @@ namespace nwn2_ai_2da_editor
 			this.tp_SaveType.Size = new System.Drawing.Size(815, 423);
 			this.tp_SaveType.TabIndex = 5;
 			this.tp_SaveType.Text = "SaveType";
-			this.tp_SaveType.UseVisualStyleBackColor = true;
 			// 
 			// SaveType_reset
 			// 
@@ -3550,6 +3550,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// tp_SaveDCType
 			// 
+			this.tp_SaveDCType.BackColor = System.Drawing.Color.OldLace;
 			this.tp_SaveDCType.Controls.Add(this.SaveDCType_reset);
 			this.tp_SaveDCType.Controls.Add(this.SaveDCType_text);
 			this.tp_SaveDCType.Controls.Add(this.SaveDCType_hex);
@@ -3567,7 +3568,6 @@ namespace nwn2_ai_2da_editor
 			this.tp_SaveDCType.Size = new System.Drawing.Size(815, 423);
 			this.tp_SaveDCType.TabIndex = 6;
 			this.tp_SaveDCType.Text = "SaveDCType";
-			this.tp_SaveDCType.UseVisualStyleBackColor = true;
 			// 
 			// SaveDCType_reset
 			// 

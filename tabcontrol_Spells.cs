@@ -43,7 +43,7 @@ namespace nwn2_ai_2da_editor
 			SaveType_hex   .BackColor =
 			SaveType_bin   .BackColor =
 			SaveDCType_hex .BackColor =
-			SaveDCType_bin .BackColor = BackColor;
+			SaveDCType_bin .BackColor = tp_SpellInfo.BackColor;
 
 			PopulateComboboxes();
 

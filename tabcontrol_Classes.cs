@@ -60,7 +60,7 @@ namespace nwn2_ai_2da_editor
 			ClassFeat10_hex.BackColor =
 			ClassFeat10_bin.BackColor =
 			ClassFeat11_hex.BackColor =
-			ClassFeat11_bin.BackColor = BackColor;
+			ClassFeat11_bin.BackColor = tp_Flags.BackColor;
 
 			PopulateComboboxes();
 

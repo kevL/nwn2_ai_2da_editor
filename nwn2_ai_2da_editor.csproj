@@ -54,6 +54,7 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls.cs" />
     <Compile Include="hc.cs" />
     <Compile Include="funct_bar.cs" />
     <Compile Include="spells1_SpellInfo.cs" />
