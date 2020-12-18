@@ -658,33 +658,51 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_clearCoreAiVersion(object sender, EventArgs e)
 		{
-			BypassInfoVersion = true;
-
+			string type2da;
 			switch (Type)
 			{
-				case Type2da.TYPE_SPELLS:
-					SetInfoVersion_spells("0", true);
-
-					it_ApplyGlobal.Enabled = SpellsChanged.Count != 0;
-					it_GotoChanged.Enabled = SpellsChanged.Count != 0 || SpareChange();
-					break;
-
-				case Type2da.TYPE_RACIAL:
-					SetInfoVersion_racial("0", true);
-
-					it_ApplyGlobal.Enabled = RacesChanged.Count != 0;
-					it_GotoChanged.Enabled = RacesChanged.Count != 0 || SpareChange();
-					break;
-
-				case Type2da.TYPE_CLASSES:
-					SetInfoVersion_classes("0", true);
-
-					it_ApplyGlobal.Enabled = ClassesChanged.Count != 0;
-					it_GotoChanged.Enabled = ClassesChanged.Count != 0 || SpareChange();
-					break;
+				case Type2da.TYPE_SPELLS: type2da = "SpellInfo"; break;
+				default:                  type2da = "Flags";     break;
 			}
 
-			BypassInfoVersion = false;
+			string info = "This clears the bits @ 0xFF000000 on the " + type2da + " page."
+						+ Environment.NewLine + Environment.NewLine
+						+ "Are you sure you know what you're doing ...";
+
+			if (MessageBox.Show(info,
+								"  WARNING",
+								MessageBoxButtons.YesNo,
+								MessageBoxIcon.Warning,
+								MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+			{
+				BypassInfoVersion = true;
+
+				switch (Type)
+				{
+					case Type2da.TYPE_SPELLS:
+						SetInfoVersion_spells("0", true);
+
+						it_ApplyGlobal.Enabled = SpellsChanged.Count != 0;
+						it_GotoChanged.Enabled = SpellsChanged.Count != 0 || SpareChange();
+						break;
+
+					case Type2da.TYPE_RACIAL:
+						SetInfoVersion_racial("0", true);
+
+						it_ApplyGlobal.Enabled = RacesChanged.Count != 0;
+						it_GotoChanged.Enabled = RacesChanged.Count != 0 || SpareChange();
+						break;
+
+					case Type2da.TYPE_CLASSES:
+						SetInfoVersion_classes("0", true);
+
+						it_ApplyGlobal.Enabled = ClassesChanged.Count != 0;
+						it_GotoChanged.Enabled = ClassesChanged.Count != 0 || SpareChange();
+						break;
+				}
+
+				BypassInfoVersion = false;
+			}
 		}
 
 		/// <summary>
