@@ -129,7 +129,7 @@ namespace nwn2_ai_2da_editor
 			this.menubar.Location = new System.Drawing.Point(0, 0);
 			this.menubar.Name = "menubar";
 			this.menubar.Padding = new System.Windows.Forms.Padding(0);
-			this.menubar.Size = new System.Drawing.Size(992, 24);
+			this.menubar.Size = new System.Drawing.Size(792, 24);
 			this.menubar.TabIndex = 0;
 			this.menubar.Text = "menubar";
 			// 
@@ -397,7 +397,7 @@ namespace nwn2_ai_2da_editor
 			// splitContainer.Panel2
 			// 
 			this.splitContainer.Panel2.Controls.Add(this.btn_Apply);
-			this.splitContainer.Size = new System.Drawing.Size(992, 550);
+			this.splitContainer.Size = new System.Drawing.Size(792, 430);
 			this.splitContainer.SplitterDistance = 275;
 			this.splitContainer.SplitterWidth = 3;
 			this.splitContainer.TabIndex = 1;
@@ -416,7 +416,7 @@ namespace nwn2_ai_2da_editor
 			this.Tree.Name = "Tree";
 			this.Tree.ShowLines = false;
 			this.Tree.ShowPlusMinus = false;
-			this.Tree.Size = new System.Drawing.Size(275, 530);
+			this.Tree.Size = new System.Drawing.Size(275, 410);
 			this.Tree.TabIndex = 1;
 			this.Tree.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.AfterSelect_node);
 			this.Tree.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress_search);
@@ -490,17 +490,17 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.btn_Apply.Dock = System.Windows.Forms.DockStyle.Bottom;
 			this.btn_Apply.Enabled = false;
-			this.btn_Apply.Location = new System.Drawing.Point(0, 525);
+			this.btn_Apply.Location = new System.Drawing.Point(0, 405);
 			this.btn_Apply.Margin = new System.Windows.Forms.Padding(0);
 			this.btn_Apply.Name = "btn_Apply";
-			this.btn_Apply.Size = new System.Drawing.Size(714, 25);
+			this.btn_Apply.Size = new System.Drawing.Size(514, 25);
 			this.btn_Apply.TabIndex = 0;
 			this.btn_Apply.UseVisualStyleBackColor = true;
 			this.btn_Apply.Click += new System.EventHandler(this.Click_apply);
 			// 
 			// he
 			// 
-			this.ClientSize = new System.Drawing.Size(992, 574);
+			this.ClientSize = new System.Drawing.Size(792, 454);
 			this.Controls.Add(this.splitContainer);
 			this.Controls.Add(this.menubar);
 			this.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

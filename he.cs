@@ -122,6 +122,9 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		string _pfe  = String.Empty;
 		string _pfeT = String.Empty;
+
+		int userHeight = 480;
+		int panel2width, panel2height;
 		#endregion class Vars
 
 
@@ -147,7 +150,7 @@ namespace nwn2_ai_2da_editor
 
 			ActiveControl = tb_Search; // focus the Search-box
 
-			Size = new Size(800, 480);
+			Size = new Size(800, userHeight);
 
 			// NOTE: quickload a 2da for testing ONLY.
 //			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchspells.2da";
@@ -156,6 +159,17 @@ namespace nwn2_ai_2da_editor
 //			Load_file();
 		}
 		#endregion cTor
+
+
+		#region Events (override)
+		protected override void OnResize(EventArgs e)
+		{
+			if (WindowState == FormWindowState.Normal)
+				userHeight = ClientSize.Height;
+
+			base.OnResize(e);
+		}
+		#endregion Events (override)
 
 
 		#region Load
@@ -386,6 +400,8 @@ namespace nwn2_ai_2da_editor
 				HenchControl.Dispose(); // <- also removes the control from its collection
 
 			HenchControl = new tabcontrol_Spells(this);
+			panel2width  = HenchControl.Width;  // cache that
+			panel2height = HenchControl.Height; // cache that
 			splitContainer.Panel2.Controls.Add(HenchControl);
 
 			// TODO: size the form appropriately
@@ -462,8 +478,6 @@ namespace nwn2_ai_2da_editor
 
 			GrowTree();
 
-			EnableCopy(true);
-
 			// check if any info-version(s) need to be updated in spellinfo-int.
 //			InfoVersionLoad_spells();
 
@@ -471,16 +485,8 @@ namespace nwn2_ai_2da_editor
 			// unless SpellInfo is flagged as a MasterID
 			(HenchControl as tabcontrol_Spells).SetDefaultGroupColors();
 
-			// TODO: this doesn't work as intended if the window is currently
-			// maximized.
-			if (Width < 1105) Width = 1105;
-			if (Height < 530) Height = 530;
-
 			btn_Apply     .Text = "apply this spell\'s data";
 			tree_Highlight.Text = "highlight blank SpellInfo nodes";
-//			addNode       .Text = "add node: spell";
-
-			tree_Highlight.Checked = false;
 		}
 
 		/* <summary>
@@ -560,6 +566,8 @@ namespace nwn2_ai_2da_editor
 				HenchControl.Dispose(); // <- also removes the control from its collection
 
 			HenchControl = new tabcontrol_Racial(this);
+			panel2width  = HenchControl.Width;  // cache that
+			panel2height = HenchControl.Height; // cache that
 			splitContainer.Panel2.Controls.Add(HenchControl);
 
 			// TODO: size the form appropriately
@@ -631,22 +639,11 @@ namespace nwn2_ai_2da_editor
 
 			GrowTree();
 
-			EnableCopy(true);
-
 			// check if any info-version(s) need to be updated in flags-int.
 //			InfoVersionLoad_racial();
 
-
-			// TODO: this doesn't work as intended if the window is currently
-			// maximized.
-			if (Width  < 905) Width  = 905;
-			if (Height < 350) Height = 350;
-
 			btn_Apply     .Text = "apply this race\'s data";
 			tree_Highlight.Text = "highlight blank Racial flags nodes";
-//			addNode       .Text = "add node: race";
-
-			tree_Highlight.Checked = false;
 		}
 
 		/* <summary>
@@ -704,6 +701,8 @@ namespace nwn2_ai_2da_editor
 				HenchControl.Dispose(); // <- also removes the control from its collection
 
 			HenchControl = new tabcontrol_Classes(this);
+			panel2width  = HenchControl.Width;  // cache that
+			panel2height = HenchControl.Height; // cache that
 			splitContainer.Panel2.Controls.Add(HenchControl);
 
 			// TODO: size the form appropriately
@@ -805,21 +804,11 @@ namespace nwn2_ai_2da_editor
 
 			GrowTree();
 
-			EnableCopy(true);
-
 			// check if any info-version(s) need to be updated in flags-int.
 //			InfoVersionLoad_classes();
 
-			// TODO: this doesn't work as intended if the window is currently
-			// maximized.
-			if (Width  < 1355) Width  = 1355;
-			if (Height <  400) Height = 400;
-
 			btn_Apply     .Text = "apply this class\' data";
 			tree_Highlight.Text = "highlight blank Class flags nodes";
-//			addNode       .Text = "add node: class";
-
-			tree_Highlight.Checked = false;
 		}
 
 		/* <summary>
@@ -875,7 +864,11 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void GrowTree()
 		{
-			MenuEnable();
+			EnableMenu();
+			EnableCopy(true);
+
+			tree_Highlight.Checked = false;
+
 
 			Tree.BeginUpdate();
 
@@ -1000,7 +993,7 @@ namespace nwn2_ai_2da_editor
 			}
 
 
-			text = String.Empty;
+			text = String.Empty; // set Tree width ->
 			int width = 0;
 			for (int i = 0; i != Tree.Nodes.Count; ++i)
 			{
@@ -1016,6 +1009,11 @@ namespace nwn2_ai_2da_editor
 
 			Tree.EndUpdate();
 
+			int height; // set ClientSize ->
+			width  = splitContainer.Panel1.Width + splitContainer.SplitterWidth + panel2width + 1;
+			height = Math.Max(userHeight, menubar.Height + btn_Apply.Height + panel2height);
+			ClientSize = new Size(width, height);
+
 			ResumeLayout();
 		}
 
@@ -1024,7 +1022,7 @@ namespace nwn2_ai_2da_editor
 		/// NOTE: Calls to this need to be adjusted if a Close 2da function is
 		/// added - and perhaps if a 2da fails to load leaving a blank tree.
 		/// </summary>
-		void MenuEnable()
+		void EnableMenu()
 		{
 			Save            .Enabled = // file ->
 			Saveas          .Enabled =
@@ -1033,7 +1031,7 @@ namespace nwn2_ai_2da_editor
 			Copy_hexadecimal.Enabled =
 			Copy_binary     .Enabled =
 
-			clearCoreAIver  .Enabled = true; // TODO: Refine. TonyAI 2.2 SpellInfo bits are totally incompatible w/ 2.3+
+			clearCoreAIver  .Enabled = true;
 
 			tree_Highlight  .Visible = true;
 		}
