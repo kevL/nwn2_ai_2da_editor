@@ -43,14 +43,14 @@ namespace nwn2_ai_2da_editor
 		#region Events (override)
 		protected override void OnFormClosing(FormClosingEventArgs e)
 		{
-			if (e.CloseReason != CloseReason.WindowsShutDown)
+			if (e.CloseReason != CloseReason.WindowsShutDown
+				&& GetChanged())
 			{
-				e.Cancel = GetChanged()
-						&& MessageBox.Show("Data has changed." + Environment.NewLine + "Okay to exit ...",
-										   "  Warning",
-										   MessageBoxButtons.OKCancel,
-										   MessageBoxIcon.Warning,
-										   MessageBoxDefaultButton.Button2) == DialogResult.Cancel;
+				string info = "Data has changed."
+							+ Environment.NewLine + Environment.NewLine
+							+ "Okay to exit ...";
+				using (var ib = new infobox(" Warning", info, "yessir", "no"))
+					e.Cancel = ib.ShowDialog(this) != DialogResult.OK;
 			}
 			base.OnFormClosing(e);
 		}
@@ -65,15 +65,18 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_quit(object sender, EventArgs e)
 		{
-			if (!GetChanged()
-				|| MessageBox.Show("Data has changed." + Environment.NewLine + "Okay to exit ...",
-								   "  Warning",
-								   MessageBoxButtons.OKCancel,
-								   MessageBoxIcon.Warning,
-								   MessageBoxDefaultButton.Button2) == DialogResult.OK)
+			if (GetChanged())
 			{
-				Close();
+				string info = "Data has changed."
+							+ Environment.NewLine + Environment.NewLine
+							+ "Okay to exit ...";
+				using (var ib = new infobox(" Warning", info, "yessir", "no"))
+				{
+					if (ib.ShowDialog(this) != DialogResult.OK)
+						return;
+				}
 			}
+			Close();
 		}
 
 		/// <summary>
@@ -83,23 +86,27 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_open(object sender, EventArgs e)
 		{
-			if (!GetChanged()
-				|| MessageBox.Show("Data has changed." + Environment.NewLine + "Okay to exit ...",
-								   "  Warning",
-								   MessageBoxButtons.OKCancel,
-								   MessageBoxIcon.Warning,
-								   MessageBoxDefaultButton.Button2) == DialogResult.OK)
+			if (GetChanged())
 			{
-				using (var ofd = new OpenFileDialog())
+				string info = "Data has changed."
+							+ Environment.NewLine + Environment.NewLine
+							+ "Okay to exit ...";
+				using (var ib = new infobox(" Warning", info, "yessir", "no"))
 				{
-					ofd.Title  = "Select a Hench*.2da file";
-					ofd.Filter = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
-	
-					if (ofd.ShowDialog() == DialogResult.OK)
-					{
-						_pfe = ofd.FileName;
-						Load_file();
-					}
+					if (ib.ShowDialog(this) != DialogResult.OK)
+						return;
+				}
+			}
+
+			using (var ofd = new OpenFileDialog())
+			{
+				ofd.Title  = "Select a Hench*.2da file";
+				ofd.Filter = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
+
+				if (ofd.ShowDialog() == DialogResult.OK)
+				{
+					_pfe = ofd.FileName;
+					Load_file();
 				}
 			}
 		}
@@ -123,44 +130,36 @@ namespace nwn2_ai_2da_editor
 			}
 			else
 			{
-				string info = "There is data that has been modified but not applied."
-							+ Environment.NewLine + Environment.NewLine
-							+ "\tabort\t Cancel the operation"
-							+ Environment.NewLine
-							+ "\tretry\t Apply all modified data and Save"
-							+ Environment.NewLine
-							+ "\tignore\t Save currently applied data only";
-
-				switch (MessageBox.Show(info,
-										"  Attention",
-										MessageBoxButtons.AbortRetryIgnore,
-										MessageBoxIcon.Asterisk,
-										MessageBoxDefaultButton.Button1))
+				const string info = "There is data that has been modified but not applied.";
+				using (var ib = new infobox(" Attention", info, "save anyway", "cancel", "apply & save"))
 				{
-					case DialogResult.Abort:
-						_pfeT = String.Empty;
-						break;
-
-					case DialogResult.Retry:
-						if (sender == null) // is Saveas
-						{
-							_pfe = _pfeT;
+					switch (ib.ShowDialog(this))
+					{
+						case DialogResult.Cancel:
 							_pfeT = String.Empty;
-						}
+							break;
 
-						ApplyDirtyData();
-						Write2daFile();
-						break;
+						case DialogResult.Retry:
+							if (sender == null) // is Saveas
+							{
+								_pfe = _pfeT;
+								_pfeT = String.Empty;
+							}
 
-					case DialogResult.Ignore:
-						if (sender == null) // is Saveas
-						{
-							_pfe = _pfeT;
-							_pfeT = String.Empty;
-						}
+							ApplyDirtyData();
+							Write2daFile();
+							break;
 
-						Write2daFile();
-						break;
+						case DialogResult.OK:
+							if (sender == null) // is Saveas
+							{
+								_pfe = _pfeT;
+								_pfeT = String.Empty;
+							}
+
+							Write2daFile();
+							break;
+					}
 				}
 			}
 		}
@@ -565,49 +564,30 @@ namespace nwn2_ai_2da_editor
 			{
 				string[] rows = File.ReadAllLines(pfe2da);
 
-				// WARNING: This editor does *not* handle quotation marks around 2da fields.
-				foreach (string row in rows) // test for double-quote character and exit if found.
+				if (!DoubleQuoteCondition(rows))
 				{
-					foreach (char character in row)
+					labels.Clear();
+
+					for (int i = 0; i != rows.Length; ++i)
+						rows[i] = rows[i].Trim();
+
+					string[] fields;
+					foreach (string row in rows)
 					{
-						if (character == '"')
+						if (!String.IsNullOrEmpty(row))
 						{
-							const string info = "The 2da-file contains double-quotes. Although that can be"
-											  + " valid in a 2da-file this editor is not coded to cope."
-											  + " Format the 2da-file to not use double-quotes if you want"
-											  + " to access it here.";
-							MessageBox.Show(info,
-											"  ERROR",
-											MessageBoxButtons.OK,
-											MessageBoxIcon.Error,
-											MessageBoxDefaultButton.Button1);
-							return;
+							fields = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
+
+							int id;
+							if (Int32.TryParse(fields[0], out id)) // is a valid 2da row
+							{
+								labels.Add(fields[1]); // and hope for the best.
+							}
 						}
 					}
+
+					item.Checked = (labels.Count != 0);
 				}
-
-
-				labels.Clear();
-
-				for (int i = 0; i != rows.Length; ++i)
-					rows[i] = rows[i].Trim();
-
-				string[] fields;
-				foreach (string row in rows)
-				{
-					if (!String.IsNullOrEmpty(row))
-					{
-						fields = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
-
-						int id;
-						if (Int32.TryParse(fields[0], out id)) // is a valid 2da row
-						{
-							labels.Add(fields[1]); // and hope for the best.
-						}
-					}
-				}
-
-				item.Checked = (labels.Count != 0);
 			}
 		}
 
@@ -669,7 +649,7 @@ namespace nwn2_ai_2da_editor
 						+ Environment.NewLine + Environment.NewLine
 						+ "Are you sure you know what you're doing ...";
 
-			using (var ib = new infobox(" Alert", info, true))
+			using (var ib = new infobox(" Alert", info, "yessir", "no"))
 			{
 				if (ib.ShowDialog(this) == DialogResult.OK)
 				{
@@ -830,7 +810,7 @@ namespace nwn2_ai_2da_editor
 			string info = String.Format(System.Globalization.CultureInfo.CurrentCulture,
 										"{0:yyyy MMM d}  {0:HH}:{0:mm}:{0:ss} {0:zzz}",
 										dt);
-			// what a fucking pain in the ass.
+			// what a fucking pain in the ass!
 
 			var an = Assembly.GetExecutingAssembly().GetName();
 			string ver = "Ver "
@@ -843,12 +823,9 @@ namespace nwn2_ai_2da_editor
 #else
 			ver += " - release";
 #endif
-
-			MessageBox.Show(info + Environment.NewLine + ver,
-							"  About - nwn2_ai_2da_editor",
-							MessageBoxButtons.OK,
-							MessageBoxIcon.None,
-							MessageBoxDefaultButton.Button1);
+			ver += Environment.NewLine + Environment.NewLine + info;
+			using (var ib = new infobox(" About - nwn2_ai_2da_editor", ver, "yarr"))
+				ib.ShowDialog(this);
 		}
 		#endregion Help
 
