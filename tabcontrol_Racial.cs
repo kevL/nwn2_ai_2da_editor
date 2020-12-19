@@ -260,6 +260,20 @@ namespace nwn2_ai_2da_editor
 		{
 			RacialFlags_text.Text = text;
 		}
+
+
+		internal void SelectResetButton()
+		{
+			switch (tc_Racial.SelectedIndex)
+			{
+				case 0: RacialFlags_reset.Select(); break;
+				case 1: RacialFeat1_reset.Select(); break;
+				case 2: RacialFeat2_reset.Select(); break;
+				case 3: RacialFeat3_reset.Select(); break;
+				case 4: RacialFeat4_reset.Select(); break;
+				case 5: RacialFeat5_reset.Select(); break;
+			}
+		}
 		#endregion Methods
 	}
 }

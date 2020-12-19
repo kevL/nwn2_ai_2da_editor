@@ -833,6 +833,21 @@ namespace nwn2_ai_2da_editor
 		{
 			SpellInfo_text.Text = text;
 		}
+
+
+		internal void SelectResetButton()
+		{
+			switch (tc_Spells.SelectedIndex)
+			{
+				case 0: SpellInfo_reset   .Select(); break;
+				case 1: TargetInfo_reset  .Select(); break;
+				case 2: EffectWeight_reset.Select(); break;
+				case 3: EffectTypes_reset .Select(); break;
+				case 4: DamageInfo_reset  .Select(); break;
+				case 5: SaveType_reset    .Select(); break;
+				case 6: SaveDCType_reset  .Select(); break;
+			}
+		}
 		#endregion Methods
 	}
 }

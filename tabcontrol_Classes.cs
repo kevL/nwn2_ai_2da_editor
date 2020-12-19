@@ -474,6 +474,26 @@ namespace nwn2_ai_2da_editor
 		{
 			ClassFlags_text.Text = text;
 		}
+
+
+		internal void SelectResetButton()
+		{
+			switch (tc_Classes.SelectedIndex)
+			{
+				case  0: ClassFlags_reset .Select(); break;
+				case  1: ClassFeat1_reset .Select(); break;
+				case  2: ClassFeat2_reset .Select(); break;
+				case  3: ClassFeat3_reset .Select(); break;
+				case  4: ClassFeat4_reset .Select(); break;
+				case  5: ClassFeat5_reset .Select(); break;
+				case  6: ClassFeat6_reset .Select(); break;
+				case  7: ClassFeat7_reset .Select(); break;
+				case  8: ClassFeat8_reset .Select(); break;
+				case  9: ClassFeat9_reset .Select(); break;
+				case 10: ClassFeat10_reset.Select(); break;
+				case 11: ClassFeat11_reset.Select(); break;
+			}
+		}
 		#endregion Methods
 	}
 }
