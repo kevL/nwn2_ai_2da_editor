@@ -4,10 +4,19 @@ using System.Windows.Forms;
 
 namespace nwn2_ai_2da_editor
 {
+	/// <summary>
+	/// A generic dialog to display info or request confirmation.
+	/// </summary>
 	sealed class infobox
 		: Form
 	{
 		#region cTor
+		/// <summary>
+		/// cTor.
+		/// </summary>
+		/// <param name="title"></param>
+		/// <param name="info"></param>
+		/// <param name="showCancel"></param>
 		internal infobox(string title, string info, bool showCancel)
 		{
 			InitializeComponent();
@@ -23,13 +32,47 @@ namespace nwn2_ai_2da_editor
 		#endregion cTor
 
 
+		#region Events (override)
+		/// <summary>
+		/// Requires 'KeyPreview' true.
+		/// </summary>
+		/// <param name="e"></param>
+		protected override void OnKeyDown(KeyEventArgs e)
+		{
+			switch (e.KeyData)
+			{
+				case Keys.Enter:
+					if (!bu_accept.Focused && !bu_cancel.Focused) // else let .net handle the input on those buttons
+						DialogResult = DialogResult.OK;
+					break;
+
+				case Keys.Escape:
+					DialogResult = DialogResult.Cancel;
+					break;
+			}
+		}
+		#endregion Events (override)
+
+
 		#region Events
+		/// <summary>
+		/// Closes this infobox and returns 'DialogResult.OK'.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		void click_Accept(object sender, EventArgs e)
 		{
+			DialogResult = DialogResult.OK;
 		}
 
+		/// <summary>
+		/// Closes this infobox and returns 'DialogResult.Cancel'.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		void click_Cancel(object sender, EventArgs e)
 		{
+			DialogResult = DialogResult.Cancel;
 		}
 		#endregion Events
 
@@ -85,14 +128,13 @@ namespace nwn2_ai_2da_editor
 			// 
 			// infobox
 			// 
-			this.AcceptButton = this.bu_accept;
-			this.CancelButton = this.bu_cancel;
 			this.ClientSize = new System.Drawing.Size(394, 171);
 			this.Controls.Add(this.bu_cancel);
 			this.Controls.Add(this.bu_accept);
 			this.Controls.Add(this.la_info);
 			this.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+			this.KeyPreview = true;
 			this.MaximizeBox = false;
 			this.Name = "infobox";
 			this.ShowInTaskbar = false;
