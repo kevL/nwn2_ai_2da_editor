@@ -17,7 +17,7 @@ namespace nwn2_ai_2da_editor
 	{
 		#region class Vars
 		/// <summary>
-		/// The control added to 'splitContainer1.Panel2' that displays a
+		/// The control added to 'splitContainer.Panel2' that displays a
 		/// TabControl for spells, races, or classes. It will be created and
 		/// disposed dynamically.
 		/// </summary>
@@ -348,7 +348,6 @@ namespace nwn2_ai_2da_editor
 					}
 					else
 					{
-						logfile.Log("not valid file");
 						ResumeLayout();
 
 						const string info = "That file does not appear to be HenchSpells, HenchRacial, or HenchClasses.2da";
@@ -387,7 +386,7 @@ namespace nwn2_ai_2da_editor
 				HenchControl.Dispose(); // <- also removes the control from its collection
 
 			HenchControl = new tabcontrol_Spells(this);
-			splitContainer1.Panel2.Controls.Add(HenchControl);
+			splitContainer.Panel2.Controls.Add(HenchControl);
 
 			// TODO: size the form appropriately
 
@@ -561,7 +560,7 @@ namespace nwn2_ai_2da_editor
 				HenchControl.Dispose(); // <- also removes the control from its collection
 
 			HenchControl = new tabcontrol_Racial(this);
-			splitContainer1.Panel2.Controls.Add(HenchControl);
+			splitContainer.Panel2.Controls.Add(HenchControl);
 
 			// TODO: size the form appropriately
 
@@ -705,7 +704,7 @@ namespace nwn2_ai_2da_editor
 				HenchControl.Dispose(); // <- also removes the control from its collection
 
 			HenchControl = new tabcontrol_Classes(this);
-			splitContainer1.Panel2.Controls.Add(HenchControl);
+			splitContainer.Panel2.Controls.Add(HenchControl);
 
 			// TODO: size the form appropriately
 
@@ -1012,7 +1011,7 @@ namespace nwn2_ai_2da_editor
 				}
 			}
 			width = Math.Max(225, TextRenderer.MeasureText(text, Font).Width + 22);
-			splitContainer1.SplitterDistance = width;
+			splitContainer.SplitterDistance = width;
 
 
 			Tree.EndUpdate();

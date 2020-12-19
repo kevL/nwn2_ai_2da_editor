@@ -55,7 +55,7 @@ namespace nwn2_ai_2da_editor
 		ToolStripMenuItem tsmi_help;
 		ToolStripMenuItem About;
 
-		SplitContainer splitContainer1;
+		SplitContainer splitContainer;
 
 		CompositedTreeView Tree;
 		ContextMenuStrip treeMenu;
@@ -101,7 +101,7 @@ namespace nwn2_ai_2da_editor
 			this.it_insertClassLabels = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsmi_help = new System.Windows.Forms.ToolStripMenuItem();
 			this.About = new System.Windows.Forms.ToolStripMenuItem();
-			this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+			this.splitContainer = new System.Windows.Forms.SplitContainer();
 			this.Tree = new nwn2_ai_2da_editor.CompositedTreeView();
 			this.treeMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
 			this.tree_Highlight = new System.Windows.Forms.ToolStripMenuItem();
@@ -111,9 +111,9 @@ namespace nwn2_ai_2da_editor
 			this.btn_Search_u = new System.Windows.Forms.Button();
 			this.btn_Apply = new System.Windows.Forms.Button();
 			this.menubar.SuspendLayout();
-			this.splitContainer1.Panel1.SuspendLayout();
-			this.splitContainer1.Panel2.SuspendLayout();
-			this.splitContainer1.SuspendLayout();
+			this.splitContainer.Panel1.SuspendLayout();
+			this.splitContainer.Panel2.SuspendLayout();
+			this.splitContainer.SuspendLayout();
 			this.treeMenu.SuspendLayout();
 			this.panel1_top.SuspendLayout();
 			this.SuspendLayout();
@@ -380,27 +380,27 @@ namespace nwn2_ai_2da_editor
 			this.About.Text = "About";
 			this.About.Click += new System.EventHandler(this.Click_about);
 			// 
-			// splitContainer1
+			// splitContainer
 			// 
-			this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-			this.splitContainer1.Location = new System.Drawing.Point(0, 24);
-			this.splitContainer1.Margin = new System.Windows.Forms.Padding(0);
-			this.splitContainer1.Name = "splitContainer1";
+			this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
+			this.splitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+			this.splitContainer.Location = new System.Drawing.Point(0, 24);
+			this.splitContainer.Margin = new System.Windows.Forms.Padding(0);
+			this.splitContainer.Name = "splitContainer";
 			// 
-			// splitContainer1.Panel1
+			// splitContainer.Panel1
 			// 
-			this.splitContainer1.Panel1.Controls.Add(this.Tree);
-			this.splitContainer1.Panel1.Controls.Add(this.panel1_top);
-			this.splitContainer1.Panel1MinSize = 0;
+			this.splitContainer.Panel1.Controls.Add(this.Tree);
+			this.splitContainer.Panel1.Controls.Add(this.panel1_top);
+			this.splitContainer.Panel1MinSize = 0;
 			// 
-			// splitContainer1.Panel2
+			// splitContainer.Panel2
 			// 
-			this.splitContainer1.Panel2.Controls.Add(this.btn_Apply);
-			this.splitContainer1.Size = new System.Drawing.Size(992, 550);
-			this.splitContainer1.SplitterDistance = 275;
-			this.splitContainer1.SplitterWidth = 3;
-			this.splitContainer1.TabIndex = 1;
+			this.splitContainer.Panel2.Controls.Add(this.btn_Apply);
+			this.splitContainer.Size = new System.Drawing.Size(992, 550);
+			this.splitContainer.SplitterDistance = 275;
+			this.splitContainer.SplitterWidth = 3;
+			this.splitContainer.TabIndex = 1;
 			// 
 			// Tree
 			// 
@@ -501,7 +501,7 @@ namespace nwn2_ai_2da_editor
 			// he
 			// 
 			this.ClientSize = new System.Drawing.Size(992, 574);
-			this.Controls.Add(this.splitContainer1);
+			this.Controls.Add(this.splitContainer);
 			this.Controls.Add(this.menubar);
 			this.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.MainMenuStrip = this.menubar;
@@ -509,9 +509,9 @@ namespace nwn2_ai_2da_editor
 			this.Text = "nwn2_ai_2da_editor";
 			this.menubar.ResumeLayout(false);
 			this.menubar.PerformLayout();
-			this.splitContainer1.Panel1.ResumeLayout(false);
-			this.splitContainer1.Panel2.ResumeLayout(false);
-			this.splitContainer1.ResumeLayout(false);
+			this.splitContainer.Panel1.ResumeLayout(false);
+			this.splitContainer.Panel2.ResumeLayout(false);
+			this.splitContainer.ResumeLayout(false);
 			this.treeMenu.ResumeLayout(false);
 			this.panel1_top.ResumeLayout(false);
 			this.panel1_top.PerformLayout();
