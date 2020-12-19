@@ -54,7 +54,6 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controls.cs" />
     <Compile Include="hc.cs" />
     <Compile Include="funct_bar.cs" />
     <Compile Include="spells1_SpellInfo.cs" />
@@ -86,6 +85,8 @@
     <Compile Include="tabcontrol_Spells.Designer.cs">
       <DependentUpon>tabcontrol_Spells.cs</DependentUpon>
     </Compile>
+    <Compile Include="util\controls.cs" />
+    <Compile Include="util\extensions.cs" />
     <Compile Include="util\infobox.cs" />
     <Compile Include="util\logger.cs" />
     <Compile Include="util\progbar.cs" />
