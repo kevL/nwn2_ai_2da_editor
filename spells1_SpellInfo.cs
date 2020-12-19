@@ -34,27 +34,27 @@ namespace nwn2_ai_2da_editor
 					// ensure that spellinfo has a CoreAI version
 					// although strictly speaking I believe that GetSpellInfo()
 					// will gracefully handle spell-data that has no version set.
-					if (!he.BypassInfoVersion && spellinfo != 0)
-					{
-						int ver = (spellinfo & hc.HENCH_SPELL_INFO_VERSION_MASK);
-
-						if (ver == 0) // insert the default spell-version if a version # doesn't exist
-						{
-							spellinfo |= hc.HENCH_SPELL_INFO_VERSION; // default info-version in 'hench_i0_generic'
-							SpellInfo_text.Text = spellinfo.ToString();
-							return; // re-fire this funct.
-						}
-
-						if (ver == spellinfo) // clear the spell-version if that's the only data in spellinfo
-						{
-							// TODO: I suppose the spell-version should be stored (if not the default version #) ...
-							// so it can be re-inserted identically (if/after user clears all spellinfo bits).
-
-							spellinfo = 0;
-							SpellInfo_text.Text = spellinfo.ToString();
-							return; // re-fire this funct.
-						}
-					}
+//					if (!he.BypassInfoVersion && spellinfo != 0)
+//					{
+//						int ver = (spellinfo & hc.HENCH_SPELL_INFO_VERSION_MASK);
+//
+//						if (ver == 0) // insert the default spell-version if a version # doesn't exist
+//						{
+//							spellinfo |= hc.HENCH_SPELL_INFO_VERSION; // default info-version in 'hench_i0_generic'
+//							SpellInfo_text.Text = spellinfo.ToString();
+//							return; // re-fire this funct.
+//						}
+//
+//						if (ver == spellinfo) // clear the spell-version if that's the only data in spellinfo
+//						{
+//							// TODO: I suppose the spell-version should be stored (if not the default version #) ...
+//							// so it can be re-inserted identically (if/after user clears all spellinfo bits).
+//
+//							spellinfo = 0;
+//							SpellInfo_text.Text = spellinfo.ToString();
+//							return; // re-fire this funct.
+//						}
+//					}
 
 
 					Spell spell = he.Spells[he.Id];

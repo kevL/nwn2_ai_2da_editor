@@ -254,70 +254,70 @@ namespace nwn2_ai_2da_editor
 			// else TODO: error dialog here.
 		}
 
-		/// <summary>
-		/// Updates InfoVersion for the current class.
-		/// </summary>
-		/// <param name="val"></param>
-		/// <returns></returns>
-		bool InfoVersionChange_class(ref int val)
-		{
-			// ensure that class-flags has a CoreAI version
-			// NOTE that ClassFlags always has a Version (unlike spellinfo)
-			if ((val & hc.HENCH_SPELL_INFO_VERSION_MASK) == 0)
-			{
-				val |= hc.HENCH_SPELL_INFO_VERSION; // insert the default version #
-
-				Class @class = he.Classes[he.Id];
-
-				ClassChanged classchanged;
-
-				if (@class.differ != bit_clear)
-				{
-					classchanged = he.ClassesChanged[he.Id];
-				}
-				else
-				{
-					classchanged = new ClassChanged();
-
-					classchanged.feat1  = @class.feat1;
-					classchanged.feat2  = @class.feat2;
-					classchanged.feat3  = @class.feat3;
-					classchanged.feat4  = @class.feat4;
-					classchanged.feat5  = @class.feat5;
-					classchanged.feat6  = @class.feat6;
-					classchanged.feat7  = @class.feat7;
-					classchanged.feat8  = @class.feat8;
-					classchanged.feat9  = @class.feat9;
-					classchanged.feat10 = @class.feat10;
-					classchanged.feat11 = @class.feat11;
-				}
-
-				classchanged.flags = val;
-
-				// check it
-				int differ = ClassDiffer(@class, classchanged);
-				@class.differ = differ;
-				he.Classes[he.Id] = @class;
-
-				Color color;
-				if (differ != bit_clear)
-				{
-					he.ClassesChanged[he.Id] = classchanged;
-					color = Color.Crimson;
-				}
-				else
-				{
-					he.ClassesChanged.Remove(he.Id);
-
-					if (@class.isChanged) color = Color.Blue;
-					else                  color = DefaultForeColor;
-				}
-				_he.SetNodeColor(color);
-
-				return true;
-			}
-			return false;
-		}
+//		/// <summary>
+//		/// Updates InfoVersion for the current class.
+//		/// </summary>
+//		/// <param name="val"></param>
+//		/// <returns></returns>
+//		bool InfoVersionChange_class(ref int val)
+//		{
+//			// ensure that class-flags has a CoreAI version
+//			// NOTE that ClassFlags always has a Version (unlike spellinfo)
+//			if ((val & hc.HENCH_SPELL_INFO_VERSION_MASK) == 0)
+//			{
+//				val |= hc.HENCH_SPELL_INFO_VERSION; // insert the default version #
+//
+//				Class @class = he.Classes[he.Id];
+//
+//				ClassChanged classchanged;
+//
+//				if (@class.differ != bit_clear)
+//				{
+//					classchanged = he.ClassesChanged[he.Id];
+//				}
+//				else
+//				{
+//					classchanged = new ClassChanged();
+//
+//					classchanged.feat1  = @class.feat1;
+//					classchanged.feat2  = @class.feat2;
+//					classchanged.feat3  = @class.feat3;
+//					classchanged.feat4  = @class.feat4;
+//					classchanged.feat5  = @class.feat5;
+//					classchanged.feat6  = @class.feat6;
+//					classchanged.feat7  = @class.feat7;
+//					classchanged.feat8  = @class.feat8;
+//					classchanged.feat9  = @class.feat9;
+//					classchanged.feat10 = @class.feat10;
+//					classchanged.feat11 = @class.feat11;
+//				}
+//
+//				classchanged.flags = val;
+//
+//				// check it
+//				int differ = ClassDiffer(@class, classchanged);
+//				@class.differ = differ;
+//				he.Classes[he.Id] = @class;
+//
+//				Color color;
+//				if (differ != bit_clear)
+//				{
+//					he.ClassesChanged[he.Id] = classchanged;
+//					color = Color.Crimson;
+//				}
+//				else
+//				{
+//					he.ClassesChanged.Remove(he.Id);
+//
+//					if (@class.isChanged) color = Color.Blue;
+//					else                  color = DefaultForeColor;
+//				}
+//				_he.SetNodeColor(color);
+//
+//				return true;
+//			}
+//			return false;
+//		}
 
 		/// <summary>
 		/// Handles resetting the current class' info.

@@ -179,64 +179,64 @@ namespace nwn2_ai_2da_editor
 			// else TODO: error dialog here.
 		}
 
-		/// <summary>
-		/// Updates InfoVersion for the current race.
-		/// </summary>
-		/// <param name="val"></param>
-		/// <returns></returns>
-		bool InfoVersionChange_racial(ref int val)
-		{
-			// ensure that racial-flags has a CoreAI version
-			// NOTE that RacialFlags always has a Version (unlike spellinfo)
-			if ((val & hc.HENCH_SPELL_INFO_VERSION_MASK) == 0)
-			{
-				val |= hc.HENCH_SPELL_INFO_VERSION; // insert the default version #
-
-				Race race = he.Races[he.Id];
-
-				RaceChanged racechanged;
-
-				if (race.differ != bit_clear)
-				{
-					racechanged = he.RacesChanged[he.Id];
-				}
-				else
-				{
-					racechanged = new RaceChanged();
-
-					racechanged.feat1 = race.feat1;
-					racechanged.feat2 = race.feat2;
-					racechanged.feat3 = race.feat3;
-					racechanged.feat4 = race.feat4;
-					racechanged.feat5 = race.feat5;
-				}
-
-				racechanged.flags = val;
-
-				// check it
-				int differ = RaceDiffer(race, racechanged);
-				race.differ = differ;
-				he.Races[he.Id] = race;
-
-				Color color;
-				if (differ != bit_clear)
-				{
-					he.RacesChanged[he.Id] = racechanged;
-					color = Color.Crimson;
-				}
-				else
-				{
-					he.RacesChanged.Remove(he.Id);
-
-					if (race.isChanged) color = Color.Blue;
-					else                color = DefaultForeColor;
-				}
-				_he.SetNodeColor(color);
-
-				return true;
-			}
-			return false;
-		}
+//		/// <summary>
+//		/// Updates InfoVersion for the current race.
+//		/// </summary>
+//		/// <param name="val"></param>
+//		/// <returns></returns>
+//		bool InfoVersionChange_racial(ref int val)
+//		{
+//			// ensure that racial-flags has a CoreAI version
+//			// NOTE that RacialFlags always has a Version (unlike spellinfo)
+//			if ((val & hc.HENCH_SPELL_INFO_VERSION_MASK) == 0)
+//			{
+//				val |= hc.HENCH_SPELL_INFO_VERSION; // insert the default version #
+//
+//				Race race = he.Races[he.Id];
+//
+//				RaceChanged racechanged;
+//
+//				if (race.differ != bit_clear)
+//				{
+//					racechanged = he.RacesChanged[he.Id];
+//				}
+//				else
+//				{
+//					racechanged = new RaceChanged();
+//
+//					racechanged.feat1 = race.feat1;
+//					racechanged.feat2 = race.feat2;
+//					racechanged.feat3 = race.feat3;
+//					racechanged.feat4 = race.feat4;
+//					racechanged.feat5 = race.feat5;
+//				}
+//
+//				racechanged.flags = val;
+//
+//				// check it
+//				int differ = RaceDiffer(race, racechanged);
+//				race.differ = differ;
+//				he.Races[he.Id] = race;
+//
+//				Color color;
+//				if (differ != bit_clear)
+//				{
+//					he.RacesChanged[he.Id] = racechanged;
+//					color = Color.Crimson;
+//				}
+//				else
+//				{
+//					he.RacesChanged.Remove(he.Id);
+//
+//					if (race.isChanged) color = Color.Blue;
+//					else                color = DefaultForeColor;
+//				}
+//				_he.SetNodeColor(color);
+//
+//				return true;
+//			}
+//			return false;
+//		}
 
 		/// <summary>
 		/// Handles resetting the current race's info.
