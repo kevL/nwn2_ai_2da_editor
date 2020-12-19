@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Drawing;
-using System.Windows.Forms;
 
 
 namespace nwn2_ai_2da_editor
@@ -11,6 +10,295 @@ namespace nwn2_ai_2da_editor
 	partial class he
 	{
 		internal const int HENCH_SPELL_INFO_VERSION_SHIFT = 24;
+
+		/// <summary>
+		/// This funct is used only for Click_clearCoreAiVersion().
+		/// @note Used to be a helper for SetInfoVersion_spells().
+		/// </summary>
+		/// <param name="str"></param>
+		/// <param name="all"></param>
+		void SetInfoVersion_spells(string str, bool all)
+		{
+			Spell spell;
+			SpellChanged spellchanged;
+
+			int spellinfo0, spellinfo, differ;
+			bool dirty;
+
+			int ver = Int32.Parse(str) << HENCH_SPELL_INFO_VERSION_SHIFT;		// the return from the dialog.
+
+
+			int total = Spells.Count;
+			for (int id = 0; id != total; ++id)
+			{
+				spell = Spells[id];
+
+				if (dirty = ((spell.differ & tabcontrol_Spells.bit_spellinfo) != 0))
+				{
+					spellinfo0 = SpellsChanged[id].spellinfo;
+				}
+				else if (all || spell.isChanged)
+				{
+					spellinfo0 = spell.spellinfo;
+				}
+				else
+					continue;													// ignore clean spell-structs if !all
+
+				if (spellinfo0 == 0)
+				{
+					continue;													// if spellinfo is blank leave it blank
+				}
+
+
+				if ((spellinfo0 & ~hc.HENCH_SPELL_INFO_VERSION_MASK) == 0)		// force-clear the version if the rest of spellinfo is blank
+				{
+					spellinfo = 0;
+				}
+				else
+					spellinfo = ((spellinfo0 & ~hc.HENCH_SPELL_INFO_VERSION_MASK) | ver);
+
+
+				if (spellinfo != spellinfo0)
+				{
+					if (id == Id)
+					{
+						(HenchControl as tabcontrol_Spells).SetMasterText(spellinfo.ToString()); // firing the TextChanged event takes care of it.
+					}
+					else
+					{
+						if (dirty)
+						{
+							spellchanged = SpellsChanged[id];
+						}
+						else
+						{
+							spellchanged = new SpellChanged();
+
+							spellchanged.targetinfo   = spell.targetinfo;
+							spellchanged.effectweight = spell.effectweight;
+							spellchanged.effecttypes  = spell.effecttypes;
+							spellchanged.damageinfo   = spell.damageinfo;
+							spellchanged.savetype     = spell.savetype;
+							spellchanged.savedctype   = spell.savedctype;
+						}
+
+						spellchanged.spellinfo = spellinfo;
+
+						// check it
+						differ = tabcontrol_Spells.SpellDiffer(spell, spellchanged);
+						spell.differ = differ;
+						Spells[id] = spell;
+
+						Color color;
+						if (differ != tabcontrol_Spells.bit_clear)
+						{
+							SpellsChanged[id] = spellchanged;
+							color = Color.Crimson;
+						}
+						else
+						{
+							SpellsChanged.Remove(id);
+
+							if (spell.isChanged) color = Color.Blue;
+							else                 color = DefaultForeColor;
+						}
+						Tree.Nodes[id].ForeColor = color;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// This funct is used only for Click_clearCoreAiVersion().
+		/// @note Used to be a helper for SetInfoVersion_racial().
+		/// </summary>
+		/// <param name="str"></param>
+		/// <param name="all"></param>
+		void SetInfoVersion_racial(string str, bool all)
+		{
+			// NOTE: This will iterate through all changed races even
+			// if an invalid version # is input via the dialog since it
+			// inserts the default version even if there is no other
+			// data in the racialflags-int.
+
+			Race race;
+			RaceChanged racechanged;
+
+			int racialflags0, racialflags, differ;
+			bool dirty;
+
+			int ver = (Int32.Parse(str) << HENCH_SPELL_INFO_VERSION_SHIFT);		// the return from the dialog.
+
+
+			int total = Races.Count;
+			for (int id = 0; id != total; ++id)
+			{
+				race = Races[id];
+
+				if (dirty = ((race.differ & tabcontrol_Racial.bit_flags) != 0))
+				{
+					racialflags0 = RacesChanged[id].flags;
+				}
+				else if (all || race.isChanged)
+				{
+					racialflags0 = race.flags;
+				}
+				else
+					continue;													// ignore clean racial-structs if !all
+
+
+				if ((racialflags0 & hc.HENCH_SPELL_INFO_VERSION_MASK) != ver)
+				{
+					if (!BypassInfoVersion)
+					{
+						racialflags = ((racialflags0 & ~hc.HENCH_SPELL_INFO_VERSION_MASK) | ver);
+					}
+					else
+						racialflags =  (racialflags0 & ~hc.HENCH_SPELL_INFO_VERSION_MASK); // wipe version info for TonyAI 2.3+
+
+
+					if (id == Id)
+					{
+						(HenchControl as tabcontrol_Racial).SetMasterText(racialflags.ToString()); // firing the TextChanged event takes care of it.
+					}
+					else
+					{
+						if (dirty)
+						{
+							racechanged = RacesChanged[id];
+						}
+						else
+						{
+							racechanged = new RaceChanged();
+
+							racechanged.feat1 = race.feat1;
+							racechanged.feat2 = race.feat2;
+							racechanged.feat3 = race.feat3;
+							racechanged.feat4 = race.feat4;
+							racechanged.feat5 = race.feat5;
+						}
+
+						racechanged.flags = racialflags;
+
+						// check it
+						differ = tabcontrol_Racial.RaceDiffer(race, racechanged);
+						race.differ = differ;
+						Races[id] = race;
+
+						Color color;
+						if (differ != tabcontrol_Racial.bit_clear)
+						{
+							RacesChanged[id] = racechanged;
+							color = Color.Crimson;
+						}
+						else
+						{
+							RacesChanged.Remove(id);
+
+							if (race.isChanged) color = Color.Blue;
+							else                color = DefaultForeColor;
+						}
+						Tree.Nodes[id].ForeColor = color;
+					}
+				}
+			}
+		}
+
+		/// <summary>
+		/// This funct is used only for Click_clearCoreAiVersion().
+		/// @note Used to be a helper for SetInfoVersion_classes().
+		/// </summary>
+		/// <param name="str"></param>
+		/// <param name="all"></param>
+		void SetInfoVersion_classes(string str, bool all)
+		{
+			Class @class;
+			ClassChanged classchanged;
+
+			int classflags0, classflags, differ;
+			bool dirty;
+
+			int ver = (Int32.Parse(str) << HENCH_SPELL_INFO_VERSION_SHIFT);		// the return from the dialog.
+
+
+			int total = Classes.Count;
+			for (int id = 0; id != total; ++id)
+			{
+				@class = Classes[id];
+
+				if (dirty = ((@class.differ & tabcontrol_Classes.bit_flags) != 0))
+				{
+					classflags0 = ClassesChanged[id].flags;
+				}
+				else if (all || @class.isChanged)
+				{
+					classflags0 = @class.flags;
+				}
+				else
+					continue;													// ignore clean class-structs if !all
+
+
+				if ((classflags0 & hc.HENCH_SPELL_INFO_VERSION_MASK) != ver)
+				{
+					if (!BypassInfoVersion)
+					{
+						classflags = ((classflags0 & ~hc.HENCH_SPELL_INFO_VERSION_MASK) | ver);
+					}
+					else
+						classflags =  (classflags0 & ~hc.HENCH_SPELL_INFO_VERSION_MASK); // wipe version info for TonyAI 2.3+
+
+					if (id == Id)
+					{
+						(HenchControl as tabcontrol_Classes).SetMasterText(classflags.ToString()); // firing the TextChanged event takes care of it.
+					}
+					else
+					{
+						if (dirty)
+						{
+							classchanged = ClassesChanged[id];
+						}
+						else
+						{
+							classchanged = new ClassChanged();
+
+							classchanged.feat1  = @class.feat1;
+							classchanged.feat2  = @class.feat2;
+							classchanged.feat3  = @class.feat3;
+							classchanged.feat4  = @class.feat4;
+							classchanged.feat5  = @class.feat5;
+							classchanged.feat6  = @class.feat6;
+							classchanged.feat7  = @class.feat7;
+							classchanged.feat8  = @class.feat8;
+							classchanged.feat9  = @class.feat9;
+							classchanged.feat10 = @class.feat10;
+							classchanged.feat11 = @class.feat11;
+						}
+
+						classchanged.flags = classflags;
+
+						// check it
+						differ = tabcontrol_Classes.ClassDiffer(@class, classchanged);
+						@class.differ = differ;
+						Classes[id] = @class;
+
+						Color color;
+						if (differ != tabcontrol_Classes.bit_clear)
+						{
+							ClassesChanged[id] = classchanged;
+							color = Color.Crimson;
+						}
+						else
+						{
+							ClassesChanged.Remove(id);
+	
+							if (@class.isChanged) color = Color.Blue;
+							else                  color = DefaultForeColor;
+						}
+						Tree.Nodes[id].ForeColor = color;
+					}
+				}
+			}
+		}
 
 //		/// <summary>
 //		/// An inputbox with which to set CoreAI version information.
@@ -24,7 +312,7 @@ namespace nwn2_ai_2da_editor
 //			switch (type)
 //			{
 //				default:
-////				case Type2da.TYPE_SPELLS:
+//				case Type2da.TYPE_SPELLS:
 //					title = "  Spell Info version";
 //					text_1 = "current spell only";
 //					text_2 = "any changed spells";
@@ -212,103 +500,6 @@ namespace nwn2_ai_2da_editor
 //			}
 //		}
 
-		/// <summary>
-		/// Helper for SetInfoVersion_spells().
-		/// </summary>
-		/// <param name="str"></param>
-		/// <param name="all"></param>
-		void SetInfoVersion_spells(string str, bool all)
-		{
-			Spell spell;
-			SpellChanged spellchanged;
-
-			int spellinfo0, spellinfo, differ;
-			bool dirty;
-
-			int ver = Int32.Parse(str) << HENCH_SPELL_INFO_VERSION_SHIFT;		// the return from the dialog.
-
-
-			int total = Spells.Count;
-			for (int id = 0; id != total; ++id)
-			{
-				spell = Spells[id];
-
-				if (dirty = ((spell.differ & tabcontrol_Spells.bit_spellinfo) != 0))
-				{
-					spellinfo0 = SpellsChanged[id].spellinfo;
-				}
-				else if (all || spell.isChanged)
-				{
-					spellinfo0 = spell.spellinfo;
-				}
-				else
-					continue;													// ignore clean spell-structs if !all
-
-				if (spellinfo0 == 0)
-				{
-					continue;													// if spellinfo is blank leave it blank
-				}
-
-
-				if ((spellinfo0 & ~hc.HENCH_SPELL_INFO_VERSION_MASK) == 0)		// force-clear the version if the rest of spellinfo is blank
-				{
-					spellinfo = 0;
-				}
-				else
-					spellinfo = ((spellinfo0 & ~hc.HENCH_SPELL_INFO_VERSION_MASK) | ver);
-
-
-				if (spellinfo != spellinfo0)
-				{
-					if (id == Id)
-					{
-						(HenchControl as tabcontrol_Spells).SetMasterText(spellinfo.ToString()); // firing the TextChanged event takes care of it.
-					}
-					else
-					{
-						if (dirty)
-						{
-							spellchanged = SpellsChanged[id];
-						}
-						else
-						{
-							spellchanged = new SpellChanged();
-
-							spellchanged.targetinfo   = spell.targetinfo;
-							spellchanged.effectweight = spell.effectweight;
-							spellchanged.effecttypes  = spell.effecttypes;
-							spellchanged.damageinfo   = spell.damageinfo;
-							spellchanged.savetype     = spell.savetype;
-							spellchanged.savedctype   = spell.savedctype;
-						}
-
-						spellchanged.spellinfo = spellinfo;
-
-						// check it
-						differ = tabcontrol_Spells.SpellDiffer(spell, spellchanged);
-						spell.differ = differ;
-						Spells[id] = spell;
-
-						Color color;
-						if (differ != tabcontrol_Spells.bit_clear)
-						{
-							SpellsChanged[id] = spellchanged;
-							color = Color.Crimson;
-						}
-						else
-						{
-							SpellsChanged.Remove(id);
-
-							if (spell.isChanged) color = Color.Blue;
-							else                 color = DefaultForeColor;
-						}
-						Tree.Nodes[id].ForeColor = color;
-					}
-				}
-			}
-		}
-
-
 //		/// <summary>
 //		/// Sets the InfoVersion of race IDs.
 //		/// </summary>
@@ -354,102 +545,6 @@ namespace nwn2_ai_2da_editor
 //			}
 //		}
 
-		/// <summary>
-		/// Helper for SetInfoVersion_racial().
-		/// </summary>
-		/// <param name="str"></param>
-		/// <param name="all"></param>
-		void SetInfoVersion_racial(string str, bool all)
-		{
-			// NOTE: This will iterate through all changed races even
-			// if an invalid version # is input via the dialog since it
-			// inserts the default version even if there is no other
-			// data in the racialflags-int.
-
-			Race race;
-			RaceChanged racechanged;
-
-			int racialflags0, racialflags, differ;
-			bool dirty;
-
-			int ver = (Int32.Parse(str) << HENCH_SPELL_INFO_VERSION_SHIFT);		// the return from the dialog.
-
-
-			int total = Races.Count;
-			for (int id = 0; id != total; ++id)
-			{
-				race = Races[id];
-
-				if (dirty = ((race.differ & tabcontrol_Racial.bit_flags) != 0))
-				{
-					racialflags0 = RacesChanged[id].flags;
-				}
-				else if (all || race.isChanged)
-				{
-					racialflags0 = race.flags;
-				}
-				else
-					continue;													// ignore clean racial-structs if !all
-
-
-				if ((racialflags0 & hc.HENCH_SPELL_INFO_VERSION_MASK) != ver)
-				{
-					if (!BypassInfoVersion)
-					{
-						racialflags = ((racialflags0 & ~hc.HENCH_SPELL_INFO_VERSION_MASK) | ver);
-					}
-					else
-						racialflags =  (racialflags0 & ~hc.HENCH_SPELL_INFO_VERSION_MASK); // wipe version info for TonyAI 2.3+
-
-
-					if (id == Id)
-					{
-						(HenchControl as tabcontrol_Racial).SetMasterText(racialflags.ToString()); // firing the TextChanged event takes care of it.
-					}
-					else
-					{
-						if (dirty)
-						{
-							racechanged = RacesChanged[id];
-						}
-						else
-						{
-							racechanged = new RaceChanged();
-
-							racechanged.feat1 = race.feat1;
-							racechanged.feat2 = race.feat2;
-							racechanged.feat3 = race.feat3;
-							racechanged.feat4 = race.feat4;
-							racechanged.feat5 = race.feat5;
-						}
-
-						racechanged.flags = racialflags;
-
-						// check it
-						differ = tabcontrol_Racial.RaceDiffer(race, racechanged);
-						race.differ = differ;
-						Races[id] = race;
-
-						Color color;
-						if (differ != tabcontrol_Racial.bit_clear)
-						{
-							RacesChanged[id] = racechanged;
-							color = Color.Crimson;
-						}
-						else
-						{
-							RacesChanged.Remove(id);
-
-							if (race.isChanged) color = Color.Blue;
-							else                color = DefaultForeColor;
-						}
-						Tree.Nodes[id].ForeColor = color;
-					}
-				}
-			}
-		}
-
-
 //		/// <summary>
 //		/// Sets the InfoVersion of class IDs.
 //		/// </summary>
@@ -494,100 +589,5 @@ namespace nwn2_ai_2da_editor
 //					break;
 //			}
 //		}
-
-		/// <summary>
-		/// Helper for SetInfoVersion_classes().
-		/// </summary>
-		/// <param name="str"></param>
-		/// <param name="all"></param>
-		void SetInfoVersion_classes(string str, bool all)
-		{
-			Class @class;
-			ClassChanged classchanged;
-
-			int classflags0, classflags, differ;
-			bool dirty;
-
-			int ver = (Int32.Parse(str) << HENCH_SPELL_INFO_VERSION_SHIFT);		// the return from the dialog.
-
-
-			int total = Classes.Count;
-			for (int id = 0; id != total; ++id)
-			{
-				@class = Classes[id];
-
-				if (dirty = ((@class.differ & tabcontrol_Classes.bit_flags) != 0))
-				{
-					classflags0 = ClassesChanged[id].flags;
-				}
-				else if (all || @class.isChanged)
-				{
-					classflags0 = @class.flags;
-				}
-				else
-					continue;													// ignore clean class-structs if !all
-
-
-				if ((classflags0 & hc.HENCH_SPELL_INFO_VERSION_MASK) != ver)
-				{
-					if (!BypassInfoVersion)
-					{
-						classflags = ((classflags0 & ~hc.HENCH_SPELL_INFO_VERSION_MASK) | ver);
-					}
-					else
-						classflags =  (classflags0 & ~hc.HENCH_SPELL_INFO_VERSION_MASK); // wipe version info for TonyAI 2.3+
-
-					if (id == Id)
-					{
-						(HenchControl as tabcontrol_Classes).SetMasterText(classflags.ToString()); // firing the TextChanged event takes care of it.
-					}
-					else
-					{
-						if (dirty)
-						{
-							classchanged = ClassesChanged[id];
-						}
-						else
-						{
-							classchanged = new ClassChanged();
-
-							classchanged.feat1  = @class.feat1;
-							classchanged.feat2  = @class.feat2;
-							classchanged.feat3  = @class.feat3;
-							classchanged.feat4  = @class.feat4;
-							classchanged.feat5  = @class.feat5;
-							classchanged.feat6  = @class.feat6;
-							classchanged.feat7  = @class.feat7;
-							classchanged.feat8  = @class.feat8;
-							classchanged.feat9  = @class.feat9;
-							classchanged.feat10 = @class.feat10;
-							classchanged.feat11 = @class.feat11;
-						}
-
-						classchanged.flags = classflags;
-
-						// check it
-						differ = tabcontrol_Classes.ClassDiffer(@class, classchanged);
-						@class.differ = differ;
-						Classes[id] = @class;
-
-						Color color;
-						if (differ != tabcontrol_Classes.bit_clear)
-						{
-							ClassesChanged[id] = classchanged;
-							color = Color.Crimson;
-						}
-						else
-						{
-							ClassesChanged.Remove(id);
-	
-							if (@class.isChanged) color = Color.Blue;
-							else                  color = DefaultForeColor;
-						}
-						Tree.Nodes[id].ForeColor = color;
-					}
-				}
-			}
-		}
 	}
 }
