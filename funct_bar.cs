@@ -669,39 +669,53 @@ namespace nwn2_ai_2da_editor
 						+ Environment.NewLine + Environment.NewLine
 						+ "Are you sure you know what you're doing ...";
 
-			if (MessageBox.Show(info,
-								"  WARNING",
-								MessageBoxButtons.YesNo,
-								MessageBoxIcon.Warning,
-								MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+			using (var ib = new infobox(" Alert", info, true))
 			{
-				BypassInfoVersion = true;
-
-				switch (Type)
+				if (ib.ShowDialog(this) == DialogResult.OK)
 				{
-					case Type2da.TYPE_SPELLS:
-						SetInfoVersion_spells("0", true);
+					BypassInfoVersion = true;
 
-						it_ApplyGlobal.Enabled = SpellsChanged.Count != 0;
-						it_GotoChanged.Enabled = SpellsChanged.Count != 0 || SpareChange();
-						break;
+					switch (Type)
+					{
+						case Type2da.TYPE_SPELLS:
+							SetInfoVersion_spells("0", true);
 
-					case Type2da.TYPE_RACIAL:
-						SetInfoVersion_racial("0", true);
+							it_ApplyGlobal.Enabled = SpellsChanged.Count != 0;
+							it_GotoChanged.Enabled = SpellsChanged.Count != 0 || SpareChange();
+							break;
 
-						it_ApplyGlobal.Enabled = RacesChanged.Count != 0;
-						it_GotoChanged.Enabled = RacesChanged.Count != 0 || SpareChange();
-						break;
+						case Type2da.TYPE_RACIAL:
+							SetInfoVersion_racial("0", true);
 
-					case Type2da.TYPE_CLASSES:
-						SetInfoVersion_classes("0", true);
+							it_ApplyGlobal.Enabled = RacesChanged.Count != 0;
+							it_GotoChanged.Enabled = RacesChanged.Count != 0 || SpareChange();
+							break;
 
-						it_ApplyGlobal.Enabled = ClassesChanged.Count != 0;
-						it_GotoChanged.Enabled = ClassesChanged.Count != 0 || SpareChange();
-						break;
+						case Type2da.TYPE_CLASSES:
+							SetInfoVersion_classes("0", true);
+
+							it_ApplyGlobal.Enabled = ClassesChanged.Count != 0;
+							it_GotoChanged.Enabled = ClassesChanged.Count != 0 || SpareChange();
+							break;
+					}
+
+					BypassInfoVersion = false;
 				}
+			}
 
-				BypassInfoVersion = false;
+			switch (Type)
+			{
+				case Type2da.TYPE_SPELLS:
+					(HenchControl as tabcontrol_Spells).SelectResetButton();
+					break;
+
+				case Type2da.TYPE_RACIAL:
+					(HenchControl as tabcontrol_Racial).SelectResetButton();
+					break;
+
+				case Type2da.TYPE_CLASSES:
+					(HenchControl as tabcontrol_Classes).SelectResetButton();
+					break;
 			}
 		}
 
