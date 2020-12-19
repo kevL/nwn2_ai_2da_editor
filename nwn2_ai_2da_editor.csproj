@@ -86,6 +86,7 @@
     <Compile Include="tabcontrol_Spells.Designer.cs">
       <DependentUpon>tabcontrol_Spells.cs</DependentUpon>
     </Compile>
+    <Compile Include="util\infobox.cs" />
     <Compile Include="util\logger.cs" />
     <Compile Include="util\progbar.cs" />
   </ItemGroup>
@@ -101,6 +102,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="tabcontrol_Spells.resx">
       <DependentUpon>tabcontrol_Spells.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="util\infobox.resx">
+      <DependentUpon>infobox.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
