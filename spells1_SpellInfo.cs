@@ -325,53 +325,57 @@ namespace nwn2_ai_2da_editor
 
 		void SetSpellLabelText(Control label, int id)
 		{
-			if (he.spellLabels.Count != 0 && id < he.spellLabels.Count)
+			if (he.spellLabels.Count != 0
+				&& id > -1 && id < he.spellLabels.Count)
+			{
 				label.Text = he.spellLabels[id];
+			}
+			else
+				label.Text = String.Empty;
 		}
 
 		internal override void SetSpellLabelTexts()
 		{
-			Spell spell = he.Spells[he.Id];
-
-			if ((spell.spellinfo & hc.HENCH_SPELL_INFO_MASTER_FLAG) != 0)
+			int id;
+			if (Int32.TryParse(TargetInfo_text.Text, out id)
+				&& id > -1 && id < he.spellLabels.Count)
 			{
-				if (spell.targetinfo < he.spellLabels.Count)
-				{
-					si_SubspellLabel1.Text = he.spellLabels[spell.targetinfo];
-				}
-				else
-					si_SubspellLabel1.Text = String.Empty;
-
-				if (spell.effecttypes < he.spellLabels.Count)
-				{
-					si_SubspellLabel2.Text = he.spellLabels[spell.effecttypes];
-				}
-				else
-					si_SubspellLabel2.Text = String.Empty;
-
-				if (spell.damageinfo < he.spellLabels.Count)
-				{
-					si_SubspellLabel3.Text = he.spellLabels[spell.damageinfo];
-				}
-				else
-					si_SubspellLabel3.Text = String.Empty;
-
-				if (spell.savetype < he.spellLabels.Count)
-				{
-					si_SubspellLabel4.Text = he.spellLabels[spell.savetype];
-				}
-				else
-					si_SubspellLabel4.Text = String.Empty;
-
-				if (spell.savedctype < he.spellLabels.Count)
-				{
-					si_SubspellLabel5.Text = he.spellLabels[spell.savedctype];
-				}
-				else
-					si_SubspellLabel5.Text = String.Empty;
+				si_SubspellLabel1.Text = he.spellLabels[id];
 			}
 			else
-				ClearSpellLabelTexts(); // safety i think.
+				si_SubspellLabel1.Text = String.Empty;
+
+			if (Int32.TryParse(EffectTypes_text.Text, out id)
+				&& id > -1 && id < he.spellLabels.Count)
+			{
+				si_SubspellLabel2.Text = he.spellLabels[id];
+			}
+			else
+				si_SubspellLabel2.Text = String.Empty;
+
+			if (Int32.TryParse(DamageInfo_text.Text, out id)
+				&& id > -1 && id < he.spellLabels.Count)
+			{
+				si_SubspellLabel3.Text = he.spellLabels[id];
+			}
+			else
+				si_SubspellLabel3.Text = String.Empty;
+
+			if (Int32.TryParse(SaveType_text.Text, out id)
+				&& id > -1 && id < he.spellLabels.Count)
+			{
+				si_SubspellLabel4.Text = he.spellLabels[id];
+			}
+			else
+				si_SubspellLabel4.Text = String.Empty;
+
+			if (Int32.TryParse(SaveDCType_text.Text, out id)
+				&& id > -1 && id < he.spellLabels.Count)
+			{
+				si_SubspellLabel5.Text = he.spellLabels[id];
+			}
+			else
+				si_SubspellLabel5.Text = String.Empty;
 		}
 
 		internal override void ClearSpellLabelTexts()
