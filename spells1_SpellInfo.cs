@@ -270,58 +270,63 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void TextChanged_si_ChildFields(object sender, EventArgs e)
 		{
-			var tb = sender as TextBox;
-
-			int id;
-			if (Int32.TryParse(tb.Text, out id))
+			if (!BypassSubspell)
 			{
-				if (id < 0)
-				{
-					tb.Text = "0"; // recurse this funct.
-					tb.SelectionStart = tb.Text.Length;
-				}
-//				else if (childId > 16383) // 14 bits // TODO: Implement that
-//				{
-//					tb.Text = "16383"; // recurse this funct.
-//					tb.SelectionStart = tb.Text.Length;
-//				}
-				else
-				{
-					Label lbl_child;
+				var tb = sender as TextBox;
 
-					if (tb == si_Child1)
+				int id;
+				if (Int32.TryParse(tb.Text, out id))
+				{
+					if (id < 0)
 					{
-						TargetInfo_text.Text = tb.Text;
-						lbl_child = si_ChildLabel1;
+						tb.Text = "0"; // recurse this funct.
+						tb.SelectionStart = tb.Text.Length;
 					}
-					else if (tb == si_Child2)
+//					else if (childId > 16383) // 14 bits // TODO: Implement that
+//					{
+//						tb.Text = "16383"; // recurse this funct.
+//						tb.SelectionStart = tb.Text.Length;
+//					}
+					else
 					{
-						EffectTypes_text.Text = tb.Text;
-						lbl_child = si_ChildLabel2;
-					}
-					else if (tb == si_Child3)
-					{
-						DamageInfo_text.Text = tb.Text;
-						lbl_child = si_ChildLabel3;
-					}
-					else if (tb == si_Child4)
-					{
-						SaveType_text.Text = tb.Text;
-						lbl_child = si_ChildLabel4;
-					}
-					else //if (tb == si_Child5)
-					{
-						SaveDCType_text.Text = tb.Text;
-						lbl_child = si_ChildLabel5;
-					}
+						Label lbl_child;
 
-					if (he.spellLabels.Count != 0
-						&& id < he.spellLabels.Count)
-					{
-						lbl_child.Text = he.spellLabels[id];
+						if (tb == si_Child1)
+						{
+							TargetInfo_text.Text = tb.Text;
+							lbl_child = si_ChildLabel1;
+						}
+						else if (tb == si_Child2)
+						{
+							EffectTypes_text.Text = tb.Text;
+							lbl_child = si_ChildLabel2;
+						}
+						else if (tb == si_Child3)
+						{
+							DamageInfo_text.Text = tb.Text;
+							lbl_child = si_ChildLabel3;
+						}
+						else if (tb == si_Child4)
+						{
+							SaveType_text.Text = tb.Text;
+							lbl_child = si_ChildLabel4;
+						}
+						else //if (tb == si_Child5)
+						{
+							SaveDCType_text.Text = tb.Text;
+							lbl_child = si_ChildLabel5;
+						}
+
+						SetSpellLabelText(lbl_child, id);
 					}
 				}
 			}
+		}
+
+		void SetSpellLabelText(Control label, int id)
+		{
+			if (he.spellLabels.Count != 0 && id < he.spellLabels.Count)
+				label.Text = he.spellLabels[id];
 		}
 
 		internal override void SetSpellLabelTexts()

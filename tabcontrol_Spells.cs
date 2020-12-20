@@ -30,6 +30,8 @@ namespace nwn2_ai_2da_editor
 
 		he _he;
 
+		bool BypassSubspell;
+
 
 		#region cTor
 		internal tabcontrol_Spells(he he)

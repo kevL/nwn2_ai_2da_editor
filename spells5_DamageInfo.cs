@@ -107,12 +107,22 @@ namespace nwn2_ai_2da_editor
 
 				state_DamageInfo(damageinfo);
 
+
 				if (si_IsMaster.Checked)
 				{
-					// NOTE: this doesn't result in an infinite loop.
-					// But it does clamp the value before it gets shot back here.
+					// the 'si_Child3' textchanged handler can change the value
+					// and shoot it back here
 					si_Child3.Text = DamageInfo_text.Text;
 				}
+				else
+				{
+					// else let the value pass unhindered
+					BypassSubspell = true;
+					si_Child3.Text = DamageInfo_text.Text;
+					BypassSubspell = false;
+					SetSpellLabelText(si_ChildLabel3, damageinfo);
+				}
+
 
 				_he.SetEnabled(differ != bit_clear);
 			}

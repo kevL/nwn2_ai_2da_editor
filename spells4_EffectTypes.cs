@@ -89,12 +89,22 @@ namespace nwn2_ai_2da_editor
 
 				state_EffectTypes(effecttypes);
 
+
 				if (si_IsMaster.Checked)
 				{
-					// NOTE: this doesn't result in an infinite loop.
-					// But it does clamp the value before it gets shot back here.
+					// the 'si_Child2' textchanged handler can change the value
+					// and shoot it back here
 					si_Child2.Text = EffectTypes_text.Text;
 				}
+				else
+				{
+					// else let the value pass unhindered
+					BypassSubspell = true;
+					si_Child2.Text = EffectTypes_text.Text;
+					BypassSubspell = false;
+					SetSpellLabelText(si_ChildLabel2, effecttypes);
+				}
+
 
 				_he.SetEnabled(differ != bit_clear);
 			}

@@ -89,12 +89,22 @@ namespace nwn2_ai_2da_editor
 
 				state_TargetInfo(targetinfo);
 
+
 				if (si_IsMaster.Checked)
 				{
-					// NOTE: this doesn't result in an infinite loop.
-					// But it does clamp the value before it gets shot back here.
+					// the 'si_Child1' textchanged handler can change the value
+					// and shoot it back here
 					si_Child1.Text = TargetInfo_text.Text;
 				}
+				else
+				{
+					// else let the value pass unhindered
+					BypassSubspell = true;
+					si_Child1.Text = TargetInfo_text.Text;
+					BypassSubspell = false;
+					SetSpellLabelText(si_ChildLabel1, targetinfo);
+				}
+
 
 				// set DamageInfo colors based on SpellInfo spelltype and TargetInfo scaledeffect
 				switch (cbo_si_Spelltype.SelectedIndex) // (spellinfo & hc.HENCH_SPELL_INFO_SPELL_TYPE_MASK)
