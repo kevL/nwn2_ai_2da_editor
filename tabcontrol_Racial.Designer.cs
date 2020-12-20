@@ -278,6 +278,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.RacialFlags_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.RacialFlags_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.RacialFlags_hex.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.RacialFlags_hex.Location = new System.Drawing.Point(115, 15);
 			this.RacialFlags_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.RacialFlags_hex.Name = "RacialFlags_hex";
@@ -289,6 +290,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.RacialFlags_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.RacialFlags_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.RacialFlags_bin.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.RacialFlags_bin.Location = new System.Drawing.Point(115, 35);
 			this.RacialFlags_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.RacialFlags_bin.Name = "RacialFlags_bin";
@@ -308,20 +310,20 @@ namespace nwn2_ai_2da_editor
 			// 
 			// rf_hex
 			// 
-			this.rf_hex.Location = new System.Drawing.Point(395, 15);
+			this.rf_hex.Location = new System.Drawing.Point(400, 15);
 			this.rf_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.rf_hex.Name = "rf_hex";
-			this.rf_hex.Size = new System.Drawing.Size(45, 15);
+			this.rf_hex.Size = new System.Drawing.Size(40, 15);
 			this.rf_hex.TabIndex = 5;
 			this.rf_hex.Text = "hex";
 			this.rf_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// rf_bin
 			// 
-			this.rf_bin.Location = new System.Drawing.Point(395, 35);
+			this.rf_bin.Location = new System.Drawing.Point(400, 35);
 			this.rf_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.rf_bin.Name = "rf_bin";
-			this.rf_bin.Size = new System.Drawing.Size(45, 15);
+			this.rf_bin.Size = new System.Drawing.Size(40, 15);
 			this.rf_bin.TabIndex = 6;
 			this.rf_bin.Text = "bin";
 			this.rf_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -383,6 +385,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.RacialFeat1_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.RacialFeat1_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.RacialFeat1_hex.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.RacialFeat1_hex.Location = new System.Drawing.Point(115, 15);
 			this.RacialFeat1_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.RacialFeat1_hex.Name = "RacialFeat1_hex";
@@ -394,6 +397,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.RacialFeat1_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.RacialFeat1_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.RacialFeat1_bin.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.RacialFeat1_bin.Location = new System.Drawing.Point(115, 35);
 			this.RacialFeat1_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.RacialFeat1_bin.Name = "RacialFeat1_bin";
@@ -413,20 +417,20 @@ namespace nwn2_ai_2da_editor
 			// 
 			// rf1_hex
 			// 
-			this.rf1_hex.Location = new System.Drawing.Point(395, 15);
+			this.rf1_hex.Location = new System.Drawing.Point(400, 15);
 			this.rf1_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.rf1_hex.Name = "rf1_hex";
-			this.rf1_hex.Size = new System.Drawing.Size(45, 15);
+			this.rf1_hex.Size = new System.Drawing.Size(40, 15);
 			this.rf1_hex.TabIndex = 5;
 			this.rf1_hex.Text = "hex";
 			this.rf1_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// rf1_bin
 			// 
-			this.rf1_bin.Location = new System.Drawing.Point(395, 35);
+			this.rf1_bin.Location = new System.Drawing.Point(400, 35);
 			this.rf1_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.rf1_bin.Name = "rf1_bin";
-			this.rf1_bin.Size = new System.Drawing.Size(45, 15);
+			this.rf1_bin.Size = new System.Drawing.Size(40, 15);
 			this.rf1_bin.TabIndex = 6;
 			this.rf1_bin.Text = "bin";
 			this.rf1_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -544,6 +548,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.RacialFeat2_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.RacialFeat2_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.RacialFeat2_hex.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.RacialFeat2_hex.Location = new System.Drawing.Point(115, 15);
 			this.RacialFeat2_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.RacialFeat2_hex.Name = "RacialFeat2_hex";
@@ -555,6 +560,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.RacialFeat2_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.RacialFeat2_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.RacialFeat2_bin.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.RacialFeat2_bin.Location = new System.Drawing.Point(115, 35);
 			this.RacialFeat2_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.RacialFeat2_bin.Name = "RacialFeat2_bin";
@@ -574,20 +580,20 @@ namespace nwn2_ai_2da_editor
 			// 
 			// rf2_hex
 			// 
-			this.rf2_hex.Location = new System.Drawing.Point(395, 15);
+			this.rf2_hex.Location = new System.Drawing.Point(400, 15);
 			this.rf2_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.rf2_hex.Name = "rf2_hex";
-			this.rf2_hex.Size = new System.Drawing.Size(45, 15);
+			this.rf2_hex.Size = new System.Drawing.Size(40, 15);
 			this.rf2_hex.TabIndex = 5;
 			this.rf2_hex.Text = "hex";
 			this.rf2_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// rf2_bin
 			// 
-			this.rf2_bin.Location = new System.Drawing.Point(395, 35);
+			this.rf2_bin.Location = new System.Drawing.Point(400, 35);
 			this.rf2_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.rf2_bin.Name = "rf2_bin";
-			this.rf2_bin.Size = new System.Drawing.Size(45, 15);
+			this.rf2_bin.Size = new System.Drawing.Size(40, 15);
 			this.rf2_bin.TabIndex = 6;
 			this.rf2_bin.Text = "bin";
 			this.rf2_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -705,6 +711,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.RacialFeat3_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.RacialFeat3_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.RacialFeat3_hex.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.RacialFeat3_hex.Location = new System.Drawing.Point(115, 15);
 			this.RacialFeat3_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.RacialFeat3_hex.Name = "RacialFeat3_hex";
@@ -716,6 +723,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.RacialFeat3_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.RacialFeat3_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.RacialFeat3_bin.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.RacialFeat3_bin.Location = new System.Drawing.Point(115, 35);
 			this.RacialFeat3_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.RacialFeat3_bin.Name = "RacialFeat3_bin";
@@ -735,20 +743,20 @@ namespace nwn2_ai_2da_editor
 			// 
 			// rf3_hex
 			// 
-			this.rf3_hex.Location = new System.Drawing.Point(395, 15);
+			this.rf3_hex.Location = new System.Drawing.Point(400, 15);
 			this.rf3_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.rf3_hex.Name = "rf3_hex";
-			this.rf3_hex.Size = new System.Drawing.Size(45, 15);
+			this.rf3_hex.Size = new System.Drawing.Size(40, 15);
 			this.rf3_hex.TabIndex = 5;
 			this.rf3_hex.Text = "hex";
 			this.rf3_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// rf3_bin
 			// 
-			this.rf3_bin.Location = new System.Drawing.Point(395, 35);
+			this.rf3_bin.Location = new System.Drawing.Point(400, 35);
 			this.rf3_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.rf3_bin.Name = "rf3_bin";
-			this.rf3_bin.Size = new System.Drawing.Size(45, 15);
+			this.rf3_bin.Size = new System.Drawing.Size(40, 15);
 			this.rf3_bin.TabIndex = 6;
 			this.rf3_bin.Text = "bin";
 			this.rf3_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -866,6 +874,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.RacialFeat4_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.RacialFeat4_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.RacialFeat4_hex.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.RacialFeat4_hex.Location = new System.Drawing.Point(115, 15);
 			this.RacialFeat4_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.RacialFeat4_hex.Name = "RacialFeat4_hex";
@@ -877,6 +886,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.RacialFeat4_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.RacialFeat4_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.RacialFeat4_bin.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.RacialFeat4_bin.Location = new System.Drawing.Point(115, 35);
 			this.RacialFeat4_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.RacialFeat4_bin.Name = "RacialFeat4_bin";
@@ -896,20 +906,20 @@ namespace nwn2_ai_2da_editor
 			// 
 			// rf4_hex
 			// 
-			this.rf4_hex.Location = new System.Drawing.Point(395, 15);
+			this.rf4_hex.Location = new System.Drawing.Point(400, 15);
 			this.rf4_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.rf4_hex.Name = "rf4_hex";
-			this.rf4_hex.Size = new System.Drawing.Size(45, 15);
+			this.rf4_hex.Size = new System.Drawing.Size(40, 15);
 			this.rf4_hex.TabIndex = 5;
 			this.rf4_hex.Text = "hex";
 			this.rf4_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// rf4_bin
 			// 
-			this.rf4_bin.Location = new System.Drawing.Point(395, 35);
+			this.rf4_bin.Location = new System.Drawing.Point(400, 35);
 			this.rf4_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.rf4_bin.Name = "rf4_bin";
-			this.rf4_bin.Size = new System.Drawing.Size(45, 15);
+			this.rf4_bin.Size = new System.Drawing.Size(40, 15);
 			this.rf4_bin.TabIndex = 6;
 			this.rf4_bin.Text = "bin";
 			this.rf4_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1027,6 +1037,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.RacialFeat5_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.RacialFeat5_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.RacialFeat5_hex.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.RacialFeat5_hex.Location = new System.Drawing.Point(115, 15);
 			this.RacialFeat5_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.RacialFeat5_hex.Name = "RacialFeat5_hex";
@@ -1038,6 +1049,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.RacialFeat5_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.RacialFeat5_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.RacialFeat5_bin.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.RacialFeat5_bin.Location = new System.Drawing.Point(115, 35);
 			this.RacialFeat5_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.RacialFeat5_bin.Name = "RacialFeat5_bin";
@@ -1057,20 +1069,20 @@ namespace nwn2_ai_2da_editor
 			// 
 			// rf5_hex
 			// 
-			this.rf5_hex.Location = new System.Drawing.Point(395, 15);
+			this.rf5_hex.Location = new System.Drawing.Point(400, 15);
 			this.rf5_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.rf5_hex.Name = "rf5_hex";
-			this.rf5_hex.Size = new System.Drawing.Size(45, 15);
+			this.rf5_hex.Size = new System.Drawing.Size(40, 15);
 			this.rf5_hex.TabIndex = 5;
 			this.rf5_hex.Text = "hex";
 			this.rf5_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// rf5_bin
 			// 
-			this.rf5_bin.Location = new System.Drawing.Point(395, 35);
+			this.rf5_bin.Location = new System.Drawing.Point(400, 35);
 			this.rf5_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.rf5_bin.Name = "rf5_bin";
-			this.rf5_bin.Size = new System.Drawing.Size(45, 15);
+			this.rf5_bin.Size = new System.Drawing.Size(40, 15);
 			this.rf5_bin.TabIndex = 6;
 			this.rf5_bin.Text = "bin";
 			this.rf5_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

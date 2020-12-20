@@ -540,6 +540,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.ClassFlags_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.ClassFlags_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFlags_hex.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ClassFlags_hex.Location = new System.Drawing.Point(115, 15);
 			this.ClassFlags_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.ClassFlags_hex.Name = "ClassFlags_hex";
@@ -551,6 +552,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.ClassFlags_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.ClassFlags_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFlags_bin.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ClassFlags_bin.Location = new System.Drawing.Point(115, 35);
 			this.ClassFlags_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.ClassFlags_bin.Name = "ClassFlags_bin";
@@ -570,20 +572,20 @@ namespace nwn2_ai_2da_editor
 			// 
 			// cf_hex
 			// 
-			this.cf_hex.Location = new System.Drawing.Point(395, 15);
+			this.cf_hex.Location = new System.Drawing.Point(400, 15);
 			this.cf_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.cf_hex.Name = "cf_hex";
-			this.cf_hex.Size = new System.Drawing.Size(45, 15);
+			this.cf_hex.Size = new System.Drawing.Size(40, 15);
 			this.cf_hex.TabIndex = 5;
 			this.cf_hex.Text = "hex";
 			this.cf_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cf_bin
 			// 
-			this.cf_bin.Location = new System.Drawing.Point(395, 35);
+			this.cf_bin.Location = new System.Drawing.Point(400, 35);
 			this.cf_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.cf_bin.Name = "cf_bin";
-			this.cf_bin.Size = new System.Drawing.Size(45, 15);
+			this.cf_bin.Size = new System.Drawing.Size(40, 15);
 			this.cf_bin.TabIndex = 6;
 			this.cf_bin.Text = "bin";
 			this.cf_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -795,6 +797,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.ClassFeat1_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.ClassFeat1_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat1_hex.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ClassFeat1_hex.Location = new System.Drawing.Point(115, 15);
 			this.ClassFeat1_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.ClassFeat1_hex.Name = "ClassFeat1_hex";
@@ -806,6 +809,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.ClassFeat1_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.ClassFeat1_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat1_bin.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ClassFeat1_bin.Location = new System.Drawing.Point(115, 35);
 			this.ClassFeat1_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.ClassFeat1_bin.Name = "ClassFeat1_bin";
@@ -825,20 +829,20 @@ namespace nwn2_ai_2da_editor
 			// 
 			// cf1_hex
 			// 
-			this.cf1_hex.Location = new System.Drawing.Point(395, 15);
+			this.cf1_hex.Location = new System.Drawing.Point(400, 15);
 			this.cf1_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.cf1_hex.Name = "cf1_hex";
-			this.cf1_hex.Size = new System.Drawing.Size(45, 15);
+			this.cf1_hex.Size = new System.Drawing.Size(40, 15);
 			this.cf1_hex.TabIndex = 5;
 			this.cf1_hex.Text = "hex";
 			this.cf1_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cf1_bin
 			// 
-			this.cf1_bin.Location = new System.Drawing.Point(395, 35);
+			this.cf1_bin.Location = new System.Drawing.Point(400, 35);
 			this.cf1_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.cf1_bin.Name = "cf1_bin";
-			this.cf1_bin.Size = new System.Drawing.Size(45, 15);
+			this.cf1_bin.Size = new System.Drawing.Size(40, 15);
 			this.cf1_bin.TabIndex = 6;
 			this.cf1_bin.Text = "bin";
 			this.cf1_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -956,6 +960,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.ClassFeat2_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.ClassFeat2_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat2_hex.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ClassFeat2_hex.Location = new System.Drawing.Point(115, 15);
 			this.ClassFeat2_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.ClassFeat2_hex.Name = "ClassFeat2_hex";
@@ -967,6 +972,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.ClassFeat2_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.ClassFeat2_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat2_bin.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ClassFeat2_bin.Location = new System.Drawing.Point(115, 35);
 			this.ClassFeat2_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.ClassFeat2_bin.Name = "ClassFeat2_bin";
@@ -986,20 +992,20 @@ namespace nwn2_ai_2da_editor
 			// 
 			// cf2_hex
 			// 
-			this.cf2_hex.Location = new System.Drawing.Point(395, 15);
+			this.cf2_hex.Location = new System.Drawing.Point(400, 15);
 			this.cf2_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.cf2_hex.Name = "cf2_hex";
-			this.cf2_hex.Size = new System.Drawing.Size(45, 15);
+			this.cf2_hex.Size = new System.Drawing.Size(40, 15);
 			this.cf2_hex.TabIndex = 5;
 			this.cf2_hex.Text = "hex";
 			this.cf2_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cf2_bin
 			// 
-			this.cf2_bin.Location = new System.Drawing.Point(395, 35);
+			this.cf2_bin.Location = new System.Drawing.Point(400, 35);
 			this.cf2_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.cf2_bin.Name = "cf2_bin";
-			this.cf2_bin.Size = new System.Drawing.Size(45, 15);
+			this.cf2_bin.Size = new System.Drawing.Size(40, 15);
 			this.cf2_bin.TabIndex = 6;
 			this.cf2_bin.Text = "bin";
 			this.cf2_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1117,6 +1123,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.ClassFeat3_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.ClassFeat3_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat3_hex.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ClassFeat3_hex.Location = new System.Drawing.Point(115, 15);
 			this.ClassFeat3_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.ClassFeat3_hex.Name = "ClassFeat3_hex";
@@ -1128,6 +1135,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.ClassFeat3_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.ClassFeat3_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat3_bin.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ClassFeat3_bin.Location = new System.Drawing.Point(115, 35);
 			this.ClassFeat3_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.ClassFeat3_bin.Name = "ClassFeat3_bin";
@@ -1147,20 +1155,20 @@ namespace nwn2_ai_2da_editor
 			// 
 			// cf3_hex
 			// 
-			this.cf3_hex.Location = new System.Drawing.Point(395, 15);
+			this.cf3_hex.Location = new System.Drawing.Point(400, 15);
 			this.cf3_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.cf3_hex.Name = "cf3_hex";
-			this.cf3_hex.Size = new System.Drawing.Size(45, 15);
+			this.cf3_hex.Size = new System.Drawing.Size(40, 15);
 			this.cf3_hex.TabIndex = 5;
 			this.cf3_hex.Text = "hex";
 			this.cf3_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cf3_bin
 			// 
-			this.cf3_bin.Location = new System.Drawing.Point(395, 35);
+			this.cf3_bin.Location = new System.Drawing.Point(400, 35);
 			this.cf3_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.cf3_bin.Name = "cf3_bin";
-			this.cf3_bin.Size = new System.Drawing.Size(45, 15);
+			this.cf3_bin.Size = new System.Drawing.Size(40, 15);
 			this.cf3_bin.TabIndex = 6;
 			this.cf3_bin.Text = "bin";
 			this.cf3_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1278,6 +1286,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.ClassFeat4_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.ClassFeat4_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat4_hex.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ClassFeat4_hex.Location = new System.Drawing.Point(115, 15);
 			this.ClassFeat4_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.ClassFeat4_hex.Name = "ClassFeat4_hex";
@@ -1289,6 +1298,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.ClassFeat4_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.ClassFeat4_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat4_bin.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ClassFeat4_bin.Location = new System.Drawing.Point(115, 35);
 			this.ClassFeat4_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.ClassFeat4_bin.Name = "ClassFeat4_bin";
@@ -1308,20 +1318,20 @@ namespace nwn2_ai_2da_editor
 			// 
 			// cf4_hex
 			// 
-			this.cf4_hex.Location = new System.Drawing.Point(395, 15);
+			this.cf4_hex.Location = new System.Drawing.Point(400, 15);
 			this.cf4_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.cf4_hex.Name = "cf4_hex";
-			this.cf4_hex.Size = new System.Drawing.Size(45, 15);
+			this.cf4_hex.Size = new System.Drawing.Size(40, 15);
 			this.cf4_hex.TabIndex = 5;
 			this.cf4_hex.Text = "hex";
 			this.cf4_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cf4_bin
 			// 
-			this.cf4_bin.Location = new System.Drawing.Point(395, 35);
+			this.cf4_bin.Location = new System.Drawing.Point(400, 35);
 			this.cf4_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.cf4_bin.Name = "cf4_bin";
-			this.cf4_bin.Size = new System.Drawing.Size(45, 15);
+			this.cf4_bin.Size = new System.Drawing.Size(40, 15);
 			this.cf4_bin.TabIndex = 6;
 			this.cf4_bin.Text = "bin";
 			this.cf4_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1439,6 +1449,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.ClassFeat5_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.ClassFeat5_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat5_hex.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ClassFeat5_hex.Location = new System.Drawing.Point(115, 15);
 			this.ClassFeat5_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.ClassFeat5_hex.Name = "ClassFeat5_hex";
@@ -1450,6 +1461,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.ClassFeat5_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.ClassFeat5_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat5_bin.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ClassFeat5_bin.Location = new System.Drawing.Point(115, 35);
 			this.ClassFeat5_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.ClassFeat5_bin.Name = "ClassFeat5_bin";
@@ -1469,20 +1481,20 @@ namespace nwn2_ai_2da_editor
 			// 
 			// cf5_hex
 			// 
-			this.cf5_hex.Location = new System.Drawing.Point(395, 15);
+			this.cf5_hex.Location = new System.Drawing.Point(400, 15);
 			this.cf5_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.cf5_hex.Name = "cf5_hex";
-			this.cf5_hex.Size = new System.Drawing.Size(45, 15);
+			this.cf5_hex.Size = new System.Drawing.Size(40, 15);
 			this.cf5_hex.TabIndex = 5;
 			this.cf5_hex.Text = "hex";
 			this.cf5_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cf5_bin
 			// 
-			this.cf5_bin.Location = new System.Drawing.Point(395, 35);
+			this.cf5_bin.Location = new System.Drawing.Point(400, 35);
 			this.cf5_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.cf5_bin.Name = "cf5_bin";
-			this.cf5_bin.Size = new System.Drawing.Size(45, 15);
+			this.cf5_bin.Size = new System.Drawing.Size(40, 15);
 			this.cf5_bin.TabIndex = 6;
 			this.cf5_bin.Text = "bin";
 			this.cf5_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1600,6 +1612,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.ClassFeat6_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.ClassFeat6_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat6_hex.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ClassFeat6_hex.Location = new System.Drawing.Point(115, 15);
 			this.ClassFeat6_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.ClassFeat6_hex.Name = "ClassFeat6_hex";
@@ -1611,6 +1624,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.ClassFeat6_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.ClassFeat6_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat6_bin.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ClassFeat6_bin.Location = new System.Drawing.Point(115, 35);
 			this.ClassFeat6_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.ClassFeat6_bin.Name = "ClassFeat6_bin";
@@ -1630,20 +1644,20 @@ namespace nwn2_ai_2da_editor
 			// 
 			// cf6_hex
 			// 
-			this.cf6_hex.Location = new System.Drawing.Point(395, 15);
+			this.cf6_hex.Location = new System.Drawing.Point(400, 15);
 			this.cf6_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.cf6_hex.Name = "cf6_hex";
-			this.cf6_hex.Size = new System.Drawing.Size(45, 15);
+			this.cf6_hex.Size = new System.Drawing.Size(40, 15);
 			this.cf6_hex.TabIndex = 5;
 			this.cf6_hex.Text = "hex";
 			this.cf6_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cf6_bin
 			// 
-			this.cf6_bin.Location = new System.Drawing.Point(395, 35);
+			this.cf6_bin.Location = new System.Drawing.Point(400, 35);
 			this.cf6_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.cf6_bin.Name = "cf6_bin";
-			this.cf6_bin.Size = new System.Drawing.Size(45, 15);
+			this.cf6_bin.Size = new System.Drawing.Size(40, 15);
 			this.cf6_bin.TabIndex = 6;
 			this.cf6_bin.Text = "bin";
 			this.cf6_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1761,6 +1775,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.ClassFeat7_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.ClassFeat7_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat7_hex.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ClassFeat7_hex.Location = new System.Drawing.Point(115, 15);
 			this.ClassFeat7_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.ClassFeat7_hex.Name = "ClassFeat7_hex";
@@ -1772,6 +1787,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.ClassFeat7_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.ClassFeat7_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat7_bin.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ClassFeat7_bin.Location = new System.Drawing.Point(115, 35);
 			this.ClassFeat7_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.ClassFeat7_bin.Name = "ClassFeat7_bin";
@@ -1791,20 +1807,20 @@ namespace nwn2_ai_2da_editor
 			// 
 			// cf7_hex
 			// 
-			this.cf7_hex.Location = new System.Drawing.Point(395, 15);
+			this.cf7_hex.Location = new System.Drawing.Point(400, 15);
 			this.cf7_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.cf7_hex.Name = "cf7_hex";
-			this.cf7_hex.Size = new System.Drawing.Size(45, 15);
+			this.cf7_hex.Size = new System.Drawing.Size(40, 15);
 			this.cf7_hex.TabIndex = 5;
 			this.cf7_hex.Text = "hex";
 			this.cf7_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cf7_bin
 			// 
-			this.cf7_bin.Location = new System.Drawing.Point(395, 35);
+			this.cf7_bin.Location = new System.Drawing.Point(400, 35);
 			this.cf7_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.cf7_bin.Name = "cf7_bin";
-			this.cf7_bin.Size = new System.Drawing.Size(45, 15);
+			this.cf7_bin.Size = new System.Drawing.Size(40, 15);
 			this.cf7_bin.TabIndex = 6;
 			this.cf7_bin.Text = "bin";
 			this.cf7_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1922,6 +1938,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.ClassFeat8_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.ClassFeat8_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat8_hex.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ClassFeat8_hex.Location = new System.Drawing.Point(115, 15);
 			this.ClassFeat8_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.ClassFeat8_hex.Name = "ClassFeat8_hex";
@@ -1933,6 +1950,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.ClassFeat8_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.ClassFeat8_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat8_bin.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ClassFeat8_bin.Location = new System.Drawing.Point(115, 35);
 			this.ClassFeat8_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.ClassFeat8_bin.Name = "ClassFeat8_bin";
@@ -1952,20 +1970,20 @@ namespace nwn2_ai_2da_editor
 			// 
 			// cf8_hex
 			// 
-			this.cf8_hex.Location = new System.Drawing.Point(395, 15);
+			this.cf8_hex.Location = new System.Drawing.Point(400, 15);
 			this.cf8_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.cf8_hex.Name = "cf8_hex";
-			this.cf8_hex.Size = new System.Drawing.Size(45, 15);
+			this.cf8_hex.Size = new System.Drawing.Size(40, 15);
 			this.cf8_hex.TabIndex = 5;
 			this.cf8_hex.Text = "hex";
 			this.cf8_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cf8_bin
 			// 
-			this.cf8_bin.Location = new System.Drawing.Point(395, 35);
+			this.cf8_bin.Location = new System.Drawing.Point(400, 35);
 			this.cf8_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.cf8_bin.Name = "cf8_bin";
-			this.cf8_bin.Size = new System.Drawing.Size(45, 15);
+			this.cf8_bin.Size = new System.Drawing.Size(40, 15);
 			this.cf8_bin.TabIndex = 6;
 			this.cf8_bin.Text = "bin";
 			this.cf8_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2083,6 +2101,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.ClassFeat9_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.ClassFeat9_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat9_hex.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ClassFeat9_hex.Location = new System.Drawing.Point(115, 15);
 			this.ClassFeat9_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.ClassFeat9_hex.Name = "ClassFeat9_hex";
@@ -2094,6 +2113,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.ClassFeat9_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.ClassFeat9_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat9_bin.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ClassFeat9_bin.Location = new System.Drawing.Point(115, 35);
 			this.ClassFeat9_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.ClassFeat9_bin.Name = "ClassFeat9_bin";
@@ -2113,20 +2133,20 @@ namespace nwn2_ai_2da_editor
 			// 
 			// cf9_hex
 			// 
-			this.cf9_hex.Location = new System.Drawing.Point(395, 15);
+			this.cf9_hex.Location = new System.Drawing.Point(400, 15);
 			this.cf9_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.cf9_hex.Name = "cf9_hex";
-			this.cf9_hex.Size = new System.Drawing.Size(45, 15);
+			this.cf9_hex.Size = new System.Drawing.Size(40, 15);
 			this.cf9_hex.TabIndex = 5;
 			this.cf9_hex.Text = "hex";
 			this.cf9_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cf9_bin
 			// 
-			this.cf9_bin.Location = new System.Drawing.Point(395, 35);
+			this.cf9_bin.Location = new System.Drawing.Point(400, 35);
 			this.cf9_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.cf9_bin.Name = "cf9_bin";
-			this.cf9_bin.Size = new System.Drawing.Size(45, 15);
+			this.cf9_bin.Size = new System.Drawing.Size(40, 15);
 			this.cf9_bin.TabIndex = 6;
 			this.cf9_bin.Text = "bin";
 			this.cf9_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2244,6 +2264,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.ClassFeat10_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.ClassFeat10_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat10_hex.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ClassFeat10_hex.Location = new System.Drawing.Point(115, 15);
 			this.ClassFeat10_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.ClassFeat10_hex.Name = "ClassFeat10_hex";
@@ -2255,6 +2276,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.ClassFeat10_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.ClassFeat10_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat10_bin.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ClassFeat10_bin.Location = new System.Drawing.Point(115, 35);
 			this.ClassFeat10_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.ClassFeat10_bin.Name = "ClassFeat10_bin";
@@ -2274,20 +2296,20 @@ namespace nwn2_ai_2da_editor
 			// 
 			// cf10_hex
 			// 
-			this.cf10_hex.Location = new System.Drawing.Point(395, 15);
+			this.cf10_hex.Location = new System.Drawing.Point(400, 15);
 			this.cf10_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.cf10_hex.Name = "cf10_hex";
-			this.cf10_hex.Size = new System.Drawing.Size(45, 15);
+			this.cf10_hex.Size = new System.Drawing.Size(40, 15);
 			this.cf10_hex.TabIndex = 5;
 			this.cf10_hex.Text = "hex";
 			this.cf10_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cf10_bin
 			// 
-			this.cf10_bin.Location = new System.Drawing.Point(395, 35);
+			this.cf10_bin.Location = new System.Drawing.Point(400, 35);
 			this.cf10_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.cf10_bin.Name = "cf10_bin";
-			this.cf10_bin.Size = new System.Drawing.Size(45, 15);
+			this.cf10_bin.Size = new System.Drawing.Size(40, 15);
 			this.cf10_bin.TabIndex = 6;
 			this.cf10_bin.Text = "bin";
 			this.cf10_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2405,6 +2427,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.ClassFeat11_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.ClassFeat11_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat11_hex.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ClassFeat11_hex.Location = new System.Drawing.Point(115, 15);
 			this.ClassFeat11_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.ClassFeat11_hex.Name = "ClassFeat11_hex";
@@ -2416,6 +2439,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.ClassFeat11_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.ClassFeat11_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.ClassFeat11_bin.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.ClassFeat11_bin.Location = new System.Drawing.Point(115, 35);
 			this.ClassFeat11_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.ClassFeat11_bin.Name = "ClassFeat11_bin";
@@ -2435,20 +2459,20 @@ namespace nwn2_ai_2da_editor
 			// 
 			// cf11_hex
 			// 
-			this.cf11_hex.Location = new System.Drawing.Point(395, 15);
+			this.cf11_hex.Location = new System.Drawing.Point(400, 15);
 			this.cf11_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.cf11_hex.Name = "cf11_hex";
-			this.cf11_hex.Size = new System.Drawing.Size(45, 15);
+			this.cf11_hex.Size = new System.Drawing.Size(40, 15);
 			this.cf11_hex.TabIndex = 5;
 			this.cf11_hex.Text = "hex";
 			this.cf11_hex.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// cf11_bin
 			// 
-			this.cf11_bin.Location = new System.Drawing.Point(395, 35);
+			this.cf11_bin.Location = new System.Drawing.Point(400, 35);
 			this.cf11_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.cf11_bin.Name = "cf11_bin";
-			this.cf11_bin.Size = new System.Drawing.Size(45, 15);
+			this.cf11_bin.Size = new System.Drawing.Size(40, 15);
 			this.cf11_bin.TabIndex = 6;
 			this.cf11_bin.Text = "bin";
 			this.cf11_bin.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

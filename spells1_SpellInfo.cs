@@ -450,7 +450,7 @@ namespace nwn2_ai_2da_editor
 			{
 				case -1: // safety.
 				case  0:
-					text = ""; // "INVALID"
+					text = String.Empty; // "INVALID"
 					break;
 
 				case hc.HENCH_SPELL_INFO_SPELL_TYPE_ATTACK:	// TODO: Look into these and how they trace through
