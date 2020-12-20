@@ -856,6 +856,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Populates nodes in the tree.
 		/// </summary>
+		/// <param name="init"></param>
 		void GrowTree(bool init = false)
 		{
 			if (init)
@@ -880,7 +881,7 @@ namespace nwn2_ai_2da_editor
 				case Type2da.TYPE_SPELLS:
 				{
 					var pb = new ProgBar(); // populating the spells-tree takes a second or 3.
-					pb.ValTop = Spells.Count;
+					pb.Stop = Spells.Count;
 					pb.Show();
 
 					int preLength = (Spells.Count - 1).ToString().Length + 1;
