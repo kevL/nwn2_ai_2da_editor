@@ -278,7 +278,6 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.RacialFlags_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.RacialFlags_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.RacialFlags_hex.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.RacialFlags_hex.Location = new System.Drawing.Point(115, 15);
 			this.RacialFlags_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.RacialFlags_hex.Name = "RacialFlags_hex";
@@ -290,7 +289,6 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.RacialFlags_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.RacialFlags_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.RacialFlags_bin.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.RacialFlags_bin.Location = new System.Drawing.Point(115, 35);
 			this.RacialFlags_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.RacialFlags_bin.Name = "RacialFlags_bin";
@@ -385,7 +383,6 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.RacialFeat1_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.RacialFeat1_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.RacialFeat1_hex.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.RacialFeat1_hex.Location = new System.Drawing.Point(115, 15);
 			this.RacialFeat1_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.RacialFeat1_hex.Name = "RacialFeat1_hex";
@@ -397,7 +394,6 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.RacialFeat1_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.RacialFeat1_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.RacialFeat1_bin.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.RacialFeat1_bin.Location = new System.Drawing.Point(115, 35);
 			this.RacialFeat1_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.RacialFeat1_bin.Name = "RacialFeat1_bin";
@@ -548,7 +544,6 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.RacialFeat2_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.RacialFeat2_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.RacialFeat2_hex.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.RacialFeat2_hex.Location = new System.Drawing.Point(115, 15);
 			this.RacialFeat2_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.RacialFeat2_hex.Name = "RacialFeat2_hex";
@@ -560,7 +555,6 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.RacialFeat2_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.RacialFeat2_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.RacialFeat2_bin.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.RacialFeat2_bin.Location = new System.Drawing.Point(115, 35);
 			this.RacialFeat2_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.RacialFeat2_bin.Name = "RacialFeat2_bin";
@@ -711,7 +705,6 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.RacialFeat3_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.RacialFeat3_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.RacialFeat3_hex.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.RacialFeat3_hex.Location = new System.Drawing.Point(115, 15);
 			this.RacialFeat3_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.RacialFeat3_hex.Name = "RacialFeat3_hex";
@@ -723,7 +716,6 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.RacialFeat3_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.RacialFeat3_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.RacialFeat3_bin.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.RacialFeat3_bin.Location = new System.Drawing.Point(115, 35);
 			this.RacialFeat3_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.RacialFeat3_bin.Name = "RacialFeat3_bin";
@@ -874,7 +866,6 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.RacialFeat4_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.RacialFeat4_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.RacialFeat4_hex.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.RacialFeat4_hex.Location = new System.Drawing.Point(115, 15);
 			this.RacialFeat4_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.RacialFeat4_hex.Name = "RacialFeat4_hex";
@@ -886,7 +877,6 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.RacialFeat4_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.RacialFeat4_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.RacialFeat4_bin.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.RacialFeat4_bin.Location = new System.Drawing.Point(115, 35);
 			this.RacialFeat4_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.RacialFeat4_bin.Name = "RacialFeat4_bin";
@@ -1037,7 +1027,6 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.RacialFeat5_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.RacialFeat5_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.RacialFeat5_hex.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.RacialFeat5_hex.Location = new System.Drawing.Point(115, 15);
 			this.RacialFeat5_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.RacialFeat5_hex.Name = "RacialFeat5_hex";
@@ -1049,7 +1038,6 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.RacialFeat5_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.RacialFeat5_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.RacialFeat5_bin.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.RacialFeat5_bin.Location = new System.Drawing.Point(115, 35);
 			this.RacialFeat5_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.RacialFeat5_bin.Name = "RacialFeat5_bin";

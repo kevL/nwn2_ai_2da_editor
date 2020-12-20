@@ -91,6 +91,31 @@ namespace nwn2_ai_2da_editor
 			ClassFeat11_hex.BackColor =
 			ClassFeat11_bin.BackColor = tp_Flags.BackColor;
 
+			ClassFlags_hex .Font =
+			ClassFlags_bin .Font =
+			ClassFeat1_hex .Font =
+			ClassFeat1_bin .Font =
+			ClassFeat2_hex .Font =
+			ClassFeat2_bin .Font =
+			ClassFeat3_hex .Font =
+			ClassFeat3_bin .Font =
+			ClassFeat4_hex .Font =
+			ClassFeat4_bin .Font =
+			ClassFeat5_hex .Font =
+			ClassFeat5_bin .Font =
+			ClassFeat6_hex .Font =
+			ClassFeat6_bin .Font =
+			ClassFeat7_hex .Font =
+			ClassFeat7_bin .Font =
+			ClassFeat8_hex .Font =
+			ClassFeat8_bin .Font =
+			ClassFeat9_hex .Font =
+			ClassFeat9_bin .Font =
+			ClassFeat10_hex.Font =
+			ClassFeat10_bin.Font =
+			ClassFeat11_hex.Font =
+			ClassFeat11_bin.Font = he.StaticFont;
+
 			PopulateComboboxes();
 
 

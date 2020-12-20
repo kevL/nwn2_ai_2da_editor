@@ -736,7 +736,6 @@ namespace nwn2_ai_2da_editor
 			this.tc_Spells.Controls.Add(this.tp_SaveType);
 			this.tc_Spells.Controls.Add(this.tp_SaveDCType);
 			this.tc_Spells.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tc_Spells.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.tc_Spells.Location = new System.Drawing.Point(0, 0);
 			this.tc_Spells.Margin = new System.Windows.Forms.Padding(0);
 			this.tc_Spells.Name = "tc_Spells";
@@ -793,7 +792,6 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.SpellInfo_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.SpellInfo_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.SpellInfo_hex.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.SpellInfo_hex.Location = new System.Drawing.Point(115, 15);
 			this.SpellInfo_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.SpellInfo_hex.Name = "SpellInfo_hex";
@@ -805,7 +803,6 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.SpellInfo_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.SpellInfo_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.SpellInfo_bin.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.SpellInfo_bin.Location = new System.Drawing.Point(115, 35);
 			this.SpellInfo_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.SpellInfo_bin.Name = "SpellInfo_bin";
@@ -1212,7 +1209,6 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.TargetInfo_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.TargetInfo_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.TargetInfo_hex.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.TargetInfo_hex.Location = new System.Drawing.Point(115, 15);
 			this.TargetInfo_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.TargetInfo_hex.Name = "TargetInfo_hex";
@@ -1224,7 +1220,6 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.TargetInfo_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.TargetInfo_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.TargetInfo_bin.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.TargetInfo_bin.Location = new System.Drawing.Point(115, 35);
 			this.TargetInfo_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.TargetInfo_bin.Name = "TargetInfo_bin";
@@ -1549,7 +1544,6 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.EffectTypes_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.EffectTypes_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.EffectTypes_hex.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.EffectTypes_hex.Location = new System.Drawing.Point(115, 15);
 			this.EffectTypes_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.EffectTypes_hex.Name = "EffectTypes_hex";
@@ -1561,7 +1555,6 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.EffectTypes_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.EffectTypes_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.EffectTypes_bin.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.EffectTypes_bin.Location = new System.Drawing.Point(115, 35);
 			this.EffectTypes_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.EffectTypes_bin.Name = "EffectTypes_bin";
@@ -2268,7 +2261,6 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.DamageInfo_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.DamageInfo_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.DamageInfo_hex.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.DamageInfo_hex.Location = new System.Drawing.Point(115, 15);
 			this.DamageInfo_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.DamageInfo_hex.Name = "DamageInfo_hex";
@@ -2280,7 +2272,6 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.DamageInfo_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.DamageInfo_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.DamageInfo_bin.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.DamageInfo_bin.Location = new System.Drawing.Point(115, 35);
 			this.DamageInfo_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.DamageInfo_bin.Name = "DamageInfo_bin";
@@ -2835,7 +2826,6 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.SaveType_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.SaveType_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.SaveType_hex.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.SaveType_hex.Location = new System.Drawing.Point(115, 15);
 			this.SaveType_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.SaveType_hex.Name = "SaveType_hex";
@@ -2847,7 +2837,6 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.SaveType_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.SaveType_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.SaveType_bin.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.SaveType_bin.Location = new System.Drawing.Point(115, 35);
 			this.SaveType_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.SaveType_bin.Name = "SaveType_bin";
@@ -3602,7 +3591,6 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.SaveDCType_hex.BackColor = System.Drawing.SystemColors.Window;
 			this.SaveDCType_hex.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.SaveDCType_hex.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.SaveDCType_hex.Location = new System.Drawing.Point(115, 15);
 			this.SaveDCType_hex.Margin = new System.Windows.Forms.Padding(0);
 			this.SaveDCType_hex.Name = "SaveDCType_hex";
@@ -3614,7 +3602,6 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.SaveDCType_bin.BackColor = System.Drawing.SystemColors.Window;
 			this.SaveDCType_bin.BorderStyle = System.Windows.Forms.BorderStyle.None;
-			this.SaveDCType_bin.Font = new System.Drawing.Font("Courier New", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.SaveDCType_bin.Location = new System.Drawing.Point(115, 35);
 			this.SaveDCType_bin.Margin = new System.Windows.Forms.Padding(0);
 			this.SaveDCType_bin.Name = "SaveDCType_bin";

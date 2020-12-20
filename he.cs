@@ -125,6 +125,9 @@ namespace nwn2_ai_2da_editor
 
 		int userHeight = 480;
 		int panel2width, panel2height;
+
+
+		internal static readonly Font StaticFont = new Font("Courier New", 8F);
 		#endregion class Vars
 
 

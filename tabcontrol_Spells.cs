@@ -57,6 +57,19 @@ namespace nwn2_ai_2da_editor
 			SaveDCType_hex .BackColor =
 			SaveDCType_bin .BackColor = tp_SpellInfo.BackColor;
 
+			SpellInfo_hex  .Font =
+			SpellInfo_bin  .Font =
+			TargetInfo_hex .Font =
+			TargetInfo_bin .Font =
+			EffectTypes_hex.Font =
+			EffectTypes_bin.Font =
+			DamageInfo_hex .Font =
+			DamageInfo_bin .Font =
+			SaveType_hex   .Font =
+			SaveType_bin   .Font =
+			SaveDCType_hex .Font =
+			SaveDCType_bin .Font = he.StaticFont;
+
 			PopulateComboboxes();
 
 

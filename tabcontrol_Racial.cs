@@ -61,6 +61,19 @@ namespace nwn2_ai_2da_editor
 			RacialFeat5_hex.BackColor =
 			RacialFeat5_bin.BackColor = tp_Flags.BackColor;
 
+			RacialFlags_hex.Font =
+			RacialFlags_bin.Font =
+			RacialFeat1_hex.Font =
+			RacialFeat1_bin.Font =
+			RacialFeat2_hex.Font =
+			RacialFeat2_bin.Font =
+			RacialFeat3_hex.Font =
+			RacialFeat3_bin.Font =
+			RacialFeat4_hex.Font =
+			RacialFeat4_bin.Font =
+			RacialFeat5_hex.Font =
+			RacialFeat5_bin.Font = he.StaticFont;
+
 
 // handlers for Flags ->
 			RacialFlags_reset.Click       += Click_racial_reset;
