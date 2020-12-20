@@ -72,6 +72,10 @@ namespace nwn2_ai_2da_editor
 			SaveDCType_hex .Font =
 			SaveDCType_bin .Font = he.StaticFont;
 
+			// Groups on SpellInfo and TargetInfo generally stay green
+			// unless SpellInfo is flagged as a MasterID
+			SetDefaultGroupColors();
+
 			PopulateComboboxes();
 
 
@@ -657,7 +661,7 @@ namespace nwn2_ai_2da_editor
 		}
 
 
-		internal override void SetDefaultGroupColors()
+		void SetDefaultGroupColors()
 		{
 			GroupColor(si_SpelltypeGrp,  Color.LimeGreen);
 			GroupColor(si_FlagsGrp,      Color.LimeGreen);

@@ -482,10 +482,6 @@ namespace nwn2_ai_2da_editor
 			// check if any info-version(s) need to be updated in spellinfo-int.
 //			InfoVersionLoad_spells();
 
-			// Groups on SpellInfo and TargetInfo generally stay green
-			// unless SpellInfo is flagged as a MasterID
-			HenchControl.SetDefaultGroupColors();
-
 			btn_Apply     .Text = "apply this spell\'s data";
 			tree_Highlight.Text = "highlight blank SpellInfo nodes";
 		}
