@@ -36,7 +36,7 @@ namespace nwn2_ai_2da_editor
 		/// A list that holds labels for feats in Feat.2da.
 		/// - optional
 		/// </summary>
-		internal static List<string> featsLabels = new List<string>();
+		internal static List<string> featLabels = new List<string>();
 
 
 		// const strings for writing the 2da files
@@ -365,7 +365,7 @@ namespace nwn2_ai_2da_editor
 					{
 						GropeLabels(ofd.FileName, spellLabels, pathSpells);
 
-						if (spellLabels.Count != 0 && Type != Type2da.TYPE_NONE)
+						if (Type != Type2da.TYPE_NONE && spellLabels.Count != 0)
 						{
 							if (!hasLabels && Type == Type2da.TYPE_SPELLS)
 								LabelTreenodes(spellLabels);
@@ -515,7 +515,7 @@ namespace nwn2_ai_2da_editor
 
 		/// <summary>
 		/// Handles clicking the PathFeat menuitem.
-		/// Intended to add labels from Feat.2da to the 'featsLabels' list.
+		/// Intended to add labels from Feat.2da to the 'featLabels' list.
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -531,14 +531,24 @@ namespace nwn2_ai_2da_editor
 
 					if (ofd.ShowDialog() == DialogResult.OK)
 					{
-						GropeLabels(ofd.FileName, featsLabels, pathFeat);
+						GropeLabels(ofd.FileName, featLabels, pathFeat);
+
+						if (Type != Type2da.TYPE_NONE && featLabels.Count != 0)
+						{
+							HenchControl.SetFeatLabelTexts();
+						}
 					}
 				}
 			}
 			else
 			{
 				pathFeat.Checked = false;
-				featsLabels.Clear();
+				featLabels.Clear();
+
+				if (Type != Type2da.TYPE_NONE)
+				{
+					HenchControl.ClearFeatLabelTexts();
+				}
 			}
 		}
 

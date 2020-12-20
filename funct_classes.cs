@@ -912,6 +912,115 @@ namespace nwn2_ai_2da_editor
 			cf11_SpellLabel.Text = String.Empty;
 		}
 
+		internal override void SetFeatLabelTexts()
+		{
+			Class @class = he.Classes[he.Id];
+
+			int id;
+			id = (@class.feat1 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
+			if (id < he.featLabels.Count)
+			{
+				cf1_FeatLabel.Text = he.featLabels[id];
+			}
+			else
+				cf1_FeatLabel.Text = String.Empty;
+
+			id = (@class.feat2 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
+			if (id < he.featLabels.Count)
+			{
+				cf2_FeatLabel.Text = he.featLabels[id];
+			}
+			else
+				cf2_FeatLabel.Text = String.Empty;
+
+			id = (@class.feat3 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
+			if (id < he.featLabels.Count)
+			{
+				cf3_FeatLabel.Text = he.featLabels[id];
+			}
+			else
+				cf3_FeatLabel.Text = String.Empty;
+
+			id = (@class.feat4 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
+			if (id < he.featLabels.Count)
+			{
+				cf4_FeatLabel.Text = he.featLabels[id];
+			}
+			else
+				cf4_FeatLabel.Text = String.Empty;
+
+			id = (@class.feat5 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
+			if (id < he.featLabels.Count)
+			{
+				cf5_FeatLabel.Text = he.featLabels[id];
+			}
+			else
+				cf5_FeatLabel.Text = String.Empty;
+
+			id = (@class.feat6 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
+			if (id < he.featLabels.Count)
+			{
+				cf6_FeatLabel.Text = he.featLabels[id];
+			}
+			else
+				cf6_FeatLabel.Text = String.Empty;
+
+			id = (@class.feat7 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
+			if (id < he.featLabels.Count)
+			{
+				cf7_FeatLabel.Text = he.featLabels[id];
+			}
+			else
+				cf7_FeatLabel.Text = String.Empty;
+
+			id = (@class.feat8 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
+			if (id < he.featLabels.Count)
+			{
+				cf8_FeatLabel.Text = he.featLabels[id];
+			}
+			else
+				cf8_FeatLabel.Text = String.Empty;
+
+			id = (@class.feat9 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
+			if (id < he.featLabels.Count)
+			{
+				cf9_FeatLabel.Text = he.featLabels[id];
+			}
+			else
+				cf9_FeatLabel.Text = String.Empty;
+
+			id = (@class.feat10 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
+			if (id < he.featLabels.Count)
+			{
+				cf10_FeatLabel.Text = he.featLabels[id];
+			}
+			else
+				cf10_FeatLabel.Text = String.Empty;
+
+			id = (@class.feat11 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
+			if (id < he.featLabels.Count)
+			{
+				cf11_FeatLabel.Text = he.featLabels[id];
+			}
+			else
+				cf11_FeatLabel.Text = String.Empty;
+		}
+
+		internal override void ClearFeatLabelTexts()
+		{
+			cf1_FeatLabel .Text =
+			cf2_FeatLabel .Text =
+			cf3_FeatLabel .Text =
+			cf4_FeatLabel .Text =
+			cf5_FeatLabel .Text =
+			cf6_FeatLabel .Text =
+			cf7_FeatLabel .Text =
+			cf8_FeatLabel .Text =
+			cf9_FeatLabel .Text =
+			cf10_FeatLabel.Text =
+			cf11_FeatLabel.Text = String.Empty;
+		}
+
 
 //		/// <summary>
 //		/// Prints the info-version of the currently selected class ID.
@@ -1126,10 +1235,10 @@ namespace nwn2_ai_2da_editor
 				int val = (feat & hc.HENCH_FEAT_SPELL_MASK_FEAT);
 				tb_feat.Text = val.ToString();
 
-				if (he.featsLabels.Count != 0
-					&& val < he.featsLabels.Count)
+				if (he.featLabels.Count != 0
+					&& val < he.featLabels.Count)
 				{
-					lbl_feat.Text = he.featsLabels[val];
+					lbl_feat.Text = he.featLabels[val];
 				}
 
 				val = (feat & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;

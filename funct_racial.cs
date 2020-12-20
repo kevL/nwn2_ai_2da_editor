@@ -542,6 +542,60 @@ namespace nwn2_ai_2da_editor
 			rf5_SpellLabel.Text = String.Empty;
 		}
 
+		internal override void SetFeatLabelTexts()
+		{
+			Race race = he.Races[he.Id];
+
+			int id;
+			id = (race.feat1 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
+			if (id < he.featLabels.Count)
+			{
+				rf1_FeatLabel.Text = he.featLabels[id];
+			}
+			else
+				rf1_FeatLabel.Text = String.Empty;
+
+			id = (race.feat2 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
+			if (id < he.featLabels.Count)
+			{
+				rf2_FeatLabel.Text = he.featLabels[id];
+			}
+			else
+				rf2_FeatLabel.Text = String.Empty;
+
+			id = (race.feat3 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
+			if (id < he.featLabels.Count)
+			{
+				rf3_FeatLabel.Text = he.featLabels[id];
+			}
+			else
+				rf3_FeatLabel.Text = String.Empty;
+
+			id = (race.feat4 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
+			if (id < he.featLabels.Count)
+			{
+				rf4_FeatLabel.Text = he.featLabels[id];
+			}
+			else
+				rf4_FeatLabel.Text = String.Empty;
+
+			id = (race.feat5 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
+			if (id < he.featLabels.Count)
+			{
+				rf5_FeatLabel.Text = he.featLabels[id];
+			}
+			else
+				rf5_FeatLabel.Text = String.Empty;
+		}
+
+		internal override void ClearFeatLabelTexts()
+		{
+			rf1_FeatLabel.Text =
+			rf2_FeatLabel.Text =
+			rf3_FeatLabel.Text =
+			rf4_FeatLabel.Text =
+			rf5_FeatLabel.Text = String.Empty;
+		}
 
 //		/// <summary>
 //		/// Prints the info-version of the currently selected race ID.
@@ -626,10 +680,10 @@ namespace nwn2_ai_2da_editor
 				int val = (feat & hc.HENCH_FEAT_SPELL_MASK_FEAT);
 				tb_feat.Text = val.ToString();
 
-				if (he.featsLabels.Count != 0
-					&& val < he.featsLabels.Count)
+				if (he.featLabels.Count != 0
+					&& val < he.featLabels.Count)
 				{
-					lbl_feat.Text = he.featsLabels[val];
+					lbl_feat.Text = he.featLabels[val];
 				}
 
 				val = (feat & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
