@@ -487,8 +487,10 @@ namespace nwn2_ai_2da_editor
 			}
 		}
 
-		internal void SetSpellLabelTexts(Race race)
+		internal override void SetSpellLabelTexts()
 		{
+			Race race = he.Races[he.Id];
+
 			int id;
 			id = (race.feat1 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
 			if (id < he.spellLabels.Count)

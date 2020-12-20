@@ -803,8 +803,10 @@ namespace nwn2_ai_2da_editor
 			}
 		}
 
-		internal void SetSpellLabelTexts(Class @class)
+		internal override void SetSpellLabelTexts()
 		{
+			Class @class = he.Classes[he.Id];
+
 			int id;
 			id = (@class.feat1 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
 			if (id < he.spellLabels.Count)

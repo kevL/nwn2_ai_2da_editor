@@ -329,8 +329,10 @@ namespace nwn2_ai_2da_editor
 			}
 		}
 
-		internal void SetSpellLabelTexts(Spell spell)
+		internal override void SetSpellLabelTexts()
 		{
+			Spell spell = he.Spells[he.Id];
+
 			if ((spell.spellinfo & hc.HENCH_SPELL_INFO_MASTER_FLAG) != 0)
 			{
 				if (spell.targetinfo < he.spellLabels.Count)

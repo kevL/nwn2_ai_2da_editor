@@ -19,8 +19,7 @@ namespace nwn2_ai_2da_editor
 		internal virtual void SetDefaultGroupColors() // relevant only to 'tabcontrol_Spells'
 		{}
 
-//		internal abstract void SetSpellLabelTexts(Spell spell); // TODO: create an interface for IStruct(s)
-
+		internal abstract void SetSpellLabelTexts();
 		internal abstract void ClearSpellLabelTexts();
 	}
 }

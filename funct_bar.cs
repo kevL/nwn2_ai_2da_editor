@@ -365,23 +365,12 @@ namespace nwn2_ai_2da_editor
 					{
 						GropeLabels(ofd.FileName, spellLabels, pathSpells);
 
-						if (spellLabels.Count != 0)
+						if (spellLabels.Count != 0 && Type != Type2da.TYPE_NONE)
 						{
-							switch (Type)
-							{
-								case Type2da.TYPE_SPELLS:
-									if (!hasLabels) LabelTreenodes(spellLabels);
-									(HenchControl as tabcontrol_Spells).SetSpellLabelTexts(Spells[Id]);
-									break;
+							if (!hasLabels && Type == Type2da.TYPE_SPELLS)
+								LabelTreenodes(spellLabels);
 
-								case Type2da.TYPE_RACIAL:
-									(HenchControl as tabcontrol_Racial).SetSpellLabelTexts(Races[Id]);
-									break;
-
-								case Type2da.TYPE_CLASSES:
-									(HenchControl as tabcontrol_Classes).SetSpellLabelTexts(Classes[Id]);
-									break;
-							}
+							HenchControl.SetSpellLabelTexts();
 						}
 					}
 				}
