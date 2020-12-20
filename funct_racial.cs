@@ -171,7 +171,7 @@ namespace nwn2_ai_2da_editor
 //					PrintInfoVersion_race(val);
 				}
 				else
-					CheckRacialFeatsCheckers(tb);
+					state_RacialFeats(tb);
 
 
 				_he.SetEnabled(differ != bit_clear);
@@ -625,7 +625,7 @@ namespace nwn2_ai_2da_editor
 		/// feat value.
 		/// </summary>
 		/// <param name="tb"></param>
-		void CheckRacialFeatsCheckers(Control tb)
+		void state_RacialFeats(Control tb)
 		{
 			int feat;
 			if (Int32.TryParse(tb.Text, out feat))

@@ -246,7 +246,7 @@ namespace nwn2_ai_2da_editor
 //					PrintInfoVersion_class(val);
 				}
 				else
-					CheckClassFeatsCheckers(tb);
+					state_ClassFeats(tb);
 
 
 				_he.SetEnabled(differ != bit_clear);
@@ -1132,7 +1132,7 @@ namespace nwn2_ai_2da_editor
 		/// feat value.
 		/// </summary>
 		/// <param name="tb"></param>
-		void CheckClassFeatsCheckers(Control tb)
+		void state_ClassFeats(Control tb)
 		{
 			int feat;
 			if (Int32.TryParse(tb.Text, out feat))
