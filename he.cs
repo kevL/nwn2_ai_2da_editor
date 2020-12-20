@@ -474,7 +474,7 @@ namespace nwn2_ai_2da_editor
 				}							// - HenchSpells.2da row#
 			}								// - SpellID (Spells.2da row#)
 
-			GrowTree();
+			GrowTree(true);
 
 			// check if any info-version(s) need to be updated in spellinfo-int.
 //			InfoVersionLoad_spells();
@@ -633,7 +633,7 @@ namespace nwn2_ai_2da_editor
 				}							// - HenchRacial.2da row#
 			}								// - SubRaceID (RacialSubtypes.2da row#)
 
-			GrowTree();
+			GrowTree(true);
 
 			// check if any info-version(s) need to be updated in flags-int.
 //			InfoVersionLoad_racial();
@@ -796,7 +796,7 @@ namespace nwn2_ai_2da_editor
 				}								// - HenchClasses.2da row#
 			}									// - ClassID (Classes.2da row#)
 
-			GrowTree();
+			GrowTree(true);
 
 			// check if any info-version(s) need to be updated in flags-int.
 //			InfoVersionLoad_classes();
@@ -856,12 +856,15 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Populates nodes in the tree.
 		/// </summary>
-		void GrowTree()
+		void GrowTree(bool init = false)
 		{
-			EnableMenu();
-			EnableCopy(true);
+			if (init)
+			{
+				EnableMenu();
+				EnableCopy(true);
 
-			tree_Highlight.Checked = false;
+				tree_Highlight.Checked = false;
+			}
 
 
 			Tree.BeginUpdate();

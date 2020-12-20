@@ -708,7 +708,7 @@ namespace nwn2_ai_2da_editor
 					else
 						break;
 				}
-				GrowTree(); // TODO: investigate whether enabled items go wonky
+				GrowTree();
 			}
 		}
 
