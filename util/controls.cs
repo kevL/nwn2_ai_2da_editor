@@ -97,4 +97,72 @@ namespace nwn2_ai_2da_editor
 				Text = text;
 		}
 	}
+
+
+	/// <summary>
+	/// Derived class for TextBox. Allows floats only in the textbox.
+	/// </summary>
+	sealed class TextboxFloat
+		: TextBox
+	{
+		string _pre = String.Empty;
+
+		protected override void OnTextChanged(EventArgs e)
+		{
+			bool retry = !String.IsNullOrEmpty(Text)	// allow blank string
+					  && Text != "-"					// allow "-"
+					  && Text != "."					// allow "."
+					  && Text != "-.";					// allow "-."
+
+			if (retry)
+			{
+				float result;
+				retry = !Single.TryParse(Text, out result);
+			}
+
+			if (retry)
+			{
+				Text = _pre; // revert & recurse
+				SelectionLength = 0;
+				SelectionStart = Text.Length;
+			}
+			else
+			{
+				_pre = Text;
+				base.OnTextChanged(e);
+			}
+		}
+
+		protected override void OnLeave(EventArgs e)
+		{
+			string text = Text.Trim().Trim('0');
+
+			bool n = text.StartsWith("-", StringComparison.Ordinal);
+			if (n)
+				text = text.TrimStart('-');
+
+			if (text.StartsWith(".", StringComparison.Ordinal))
+				text = "0" + text;
+
+			if (text.EndsWith(".", StringComparison.Ordinal))
+				text += "0";
+
+			float result;
+			if (!Single.TryParse(text, out result)
+				|| he.FloatsEqual(result, 0f)) // handle unusual cases incl/ "", "-", "-0", "00", etc.
+			{
+				text = "0.0";
+			}
+			else if (n)
+				text = "-" + text;
+
+			if (text.IndexOf('.') == -1)
+				text += ".0";
+			else if (text.EndsWith(".", StringComparison.Ordinal))
+				text += "0";
+
+			if (text != Text)
+				Text = text;
+		}
+	}
 }
