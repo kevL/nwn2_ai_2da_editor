@@ -37,6 +37,13 @@ namespace nwn2_ai_2da_editor
 		/// - optional
 		/// </summary>
 		internal static List<string> featsLabels = new List<string>();
+
+
+		// const strings for writing the 2da files
+		const string HEAD_2DA = "2DA V2.0";
+		const string HEAD_COLS_SPELLS  = " Label SpellInfo TargetInfo EffectWeight EffectTypes DamageInfo SaveType SaveDCType";
+		const string HEAD_COLS_RACIAL  = " Label Flags FeatSpell1 FeatSpell2 FeatSpell3 FeatSpell4 FeatSpell5";
+		const string HEAD_COLS_CLASSES = " Label Flags FeatSpell1 FeatSpell2 FeatSpell3 FeatSpell4 FeatSpell5 FeatSpell6 FeatSpell7 FeatSpell8 FeatSpell9 FeatSpell10 FeatSpell11";
 		#endregion Fields (static)
 
 
@@ -277,7 +284,7 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_copy_decimal(object sender, EventArgs e)
 		{
-			string info = GetTextInfo();
+			string info = HenchControl.GetMasterText();
 
 			if (!String.IsNullOrEmpty(info))
 			{
@@ -294,7 +301,7 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_copy_hexadecimal(object sender, EventArgs e)
 		{
-			string info = GetTextInfo();
+			string info = HenchControl.GetMasterText();
 
 			if (!String.IsNullOrEmpty(info))
 			{
@@ -312,7 +319,7 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_copy_binary(object sender, EventArgs e)
 		{
-			string info = GetTextInfo();
+			string info = HenchControl.GetMasterText();
 
 			if (!String.IsNullOrEmpty(info))
 			{
@@ -321,27 +328,6 @@ namespace nwn2_ai_2da_editor
 			}
 			else
 				Clipboard.Clear();
-		}
-
-		/// <summary>
-		/// Gets the master-int of the currently selected page as a string.
-		/// </summary>
-		/// <returns></returns>
-		string GetTextInfo()
-		{
-			string info = String.Empty;
-			switch (Type)
-			{
-				case Type2da.TYPE_SPELLS:
-					return (HenchControl as tabcontrol_Spells).GetMasterText();
-
-				case Type2da.TYPE_RACIAL:
-					return (HenchControl as tabcontrol_Racial).GetMasterText();
-
-				case Type2da.TYPE_CLASSES:
-					return (HenchControl as tabcontrol_Classes).GetMasterText();
-			}
-			return String.Empty;
 		}
 		#endregion Edit
 
@@ -379,11 +365,23 @@ namespace nwn2_ai_2da_editor
 					{
 						GropeLabels(ofd.FileName, spellLabels, pathSpells);
 
-						if (!hasLabels
-							&& Type == Type2da.TYPE_SPELLS
-							&& spellLabels.Count != 0)
+						if (spellLabels.Count != 0)
 						{
-							LabelTreenodes(spellLabels);
+							switch (Type)
+							{
+								case Type2da.TYPE_SPELLS:
+									if (!hasLabels) LabelTreenodes(spellLabels);
+									(HenchControl as tabcontrol_Spells).SetSpellLabelTexts(Spells[Id]);
+									break;
+
+								case Type2da.TYPE_RACIAL:
+									(HenchControl as tabcontrol_Racial).SetSpellLabelTexts(Races[Id]);
+									break;
+
+								case Type2da.TYPE_CLASSES:
+									(HenchControl as tabcontrol_Classes).SetSpellLabelTexts(Classes[Id]);
+									break;
+							}
 						}
 					}
 				}
@@ -393,8 +391,13 @@ namespace nwn2_ai_2da_editor
 				pathSpells.Checked = false;
 				spellLabels.Clear();
 
-				if (!hasLabels && Type == Type2da.TYPE_SPELLS)
-					ClearTreenodeLabels();
+				if (Type != Type2da.TYPE_NONE)
+				{
+					if (!hasLabels && Type == Type2da.TYPE_SPELLS)
+						ClearTreeLabels();
+
+					HenchControl.ClearSpellLabelTexts();
+				}
 			}
 		}
 
@@ -434,7 +437,7 @@ namespace nwn2_ai_2da_editor
 				raceLabels.Clear();
 
 				if (!hasLabels && Type == Type2da.TYPE_RACIAL)
-					ClearTreenodeLabels();
+					ClearTreeLabels();
 			}
 		}
 
@@ -473,7 +476,7 @@ namespace nwn2_ai_2da_editor
 				classLabels.Clear();
 
 				if (!hasLabels && Type == Type2da.TYPE_CLASSES)
-					ClearTreenodeLabels();
+					ClearTreeLabels();
 			}
 		}
 
@@ -512,7 +515,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Clears the treenode labels after degroping a pathed 2da.
 		/// </summary>
-		void ClearTreenodeLabels()
+		void ClearTreeLabels()
 		{
 			int total = Tree.Nodes.Count;
 			for (int id = 0; id != total; ++id)
@@ -556,9 +559,9 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		/// <param name="pfe2da"></param>
 		/// <param name="labels"></param>
-		/// <param name="item"></param>
+		/// <param name="it"></param>
 		/// <returns></returns>
-		void GropeLabels(string pfe2da, ICollection<string> labels, ToolStripMenuItem item)
+		void GropeLabels(string pfe2da, ICollection<string> labels, ToolStripMenuItem it)
 		{
 			if (File.Exists(pfe2da))
 			{
@@ -586,7 +589,7 @@ namespace nwn2_ai_2da_editor
 						}
 					}
 
-					item.Checked = (labels.Count != 0);
+					it.Checked = (labels.Count != 0);
 				}
 			}
 		}
@@ -683,20 +686,7 @@ namespace nwn2_ai_2da_editor
 				}
 			}
 
-			switch (Type)
-			{
-				case Type2da.TYPE_SPELLS:
-					(HenchControl as tabcontrol_Spells).SelectResetButton();
-					break;
-
-				case Type2da.TYPE_RACIAL:
-					(HenchControl as tabcontrol_Racial).SelectResetButton();
-					break;
-
-				case Type2da.TYPE_CLASSES:
-					(HenchControl as tabcontrol_Classes).SelectResetButton();
-					break;
-			}
+			HenchControl.SelectResetButton();
 		}
 
 		/// <summary>
@@ -729,7 +719,7 @@ namespace nwn2_ai_2da_editor
 					else
 						break;
 				}
-				GrowTree();
+				GrowTree(); // TODO: investigate whether enabled items go wonky
 			}
 		}
 
@@ -978,7 +968,7 @@ namespace nwn2_ai_2da_editor
 
 							if (id == Id) // is currently selected tree-node
 							{
-								(HenchControl as tabcontrol_Spells).SetResetColor(DefaultForeColor);
+								HenchControl.SetResetColor(DefaultForeColor);
 								AfterSelect_node(null, null); // refresh all displayed data for the current spell jic
 							}
 
@@ -1017,7 +1007,7 @@ namespace nwn2_ai_2da_editor
 
 							if (id == Id) // is currently selected tree-node
 							{
-								(HenchControl as tabcontrol_Racial).SetResetColor(DefaultForeColor);
+								HenchControl.SetResetColor(DefaultForeColor);
 								AfterSelect_node(null, null); // refresh all displayed data for the current race jic
 							}
 
@@ -1062,7 +1052,7 @@ namespace nwn2_ai_2da_editor
 
 							if (id == Id) // is currently selected tree-node
 							{
-								(HenchControl as tabcontrol_Classes).SetResetColor(DefaultForeColor);
+								HenchControl.SetResetColor(DefaultForeColor);
 								AfterSelect_node(null, null); // refresh all displayed data for the current class jic
 							}
 
@@ -1124,9 +1114,9 @@ namespace nwn2_ai_2da_editor
 
 			using (var sw = new StreamWriter(_pfe))
 			{
-				sw.WriteLine("2DA V2.0");
-				sw.WriteLine("");
-				sw.WriteLine(" Label SpellInfo TargetInfo EffectWeight EffectTypes DamageInfo SaveType SaveDCType");
+				sw.WriteLine(HEAD_2DA);
+				sw.WriteLine(String.Empty);
+				sw.WriteLine(HEAD_COLS_SPELLS);
 
 				string line;
 
@@ -1232,9 +1222,9 @@ namespace nwn2_ai_2da_editor
 
 			using (var sw = new StreamWriter(_pfe))
 			{
-				sw.WriteLine("2DA V2.0");
-				sw.WriteLine("");
-				sw.WriteLine(" Label Flags FeatSpell1 FeatSpell2 FeatSpell3 FeatSpell4 FeatSpell5");
+				sw.WriteLine(HEAD_2DA);
+				sw.WriteLine(String.Empty);
+				sw.WriteLine(HEAD_COLS_RACIAL);
 
 				string line;
 
@@ -1331,9 +1321,9 @@ namespace nwn2_ai_2da_editor
 
 			using (var sw = new StreamWriter(_pfe))
 			{
-				sw.WriteLine("2DA V2.0");
-				sw.WriteLine("");
-				sw.WriteLine(" Label Flags FeatSpell1 FeatSpell2 FeatSpell3 FeatSpell4 FeatSpell5 FeatSpell6 FeatSpell7 FeatSpell8 FeatSpell9 FeatSpell10 FeatSpell11");
+				sw.WriteLine(HEAD_2DA);
+				sw.WriteLine(String.Empty);
+				sw.WriteLine(HEAD_COLS_CLASSES);
 
 				string line;
 

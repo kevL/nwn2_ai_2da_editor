@@ -9,7 +9,7 @@ namespace nwn2_ai_2da_editor
 	/// </summary>
 	partial class he
 	{
-		internal const int HENCH_SPELL_INFO_VERSION_SHIFT = 24;
+		const int HENCH_SPELL_INFO_VERSION_SHIFT = 24;
 
 		/// <summary>
 		/// This funct is used only for Click_clearCoreAiVersion().
@@ -62,7 +62,7 @@ namespace nwn2_ai_2da_editor
 				{
 					if (id == Id)
 					{
-						(HenchControl as tabcontrol_Spells).SetMasterText(spellinfo.ToString()); // firing the TextChanged event takes care of it.
+						HenchControl.SetMasterText(spellinfo.ToString());		// firing the TextChanged event takes care of it.
 					}
 					else
 					{
@@ -159,7 +159,7 @@ namespace nwn2_ai_2da_editor
 
 					if (id == Id)
 					{
-						(HenchControl as tabcontrol_Racial).SetMasterText(racialflags.ToString()); // firing the TextChanged event takes care of it.
+						HenchControl.SetMasterText(racialflags.ToString());		// firing the TextChanged event takes care of it.
 					}
 					else
 					{
@@ -249,7 +249,7 @@ namespace nwn2_ai_2da_editor
 
 					if (id == Id)
 					{
-						(HenchControl as tabcontrol_Classes).SetMasterText(classflags.ToString()); // firing the TextChanged event takes care of it.
+						HenchControl.SetMasterText(classflags.ToString());		// firing the TextChanged event takes care of it.
 					}
 					else
 					{
@@ -472,7 +472,7 @@ namespace nwn2_ai_2da_editor
 //						if (spellinfo != 0)
 //						{
 //							spellinfo = 0;
-//							(HenchControl as tabcontrol_Spells).SetMasterText(spellinfo.ToString()); // firing the TextChanged event takes care of it.
+//							HenchControl.SetMasterText(spellinfo.ToString());	// firing the TextChanged event takes care of it.
 //						}
 //					}
 //					else
@@ -482,7 +482,7 @@ namespace nwn2_ai_2da_editor
 //						{
 //							spellinfo &= ~hc.HENCH_SPELL_INFO_VERSION_MASK;
 //							spellinfo |= (ver << HENCH_SPELL_INFO_VERSION_SHIFT);
-//							(HenchControl as tabcontrol_Spells).SetMasterText(spellinfo.ToString()); // firing the TextChanged event takes care of it.
+//							HenchControl.SetMasterText(spellinfo.ToString());	// firing the TextChanged event takes care of it.
 //						}
 //					}
 //					break;
@@ -527,7 +527,7 @@ namespace nwn2_ai_2da_editor
 //					{
 //						racialflags &= ~hc.HENCH_SPELL_INFO_VERSION_MASK;
 //						racialflags |= (ver << HENCH_SPELL_INFO_VERSION_SHIFT);
-//						(HenchControl as tabcontrol_Racial).SetMasterText(racialflags.ToString()); // firing the TextChanged event takes care of it.
+//						HenchControl.SetMasterText(racialflags.ToString());		// firing the TextChanged event takes care of it.
 //					}
 //					break;
 //				}
@@ -572,7 +572,7 @@ namespace nwn2_ai_2da_editor
 //					{
 //						classflags &= ~hc.HENCH_SPELL_INFO_VERSION_MASK;
 //						classflags |= (ver << HENCH_SPELL_INFO_VERSION_SHIFT);
-//						(HenchControl as tabcontrol_Classes).SetMasterText(classflags.ToString()); // firing the TextChanged event takes care of it.
+//						HenchControl.SetMasterText(classflags.ToString());		// firing the TextChanged event takes care of it.
 //					}
 //					break;
 //				}

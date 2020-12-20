@@ -21,7 +21,7 @@ namespace nwn2_ai_2da_editor
 		/// TabControl for spells, races, or classes. It will be created and
 		/// disposed dynamically.
 		/// </summary>
-		UserControl HenchControl;
+		HenchControl HenchControl;
 
 		/// <summary>
 		/// The 'blank' 2da-string.
@@ -404,8 +404,6 @@ namespace nwn2_ai_2da_editor
 			panel2height = HenchControl.Height; // cache that
 			splitContainer.Panel2.Controls.Add(HenchControl);
 
-			// TODO: size the form appropriately
-
 			Type = Type2da.TYPE_SPELLS;
 
 			ClearData();
@@ -483,7 +481,7 @@ namespace nwn2_ai_2da_editor
 
 			// Groups on SpellInfo and TargetInfo generally stay green
 			// unless SpellInfo is flagged as a MasterID
-			(HenchControl as tabcontrol_Spells).SetDefaultGroupColors();
+			HenchControl.SetDefaultGroupColors();
 
 			btn_Apply     .Text = "apply this spell\'s data";
 			tree_Highlight.Text = "highlight blank SpellInfo nodes";
@@ -569,8 +567,6 @@ namespace nwn2_ai_2da_editor
 			panel2width  = HenchControl.Width;  // cache that
 			panel2height = HenchControl.Height; // cache that
 			splitContainer.Panel2.Controls.Add(HenchControl);
-
-			// TODO: size the form appropriately
 
 			Type = Type2da.TYPE_RACIAL;
 
@@ -704,8 +700,6 @@ namespace nwn2_ai_2da_editor
 			panel2width  = HenchControl.Width;  // cache that
 			panel2height = HenchControl.Height; // cache that
 			splitContainer.Panel2.Controls.Add(HenchControl);
-
-			// TODO: size the form appropriately
 
 			Type = Type2da.TYPE_CLASSES;
 
@@ -1049,22 +1043,7 @@ namespace nwn2_ai_2da_editor
 			Id = Tree.SelectedNode.Index;
 
 			BypassDiffer = true;
-
-			switch (Type)
-			{
-				case Type2da.TYPE_SPELLS:
-					(HenchControl as tabcontrol_Spells).SelectSpell(Spells[Id], SpellsChanged, Id);
-					break;
-
-				case Type2da.TYPE_RACIAL:
-					(HenchControl as tabcontrol_Racial).SelectRace(Races[Id], RacesChanged, Id);
-					break;
-
-				case Type2da.TYPE_CLASSES:
-					(HenchControl as tabcontrol_Classes).SelectClass(Classes[Id], ClassesChanged, Id);
-					break;
-			}
-
+			HenchControl.SelectId();
 			BypassDiffer = false;
 		}
 		#endregion SpellTree node-select
@@ -1161,7 +1140,7 @@ namespace nwn2_ai_2da_editor
 
 						SpellsChanged.Remove(Id);
 
-						(HenchControl as tabcontrol_Spells).SetResetColor(DefaultForeColor);
+						HenchControl.SetResetColor(DefaultForeColor);
 						AfterSelect_node(null, null); // refresh all displayed data for the current spell jic
 					}
 
@@ -1197,7 +1176,7 @@ namespace nwn2_ai_2da_editor
 
 						RacesChanged.Remove(Id);
 
-						(HenchControl as tabcontrol_Racial).SetResetColor(DefaultForeColor);
+						HenchControl.SetResetColor(DefaultForeColor);
 
 						AfterSelect_node(null, null); // refresh all displayed data for the current node jic
 					}
@@ -1240,7 +1219,7 @@ namespace nwn2_ai_2da_editor
 
 						ClassesChanged.Remove(Id);
 
-						(HenchControl as tabcontrol_Classes).SetResetColor(DefaultForeColor);
+						HenchControl.SetResetColor(DefaultForeColor);
 						AfterSelect_node(null, null); // refresh all displayed data for the current node jic
 					}
 

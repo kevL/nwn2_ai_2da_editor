@@ -385,51 +385,49 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void TextChanged_rFeat(object sender, EventArgs e)
 		{
-			var tb_feat = sender as TextBox;
+			var tb = sender as TextBox;
 
 			int feat;
-			if (Int32.TryParse(tb_feat.Text, out feat))
+			if (Int32.TryParse(tb.Text, out feat))
 			{
 				if (feat < 0)
 				{
-					feat = 0;
-					tb_feat.Text = feat.ToString(); // re-trigger this funct.
-					tb_feat.SelectionStart = tb_feat.Text.Length;
+					tb.Text = "0"; // recurse this funct.
+					tb.SelectionStart = tb.Text.Length;
 				}
 				else if (feat > 65535) // 16 bits
 				{
-					feat = 65535;
-					tb_feat.Text = feat.ToString(); // re-trigger this funct.
-					tb_feat.SelectionStart = tb_feat.Text.Length;
+					tb.Text = "65535"; // recurse this funct.
+					tb.SelectionStart = tb.Text.Length;
 				}
 				else
 				{
-					TextBox tb;
-					if (tb_feat == rf1_FeatId)
+					TextBox tb_feat;
+					if (tb == rf1_FeatId)
 					{
-						tb = RacialFeat1_text;
+						tb_feat = RacialFeat1_text;
 					}
-					else if (tb_feat == rf2_FeatId)
+					else if (tb == rf2_FeatId)
 					{
-						tb = RacialFeat2_text;
+						tb_feat = RacialFeat2_text;
 					}
-					else if (tb_feat == rf3_FeatId)
+					else if (tb == rf3_FeatId)
 					{
-						tb = RacialFeat3_text;
+						tb_feat = RacialFeat3_text;
 					}
-					else if (tb_feat == rf4_FeatId)
+					else if (tb == rf4_FeatId)
 					{
-						tb = RacialFeat4_text;
+						tb_feat = RacialFeat4_text;
 					}
 					else //if (tb_feat == rf5_FeatId)
 					{
-						tb = RacialFeat5_text;
+						tb_feat = RacialFeat5_text;
 					}
 
-					int feaT = Int32.Parse(tb.Text);
+					int feaT = Int32.Parse(tb_feat.Text);
 					feaT &= ~hc.HENCH_FEAT_SPELL_MASK_FEAT;
 
-					tb.Text = (feaT | feat).ToString();
+					tb_feat.Text = (feaT | feat).ToString();
 				}
 			}
 		}
@@ -441,52 +439,105 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void TextChanged_rSpell(object sender, EventArgs e)
 		{
-			var tb_spell = sender as TextBox;
+			var tb = sender as TextBox;
 
 			int spell;
-			if (Int32.TryParse(tb_spell.Text, out spell))
+			if (Int32.TryParse(tb.Text, out spell))
 			{
 				if (spell < 0)
 				{
-					spell = 0;
-					tb_spell.Text = spell.ToString(); // re-trigger this funct.
+					tb.Text = "0"; // recurse this funct.
+					tb.SelectionStart = tb.Text.Length;
 				}
 				else if (spell > 16383) // 14 bits
 				{
-					spell = 16383;
-					tb_spell.Text = spell.ToString(); // re-trigger this funct.
+					tb.Text = "16383"; // recurse this funct.
+					tb.SelectionStart = tb.Text.Length;
 				}
 				else
 				{
-					TextBox tb;
-					if (tb_spell == rf1_SpellId)
+					TextBox tb_feat;
+					if (tb == rf1_SpellId)
 					{
-						tb = RacialFeat1_text;
+						tb_feat = RacialFeat1_text;
 					}
-					else if (tb_spell == rf2_SpellId)
+					else if (tb == rf2_SpellId)
 					{
-						tb = RacialFeat2_text;
+						tb_feat = RacialFeat2_text;
 					}
-					else if (tb_spell == rf3_SpellId)
+					else if (tb == rf3_SpellId)
 					{
-						tb = RacialFeat3_text;
+						tb_feat = RacialFeat3_text;
 					}
-					else if (tb_spell == rf4_SpellId)
+					else if (tb == rf4_SpellId)
 					{
-						tb = RacialFeat4_text;
+						tb_feat = RacialFeat4_text;
 					}
 					else //if (tb_spell == rf5_SpellId)
 					{
-						tb = RacialFeat5_text;
+						tb_feat = RacialFeat5_text;
 					}
 
-					int feaT = Int32.Parse(tb.Text);
+					int feaT = Int32.Parse(tb_feat.Text);
 					feaT &= ~hc.HENCH_FEAT_SPELL_MASK_SPELL;
 
 					spell <<= HENCH_FEAT_SPELL_SHIFT_SPELL;
-					tb.Text = (feaT | spell).ToString();
+					tb_feat.Text = (feaT | spell).ToString();
 				}
 			}
+		}
+
+		internal void SetSpellLabelTexts(Race race)
+		{
+			int id;
+			id = (race.feat1 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
+			if (id < he.spellLabels.Count)
+			{
+				rf1_SpellLabel.Text = he.spellLabels[id];
+			}
+			else
+				rf1_SpellLabel.Text = String.Empty;
+
+			id = (race.feat2 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
+			if (id < he.spellLabels.Count)
+			{
+				rf2_SpellLabel.Text = he.spellLabels[id];
+			}
+			else
+				rf2_SpellLabel.Text = String.Empty;
+
+			id = (race.feat3 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
+			if (id < he.spellLabels.Count)
+			{
+				rf3_SpellLabel.Text = he.spellLabels[id];
+			}
+			else
+				rf3_SpellLabel.Text = String.Empty;
+
+			id = (race.feat4 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
+			if (id < he.spellLabels.Count)
+			{
+				rf4_SpellLabel.Text = he.spellLabels[id];
+			}
+			else
+				rf4_SpellLabel.Text = String.Empty;
+
+			id = (race.feat5 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
+			if (id < he.spellLabels.Count)
+			{
+				rf5_SpellLabel.Text = he.spellLabels[id];
+			}
+			else
+				rf5_SpellLabel.Text = String.Empty;
+		}
+
+		internal override void ClearSpellLabelTexts()
+		{
+			rf1_SpellLabel.Text =
+			rf2_SpellLabel.Text =
+			rf3_SpellLabel.Text =
+			rf4_SpellLabel.Text =
+			rf5_SpellLabel.Text = String.Empty;
 		}
 
 

@@ -1121,7 +1121,7 @@ namespace nwn2_ai_2da_editor
 			this.si_ChildLabel1.Location = new System.Drawing.Point(425, 170);
 			this.si_ChildLabel1.Margin = new System.Windows.Forms.Padding(0);
 			this.si_ChildLabel1.Name = "si_ChildLabel1";
-			this.si_ChildLabel1.Size = new System.Drawing.Size(340, 20);
+			this.si_ChildLabel1.Size = new System.Drawing.Size(385, 20);
 			this.si_ChildLabel1.TabIndex = 11;
 			this.si_ChildLabel1.Text = "si_ChildLabel1";
 			this.si_ChildLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1131,7 +1131,7 @@ namespace nwn2_ai_2da_editor
 			this.si_ChildLabel2.Location = new System.Drawing.Point(425, 195);
 			this.si_ChildLabel2.Margin = new System.Windows.Forms.Padding(0);
 			this.si_ChildLabel2.Name = "si_ChildLabel2";
-			this.si_ChildLabel2.Size = new System.Drawing.Size(340, 20);
+			this.si_ChildLabel2.Size = new System.Drawing.Size(385, 20);
 			this.si_ChildLabel2.TabIndex = 12;
 			this.si_ChildLabel2.Text = "si_ChildLabel2";
 			this.si_ChildLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1141,7 +1141,7 @@ namespace nwn2_ai_2da_editor
 			this.si_ChildLabel3.Location = new System.Drawing.Point(425, 220);
 			this.si_ChildLabel3.Margin = new System.Windows.Forms.Padding(0);
 			this.si_ChildLabel3.Name = "si_ChildLabel3";
-			this.si_ChildLabel3.Size = new System.Drawing.Size(340, 20);
+			this.si_ChildLabel3.Size = new System.Drawing.Size(385, 20);
 			this.si_ChildLabel3.TabIndex = 13;
 			this.si_ChildLabel3.Text = "si_ChildLabel3";
 			this.si_ChildLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1151,7 +1151,7 @@ namespace nwn2_ai_2da_editor
 			this.si_ChildLabel4.Location = new System.Drawing.Point(425, 245);
 			this.si_ChildLabel4.Margin = new System.Windows.Forms.Padding(0);
 			this.si_ChildLabel4.Name = "si_ChildLabel4";
-			this.si_ChildLabel4.Size = new System.Drawing.Size(340, 20);
+			this.si_ChildLabel4.Size = new System.Drawing.Size(385, 20);
 			this.si_ChildLabel4.TabIndex = 14;
 			this.si_ChildLabel4.Text = "si_ChildLabel4";
 			this.si_ChildLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1161,7 +1161,7 @@ namespace nwn2_ai_2da_editor
 			this.si_ChildLabel5.Location = new System.Drawing.Point(425, 270);
 			this.si_ChildLabel5.Margin = new System.Windows.Forms.Padding(0);
 			this.si_ChildLabel5.Name = "si_ChildLabel5";
-			this.si_ChildLabel5.Size = new System.Drawing.Size(340, 20);
+			this.si_ChildLabel5.Size = new System.Drawing.Size(385, 20);
 			this.si_ChildLabel5.TabIndex = 15;
 			this.si_ChildLabel5.Text = "si_ChildLabel5";
 			this.si_ChildLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

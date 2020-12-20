@@ -277,26 +277,23 @@ namespace nwn2_ai_2da_editor
 		{
 			var tb = sender as TextBox;
 
-			int childId;
-			if (Int32.TryParse(tb.Text, out childId))
+			int id;
+			if (Int32.TryParse(tb.Text, out id))
 			{
-				if (childId < 0)
+				if (id < 0)
 				{
-					childId = 0;
-					tb.Text = childId.ToString(); // re-trigger this funct.
+					tb.Text = "0"; // recurse this funct.
 					tb.SelectionStart = tb.Text.Length;
 				}
-//				else if (childId > 16383) // 14 bits
+//				else if (childId > 16383) // 14 bits // TODO: Implement that
 //				{
-//					childId = 16383;
-//					tb.Text = childId.ToString(); // re-trigger this funct.
+//					tb.Text = "16383"; // recurse this funct.
 //					tb.SelectionStart = tb.Text.Length;
 //				}
 				else
 				{
 					Label lbl_child;
 
-					// NOTE: this doesn't result in an infinite loop.
 					if (tb == si_Child1)
 					{
 						TargetInfo_text.Text = tb.Text;
@@ -324,12 +321,64 @@ namespace nwn2_ai_2da_editor
 					}
 
 					if (he.spellLabels.Count != 0
-						&& childId < he.spellLabels.Count)
+						&& id < he.spellLabels.Count)
 					{
-						lbl_child.Text = he.spellLabels[childId];
+						lbl_child.Text = he.spellLabels[id];
 					}
 				}
 			}
+		}
+
+		internal void SetSpellLabelTexts(Spell spell)
+		{
+			if ((spell.spellinfo & hc.HENCH_SPELL_INFO_MASTER_FLAG) != 0)
+			{
+				if (spell.targetinfo < he.spellLabels.Count)
+				{
+					si_ChildLabel1.Text = he.spellLabels[spell.targetinfo];
+				}
+				else
+					si_ChildLabel1.Text = String.Empty;
+
+				if (spell.effecttypes < he.spellLabels.Count)
+				{
+					si_ChildLabel2.Text = he.spellLabels[spell.effecttypes];
+				}
+				else
+					si_ChildLabel2.Text = String.Empty;
+
+				if (spell.damageinfo < he.spellLabels.Count)
+				{
+					si_ChildLabel3.Text = he.spellLabels[spell.damageinfo];
+				}
+				else
+					si_ChildLabel3.Text = String.Empty;
+
+				if (spell.savetype < he.spellLabels.Count)
+				{
+					si_ChildLabel4.Text = he.spellLabels[spell.savetype];
+				}
+				else
+					si_ChildLabel4.Text = String.Empty;
+
+				if (spell.savedctype < he.spellLabels.Count)
+				{
+					si_ChildLabel5.Text = he.spellLabels[spell.savedctype];
+				}
+				else
+					si_ChildLabel5.Text = String.Empty;
+			}
+			else
+				ClearSpellLabelTexts(); // safety i think.
+		}
+
+		internal override void ClearSpellLabelTexts()
+		{
+			si_ChildLabel1.Text =
+			si_ChildLabel2.Text =
+			si_ChildLabel3.Text =
+			si_ChildLabel4.Text =
+			si_ChildLabel5.Text = String.Empty;
 		}
 
 

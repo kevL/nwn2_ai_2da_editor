@@ -10,7 +10,9 @@ namespace nwn2_ai_2da_editor
 	/// A UserControl with a TabControl set to Dock.Fill.
 	/// </summary>
 	sealed partial class tabcontrol_Spells
-		: UserControl
+		:
+//			UserControl,
+			HenchControl
 	{
 		/// <summary>
 		/// Bitflags for spell-fields that have changed.
@@ -35,6 +37,12 @@ namespace nwn2_ai_2da_editor
 			InitializeComponent();
 
 			_he = he;
+
+			si_ChildLabel1.Text =
+			si_ChildLabel2.Text =
+			si_ChildLabel3.Text =
+			si_ChildLabel4.Text =
+			si_ChildLabel5.Text = String.Empty;
 
 			SpellInfo_hex  .BackColor = // set the backgrounds of the hexadecimal and binary
 			SpellInfo_bin  .BackColor = // textboxes to blend in with the background
@@ -634,7 +642,7 @@ namespace nwn2_ai_2da_editor
 		}
 
 
-		internal void SetDefaultGroupColors()
+		internal override void SetDefaultGroupColors()
 		{
 			GroupColor(si_SpelltypeGrp,  Color.LimeGreen);
 			GroupColor(si_FlagsGrp,      Color.LimeGreen);
@@ -663,19 +671,8 @@ namespace nwn2_ai_2da_editor
 			}
 		}
 
-		internal void SetResetColor(Color color)
-		{
-			SpellInfo_reset   .ForeColor =
-			TargetInfo_reset  .ForeColor =
-			EffectWeight_reset.ForeColor =
-			EffectTypes_reset .ForeColor =
-			DamageInfo_reset  .ForeColor =
-			SaveType_reset    .ForeColor =
-			SaveDCType_reset  .ForeColor = color;
-		}
 
-
-		internal void SelectSpell(Spell spell, IDictionary<int, SpellChanged> spellschanged, int id)
+		internal override void SelectId()
 		{
 			SpellInfo_text   .Clear(); // clear the info-fields to force TextChanged events ->
 			TargetInfo_text  .Clear();
@@ -686,7 +683,17 @@ namespace nwn2_ai_2da_editor
 			SaveDCType_text  .Clear();
 
 
+			Spell spell = he.Spells[he.Id];
+
 			bool dirty = (spell.differ != bit_clear);
+
+			SpellChanged spellchanged;
+			if (dirty)
+			{
+				spellchanged = he.SpellsChanged[he.Id];
+			}
+			else
+				spellchanged = new SpellChanged(); // not used.
 
 // SpellInfo
 			int val = spell.spellinfo;
@@ -694,7 +701,7 @@ namespace nwn2_ai_2da_editor
 
 			if (dirty)
 			{
-				val = spellschanged[id].spellinfo;
+				val = spellchanged.spellinfo;
 			}
 			SpellInfo_text.Text = val.ToString();
 
@@ -704,7 +711,7 @@ namespace nwn2_ai_2da_editor
 
 			if (dirty)
 			{
-				val = spellschanged[id].targetinfo;
+				val = spellchanged.targetinfo;
 			}
 			TargetInfo_text.Text = val.ToString();
 
@@ -714,7 +721,7 @@ namespace nwn2_ai_2da_editor
 
 			if (dirty)
 			{
-				text = he.Float2daFormat(spellschanged[id].effectweight);
+				text = he.Float2daFormat(spellchanged.effectweight);
 			}
 			EffectWeight_text.Text = text;
 
@@ -724,7 +731,7 @@ namespace nwn2_ai_2da_editor
 
 			if (dirty)
 			{
-				val = spellschanged[id].effecttypes;
+				val = spellchanged.effecttypes;
 			}
 			EffectTypes_text.Text = val.ToString();
 
@@ -734,7 +741,7 @@ namespace nwn2_ai_2da_editor
 
 			if (dirty)
 			{
-				val = spellschanged[id].damageinfo;
+				val = spellchanged.damageinfo;
 			}
 			DamageInfo_text.Text = val.ToString();
 
@@ -744,7 +751,7 @@ namespace nwn2_ai_2da_editor
 
 			if (dirty)
 			{
-				val = spellschanged[id].savetype;
+				val = spellchanged.savetype;
 			}
 			SaveType_text.Text = val.ToString();
 
@@ -754,7 +761,7 @@ namespace nwn2_ai_2da_editor
 
 			if (dirty)
 			{
-				val = spellschanged[id].savedctype;
+				val = spellchanged.savedctype;
 			}
 			SaveDCType_text.Text = val.ToString();
 		}
@@ -799,7 +806,7 @@ namespace nwn2_ai_2da_editor
 		/// Gets the master-int of the currently selected page as a string.
 		/// </summary>
 		/// <returns></returns>
-		internal string GetMasterText()
+		internal override string GetMasterText()
 		{
 			string info = String.Empty;
 			switch (tc_Spells.SelectedIndex)
@@ -829,13 +836,13 @@ namespace nwn2_ai_2da_editor
 			return String.Empty;
 		}
 
-		internal void SetMasterText(string text)
+		internal override void SetMasterText(string text)
 		{
 			SpellInfo_text.Text = text;
 		}
 
 
-		internal void SelectResetButton()
+		internal override void SelectResetButton()
 		{
 			switch (tc_Spells.SelectedIndex)
 			{
@@ -847,6 +854,17 @@ namespace nwn2_ai_2da_editor
 				case 5: SaveType_reset    .Select(); break;
 				case 6: SaveDCType_reset  .Select(); break;
 			}
+		}
+
+		internal override void SetResetColor(Color color)
+		{
+			SpellInfo_reset   .ForeColor =
+			TargetInfo_reset  .ForeColor =
+			EffectWeight_reset.ForeColor =
+			EffectTypes_reset .ForeColor =
+			DamageInfo_reset  .ForeColor =
+			SaveType_reset    .ForeColor =
+			SaveDCType_reset  .ForeColor = color;
 		}
 		#endregion Methods
 	}

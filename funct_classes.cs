@@ -653,75 +653,73 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void TextChanged_cFeat(object sender, EventArgs e)
 		{
-			var tb_feat = sender as TextBox;
+			var tb = sender as TextBox;
 
 			int feat;
-			if (Int32.TryParse(tb_feat.Text, out feat))
+			if (Int32.TryParse(tb.Text, out feat))
 			{
 				if (feat < 0)
 				{
-					feat = 0;
-					tb_feat.Text = feat.ToString(); // re-trigger this funct.
-					tb_feat.SelectionStart = tb_feat.Text.Length;
+					tb.Text = "0"; // recurse this funct.
+					tb.SelectionStart = tb.Text.Length;
 				}
 				else if (feat > 65535) // 16 bits
 				{
-					feat = 65535;
-					tb_feat.Text = feat.ToString(); // re-trigger this funct.
-					tb_feat.SelectionStart = tb_feat.Text.Length;
+					tb.Text = "65535"; // recurse this funct.
+					tb.SelectionStart = tb.Text.Length;
 				}
 				else
 				{
-					TextBox tb;
-					if (tb_feat == cf1_FeatId)
+					TextBox tb_feat;
+					if (tb == cf1_FeatId)
 					{
-						tb = ClassFeat1_text;
+						tb_feat = ClassFeat1_text;
 					}
-					else if (tb_feat == cf2_FeatId)
+					else if (tb == cf2_FeatId)
 					{
-						tb = ClassFeat2_text;
+						tb_feat = ClassFeat2_text;
 					}
-					else if (tb_feat == cf3_FeatId)
+					else if (tb == cf3_FeatId)
 					{
-						tb = ClassFeat3_text;
+						tb_feat = ClassFeat3_text;
 					}
-					else if (tb_feat == cf4_FeatId)
+					else if (tb == cf4_FeatId)
 					{
-						tb = ClassFeat4_text;
+						tb_feat = ClassFeat4_text;
 					}
-					else if (tb_feat == cf5_FeatId)
+					else if (tb == cf5_FeatId)
 					{
-						tb = ClassFeat5_text;
+						tb_feat = ClassFeat5_text;
 					}
-					else if (tb_feat == cf6_FeatId)
+					else if (tb == cf6_FeatId)
 					{
-						tb = ClassFeat6_text;
+						tb_feat = ClassFeat6_text;
 					}
-					else if (tb_feat == cf7_FeatId)
+					else if (tb == cf7_FeatId)
 					{
-						tb = ClassFeat7_text;
+						tb_feat = ClassFeat7_text;
 					}
-					else if (tb_feat == cf8_FeatId)
+					else if (tb == cf8_FeatId)
 					{
-						tb = ClassFeat8_text;
+						tb_feat = ClassFeat8_text;
 					}
-					else if (tb_feat == cf9_FeatId)
+					else if (tb == cf9_FeatId)
 					{
-						tb = ClassFeat9_text;
+						tb_feat = ClassFeat9_text;
 					}
-					else if (tb_feat == cf10_FeatId)
+					else if (tb == cf10_FeatId)
 					{
-						tb = ClassFeat10_text;
+						tb_feat = ClassFeat10_text;
 					}
 					else //if (tb_feat == cf11_FeatId)
 					{
-						tb = ClassFeat11_text;
+						tb_feat = ClassFeat11_text;
 					}
 
-					int feaT = Int32.Parse(tb.Text);
+					int feaT = Int32.Parse(tb_feat.Text);
 					feaT &= ~hc.HENCH_FEAT_SPELL_MASK_FEAT;
 
-					tb.Text = (feaT | feat).ToString();
+					tb_feat.Text = (feaT | feat).ToString();
 				}
 			}
 		}
@@ -733,78 +731,183 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void TextChanged_cSpell(object sender, EventArgs e)
 		{
-			var tb_spell = sender as TextBox;
+			var tb = sender as TextBox;
 
 			int spell;
-			if (Int32.TryParse(tb_spell.Text, out spell))
+			if (Int32.TryParse(tb.Text, out spell))
 			{
 				if (spell < 0)
 				{
-					spell = 0;
-					tb_spell.Text = spell.ToString(); // re-trigger this funct.
-					tb_spell.SelectionStart = tb_spell.Text.Length;
+					tb.Text = "0"; // recurse this funct.
+					tb.SelectionStart = tb.Text.Length;
 				}
 				else if (spell > 16383) // 14 bits
 				{
-					spell = 16383;
-					tb_spell.Text = spell.ToString(); // re-trigger this funct.
-					tb_spell.SelectionStart = tb_spell.Text.Length;
+					tb.Text = "16383"; // recurse this funct.
+					tb.SelectionStart = tb.Text.Length;
 				}
 				else
 				{
-					TextBox tb;
-					if (tb_spell == cf1_SpellId)
+					TextBox tb_feat;
+					if (tb == cf1_SpellId)
 					{
-						tb = ClassFeat1_text;
+						tb_feat = ClassFeat1_text;
 					}
-					else if (tb_spell == cf2_SpellId)
+					else if (tb == cf2_SpellId)
 					{
-						tb = ClassFeat2_text;
+						tb_feat = ClassFeat2_text;
 					}
-					else if (tb_spell == cf3_SpellId)
+					else if (tb == cf3_SpellId)
 					{
-						tb = ClassFeat3_text;
+						tb_feat = ClassFeat3_text;
 					}
-					else if (tb_spell == cf4_SpellId)
+					else if (tb == cf4_SpellId)
 					{
-						tb = ClassFeat4_text;
+						tb_feat = ClassFeat4_text;
 					}
-					else if (tb_spell == cf5_SpellId)
+					else if (tb == cf5_SpellId)
 					{
-						tb = ClassFeat5_text;
+						tb_feat = ClassFeat5_text;
 					}
-					else if (tb_spell == cf6_SpellId)
+					else if (tb == cf6_SpellId)
 					{
-						tb = ClassFeat6_text;
+						tb_feat = ClassFeat6_text;
 					}
-					else if (tb_spell == cf7_SpellId)
+					else if (tb == cf7_SpellId)
 					{
-						tb = ClassFeat7_text;
+						tb_feat = ClassFeat7_text;
 					}
-					else if (tb_spell == cf8_SpellId)
+					else if (tb == cf8_SpellId)
 					{
-						tb = ClassFeat8_text;
+						tb_feat = ClassFeat8_text;
 					}
-					else if (tb_spell == cf9_SpellId)
+					else if (tb == cf9_SpellId)
 					{
-						tb = ClassFeat9_text;
+						tb_feat = ClassFeat9_text;
 					}
-					else if (tb_spell == cf10_SpellId)
+					else if (tb == cf10_SpellId)
 					{
-						tb = ClassFeat10_text;
+						tb_feat = ClassFeat10_text;
 					}
 					else //if (tb_spell == cf11_SpellId)
 					{
-						tb = ClassFeat11_text;
+						tb_feat = ClassFeat11_text;
 					}
 
-					int feaT = Int32.Parse(tb.Text);
+					int feaT = Int32.Parse(tb_feat.Text);
 					feaT &= ~hc.HENCH_FEAT_SPELL_MASK_SPELL;
 
 					spell <<= HENCH_FEAT_SPELL_SHIFT_SPELL;
-					tb.Text = (feaT | spell).ToString();
+					tb_feat.Text = (feaT | spell).ToString();
 				}
 			}
+		}
+
+		internal void SetSpellLabelTexts(Class @class)
+		{
+			int id;
+			id = (@class.feat1 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
+			if (id < he.spellLabels.Count)
+			{
+				cf1_SpellLabel.Text = he.spellLabels[id];
+			}
+			else
+				cf1_SpellLabel.Text = String.Empty;
+
+			id = (@class.feat2 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
+			if (id < he.spellLabels.Count)
+			{
+				cf2_SpellLabel.Text = he.spellLabels[id];
+			}
+			else
+				cf2_SpellLabel.Text = String.Empty;
+
+			id = (@class.feat3 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
+			if (id < he.spellLabels.Count)
+			{
+				cf3_SpellLabel.Text = he.spellLabels[id];
+			}
+			else
+				cf3_SpellLabel.Text = String.Empty;
+
+			id = (@class.feat4 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
+			if (id < he.spellLabels.Count)
+			{
+				cf4_SpellLabel.Text = he.spellLabels[id];
+			}
+			else
+				cf4_SpellLabel.Text = String.Empty;
+
+			id = (@class.feat5 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
+			if (id < he.spellLabels.Count)
+			{
+				cf5_SpellLabel.Text = he.spellLabels[id];
+			}
+			else
+				cf5_SpellLabel.Text = String.Empty;
+
+			id = (@class.feat6 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
+			if (id < he.spellLabels.Count)
+			{
+				cf6_SpellLabel.Text = he.spellLabels[id];
+			}
+			else
+				cf6_SpellLabel.Text = String.Empty;
+
+			id = (@class.feat7 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
+			if (id < he.spellLabels.Count)
+			{
+				cf7_SpellLabel.Text = he.spellLabels[id];
+			}
+			else
+				cf7_SpellLabel.Text = String.Empty;
+
+			id = (@class.feat8 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
+			if (id < he.spellLabels.Count)
+			{
+				cf8_SpellLabel.Text = he.spellLabels[id];
+			}
+			else
+				cf8_SpellLabel.Text = String.Empty;
+
+			id = (@class.feat9 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
+			if (id < he.spellLabels.Count)
+			{
+				cf9_SpellLabel.Text = he.spellLabels[id];
+			}
+			else
+				cf9_SpellLabel.Text = String.Empty;
+
+			id = (@class.feat10 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
+			if (id < he.spellLabels.Count)
+			{
+				cf10_SpellLabel.Text = he.spellLabels[id];
+			}
+			else
+				cf10_SpellLabel.Text = String.Empty;
+
+			id = (@class.feat11 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
+			if (id < he.spellLabels.Count)
+			{
+				cf11_SpellLabel.Text = he.spellLabels[id];
+			}
+			else
+				cf11_SpellLabel.Text = String.Empty;
+		}
+
+		internal override void ClearSpellLabelTexts()
+		{
+			cf1_SpellLabel .Text =
+			cf2_SpellLabel .Text =
+			cf3_SpellLabel .Text =
+			cf4_SpellLabel .Text =
+			cf5_SpellLabel .Text =
+			cf6_SpellLabel .Text =
+			cf7_SpellLabel .Text =
+			cf8_SpellLabel .Text =
+			cf9_SpellLabel .Text =
+			cf10_SpellLabel.Text =
+			cf11_SpellLabel.Text = String.Empty;
 		}
 
 

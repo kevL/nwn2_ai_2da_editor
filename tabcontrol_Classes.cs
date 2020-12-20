@@ -10,7 +10,9 @@ namespace nwn2_ai_2da_editor
 	/// A UserControl with a TabControl set to Dock.Fill.
 	/// </summary>
 	sealed partial class tabcontrol_Classes
-		: UserControl
+		:
+//			UserControl,
+			HenchControl
 	{
 		/// <summary>
 		/// Bitflags for spell-fields that have changed.
@@ -40,6 +42,29 @@ namespace nwn2_ai_2da_editor
 			InitializeComponent();
 
 			_he = he;
+
+			cf1_FeatLabel  .Text =
+			cf1_SpellLabel .Text =
+			cf2_FeatLabel  .Text =
+			cf2_SpellLabel .Text =
+			cf3_FeatLabel  .Text =
+			cf3_SpellLabel .Text =
+			cf4_FeatLabel  .Text =
+			cf4_SpellLabel .Text =
+			cf5_FeatLabel  .Text =
+			cf5_SpellLabel .Text =
+			cf6_FeatLabel  .Text =
+			cf6_SpellLabel .Text =
+			cf7_FeatLabel  .Text =
+			cf7_SpellLabel .Text =
+			cf8_FeatLabel  .Text =
+			cf8_SpellLabel .Text =
+			cf9_FeatLabel  .Text =
+			cf9_SpellLabel .Text =
+			cf10_FeatLabel .Text =
+			cf10_SpellLabel.Text =
+			cf11_FeatLabel .Text =
+			cf11_SpellLabel.Text = String.Empty;
 
 			ClassFlags_hex .BackColor =
 			ClassFlags_bin .BackColor =
@@ -230,27 +255,11 @@ namespace nwn2_ai_2da_editor
 		}
 
 
-		internal void SetResetColor(Color color)
-		{
-			ClassFlags_reset .ForeColor =
-			ClassFeat1_reset .ForeColor =
-			ClassFeat2_reset .ForeColor =
-			ClassFeat3_reset .ForeColor =
-			ClassFeat4_reset .ForeColor =
-			ClassFeat5_reset .ForeColor =
-			ClassFeat6_reset .ForeColor =
-			ClassFeat7_reset .ForeColor =
-			ClassFeat8_reset .ForeColor =
-			ClassFeat9_reset .ForeColor =
-			ClassFeat10_reset.ForeColor =
-			ClassFeat11_reset.ForeColor = color;
-		}
-
-
 		/// <summary>
 		/// Fills displayed fields w/ data from the class' Id.
 		/// </summary>
-		internal void SelectClass(Class @class, IDictionary<int, ClassChanged> classeschanged, int id)
+//		internal void SelectClass(Class @class, IDictionary<int, ClassChanged> classeschanged, int id)
+		internal override void SelectId()
 		{
 			ClassFlags_text .Clear(); // clear the info-fields to force TextChanged events ->
 			ClassFeat1_text .Clear();
@@ -266,7 +275,17 @@ namespace nwn2_ai_2da_editor
 			ClassFeat11_text.Clear();
 
 
+			Class @class = he.Classes[he.Id];
+
 			bool dirty = (@class.differ != bit_clear);
+
+			ClassChanged classchanged;
+			if (dirty)
+			{
+				classchanged = he.ClassesChanged[he.Id];
+			}
+			else
+				classchanged = new ClassChanged(); // not used.
 
 // Flags
 			int val = @class.flags;
@@ -274,7 +293,7 @@ namespace nwn2_ai_2da_editor
 
 			if (dirty)
 			{
-				val = classeschanged[id].flags;
+				val = classchanged.flags;
 			}
 			ClassFlags_text.Text = val.ToString();
 
@@ -284,7 +303,7 @@ namespace nwn2_ai_2da_editor
 
 			if (dirty)
 			{
-				val = classeschanged[id].feat1;
+				val = classchanged.feat1;
 			}
 			ClassFeat1_text.Text = val.ToString();
 
@@ -294,7 +313,7 @@ namespace nwn2_ai_2da_editor
 
 			if (dirty)
 			{
-				val = classeschanged[id].feat2;
+				val = classchanged.feat2;
 			}
 			ClassFeat2_text.Text = val.ToString();
 
@@ -304,7 +323,7 @@ namespace nwn2_ai_2da_editor
 
 			if (dirty)
 			{
-				val = classeschanged[id].feat3;
+				val = classchanged.feat3;
 			}
 			ClassFeat3_text.Text = val.ToString();
 
@@ -314,7 +333,7 @@ namespace nwn2_ai_2da_editor
 
 			if (dirty)
 			{
-				val = classeschanged[id].feat4;
+				val = classchanged.feat4;
 			}
 			ClassFeat4_text.Text = val.ToString();
 
@@ -324,7 +343,7 @@ namespace nwn2_ai_2da_editor
 
 			if (dirty)
 			{
-				val = classeschanged[id].feat5;
+				val = classchanged.feat5;
 			}
 			ClassFeat5_text.Text = val.ToString();
 
@@ -334,7 +353,7 @@ namespace nwn2_ai_2da_editor
 
 			if (dirty)
 			{
-				val = classeschanged[id].feat6;
+				val = classchanged.feat6;
 			}
 			ClassFeat6_text.Text = val.ToString();
 
@@ -344,7 +363,7 @@ namespace nwn2_ai_2da_editor
 
 			if (dirty)
 			{
-				val = classeschanged[id].feat7;
+				val = classchanged.feat7;
 			}
 			ClassFeat7_text.Text = val.ToString();
 
@@ -354,7 +373,7 @@ namespace nwn2_ai_2da_editor
 
 			if (dirty)
 			{
-				val = classeschanged[id].feat8;
+				val = classchanged.feat8;
 			}
 			ClassFeat8_text.Text = val.ToString();
 
@@ -364,7 +383,7 @@ namespace nwn2_ai_2da_editor
 
 			if (dirty)
 			{
-				val = classeschanged[id].feat9;
+				val = classchanged.feat9;
 			}
 			ClassFeat9_text.Text = val.ToString();
 
@@ -374,7 +393,7 @@ namespace nwn2_ai_2da_editor
 
 			if (dirty)
 			{
-				val = classeschanged[id].feat10;
+				val = classchanged.feat10;
 			}
 			ClassFeat10_text.Text = val.ToString();
 
@@ -384,7 +403,7 @@ namespace nwn2_ai_2da_editor
 
 			if (dirty)
 			{
-				val = classeschanged[id].feat11;
+				val = classchanged.feat11;
 			}
 			ClassFeat11_text.Text = val.ToString();
 		}
@@ -444,7 +463,7 @@ namespace nwn2_ai_2da_editor
 		/// Gets the master-int of the currently selected page as a string.
 		/// </summary>
 		/// <returns></returns>
-		internal string GetMasterText()
+		internal override string GetMasterText()
 		{
 			string info = String.Empty;
 			switch (tc_Classes.SelectedIndex)
@@ -470,13 +489,13 @@ namespace nwn2_ai_2da_editor
 			return String.Empty;
 		}
 
-		internal void SetMasterText(string text)
+		internal override void SetMasterText(string text)
 		{
 			ClassFlags_text.Text = text;
 		}
 
 
-		internal void SelectResetButton()
+		internal override void SelectResetButton()
 		{
 			switch (tc_Classes.SelectedIndex)
 			{
@@ -493,6 +512,22 @@ namespace nwn2_ai_2da_editor
 				case 10: ClassFeat10_reset.Select(); break;
 				case 11: ClassFeat11_reset.Select(); break;
 			}
+		}
+
+		internal override void SetResetColor(Color color)
+		{
+			ClassFlags_reset .ForeColor =
+			ClassFeat1_reset .ForeColor =
+			ClassFeat2_reset .ForeColor =
+			ClassFeat3_reset .ForeColor =
+			ClassFeat4_reset .ForeColor =
+			ClassFeat5_reset .ForeColor =
+			ClassFeat6_reset .ForeColor =
+			ClassFeat7_reset .ForeColor =
+			ClassFeat8_reset .ForeColor =
+			ClassFeat9_reset .ForeColor =
+			ClassFeat10_reset.ForeColor =
+			ClassFeat11_reset.ForeColor = color;
 		}
 		#endregion Methods
 	}

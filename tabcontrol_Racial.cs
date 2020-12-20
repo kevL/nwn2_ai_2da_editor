@@ -10,7 +10,9 @@ namespace nwn2_ai_2da_editor
 	/// A UserControl with a TabControl set to Dock.Fill.
 	/// </summary>
 	sealed partial class tabcontrol_Racial
-		: UserControl
+		:
+//			UserControl,
+			HenchControl
 	{
 		/// <summary>
 		/// Bitflags for spell-fields that have changed.
@@ -34,6 +36,17 @@ namespace nwn2_ai_2da_editor
 			InitializeComponent();
 
 			_he = he;
+
+			rf1_FeatLabel .Text =
+			rf2_FeatLabel .Text =
+			rf3_FeatLabel .Text =
+			rf4_FeatLabel .Text =
+			rf5_FeatLabel .Text =
+			rf1_SpellLabel.Text =
+			rf2_SpellLabel.Text =
+			rf3_SpellLabel.Text =
+			rf4_SpellLabel.Text =
+			rf5_SpellLabel.Text = String.Empty;
 
 			RacialFlags_hex.BackColor =
 			RacialFlags_bin.BackColor =
@@ -112,21 +125,10 @@ namespace nwn2_ai_2da_editor
 
 
 		#region Methods
-		internal void SetResetColor(Color color)
-		{
-			RacialFlags_reset.ForeColor =
-			RacialFeat1_reset.ForeColor =
-			RacialFeat2_reset.ForeColor =
-			RacialFeat3_reset.ForeColor =
-			RacialFeat4_reset.ForeColor =
-			RacialFeat5_reset.ForeColor = color;
-		}
-
-
 		/// <summary>
 		/// Fills displayed fields w/ data from the race's Id.
 		/// </summary>
-		internal void SelectRace(Race race, IDictionary<int, RaceChanged> raceschanged, int id)
+		internal override void SelectId()
 		{
 			RacialFlags_text.Clear(); // clear the info-fields to force TextChanged events ->
 			RacialFeat1_text.Clear();
@@ -136,7 +138,17 @@ namespace nwn2_ai_2da_editor
 			RacialFeat5_text.Clear();
 
 
+			Race race = he.Races[he.Id];
+
 			bool dirty = (race.differ != bit_clear);
+
+			RaceChanged racechanged;
+			if (dirty)
+			{
+				racechanged = he.RacesChanged[he.Id];
+			}
+			else
+				racechanged = new RaceChanged(); // not used.
 
 // Flags
 			int val = race.flags;
@@ -144,7 +156,7 @@ namespace nwn2_ai_2da_editor
 
 			if (dirty)
 			{
-				val = raceschanged[id].flags;
+				val = racechanged.flags;
 			}
 			RacialFlags_text.Text = val.ToString();
 
@@ -154,7 +166,7 @@ namespace nwn2_ai_2da_editor
 
 			if (dirty)
 			{
-				val = raceschanged[id].feat1;
+				val = racechanged.feat1;
 			}
 			RacialFeat1_text.Text = val.ToString();
 
@@ -164,7 +176,7 @@ namespace nwn2_ai_2da_editor
 
 			if (dirty)
 			{
-				val = raceschanged[id].feat2;
+				val = racechanged.feat2;
 			}
 			RacialFeat2_text.Text = val.ToString();
 
@@ -174,7 +186,7 @@ namespace nwn2_ai_2da_editor
 
 			if (dirty)
 			{
-				val = raceschanged[id].feat3;
+				val = racechanged.feat3;
 			}
 			RacialFeat3_text.Text = val.ToString();
 
@@ -184,7 +196,7 @@ namespace nwn2_ai_2da_editor
 
 			if (dirty)
 			{
-				val = raceschanged[id].feat4;
+				val = racechanged.feat4;
 			}
 			RacialFeat4_text.Text = val.ToString();
 
@@ -194,7 +206,7 @@ namespace nwn2_ai_2da_editor
 
 			if (dirty)
 			{
-				val = raceschanged[id].feat5;
+				val = racechanged.feat5;
 			}
 			RacialFeat5_text.Text = val.ToString();
 		}
@@ -236,7 +248,7 @@ namespace nwn2_ai_2da_editor
 		/// Gets the master-int of the currently selected page as a string.
 		/// </summary>
 		/// <returns></returns>
-		internal string GetMasterText()
+		internal override string GetMasterText()
 		{
 			string info = String.Empty;
 			switch (tc_Racial.SelectedIndex)
@@ -256,13 +268,13 @@ namespace nwn2_ai_2da_editor
 			return String.Empty;
 		}
 
-		internal void SetMasterText(string text)
+		internal override void SetMasterText(string text)
 		{
 			RacialFlags_text.Text = text;
 		}
 
 
-		internal void SelectResetButton()
+		internal override void SelectResetButton()
 		{
 			switch (tc_Racial.SelectedIndex)
 			{
@@ -273,6 +285,16 @@ namespace nwn2_ai_2da_editor
 				case 4: RacialFeat4_reset.Select(); break;
 				case 5: RacialFeat5_reset.Select(); break;
 			}
+		}
+
+		internal override void SetResetColor(Color color)
+		{
+			RacialFlags_reset.ForeColor =
+			RacialFeat1_reset.ForeColor =
+			RacialFeat2_reset.ForeColor =
+			RacialFeat3_reset.ForeColor =
+			RacialFeat4_reset.ForeColor =
+			RacialFeat5_reset.ForeColor = color;
 		}
 		#endregion Methods
 	}
