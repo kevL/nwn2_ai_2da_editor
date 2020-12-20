@@ -1024,7 +1024,7 @@ namespace nwn2_ai_2da_editor
 			this.si_ChildIDGrp.TabIndex = 10;
 			this.si_ChildIDGrp.TabStop = false;
 			this.si_ChildIDGrp.Text = "Child IDs";
-			this.si_ChildIDGrp.Visible = false;
+			this.si_ChildIDGrp.Enabled = false;
 			// 
 			// si_ChildTi
 			// 

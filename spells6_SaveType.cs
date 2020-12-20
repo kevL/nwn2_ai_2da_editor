@@ -10,10 +10,12 @@ namespace nwn2_ai_2da_editor
 	/// </summary>
 	partial class tabcontrol_Spells
 	{
-		const int HENCH_SPELL_SAVE_TYPE_IMMUNITY1_SHIFT = 6;
+		const int HENCH_SPELL_SAVE_TYPE_IMMUNITY1_SHIFT =  6;
 		const int HENCH_SPELL_SAVE_TYPE_IMMUNITY2_SHIFT = 12;
+
 		const int HENCH_SPELL_SAVE_TYPE_ACBONUS_MASK    = 0x001c0000;
 		const int HENCH_SPELL_SAVE_TYPE_ACBONUS_SHIFT   = 18;
+
 		const int HENCH_IMMUNITY_WEIGHT_AMOUNT_SHIFT    = 12;
 
 		/// <summary>
@@ -86,7 +88,7 @@ namespace nwn2_ai_2da_editor
 				else
 					SaveType_reset.ForeColor = DefaultForeColor;
 
-				CheckSaveTypeCheckers(savetype);
+				state_SaveType(savetype);
 
 				if (si_IsMaster.Checked)
 				{
@@ -578,7 +580,7 @@ namespace nwn2_ai_2da_editor
 		/// savetype value.
 		/// </summary>
 		/// <param name="savetype"></param>
-		void CheckSaveTypeCheckers(int savetype)
+		void state_SaveType(int savetype)
 		{
 			int val;
 

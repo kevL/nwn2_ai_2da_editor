@@ -87,7 +87,7 @@ namespace nwn2_ai_2da_editor
 				else
 					TargetInfo_reset.ForeColor = DefaultForeColor;
 
-				CheckTargetInfoCheckers(targetinfo);
+				state_TargetInfo(targetinfo);
 
 				if (si_IsMaster.Checked)
 				{
@@ -328,7 +328,7 @@ namespace nwn2_ai_2da_editor
 		/// targetinfo value.
 		/// </summary>
 		/// <param name="targetinfo"></param>
-		void CheckTargetInfoCheckers(int targetinfo)
+		void state_TargetInfo(int targetinfo)
 		{
 // Flags checkboxes
 			ti_ShapeLoop          .Checked = (targetinfo & hc.HENCH_SPELL_TARGET_SHAPE_LOOP)           != 0;

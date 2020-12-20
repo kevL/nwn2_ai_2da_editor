@@ -85,7 +85,7 @@ namespace nwn2_ai_2da_editor
 				else
 					SaveDCType_reset.ForeColor = DefaultForeColor;
 
-				CheckSaveDcTypeCheckers(savedctype);
+				state_SaveDcType(savedctype);
 
 				if (si_IsMaster.Checked)
 				{
@@ -287,7 +287,7 @@ namespace nwn2_ai_2da_editor
 		/// savedctype value.
 		/// </summary>
 		/// <param name="savedctype"></param>
-		void CheckSaveDcTypeCheckers(int savedctype)
+		void state_SaveDcType(int savedctype)
 		{
 // ArmorCheck checkboxes
 			bool b = (savedctype > -1); // a negative value wreaks havoc on the speed-decrease bit ...

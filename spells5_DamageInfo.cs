@@ -105,7 +105,7 @@ namespace nwn2_ai_2da_editor
 				else
 					DamageInfo_reset.ForeColor = DefaultForeColor;
 
-				CheckDamageInfoCheckers(damageinfo);
+				state_DamageInfo(damageinfo);
 
 				if (si_IsMaster.Checked)
 				{
@@ -671,7 +671,7 @@ namespace nwn2_ai_2da_editor
 		/// damageinfo value.
 		/// </summary>
 		/// <param name="damageinfo"></param>
-		void CheckDamageInfoCheckers(int damageinfo)
+		void state_DamageInfo(int damageinfo)
 		{
 // DispelTypes checkboxes
 			di_Breach.Checked = (damageinfo & hc.HENCH_SPELL_INFO_DAMAGE_BREACH) != 0;

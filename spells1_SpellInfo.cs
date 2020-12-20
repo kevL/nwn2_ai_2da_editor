@@ -111,18 +111,13 @@ namespace nwn2_ai_2da_editor
 				else
 					SpellInfo_reset.ForeColor = DefaultForeColor;
 
-				CheckSpellInfoCheckers(spellinfo);
+				state_SpellInfo(spellinfo);
 
 
 				SetDetrimentalBeneficial();
 				SetGroupColors();
 
-				si_ChildIDGrp .Visible =
-				si_ChildLabel1.Visible =
-				si_ChildLabel2.Visible =
-				si_ChildLabel3.Visible =
-				si_ChildLabel4.Visible =
-				si_ChildLabel5.Visible = si_IsMaster.Checked;
+				si_ChildIDGrp.Enabled = si_IsMaster.Checked;
 
 //				PrintInfoVersion_spell(spellinfo);
 
@@ -236,7 +231,7 @@ namespace nwn2_ai_2da_editor
 				}
 				else if (cb == si_HealOrCure)
 				{
-					bit = hc.HENCH_SPELL_INFO_HEAL_OR_CURE;		// 0x00020000
+					bit = hc.HENCH_SPELL_INFO_HEAL_OR_CURE;			// 0x00020000
 				}
 				else if (cb == si_ShortDurBuff)
 				{
@@ -402,7 +397,7 @@ namespace nwn2_ai_2da_editor
 		/// spellinfo value.
 		/// </summary>
 		/// <param name="spellinfo"></param>
-		void CheckSpellInfoCheckers(int spellinfo)
+		void state_SpellInfo(int spellinfo)
 		{
 // Flags checkboxes
 			si_IsMaster     .Checked = (spellinfo & hc.HENCH_SPELL_INFO_MASTER_FLAG)        != 0;
@@ -459,7 +454,7 @@ namespace nwn2_ai_2da_editor
 					break;
 
 				case hc.HENCH_SPELL_INFO_SPELL_TYPE_ATTACK:	// TODO: Look into these and how they trace through
-				case hc.HENCH_SPELL_INFO_SPELL_TYPE_HARM:		// to the effect-types etc in the CoreAI scripts.
+				case hc.HENCH_SPELL_INFO_SPELL_TYPE_HARM:	// to the effect-types etc in the CoreAI scripts.
 				case hc.HENCH_SPELL_INFO_SPELL_TYPE_ARCANE_ARCHER:
 				case hc.HENCH_SPELL_INFO_SPELL_TYPE_DRAGON_BREATH:
 				case hc.HENCH_SPELL_INFO_SPELL_TYPE_WARLOCK:

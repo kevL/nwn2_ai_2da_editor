@@ -87,7 +87,7 @@ namespace nwn2_ai_2da_editor
 				else
 					EffectTypes_reset.ForeColor = DefaultForeColor;
 
-				CheckEffectTypesCheckers(effecttypes);
+				state_EffectTypes(effecttypes);
 
 				if (si_IsMaster.Checked)
 				{
@@ -424,7 +424,7 @@ namespace nwn2_ai_2da_editor
 		/// effecttypes value.
 		/// </summary>
 		/// <param name="effecttypes"></param>
-		void CheckEffectTypesCheckers(int effecttypes)
+		void state_EffectTypes(int effecttypes)
 		{
 // Beneficial Effects checkboxes
 			et_AcIncrease         .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_AC_INCREASE)           != 0;
