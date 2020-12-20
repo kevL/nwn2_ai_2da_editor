@@ -117,7 +117,7 @@ namespace nwn2_ai_2da_editor
 				SetDetrimentalBeneficial();
 				SetGroupColors();
 
-				si_ChildIDGrp.Enabled = si_IsMaster.Checked;
+				si_SubspellsGrp.Enabled = si_IsMaster.Checked;
 
 //				PrintInfoVersion_spell(spellinfo);
 
@@ -262,13 +262,13 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Sends the text in the ChildID boxes to where they should go.
-		/// Note that the EffectWeight field is skipped since it ought be a
-		/// float-value while the ChildIDs convert to ints.
+		/// Sends the text in the Subspell boxes to where they should go.
+		/// Note that the EffectWeight field is skipped since it is a
+		/// float-value while the Subspell ids convert to ints.
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		void TextChanged_si_ChildFields(object sender, EventArgs e)
+		void TextChanged_si_Subspell(object sender, EventArgs e)
 		{
 			if (!BypassSubspell)
 			{
@@ -282,42 +282,42 @@ namespace nwn2_ai_2da_editor
 						tb.Text = "0"; // recurse this funct.
 						tb.SelectionStart = tb.Text.Length;
 					}
-//					else if (childId > 16383) // 14 bits // TODO: Implement that
+//					else if (id > 16383) // 14 bits // TODO: Implement that
 //					{
 //						tb.Text = "16383"; // recurse this funct.
 //						tb.SelectionStart = tb.Text.Length;
 //					}
 					else
 					{
-						Label lbl_child;
+						Label lbl_subspell;
 
-						if (tb == si_Child1)
+						if (tb == si_Subspell1)
 						{
 							TargetInfo_text.Text = tb.Text;
-							lbl_child = si_ChildLabel1;
+							lbl_subspell = si_SubspellLabel1;
 						}
-						else if (tb == si_Child2)
+						else if (tb == si_Subspell2)
 						{
 							EffectTypes_text.Text = tb.Text;
-							lbl_child = si_ChildLabel2;
+							lbl_subspell = si_SubspellLabel2;
 						}
-						else if (tb == si_Child3)
+						else if (tb == si_Subspell3)
 						{
 							DamageInfo_text.Text = tb.Text;
-							lbl_child = si_ChildLabel3;
+							lbl_subspell = si_SubspellLabel3;
 						}
-						else if (tb == si_Child4)
+						else if (tb == si_Subspell4)
 						{
 							SaveType_text.Text = tb.Text;
-							lbl_child = si_ChildLabel4;
+							lbl_subspell = si_SubspellLabel4;
 						}
-						else //if (tb == si_Child5)
+						else //if (tb == si_Subspell5)
 						{
 							SaveDCType_text.Text = tb.Text;
-							lbl_child = si_ChildLabel5;
+							lbl_subspell = si_SubspellLabel5;
 						}
 
-						SetSpellLabelText(lbl_child, id);
+						SetSpellLabelText(lbl_subspell, id);
 					}
 				}
 			}
@@ -337,38 +337,38 @@ namespace nwn2_ai_2da_editor
 			{
 				if (spell.targetinfo < he.spellLabels.Count)
 				{
-					si_ChildLabel1.Text = he.spellLabels[spell.targetinfo];
+					si_SubspellLabel1.Text = he.spellLabels[spell.targetinfo];
 				}
 				else
-					si_ChildLabel1.Text = String.Empty;
+					si_SubspellLabel1.Text = String.Empty;
 
 				if (spell.effecttypes < he.spellLabels.Count)
 				{
-					si_ChildLabel2.Text = he.spellLabels[spell.effecttypes];
+					si_SubspellLabel2.Text = he.spellLabels[spell.effecttypes];
 				}
 				else
-					si_ChildLabel2.Text = String.Empty;
+					si_SubspellLabel2.Text = String.Empty;
 
 				if (spell.damageinfo < he.spellLabels.Count)
 				{
-					si_ChildLabel3.Text = he.spellLabels[spell.damageinfo];
+					si_SubspellLabel3.Text = he.spellLabels[spell.damageinfo];
 				}
 				else
-					si_ChildLabel3.Text = String.Empty;
+					si_SubspellLabel3.Text = String.Empty;
 
 				if (spell.savetype < he.spellLabels.Count)
 				{
-					si_ChildLabel4.Text = he.spellLabels[spell.savetype];
+					si_SubspellLabel4.Text = he.spellLabels[spell.savetype];
 				}
 				else
-					si_ChildLabel4.Text = String.Empty;
+					si_SubspellLabel4.Text = String.Empty;
 
 				if (spell.savedctype < he.spellLabels.Count)
 				{
-					si_ChildLabel5.Text = he.spellLabels[spell.savedctype];
+					si_SubspellLabel5.Text = he.spellLabels[spell.savedctype];
 				}
 				else
-					si_ChildLabel5.Text = String.Empty;
+					si_SubspellLabel5.Text = String.Empty;
 			}
 			else
 				ClearSpellLabelTexts(); // safety i think.
@@ -376,11 +376,11 @@ namespace nwn2_ai_2da_editor
 
 		internal override void ClearSpellLabelTexts()
 		{
-			si_ChildLabel1.Text =
-			si_ChildLabel2.Text =
-			si_ChildLabel3.Text =
-			si_ChildLabel4.Text =
-			si_ChildLabel5.Text = String.Empty;
+			si_SubspellLabel1.Text =
+			si_SubspellLabel2.Text =
+			si_SubspellLabel3.Text =
+			si_SubspellLabel4.Text =
+			si_SubspellLabel5.Text = String.Empty;
 		}
 
 

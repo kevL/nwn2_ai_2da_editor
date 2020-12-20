@@ -40,11 +40,11 @@ namespace nwn2_ai_2da_editor
 
 			_he = he;
 
-			si_ChildLabel1.Text =
-			si_ChildLabel2.Text =
-			si_ChildLabel3.Text =
-			si_ChildLabel4.Text =
-			si_ChildLabel5.Text = String.Empty;
+			si_SubspellLabel1.Text =
+			si_SubspellLabel2.Text =
+			si_SubspellLabel3.Text =
+			si_SubspellLabel4.Text =
+			si_SubspellLabel5.Text = String.Empty;
 
 			SpellInfo_hex  .BackColor = // set the backgrounds of the hexadecimal and binary
 			SpellInfo_bin  .BackColor = // textboxes to blend in with the background
@@ -97,11 +97,11 @@ namespace nwn2_ai_2da_editor
 
 			cbo_si_Spelllevel.SelectionChangeCommitted += SelectionChangeCommitted_si_cbo_Spelllevel;
 
-			si_Child1.TextChanged += TextChanged_si_ChildFields;
-			si_Child2.TextChanged += TextChanged_si_ChildFields;
-			si_Child3.TextChanged += TextChanged_si_ChildFields;
-			si_Child4.TextChanged += TextChanged_si_ChildFields;
-			si_Child5.TextChanged += TextChanged_si_ChildFields;
+			si_Subspell1.TextChanged += TextChanged_si_Subspell;
+			si_Subspell2.TextChanged += TextChanged_si_Subspell;
+			si_Subspell3.TextChanged += TextChanged_si_Subspell;
+			si_Subspell4.TextChanged += TextChanged_si_Subspell;
+			si_Subspell5.TextChanged += TextChanged_si_Subspell;
 
 // handlers for TargetInfo ->
 			TargetInfo_reset.Click       += Click_ti_reset;
@@ -662,7 +662,7 @@ namespace nwn2_ai_2da_editor
 			GroupColor(si_SpelltypeGrp,  Color.LimeGreen);
 			GroupColor(si_FlagsGrp,      Color.LimeGreen);
 			GroupColor(si_SpelllevelGrp, Color.LimeGreen);
-			GroupColor(si_ChildIDGrp,    Color.LimeGreen);
+			GroupColor(si_SubspellsGrp,  Color.LimeGreen);
 
 			GroupColor(ti_FlagsGrp,      Color.LimeGreen);
 			GroupColor(ti_ShapeGrp,      Color.LimeGreen);

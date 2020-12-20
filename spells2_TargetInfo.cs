@@ -92,17 +92,17 @@ namespace nwn2_ai_2da_editor
 
 				if (si_IsMaster.Checked)
 				{
-					// the 'si_Child1' textchanged handler can change the value
+					// the 'si_Subspell1' textchanged handler can change the value
 					// and shoot it back here
-					si_Child1.Text = TargetInfo_text.Text;
+					si_Subspell1.Text = TargetInfo_text.Text;
 				}
 				else
 				{
 					// else let the value pass unhindered
 					BypassSubspell = true;
-					si_Child1.Text = TargetInfo_text.Text;
+					si_Subspell1.Text = TargetInfo_text.Text;
 					BypassSubspell = false;
-					SetSpellLabelText(si_ChildLabel1, targetinfo);
+					SetSpellLabelText(si_SubspellLabel1, targetinfo);
 				}
 
 

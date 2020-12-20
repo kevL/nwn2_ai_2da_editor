@@ -58,7 +58,7 @@ namespace nwn2_ai_2da_editor
 		GroupBox si_SpelltypeGrp;
 		GroupBox si_FlagsGrp;
 		GroupBox si_SpelllevelGrp;
-		GroupBox si_ChildIDGrp;
+		GroupBox si_SubspellsGrp;
 
 		// 'si_SpelltypeGrp' controls
 		Label    si_hostile;
@@ -78,23 +78,23 @@ namespace nwn2_ai_2da_editor
 		// 'si_SpelllevelGrp' controls
 		ComboBox cbo_si_Spelllevel;
 
-		// 'si_ChildIDGrp' controls
-		Label   si_ChildTi;
-		Label   si_ChildEt;
-		Label   si_ChildDi;
-		Label   si_ChildSt;
-		Label   si_ChildDc;
-		TextBox si_Child1;
-		TextBox si_Child2;
-		TextBox si_Child3;
-		TextBox si_Child4;
-		TextBox si_Child5;
+		// 'si_SubspellsGrp' controls
+		Label   si_SubspellTi;
+		Label   si_SubspellEt;
+		Label   si_SubspellDi;
+		Label   si_SubspellSt;
+		Label   si_SubspellDc;
+		TextBox si_Subspell1;
+		TextBox si_Subspell2;
+		TextBox si_Subspell3;
+		TextBox si_Subspell4;
+		TextBox si_Subspell5;
 
-		Label   si_ChildLabel1; // to right of 'si_ChildIDGrp' ->
-		Label   si_ChildLabel2;
-		Label   si_ChildLabel3;
-		Label   si_ChildLabel4;
-		Label   si_ChildLabel5;
+		Label   si_SubspellLabel1; // to right of 'si_SubspellsGrp' ->
+		Label   si_SubspellLabel2;
+		Label   si_SubspellLabel3;
+		Label   si_SubspellLabel4;
+		Label   si_SubspellLabel5;
 
 // 'tp_TargetInfo' controls
 		Button  TargetInfo_reset; // TODO: ToolTip "reset"
@@ -418,22 +418,22 @@ namespace nwn2_ai_2da_editor
 			this.si_LongDurBuff = new System.Windows.Forms.CheckBox();
 			this.si_SpelllevelGrp = new System.Windows.Forms.GroupBox();
 			this.cbo_si_Spelllevel = new System.Windows.Forms.ComboBox();
-			this.si_ChildIDGrp = new System.Windows.Forms.GroupBox();
-			this.si_ChildTi = new System.Windows.Forms.Label();
-			this.si_ChildEt = new System.Windows.Forms.Label();
-			this.si_ChildDi = new System.Windows.Forms.Label();
-			this.si_ChildSt = new System.Windows.Forms.Label();
-			this.si_ChildDc = new System.Windows.Forms.Label();
-			this.si_Child1 = new System.Windows.Forms.TextBox();
-			this.si_Child2 = new System.Windows.Forms.TextBox();
-			this.si_Child3 = new System.Windows.Forms.TextBox();
-			this.si_Child4 = new System.Windows.Forms.TextBox();
-			this.si_Child5 = new System.Windows.Forms.TextBox();
-			this.si_ChildLabel1 = new System.Windows.Forms.Label();
-			this.si_ChildLabel2 = new System.Windows.Forms.Label();
-			this.si_ChildLabel3 = new System.Windows.Forms.Label();
-			this.si_ChildLabel4 = new System.Windows.Forms.Label();
-			this.si_ChildLabel5 = new System.Windows.Forms.Label();
+			this.si_SubspellsGrp = new System.Windows.Forms.GroupBox();
+			this.si_SubspellTi = new System.Windows.Forms.Label();
+			this.si_SubspellEt = new System.Windows.Forms.Label();
+			this.si_SubspellDi = new System.Windows.Forms.Label();
+			this.si_SubspellSt = new System.Windows.Forms.Label();
+			this.si_SubspellDc = new System.Windows.Forms.Label();
+			this.si_Subspell1 = new System.Windows.Forms.TextBox();
+			this.si_Subspell2 = new System.Windows.Forms.TextBox();
+			this.si_Subspell3 = new System.Windows.Forms.TextBox();
+			this.si_Subspell4 = new System.Windows.Forms.TextBox();
+			this.si_Subspell5 = new System.Windows.Forms.TextBox();
+			this.si_SubspellLabel1 = new System.Windows.Forms.Label();
+			this.si_SubspellLabel2 = new System.Windows.Forms.Label();
+			this.si_SubspellLabel3 = new System.Windows.Forms.Label();
+			this.si_SubspellLabel4 = new System.Windows.Forms.Label();
+			this.si_SubspellLabel5 = new System.Windows.Forms.Label();
 			this.tp_TargetInfo = new System.Windows.Forms.TabPage();
 			this.TargetInfo_reset = new System.Windows.Forms.Button();
 			this.TargetInfo_text = new System.Windows.Forms.TextBox();
@@ -677,7 +677,7 @@ namespace nwn2_ai_2da_editor
 			this.si_SpelltypeGrp.SuspendLayout();
 			this.si_FlagsGrp.SuspendLayout();
 			this.si_SpelllevelGrp.SuspendLayout();
-			this.si_ChildIDGrp.SuspendLayout();
+			this.si_SubspellsGrp.SuspendLayout();
 			this.tp_TargetInfo.SuspendLayout();
 			this.ti_FlagsGrp.SuspendLayout();
 			this.ti_ShapeGrp.SuspendLayout();
@@ -757,12 +757,12 @@ namespace nwn2_ai_2da_editor
 			this.tp_SpellInfo.Controls.Add(this.si_SpelltypeGrp);
 			this.tp_SpellInfo.Controls.Add(this.si_FlagsGrp);
 			this.tp_SpellInfo.Controls.Add(this.si_SpelllevelGrp);
-			this.tp_SpellInfo.Controls.Add(this.si_ChildIDGrp);
-			this.tp_SpellInfo.Controls.Add(this.si_ChildLabel1);
-			this.tp_SpellInfo.Controls.Add(this.si_ChildLabel2);
-			this.tp_SpellInfo.Controls.Add(this.si_ChildLabel3);
-			this.tp_SpellInfo.Controls.Add(this.si_ChildLabel4);
-			this.tp_SpellInfo.Controls.Add(this.si_ChildLabel5);
+			this.tp_SpellInfo.Controls.Add(this.si_SubspellsGrp);
+			this.tp_SpellInfo.Controls.Add(this.si_SubspellLabel1);
+			this.tp_SpellInfo.Controls.Add(this.si_SubspellLabel2);
+			this.tp_SpellInfo.Controls.Add(this.si_SubspellLabel3);
+			this.tp_SpellInfo.Controls.Add(this.si_SubspellLabel4);
+			this.tp_SpellInfo.Controls.Add(this.si_SubspellLabel5);
 			this.tp_SpellInfo.Location = new System.Drawing.Point(4, 22);
 			this.tp_SpellInfo.Margin = new System.Windows.Forms.Padding(0);
 			this.tp_SpellInfo.Name = "tp_SpellInfo";
@@ -1004,167 +1004,167 @@ namespace nwn2_ai_2da_editor
 			this.cbo_si_Spelllevel.Size = new System.Drawing.Size(155, 21);
 			this.cbo_si_Spelllevel.TabIndex = 0;
 			// 
-			// si_ChildIDGrp
+			// si_SubspellsGrp
 			// 
-			this.si_ChildIDGrp.Controls.Add(this.si_ChildTi);
-			this.si_ChildIDGrp.Controls.Add(this.si_ChildEt);
-			this.si_ChildIDGrp.Controls.Add(this.si_ChildDi);
-			this.si_ChildIDGrp.Controls.Add(this.si_ChildSt);
-			this.si_ChildIDGrp.Controls.Add(this.si_ChildDc);
-			this.si_ChildIDGrp.Controls.Add(this.si_Child1);
-			this.si_ChildIDGrp.Controls.Add(this.si_Child2);
-			this.si_ChildIDGrp.Controls.Add(this.si_Child3);
-			this.si_ChildIDGrp.Controls.Add(this.si_Child4);
-			this.si_ChildIDGrp.Controls.Add(this.si_Child5);
-			this.si_ChildIDGrp.Enabled = false;
-			this.si_ChildIDGrp.Location = new System.Drawing.Point(305, 150);
-			this.si_ChildIDGrp.Margin = new System.Windows.Forms.Padding(0);
-			this.si_ChildIDGrp.Name = "si_ChildIDGrp";
-			this.si_ChildIDGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.si_ChildIDGrp.Size = new System.Drawing.Size(115, 155);
-			this.si_ChildIDGrp.TabIndex = 10;
-			this.si_ChildIDGrp.TabStop = false;
-			this.si_ChildIDGrp.Text = "Child IDs";
+			this.si_SubspellsGrp.Controls.Add(this.si_SubspellTi);
+			this.si_SubspellsGrp.Controls.Add(this.si_SubspellEt);
+			this.si_SubspellsGrp.Controls.Add(this.si_SubspellDi);
+			this.si_SubspellsGrp.Controls.Add(this.si_SubspellSt);
+			this.si_SubspellsGrp.Controls.Add(this.si_SubspellDc);
+			this.si_SubspellsGrp.Controls.Add(this.si_Subspell1);
+			this.si_SubspellsGrp.Controls.Add(this.si_Subspell2);
+			this.si_SubspellsGrp.Controls.Add(this.si_Subspell3);
+			this.si_SubspellsGrp.Controls.Add(this.si_Subspell4);
+			this.si_SubspellsGrp.Controls.Add(this.si_Subspell5);
+			this.si_SubspellsGrp.Enabled = false;
+			this.si_SubspellsGrp.Location = new System.Drawing.Point(305, 150);
+			this.si_SubspellsGrp.Margin = new System.Windows.Forms.Padding(0);
+			this.si_SubspellsGrp.Name = "si_SubspellsGrp";
+			this.si_SubspellsGrp.Padding = new System.Windows.Forms.Padding(0);
+			this.si_SubspellsGrp.Size = new System.Drawing.Size(115, 155);
+			this.si_SubspellsGrp.TabIndex = 10;
+			this.si_SubspellsGrp.TabStop = false;
+			this.si_SubspellsGrp.Text = " Subspells ";
 			// 
-			// si_ChildTi
+			// si_SubspellTi
 			// 
-			this.si_ChildTi.Location = new System.Drawing.Point(5, 20);
-			this.si_ChildTi.Margin = new System.Windows.Forms.Padding(0);
-			this.si_ChildTi.Name = "si_ChildTi";
-			this.si_ChildTi.Size = new System.Drawing.Size(25, 20);
-			this.si_ChildTi.TabIndex = 0;
-			this.si_ChildTi.Text = "ti";
-			this.si_ChildTi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.si_SubspellTi.Location = new System.Drawing.Point(5, 20);
+			this.si_SubspellTi.Margin = new System.Windows.Forms.Padding(0);
+			this.si_SubspellTi.Name = "si_SubspellTi";
+			this.si_SubspellTi.Size = new System.Drawing.Size(25, 20);
+			this.si_SubspellTi.TabIndex = 0;
+			this.si_SubspellTi.Text = "ti";
+			this.si_SubspellTi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
-			// si_ChildEt
+			// si_SubspellEt
 			// 
-			this.si_ChildEt.Location = new System.Drawing.Point(5, 45);
-			this.si_ChildEt.Margin = new System.Windows.Forms.Padding(0);
-			this.si_ChildEt.Name = "si_ChildEt";
-			this.si_ChildEt.Size = new System.Drawing.Size(25, 20);
-			this.si_ChildEt.TabIndex = 1;
-			this.si_ChildEt.Text = "et";
-			this.si_ChildEt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.si_SubspellEt.Location = new System.Drawing.Point(5, 45);
+			this.si_SubspellEt.Margin = new System.Windows.Forms.Padding(0);
+			this.si_SubspellEt.Name = "si_SubspellEt";
+			this.si_SubspellEt.Size = new System.Drawing.Size(25, 20);
+			this.si_SubspellEt.TabIndex = 1;
+			this.si_SubspellEt.Text = "et";
+			this.si_SubspellEt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
-			// si_ChildDi
+			// si_SubspellDi
 			// 
-			this.si_ChildDi.Location = new System.Drawing.Point(5, 70);
-			this.si_ChildDi.Margin = new System.Windows.Forms.Padding(0);
-			this.si_ChildDi.Name = "si_ChildDi";
-			this.si_ChildDi.Size = new System.Drawing.Size(25, 20);
-			this.si_ChildDi.TabIndex = 2;
-			this.si_ChildDi.Text = "di";
-			this.si_ChildDi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.si_SubspellDi.Location = new System.Drawing.Point(5, 70);
+			this.si_SubspellDi.Margin = new System.Windows.Forms.Padding(0);
+			this.si_SubspellDi.Name = "si_SubspellDi";
+			this.si_SubspellDi.Size = new System.Drawing.Size(25, 20);
+			this.si_SubspellDi.TabIndex = 2;
+			this.si_SubspellDi.Text = "di";
+			this.si_SubspellDi.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
-			// si_ChildSt
+			// si_SubspellSt
 			// 
-			this.si_ChildSt.Location = new System.Drawing.Point(5, 95);
-			this.si_ChildSt.Margin = new System.Windows.Forms.Padding(0);
-			this.si_ChildSt.Name = "si_ChildSt";
-			this.si_ChildSt.Size = new System.Drawing.Size(25, 20);
-			this.si_ChildSt.TabIndex = 3;
-			this.si_ChildSt.Text = "st";
-			this.si_ChildSt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.si_SubspellSt.Location = new System.Drawing.Point(5, 95);
+			this.si_SubspellSt.Margin = new System.Windows.Forms.Padding(0);
+			this.si_SubspellSt.Name = "si_SubspellSt";
+			this.si_SubspellSt.Size = new System.Drawing.Size(25, 20);
+			this.si_SubspellSt.TabIndex = 3;
+			this.si_SubspellSt.Text = "st";
+			this.si_SubspellSt.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
-			// si_ChildDc
+			// si_SubspellDc
 			// 
-			this.si_ChildDc.Location = new System.Drawing.Point(5, 120);
-			this.si_ChildDc.Margin = new System.Windows.Forms.Padding(0);
-			this.si_ChildDc.Name = "si_ChildDc";
-			this.si_ChildDc.Size = new System.Drawing.Size(25, 20);
-			this.si_ChildDc.TabIndex = 4;
-			this.si_ChildDc.Text = "dc";
-			this.si_ChildDc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.si_SubspellDc.Location = new System.Drawing.Point(5, 120);
+			this.si_SubspellDc.Margin = new System.Windows.Forms.Padding(0);
+			this.si_SubspellDc.Name = "si_SubspellDc";
+			this.si_SubspellDc.Size = new System.Drawing.Size(25, 20);
+			this.si_SubspellDc.TabIndex = 4;
+			this.si_SubspellDc.Text = "dc";
+			this.si_SubspellDc.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
-			// si_Child1
+			// si_Subspell1
 			// 
-			this.si_Child1.Location = new System.Drawing.Point(30, 20);
-			this.si_Child1.Margin = new System.Windows.Forms.Padding(0);
-			this.si_Child1.Name = "si_Child1";
-			this.si_Child1.Size = new System.Drawing.Size(80, 20);
-			this.si_Child1.TabIndex = 5;
+			this.si_Subspell1.Location = new System.Drawing.Point(30, 20);
+			this.si_Subspell1.Margin = new System.Windows.Forms.Padding(0);
+			this.si_Subspell1.Name = "si_Subspell1";
+			this.si_Subspell1.Size = new System.Drawing.Size(80, 20);
+			this.si_Subspell1.TabIndex = 5;
 			// 
-			// si_Child2
+			// si_Subspell2
 			// 
-			this.si_Child2.Location = new System.Drawing.Point(30, 45);
-			this.si_Child2.Margin = new System.Windows.Forms.Padding(0);
-			this.si_Child2.Name = "si_Child2";
-			this.si_Child2.Size = new System.Drawing.Size(80, 20);
-			this.si_Child2.TabIndex = 6;
+			this.si_Subspell2.Location = new System.Drawing.Point(30, 45);
+			this.si_Subspell2.Margin = new System.Windows.Forms.Padding(0);
+			this.si_Subspell2.Name = "si_Subspell2";
+			this.si_Subspell2.Size = new System.Drawing.Size(80, 20);
+			this.si_Subspell2.TabIndex = 6;
 			// 
-			// si_Child3
+			// si_Subspell3
 			// 
-			this.si_Child3.Location = new System.Drawing.Point(30, 70);
-			this.si_Child3.Margin = new System.Windows.Forms.Padding(0);
-			this.si_Child3.Name = "si_Child3";
-			this.si_Child3.Size = new System.Drawing.Size(80, 20);
-			this.si_Child3.TabIndex = 7;
+			this.si_Subspell3.Location = new System.Drawing.Point(30, 70);
+			this.si_Subspell3.Margin = new System.Windows.Forms.Padding(0);
+			this.si_Subspell3.Name = "si_Subspell3";
+			this.si_Subspell3.Size = new System.Drawing.Size(80, 20);
+			this.si_Subspell3.TabIndex = 7;
 			// 
-			// si_Child4
+			// si_Subspell4
 			// 
-			this.si_Child4.Location = new System.Drawing.Point(30, 95);
-			this.si_Child4.Margin = new System.Windows.Forms.Padding(0);
-			this.si_Child4.Name = "si_Child4";
-			this.si_Child4.Size = new System.Drawing.Size(80, 20);
-			this.si_Child4.TabIndex = 8;
+			this.si_Subspell4.Location = new System.Drawing.Point(30, 95);
+			this.si_Subspell4.Margin = new System.Windows.Forms.Padding(0);
+			this.si_Subspell4.Name = "si_Subspell4";
+			this.si_Subspell4.Size = new System.Drawing.Size(80, 20);
+			this.si_Subspell4.TabIndex = 8;
 			// 
-			// si_Child5
+			// si_Subspell5
 			// 
-			this.si_Child5.Location = new System.Drawing.Point(30, 120);
-			this.si_Child5.Margin = new System.Windows.Forms.Padding(0);
-			this.si_Child5.Name = "si_Child5";
-			this.si_Child5.Size = new System.Drawing.Size(80, 20);
-			this.si_Child5.TabIndex = 9;
+			this.si_Subspell5.Location = new System.Drawing.Point(30, 120);
+			this.si_Subspell5.Margin = new System.Windows.Forms.Padding(0);
+			this.si_Subspell5.Name = "si_Subspell5";
+			this.si_Subspell5.Size = new System.Drawing.Size(80, 20);
+			this.si_Subspell5.TabIndex = 9;
 			// 
-			// si_ChildLabel1
+			// si_SubspellLabel1
 			// 
-			this.si_ChildLabel1.Location = new System.Drawing.Point(425, 170);
-			this.si_ChildLabel1.Margin = new System.Windows.Forms.Padding(0);
-			this.si_ChildLabel1.Name = "si_ChildLabel1";
-			this.si_ChildLabel1.Size = new System.Drawing.Size(385, 20);
-			this.si_ChildLabel1.TabIndex = 11;
-			this.si_ChildLabel1.Text = "si_ChildLabel1";
-			this.si_ChildLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.si_SubspellLabel1.Location = new System.Drawing.Point(425, 170);
+			this.si_SubspellLabel1.Margin = new System.Windows.Forms.Padding(0);
+			this.si_SubspellLabel1.Name = "si_SubspellLabel1";
+			this.si_SubspellLabel1.Size = new System.Drawing.Size(385, 20);
+			this.si_SubspellLabel1.TabIndex = 11;
+			this.si_SubspellLabel1.Text = "si_SubspellLabel1";
+			this.si_SubspellLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
-			// si_ChildLabel2
+			// si_SubspellLabel2
 			// 
-			this.si_ChildLabel2.Location = new System.Drawing.Point(425, 195);
-			this.si_ChildLabel2.Margin = new System.Windows.Forms.Padding(0);
-			this.si_ChildLabel2.Name = "si_ChildLabel2";
-			this.si_ChildLabel2.Size = new System.Drawing.Size(385, 20);
-			this.si_ChildLabel2.TabIndex = 12;
-			this.si_ChildLabel2.Text = "si_ChildLabel2";
-			this.si_ChildLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.si_SubspellLabel2.Location = new System.Drawing.Point(425, 195);
+			this.si_SubspellLabel2.Margin = new System.Windows.Forms.Padding(0);
+			this.si_SubspellLabel2.Name = "si_SubspellLabel2";
+			this.si_SubspellLabel2.Size = new System.Drawing.Size(385, 20);
+			this.si_SubspellLabel2.TabIndex = 12;
+			this.si_SubspellLabel2.Text = "si_SubspellLabel2";
+			this.si_SubspellLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
-			// si_ChildLabel3
+			// si_SubspellLabel3
 			// 
-			this.si_ChildLabel3.Location = new System.Drawing.Point(425, 220);
-			this.si_ChildLabel3.Margin = new System.Windows.Forms.Padding(0);
-			this.si_ChildLabel3.Name = "si_ChildLabel3";
-			this.si_ChildLabel3.Size = new System.Drawing.Size(385, 20);
-			this.si_ChildLabel3.TabIndex = 13;
-			this.si_ChildLabel3.Text = "si_ChildLabel3";
-			this.si_ChildLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.si_SubspellLabel3.Location = new System.Drawing.Point(425, 220);
+			this.si_SubspellLabel3.Margin = new System.Windows.Forms.Padding(0);
+			this.si_SubspellLabel3.Name = "si_SubspellLabel3";
+			this.si_SubspellLabel3.Size = new System.Drawing.Size(385, 20);
+			this.si_SubspellLabel3.TabIndex = 13;
+			this.si_SubspellLabel3.Text = "si_SubspellLabel3";
+			this.si_SubspellLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
-			// si_ChildLabel4
+			// si_SubspellLabel4
 			// 
-			this.si_ChildLabel4.Location = new System.Drawing.Point(425, 245);
-			this.si_ChildLabel4.Margin = new System.Windows.Forms.Padding(0);
-			this.si_ChildLabel4.Name = "si_ChildLabel4";
-			this.si_ChildLabel4.Size = new System.Drawing.Size(385, 20);
-			this.si_ChildLabel4.TabIndex = 14;
-			this.si_ChildLabel4.Text = "si_ChildLabel4";
-			this.si_ChildLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.si_SubspellLabel4.Location = new System.Drawing.Point(425, 245);
+			this.si_SubspellLabel4.Margin = new System.Windows.Forms.Padding(0);
+			this.si_SubspellLabel4.Name = "si_SubspellLabel4";
+			this.si_SubspellLabel4.Size = new System.Drawing.Size(385, 20);
+			this.si_SubspellLabel4.TabIndex = 14;
+			this.si_SubspellLabel4.Text = "si_SubspellLabel4";
+			this.si_SubspellLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
-			// si_ChildLabel5
+			// si_SubspellLabel5
 			// 
-			this.si_ChildLabel5.Location = new System.Drawing.Point(425, 270);
-			this.si_ChildLabel5.Margin = new System.Windows.Forms.Padding(0);
-			this.si_ChildLabel5.Name = "si_ChildLabel5";
-			this.si_ChildLabel5.Size = new System.Drawing.Size(385, 20);
-			this.si_ChildLabel5.TabIndex = 15;
-			this.si_ChildLabel5.Text = "si_ChildLabel5";
-			this.si_ChildLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+			this.si_SubspellLabel5.Location = new System.Drawing.Point(425, 270);
+			this.si_SubspellLabel5.Margin = new System.Windows.Forms.Padding(0);
+			this.si_SubspellLabel5.Name = "si_SubspellLabel5";
+			this.si_SubspellLabel5.Size = new System.Drawing.Size(385, 20);
+			this.si_SubspellLabel5.TabIndex = 15;
+			this.si_SubspellLabel5.Text = "si_SubspellLabel5";
+			this.si_SubspellLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// tp_TargetInfo
 			// 
@@ -3802,8 +3802,8 @@ namespace nwn2_ai_2da_editor
 			this.si_SpelltypeGrp.ResumeLayout(false);
 			this.si_FlagsGrp.ResumeLayout(false);
 			this.si_SpelllevelGrp.ResumeLayout(false);
-			this.si_ChildIDGrp.ResumeLayout(false);
-			this.si_ChildIDGrp.PerformLayout();
+			this.si_SubspellsGrp.ResumeLayout(false);
+			this.si_SubspellsGrp.PerformLayout();
 			this.tp_TargetInfo.ResumeLayout(false);
 			this.tp_TargetInfo.PerformLayout();
 			this.ti_FlagsGrp.ResumeLayout(false);
