@@ -77,7 +77,7 @@ namespace nwn2_ai_2da_editor
 				else
 					EffectWeight_reset.ForeColor = DefaultForeColor;
 
-				_he.SetEnabled(differ != bit_clear);
+				_he.EnableApplys(differ != bit_clear);
 			}
 			// else TODO: error dialog here.
 		}

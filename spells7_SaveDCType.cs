@@ -112,7 +112,7 @@ namespace nwn2_ai_2da_editor
 				// TODO: should probably disable if savedctype is negative.
 				dc_ArmorCheckGrp.Enabled = (savedctype & ~HENCH_SAVEDCTYPE_ARMORCHECK_MASK) == 0;
 
-				_he.SetEnabled(differ != bit_clear);
+				_he.EnableApplys(differ != bit_clear);
 			}
 			// else TODO: error dialog here.
 		}

@@ -121,7 +121,7 @@ namespace nwn2_ai_2da_editor
 
 //				PrintInfoVersion_spell(spellinfo);
 
-				_he.SetEnabled(differ != bit_clear);
+				_he.EnableApplys(differ != bit_clear);
 			}
 			// else TODO: error dialog here.
 		}

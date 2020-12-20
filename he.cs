@@ -1067,7 +1067,7 @@ namespace nwn2_ai_2da_editor
 			Tree.SelectedNode.ForeColor = color;
 		}
 
-		internal void SetEnabled(bool differs)
+		internal void EnableApplys(bool differs)
 		{
 			bool changes = false;
 			switch (Type)
