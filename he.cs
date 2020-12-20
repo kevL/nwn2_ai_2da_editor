@@ -486,7 +486,7 @@ namespace nwn2_ai_2da_editor
 			tree_Highlight.Text = "highlight blank SpellInfo nodes";
 		}
 
-		/* <summary>
+/*		/// <summary>
 		/// Updates any InfoVersion for the spells when the 2da loads. Ensures
 		/// that spell-info does not have a CoreAI version if there's no other
 		/// data and that it does have a CoreAI version if there is.
@@ -641,7 +641,7 @@ namespace nwn2_ai_2da_editor
 			tree_Highlight.Text = "highlight blank Racial flags nodes";
 		}
 
-		/* <summary>
+/*		/// <summary>
 		/// Updates any InfoVersion for the races when the 2da loads. Ensures
 		/// that racial-flags has a CoreAI version - RacialFlags always has a
 		/// Version (unlike spellinfo).
@@ -804,7 +804,7 @@ namespace nwn2_ai_2da_editor
 			tree_Highlight.Text = "highlight blank Class flags nodes";
 		}
 
-		/* <summary>
+/*		/// <summary>
 		/// Updates any InfoVersion for the classes when the 2da loads. Ensures
 		/// that class-flags has a CoreAI version - ClassFlags always has a
 		/// Version (unlike spellinfo).
