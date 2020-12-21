@@ -37,8 +37,6 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void TextChanged_di(object sender, EventArgs e)
 		{
-			//logfile.Log("TextChanged_di() bypassTextChanged= " + bypassTextChanged);
-
 			// NOTE: TextChanged needs to fire when HenchSpells loads in order
 			// to set the checkboxes and dropdown-fields. Technically however
 			// this does not need to go through creating and deleting each
@@ -73,13 +71,11 @@ namespace nwn2_ai_2da_editor
 
 					spellchanged.damageinfo = damageinfo;
 
-					// check it
-					differ = SpellDiffer(spell, spellchanged);
-					spell.differ = differ;
+					spell.differ = SpellDiffer(spell, spellchanged);
 					he.Spells[he.Id] = spell;
 
 					Color color;
-					if (differ != bit_clear)
+					if (spell.differ != bit_clear)
 					{
 						he.SpellsChanged[he.Id] = spellchanged;
 						color = Color.Crimson;

@@ -25,8 +25,6 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void TextChanged_st(object sender, EventArgs e)
 		{
-			//logfile.Log("TextChanged_st() bypassTextChanged= " + bypassTextChanged);
-
 			int savetype;
 			if (Int32.TryParse(SaveType_text.Text, out savetype))
 			{
@@ -56,13 +54,11 @@ namespace nwn2_ai_2da_editor
 
 					spellchanged.savetype = savetype;
 
-					// check it
-					differ = SpellDiffer(spell, spellchanged);
-					spell.differ = differ;
+					spell.differ = SpellDiffer(spell, spellchanged);
 					he.Spells[he.Id] = spell;
 
 					Color color;
-					if (differ != bit_clear)
+					if (spell.differ != bit_clear)
 					{
 						he.SpellsChanged[he.Id] = spellchanged;
 						color = Color.Crimson;

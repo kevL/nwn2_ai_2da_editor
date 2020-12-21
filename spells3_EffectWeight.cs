@@ -16,8 +16,6 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void TextChanged_ew(object sender, EventArgs e)
 		{
-			//logfile.Log("TextChanged_effectweight() bypassTextChanged= " + bypassTextChanged);
-
 			float effectweight;
 			if (float.TryParse(EffectWeight_text.Text, out effectweight))
 			{
@@ -47,13 +45,11 @@ namespace nwn2_ai_2da_editor
 
 					spellchanged.effectweight = effectweight;
 
-					// check it
-					differ = SpellDiffer(spell, spellchanged);
-					spell.differ = differ;
+					spell.differ = SpellDiffer(spell, spellchanged);
 					he.Spells[he.Id] = spell;
 
 					Color color;
-					if (differ != bit_clear)
+					if (spell.differ != bit_clear)
 					{
 						he.SpellsChanged[he.Id] = spellchanged;
 						color = Color.Crimson;
