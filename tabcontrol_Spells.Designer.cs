@@ -18,32 +18,6 @@ namespace nwn2_ai_2da_editor
 		TabPage tp_DamageInfo;
 		TabPage tp_SaveType;
 		TabPage tp_SaveDCType;
-//		UserControl tabpage_Spells_1spellinfo;
-//		UserControl tabpage_Spells_2targetinfo;
-//		UserControl tabpage_Spells_3effectweight;
-//		UserControl tabpage_Spells_4effecttypes;
-//		UserControl tabpage_Spells_5damageinfo;
-//		UserControl tabpage_Spells_6savetype;
-//		UserControl tabpage_Spells_7savedctype;
-//		tabpage_Spells_1spellinfo    tabpage_Spells_1spellinfo;
-//		tabpage_Spells_2targetinfo   tabpage_Spells_2targetinfo;
-//		tabpage_Spells_3effectweight tabpage_Spells_3effectweight;
-//		tabpage_Spells_4effecttypes  tabpage_Spells_4effecttypes;
-//		tabpage_Spells_5damageinfo   tabpage_Spells_5damageinfo;
-//		tabpage_Spells_6savetype     tabpage_Spells_6savetype;
-//		tabpage_Spells_7savedctype   tabpage_Spells_7savedctype;
-/*
-			this.tabpage_Spells_1spellinfo    = new nwn2_ai_2da_editor.tabpage_Spells_1spellinfo();
-			this.tabpage_Spells_2targetinfo   = new nwn2_ai_2da_editor.tabpage_Spells_2targetinfo();
-			this.tabpage_Spells_3effectweight = new nwn2_ai_2da_editor.tabpage_Spells_3effectweight();
-			this.tabpage_Spells_4effecttypes  = new nwn2_ai_2da_editor.tabpage_Spells_4effecttypes();
-			this.tabpage_Spells_5damageinfo   = new nwn2_ai_2da_editor.tabpage_Spells_5damageinfo();
-			this.tabpage_Spells_6savetype     = new nwn2_ai_2da_editor.tabpage_Spells_6savetype();
-			this.tabpage_Spells_7savedctype   = new nwn2_ai_2da_editor.tabpage_Spells_7savedctype();
-*/
-		// IMPORTANT: I tried subclassing the pages as UserControls but when
-		// subcontrols were added to those this designer borked out - with
-		// insult.
 
 // 'tp_SpellInfo' controls
 		Button     SpellInfo_reset; // TODO: ToolTip "reset"

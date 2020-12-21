@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
 
@@ -10,9 +9,7 @@ namespace nwn2_ai_2da_editor
 	/// A UserControl with a TabControl set to Dock.Fill.
 	/// </summary>
 	sealed partial class tabcontrol_Racial
-		:
-//			UserControl,
-			HenchControl
+		: HenchControl
 	{
 		/// <summary>
 		/// Bitflags for spell-fields that have changed.
