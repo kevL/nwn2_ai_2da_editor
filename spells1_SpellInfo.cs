@@ -18,10 +18,15 @@ namespace nwn2_ai_2da_editor
 		void TextChanged_si(object sender, EventArgs e)
 		{
 			// NOTE: TextChanged needs to fire when HenchSpells loads in order
-			// to set the checkboxes and dropdown-fields. Technically however
-			// this does not need to go through creating and deleting each
-			// SpellChanged-struct (since nothing has changed yet OnLoad of the
-			// 2da-file)
+			// to set the checkboxes and dropdown-fields.
+			//
+			// 'BypassDiffer' is set true since this does not need to go through
+			// creating and deleting each SpellChanged-struct (since nothing has
+			// changed yet OnLoad of the 2da-file).
+			//
+			// 'BypassDiffer' is also set true by AfterSelect_node() since the
+			// Spell-structs already contain proper diff-data.
+
 			int spellinfo;
 			if (Int32.TryParse(SpellInfo_text.Text, out spellinfo))
 			{
@@ -163,8 +168,6 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void SelectionChangeCommitted_si_co_Spelltype(object sender, EventArgs e)
 		{
-			//logfile.Log("SelectionChangeCommitted_si_co_Spelltype() selectedId= " + si_co_Spelltype.SelectedIndex);
-
 			int spellinfo;
 			if (Int32.TryParse(SpellInfo_text.Text, out spellinfo))
 			{
@@ -180,8 +183,6 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void SelectionChangeCommitted_si_co_Spelllevel(object sender, EventArgs e)
 		{
-			//logfile.Log("SelectionChangeCommitted_si_co_Spelllevel() selectedId= " + si_co_Spelllevel.SelectedIndex);
-
 			int spellinfo;
 			if (Int32.TryParse(SpellInfo_text.Text, out spellinfo))
 			{
@@ -198,14 +199,9 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void MouseClick_si_Flags(object sender, MouseEventArgs e)
 		{
-			//logfile.Log("MouseClick_si_Flags()");
-			//logfile.Log(". text= " + SpellInfo_text.Text);
-
 			int spellinfo;
 			if (Int32.TryParse(SpellInfo_text.Text, out spellinfo))
 			{
-				//logfile.Log(". . is valid Int32= " + spellinfo);
-
 				int bit;
 
 				var cb = sender as CheckBox;

@@ -25,6 +25,16 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void TextChanged_st(object sender, EventArgs e)
 		{
+			// NOTE: TextChanged needs to fire when HenchSpells loads in order
+			// to set the checkboxes and dropdown-fields.
+			//
+			// 'BypassDiffer' is set true since this does not need to go through
+			// creating and deleting each SpellChanged-struct (since nothing has
+			// changed yet OnLoad of the 2da-file).
+			//
+			// 'BypassDiffer' is also set true by AfterSelect_node() since the
+			// Spell-structs already contain proper diff-data.
+
 			int savetype;
 			if (Int32.TryParse(SaveType_text.Text, out savetype))
 			{
@@ -102,7 +112,6 @@ namespace nwn2_ai_2da_editor
 					SetSpellLabelText(si_SubspellLabel4, savetype);
 				}
 
-
 				_he.EnableApplys(differ != bit_clean);
 			}
 			// else TODO: error dialog here.
@@ -149,8 +158,6 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void SelectionChangeCommitted_st_co_Specific(object sender, EventArgs e)
 		{
-			//logfile.Log("SelectionChangeCommitted_st_co_Specific() selectedId= " + st_co_Specific.SelectedIndex);
-
 			int savetype;
 			if (Int32.TryParse(SaveType_text.Text, out savetype))
 			{
@@ -197,7 +204,7 @@ namespace nwn2_ai_2da_editor
 				int val = st_co_TargetRestriction.SelectedIndex;
 				switch (val)
 				{
-//					default: val = 0;                       break; // let "0" fallthrough
+//					default: val = 0; break;
 
 					case 1: val = hc.HENCH_WEAPON_STAFF_FLAG;  break; // 1
 					case 2: val = hc.HENCH_WEAPON_SLASH_FLAG;  break; // 2
@@ -231,8 +238,6 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void MouseClick_st_Type1Save(object sender, MouseEventArgs e)
 		{
-			//logfile.Log("MouseClick_st_Type1Save()");
-
 			int savetype;
 			if (Int32.TryParse(SaveType_text.Text, out savetype))
 			{
@@ -265,8 +270,6 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void MouseClick_st_Type2Save(object sender, MouseEventArgs e)
 		{
-			//logfile.Log("MouseClick_st_Type2Save()");
-
 			int savetype;
 			if (Int32.TryParse(SaveType_text.Text, out savetype))
 			{
@@ -299,8 +302,6 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void MouseClick_st_Type1Damage(object sender, MouseEventArgs e)
 		{
-			//logfile.Log("MouseClick_st_Type1Damage()");
-
 			int savetype;
 			if (Int32.TryParse(SaveType_text.Text, out savetype))
 			{
@@ -333,8 +334,6 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void MouseClick_st_Type2Damage(object sender, MouseEventArgs e)
 		{
-			//logfile.Log("MouseClick_st_Type1Damage()");
-
 			int savetype;
 			if (Int32.TryParse(SaveType_text.Text, out savetype))
 			{
@@ -367,14 +366,9 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void MouseClick_st_Flags(object sender, MouseEventArgs e)
 		{
-			//logfile.Log("MouseClick_st_General()");
-			//logfile.Log(". text= " + SaveType_text.Text);
-
 			int savetype;
 			if (Int32.TryParse(SaveType_text.Text, out savetype))
 			{
-				//logfile.Log(". . is valid Int32= " + savetype);
-
 				int bit;
 
 				var cb = sender as CheckBox;
@@ -422,14 +416,9 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void MouseClick_st_excl_Damagetype(object sender, MouseEventArgs e)
 		{
-			//logfile.Log("MouseClick_st_excl_Damagetype()");
-			//logfile.Log(". text= " + SaveType_text.Text);
-
 			int savetype;
 			if (Int32.TryParse(SaveType_text.Text, out savetype))
 			{
-				//logfile.Log(". . is valid Int32= " + savetype);
-
 				int bit;
 
 				var cb = sender as CheckBox;
@@ -501,14 +490,9 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void MouseClick_st_excl_Flags(object sender, MouseEventArgs e)
 		{
-			//logfile.Log("MouseClick_st_excl_Flags()");
-			//logfile.Log(". text= " + SaveType_text.Text);
-
 			int savetype;
 			if (Int32.TryParse(SaveType_text.Text, out savetype))
 			{
-				//logfile.Log(". . is valid Int32= " + savetype);
-
 				var rb = sender as RadioButton;
 				if (rb != null)
 				{

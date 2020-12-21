@@ -38,10 +38,15 @@ namespace nwn2_ai_2da_editor
 		void TextChanged_di(object sender, EventArgs e)
 		{
 			// NOTE: TextChanged needs to fire when HenchSpells loads in order
-			// to set the checkboxes and dropdown-fields. Technically however
-			// this does not need to go through creating and deleting each
-			// SpellChanged-struct (since nothing has changed yet OnLoad of the
-			// 2da-file)
+			// to set the checkboxes and dropdown-fields.
+			//
+			// 'BypassDiffer' is set true since this does not need to go through
+			// creating and deleting each SpellChanged-struct (since nothing has
+			// changed yet OnLoad of the 2da-file).
+			//
+			// 'BypassDiffer' is also set true by AfterSelect_node() since the
+			// Spell-structs already contain proper diff-data.
+
 			int damageinfo;
 			if (Int32.TryParse(DamageInfo_text.Text, out damageinfo))
 			{
@@ -166,8 +171,6 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void SelectionChangeCommitted_di_co_ben_Powerbase(object sender, EventArgs e)
 		{
-			//logfile.Log("SelectionChangeCommitted_di_co_ben_Powerbase() selectedId= " + di_co_BenPowerbase.SelectedIndex);
-
 			int damageinfo;
 			if (Int32.TryParse(DamageInfo_text.Text, out damageinfo))
 			{
@@ -197,8 +200,6 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void SelectionChangeCommitted_di_co_ben_Leveltype(object sender, EventArgs e)
 		{
-			//logfile.Log("SelectionChangeCommitted_di_co_ben_Leveltype() selectedId= " + di_co_BenLeveltype.SelectedIndex);
-
 			int damageinfo;
 			if (Int32.TryParse(DamageInfo_text.Text, out damageinfo))
 			{
@@ -223,8 +224,6 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void SelectionChangeCommitted_di_co_det_Damagebase(object sender, EventArgs e)
 		{
-			//logfile.Log("SelectionChangeCommitted_di_co_det_Damagebase() selectedId= " + di_co_DetDamagebase.SelectedIndex);
-
 			int damageinfo;
 			if (Int32.TryParse(DamageInfo_text.Text, out damageinfo))
 			{
@@ -259,8 +258,6 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void SelectionChangeCommitted_di_co_det_Leveltype(object sender, EventArgs e)
 		{
-			//logfile.Log("SelectionChangeCommitted_di_co_det_Leveltype() selectedId= " + di_co_DetLeveltype.SelectedIndex);
-
 			int damageinfo;
 			if (Int32.TryParse(DamageInfo_text.Text, out damageinfo))
 			{
@@ -285,14 +282,9 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void MouseClick_di_Dispeltype(object sender, MouseEventArgs e)
 		{
-			//logfile.Log("MouseClick_di_Dispeltype()");
-			//logfile.Log(". text= " + DamageInfo_text.Text);
-
 			int damageinfo;
 			if (Int32.TryParse(DamageInfo_text.Text, out damageinfo))
 			{
-				//logfile.Log(". . is valid Int32= " + damageinfo);
-
 				int bit;
 
 				var cb = sender as CheckBox;
@@ -332,14 +324,9 @@ namespace nwn2_ai_2da_editor
 			// NOTE: These cases are considered in 'hench_i0_buff'   HenchGetEnergyImmunityWeight()
 			// NOTE: These cases are considered in 'hench_i0_dispel' HenchGetAOEProblem()
 
-			//logfile.Log("MouseClick_di_Damagetype()");
-			//logfile.Log(". text= " + DamageInfo_text.Text);
-
 			int damageinfo;
 			if (Int32.TryParse(DamageInfo_text.Text, out damageinfo))
 			{
-				//logfile.Log(". . is valid Int32= " + damageinfo);
-
 				// TODO: I think the CoreAI can deal with only (max) 2 DamageTypes ...
 				// If so then implement a routine that deselects a Type if a 3rd is clicked.
 
@@ -826,7 +813,7 @@ namespace nwn2_ai_2da_editor
 			di_BenPower.Text = val.ToString();
 
 // ben LevelLimit textbox
-			val = (damageinfo & hc.HENCH_SPELL_INFO_BUFF_LEVEL_LIMIT_MASK);	// 0x00003f00
+			val = (damageinfo & hc.HENCH_SPELL_INFO_BUFF_LEVEL_LIMIT_MASK);		// 0x00003f00
 			val >>= HENCH_SPELL_INFO_BUFF_LEVEL_LIMIT_SHIFT;
 			di_BenLevellimit.Text = val.ToString();
 
@@ -851,7 +838,7 @@ namespace nwn2_ai_2da_editor
 			di_DetLevellimit.Text = val.ToString();
 
 // det LevelDivisor textbox
-			val = (damageinfo & hc.HENCH_SPELL_INFO_DAMAGE_LEVEL_DIV_MASK);	// 0x0c000000 - overlaps FixedCount
+			val = (damageinfo & hc.HENCH_SPELL_INFO_DAMAGE_LEVEL_DIV_MASK);		// 0x0c000000 - overlaps FixedCount
 			val >>= HENCH_SPELL_INFO_DAMAGE_LEVEL_DIV_SHIFT;
 			di_DetLeveldivisor.Text = val.ToString();
 

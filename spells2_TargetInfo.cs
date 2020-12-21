@@ -20,10 +20,15 @@ namespace nwn2_ai_2da_editor
 		void TextChanged_ti(object sender, EventArgs e)
 		{
 			// NOTE: TextChanged needs to fire when HenchSpells loads in order
-			// to set the checkboxes and dropdown-fields. Technically however
-			// this does not need to go through creating and deleting each
-			// SpellChanged-struct (since nothing has changed yet OnLoad of the
-			// 2da-file)
+			// to set the checkboxes and dropdown-fields.
+			//
+			// 'BypassDiffer' is set true since this does not need to go through
+			// creating and deleting each SpellChanged-struct (since nothing has
+			// changed yet OnLoad of the 2da-file).
+			//
+			// 'BypassDiffer' is also set true by AfterSelect_node() since the
+			// Spell-structs already contain proper diff-data.
+
 			int targetinfo;
 			if (Int32.TryParse(TargetInfo_text.Text, out targetinfo))
 			{
@@ -170,8 +175,6 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void SelectionChangeCommitted_ti_co_Shape(object sender, EventArgs e)
 		{
-			//logfile.Log("SelectionChangeCommitted_ti_co_Shape() selectedId= " + ti_co_Shape.SelectedIndex);
-
 			int targetinfo;
 			if (Int32.TryParse(TargetInfo_text.Text, out targetinfo))
 			{
@@ -187,8 +190,6 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void SelectionChangeCommitted_ti_co_Range(object sender, EventArgs e)
 		{
-			//logfile.Log("SelectionChangeCommitted_ti_co_Range() selectedId= " + ti_co_Range.SelectedIndex);
-
 			int targetinfo;
 			if (Int32.TryParse(TargetInfo_text.Text, out targetinfo))
 			{
@@ -215,14 +216,9 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void MouseClick_ti_Flags(object sender, MouseEventArgs e)
 		{
-			//logfile.Log("MouseClick_ti_Flags()");
-			//logfile.Log(". text= " + TargetInfo_text.Text);
-
 			int targetinfo;
 			if (Int32.TryParse(TargetInfo_text.Text, out targetinfo))
 			{
-				//logfile.Log(". . is valid Int32= " + targetinfo);
-
 				int bit;
 
 				var cb = sender as CheckBox;
@@ -290,24 +286,21 @@ namespace nwn2_ai_2da_editor
 		void TextChanged_ti_Radius(object sender, EventArgs e)
 		{
 			float radius;
-			if (float.TryParse(ti_Radius.Text, out radius))
+			if (Single.TryParse(ti_Radius.Text, out radius))
 			{
 				if (radius < 0.0f)
 				{
-					radius = 0.0f;
-					ti_Radius.Text = he.Float2daFormat(radius); // re-trigger this funct.
+					ti_Radius.Text = "0.0"; // recurse this funct.
 					ti_Radius.SelectionStart = ti_Radius.Text.Length;
 				}
 				else if (radius > 102.3f)	// NOTE: This can throw on Convert.ToInt32()
 				{							// if the input goes too high. So just stop it.
-					radius = 102.3f;
-					ti_Radius.Text = he.Float2daFormat(radius); // re-trigger this funct.
+					ti_Radius.Text = "102.3"; // recurse this funct.
 					ti_Radius.SelectionStart = ti_Radius.Text.Length;
 				}
 				else
 				{
 					radius *= 10.0f;
-//					radius +=  0.5f;
 
 					int iradius = Convert.ToInt32(radius);
 					if (iradius < 0) // make sure this doesn't nobble its way below 0 on the conversion.
@@ -381,8 +374,7 @@ namespace nwn2_ai_2da_editor
 			ti_co_Range.SelectedIndex = val;
 
 // Radius textbox
-			val = targetinfo;
-			val &= hc.HENCH_SPELL_TARGET_RADIUS_MASK;
+			val = (targetinfo & hc.HENCH_SPELL_TARGET_RADIUS_MASK);
 			val >>= HENCH_SPELL_TARGET_RADIUS_SHIFT;
 			ti_Radius.Text = he.Float2daFormat((float)val * 0.1f);
 		}

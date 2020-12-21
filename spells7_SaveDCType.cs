@@ -22,6 +22,16 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void TextChanged_dc(object sender, EventArgs e)
 		{
+			// NOTE: TextChanged needs to fire when HenchSpells loads in order
+			// to set the checkboxes and dropdown-fields.
+			//
+			// 'BypassDiffer' is set true since this does not need to go through
+			// creating and deleting each SpellChanged-struct (since nothing has
+			// changed yet OnLoad of the 2da-file).
+			//
+			// 'BypassDiffer' is also set true by AfterSelect_node() since the
+			// Spell-structs already contain proper diff-data.
+
 			int savedctype;
 			if (Int32.TryParse(SaveDCType_text.Text, out savedctype))
 			{
@@ -157,12 +167,8 @@ namespace nwn2_ai_2da_editor
 			// NOTE: current val doesn't have to be tested for validity since
 			// this is a direct assignment.
 
-			int sel = dc_co_SaveDC.SelectedIndex;
-
-			//logfile.Log("SelectionChangeCommitted_dc_savedctype() selectedId= " + sel);
-
 			string text = String.Empty;
-			switch (sel)
+			switch (dc_co_SaveDC.SelectedIndex)
 			{
 				case  0: text = hc.HENCH_SAVEDC_SPELL.ToString();                  break; // -1000
 

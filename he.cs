@@ -21,7 +21,7 @@ namespace nwn2_ai_2da_editor
 		/// TabControl for spells, races, or classes. It will be created and
 		/// disposed dynamically.
 		/// </summary>
-		HenchControl HenchControl;
+		internal static HenchControl HenchControl;
 
 		/// <summary>
 		/// The 'blank' 2da-string.
@@ -216,6 +216,8 @@ namespace nwn2_ai_2da_editor
 				{
 					SuspendLayout();
 
+					BypassDiffer = true;
+
 					bool error = true;
 
 					for (int i = 0; i != rows.Length; ++i)
@@ -370,9 +372,9 @@ namespace nwn2_ai_2da_editor
 						const string info = "That file does not appear to be HenchSpells, HenchRacial, or HenchClasses.2da";
 						using (var ib = new infobox(" Error", info, "err"))
 							ib.ShowDialog(this);
-
-						return;
 					}
+
+					BypassDiffer = false;
 				}
 			}
 		}
@@ -1265,9 +1267,12 @@ namespace nwn2_ai_2da_editor
 		/// <returns>string of a float</returns>
 		internal static string Float2daFormat(float f)
 		{
-			string str = f.ToString();
-			return (str.IndexOf('.') == -1) ? str.Insert(str.Length, ".0")
-											: str;
+			string val = f.ToString();
+
+			if (val.IndexOf('.') == -1)
+				return val + ".0";
+
+			return val;
 		}
 		#endregion Utilities
 

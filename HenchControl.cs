@@ -23,7 +23,7 @@ namespace nwn2_ai_2da_editor
 		internal virtual void SelectId(){}
 
 		internal virtual string GetMasterText(){ return String.Empty; }
-		internal virtual void   SetMasterText(string text){}
+		internal virtual void SetMasterText(string text){}
 
 		internal virtual void SelectResetButton(){}
 		internal virtual void SetResetColor(Color color){}

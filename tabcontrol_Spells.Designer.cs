@@ -772,6 +772,7 @@ namespace nwn2_ai_2da_editor
 			this.SpellInfo_hex.ReadOnly = true;
 			this.SpellInfo_hex.Size = new System.Drawing.Size(275, 13);
 			this.SpellInfo_hex.TabIndex = 2;
+			this.SpellInfo_hex.TabStop = false;
 			// 
 			// SpellInfo_bin
 			// 
@@ -783,6 +784,7 @@ namespace nwn2_ai_2da_editor
 			this.SpellInfo_bin.ReadOnly = true;
 			this.SpellInfo_bin.Size = new System.Drawing.Size(275, 13);
 			this.SpellInfo_bin.TabIndex = 3;
+			this.SpellInfo_bin.TabStop = false;
 			// 
 			// si_Clear
 			// 
@@ -1189,6 +1191,7 @@ namespace nwn2_ai_2da_editor
 			this.TargetInfo_hex.ReadOnly = true;
 			this.TargetInfo_hex.Size = new System.Drawing.Size(275, 13);
 			this.TargetInfo_hex.TabIndex = 2;
+			this.TargetInfo_hex.TabStop = false;
 			// 
 			// TargetInfo_bin
 			// 
@@ -1200,6 +1203,7 @@ namespace nwn2_ai_2da_editor
 			this.TargetInfo_bin.ReadOnly = true;
 			this.TargetInfo_bin.Size = new System.Drawing.Size(275, 13);
 			this.TargetInfo_bin.TabIndex = 3;
+			this.TargetInfo_bin.TabStop = false;
 			// 
 			// ti_Clear
 			// 
@@ -1524,6 +1528,7 @@ namespace nwn2_ai_2da_editor
 			this.EffectTypes_hex.ReadOnly = true;
 			this.EffectTypes_hex.Size = new System.Drawing.Size(275, 13);
 			this.EffectTypes_hex.TabIndex = 2;
+			this.EffectTypes_hex.TabStop = false;
 			// 
 			// EffectTypes_bin
 			// 
@@ -1535,6 +1540,7 @@ namespace nwn2_ai_2da_editor
 			this.EffectTypes_bin.ReadOnly = true;
 			this.EffectTypes_bin.Size = new System.Drawing.Size(275, 13);
 			this.EffectTypes_bin.TabIndex = 3;
+			this.EffectTypes_bin.TabStop = false;
 			// 
 			// et_Clear
 			// 
@@ -2241,6 +2247,7 @@ namespace nwn2_ai_2da_editor
 			this.DamageInfo_hex.ReadOnly = true;
 			this.DamageInfo_hex.Size = new System.Drawing.Size(275, 13);
 			this.DamageInfo_hex.TabIndex = 2;
+			this.DamageInfo_hex.TabStop = false;
 			// 
 			// DamageInfo_bin
 			// 
@@ -2252,6 +2259,7 @@ namespace nwn2_ai_2da_editor
 			this.DamageInfo_bin.ReadOnly = true;
 			this.DamageInfo_bin.Size = new System.Drawing.Size(275, 13);
 			this.DamageInfo_bin.TabIndex = 3;
+			this.DamageInfo_bin.TabStop = false;
 			// 
 			// di_Clear
 			// 
@@ -2806,6 +2814,7 @@ namespace nwn2_ai_2da_editor
 			this.SaveType_hex.ReadOnly = true;
 			this.SaveType_hex.Size = new System.Drawing.Size(275, 13);
 			this.SaveType_hex.TabIndex = 2;
+			this.SaveType_hex.TabStop = false;
 			// 
 			// SaveType_bin
 			// 
@@ -2817,6 +2826,7 @@ namespace nwn2_ai_2da_editor
 			this.SaveType_bin.ReadOnly = true;
 			this.SaveType_bin.Size = new System.Drawing.Size(275, 13);
 			this.SaveType_bin.TabIndex = 3;
+			this.SaveType_bin.TabStop = false;
 			// 
 			// st_Clear
 			// 
@@ -3571,6 +3581,7 @@ namespace nwn2_ai_2da_editor
 			this.SaveDCType_hex.ReadOnly = true;
 			this.SaveDCType_hex.Size = new System.Drawing.Size(275, 13);
 			this.SaveDCType_hex.TabIndex = 2;
+			this.SaveDCType_hex.TabStop = false;
 			// 
 			// SaveDCType_bin
 			// 
@@ -3582,6 +3593,7 @@ namespace nwn2_ai_2da_editor
 			this.SaveDCType_bin.ReadOnly = true;
 			this.SaveDCType_bin.Size = new System.Drawing.Size(275, 13);
 			this.SaveDCType_bin.TabIndex = 3;
+			this.SaveDCType_bin.TabStop = false;
 			// 
 			// dc_Clear
 			// 

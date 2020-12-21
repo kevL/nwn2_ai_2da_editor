@@ -546,6 +546,7 @@ namespace nwn2_ai_2da_editor
 			this.ClassFlags_hex.ReadOnly = true;
 			this.ClassFlags_hex.Size = new System.Drawing.Size(275, 13);
 			this.ClassFlags_hex.TabIndex = 2;
+			this.ClassFlags_hex.TabStop = false;
 			// 
 			// ClassFlags_bin
 			// 
@@ -557,6 +558,7 @@ namespace nwn2_ai_2da_editor
 			this.ClassFlags_bin.ReadOnly = true;
 			this.ClassFlags_bin.Size = new System.Drawing.Size(275, 13);
 			this.ClassFlags_bin.TabIndex = 3;
+			this.ClassFlags_bin.TabStop = false;
 			// 
 			// cf_Clear
 			// 
@@ -801,6 +803,7 @@ namespace nwn2_ai_2da_editor
 			this.ClassFeat1_hex.ReadOnly = true;
 			this.ClassFeat1_hex.Size = new System.Drawing.Size(275, 13);
 			this.ClassFeat1_hex.TabIndex = 2;
+			this.ClassFeat1_hex.TabStop = false;
 			// 
 			// ClassFeat1_bin
 			// 
@@ -812,6 +815,7 @@ namespace nwn2_ai_2da_editor
 			this.ClassFeat1_bin.ReadOnly = true;
 			this.ClassFeat1_bin.Size = new System.Drawing.Size(275, 13);
 			this.ClassFeat1_bin.TabIndex = 3;
+			this.ClassFeat1_bin.TabStop = false;
 			// 
 			// cf1_Clear
 			// 
@@ -962,6 +966,7 @@ namespace nwn2_ai_2da_editor
 			this.ClassFeat2_hex.ReadOnly = true;
 			this.ClassFeat2_hex.Size = new System.Drawing.Size(275, 13);
 			this.ClassFeat2_hex.TabIndex = 2;
+			this.ClassFeat2_hex.TabStop = false;
 			// 
 			// ClassFeat2_bin
 			// 
@@ -973,6 +978,7 @@ namespace nwn2_ai_2da_editor
 			this.ClassFeat2_bin.ReadOnly = true;
 			this.ClassFeat2_bin.Size = new System.Drawing.Size(275, 13);
 			this.ClassFeat2_bin.TabIndex = 3;
+			this.ClassFeat2_bin.TabStop = false;
 			// 
 			// cf2_Clear
 			// 
@@ -1123,6 +1129,7 @@ namespace nwn2_ai_2da_editor
 			this.ClassFeat3_hex.ReadOnly = true;
 			this.ClassFeat3_hex.Size = new System.Drawing.Size(275, 13);
 			this.ClassFeat3_hex.TabIndex = 2;
+			this.ClassFeat3_hex.TabStop = false;
 			// 
 			// ClassFeat3_bin
 			// 
@@ -1134,6 +1141,7 @@ namespace nwn2_ai_2da_editor
 			this.ClassFeat3_bin.ReadOnly = true;
 			this.ClassFeat3_bin.Size = new System.Drawing.Size(275, 13);
 			this.ClassFeat3_bin.TabIndex = 3;
+			this.ClassFeat3_bin.TabStop = false;
 			// 
 			// cf3_Clear
 			// 
@@ -1284,6 +1292,7 @@ namespace nwn2_ai_2da_editor
 			this.ClassFeat4_hex.ReadOnly = true;
 			this.ClassFeat4_hex.Size = new System.Drawing.Size(275, 13);
 			this.ClassFeat4_hex.TabIndex = 2;
+			this.ClassFeat4_hex.TabStop = false;
 			// 
 			// ClassFeat4_bin
 			// 
@@ -1295,6 +1304,7 @@ namespace nwn2_ai_2da_editor
 			this.ClassFeat4_bin.ReadOnly = true;
 			this.ClassFeat4_bin.Size = new System.Drawing.Size(275, 13);
 			this.ClassFeat4_bin.TabIndex = 3;
+			this.ClassFeat4_bin.TabStop = false;
 			// 
 			// cf4_Clear
 			// 
@@ -1445,6 +1455,7 @@ namespace nwn2_ai_2da_editor
 			this.ClassFeat5_hex.ReadOnly = true;
 			this.ClassFeat5_hex.Size = new System.Drawing.Size(275, 13);
 			this.ClassFeat5_hex.TabIndex = 2;
+			this.ClassFeat5_hex.TabStop = false;
 			// 
 			// ClassFeat5_bin
 			// 
@@ -1456,6 +1467,7 @@ namespace nwn2_ai_2da_editor
 			this.ClassFeat5_bin.ReadOnly = true;
 			this.ClassFeat5_bin.Size = new System.Drawing.Size(275, 13);
 			this.ClassFeat5_bin.TabIndex = 3;
+			this.ClassFeat5_bin.TabStop = false;
 			// 
 			// cf5_Clear
 			// 
@@ -1606,6 +1618,7 @@ namespace nwn2_ai_2da_editor
 			this.ClassFeat6_hex.ReadOnly = true;
 			this.ClassFeat6_hex.Size = new System.Drawing.Size(275, 13);
 			this.ClassFeat6_hex.TabIndex = 2;
+			this.ClassFeat6_hex.TabStop = false;
 			// 
 			// ClassFeat6_bin
 			// 
@@ -1617,6 +1630,7 @@ namespace nwn2_ai_2da_editor
 			this.ClassFeat6_bin.ReadOnly = true;
 			this.ClassFeat6_bin.Size = new System.Drawing.Size(275, 13);
 			this.ClassFeat6_bin.TabIndex = 3;
+			this.ClassFeat6_bin.TabStop = false;
 			// 
 			// cf6_Clear
 			// 
@@ -1767,6 +1781,7 @@ namespace nwn2_ai_2da_editor
 			this.ClassFeat7_hex.ReadOnly = true;
 			this.ClassFeat7_hex.Size = new System.Drawing.Size(275, 13);
 			this.ClassFeat7_hex.TabIndex = 2;
+			this.ClassFeat7_hex.TabStop = false;
 			// 
 			// ClassFeat7_bin
 			// 
@@ -1778,6 +1793,7 @@ namespace nwn2_ai_2da_editor
 			this.ClassFeat7_bin.ReadOnly = true;
 			this.ClassFeat7_bin.Size = new System.Drawing.Size(275, 13);
 			this.ClassFeat7_bin.TabIndex = 3;
+			this.ClassFeat7_bin.TabStop = false;
 			// 
 			// cf7_Clear
 			// 
@@ -1928,6 +1944,7 @@ namespace nwn2_ai_2da_editor
 			this.ClassFeat8_hex.ReadOnly = true;
 			this.ClassFeat8_hex.Size = new System.Drawing.Size(275, 13);
 			this.ClassFeat8_hex.TabIndex = 2;
+			this.ClassFeat8_hex.TabStop = false;
 			// 
 			// ClassFeat8_bin
 			// 
@@ -1939,6 +1956,7 @@ namespace nwn2_ai_2da_editor
 			this.ClassFeat8_bin.ReadOnly = true;
 			this.ClassFeat8_bin.Size = new System.Drawing.Size(275, 13);
 			this.ClassFeat8_bin.TabIndex = 3;
+			this.ClassFeat8_bin.TabStop = false;
 			// 
 			// cf8_Clear
 			// 
@@ -2089,6 +2107,7 @@ namespace nwn2_ai_2da_editor
 			this.ClassFeat9_hex.ReadOnly = true;
 			this.ClassFeat9_hex.Size = new System.Drawing.Size(275, 13);
 			this.ClassFeat9_hex.TabIndex = 2;
+			this.ClassFeat9_hex.TabStop = false;
 			// 
 			// ClassFeat9_bin
 			// 
@@ -2100,6 +2119,7 @@ namespace nwn2_ai_2da_editor
 			this.ClassFeat9_bin.ReadOnly = true;
 			this.ClassFeat9_bin.Size = new System.Drawing.Size(275, 13);
 			this.ClassFeat9_bin.TabIndex = 3;
+			this.ClassFeat9_bin.TabStop = false;
 			// 
 			// cf9_Clear
 			// 
@@ -2250,6 +2270,7 @@ namespace nwn2_ai_2da_editor
 			this.ClassFeat10_hex.ReadOnly = true;
 			this.ClassFeat10_hex.Size = new System.Drawing.Size(275, 13);
 			this.ClassFeat10_hex.TabIndex = 2;
+			this.ClassFeat10_hex.TabStop = false;
 			// 
 			// ClassFeat10_bin
 			// 
@@ -2261,6 +2282,7 @@ namespace nwn2_ai_2da_editor
 			this.ClassFeat10_bin.ReadOnly = true;
 			this.ClassFeat10_bin.Size = new System.Drawing.Size(275, 13);
 			this.ClassFeat10_bin.TabIndex = 3;
+			this.ClassFeat10_bin.TabStop = false;
 			// 
 			// cf10_Clear
 			// 
@@ -2411,6 +2433,7 @@ namespace nwn2_ai_2da_editor
 			this.ClassFeat11_hex.ReadOnly = true;
 			this.ClassFeat11_hex.Size = new System.Drawing.Size(275, 13);
 			this.ClassFeat11_hex.TabIndex = 2;
+			this.ClassFeat11_hex.TabStop = false;
 			// 
 			// ClassFeat11_bin
 			// 
@@ -2422,6 +2445,7 @@ namespace nwn2_ai_2da_editor
 			this.ClassFeat11_bin.ReadOnly = true;
 			this.ClassFeat11_bin.Size = new System.Drawing.Size(275, 13);
 			this.ClassFeat11_bin.TabIndex = 3;
+			this.ClassFeat11_bin.TabStop = false;
 			// 
 			// cf11_Clear
 			// 

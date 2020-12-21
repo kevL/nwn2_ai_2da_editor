@@ -16,6 +16,18 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void TextChanged_ew(object sender, EventArgs e)
 		{
+			// NOTE: TextChanged needs to fire when HenchSpells loads in order
+			// to set the checkboxes and dropdown-fields.
+			//
+			// EffectWeight doesn't have checkboxes or dropdown-fields ...
+			//
+			// 'BypassDiffer' is set true since this does not need to go through
+			// creating and deleting each SpellChanged-struct (since nothing has
+			// changed yet OnLoad of the 2da-file).
+			//
+			// 'BypassDiffer' is also set true by AfterSelect_node() since the
+			// Spell-structs already contain proper diff-data.
+
 			float effectweight;
 			if (float.TryParse(EffectWeight_text.Text, out effectweight))
 			{

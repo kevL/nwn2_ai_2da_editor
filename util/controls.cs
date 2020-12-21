@@ -96,6 +96,20 @@ namespace nwn2_ai_2da_editor
 			if (text != Text)
 				Text = text;
 		}
+
+
+		protected override void OnKeyDown(KeyEventArgs e)
+		{
+			switch (e.KeyData)
+			{
+				case Keys.Enter:
+				case Keys.Escape:
+					he.HenchControl.SelectResetButton();
+					e.Handled = e.SuppressKeyPress = true;
+					break;
+			}
+			base.OnKeyDown(e);
+		}
 	}
 
 
@@ -163,6 +177,20 @@ namespace nwn2_ai_2da_editor
 
 			if (text != Text)
 				Text = text;
+		}
+
+
+		protected override void OnKeyDown(KeyEventArgs e)
+		{
+			switch (e.KeyData)
+			{
+				case Keys.Enter:
+				case Keys.Escape:
+					he.HenchControl.SelectResetButton();
+					e.Handled = e.SuppressKeyPress = true;
+					break;
+			}
+			base.OnKeyDown(e);
 		}
 	}
 }

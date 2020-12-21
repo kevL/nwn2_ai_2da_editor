@@ -284,6 +284,7 @@ namespace nwn2_ai_2da_editor
 			this.RacialFlags_hex.ReadOnly = true;
 			this.RacialFlags_hex.Size = new System.Drawing.Size(275, 13);
 			this.RacialFlags_hex.TabIndex = 2;
+			this.RacialFlags_hex.TabStop = false;
 			// 
 			// RacialFlags_bin
 			// 
@@ -295,6 +296,7 @@ namespace nwn2_ai_2da_editor
 			this.RacialFlags_bin.ReadOnly = true;
 			this.RacialFlags_bin.Size = new System.Drawing.Size(275, 13);
 			this.RacialFlags_bin.TabIndex = 3;
+			this.RacialFlags_bin.TabStop = false;
 			// 
 			// rf_Clear
 			// 
@@ -389,6 +391,7 @@ namespace nwn2_ai_2da_editor
 			this.RacialFeat1_hex.ReadOnly = true;
 			this.RacialFeat1_hex.Size = new System.Drawing.Size(275, 13);
 			this.RacialFeat1_hex.TabIndex = 2;
+			this.RacialFeat1_hex.TabStop = false;
 			// 
 			// RacialFeat1_bin
 			// 
@@ -400,6 +403,7 @@ namespace nwn2_ai_2da_editor
 			this.RacialFeat1_bin.ReadOnly = true;
 			this.RacialFeat1_bin.Size = new System.Drawing.Size(275, 13);
 			this.RacialFeat1_bin.TabIndex = 3;
+			this.RacialFeat1_bin.TabStop = false;
 			// 
 			// rf1_Clear
 			// 
@@ -550,6 +554,7 @@ namespace nwn2_ai_2da_editor
 			this.RacialFeat2_hex.ReadOnly = true;
 			this.RacialFeat2_hex.Size = new System.Drawing.Size(275, 13);
 			this.RacialFeat2_hex.TabIndex = 2;
+			this.RacialFeat2_hex.TabStop = false;
 			// 
 			// RacialFeat2_bin
 			// 
@@ -561,6 +566,7 @@ namespace nwn2_ai_2da_editor
 			this.RacialFeat2_bin.ReadOnly = true;
 			this.RacialFeat2_bin.Size = new System.Drawing.Size(275, 13);
 			this.RacialFeat2_bin.TabIndex = 3;
+			this.RacialFeat2_bin.TabStop = false;
 			// 
 			// rf2_Clear
 			// 
@@ -711,6 +717,7 @@ namespace nwn2_ai_2da_editor
 			this.RacialFeat3_hex.ReadOnly = true;
 			this.RacialFeat3_hex.Size = new System.Drawing.Size(275, 13);
 			this.RacialFeat3_hex.TabIndex = 2;
+			this.RacialFeat3_hex.TabStop = false;
 			// 
 			// RacialFeat3_bin
 			// 
@@ -722,6 +729,7 @@ namespace nwn2_ai_2da_editor
 			this.RacialFeat3_bin.ReadOnly = true;
 			this.RacialFeat3_bin.Size = new System.Drawing.Size(275, 13);
 			this.RacialFeat3_bin.TabIndex = 3;
+			this.RacialFeat3_bin.TabStop = false;
 			// 
 			// rf3_Clear
 			// 
@@ -872,6 +880,7 @@ namespace nwn2_ai_2da_editor
 			this.RacialFeat4_hex.ReadOnly = true;
 			this.RacialFeat4_hex.Size = new System.Drawing.Size(275, 13);
 			this.RacialFeat4_hex.TabIndex = 2;
+			this.RacialFeat4_hex.TabStop = false;
 			// 
 			// RacialFeat4_bin
 			// 
@@ -883,6 +892,7 @@ namespace nwn2_ai_2da_editor
 			this.RacialFeat4_bin.ReadOnly = true;
 			this.RacialFeat4_bin.Size = new System.Drawing.Size(275, 13);
 			this.RacialFeat4_bin.TabIndex = 3;
+			this.RacialFeat4_bin.TabStop = false;
 			// 
 			// rf4_Clear
 			// 
@@ -1033,6 +1043,7 @@ namespace nwn2_ai_2da_editor
 			this.RacialFeat5_hex.ReadOnly = true;
 			this.RacialFeat5_hex.Size = new System.Drawing.Size(275, 13);
 			this.RacialFeat5_hex.TabIndex = 2;
+			this.RacialFeat5_hex.TabStop = false;
 			// 
 			// RacialFeat5_bin
 			// 
@@ -1044,6 +1055,7 @@ namespace nwn2_ai_2da_editor
 			this.RacialFeat5_bin.ReadOnly = true;
 			this.RacialFeat5_bin.Size = new System.Drawing.Size(275, 13);
 			this.RacialFeat5_bin.TabIndex = 3;
+			this.RacialFeat5_bin.TabStop = false;
 			// 
 			// rf5_Clear
 			// 
