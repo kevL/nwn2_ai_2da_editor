@@ -46,10 +46,10 @@ namespace nwn2_ai_2da_editor
 		// insult.
 
 // 'tp_SpellInfo' controls
-		Button  SpellInfo_reset; // TODO: ToolTip "reset"
-		TextBox SpellInfo_text;
-		TextBox SpellInfo_hex;
-		TextBox SpellInfo_bin;
+		Button     SpellInfo_reset; // TODO: ToolTip "reset"
+		TextboxInt SpellInfo_text;
+		TextBox    SpellInfo_hex;
+		TextBox    SpellInfo_bin;
 
 		Button si_Clear;
 		Label  si_hex;
@@ -79,16 +79,16 @@ namespace nwn2_ai_2da_editor
 		ComboBox cbo_si_Spelllevel;
 
 		// 'si_SubspellsGrp' controls
-		Label   si_SubspellTi;
-		Label   si_SubspellEt;
-		Label   si_SubspellDi;
-		Label   si_SubspellSt;
-		Label   si_SubspellDc;
-		TextBox si_Subspell1;
-		TextBox si_Subspell2;
-		TextBox si_Subspell3;
-		TextBox si_Subspell4;
-		TextBox si_Subspell5;
+		Label      si_SubspellTi;
+		Label      si_SubspellEt;
+		Label      si_SubspellDi;
+		Label      si_SubspellSt;
+		Label      si_SubspellDc;
+		TextboxInt si_Subspell1;
+		TextboxInt si_Subspell2;
+		TextboxInt si_Subspell3;
+		TextboxInt si_Subspell4;
+		TextboxInt si_Subspell5;
 
 		Label   si_SubspellLabel1; // to right of 'si_SubspellsGrp' ->
 		Label   si_SubspellLabel2;
@@ -97,10 +97,10 @@ namespace nwn2_ai_2da_editor
 		Label   si_SubspellLabel5;
 
 // 'tp_TargetInfo' controls
-		Button  TargetInfo_reset; // TODO: ToolTip "reset"
-		TextBox TargetInfo_text;
-		TextBox TargetInfo_hex;
-		TextBox TargetInfo_bin;
+		Button     TargetInfo_reset; // TODO: ToolTip "reset"
+		TextboxInt TargetInfo_text;
+		TextBox    TargetInfo_hex;
+		TextBox    TargetInfo_bin;
 
 		Button ti_Clear;
 		Label  ti_hex;
@@ -131,21 +131,21 @@ namespace nwn2_ai_2da_editor
 		ComboBox cbo_ti_Range;
 
 		// 'ti_RadiusGrp' controls
-		TextBox ti_Radius;
+		TextboxFloat ti_Radius;
 
 // 'tp_EffectWeight' controls
-		Button  EffectWeight_reset; // TODO: ToolTip "reset"
-		TextBox EffectWeight_text;
+		Button       EffectWeight_reset; // TODO: ToolTip "reset"
+		TextboxFloat EffectWeight_text;
 
 		Button ew_Clear;
 		Label  f1;
 		Label  f2;
 
 // 'tp_EffectTypes' controls
-		Button  EffectTypes_reset; // TODO: ToolTip "reset"
-		TextBox EffectTypes_text;
-		TextBox EffectTypes_hex;
-		TextBox EffectTypes_bin;
+		Button     EffectTypes_reset; // TODO: ToolTip "reset"
+		TextboxInt EffectTypes_text;
+		TextBox    EffectTypes_hex;
+		TextBox    EffectTypes_bin;
 
 		Button et_Clear;
 		Label  et_hex;
@@ -215,10 +215,10 @@ namespace nwn2_ai_2da_editor
 
 
 // 'tp_DamageInfo' controls
-		Button  DamageInfo_reset; // TODO: ToolTip "reset"
-		TextBox DamageInfo_text;
-		TextBox DamageInfo_hex;
-		TextBox DamageInfo_bin;
+		Button     DamageInfo_reset; // TODO: ToolTip "reset"
+		TextboxInt DamageInfo_text;
+		TextBox    DamageInfo_hex;
+		TextBox    DamageInfo_bin;
 
 		Button di_Clear;
 		Label  di_hex;
@@ -237,25 +237,25 @@ namespace nwn2_ai_2da_editor
 		GroupBox di_DetFixedCountGrp;
 		GroupBox di_DetDamagetypeGrp;
 
-		ComboBox cbo_di_DetDamagebase;	// 'di_DetDamagebaseGrp' controls
-		TextBox  di_DetDamage;			// 'di_DetDamageGrp' controls
-		ComboBox cbo_di_DetLeveltype;	// 'di_DetLeveltypeGrp' controls
-		TextBox  di_DetLevellimit;		// 'di_DetLevellimitGrp' controls
-		TextBox  di_DetLeveldivisor;	// 'di_DetLeveldivisorGrp' controls
-		TextBox  di_DetFixedcount;		// 'di_DetFixedCountGrp' controls
-		Label    di_lbl_FixedCountPlusOne;
-		CheckBox di_Magical;			// 'di_DetDamagetypeGrp' controls
-		CheckBox di_Divine;
-		CheckBox di_Acid;
-		CheckBox di_Cold;
-		CheckBox di_Electrical;
-		CheckBox di_Fire;
-		CheckBox di_Sonic;
-		CheckBox di_Negative;
-		CheckBox di_Positive;
-		CheckBox di_Bludgeoning;
-		CheckBox di_Piercing;
-		CheckBox di_Slashing;
+		ComboBox   cbo_di_DetDamagebase;	// 'di_DetDamagebaseGrp' controls
+		TextboxInt di_DetDamage;			// 'di_DetDamageGrp' controls
+		ComboBox   cbo_di_DetLeveltype;		// 'di_DetLeveltypeGrp' controls
+		TextboxInt di_DetLevellimit;		// 'di_DetLevellimitGrp' controls
+		TextboxInt di_DetLeveldivisor;		// 'di_DetLeveldivisorGrp' controls
+		TextboxInt di_DetFixedcount;		// 'di_DetFixedCountGrp' controls
+		Label      di_lbl_FixedCountPlusOne;
+		CheckBox   di_Magical;				// 'di_DetDamagetypeGrp' controls
+		CheckBox   di_Divine;
+		CheckBox   di_Acid;
+		CheckBox   di_Cold;
+		CheckBox   di_Electrical;
+		CheckBox   di_Fire;
+		CheckBox   di_Sonic;
+		CheckBox   di_Negative;
+		CheckBox   di_Positive;
+		CheckBox   di_Bludgeoning;
+		CheckBox   di_Piercing;
+		CheckBox   di_Slashing;
 
 		// 'di_BeneficialGrp' controls
 		GroupBox di_BenPowerbaseGrp;
@@ -265,12 +265,12 @@ namespace nwn2_ai_2da_editor
 		GroupBox di_BenLeveldivisorGrp;
 		GroupBox di_BenLeveldecreaseGrp;
 
-		ComboBox cbo_di_BenPowerbase;	// 'di_BenPowerbaseGrp' controls
-		TextBox  di_BenPower;			// 'di_BenPowerGrp' controls
-		ComboBox cbo_di_BenLeveltype;	// 'di_BenLeveltypeGrp' controls
-		TextBox  di_BenLevellimit;		// 'di_BenLevellimitGrp' controls
-		TextBox  di_BenLeveldivisor;	// 'di_BenLeveldivisorGrp' controls
-		TextBox  di_BenLeveldecrease;	// 'di_BenLeveldecreaseGrp' controls
+		ComboBox   cbo_di_BenPowerbase;	// 'di_BenPowerbaseGrp' controls
+		TextboxInt di_BenPower;			// 'di_BenPowerGrp' controls
+		ComboBox   cbo_di_BenLeveltype;	// 'di_BenLeveltypeGrp' controls
+		TextboxInt di_BenLevellimit;	// 'di_BenLevellimitGrp' controls
+		TextboxInt di_BenLeveldivisor;	// 'di_BenLeveldivisorGrp' controls
+		TextboxInt di_BenLeveldecrease;	// 'di_BenLeveldecreaseGrp' controls
 
 		// 'di_DispelTypesGrp' controls
 		CheckBox di_Breach;
@@ -278,10 +278,10 @@ namespace nwn2_ai_2da_editor
 		CheckBox di_Resist;
 
 // 'tp_SaveType' controls
-		Button  SaveType_reset; // TODO: ToolTip "reset"
-		TextBox SaveType_text;
-		TextBox SaveType_hex;
-		TextBox SaveType_bin;
+		Button     SaveType_reset; // TODO: ToolTip "reset"
+		TextboxInt SaveType_text;
+		TextBox    SaveType_hex;
+		TextBox    SaveType_bin;
 
 		Button st_Clear;
 		Label  st_hex;
@@ -345,7 +345,7 @@ namespace nwn2_ai_2da_editor
 		CheckBox    st_Excl_Bludgeoning;
 		CheckBox    st_Excl_Piercing;
 		CheckBox    st_Excl_Slashing;
-		TextBox     st_Excl_Weight;				// 'st_Excl_WeightGrp' controls
+		TextboxInt  st_Excl_Weight;				// 'st_Excl_WeightGrp' controls
 		RadioButton st_Excl_rbResistance;		// 'st_Excl_FlagsGrp' controls
 		RadioButton st_Excl_rbImmunity;
 		CheckBox    st_Excl_Onlyone; // TODO: ToolTip
@@ -358,10 +358,10 @@ namespace nwn2_ai_2da_editor
 		ComboBox cbo_st_AcBonus;
 
 // 'tp_SaveDCType' controls
-		Button  SaveDCType_reset; // TODO: ToolTip "reset"
-		TextBox SaveDCType_text;
-		TextBox SaveDCType_hex;
-		TextBox SaveDCType_bin;
+		Button     SaveDCType_reset; // TODO: ToolTip "reset"
+		TextboxInt SaveDCType_text;
+		TextBox    SaveDCType_hex;
+		TextBox    SaveDCType_bin;
 
 		Button dc_Clear;
 		Label  dc_hex;
@@ -397,7 +397,7 @@ namespace nwn2_ai_2da_editor
 			this.tc_Spells = new nwn2_ai_2da_editor.CompositedTabControl();
 			this.tp_SpellInfo = new System.Windows.Forms.TabPage();
 			this.SpellInfo_reset = new System.Windows.Forms.Button();
-			this.SpellInfo_text = new System.Windows.Forms.TextBox();
+			this.SpellInfo_text = new nwn2_ai_2da_editor.TextboxInt();
 			this.SpellInfo_hex = new System.Windows.Forms.TextBox();
 			this.SpellInfo_bin = new System.Windows.Forms.TextBox();
 			this.si_Clear = new System.Windows.Forms.Button();
@@ -424,11 +424,11 @@ namespace nwn2_ai_2da_editor
 			this.si_SubspellDi = new System.Windows.Forms.Label();
 			this.si_SubspellSt = new System.Windows.Forms.Label();
 			this.si_SubspellDc = new System.Windows.Forms.Label();
-			this.si_Subspell1 = new System.Windows.Forms.TextBox();
-			this.si_Subspell2 = new System.Windows.Forms.TextBox();
-			this.si_Subspell3 = new System.Windows.Forms.TextBox();
-			this.si_Subspell4 = new System.Windows.Forms.TextBox();
-			this.si_Subspell5 = new System.Windows.Forms.TextBox();
+			this.si_Subspell1 = new nwn2_ai_2da_editor.TextboxInt();
+			this.si_Subspell2 = new nwn2_ai_2da_editor.TextboxInt();
+			this.si_Subspell3 = new nwn2_ai_2da_editor.TextboxInt();
+			this.si_Subspell4 = new nwn2_ai_2da_editor.TextboxInt();
+			this.si_Subspell5 = new nwn2_ai_2da_editor.TextboxInt();
 			this.si_SubspellLabel1 = new System.Windows.Forms.Label();
 			this.si_SubspellLabel2 = new System.Windows.Forms.Label();
 			this.si_SubspellLabel3 = new System.Windows.Forms.Label();
@@ -436,7 +436,7 @@ namespace nwn2_ai_2da_editor
 			this.si_SubspellLabel5 = new System.Windows.Forms.Label();
 			this.tp_TargetInfo = new System.Windows.Forms.TabPage();
 			this.TargetInfo_reset = new System.Windows.Forms.Button();
-			this.TargetInfo_text = new System.Windows.Forms.TextBox();
+			this.TargetInfo_text = new nwn2_ai_2da_editor.TextboxInt();
 			this.TargetInfo_hex = new System.Windows.Forms.TextBox();
 			this.TargetInfo_bin = new System.Windows.Forms.TextBox();
 			this.ti_Clear = new System.Windows.Forms.Button();
@@ -459,16 +459,16 @@ namespace nwn2_ai_2da_editor
 			this.ti_RangeGrp = new System.Windows.Forms.GroupBox();
 			this.cbo_ti_Range = new System.Windows.Forms.ComboBox();
 			this.ti_RadiusGrp = new System.Windows.Forms.GroupBox();
-			this.ti_Radius = new System.Windows.Forms.TextBox();
+			this.ti_Radius = new nwn2_ai_2da_editor.TextboxFloat();
 			this.tp_EffectWeight = new System.Windows.Forms.TabPage();
 			this.ew_Clear = new System.Windows.Forms.Button();
 			this.f2 = new System.Windows.Forms.Label();
 			this.f1 = new System.Windows.Forms.Label();
 			this.EffectWeight_reset = new System.Windows.Forms.Button();
-			this.EffectWeight_text = new System.Windows.Forms.TextBox();
+			this.EffectWeight_text = new nwn2_ai_2da_editor.TextboxFloat();
 			this.tp_EffectTypes = new System.Windows.Forms.TabPage();
 			this.EffectTypes_reset = new System.Windows.Forms.Button();
-			this.EffectTypes_text = new System.Windows.Forms.TextBox();
+			this.EffectTypes_text = new nwn2_ai_2da_editor.TextboxInt();
 			this.EffectTypes_hex = new System.Windows.Forms.TextBox();
 			this.EffectTypes_bin = new System.Windows.Forms.TextBox();
 			this.et_Clear = new System.Windows.Forms.Button();
@@ -533,7 +533,7 @@ namespace nwn2_ai_2da_editor
 			this.et_Wildshape = new System.Windows.Forms.CheckBox();
 			this.tp_DamageInfo = new System.Windows.Forms.TabPage();
 			this.DamageInfo_reset = new System.Windows.Forms.Button();
-			this.DamageInfo_text = new System.Windows.Forms.TextBox();
+			this.DamageInfo_text = new nwn2_ai_2da_editor.TextboxInt();
 			this.DamageInfo_hex = new System.Windows.Forms.TextBox();
 			this.DamageInfo_bin = new System.Windows.Forms.TextBox();
 			this.di_Clear = new System.Windows.Forms.Button();
@@ -543,15 +543,15 @@ namespace nwn2_ai_2da_editor
 			this.di_DetDamagebaseGrp = new System.Windows.Forms.GroupBox();
 			this.cbo_di_DetDamagebase = new System.Windows.Forms.ComboBox();
 			this.di_DetDamageGrp = new System.Windows.Forms.GroupBox();
-			this.di_DetDamage = new System.Windows.Forms.TextBox();
+			this.di_DetDamage = new nwn2_ai_2da_editor.TextboxInt();
 			this.di_DetLeveltypeGrp = new System.Windows.Forms.GroupBox();
 			this.cbo_di_DetLeveltype = new System.Windows.Forms.ComboBox();
 			this.di_DetLevellimitGrp = new System.Windows.Forms.GroupBox();
-			this.di_DetLevellimit = new System.Windows.Forms.TextBox();
+			this.di_DetLevellimit = new nwn2_ai_2da_editor.TextboxInt();
 			this.di_DetLeveldivisorGrp = new System.Windows.Forms.GroupBox();
-			this.di_DetLeveldivisor = new System.Windows.Forms.TextBox();
+			this.di_DetLeveldivisor = new nwn2_ai_2da_editor.TextboxInt();
 			this.di_DetFixedCountGrp = new System.Windows.Forms.GroupBox();
-			this.di_DetFixedcount = new System.Windows.Forms.TextBox();
+			this.di_DetFixedcount = new nwn2_ai_2da_editor.TextboxInt();
 			this.di_lbl_FixedCountPlusOne = new System.Windows.Forms.Label();
 			this.di_DetDamagetypeGrp = new System.Windows.Forms.GroupBox();
 			this.di_Magical = new System.Windows.Forms.CheckBox();
@@ -570,22 +570,22 @@ namespace nwn2_ai_2da_editor
 			this.di_BenPowerbaseGrp = new System.Windows.Forms.GroupBox();
 			this.cbo_di_BenPowerbase = new System.Windows.Forms.ComboBox();
 			this.di_BenPowerGrp = new System.Windows.Forms.GroupBox();
-			this.di_BenPower = new System.Windows.Forms.TextBox();
+			this.di_BenPower = new nwn2_ai_2da_editor.TextboxInt();
 			this.di_BenLeveltypeGrp = new System.Windows.Forms.GroupBox();
 			this.cbo_di_BenLeveltype = new System.Windows.Forms.ComboBox();
 			this.di_BenLevellimitGrp = new System.Windows.Forms.GroupBox();
-			this.di_BenLevellimit = new System.Windows.Forms.TextBox();
+			this.di_BenLevellimit = new nwn2_ai_2da_editor.TextboxInt();
 			this.di_BenLeveldivisorGrp = new System.Windows.Forms.GroupBox();
-			this.di_BenLeveldivisor = new System.Windows.Forms.TextBox();
+			this.di_BenLeveldivisor = new nwn2_ai_2da_editor.TextboxInt();
 			this.di_BenLeveldecreaseGrp = new System.Windows.Forms.GroupBox();
-			this.di_BenLeveldecrease = new System.Windows.Forms.TextBox();
+			this.di_BenLeveldecrease = new nwn2_ai_2da_editor.TextboxInt();
 			this.di_DispelTypesGrp = new System.Windows.Forms.GroupBox();
 			this.di_Breach = new System.Windows.Forms.CheckBox();
 			this.di_Dispel = new System.Windows.Forms.CheckBox();
 			this.di_Resist = new System.Windows.Forms.CheckBox();
 			this.tp_SaveType = new System.Windows.Forms.TabPage();
 			this.SaveType_reset = new System.Windows.Forms.Button();
-			this.SaveType_text = new System.Windows.Forms.TextBox();
+			this.SaveType_text = new nwn2_ai_2da_editor.TextboxInt();
 			this.SaveType_hex = new System.Windows.Forms.TextBox();
 			this.SaveType_bin = new System.Windows.Forms.TextBox();
 			this.st_Clear = new System.Windows.Forms.Button();
@@ -639,7 +639,7 @@ namespace nwn2_ai_2da_editor
 			this.st_Excl_Piercing = new System.Windows.Forms.CheckBox();
 			this.st_Excl_Slashing = new System.Windows.Forms.CheckBox();
 			this.st_Excl_WeightGrp = new System.Windows.Forms.GroupBox();
-			this.st_Excl_Weight = new System.Windows.Forms.TextBox();
+			this.st_Excl_Weight = new nwn2_ai_2da_editor.TextboxInt();
 			this.st_Excl_FlagsGrp = new System.Windows.Forms.GroupBox();
 			this.st_Excl_rbResistance = new System.Windows.Forms.RadioButton();
 			this.st_Excl_rbImmunity = new System.Windows.Forms.RadioButton();
@@ -652,7 +652,7 @@ namespace nwn2_ai_2da_editor
 			this.cbo_st_AcBonus = new System.Windows.Forms.ComboBox();
 			this.tp_SaveDCType = new System.Windows.Forms.TabPage();
 			this.SaveDCType_reset = new System.Windows.Forms.Button();
-			this.SaveDCType_text = new System.Windows.Forms.TextBox();
+			this.SaveDCType_text = new nwn2_ai_2da_editor.TextboxInt();
 			this.SaveDCType_hex = new System.Windows.Forms.TextBox();
 			this.SaveDCType_bin = new System.Windows.Forms.TextBox();
 			this.dc_Clear = new System.Windows.Forms.Button();
