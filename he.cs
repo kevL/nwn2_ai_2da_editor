@@ -124,6 +124,8 @@ namespace nwn2_ai_2da_editor
 		int userHeight = 480;
 		int panel2width, panel2height;
 
+		const string RECENT_CFG = "recent.cfg";
+
 
 		/// <summary>
 		/// A fixed-width font for all the hex and bin textboxes.
@@ -164,7 +166,7 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void initRecents()
 		{
-			string pfe = Path.Combine(Application.StartupPath, "recent.cfg");
+			string pfe = Path.Combine(Application.StartupPath, RECENT_CFG);
 			if (File.Exists(pfe))
 			{
 				ToolStripItemCollection recents = it_Recent.DropDownItems;
@@ -209,7 +211,7 @@ namespace nwn2_ai_2da_editor
 				{
 					// track recent files only if a file 'recent.cfg' exists in the appdir
 
-					string pfe = Path.Combine(Application.StartupPath, "recent.cfg");
+					string pfe = Path.Combine(Application.StartupPath, RECENT_CFG);
 					if (File.Exists(pfe))
 					{
 						int i = -1;
