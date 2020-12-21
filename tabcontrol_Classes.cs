@@ -16,7 +16,7 @@ namespace nwn2_ai_2da_editor
 		/// @note: The master-int 'differ' is tracked in each class-struct but
 		/// is not saved to file.
 		/// </summary>
-		internal const int bit_clear  = 0x000;
+		internal const int bit_clean  = 0x000;
 		internal const int bit_flags  = 0x001;
 		internal const int bit_feat1  = 0x002;
 		internal const int bit_feat2  = 0x004;
@@ -299,7 +299,7 @@ namespace nwn2_ai_2da_editor
 
 			Class @class = he.Classes[he.Id];
 
-			bool dirty = (@class.differ != bit_clear);
+			bool dirty = (@class.differ != bit_clean);
 
 			ClassChanged classchanged;
 			if (dirty)
@@ -439,7 +439,7 @@ namespace nwn2_ai_2da_editor
 		/// <returns>bitwise value containing flags for fields that have changed</returns>
 		internal static int ClassDiffer(Class @class, ClassChanged classchanged)
 		{
-			int differ = tabcontrol_Classes.bit_clear;
+			int differ = tabcontrol_Classes.bit_clean;
 
 			if (@class.flags != classchanged.flags)
 				differ |= tabcontrol_Classes.bit_flags;

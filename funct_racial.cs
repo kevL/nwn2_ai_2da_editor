@@ -92,7 +92,7 @@ namespace nwn2_ai_2da_editor
 
 					RaceChanged racechanged;
 
-					if (race.differ != bit_clear)
+					if (race.differ != bit_clean)
 					{
 						racechanged = he.RacesChanged[he.Id];
 					}
@@ -139,7 +139,7 @@ namespace nwn2_ai_2da_editor
 					he.Races[he.Id] = race;
 
 					Color color;
-					if (differ != bit_clear)
+					if (differ != bit_clean)
 					{
 						he.RacesChanged[he.Id] = racechanged;
 						color = Color.Crimson;
@@ -174,7 +174,7 @@ namespace nwn2_ai_2da_editor
 					state_RacialFeats(tb);
 
 
-				_he.EnableApplys(differ != bit_clear);
+				_he.EnableApplys(differ != bit_clean);
 			}
 			// else TODO: error dialog here.
 		}
@@ -196,7 +196,7 @@ namespace nwn2_ai_2da_editor
 //
 //				RaceChanged racechanged;
 //
-//				if (race.differ != bit_clear)
+//				if (race.differ != bit_clean)
 //				{
 //					racechanged = he.RacesChanged[he.Id];
 //				}
@@ -219,7 +219,7 @@ namespace nwn2_ai_2da_editor
 //				he.Races[he.Id] = race;
 //
 //				Color color;
-//				if (differ != bit_clear)
+//				if (differ != bit_clean)
 //				{
 //					he.RacesChanged[he.Id] = racechanged;
 //					color = Color.Crimson;
@@ -296,7 +296,7 @@ namespace nwn2_ai_2da_editor
 				race.differ &= ~bit;
 				he.Races[he.Id] = race;
 
-				if (race.differ == bit_clear)
+				if (race.differ == bit_clean)
 				{
 					he.RacesChanged.Remove(he.Id);
 

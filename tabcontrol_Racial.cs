@@ -16,7 +16,7 @@ namespace nwn2_ai_2da_editor
 		/// @note: The master-int 'differ' is tracked in each racial-struct but
 		/// is not saved to file.
 		/// </summary>
-		internal const int bit_clear = 0x00;
+		internal const int bit_clean = 0x00;
 		internal const int bit_flags = 0x01;
 		internal const int bit_feat1 = 0x02;
 		internal const int bit_feat2 = 0x04;
@@ -150,7 +150,7 @@ namespace nwn2_ai_2da_editor
 
 			Race race = he.Races[he.Id];
 
-			bool dirty = (race.differ != bit_clear);
+			bool dirty = (race.differ != bit_clean);
 
 			RaceChanged racechanged;
 			if (dirty)
@@ -230,7 +230,7 @@ namespace nwn2_ai_2da_editor
 		/// <returns>bitwise value containing flags for fields that have changed</returns>
 		internal static int RaceDiffer(Race race, RaceChanged racechanged)
 		{
-			int differ = tabcontrol_Racial.bit_clear;
+			int differ = tabcontrol_Racial.bit_clean;
 
 			if (race.flags != racechanged.flags)
 				differ |= tabcontrol_Racial.bit_flags;

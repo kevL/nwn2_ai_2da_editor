@@ -35,7 +35,7 @@ namespace nwn2_ai_2da_editor
 
 					SpellChanged spellchanged;
 
-					if (spell.differ != bit_clear)
+					if (spell.differ != bit_clean)
 					{
 						spellchanged = he.SpellsChanged[he.Id];
 					}
@@ -57,7 +57,7 @@ namespace nwn2_ai_2da_editor
 					he.Spells[he.Id] = spell;
 
 					Color color;
-					if (spell.differ != bit_clear)
+					if (spell.differ != bit_clean)
 					{
 						he.SpellsChanged[he.Id] = spellchanged;
 						color = Color.Crimson;
@@ -102,7 +102,7 @@ namespace nwn2_ai_2da_editor
 				}
 
 
-				_he.EnableApplys(differ != bit_clear);
+				_he.EnableApplys(differ != bit_clean);
 			}
 			// else TODO: error dialog here.
 		}
@@ -123,7 +123,7 @@ namespace nwn2_ai_2da_editor
 				spell.differ &= ~bit_effecttypes;
 				he.Spells[he.Id] = spell;
 
-				if (spell.differ == bit_clear)
+				if (spell.differ == bit_clean)
 				{
 					he.SpellsChanged.Remove(he.Id);
 

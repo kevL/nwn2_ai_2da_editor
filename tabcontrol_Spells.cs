@@ -16,7 +16,7 @@ namespace nwn2_ai_2da_editor
 		/// @note: The master-int 'differ' is tracked in each spell-struct but
 		/// is not saved to file.
 		/// </summary>
-		internal const int bit_clear        = 0x00;
+		internal const int bit_clean        = 0x00;
 		internal const int bit_spellinfo    = 0x01;
 		internal const int bit_targetinfo   = 0x02;
 		internal const int bit_effectweight = 0x04;
@@ -701,7 +701,7 @@ namespace nwn2_ai_2da_editor
 
 			Spell spell = he.Spells[he.Id];
 
-			bool dirty = (spell.differ != bit_clear);
+			bool dirty = (spell.differ != bit_clean);
 
 			SpellChanged spellchanged;
 			if (dirty)
@@ -791,7 +791,7 @@ namespace nwn2_ai_2da_editor
 		/// <returns>bitwise value containing flags for fields that have changed</returns>
 		internal static int SpellDiffer(Spell spell, SpellChanged spellchanged)
 		{
-			int differ = tabcontrol_Spells.bit_clear;
+			int differ = tabcontrol_Spells.bit_clean;
 
 			if (spell.spellinfo != spellchanged.spellinfo)
 				differ |= tabcontrol_Spells.bit_spellinfo;

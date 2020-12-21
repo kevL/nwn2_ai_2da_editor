@@ -230,7 +230,7 @@ namespace nwn2_ai_2da_editor
 				switch (Type)
 				{
 					case Type2da.TYPE_SPELLS:
-						while (!Spells[id].isChanged && Spells[id].differ == tabcontrol_Spells.bit_clear)
+						while (!Spells[id].isChanged && Spells[id].differ == tabcontrol_Spells.bit_clean)
 						{
 							if (id == Id) // not found.
 							{
@@ -244,7 +244,7 @@ namespace nwn2_ai_2da_editor
 						break;
 
 					case Type2da.TYPE_RACIAL:
-						while (!Races[id].isChanged && Races[id].differ == tabcontrol_Racial.bit_clear)
+						while (!Races[id].isChanged && Races[id].differ == tabcontrol_Racial.bit_clean)
 						{
 							if (id == Id) // not found.
 							{
@@ -258,7 +258,7 @@ namespace nwn2_ai_2da_editor
 						break;
 
 					case Type2da.TYPE_CLASSES:
-						while (!Classes[id].isChanged && Classes[id].differ == tabcontrol_Classes.bit_clear)
+						while (!Classes[id].isChanged && Classes[id].differ == tabcontrol_Classes.bit_clean)
 						{
 							if (id == Id) // not found.
 							{
@@ -831,7 +831,7 @@ namespace nwn2_ai_2da_editor
 				case Type2da.TYPE_SPELLS:
 					foreach (var spell in Spells)
 					{
-						if (spell.isChanged || spell.differ != tabcontrol_Spells.bit_clear)
+						if (spell.isChanged || spell.differ != tabcontrol_Spells.bit_clean)
 							return true;
 					}
 					break;
@@ -839,7 +839,7 @@ namespace nwn2_ai_2da_editor
 				case Type2da.TYPE_RACIAL:
 					foreach (var race in Races)
 					{
-						if (race.isChanged || race.differ != tabcontrol_Racial.bit_clear)
+						if (race.isChanged || race.differ != tabcontrol_Racial.bit_clean)
 							return true;
 					}
 					break;
@@ -847,7 +847,7 @@ namespace nwn2_ai_2da_editor
 				case Type2da.TYPE_CLASSES:
 					foreach (var @class in Classes)
 					{
-						if (@class.isChanged || @class.differ != tabcontrol_Classes.bit_clear)
+						if (@class.isChanged || @class.differ != tabcontrol_Classes.bit_clean)
 							return true;
 					}
 					break;
@@ -946,9 +946,9 @@ namespace nwn2_ai_2da_editor
 					{
 						spell = Spells[id];
 
-						if (spell.differ != tabcontrol_Spells.bit_clear)
+						if (spell.differ != tabcontrol_Spells.bit_clean)
 						{
-							spell.differ = tabcontrol_Spells.bit_clear;
+							spell.differ = tabcontrol_Spells.bit_clean;
 							spell.isChanged = true; // this flag will be cleared by Write2daFile()
 
 							SpellChanged spellchanged = SpellsChanged[id];
@@ -986,9 +986,9 @@ namespace nwn2_ai_2da_editor
 					{
 						race = Races[id];
 
-						if (race.differ != tabcontrol_Racial.bit_clear)
+						if (race.differ != tabcontrol_Racial.bit_clean)
 						{
-							race.differ = tabcontrol_Racial.bit_clear;
+							race.differ = tabcontrol_Racial.bit_clean;
 							race.isChanged = true; // this flag will be cleared by Write2daFile()
 
 							RaceChanged racechanged = RacesChanged[id];
@@ -1025,9 +1025,9 @@ namespace nwn2_ai_2da_editor
 					{
 						@class = Classes[id];
 
-						if (@class.differ != tabcontrol_Classes.bit_clear)
+						if (@class.differ != tabcontrol_Classes.bit_clean)
 						{
-							@class.differ = tabcontrol_Classes.bit_clear;
+							@class.differ = tabcontrol_Classes.bit_clean;
 							@class.isChanged = true; // this flag will be cleared by Write2daFile()
 
 							ClassChanged classchanged = ClassesChanged[id];

@@ -137,7 +137,7 @@ namespace nwn2_ai_2da_editor
 
 					ClassChanged classchanged;
 
-					if (@class.differ != bit_clear)
+					if (@class.differ != bit_clean)
 					{
 						classchanged = he.ClassesChanged[he.Id];
 					}
@@ -214,7 +214,7 @@ namespace nwn2_ai_2da_editor
 					he.Classes[he.Id] = @class;
 
 					Color color;
-					if (differ != bit_clear)
+					if (differ != bit_clean)
 					{
 						he.ClassesChanged[he.Id] = classchanged;
 						color = Color.Crimson;
@@ -249,7 +249,7 @@ namespace nwn2_ai_2da_editor
 					state_ClassFeats(tb);
 
 
-				_he.EnableApplys(differ != bit_clear);
+				_he.EnableApplys(differ != bit_clean);
 			}
 			// else TODO: error dialog here.
 		}
@@ -271,7 +271,7 @@ namespace nwn2_ai_2da_editor
 //
 //				ClassChanged classchanged;
 //
-//				if (@class.differ != bit_clear)
+//				if (@class.differ != bit_clean)
 //				{
 //					classchanged = he.ClassesChanged[he.Id];
 //				}
@@ -300,7 +300,7 @@ namespace nwn2_ai_2da_editor
 //				he.Classes[he.Id] = @class;
 //
 //				Color color;
-//				if (differ != bit_clear)
+//				if (differ != bit_clean)
 //				{
 //					he.ClassesChanged[he.Id] = classchanged;
 //					color = Color.Crimson;
@@ -413,7 +413,7 @@ namespace nwn2_ai_2da_editor
 				@class.differ &= ~bit;
 				he.Classes[he.Id] = @class;
 
-				if (@class.differ == bit_clear)
+				if (@class.differ == bit_clean)
 				{
 					he.ClassesChanged.Remove(he.Id);
 

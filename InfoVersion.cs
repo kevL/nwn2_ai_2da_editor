@@ -90,7 +90,7 @@ namespace nwn2_ai_2da_editor
 						Spells[id] = spell;
 
 						Color color;
-						if (differ != tabcontrol_Spells.bit_clear)
+						if (differ != tabcontrol_Spells.bit_clean)
 						{
 							SpellsChanged[id] = spellchanged;
 							color = Color.Crimson;
@@ -186,7 +186,7 @@ namespace nwn2_ai_2da_editor
 						Races[id] = race;
 
 						Color color;
-						if (differ != tabcontrol_Racial.bit_clear)
+						if (differ != tabcontrol_Racial.bit_clean)
 						{
 							RacesChanged[id] = racechanged;
 							color = Color.Crimson;
@@ -282,7 +282,7 @@ namespace nwn2_ai_2da_editor
 						Classes[id] = @class;
 
 						Color color;
-						if (differ != tabcontrol_Classes.bit_clear)
+						if (differ != tabcontrol_Classes.bit_clean)
 						{
 							ClassesChanged[id] = classchanged;
 							color = Color.Crimson;

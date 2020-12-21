@@ -428,7 +428,7 @@ namespace nwn2_ai_2da_editor
 
 						spell.id        = id;
 						spell.isChanged = false;
-						spell.differ    = tabcontrol_Spells.bit_clear;
+						spell.differ    = tabcontrol_Spells.bit_clean;
 
 						int col = 0;
 
@@ -588,7 +588,7 @@ namespace nwn2_ai_2da_editor
 
 						race.id        = id;
 						race.isChanged = false;
-						race.differ    = tabcontrol_Racial.bit_clear;
+						race.differ    = tabcontrol_Racial.bit_clean;
 
 						int col = 0;
 
@@ -721,7 +721,7 @@ namespace nwn2_ai_2da_editor
 
 						@class.id        = id;
 						@class.isChanged = false;
-						@class.differ    = tabcontrol_Classes.bit_clear;
+						@class.differ    = tabcontrol_Classes.bit_clean;
 
 						int col = 0;
 
@@ -1124,9 +1124,9 @@ namespace nwn2_ai_2da_editor
 				case Type2da.TYPE_SPELLS:
 				{
 					Spell spell = Spells[Id];
-					if (spell.differ != tabcontrol_Spells.bit_clear)
+					if (spell.differ != tabcontrol_Spells.bit_clean)
 					{
-						spell.differ = tabcontrol_Spells.bit_clear;
+						spell.differ = tabcontrol_Spells.bit_clean;
 						spell.isChanged = true;
 
 						SpellChanged spellchanged = SpellsChanged[Id];
@@ -1161,9 +1161,9 @@ namespace nwn2_ai_2da_editor
 				case Type2da.TYPE_RACIAL:
 				{
 					Race race = Races[Id];
-					if (race.differ != tabcontrol_Racial.bit_clear)
+					if (race.differ != tabcontrol_Racial.bit_clean)
 					{
-						race.differ = tabcontrol_Racial.bit_clear;
+						race.differ = tabcontrol_Racial.bit_clean;
 						race.isChanged = true;
 
 						RaceChanged racechanged = RacesChanged[Id];
@@ -1198,9 +1198,9 @@ namespace nwn2_ai_2da_editor
 				case Type2da.TYPE_CLASSES:
 				{
 					Class @class = Classes[Id];
-					if (@class.differ != tabcontrol_Classes.bit_clear)
+					if (@class.differ != tabcontrol_Classes.bit_clean)
 					{
-						@class.differ = tabcontrol_Classes.bit_clear;
+						@class.differ = tabcontrol_Classes.bit_clean;
 						@class.isChanged = true;
 
 						ClassChanged classchanged = ClassesChanged[Id];
@@ -1388,7 +1388,7 @@ namespace nwn2_ai_2da_editor
 						for (int id = 0; id != total; ++id)
 						{
 							spell = Spells[id];
-							if      (spell.differ != tabcontrol_Spells.bit_clear) color = Color.Crimson;
+							if      (spell.differ != tabcontrol_Spells.bit_clean) color = Color.Crimson;
 							else if (spell.isChanged)                             color = Color.Blue;
 							else                                                  color = DefaultForeColor;
 
@@ -1416,7 +1416,7 @@ namespace nwn2_ai_2da_editor
 						for (int id = 0; id != total; ++id)
 						{
 							race = Races[id];
-							if      (race.differ != tabcontrol_Racial.bit_clear) color = Color.Crimson;
+							if      (race.differ != tabcontrol_Racial.bit_clean) color = Color.Crimson;
 							else if (race.isChanged)                             color = Color.Blue;
 							else                                                 color = DefaultForeColor;
 
@@ -1444,7 +1444,7 @@ namespace nwn2_ai_2da_editor
 						for (int id = 0; id != total; ++id)
 						{
 							@class = Classes[id];
-							if      (@class.differ != tabcontrol_Classes.bit_clear) color = Color.Crimson;
+							if      (@class.differ != tabcontrol_Classes.bit_clean) color = Color.Crimson;
 							else if (@class.isChanged)                              color = Color.Blue;
 							else                                                    color = DefaultForeColor;
 
@@ -1537,7 +1537,7 @@ namespace nwn2_ai_2da_editor
 			spell.label     = label;
 			spell.id        = id;
 			spell.isChanged = true;
-			spell.differ    = bit_clear;
+			spell.differ    = bit_clean;
 
 			spell.spellinfo    = 0;
 			spell.targetinfo   = 0;
@@ -1599,7 +1599,7 @@ namespace nwn2_ai_2da_editor
 
 			race.id        = id;
 			race.isChanged = true;
-			race.differ    = bit_clear;
+			race.differ    = bit_clean;
 
 			race.flags = 0;
 			race.feat1 = 0;
