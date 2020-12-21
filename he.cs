@@ -156,16 +156,85 @@ namespace nwn2_ai_2da_editor
 
 			Size = new Size(800, userHeight);
 
-			// NOTE: quickload a 2da for testing ONLY.
-//			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchspells.2da";
-//			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchracial.2da";
-//			_pfe = @"C:\GIT\nwn2_ai_2da_editor\2da\henchclasses.2da";
-//			Load_file();
+			initRecents(); // init recents before (potentially) loading a table from FileExplorer
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		void initRecents()
+		{
+			string pfe = Path.Combine(Application.StartupPath, "recent.cfg");
+			if (File.Exists(pfe))
+			{
+				ToolStripItemCollection recents = it_Recent.DropDownItems;
+
+				string[] lines = File.ReadAllLines(pfe);
+				foreach (string line in lines)
+				{
+					if (File.Exists(line))
+					{
+						var it = new ToolStripMenuItem(line);
+						it.Click += fileclick_Recent;
+						recents.Add(it);
+
+						if (recents.Count == 8) // up to 8 recents
+							break;
+					}
+				}
+			}
 		}
 		#endregion cTor
 
 
-		#region Events (override)
+		#region eventhandlers (override)
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="e"></param>
+		protected override void OnFormClosing(FormClosingEventArgs e)
+		{
+			if (e.CloseReason != CloseReason.WindowsShutDown)
+			{
+				if (isChanged())
+				{
+					string info = "Data has changed."
+								+ Environment.NewLine + Environment.NewLine
+								+ "Okay to exit ...";
+					using (var ib = new infobox(" Warning", info, "yessir", "no"))
+						e.Cancel = ib.ShowDialog(this) != DialogResult.OK;
+				}
+
+				if (!e.Cancel)
+				{
+					// track recent files only if a file 'recent.cfg' exists in the appdir
+
+					string pfe = Path.Combine(Application.StartupPath, "recent.cfg");
+					if (File.Exists(pfe))
+					{
+						int i = -1;
+						var recents = new string[it_Recent.DropDownItems.Count];
+						foreach (ToolStripMenuItem recent in it_Recent.DropDownItems)
+							recents[++i] = recent.Text;
+
+						try
+						{
+							File.WriteAllLines(pfe, recents);
+						}
+						catch (Exception ex)
+						{
+							MessageBox.Show(ex.Message);
+						}
+					}
+				}
+			}
+			base.OnFormClosing(e);
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="e"></param>
 		protected override void OnResize(EventArgs e)
 		{
 			if (WindowState == FormWindowState.Normal)
@@ -173,10 +242,10 @@ namespace nwn2_ai_2da_editor
 
 			base.OnResize(e);
 		}
-		#endregion Events (override)
+		#endregion eventhandlers (override)
 
 
-		#region Load
+		#region Load file
 		bool DoubleQuoteCondition(string[] rows)
 		{
 			// WARNING: This editor does *not* handle quotation marks around 2da fields.
@@ -211,6 +280,42 @@ namespace nwn2_ai_2da_editor
 		{
 			if (File.Exists(_pfe)) // safety.
 			{
+				// deal with recent-files first
+				// NOTE: Recents won't be written to disk unless a file
+				// "recent.cfg" already exists in the appdir.
+
+				ToolStripItemCollection recents = it_Recent.DropDownItems;
+				ToolStripItem it;
+
+				bool found = false;
+
+				for (int i = 0; i != recents.Count; ++i)
+				{
+					if ((it = recents[i]).Text == _pfe)
+					{
+						found = true;
+
+						if (i != 0)
+						{
+							recents.Remove(it);
+							recents.Insert(0, it);
+						}
+						break;
+					}
+				}
+
+				if (!found)
+				{
+					it = new ToolStripMenuItem(_pfe);
+					it.Click += fileclick_Recent;
+					recents.Insert(0, it);
+
+					if (recents.Count > 8) // up to 8 recents
+						recents.Remove(recents[recents.Count - 1]);
+				}
+
+
+				// read and load the 2da second
 				string[] rows = File.ReadAllLines(_pfe);
 
 				if (!DoubleQuoteCondition(rows))
@@ -1035,7 +1140,7 @@ namespace nwn2_ai_2da_editor
 
 			tree_Highlight  .Visible = true;
 		}
-		#endregion Load
+		#endregion Load file
 
 
 		#region SpellTree node-select
@@ -1097,7 +1202,7 @@ namespace nwn2_ai_2da_editor
 			}
 			btn_Apply     .Enabled = differs;
 			it_ApplyGlobal.Enabled = differs || changes;
-			it_GotoChanged.Enabled = differs || changes || SpareChange();
+			it_GotoChanged.Enabled = differs || changes || hasSpareChange();
 		}
 
 		/// <summary>
@@ -1134,7 +1239,8 @@ namespace nwn2_ai_2da_editor
 
 		/// <summary>
 		/// Handler for the "apply changed data to currently selected
-		/// spell/race/class" button. See also <see cref="ApplyDirtyData"/>
+		/// spell/race/class" button. See <see cref="apply"/> to apply all
+		/// altered data globally.
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>

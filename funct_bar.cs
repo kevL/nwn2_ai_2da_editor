@@ -47,24 +47,17 @@ namespace nwn2_ai_2da_editor
 		#endregion Fields (static)
 
 
-		#region eventhandlers (override)
-		protected override void OnFormClosing(FormClosingEventArgs e)
-		{
-			if (e.CloseReason != CloseReason.WindowsShutDown
-				&& GetChanged())
-			{
-				string info = "Data has changed."
-							+ Environment.NewLine + Environment.NewLine
-							+ "Okay to exit ...";
-				using (var ib = new infobox(" Warning", info, "yessir", "no"))
-					e.Cancel = ib.ShowDialog(this) != DialogResult.OK;
-			}
-			base.OnFormClosing(e);
-		}
-		#endregion eventhandlers (override)
-
-
 		#region File
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void dropdownopening_File(object sender, EventArgs e)
+		{
+			it_Recent.Visible = it_Recent.DropDownItems.Count != 0;
+		}
+
 		/// <summary>
 		/// Handles FileMenu close program event.
 		/// </summary>
@@ -72,7 +65,7 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_quit(object sender, EventArgs e)
 		{
-			if (GetChanged())
+			if (isChanged())
 			{
 				string info = "Data has changed."
 							+ Environment.NewLine + Environment.NewLine
@@ -93,7 +86,7 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_open(object sender, EventArgs e)
 		{
-			if (GetChanged())
+			if (isChanged())
 			{
 				string info = "Data has changed."
 							+ Environment.NewLine + Environment.NewLine
@@ -119,13 +112,31 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
+		/// Opens a 2da-file from the Recent-files list. Removes the item from
+		/// the list if it was not found on disk.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void fileclick_Recent(object sender, EventArgs e)
+		{
+			var it = sender as ToolStripMenuItem;
+			if (File.Exists(it.Text))
+			{
+				_pfe = it.Text;
+				Load_file();
+			}
+			else
+				it_Recent.DropDownItems.Remove(it);
+		}
+
+		/// <summary>
 		/// Handles FileMenu save file event.
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		void Click_save(object sender, EventArgs e)
 		{
-			if (!DirtyData())
+			if (!hasDirtyData())
 			{
 				if (sender == null) // is Saveas
 				{
@@ -153,7 +164,7 @@ namespace nwn2_ai_2da_editor
 								_pfeT = String.Empty;
 							}
 
-							ApplyDirtyData();
+							apply();
 							Write2daFile();
 							break;
 
@@ -205,7 +216,7 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_applyGlobal(object sender, EventArgs e)
 		{
-			ApplyDirtyData();
+			apply();
 		}
 
 		/// <summary>
@@ -665,21 +676,21 @@ namespace nwn2_ai_2da_editor
 							SetInfoVersion_spells("0", true);
 
 							it_ApplyGlobal.Enabled = SpellsChanged.Count != 0;
-							it_GotoChanged.Enabled = SpellsChanged.Count != 0 || SpareChange();
+							it_GotoChanged.Enabled = SpellsChanged.Count != 0 || hasSpareChange();
 							break;
 
 						case Type2da.TYPE_RACIAL:
 							SetInfoVersion_racial("0", true);
 
 							it_ApplyGlobal.Enabled = RacesChanged.Count != 0;
-							it_GotoChanged.Enabled = RacesChanged.Count != 0 || SpareChange();
+							it_GotoChanged.Enabled = RacesChanged.Count != 0 || hasSpareChange();
 							break;
 
 						case Type2da.TYPE_CLASSES:
 							SetInfoVersion_classes("0", true);
 
 							it_ApplyGlobal.Enabled = ClassesChanged.Count != 0;
-							it_GotoChanged.Enabled = ClassesChanged.Count != 0 || SpareChange();
+							it_GotoChanged.Enabled = ClassesChanged.Count != 0 || hasSpareChange();
 							break;
 					}
 
@@ -823,10 +834,10 @@ namespace nwn2_ai_2da_editor
 
 		#region Changes functs
 		/// <summary>
-		/// Gets if there is unsaved modifications.
+		/// Checks if there is any altered data or unsaved structs.
 		/// </summary>
 		/// <returns></returns>
-		bool GetChanged()
+		bool isChanged()
 		{
 			switch (Type)
 			{
@@ -859,10 +870,10 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Checks if there are any Applied structs.
+		/// Checks if there are any unsaved structs.
 		/// </summary>
 		/// <returns>true if basic structs have yet to be saved</returns>
-		bool SpareChange()
+		bool hasSpareChange()
 		{
 			switch (Type)
 			{
@@ -894,11 +905,11 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Checks if there is any dirty data - data that's been modified but
-		/// has yet to be Applied.
+		/// Checks if there is any altered data - data that's been modified but
+		/// has yet to be applied to their structs.
 		/// </summary>
 		/// <returns>true if there are dirty structs</returns>
-		bool DirtyData()
+		bool hasDirtyData()
 		{
 			switch (Type)
 			{
@@ -924,10 +935,10 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Applies modified data to any struct that has changed. See also
-		/// <see cref="Click_apply"/>
+		/// Applies all altered data to their structs. See <see cref="Click_apply"/>
+		/// to apply altered data to only the selected struct.
 		/// </summary>
-		void ApplyDirtyData()
+		void apply()
 		{
 			Text = "nwn2_ai_2da_editor - " + _pfe + " *"; // titlebar text (append path of saved file + asterisk)
 

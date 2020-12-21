@@ -28,6 +28,7 @@ namespace nwn2_ai_2da_editor
 		MenuStrip menubar;
 		ToolStripMenuItem tsmi_file;
 		ToolStripMenuItem Open;
+		ToolStripMenuItem it_Recent;
 		ToolStripSeparator toolStripSeparator1;
 		ToolStripMenuItem Save;
 		ToolStripMenuItem Saveas;
@@ -75,6 +76,7 @@ namespace nwn2_ai_2da_editor
 			this.menubar = new System.Windows.Forms.MenuStrip();
 			this.tsmi_file = new System.Windows.Forms.ToolStripMenuItem();
 			this.Open = new System.Windows.Forms.ToolStripMenuItem();
+			this.it_Recent = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
 			this.Save = new System.Windows.Forms.ToolStripMenuItem();
 			this.Saveas = new System.Windows.Forms.ToolStripMenuItem();
@@ -137,6 +139,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.tsmi_file.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
 			this.Open,
+			this.it_Recent,
 			this.toolStripSeparator1,
 			this.Save,
 			this.Saveas,
@@ -145,6 +148,7 @@ namespace nwn2_ai_2da_editor
 			this.tsmi_file.Name = "tsmi_file";
 			this.tsmi_file.Size = new System.Drawing.Size(37, 24);
 			this.tsmi_file.Text = "File";
+			this.tsmi_file.DropDownOpening += new System.EventHandler(this.dropdownopening_File);
 			// 
 			// Open
 			// 
@@ -154,6 +158,13 @@ namespace nwn2_ai_2da_editor
 			this.Open.Size = new System.Drawing.Size(160, 20);
 			this.Open.Text = "Open ...";
 			this.Open.Click += new System.EventHandler(this.Click_open);
+			// 
+			// it_Recent
+			// 
+			this.it_Recent.Name = "it_Recent";
+			this.it_Recent.Padding = new System.Windows.Forms.Padding(0);
+			this.it_Recent.Size = new System.Drawing.Size(160, 20);
+			this.it_Recent.Text = "Recen&t";
 			// 
 			// toolStripSeparator1
 			// 
