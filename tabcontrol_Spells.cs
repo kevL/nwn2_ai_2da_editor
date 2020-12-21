@@ -11,6 +11,7 @@ namespace nwn2_ai_2da_editor
 	sealed partial class tabcontrol_Spells
 		: HenchControl
 	{
+		#region Fields (static)
 		/// <summary>
 		/// Bitflags for spell-fields that have changed.
 		/// @note: The master-int 'differ' is tracked in each spell-struct but
@@ -24,10 +25,14 @@ namespace nwn2_ai_2da_editor
 		internal const int bit_damageinfo   = 0x10;
 		internal const int bit_savetype     = 0x20;
 		internal const int bit_savedctype   = 0x40;
+		#endregion Fields (static)
 
+
+		#region Fields
 		he _he;
 
 		bool BypassSubspell;
+		#endregion Fields
 
 
 		#region cTor
@@ -67,13 +72,13 @@ namespace nwn2_ai_2da_editor
 			SaveType_hex   .Font =
 			SaveType_bin   .Font =
 			SaveDCType_hex .Font =
-			SaveDCType_bin .Font = he.StaticFont;
+			SaveDCType_bin .Font = he.FixedFont;
 
-			// Groups on SpellInfo and TargetInfo generally stay green
-			// unless SpellInfo is flagged as a MasterID
+			// Groups on SpellInfo and TargetInfo generally stay green unless
+			// SpellInfo is flagged as a MasterID
 			SetDefaultGroupColors();
 
-			PopulateComboboxes();
+			initCos();
 
 
 			tc_Spells.SelectedIndexChanged += SelectedIndexChanged_tab;
@@ -323,11 +328,13 @@ namespace nwn2_ai_2da_editor
 			savedc_ac1.MouseClick += MouseClick_dc_armorchecktype;
 			savedc_ac2.MouseClick += MouseClick_dc_armorchecktype;
 			savedc_ac3.MouseClick += MouseClick_dc_armorchecktype;
+
+			_he.SelectSearch();
 		}
 		#endregion cTor
 
 
-		#region Events
+		#region eventhandlers
 		/// <summary>
 		/// Handler for selecting a tab-page.
 		/// Disables the "Copy" menu-items for hexadecimal and binary if the
@@ -340,7 +347,12 @@ namespace nwn2_ai_2da_editor
 			_he.EnableCopy(tc_Spells.SelectedIndex != 2);
 		}
 
-		internal void Click_clear(object sender, EventArgs e)
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void Click_clear(object sender, EventArgs e)
 		{
 			var btn = sender as Button;
 			if      (btn == si_Clear) SpellInfo_text   .Text = "0";
@@ -351,14 +363,14 @@ namespace nwn2_ai_2da_editor
 			else if (btn == st_Clear) SaveType_text    .Text = "0";
 			else                      SaveDCType_text  .Text = "0"; //if (btn == dc_Clear)
 		}
-		#endregion Events
+		#endregion eventhandlers
 
 
 		#region Methods
 		/// <summary>
 		/// Populates the dropdown-lists.
 		/// </summary>
-		void PopulateComboboxes()
+		void initCos()
 		{
 // SpellInfo ->
 			// populate the dropdown list for SpellInfo - SpellType
@@ -657,7 +669,9 @@ namespace nwn2_ai_2da_editor
 			dc_co_WeaponBonus.Items.Add("weapon bonus - (casterlevel / 3) - 1");	// 102
 		}
 
-
+		/// <summary>
+		/// 
+		/// </summary>
 		void SetDefaultGroupColors()
 		{
 			GroupColor(si_SpelltypeGrp,  Color.LimeGreen);
@@ -686,8 +700,13 @@ namespace nwn2_ai_2da_editor
 				control.ForeColor = color;
 			}
 		}
+		#endregion Methods
 
 
+		#region HenchControl (override)
+		/// <summary>
+		/// 
+		/// </summary>
 		internal override void SelectId()
 		{
 			SpellInfo_text   .Clear(); // clear the info-fields to force TextChanged events ->
@@ -782,7 +801,84 @@ namespace nwn2_ai_2da_editor
 			SaveDCType_text.Text = val.ToString();
 		}
 
+		/// <summary>
+		/// Gets the master-int of the currently selected page as a string.
+		/// </summary>
+		/// <returns></returns>
+		internal override string GetMasterText()
+		{
+			string info = String.Empty;
+			switch (tc_Spells.SelectedIndex)
+			{
+				case 2: // NOTE: Copy_decimal only.
+				{
+					info = EffectWeight_text.Text;
+					float f;
+					if (Single.TryParse(info, out f))
+						return info;
 
+					return String.Empty;
+				}
+
+				case 0: info = SpellInfo_text  .Text; break;
+				case 1: info = TargetInfo_text .Text; break;
+				case 3: info = EffectTypes_text.Text; break;
+				case 4: info = DamageInfo_text .Text; break;
+				case 5: info = SaveType_text   .Text; break;
+				case 6: info = SaveDCType_text .Text; break;
+			}
+
+			int result;
+			if (Int32.TryParse(info, out result))
+				return info;
+
+			return String.Empty;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="text"></param>
+		internal override void SetMasterText(string text)
+		{
+			SpellInfo_text.Text = text;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		internal override void SelectResetButton()
+		{
+			switch (tc_Spells.SelectedIndex)
+			{
+				case 0: SpellInfo_reset   .Select(); break;
+				case 1: TargetInfo_reset  .Select(); break;
+				case 2: EffectWeight_reset.Select(); break;
+				case 3: EffectTypes_reset .Select(); break;
+				case 4: DamageInfo_reset  .Select(); break;
+				case 5: SaveType_reset    .Select(); break;
+				case 6: SaveDCType_reset  .Select(); break;
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="color"></param>
+		internal override void SetResetColor(Color color)
+		{
+			SpellInfo_reset   .ForeColor =
+			TargetInfo_reset  .ForeColor =
+			EffectWeight_reset.ForeColor =
+			EffectTypes_reset .ForeColor =
+			DamageInfo_reset  .ForeColor =
+			SaveType_reset    .ForeColor =
+			SaveDCType_reset  .ForeColor = color;
+		}
+		#endregion HenchControl (override)
+
+
+		#region Methods (static)
 		/// <summary>
 		/// Gets a bitwise value containing flags for fields that have changed.
 		/// </summary>
@@ -816,72 +912,6 @@ namespace nwn2_ai_2da_editor
 
 			return differ;
 		}
-
-
-		/// <summary>
-		/// Gets the master-int of the currently selected page as a string.
-		/// </summary>
-		/// <returns></returns>
-		internal override string GetMasterText()
-		{
-			string info = String.Empty;
-			switch (tc_Spells.SelectedIndex)
-			{
-				case 2: // NOTE: Copy_decimal only.
-				{
-					info = EffectWeight_text.Text;
-					float f;
-					if (Single.TryParse(info, out f))
-						return info;
-
-					return String.Empty;
-				}
-
-				case 0: info = SpellInfo_text  .Text; break;
-				case 1: info = TargetInfo_text .Text; break;
-				case 3: info = EffectTypes_text.Text; break;
-				case 4: info = DamageInfo_text .Text; break;
-				case 5: info = SaveType_text   .Text; break;
-				case 6: info = SaveDCType_text .Text; break;
-			}
-
-			int i;
-			if (Int32.TryParse(info, out i))
-				return info;
-
-			return String.Empty;
-		}
-
-		internal override void SetMasterText(string text)
-		{
-			SpellInfo_text.Text = text;
-		}
-
-
-		internal override void SelectResetButton()
-		{
-			switch (tc_Spells.SelectedIndex)
-			{
-				case 0: SpellInfo_reset   .Select(); break;
-				case 1: TargetInfo_reset  .Select(); break;
-				case 2: EffectWeight_reset.Select(); break;
-				case 3: EffectTypes_reset .Select(); break;
-				case 4: DamageInfo_reset  .Select(); break;
-				case 5: SaveType_reset    .Select(); break;
-				case 6: SaveDCType_reset  .Select(); break;
-			}
-		}
-
-		internal override void SetResetColor(Color color)
-		{
-			SpellInfo_reset   .ForeColor =
-			TargetInfo_reset  .ForeColor =
-			EffectWeight_reset.ForeColor =
-			EffectTypes_reset .ForeColor =
-			DamageInfo_reset  .ForeColor =
-			SaveType_reset    .ForeColor =
-			SaveDCType_reset  .ForeColor = color;
-		}
-		#endregion Methods
+		#endregion Methods (static)
 	}
 }

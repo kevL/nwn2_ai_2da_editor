@@ -10,11 +10,15 @@ namespace nwn2_ai_2da_editor
 	/// </summary>
 	partial class tabcontrol_Classes
 	{
+		#region Fields (static)
 		const int HENCH_FEAT_SPELL_SHIFT_SPELL  = 16;
 
 		const int HENCH_CLASS_BUFF_OTHERS_SHIFT = 10;
 		const int HENCH_CLASS_ATTACK_SHIFT      = 12;
+		#endregion Fields (static)
 
+
+		#region eventhandlers
 		/// <summary>
 		/// Handles TextChanged event on the Classes pages.
 		/// </summary>
@@ -22,12 +26,17 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void TextChanged_classes(object sender, EventArgs e)
 		{
-			var tb = sender as TextBox;
+			// NOTE: TextChanged needs to fire when HenchSpells loads in order
+			// to set the checkboxes and dropdown-fields.
+			//
+			// 'BypassDiffer' is set true since this does not need to go through
+			// creating and deleting each SpellChanged-struct (since nothing has
+			// changed yet OnLoad of the 2da-file).
+			//
+			// 'BypassDiffer' is also set true by AfterSelect_node() since the
+			// Spell-structs already contain proper diff-data.
 
-			// NOTE: TextChanged needs to fire when HenchClasses loads in order
-			// to set the checkers. Technically however this does not need to go
-			// through creating and deleting each Class-struct (since nothing
-			// has changed yet OnLoad of the 2da-file)
+			var tb = sender as TextBox;
 
 			int val;
 			if (Int32.TryParse(tb.Text, out val))
@@ -242,17 +251,17 @@ namespace nwn2_ai_2da_editor
 
 				if (isFlags)
 				{
-					CheckClassFlagsCheckers(val);
+					state_ClassFlags(val);
 //					PrintInfoVersion_class(val);
 				}
 				else
 					state_ClassFeats(tb);
 
-
 				_he.EnableApplys(differ != bit_clean);
 			}
 			// else TODO: error dialog here.
 		}
+
 
 //		/// <summary>
 //		/// Updates InfoVersion for the current class.
@@ -318,6 +327,7 @@ namespace nwn2_ai_2da_editor
 //			}
 //			return false;
 //		}
+
 
 		/// <summary>
 		/// Handles resetting the current class' info.
@@ -429,7 +439,6 @@ namespace nwn2_ai_2da_editor
 				tb.Text = info.ToString();
 			}
 		}
-
 
 		/// <summary>
 		/// Handles toggling bits by checkboxes on the ClassFlags page.
@@ -802,94 +811,102 @@ namespace nwn2_ai_2da_editor
 				}
 			}
 		}
+		#endregion eventhandlers
 
+
+		#region HenchControl (override)
+		/// <summary>
+		/// 
+		/// </summary>
 		internal override void SetSpellLabelTexts()
 		{
-			Class @class = he.Classes[he.Id];
-
 			int id;
-			id = (@class.feat1 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
-			if (id < he.spellLabels.Count)
+
+			// NOTE: Texts shall not be negative.
+			// TODO: Texts shall parse to ints.
+
+			if (Int32.TryParse(cf1_SpellId.Text, out id)
+				&& id < he.spellLabels.Count)
 			{
 				cf1_SpellLabel.Text = he.spellLabels[id];
 			}
 			else
 				cf1_SpellLabel.Text = String.Empty;
 
-			id = (@class.feat2 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
-			if (id < he.spellLabels.Count)
+			if (Int32.TryParse(cf2_SpellId.Text, out id)
+				&& id < he.spellLabels.Count)
 			{
 				cf2_SpellLabel.Text = he.spellLabels[id];
 			}
 			else
 				cf2_SpellLabel.Text = String.Empty;
 
-			id = (@class.feat3 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
-			if (id < he.spellLabels.Count)
+			if (Int32.TryParse(cf3_SpellId.Text, out id)
+				&& id < he.spellLabels.Count)
 			{
 				cf3_SpellLabel.Text = he.spellLabels[id];
 			}
 			else
 				cf3_SpellLabel.Text = String.Empty;
 
-			id = (@class.feat4 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
-			if (id < he.spellLabels.Count)
+			if (Int32.TryParse(cf4_SpellId.Text, out id)
+				&& id < he.spellLabels.Count)
 			{
 				cf4_SpellLabel.Text = he.spellLabels[id];
 			}
 			else
 				cf4_SpellLabel.Text = String.Empty;
 
-			id = (@class.feat5 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
-			if (id < he.spellLabels.Count)
+			if (Int32.TryParse(cf5_SpellId.Text, out id)
+				&& id < he.spellLabels.Count)
 			{
 				cf5_SpellLabel.Text = he.spellLabels[id];
 			}
 			else
 				cf5_SpellLabel.Text = String.Empty;
 
-			id = (@class.feat6 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
-			if (id < he.spellLabels.Count)
+			if (Int32.TryParse(cf6_SpellId.Text, out id)
+				&& id < he.spellLabels.Count)
 			{
 				cf6_SpellLabel.Text = he.spellLabels[id];
 			}
 			else
 				cf6_SpellLabel.Text = String.Empty;
 
-			id = (@class.feat7 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
-			if (id < he.spellLabels.Count)
+			if (Int32.TryParse(cf7_SpellId.Text, out id)
+				&& id < he.spellLabels.Count)
 			{
 				cf7_SpellLabel.Text = he.spellLabels[id];
 			}
 			else
 				cf7_SpellLabel.Text = String.Empty;
 
-			id = (@class.feat8 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
-			if (id < he.spellLabels.Count)
+			if (Int32.TryParse(cf8_SpellId.Text, out id)
+				&& id < he.spellLabels.Count)
 			{
 				cf8_SpellLabel.Text = he.spellLabels[id];
 			}
 			else
 				cf8_SpellLabel.Text = String.Empty;
 
-			id = (@class.feat9 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
-			if (id < he.spellLabels.Count)
+			if (Int32.TryParse(cf9_SpellId.Text, out id)
+				&& id < he.spellLabels.Count)
 			{
 				cf9_SpellLabel.Text = he.spellLabels[id];
 			}
 			else
 				cf9_SpellLabel.Text = String.Empty;
 
-			id = (@class.feat10 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
-			if (id < he.spellLabels.Count)
+			if (Int32.TryParse(cf10_SpellId.Text, out id)
+				&& id < he.spellLabels.Count)
 			{
 				cf10_SpellLabel.Text = he.spellLabels[id];
 			}
 			else
 				cf10_SpellLabel.Text = String.Empty;
 
-			id = (@class.feat11 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
-			if (id < he.spellLabels.Count)
+			if (Int32.TryParse(cf11_SpellId.Text, out id)
+				&& id < he.spellLabels.Count)
 			{
 				cf11_SpellLabel.Text = he.spellLabels[id];
 			}
@@ -897,6 +914,9 @@ namespace nwn2_ai_2da_editor
 				cf11_SpellLabel.Text = String.Empty;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		internal override void ClearSpellLabelTexts()
 		{
 			cf1_SpellLabel .Text =
@@ -912,93 +932,98 @@ namespace nwn2_ai_2da_editor
 			cf11_SpellLabel.Text = String.Empty;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		internal override void SetFeatLabelTexts()
 		{
-			Class @class = he.Classes[he.Id];
-
 			int id;
-			id = (@class.feat1 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
-			if (id < he.featLabels.Count)
+
+			// NOTE: Texts shall not be negative.
+			// TODO: Texts shall parse to ints.
+
+			if (Int32.TryParse(cf1_FeatId.Text, out id)
+				&& id < he.featLabels.Count)
 			{
 				cf1_FeatLabel.Text = he.featLabels[id];
 			}
 			else
 				cf1_FeatLabel.Text = String.Empty;
 
-			id = (@class.feat2 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
-			if (id < he.featLabels.Count)
+			if (Int32.TryParse(cf2_FeatId.Text, out id)
+				&& id < he.featLabels.Count)
 			{
 				cf2_FeatLabel.Text = he.featLabels[id];
 			}
 			else
 				cf2_FeatLabel.Text = String.Empty;
 
-			id = (@class.feat3 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
-			if (id < he.featLabels.Count)
+			if (Int32.TryParse(cf3_FeatId.Text, out id)
+				&& id < he.featLabels.Count)
 			{
 				cf3_FeatLabel.Text = he.featLabels[id];
 			}
 			else
 				cf3_FeatLabel.Text = String.Empty;
 
-			id = (@class.feat4 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
-			if (id < he.featLabels.Count)
+			if (Int32.TryParse(cf4_FeatId.Text, out id)
+				&& id < he.featLabels.Count)
 			{
 				cf4_FeatLabel.Text = he.featLabels[id];
 			}
 			else
 				cf4_FeatLabel.Text = String.Empty;
 
-			id = (@class.feat5 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
-			if (id < he.featLabels.Count)
+			if (Int32.TryParse(cf5_FeatId.Text, out id)
+				&& id < he.featLabels.Count)
 			{
 				cf5_FeatLabel.Text = he.featLabels[id];
 			}
 			else
 				cf5_FeatLabel.Text = String.Empty;
 
-			id = (@class.feat6 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
-			if (id < he.featLabels.Count)
+			if (Int32.TryParse(cf6_FeatId.Text, out id)
+				&& id < he.featLabels.Count)
 			{
 				cf6_FeatLabel.Text = he.featLabels[id];
 			}
 			else
 				cf6_FeatLabel.Text = String.Empty;
 
-			id = (@class.feat7 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
-			if (id < he.featLabels.Count)
+			if (Int32.TryParse(cf7_FeatId.Text, out id)
+				&& id < he.featLabels.Count)
 			{
 				cf7_FeatLabel.Text = he.featLabels[id];
 			}
 			else
 				cf7_FeatLabel.Text = String.Empty;
 
-			id = (@class.feat8 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
-			if (id < he.featLabels.Count)
+			if (Int32.TryParse(cf8_FeatId.Text, out id)
+				&& id < he.featLabels.Count)
 			{
 				cf8_FeatLabel.Text = he.featLabels[id];
 			}
 			else
 				cf8_FeatLabel.Text = String.Empty;
 
-			id = (@class.feat9 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
-			if (id < he.featLabels.Count)
+			if (Int32.TryParse(cf9_FeatId.Text, out id)
+				&& id < he.featLabels.Count)
 			{
 				cf9_FeatLabel.Text = he.featLabels[id];
 			}
 			else
 				cf9_FeatLabel.Text = String.Empty;
 
-			id = (@class.feat10 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
-			if (id < he.featLabels.Count)
+			if (Int32.TryParse(cf10_FeatId.Text, out id)
+				&& id < he.featLabels.Count)
 			{
 				cf10_FeatLabel.Text = he.featLabels[id];
 			}
 			else
 				cf10_FeatLabel.Text = String.Empty;
 
-			id = (@class.feat11 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
-			if (id < he.featLabels.Count)
+			if (Int32.TryParse(cf11_FeatId.Text, out id)
+				&& id < he.featLabels.Count)
 			{
 				cf11_FeatLabel.Text = he.featLabels[id];
 			}
@@ -1006,6 +1031,9 @@ namespace nwn2_ai_2da_editor
 				cf11_FeatLabel.Text = String.Empty;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		internal override void ClearFeatLabelTexts()
 		{
 			cf1_FeatLabel .Text =
@@ -1020,6 +1048,7 @@ namespace nwn2_ai_2da_editor
 			cf10_FeatLabel.Text =
 			cf11_FeatLabel.Text = String.Empty;
 		}
+		#endregion HenchControl (override)
 
 
 //		/// <summary>
@@ -1035,11 +1064,12 @@ namespace nwn2_ai_2da_editor
 //		}
 
 
+		#region setstate
 		/// <summary>
 		/// Sets the checkers on the ClassFlags page to reflect the current
 		/// flags value.
 		/// </summary>
-		void CheckClassFlagsCheckers(int flags)
+		void state_ClassFlags(int flags)
 		{
 			cf_HasFeatSpells  .Checked = (flags & hc.HENCH_CLASS_FEAT_SPELLS)         != 0;
 			cf_isPrestigeClass.Checked = (flags & hc.HENCH_CLASS_PRC_FLAG)            != 0;
@@ -1251,5 +1281,6 @@ namespace nwn2_ai_2da_editor
 				}
 			}
 		}
+		#endregion setstate
 	}
 }

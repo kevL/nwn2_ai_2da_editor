@@ -10,8 +10,12 @@ namespace nwn2_ai_2da_editor
 	/// </summary>
 	partial class tabcontrol_Spells
 	{
+		#region Fields (static)
 		const int HENCH_SPELL_TARGET_RADIUS_SHIFT = 6;
+		#endregion Fields (static)
 
+
+		#region eventhandlers
 		/// <summary>
 		/// Handles TextChanged event on the TargetInfo page.
 		/// </summary>
@@ -320,8 +324,10 @@ namespace nwn2_ai_2da_editor
 				}
 			}
 		}
+		#endregion eventhandlers
 
 
+		#region setstate
 		/// <summary>
 		/// Sets the checkers on the TargetInfo page to reflect the current
 		/// targetinfo value.
@@ -378,5 +384,6 @@ namespace nwn2_ai_2da_editor
 			val >>= HENCH_SPELL_TARGET_RADIUS_SHIFT;
 			ti_Radius.Text = he.Float2daFormat((float)val * 0.1f);
 		}
+		#endregion setstate
 	}
 }

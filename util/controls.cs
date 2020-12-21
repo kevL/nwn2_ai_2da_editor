@@ -51,13 +51,22 @@ namespace nwn2_ai_2da_editor
 
 
 	/// <summary>
-	/// Derived class for TextBox. Allows integers only in the textbox.
+	/// Derived class for TextBox. Allows integers only entered in the textbox.
+	/// And ensures a decent format on Leave event.
 	/// </summary>
 	sealed class TextboxInt
 		: TextBox
 	{
+		#region Fields
 		string _pre = String.Empty;
+		#endregion Fields
 
+
+		#region eventhandlers (override)
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="e"></param>
 		protected override void OnTextChanged(EventArgs e)
 		{
 			bool retry = !String.IsNullOrEmpty(Text)	// allow blank string
@@ -82,6 +91,10 @@ namespace nwn2_ai_2da_editor
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="e"></param>
 		protected override void OnLeave(EventArgs e)
 		{
 			string text = Text.Trim().TrimStart('0');
@@ -97,7 +110,10 @@ namespace nwn2_ai_2da_editor
 				Text = text;
 		}
 
-
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="e"></param>
 		protected override void OnKeyDown(KeyEventArgs e)
 		{
 			switch (e.KeyData)
@@ -110,17 +126,24 @@ namespace nwn2_ai_2da_editor
 			}
 			base.OnKeyDown(e);
 		}
+		#endregion eventhandlers (override)
 	}
 
 
 	/// <summary>
-	/// Derived class for TextBox. Allows floats only in the textbox.
+	/// Derived class for TextBox. Allows floats only entered in the textbox.
+	/// And ensures a decent format on Leave event.
 	/// </summary>
 	sealed class TextboxFloat
 		: TextBox
 	{
 		string _pre = String.Empty;
 
+		#region eventhandlers (override)
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="e"></param>
 		protected override void OnTextChanged(EventArgs e)
 		{
 			bool retry = !String.IsNullOrEmpty(Text)	// allow blank string
@@ -147,6 +170,10 @@ namespace nwn2_ai_2da_editor
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="e"></param>
 		protected override void OnLeave(EventArgs e)
 		{
 			string text = Text.Trim().Trim('0');
@@ -179,7 +206,10 @@ namespace nwn2_ai_2da_editor
 				Text = text;
 		}
 
-
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="e"></param>
 		protected override void OnKeyDown(KeyEventArgs e)
 		{
 			switch (e.KeyData)
@@ -192,5 +222,6 @@ namespace nwn2_ai_2da_editor
 			}
 			base.OnKeyDown(e);
 		}
+		#endregion eventhandlers (override)
 	}
 }

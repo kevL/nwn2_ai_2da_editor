@@ -20,10 +20,10 @@ namespace nwn2_ai_2da_editor
 		TabPage tp_Feat5;
 
 // 'tp_Flags' controls
-		Button  RacialFlags_reset; // TODO: ToolTip "reset"
-		TextBox RacialFlags_text;
-		TextBox RacialFlags_hex;
-		TextBox RacialFlags_bin;
+		Button     RacialFlags_reset; // TODO: ToolTip "reset"
+		TextboxInt RacialFlags_text;
+		TextBox    RacialFlags_hex;
+		TextBox    RacialFlags_bin;
 
 		Button rf_Clear;
 		Label  rf_hex;
@@ -32,94 +32,94 @@ namespace nwn2_ai_2da_editor
 		CheckBox rf_HasFeatSpells;
 
 // 'tp_Feat1' controls
-		Button  RacialFeat1_reset; // TODO: ToolTip "reset"
-		TextBox RacialFeat1_text;
-		TextBox RacialFeat1_hex;
-		TextBox RacialFeat1_bin;
+		Button     RacialFeat1_reset; // TODO: ToolTip "reset"
+		TextboxInt RacialFeat1_text;
+		TextBox    RacialFeat1_hex;
+		TextBox    RacialFeat1_bin;
 
 		Button rf1_Clear;
 		Label  rf1_hex;
 		Label  rf1_bin;
 
-		Label    rf1_featId_label;
-		TextBox  rf1_FeatId;
-		Label    rf1_FeatLabel;
-		Label    rf1_spellId_label;
-		TextBox  rf1_SpellId;
-		Label    rf1_SpellLabel;
-		CheckBox rf1_cheatCast;
+		Label      rf1_featId_label;
+		TextboxInt rf1_FeatId;
+		Label      rf1_FeatLabel;
+		Label      rf1_spellId_label;
+		TextboxInt rf1_SpellId;
+		Label      rf1_SpellLabel;
+		CheckBox   rf1_cheatCast;
 
 // 'tp_Feat2' controls
-		Button  RacialFeat2_reset; // TODO: ToolTip "reset"
-		TextBox RacialFeat2_text;
-		TextBox RacialFeat2_hex;
-		TextBox RacialFeat2_bin;
+		Button     RacialFeat2_reset; // TODO: ToolTip "reset"
+		TextboxInt RacialFeat2_text;
+		TextBox    RacialFeat2_hex;
+		TextBox    RacialFeat2_bin;
 
 		Button rf2_Clear;
 		Label  rf2_hex;
 		Label  rf2_bin;
 
-		Label    rf2_featId_label;
-		TextBox  rf2_FeatId;
-		Label    rf2_FeatLabel;
-		Label    rf2_spellId_label;
-		TextBox  rf2_SpellId;
-		Label    rf2_SpellLabel;
-		CheckBox rf2_cheatCast;
+		Label      rf2_featId_label;
+		TextboxInt rf2_FeatId;
+		Label      rf2_FeatLabel;
+		Label      rf2_spellId_label;
+		TextboxInt rf2_SpellId;
+		Label      rf2_SpellLabel;
+		CheckBox   rf2_cheatCast;
 
 // 'tp_Feat3' controls
-		Button  RacialFeat3_reset; // TODO: ToolTip "reset"
-		TextBox RacialFeat3_text;
-		TextBox RacialFeat3_hex;
-		TextBox RacialFeat3_bin;
+		Button     RacialFeat3_reset; // TODO: ToolTip "reset"
+		TextboxInt RacialFeat3_text;
+		TextBox    RacialFeat3_hex;
+		TextBox    RacialFeat3_bin;
 
 		Button rf3_Clear;
 		Label  rf3_hex;
 		Label  rf3_bin;
 
-		Label    rf3_featId_label;
-		TextBox  rf3_FeatId;
-		Label    rf3_FeatLabel;
-		Label    rf3_spellId_label;
-		TextBox  rf3_SpellId;
-		Label    rf3_SpellLabel;
-		CheckBox rf3_cheatCast;
+		Label      rf3_featId_label;
+		TextboxInt rf3_FeatId;
+		Label      rf3_FeatLabel;
+		Label      rf3_spellId_label;
+		TextboxInt rf3_SpellId;
+		Label      rf3_SpellLabel;
+		CheckBox   rf3_cheatCast;
 
 // 'tp_Feat4' controls
-		Button  RacialFeat4_reset; // TODO: ToolTip "reset"
-		TextBox RacialFeat4_text;
-		TextBox RacialFeat4_hex;
-		TextBox RacialFeat4_bin;
+		Button     RacialFeat4_reset; // TODO: ToolTip "reset"
+		TextboxInt RacialFeat4_text;
+		TextBox    RacialFeat4_hex;
+		TextBox    RacialFeat4_bin;
 
 		Button rf4_Clear;
 		Label  rf4_hex;
 		Label  rf4_bin;
 
-		Label    rf4_featId_label;
-		TextBox  rf4_FeatId;
-		Label    rf4_FeatLabel;
-		Label    rf4_spellId_label;
-		TextBox  rf4_SpellId;
-		Label    rf4_SpellLabel;
-		CheckBox rf4_cheatCast;
+		Label      rf4_featId_label;
+		TextboxInt rf4_FeatId;
+		Label      rf4_FeatLabel;
+		Label      rf4_spellId_label;
+		TextboxInt rf4_SpellId;
+		Label      rf4_SpellLabel;
+		CheckBox   rf4_cheatCast;
 
 // 'tp_Feat5' controls
-		Button  RacialFeat5_reset; // TODO: ToolTip "reset"
-		TextBox RacialFeat5_text;
-		TextBox RacialFeat5_hex;
-		TextBox RacialFeat5_bin;
+		Button     RacialFeat5_reset; // TODO: ToolTip "reset"
+		TextboxInt RacialFeat5_text;
+		TextBox    RacialFeat5_hex;
+		TextBox    RacialFeat5_bin;
 
 		Button rf5_Clear;
 		Label  rf5_hex;
 		Label  rf5_bin;
 
-		Label    rf5_featId_label;
-		TextBox  rf5_FeatId;
-		Label    rf5_FeatLabel;
-		Label    rf5_spellId_label;
-		TextBox  rf5_SpellId;
-		Label    rf5_SpellLabel;
-		CheckBox rf5_cheatCast;
+		Label      rf5_featId_label;
+		TextboxInt rf5_FeatId;
+		Label      rf5_FeatLabel;
+		Label      rf5_spellId_label;
+		TextboxInt rf5_SpellId;
+		Label      rf5_SpellLabel;
+		CheckBox   rf5_cheatCast;
 
 
 		/// <summary>
@@ -130,7 +130,7 @@ namespace nwn2_ai_2da_editor
 			this.tc_Racial = new nwn2_ai_2da_editor.CompositedTabControl();
 			this.tp_Flags = new System.Windows.Forms.TabPage();
 			this.RacialFlags_reset = new System.Windows.Forms.Button();
-			this.RacialFlags_text = new System.Windows.Forms.TextBox();
+			this.RacialFlags_text = new nwn2_ai_2da_editor.TextboxInt();
 			this.RacialFlags_hex = new System.Windows.Forms.TextBox();
 			this.RacialFlags_bin = new System.Windows.Forms.TextBox();
 			this.rf_Clear = new System.Windows.Forms.Button();
@@ -139,77 +139,77 @@ namespace nwn2_ai_2da_editor
 			this.rf_HasFeatSpells = new System.Windows.Forms.CheckBox();
 			this.tp_Feat1 = new System.Windows.Forms.TabPage();
 			this.RacialFeat1_reset = new System.Windows.Forms.Button();
-			this.RacialFeat1_text = new System.Windows.Forms.TextBox();
+			this.RacialFeat1_text = new nwn2_ai_2da_editor.TextboxInt();
 			this.RacialFeat1_hex = new System.Windows.Forms.TextBox();
 			this.RacialFeat1_bin = new System.Windows.Forms.TextBox();
 			this.rf1_Clear = new System.Windows.Forms.Button();
 			this.rf1_hex = new System.Windows.Forms.Label();
 			this.rf1_bin = new System.Windows.Forms.Label();
 			this.rf1_featId_label = new System.Windows.Forms.Label();
-			this.rf1_FeatId = new System.Windows.Forms.TextBox();
+			this.rf1_FeatId = new nwn2_ai_2da_editor.TextboxInt();
 			this.rf1_FeatLabel = new System.Windows.Forms.Label();
 			this.rf1_spellId_label = new System.Windows.Forms.Label();
-			this.rf1_SpellId = new System.Windows.Forms.TextBox();
+			this.rf1_SpellId = new nwn2_ai_2da_editor.TextboxInt();
 			this.rf1_SpellLabel = new System.Windows.Forms.Label();
 			this.rf1_cheatCast = new System.Windows.Forms.CheckBox();
 			this.tp_Feat2 = new System.Windows.Forms.TabPage();
 			this.RacialFeat2_reset = new System.Windows.Forms.Button();
-			this.RacialFeat2_text = new System.Windows.Forms.TextBox();
+			this.RacialFeat2_text = new nwn2_ai_2da_editor.TextboxInt();
 			this.RacialFeat2_hex = new System.Windows.Forms.TextBox();
 			this.RacialFeat2_bin = new System.Windows.Forms.TextBox();
 			this.rf2_Clear = new System.Windows.Forms.Button();
 			this.rf2_hex = new System.Windows.Forms.Label();
 			this.rf2_bin = new System.Windows.Forms.Label();
 			this.rf2_featId_label = new System.Windows.Forms.Label();
-			this.rf2_FeatId = new System.Windows.Forms.TextBox();
+			this.rf2_FeatId = new nwn2_ai_2da_editor.TextboxInt();
 			this.rf2_FeatLabel = new System.Windows.Forms.Label();
 			this.rf2_spellId_label = new System.Windows.Forms.Label();
-			this.rf2_SpellId = new System.Windows.Forms.TextBox();
+			this.rf2_SpellId = new nwn2_ai_2da_editor.TextboxInt();
 			this.rf2_SpellLabel = new System.Windows.Forms.Label();
 			this.rf2_cheatCast = new System.Windows.Forms.CheckBox();
 			this.tp_Feat3 = new System.Windows.Forms.TabPage();
 			this.RacialFeat3_reset = new System.Windows.Forms.Button();
-			this.RacialFeat3_text = new System.Windows.Forms.TextBox();
+			this.RacialFeat3_text = new nwn2_ai_2da_editor.TextboxInt();
 			this.RacialFeat3_hex = new System.Windows.Forms.TextBox();
 			this.RacialFeat3_bin = new System.Windows.Forms.TextBox();
 			this.rf3_Clear = new System.Windows.Forms.Button();
 			this.rf3_hex = new System.Windows.Forms.Label();
 			this.rf3_bin = new System.Windows.Forms.Label();
 			this.rf3_featId_label = new System.Windows.Forms.Label();
-			this.rf3_FeatId = new System.Windows.Forms.TextBox();
+			this.rf3_FeatId = new nwn2_ai_2da_editor.TextboxInt();
 			this.rf3_FeatLabel = new System.Windows.Forms.Label();
 			this.rf3_spellId_label = new System.Windows.Forms.Label();
-			this.rf3_SpellId = new System.Windows.Forms.TextBox();
+			this.rf3_SpellId = new nwn2_ai_2da_editor.TextboxInt();
 			this.rf3_SpellLabel = new System.Windows.Forms.Label();
 			this.rf3_cheatCast = new System.Windows.Forms.CheckBox();
 			this.tp_Feat4 = new System.Windows.Forms.TabPage();
 			this.RacialFeat4_reset = new System.Windows.Forms.Button();
-			this.RacialFeat4_text = new System.Windows.Forms.TextBox();
+			this.RacialFeat4_text = new nwn2_ai_2da_editor.TextboxInt();
 			this.RacialFeat4_hex = new System.Windows.Forms.TextBox();
 			this.RacialFeat4_bin = new System.Windows.Forms.TextBox();
 			this.rf4_Clear = new System.Windows.Forms.Button();
 			this.rf4_hex = new System.Windows.Forms.Label();
 			this.rf4_bin = new System.Windows.Forms.Label();
 			this.rf4_featId_label = new System.Windows.Forms.Label();
-			this.rf4_FeatId = new System.Windows.Forms.TextBox();
+			this.rf4_FeatId = new nwn2_ai_2da_editor.TextboxInt();
 			this.rf4_FeatLabel = new System.Windows.Forms.Label();
 			this.rf4_spellId_label = new System.Windows.Forms.Label();
-			this.rf4_SpellId = new System.Windows.Forms.TextBox();
+			this.rf4_SpellId = new nwn2_ai_2da_editor.TextboxInt();
 			this.rf4_SpellLabel = new System.Windows.Forms.Label();
 			this.rf4_cheatCast = new System.Windows.Forms.CheckBox();
 			this.tp_Feat5 = new System.Windows.Forms.TabPage();
 			this.RacialFeat5_reset = new System.Windows.Forms.Button();
-			this.RacialFeat5_text = new System.Windows.Forms.TextBox();
+			this.RacialFeat5_text = new nwn2_ai_2da_editor.TextboxInt();
 			this.RacialFeat5_hex = new System.Windows.Forms.TextBox();
 			this.RacialFeat5_bin = new System.Windows.Forms.TextBox();
 			this.rf5_Clear = new System.Windows.Forms.Button();
 			this.rf5_hex = new System.Windows.Forms.Label();
 			this.rf5_bin = new System.Windows.Forms.Label();
 			this.rf5_featId_label = new System.Windows.Forms.Label();
-			this.rf5_FeatId = new System.Windows.Forms.TextBox();
+			this.rf5_FeatId = new nwn2_ai_2da_editor.TextboxInt();
 			this.rf5_FeatLabel = new System.Windows.Forms.Label();
 			this.rf5_spellId_label = new System.Windows.Forms.Label();
-			this.rf5_SpellId = new System.Windows.Forms.TextBox();
+			this.rf5_SpellId = new nwn2_ai_2da_editor.TextboxInt();
 			this.rf5_SpellLabel = new System.Windows.Forms.Label();
 			this.rf5_cheatCast = new System.Windows.Forms.CheckBox();
 			this.tc_Racial.SuspendLayout();

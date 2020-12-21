@@ -11,6 +11,7 @@ namespace nwn2_ai_2da_editor
 	sealed partial class tabcontrol_Racial
 		: HenchControl
 	{
+		#region Fields (static)
 		/// <summary>
 		/// Bitflags for spell-fields that have changed.
 		/// @note: The master-int 'differ' is tracked in each racial-struct but
@@ -23,11 +24,19 @@ namespace nwn2_ai_2da_editor
 		internal const int bit_feat3 = 0x08;
 		internal const int bit_feat4 = 0x10;
 		internal const int bit_feat5 = 0x20;
+		#endregion Fields (static)
 
+
+		#region Fields
 		he _he;
+		#endregion Fields
 
 
 		#region cTor
+		/// <summary>
+		/// cTor.
+		/// </summary>
+		/// <param name="he"></param>
 		internal tabcontrol_Racial(he he)
 		{
 			InitializeComponent();
@@ -69,7 +78,7 @@ namespace nwn2_ai_2da_editor
 			RacialFeat4_hex.Font =
 			RacialFeat4_bin.Font =
 			RacialFeat5_hex.Font =
-			RacialFeat5_bin.Font = he.StaticFont;
+			RacialFeat5_bin.Font = he.FixedFont;
 
 
 // handlers for Flags ->
@@ -116,12 +125,19 @@ namespace nwn2_ai_2da_editor
 			rf3_cheatCast.MouseClick  += MouseClick_rFeats;
 			rf4_cheatCast.MouseClick  += MouseClick_rFeats;
 			rf5_cheatCast.MouseClick  += MouseClick_rFeats;
+
+			_he.SelectSearch();
 		}
 		#endregion cTor
 
 
-		#region Events
-		internal void Click_clear(object sender, EventArgs e)
+		#region eventhandlers
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void Click_clear(object sender, EventArgs e)
 		{
 			var btn = sender as Button;
 			if      (btn ==  rf_Clear) RacialFlags_text.Text = "0";
@@ -131,10 +147,10 @@ namespace nwn2_ai_2da_editor
 			else if (btn == rf4_Clear) RacialFeat4_text.Text = "0";
 			else                       RacialFeat5_text.Text = "0"; //if (btn == rf5_Clear)
 		}
-		#endregion Events
+		#endregion eventhandlers
 
 
-		#region Methods
+		#region HenchControl (override)
 		/// <summary>
 		/// Fills displayed fields w/ data from the race's Id.
 		/// </summary>
@@ -160,7 +176,6 @@ namespace nwn2_ai_2da_editor
 			else
 				racechanged = new RaceChanged(); // not used.
 
-// Flags
 			int val = race.flags;
 			RacialFlags_reset.Text = val.ToString();
 
@@ -170,7 +185,6 @@ namespace nwn2_ai_2da_editor
 			}
 			RacialFlags_text.Text = val.ToString();
 
-// Feat1
 			val = race.feat1;
 			RacialFeat1_reset.Text = val.ToString();
 
@@ -180,7 +194,6 @@ namespace nwn2_ai_2da_editor
 			}
 			RacialFeat1_text.Text = val.ToString();
 
-// Feat2
 			val = race.feat2;
 			RacialFeat2_reset.Text = val.ToString();
 
@@ -190,7 +203,6 @@ namespace nwn2_ai_2da_editor
 			}
 			RacialFeat2_text.Text = val.ToString();
 
-// Feat3
 			val = race.feat3;
 			RacialFeat3_reset.Text = val.ToString();
 
@@ -200,7 +212,6 @@ namespace nwn2_ai_2da_editor
 			}
 			RacialFeat3_text.Text = val.ToString();
 
-// Feat4
 			val = race.feat4;
 			RacialFeat4_reset.Text = val.ToString();
 
@@ -210,7 +221,6 @@ namespace nwn2_ai_2da_editor
 			}
 			RacialFeat4_text.Text = val.ToString();
 
-// Feat5
 			val = race.feat5;
 			RacialFeat5_reset.Text = val.ToString();
 
@@ -221,7 +231,72 @@ namespace nwn2_ai_2da_editor
 			RacialFeat5_text.Text = val.ToString();
 		}
 
+		/// <summary>
+		/// Gets the master-int of the currently selected page as a string.
+		/// </summary>
+		/// <returns></returns>
+		internal override string GetMasterText()
+		{
+			string info = String.Empty;
+			switch (tc_Racial.SelectedIndex)
+			{
+				case 0: info = RacialFlags_text.Text; break;
+				case 1: info = RacialFeat1_text.Text; break;
+				case 2: info = RacialFeat2_text.Text; break;
+				case 3: info = RacialFeat3_text.Text; break;
+				case 4: info = RacialFeat4_text.Text; break;
+				case 5: info = RacialFeat5_text.Text; break;
+			}
 
+			int result;
+			if (Int32.TryParse(info, out result))
+				return info;
+
+			return String.Empty;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="text"></param>
+		internal override void SetMasterText(string text)
+		{
+			RacialFlags_text.Text = text;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		internal override void SelectResetButton()
+		{
+			switch (tc_Racial.SelectedIndex)
+			{
+				case 0: RacialFlags_reset.Select(); break;
+				case 1: RacialFeat1_reset.Select(); break;
+				case 2: RacialFeat2_reset.Select(); break;
+				case 3: RacialFeat3_reset.Select(); break;
+				case 4: RacialFeat4_reset.Select(); break;
+				case 5: RacialFeat5_reset.Select(); break;
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="color"></param>
+		internal override void SetResetColor(Color color)
+		{
+			RacialFlags_reset.ForeColor =
+			RacialFeat1_reset.ForeColor =
+			RacialFeat2_reset.ForeColor =
+			RacialFeat3_reset.ForeColor =
+			RacialFeat4_reset.ForeColor =
+			RacialFeat5_reset.ForeColor = color;
+		}
+		#endregion HenchControl (override)
+
+
+		#region Methods (static)
 		/// <summary>
 		/// Gets a bitwise value containing flags for fields that have changed.
 		/// </summary>
@@ -252,60 +327,6 @@ namespace nwn2_ai_2da_editor
 
 			return differ;
 		}
-
-
-		/// <summary>
-		/// Gets the master-int of the currently selected page as a string.
-		/// </summary>
-		/// <returns></returns>
-		internal override string GetMasterText()
-		{
-			string info = String.Empty;
-			switch (tc_Racial.SelectedIndex)
-			{
-				case 0: info = RacialFlags_text.Text; break;
-				case 1: info = RacialFeat1_text.Text; break;
-				case 2: info = RacialFeat2_text.Text; break;
-				case 3: info = RacialFeat3_text.Text; break;
-				case 4: info = RacialFeat4_text.Text; break;
-				case 5: info = RacialFeat5_text.Text; break;
-			}
-
-			int i;
-			if (Int32.TryParse(info, out i))
-				return info;
-
-			return String.Empty;
-		}
-
-		internal override void SetMasterText(string text)
-		{
-			RacialFlags_text.Text = text;
-		}
-
-
-		internal override void SelectResetButton()
-		{
-			switch (tc_Racial.SelectedIndex)
-			{
-				case 0: RacialFlags_reset.Select(); break;
-				case 1: RacialFeat1_reset.Select(); break;
-				case 2: RacialFeat2_reset.Select(); break;
-				case 3: RacialFeat3_reset.Select(); break;
-				case 4: RacialFeat4_reset.Select(); break;
-				case 5: RacialFeat5_reset.Select(); break;
-			}
-		}
-
-		internal override void SetResetColor(Color color)
-		{
-			RacialFlags_reset.ForeColor =
-			RacialFeat1_reset.ForeColor =
-			RacialFeat2_reset.ForeColor =
-			RacialFeat3_reset.ForeColor =
-			RacialFeat4_reset.ForeColor =
-			RacialFeat5_reset.ForeColor = color;
-		}
-		#endregion Methods
+		#endregion Methods (static)
 	}
 }

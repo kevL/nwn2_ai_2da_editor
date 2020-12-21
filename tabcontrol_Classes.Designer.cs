@@ -26,10 +26,10 @@ namespace nwn2_ai_2da_editor
 		TabPage tp_Feat11;
 
 // 'tp_Flags' controls
-		Button  ClassFlags_reset; // TODO: ToolTip "reset"
-		TextBox ClassFlags_text;
-		TextBox ClassFlags_hex;
-		TextBox ClassFlags_bin;
+		Button     ClassFlags_reset; // TODO: ToolTip "reset"
+		TextboxInt ClassFlags_text;
+		TextBox    ClassFlags_hex;
+		TextBox    ClassFlags_bin;
 
 		Button cf_Clear;
 		Label  cf_hex;
@@ -54,202 +54,202 @@ namespace nwn2_ai_2da_editor
 		CheckBox cf_HasFeatSpells;
 
 // 'tp_Feat1' controls
-		Button  ClassFeat1_reset; // TODO: ToolTip "reset"
-		TextBox ClassFeat1_text;
-		TextBox ClassFeat1_hex;
-		TextBox ClassFeat1_bin;
+		Button     ClassFeat1_reset; // TODO: ToolTip "reset"
+		TextboxInt ClassFeat1_text;
+		TextBox    ClassFeat1_hex;
+		TextBox    ClassFeat1_bin;
 
 		Button cf1_Clear;
 		Label  cf1_hex;
 		Label  cf1_bin;
 
-		Label    cf1_featId_label;
-		TextBox  cf1_FeatId;
-		Label    cf1_FeatLabel;
-		Label    cf1_spellId_label;
-		TextBox  cf1_SpellId;
-		Label    cf1_SpellLabel;
-		CheckBox cf1_cheatCast;
+		Label      cf1_featId_label;
+		TextboxInt cf1_FeatId;
+		Label      cf1_FeatLabel;
+		Label      cf1_spellId_label;
+		TextboxInt cf1_SpellId;
+		Label      cf1_SpellLabel;
+		CheckBox   cf1_cheatCast;
 
 // 'tp_Feat2' controls
-		Button  ClassFeat2_reset; // TODO: ToolTip "reset"
-		TextBox ClassFeat2_text;
-		TextBox ClassFeat2_hex;
-		TextBox ClassFeat2_bin;
+		Button     ClassFeat2_reset; // TODO: ToolTip "reset"
+		TextboxInt ClassFeat2_text;
+		TextBox    ClassFeat2_hex;
+		TextBox    ClassFeat2_bin;
 
 		Button cf2_Clear;
 		Label  cf2_hex;
 		Label  cf2_bin;
 
-		Label    cf2_featId_label;
-		TextBox  cf2_FeatId;
-		Label    cf2_FeatLabel;
-		Label    cf2_spellId_label;
-		TextBox  cf2_SpellId;
-		Label    cf2_SpellLabel;
-		CheckBox cf2_cheatCast;
+		Label      cf2_featId_label;
+		TextboxInt cf2_FeatId;
+		Label      cf2_FeatLabel;
+		Label      cf2_spellId_label;
+		TextboxInt cf2_SpellId;
+		Label      cf2_SpellLabel;
+		CheckBox   cf2_cheatCast;
 
 // 'tp_Feat3' controls
-		Button  ClassFeat3_reset; // TODO: ToolTip "reset"
-		TextBox ClassFeat3_text;
-		TextBox ClassFeat3_hex;
-		TextBox ClassFeat3_bin;
+		Button     ClassFeat3_reset; // TODO: ToolTip "reset"
+		TextboxInt ClassFeat3_text;
+		TextBox    ClassFeat3_hex;
+		TextBox    ClassFeat3_bin;
 
 		Button cf3_Clear;
 		Label  cf3_hex;
 		Label  cf3_bin;
 
-		Label    cf3_featId_label;
-		TextBox  cf3_FeatId;
-		Label    cf3_FeatLabel;
-		Label    cf3_spellId_label;
-		TextBox  cf3_SpellId;
-		Label    cf3_SpellLabel;
-		CheckBox cf3_cheatCast;
+		Label      cf3_featId_label;
+		TextboxInt cf3_FeatId;
+		Label      cf3_FeatLabel;
+		Label      cf3_spellId_label;
+		TextboxInt cf3_SpellId;
+		Label      cf3_SpellLabel;
+		CheckBox   cf3_cheatCast;
 
 // 'tp_Feat4' controls
-		Button  ClassFeat4_reset; // TODO: ToolTip "reset"
-		TextBox ClassFeat4_text;
-		TextBox ClassFeat4_hex;
-		TextBox ClassFeat4_bin;
+		Button     ClassFeat4_reset; // TODO: ToolTip "reset"
+		TextboxInt ClassFeat4_text;
+		TextBox    ClassFeat4_hex;
+		TextBox    ClassFeat4_bin;
 
 		Button cf4_Clear;
 		Label  cf4_hex;
 		Label  cf4_bin;
 
-		Label    cf4_featId_label;
-		TextBox  cf4_FeatId;
-		Label    cf4_FeatLabel;
-		Label    cf4_spellId_label;
-		TextBox  cf4_SpellId;
-		Label    cf4_SpellLabel;
-		CheckBox cf4_cheatCast;
+		Label      cf4_featId_label;
+		TextboxInt cf4_FeatId;
+		Label      cf4_FeatLabel;
+		Label      cf4_spellId_label;
+		TextboxInt cf4_SpellId;
+		Label      cf4_SpellLabel;
+		CheckBox   cf4_cheatCast;
 
 // 'tp_Feat5' controls
-		Button  ClassFeat5_reset; // TODO: ToolTip "reset"
-		TextBox ClassFeat5_text;
-		TextBox ClassFeat5_hex;
-		TextBox ClassFeat5_bin;
+		Button     ClassFeat5_reset; // TODO: ToolTip "reset"
+		TextboxInt ClassFeat5_text;
+		TextBox    ClassFeat5_hex;
+		TextBox    ClassFeat5_bin;
 
 		Button cf5_Clear;
 		Label  cf5_hex;
 		Label  cf5_bin;
 
-		Label    cf5_featId_label;
-		TextBox  cf5_FeatId;
-		Label    cf5_FeatLabel;
-		Label    cf5_spellId_label;
-		TextBox  cf5_SpellId;
-		Label    cf5_SpellLabel;
-		CheckBox cf5_cheatCast;
+		Label      cf5_featId_label;
+		TextboxInt cf5_FeatId;
+		Label      cf5_FeatLabel;
+		Label      cf5_spellId_label;
+		TextboxInt cf5_SpellId;
+		Label      cf5_SpellLabel;
+		CheckBox   cf5_cheatCast;
 
 // 'tp_Feat6' controls
-		Button  ClassFeat6_reset; // TODO: ToolTip "reset"
-		TextBox ClassFeat6_text;
-		TextBox ClassFeat6_hex;
-		TextBox ClassFeat6_bin;
+		Button     ClassFeat6_reset; // TODO: ToolTip "reset"
+		TextboxInt ClassFeat6_text;
+		TextBox    ClassFeat6_hex;
+		TextBox    ClassFeat6_bin;
 
 		Button cf6_Clear;
 		Label  cf6_hex;
 		Label  cf6_bin;
 
-		Label    cf6_featId_label;
-		TextBox  cf6_FeatId;
-		Label    cf6_FeatLabel;
-		Label    cf6_spellId_label;
-		TextBox  cf6_SpellId;
-		Label    cf6_SpellLabel;
-		CheckBox cf6_cheatCast;
+		Label      cf6_featId_label;
+		TextboxInt cf6_FeatId;
+		Label      cf6_FeatLabel;
+		Label      cf6_spellId_label;
+		TextboxInt cf6_SpellId;
+		Label      cf6_SpellLabel;
+		CheckBox   cf6_cheatCast;
 
 // 'tp_Feat7' controls
-		Button  ClassFeat7_reset; // TODO: ToolTip "reset"
-		TextBox ClassFeat7_text;
-		TextBox ClassFeat7_hex;
-		TextBox ClassFeat7_bin;
+		Button     ClassFeat7_reset; // TODO: ToolTip "reset"
+		TextboxInt ClassFeat7_text;
+		TextBox    ClassFeat7_hex;
+		TextBox    ClassFeat7_bin;
 
 		Button cf7_Clear;
 		Label  cf7_hex;
 		Label  cf7_bin;
 
-		Label    cf7_featId_label;
-		TextBox  cf7_FeatId;
-		Label    cf7_FeatLabel;
-		Label    cf7_spellId_label;
-		TextBox  cf7_SpellId;
-		Label    cf7_SpellLabel;
-		CheckBox cf7_cheatCast;
+		Label      cf7_featId_label;
+		TextboxInt cf7_FeatId;
+		Label      cf7_FeatLabel;
+		Label      cf7_spellId_label;
+		TextboxInt cf7_SpellId;
+		Label      cf7_SpellLabel;
+		CheckBox   cf7_cheatCast;
 
 // 'tp_Feat8' controls
-		Button  ClassFeat8_reset; // TODO: ToolTip "reset"
-		TextBox ClassFeat8_text;
-		TextBox ClassFeat8_hex;
-		TextBox ClassFeat8_bin;
+		Button     ClassFeat8_reset; // TODO: ToolTip "reset"
+		TextboxInt ClassFeat8_text;
+		TextBox    ClassFeat8_hex;
+		TextBox    ClassFeat8_bin;
 
 		Button cf8_Clear;
 		Label  cf8_hex;
 		Label  cf8_bin;
 
-		Label    cf8_featId_label;
-		TextBox  cf8_FeatId;
-		Label    cf8_FeatLabel;
-		Label    cf8_spellId_label;
-		TextBox  cf8_SpellId;
-		Label    cf8_SpellLabel;
-		CheckBox cf8_cheatCast;
+		Label      cf8_featId_label;
+		TextboxInt cf8_FeatId;
+		Label      cf8_FeatLabel;
+		Label      cf8_spellId_label;
+		TextboxInt cf8_SpellId;
+		Label      cf8_SpellLabel;
+		CheckBox   cf8_cheatCast;
 
 // 'tp_Feat9' controls
-		Button  ClassFeat9_reset; // TODO: ToolTip "reset"
-		TextBox ClassFeat9_text;
-		TextBox ClassFeat9_hex;
-		TextBox ClassFeat9_bin;
+		Button     ClassFeat9_reset; // TODO: ToolTip "reset"
+		TextboxInt ClassFeat9_text;
+		TextBox    ClassFeat9_hex;
+		TextBox    ClassFeat9_bin;
 
 		Button cf9_Clear;
 		Label  cf9_hex;
 		Label  cf9_bin;
 
-		Label    cf9_featId_label;
-		TextBox  cf9_FeatId;
-		Label    cf9_FeatLabel;
-		Label    cf9_spellId_label;
-		TextBox  cf9_SpellId;
-		Label    cf9_SpellLabel;
-		CheckBox cf9_cheatCast;
+		Label      cf9_featId_label;
+		TextboxInt cf9_FeatId;
+		Label      cf9_FeatLabel;
+		Label      cf9_spellId_label;
+		TextboxInt cf9_SpellId;
+		Label      cf9_SpellLabel;
+		CheckBox   cf9_cheatCast;
 
 // 'tp_Feat10' controls
-		Button  ClassFeat10_reset; // TODO: ToolTip "reset"
-		TextBox ClassFeat10_text;
-		TextBox ClassFeat10_hex;
-		TextBox ClassFeat10_bin;
+		Button     ClassFeat10_reset; // TODO: ToolTip "reset"
+		TextboxInt ClassFeat10_text;
+		TextBox    ClassFeat10_hex;
+		TextBox    ClassFeat10_bin;
 
 		Button cf10_Clear;
 		Label  cf10_hex;
 		Label  cf10_bin;
 
-		Label    cf10_featId_label;
-		TextBox  cf10_FeatId;
-		Label    cf10_FeatLabel;
-		Label    cf10_spellId_label;
-		TextBox  cf10_SpellId;
-		Label    cf10_SpellLabel;
-		CheckBox cf10_cheatCast;
+		Label      cf10_featId_label;
+		TextboxInt cf10_FeatId;
+		Label      cf10_FeatLabel;
+		Label      cf10_spellId_label;
+		TextboxInt cf10_SpellId;
+		Label      cf10_SpellLabel;
+		CheckBox   cf10_cheatCast;
 
 // 'tp_Feat11' controls
-		Button  ClassFeat11_reset; // TODO: ToolTip "reset"
-		TextBox ClassFeat11_text;
-		TextBox ClassFeat11_hex;
-		TextBox ClassFeat11_bin;
+		Button     ClassFeat11_reset; // TODO: ToolTip "reset"
+		TextboxInt ClassFeat11_text;
+		TextBox    ClassFeat11_hex;
+		TextBox    ClassFeat11_bin;
 
 		Button cf11_Clear;
 		Label  cf11_hex;
 		Label  cf11_bin;
 
-		Label    cf11_featId_label;
-		TextBox  cf11_FeatId;
-		Label    cf11_FeatLabel;
-		Label    cf11_spellId_label;
-		TextBox  cf11_SpellId;
-		Label    cf11_SpellLabel;
-		CheckBox cf11_cheatCast;
+		Label      cf11_featId_label;
+		TextboxInt cf11_FeatId;
+		Label      cf11_FeatLabel;
+		Label      cf11_spellId_label;
+		TextboxInt cf11_SpellId;
+		Label      cf11_SpellLabel;
+		CheckBox   cf11_cheatCast;
 
 
 		/// <summary>
@@ -260,7 +260,7 @@ namespace nwn2_ai_2da_editor
 			this.tc_Classes = new nwn2_ai_2da_editor.CompositedTabControl();
 			this.tp_Flags = new System.Windows.Forms.TabPage();
 			this.ClassFlags_reset = new System.Windows.Forms.Button();
-			this.ClassFlags_text = new System.Windows.Forms.TextBox();
+			this.ClassFlags_text = new nwn2_ai_2da_editor.TextboxInt();
 			this.ClassFlags_hex = new System.Windows.Forms.TextBox();
 			this.ClassFlags_bin = new System.Windows.Forms.TextBox();
 			this.cf_Clear = new System.Windows.Forms.Button();
@@ -284,167 +284,167 @@ namespace nwn2_ai_2da_editor
 			this.cf_HasFeatSpells = new System.Windows.Forms.CheckBox();
 			this.tp_Feat1 = new System.Windows.Forms.TabPage();
 			this.ClassFeat1_reset = new System.Windows.Forms.Button();
-			this.ClassFeat1_text = new System.Windows.Forms.TextBox();
+			this.ClassFeat1_text = new nwn2_ai_2da_editor.TextboxInt();
 			this.ClassFeat1_hex = new System.Windows.Forms.TextBox();
 			this.ClassFeat1_bin = new System.Windows.Forms.TextBox();
 			this.cf1_Clear = new System.Windows.Forms.Button();
 			this.cf1_hex = new System.Windows.Forms.Label();
 			this.cf1_bin = new System.Windows.Forms.Label();
 			this.cf1_featId_label = new System.Windows.Forms.Label();
-			this.cf1_FeatId = new System.Windows.Forms.TextBox();
+			this.cf1_FeatId = new nwn2_ai_2da_editor.TextboxInt();
 			this.cf1_FeatLabel = new System.Windows.Forms.Label();
 			this.cf1_spellId_label = new System.Windows.Forms.Label();
-			this.cf1_SpellId = new System.Windows.Forms.TextBox();
+			this.cf1_SpellId = new nwn2_ai_2da_editor.TextboxInt();
 			this.cf1_SpellLabel = new System.Windows.Forms.Label();
 			this.cf1_cheatCast = new System.Windows.Forms.CheckBox();
 			this.tp_Feat2 = new System.Windows.Forms.TabPage();
 			this.ClassFeat2_reset = new System.Windows.Forms.Button();
-			this.ClassFeat2_text = new System.Windows.Forms.TextBox();
+			this.ClassFeat2_text = new nwn2_ai_2da_editor.TextboxInt();
 			this.ClassFeat2_hex = new System.Windows.Forms.TextBox();
 			this.ClassFeat2_bin = new System.Windows.Forms.TextBox();
 			this.cf2_Clear = new System.Windows.Forms.Button();
 			this.cf2_hex = new System.Windows.Forms.Label();
 			this.cf2_bin = new System.Windows.Forms.Label();
 			this.cf2_featId_label = new System.Windows.Forms.Label();
-			this.cf2_FeatId = new System.Windows.Forms.TextBox();
+			this.cf2_FeatId = new nwn2_ai_2da_editor.TextboxInt();
 			this.cf2_FeatLabel = new System.Windows.Forms.Label();
 			this.cf2_spellId_label = new System.Windows.Forms.Label();
-			this.cf2_SpellId = new System.Windows.Forms.TextBox();
+			this.cf2_SpellId = new nwn2_ai_2da_editor.TextboxInt();
 			this.cf2_SpellLabel = new System.Windows.Forms.Label();
 			this.cf2_cheatCast = new System.Windows.Forms.CheckBox();
 			this.tp_Feat3 = new System.Windows.Forms.TabPage();
 			this.ClassFeat3_reset = new System.Windows.Forms.Button();
-			this.ClassFeat3_text = new System.Windows.Forms.TextBox();
+			this.ClassFeat3_text = new nwn2_ai_2da_editor.TextboxInt();
 			this.ClassFeat3_hex = new System.Windows.Forms.TextBox();
 			this.ClassFeat3_bin = new System.Windows.Forms.TextBox();
 			this.cf3_Clear = new System.Windows.Forms.Button();
 			this.cf3_hex = new System.Windows.Forms.Label();
 			this.cf3_bin = new System.Windows.Forms.Label();
 			this.cf3_featId_label = new System.Windows.Forms.Label();
-			this.cf3_FeatId = new System.Windows.Forms.TextBox();
+			this.cf3_FeatId = new nwn2_ai_2da_editor.TextboxInt();
 			this.cf3_FeatLabel = new System.Windows.Forms.Label();
 			this.cf3_spellId_label = new System.Windows.Forms.Label();
-			this.cf3_SpellId = new System.Windows.Forms.TextBox();
+			this.cf3_SpellId = new nwn2_ai_2da_editor.TextboxInt();
 			this.cf3_SpellLabel = new System.Windows.Forms.Label();
 			this.cf3_cheatCast = new System.Windows.Forms.CheckBox();
 			this.tp_Feat4 = new System.Windows.Forms.TabPage();
 			this.ClassFeat4_reset = new System.Windows.Forms.Button();
-			this.ClassFeat4_text = new System.Windows.Forms.TextBox();
+			this.ClassFeat4_text = new nwn2_ai_2da_editor.TextboxInt();
 			this.ClassFeat4_hex = new System.Windows.Forms.TextBox();
 			this.ClassFeat4_bin = new System.Windows.Forms.TextBox();
 			this.cf4_Clear = new System.Windows.Forms.Button();
 			this.cf4_hex = new System.Windows.Forms.Label();
 			this.cf4_bin = new System.Windows.Forms.Label();
 			this.cf4_featId_label = new System.Windows.Forms.Label();
-			this.cf4_FeatId = new System.Windows.Forms.TextBox();
+			this.cf4_FeatId = new nwn2_ai_2da_editor.TextboxInt();
 			this.cf4_FeatLabel = new System.Windows.Forms.Label();
 			this.cf4_spellId_label = new System.Windows.Forms.Label();
-			this.cf4_SpellId = new System.Windows.Forms.TextBox();
+			this.cf4_SpellId = new nwn2_ai_2da_editor.TextboxInt();
 			this.cf4_SpellLabel = new System.Windows.Forms.Label();
 			this.cf4_cheatCast = new System.Windows.Forms.CheckBox();
 			this.tp_Feat5 = new System.Windows.Forms.TabPage();
 			this.ClassFeat5_reset = new System.Windows.Forms.Button();
-			this.ClassFeat5_text = new System.Windows.Forms.TextBox();
+			this.ClassFeat5_text = new nwn2_ai_2da_editor.TextboxInt();
 			this.ClassFeat5_hex = new System.Windows.Forms.TextBox();
 			this.ClassFeat5_bin = new System.Windows.Forms.TextBox();
 			this.cf5_Clear = new System.Windows.Forms.Button();
 			this.cf5_hex = new System.Windows.Forms.Label();
 			this.cf5_bin = new System.Windows.Forms.Label();
 			this.cf5_featId_label = new System.Windows.Forms.Label();
-			this.cf5_FeatId = new System.Windows.Forms.TextBox();
+			this.cf5_FeatId = new nwn2_ai_2da_editor.TextboxInt();
 			this.cf5_FeatLabel = new System.Windows.Forms.Label();
 			this.cf5_spellId_label = new System.Windows.Forms.Label();
-			this.cf5_SpellId = new System.Windows.Forms.TextBox();
+			this.cf5_SpellId = new nwn2_ai_2da_editor.TextboxInt();
 			this.cf5_SpellLabel = new System.Windows.Forms.Label();
 			this.cf5_cheatCast = new System.Windows.Forms.CheckBox();
 			this.tp_Feat6 = new System.Windows.Forms.TabPage();
 			this.ClassFeat6_reset = new System.Windows.Forms.Button();
-			this.ClassFeat6_text = new System.Windows.Forms.TextBox();
+			this.ClassFeat6_text = new nwn2_ai_2da_editor.TextboxInt();
 			this.ClassFeat6_hex = new System.Windows.Forms.TextBox();
 			this.ClassFeat6_bin = new System.Windows.Forms.TextBox();
 			this.cf6_Clear = new System.Windows.Forms.Button();
 			this.cf6_hex = new System.Windows.Forms.Label();
 			this.cf6_bin = new System.Windows.Forms.Label();
 			this.cf6_featId_label = new System.Windows.Forms.Label();
-			this.cf6_FeatId = new System.Windows.Forms.TextBox();
+			this.cf6_FeatId = new nwn2_ai_2da_editor.TextboxInt();
 			this.cf6_FeatLabel = new System.Windows.Forms.Label();
 			this.cf6_spellId_label = new System.Windows.Forms.Label();
-			this.cf6_SpellId = new System.Windows.Forms.TextBox();
+			this.cf6_SpellId = new nwn2_ai_2da_editor.TextboxInt();
 			this.cf6_SpellLabel = new System.Windows.Forms.Label();
 			this.cf6_cheatCast = new System.Windows.Forms.CheckBox();
 			this.tp_Feat7 = new System.Windows.Forms.TabPage();
 			this.ClassFeat7_reset = new System.Windows.Forms.Button();
-			this.ClassFeat7_text = new System.Windows.Forms.TextBox();
+			this.ClassFeat7_text = new nwn2_ai_2da_editor.TextboxInt();
 			this.ClassFeat7_hex = new System.Windows.Forms.TextBox();
 			this.ClassFeat7_bin = new System.Windows.Forms.TextBox();
 			this.cf7_Clear = new System.Windows.Forms.Button();
 			this.cf7_hex = new System.Windows.Forms.Label();
 			this.cf7_bin = new System.Windows.Forms.Label();
 			this.cf7_featId_label = new System.Windows.Forms.Label();
-			this.cf7_FeatId = new System.Windows.Forms.TextBox();
+			this.cf7_FeatId = new nwn2_ai_2da_editor.TextboxInt();
 			this.cf7_FeatLabel = new System.Windows.Forms.Label();
 			this.cf7_spellId_label = new System.Windows.Forms.Label();
-			this.cf7_SpellId = new System.Windows.Forms.TextBox();
+			this.cf7_SpellId = new nwn2_ai_2da_editor.TextboxInt();
 			this.cf7_SpellLabel = new System.Windows.Forms.Label();
 			this.cf7_cheatCast = new System.Windows.Forms.CheckBox();
 			this.tp_Feat8 = new System.Windows.Forms.TabPage();
 			this.ClassFeat8_reset = new System.Windows.Forms.Button();
-			this.ClassFeat8_text = new System.Windows.Forms.TextBox();
+			this.ClassFeat8_text = new nwn2_ai_2da_editor.TextboxInt();
 			this.ClassFeat8_hex = new System.Windows.Forms.TextBox();
 			this.ClassFeat8_bin = new System.Windows.Forms.TextBox();
 			this.cf8_Clear = new System.Windows.Forms.Button();
 			this.cf8_hex = new System.Windows.Forms.Label();
 			this.cf8_bin = new System.Windows.Forms.Label();
 			this.cf8_featId_label = new System.Windows.Forms.Label();
-			this.cf8_FeatId = new System.Windows.Forms.TextBox();
+			this.cf8_FeatId = new nwn2_ai_2da_editor.TextboxInt();
 			this.cf8_FeatLabel = new System.Windows.Forms.Label();
 			this.cf8_spellId_label = new System.Windows.Forms.Label();
-			this.cf8_SpellId = new System.Windows.Forms.TextBox();
+			this.cf8_SpellId = new nwn2_ai_2da_editor.TextboxInt();
 			this.cf8_SpellLabel = new System.Windows.Forms.Label();
 			this.cf8_cheatCast = new System.Windows.Forms.CheckBox();
 			this.tp_Feat9 = new System.Windows.Forms.TabPage();
 			this.ClassFeat9_reset = new System.Windows.Forms.Button();
-			this.ClassFeat9_text = new System.Windows.Forms.TextBox();
+			this.ClassFeat9_text = new nwn2_ai_2da_editor.TextboxInt();
 			this.ClassFeat9_hex = new System.Windows.Forms.TextBox();
 			this.ClassFeat9_bin = new System.Windows.Forms.TextBox();
 			this.cf9_Clear = new System.Windows.Forms.Button();
 			this.cf9_hex = new System.Windows.Forms.Label();
 			this.cf9_bin = new System.Windows.Forms.Label();
 			this.cf9_featId_label = new System.Windows.Forms.Label();
-			this.cf9_FeatId = new System.Windows.Forms.TextBox();
+			this.cf9_FeatId = new nwn2_ai_2da_editor.TextboxInt();
 			this.cf9_FeatLabel = new System.Windows.Forms.Label();
 			this.cf9_spellId_label = new System.Windows.Forms.Label();
-			this.cf9_SpellId = new System.Windows.Forms.TextBox();
+			this.cf9_SpellId = new nwn2_ai_2da_editor.TextboxInt();
 			this.cf9_SpellLabel = new System.Windows.Forms.Label();
 			this.cf9_cheatCast = new System.Windows.Forms.CheckBox();
 			this.tp_Feat10 = new System.Windows.Forms.TabPage();
 			this.ClassFeat10_reset = new System.Windows.Forms.Button();
-			this.ClassFeat10_text = new System.Windows.Forms.TextBox();
+			this.ClassFeat10_text = new nwn2_ai_2da_editor.TextboxInt();
 			this.ClassFeat10_hex = new System.Windows.Forms.TextBox();
 			this.ClassFeat10_bin = new System.Windows.Forms.TextBox();
 			this.cf10_Clear = new System.Windows.Forms.Button();
 			this.cf10_hex = new System.Windows.Forms.Label();
 			this.cf10_bin = new System.Windows.Forms.Label();
 			this.cf10_featId_label = new System.Windows.Forms.Label();
-			this.cf10_FeatId = new System.Windows.Forms.TextBox();
+			this.cf10_FeatId = new nwn2_ai_2da_editor.TextboxInt();
 			this.cf10_FeatLabel = new System.Windows.Forms.Label();
 			this.cf10_spellId_label = new System.Windows.Forms.Label();
-			this.cf10_SpellId = new System.Windows.Forms.TextBox();
+			this.cf10_SpellId = new nwn2_ai_2da_editor.TextboxInt();
 			this.cf10_SpellLabel = new System.Windows.Forms.Label();
 			this.cf10_cheatCast = new System.Windows.Forms.CheckBox();
 			this.tp_Feat11 = new System.Windows.Forms.TabPage();
 			this.ClassFeat11_reset = new System.Windows.Forms.Button();
-			this.ClassFeat11_text = new System.Windows.Forms.TextBox();
+			this.ClassFeat11_text = new nwn2_ai_2da_editor.TextboxInt();
 			this.ClassFeat11_hex = new System.Windows.Forms.TextBox();
 			this.ClassFeat11_bin = new System.Windows.Forms.TextBox();
 			this.cf11_Clear = new System.Windows.Forms.Button();
 			this.cf11_hex = new System.Windows.Forms.Label();
 			this.cf11_bin = new System.Windows.Forms.Label();
 			this.cf11_featId_label = new System.Windows.Forms.Label();
-			this.cf11_FeatId = new System.Windows.Forms.TextBox();
+			this.cf11_FeatId = new nwn2_ai_2da_editor.TextboxInt();
 			this.cf11_FeatLabel = new System.Windows.Forms.Label();
 			this.cf11_spellId_label = new System.Windows.Forms.Label();
-			this.cf11_SpellId = new System.Windows.Forms.TextBox();
+			this.cf11_SpellId = new nwn2_ai_2da_editor.TextboxInt();
 			this.cf11_SpellLabel = new System.Windows.Forms.Label();
 			this.cf11_cheatCast = new System.Windows.Forms.CheckBox();
 			this.tc_Classes.SuspendLayout();

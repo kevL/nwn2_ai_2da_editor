@@ -47,7 +47,7 @@ namespace nwn2_ai_2da_editor
 		#endregion Fields (static)
 
 
-		#region Events (override)
+		#region eventhandlers (override)
 		protected override void OnFormClosing(FormClosingEventArgs e)
 		{
 			if (e.CloseReason != CloseReason.WindowsShutDown
@@ -61,7 +61,7 @@ namespace nwn2_ai_2da_editor
 			}
 			base.OnFormClosing(e);
 		}
-		#endregion Events (override)
+		#endregion eventhandlers (override)
 
 
 		#region File
@@ -207,7 +207,6 @@ namespace nwn2_ai_2da_editor
 		{
 			ApplyDirtyData();
 		}
-
 
 		/// <summary>
 		/// Handles the GotoNextChanged menu-item.
@@ -635,19 +634,22 @@ namespace nwn2_ai_2da_editor
 		/// IMPORTANT: This is an interim function that forcefully clears the
 		/// InfoVersion bits. InfoVersion is obsolete in TonyAI 2.3+ - the bits
 		/// have been repurposed.
+		/// @note This is implemented only to allow a user to pseudo-update his/
+		/// her TonyAI 2.2 Hench*.2das to be compatible with 2.3+. But the
+		/// repurposed bits would still need to be accounted for ....
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		void Click_clearCoreAiVersion(object sender, EventArgs e)
 		{
-			string type2da;
+			string info2da;
 			switch (Type)
 			{
-				case Type2da.TYPE_SPELLS: type2da = "SpellInfo"; break;
-				default:                  type2da = "Flags";     break;
+				case Type2da.TYPE_SPELLS: info2da = "SpellInfo"; break;
+				default:                  info2da = "Flags";     break;
 			}
 
-			string info = "This clears the bits @ 0xFF000000 on the " + type2da + " page."
+			string info = "This clears the bits @ 0xFF000000 on the " + info2da + " page."
 						+ Environment.NewLine + Environment.NewLine
 						+ "Are you sure you know what you're doing ...";
 
@@ -920,8 +922,6 @@ namespace nwn2_ai_2da_editor
 			}
 			return false;
 		}
-		#endregion Changes functs
-
 
 		/// <summary>
 		/// Applies modified data to any struct that has changed. See also
@@ -1062,9 +1062,10 @@ namespace nwn2_ai_2da_editor
 				}
 			}
 		}
+		#endregion Changes functs
 
 
-		#region Write
+		#region Write file
 		/// <summary>
 		/// Writes all Applied data to 2da-file.
 		/// </summary>
@@ -1449,6 +1450,6 @@ namespace nwn2_ai_2da_editor
 				}
 			}
 		}
-		#endregion Write
+		#endregion Write file
 	}
 }

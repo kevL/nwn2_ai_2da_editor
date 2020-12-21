@@ -9,11 +9,10 @@ namespace nwn2_ai_2da_editor
 {
 	#region he
 	/// <summary>
-	/// The he is the only form.
+	/// The he - HenchEditor - is the application.
 	/// </summary>
-	public partial class he // short for "HenchEditor"
-		:
-			Form
+	sealed partial class he
+		: Form
 	{
 		#region class Vars
 		/// <summary>
@@ -105,17 +104,16 @@ namespace nwn2_ai_2da_editor
 		internal static bool BypassInfoVersion;
 
 		/// <summary>
-		/// A boolean indicating that the currently loaded 2da has a "Label" col.
-		/// </summary>
-		bool hasLabels;
-
-		/// <summary>
 		/// A boolean to track whether to inform the user if any InfoVersions
 		/// have been updated once a 2da finishes loading.
 		/// </summary>
 		bool InfoVersionUpdate
 		{ get; set; }
 
+		/// <summary>
+		/// A boolean indicating that the currently loaded 2da has a "Label" col.
+		/// </summary>
+		bool hasLabels;
 
 		/// <summary>
 		/// The fullpath of the currently opened 2da file.
@@ -127,7 +125,10 @@ namespace nwn2_ai_2da_editor
 		int panel2width, panel2height;
 
 
-		internal static readonly Font StaticFont = new Font("Courier New", 8F);
+		/// <summary>
+		/// A fixed-width font for all the hex and bin textboxes.
+		/// </summary>
+		internal static readonly Font FixedFont = new Font("Courier New", 8F);
 		#endregion class Vars
 
 
@@ -1054,17 +1055,37 @@ namespace nwn2_ai_2da_editor
 		#endregion SpellTree node-select
 
 
+		/// <summary>
+		/// Selects the search-box after a file loads.
+		/// </summary>
+		internal void SelectSearch()
+		{
+			tb_Search.Focus();
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="enabled"></param>
 		internal void EnableCopy(bool enabled)
 		{
 			Copy_hexadecimal.Enabled =
 			Copy_binary     .Enabled = enabled;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="color"></param>
 		internal void SetNodeColor(Color color)
 		{
 			Tree.SelectedNode.ForeColor = color;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="differs"></param>
 		internal void EnableApplys(bool differs)
 		{
 			bool changes = false;

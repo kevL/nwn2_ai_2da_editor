@@ -11,6 +11,7 @@ namespace nwn2_ai_2da_editor
 	sealed partial class tabcontrol_Classes
 		: HenchControl
 	{
+		#region Fields (static)
 		/// <summary>
 		/// Bitflags for spell-fields that have changed.
 		/// @note: The master-int 'differ' is tracked in each class-struct but
@@ -29,11 +30,19 @@ namespace nwn2_ai_2da_editor
 		internal const int bit_feat9  = 0x200;
 		internal const int bit_feat10 = 0x400;
 		internal const int bit_feat11 = 0x800;
+		#endregion Fields (static)
 
+
+		#region Fields
 		he _he;
+		#endregion Fields
 
 
 		#region cTor
+		/// <summary>
+		/// cTor.
+		/// </summary>
+		/// <param name="he"></param>
 		internal tabcontrol_Classes(he he)
 		{
 			InitializeComponent();
@@ -111,9 +120,9 @@ namespace nwn2_ai_2da_editor
 			ClassFeat10_hex.Font =
 			ClassFeat10_bin.Font =
 			ClassFeat11_hex.Font =
-			ClassFeat11_bin.Font = he.StaticFont;
+			ClassFeat11_bin.Font = he.FixedFont;
 
-			PopulateComboboxes();
+			initCos();
 
 
 // handlers for Flags ->
@@ -207,12 +216,19 @@ namespace nwn2_ai_2da_editor
 			cf9_cheatCast .MouseClick  += MouseClick_cFeats;
 			cf10_cheatCast.MouseClick  += MouseClick_cFeats;
 			cf11_cheatCast.MouseClick  += MouseClick_cFeats;
+
+			_he.SelectSearch();
 		}
 		#endregion cTor
 
 
-		#region Events
-		internal void Click_clear(object sender, EventArgs e)
+		#region eventhandlers
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void Click_clear(object sender, EventArgs e)
 		{
 			var btn = sender as Button;
 			if      (btn ==   cf_Clear) ClassFlags_text .Text = "0";
@@ -228,14 +244,14 @@ namespace nwn2_ai_2da_editor
 			else if (btn == cf10_Clear) ClassFeat10_text.Text = "0";
 			else                        ClassFeat11_text.Text = "0"; //if (btn == cf11_Clear)
 		}
-		#endregion Events
+		#endregion eventhandlers
 
 
 		#region Methods
 		/// <summary>
 		/// Populates the ClassFlags dropdown-lists.
 		/// </summary>
-		void PopulateComboboxes()
+		void initCos()
 		{
 			// populate the dropdown list for Casting Ability
 			cbo_cf_Ability.Items.Add("none");			// 0
@@ -275,12 +291,13 @@ namespace nwn2_ai_2da_editor
 			cbo_cf_SneakAttack.Items.Add("every 3rd after 1st");	// 6
 			cbo_cf_SneakAttack.Items.Add("every 4th");				// 7
 		}
+		#endregion Methods
 
 
+		#region HenchControl (override)
 		/// <summary>
 		/// Fills displayed fields w/ data from the class' Id.
 		/// </summary>
-//		internal void SelectClass(Class @class, IDictionary<int, ClassChanged> classeschanged, int id)
 		internal override void SelectId()
 		{
 			ClassFlags_text .Clear(); // clear the info-fields to force TextChanged events ->
@@ -309,7 +326,6 @@ namespace nwn2_ai_2da_editor
 			else
 				classchanged = new ClassChanged(); // not used.
 
-// Flags
 			int val = @class.flags;
 			ClassFlags_reset.Text = val.ToString();
 
@@ -319,7 +335,6 @@ namespace nwn2_ai_2da_editor
 			}
 			ClassFlags_text.Text = val.ToString();
 
-// Feat1
 			val = @class.feat1;
 			ClassFeat1_reset.Text = val.ToString();
 
@@ -329,7 +344,6 @@ namespace nwn2_ai_2da_editor
 			}
 			ClassFeat1_text.Text = val.ToString();
 
-// Feat2
 			val = @class.feat2;
 			ClassFeat2_reset.Text = val.ToString();
 
@@ -339,7 +353,6 @@ namespace nwn2_ai_2da_editor
 			}
 			ClassFeat2_text.Text = val.ToString();
 
-// Feat3
 			val = @class.feat3;
 			ClassFeat3_reset.Text = val.ToString();
 
@@ -349,7 +362,6 @@ namespace nwn2_ai_2da_editor
 			}
 			ClassFeat3_text.Text = val.ToString();
 
-// Feat4
 			val = @class.feat4;
 			ClassFeat4_reset.Text = val.ToString();
 
@@ -359,7 +371,6 @@ namespace nwn2_ai_2da_editor
 			}
 			ClassFeat4_text.Text = val.ToString();
 
-// Feat5
 			val = @class.feat5;
 			ClassFeat5_reset.Text = val.ToString();
 
@@ -369,7 +380,6 @@ namespace nwn2_ai_2da_editor
 			}
 			ClassFeat5_text.Text = val.ToString();
 
-// Feat6
 			val = @class.feat6;
 			ClassFeat6_reset.Text = val.ToString();
 
@@ -379,7 +389,6 @@ namespace nwn2_ai_2da_editor
 			}
 			ClassFeat6_text.Text = val.ToString();
 
-// Feat7
 			val = @class.feat7;
 			ClassFeat7_reset.Text = val.ToString();
 
@@ -389,7 +398,6 @@ namespace nwn2_ai_2da_editor
 			}
 			ClassFeat7_text.Text = val.ToString();
 
-// Feat8
 			val = @class.feat8;
 			ClassFeat8_reset.Text = val.ToString();
 
@@ -399,7 +407,6 @@ namespace nwn2_ai_2da_editor
 			}
 			ClassFeat8_text.Text = val.ToString();
 
-// Feat9
 			val = @class.feat9;
 			ClassFeat9_reset.Text = val.ToString();
 
@@ -409,7 +416,6 @@ namespace nwn2_ai_2da_editor
 			}
 			ClassFeat9_text.Text = val.ToString();
 
-// Feat10
 			val = @class.feat10;
 			ClassFeat10_reset.Text = val.ToString();
 
@@ -419,7 +425,6 @@ namespace nwn2_ai_2da_editor
 			}
 			ClassFeat10_text.Text = val.ToString();
 
-// Feat11
 			val = @class.feat11;
 			ClassFeat11_reset.Text = val.ToString();
 
@@ -430,7 +435,90 @@ namespace nwn2_ai_2da_editor
 			ClassFeat11_text.Text = val.ToString();
 		}
 
+		/// <summary>
+		/// Gets the master-int of the currently selected page as a string.
+		/// </summary>
+		/// <returns></returns>
+		internal override string GetMasterText()
+		{
+			string info = String.Empty;
+			switch (tc_Classes.SelectedIndex)
+			{
+				case  0: info = ClassFlags_text .Text; break;
+				case  1: info = ClassFeat1_text .Text; break;
+				case  2: info = ClassFeat2_text .Text; break;
+				case  3: info = ClassFeat3_text .Text; break;
+				case  4: info = ClassFeat4_text .Text; break;
+				case  5: info = ClassFeat5_text .Text; break;
+				case  6: info = ClassFeat6_text .Text; break;
+				case  7: info = ClassFeat7_text .Text; break;
+				case  8: info = ClassFeat8_text .Text; break;
+				case  9: info = ClassFeat9_text .Text; break;
+				case 10: info = ClassFeat10_text.Text; break;
+				case 11: info = ClassFeat11_text.Text; break;
+			}
 
+			int result;
+			if (Int32.TryParse(info, out result))
+				return info;
+
+			return String.Empty;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="text"></param>
+		internal override void SetMasterText(string text)
+		{
+			ClassFlags_text.Text = text;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		internal override void SelectResetButton()
+		{
+			switch (tc_Classes.SelectedIndex)
+			{
+				case  0: ClassFlags_reset .Select(); break;
+				case  1: ClassFeat1_reset .Select(); break;
+				case  2: ClassFeat2_reset .Select(); break;
+				case  3: ClassFeat3_reset .Select(); break;
+				case  4: ClassFeat4_reset .Select(); break;
+				case  5: ClassFeat5_reset .Select(); break;
+				case  6: ClassFeat6_reset .Select(); break;
+				case  7: ClassFeat7_reset .Select(); break;
+				case  8: ClassFeat8_reset .Select(); break;
+				case  9: ClassFeat9_reset .Select(); break;
+				case 10: ClassFeat10_reset.Select(); break;
+				case 11: ClassFeat11_reset.Select(); break;
+			}
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="color"></param>
+		internal override void SetResetColor(Color color)
+		{
+			ClassFlags_reset .ForeColor =
+			ClassFeat1_reset .ForeColor =
+			ClassFeat2_reset .ForeColor =
+			ClassFeat3_reset .ForeColor =
+			ClassFeat4_reset .ForeColor =
+			ClassFeat5_reset .ForeColor =
+			ClassFeat6_reset .ForeColor =
+			ClassFeat7_reset .ForeColor =
+			ClassFeat8_reset .ForeColor =
+			ClassFeat9_reset .ForeColor =
+			ClassFeat10_reset.ForeColor =
+			ClassFeat11_reset.ForeColor = color;
+		}
+		#endregion HenchControl (override)
+
+
+		#region Methods (static)
 		/// <summary>
 		/// Gets a bitwise value containing flags for fields that have changed.
 		/// </summary>
@@ -479,78 +567,6 @@ namespace nwn2_ai_2da_editor
 
 			return differ;
 		}
-
-
-		/// <summary>
-		/// Gets the master-int of the currently selected page as a string.
-		/// </summary>
-		/// <returns></returns>
-		internal override string GetMasterText()
-		{
-			string info = String.Empty;
-			switch (tc_Classes.SelectedIndex)
-			{
-				case  0: info = ClassFlags_text .Text; break;
-				case  1: info = ClassFeat1_text .Text; break;
-				case  2: info = ClassFeat2_text .Text; break;
-				case  3: info = ClassFeat3_text .Text; break;
-				case  4: info = ClassFeat4_text .Text; break;
-				case  5: info = ClassFeat5_text .Text; break;
-				case  6: info = ClassFeat6_text .Text; break;
-				case  7: info = ClassFeat7_text .Text; break;
-				case  8: info = ClassFeat8_text .Text; break;
-				case  9: info = ClassFeat9_text .Text; break;
-				case 10: info = ClassFeat10_text.Text; break;
-				case 11: info = ClassFeat11_text.Text; break;
-			}
-
-			int i;
-			if (Int32.TryParse(info, out i))
-				return info;
-
-			return String.Empty;
-		}
-
-		internal override void SetMasterText(string text)
-		{
-			ClassFlags_text.Text = text;
-		}
-
-
-		internal override void SelectResetButton()
-		{
-			switch (tc_Classes.SelectedIndex)
-			{
-				case  0: ClassFlags_reset .Select(); break;
-				case  1: ClassFeat1_reset .Select(); break;
-				case  2: ClassFeat2_reset .Select(); break;
-				case  3: ClassFeat3_reset .Select(); break;
-				case  4: ClassFeat4_reset .Select(); break;
-				case  5: ClassFeat5_reset .Select(); break;
-				case  6: ClassFeat6_reset .Select(); break;
-				case  7: ClassFeat7_reset .Select(); break;
-				case  8: ClassFeat8_reset .Select(); break;
-				case  9: ClassFeat9_reset .Select(); break;
-				case 10: ClassFeat10_reset.Select(); break;
-				case 11: ClassFeat11_reset.Select(); break;
-			}
-		}
-
-		internal override void SetResetColor(Color color)
-		{
-			ClassFlags_reset .ForeColor =
-			ClassFeat1_reset .ForeColor =
-			ClassFeat2_reset .ForeColor =
-			ClassFeat3_reset .ForeColor =
-			ClassFeat4_reset .ForeColor =
-			ClassFeat5_reset .ForeColor =
-			ClassFeat6_reset .ForeColor =
-			ClassFeat7_reset .ForeColor =
-			ClassFeat8_reset .ForeColor =
-			ClassFeat9_reset .ForeColor =
-			ClassFeat10_reset.ForeColor =
-			ClassFeat11_reset.ForeColor = color;
-		}
-		#endregion Methods
+		#endregion Methods (static)
 	}
 }

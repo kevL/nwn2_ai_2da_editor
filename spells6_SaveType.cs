@@ -10,6 +10,7 @@ namespace nwn2_ai_2da_editor
 	/// </summary>
 	partial class tabcontrol_Spells
 	{
+		#region Fields (static)
 		const int HENCH_SPELL_SAVE_TYPE_IMMUNITY1_SHIFT =  6;
 		const int HENCH_SPELL_SAVE_TYPE_IMMUNITY2_SHIFT = 12;
 
@@ -17,7 +18,10 @@ namespace nwn2_ai_2da_editor
 		const int HENCH_SPELL_SAVE_TYPE_ACBONUS_SHIFT   = 18;
 
 		const int HENCH_IMMUNITY_WEIGHT_AMOUNT_SHIFT    = 12;
+		#endregion Fields (static)
 
+
+		#region eventhandlers
 		/// <summary>
 		/// Handles TextChanged event on the SaveType page.
 		/// </summary>
@@ -150,7 +154,6 @@ namespace nwn2_ai_2da_editor
 			}
 		}
 
-
 		/// <summary>
 		/// Handles toggling bits by combobox on the SaveType page - Specific group.
 		/// </summary>
@@ -166,6 +169,11 @@ namespace nwn2_ai_2da_editor
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		void SelectionChangeCommitted_st_co_Immunity1(object sender, EventArgs e)
 		{
 			int savetype;
@@ -178,6 +186,11 @@ namespace nwn2_ai_2da_editor
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		void SelectionChangeCommitted_st_co_Immunity2(object sender, EventArgs e)
 		{
 			int savetype;
@@ -190,6 +203,11 @@ namespace nwn2_ai_2da_editor
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		void SelectionChangeCommitted_st_co_Weapon(object sender, EventArgs e)
 		{
 			int savetype;
@@ -217,6 +235,11 @@ namespace nwn2_ai_2da_editor
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		void SelectionChangeCommitted_st_co_AcBonus(object sender, EventArgs e)
 		{
 			int savetype;
@@ -408,7 +431,6 @@ namespace nwn2_ai_2da_editor
 			}
 		}
 
-
 		/// <summary>
 		/// Handles toggling bits by checkboxes on the SaveType page - exclusive DamageTypes group.
 		/// </summary>
@@ -563,8 +585,10 @@ namespace nwn2_ai_2da_editor
 				}
 			}
 		}
+		#endregion eventhandlers
 
 
+		#region setstate
 		/// <summary>
 		/// Sets the checkers on the SaveType page to reflect the current
 		/// savetype value.
@@ -736,5 +760,6 @@ namespace nwn2_ai_2da_editor
 			val >>= HENCH_IMMUNITY_WEIGHT_AMOUNT_SHIFT;
 			st_Excl_Weight.Text = val.ToString();
 		}
+		#endregion setstate
 	}
 }

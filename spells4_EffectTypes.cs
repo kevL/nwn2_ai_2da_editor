@@ -17,6 +17,7 @@ namespace nwn2_ai_2da_editor
 	/// </summary>
 	partial class tabcontrol_Spells
 	{
+		#region eventhandlers
 		/// <summary>
 		/// Handles TextChanged event on the EffectTypes page.
 		/// </summary>
@@ -145,7 +146,7 @@ namespace nwn2_ai_2da_editor
 
 				EffectTypes_reset.ForeColor = DefaultForeColor;
 
-				EffectTypes_text.Text = spell.spellinfo.ToString();
+				EffectTypes_text.Text = spell.effecttypes.ToString();
 			}
 		}
 
@@ -422,8 +423,10 @@ namespace nwn2_ai_2da_editor
 				EffectTypes_text.Text = effecttypes.ToString();
 			}
 		}
+		#endregion eventhandlers
 
 
+		#region setstate
 		/// <summary>
 		/// Sets the checkers on the EffectTypes page to reflect the current
 		/// effecttypes value.
@@ -490,5 +493,6 @@ namespace nwn2_ai_2da_editor
 			et_Mesmerize          .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_MESMERIZE)               != 0;
 			et_CutsceneParalyze   .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_CUTSCENE_PARALYZE)       != 0;
 		}
+		#endregion setstate
 	}
 }

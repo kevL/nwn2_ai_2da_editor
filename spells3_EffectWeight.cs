@@ -9,6 +9,7 @@ namespace nwn2_ai_2da_editor
 	/// </summary>
 	partial class tabcontrol_Spells
 	{
+		#region eventhandlers
 		/// <summary>
 		/// Handles TextChanged event on the EffectWeight page.
 		/// </summary>
@@ -121,5 +122,6 @@ namespace nwn2_ai_2da_editor
 				EffectWeight_text.Text = he.Float2daFormat(spell.effectweight);
 			}
 		}
+		#endregion eventhandlers
 	}
 }

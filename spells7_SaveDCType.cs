@@ -10,11 +10,15 @@ namespace nwn2_ai_2da_editor
 	/// </summary>
 	partial class tabcontrol_Spells
 	{
+		#region Fields (static)
 		/// <summary>
 		/// Mask for all allowable ArmorCheckType bits.
 		/// </summary>
 		const int HENCH_SAVEDCTYPE_ARMORCHECK_MASK = 0x10000003;
+		#endregion Fields (static)
 
+
+		#region eventhandlers
 		/// <summary>
 		/// Handles TextChanged event on the SaveDCType page.
 		/// </summary>
@@ -156,7 +160,6 @@ namespace nwn2_ai_2da_editor
 			}
 		}
 
-
 		/// <summary>
 		/// Handler for SaveDCType-type combobox.
 		/// </summary>
@@ -249,7 +252,6 @@ namespace nwn2_ai_2da_editor
 			SaveDCType_text.Text = text;
 		}
 
-
 		/// <summary>
 		/// Handler for the SaveDCType - ArmorCheckType checkboxes.
 		/// NOTE: Had to change this from the CheckChanged events to the
@@ -292,8 +294,10 @@ namespace nwn2_ai_2da_editor
 				SaveDCType_text.Text = savedctype.ToString();
 			}
 		}
+		#endregion eventhandlers
 
 
+		#region setstate
 		/// <summary>
 		/// Sets the checkers on the SaveDCType page to reflect the current
 		/// savedctype value.
@@ -372,5 +376,6 @@ namespace nwn2_ai_2da_editor
 
 			dc_co_SaveDC.SelectedIndex = val;
 		}
+		#endregion setstate
 	}
 }

@@ -21,6 +21,7 @@ namespace nwn2_ai_2da_editor
 	/// </summary>
 	partial class tabcontrol_Spells
 	{
+		#region Fields (static)
 		const int HENCH_SPELL_INFO_BUFF_LEVEL_LIMIT_SHIFT   =  8;
 		const int HENCH_SPELL_INFO_BUFF_LEVEL_DIV_SHIFT     = 16;
 		const int HENCH_SPELL_INFO_BUFF_LEVEL_DECR_SHIFT    = 20;
@@ -29,7 +30,10 @@ namespace nwn2_ai_2da_editor
 		const int HENCH_SPELL_INFO_DAMAGE_LEVEL_LIMIT_SHIFT = 20;
 		const int HENCH_SPELL_INFO_DAMAGE_LEVEL_DIV_SHIFT   = 26;
 		const int HENCH_SPELL_INFO_DAMAGE_FIXED_COUNT_SHIFT = 24;
+		#endregion Fields (static)
 
+
+		#region eventhandlers
 		/// <summary>
 		/// Handles TextChanged event on the DamageInfo page.
 		/// </summary>
@@ -657,8 +661,10 @@ namespace nwn2_ai_2da_editor
 				}
 			}
 		}
+		#endregion eventhandlers
 
 
+		#region setstate
 		/// <summary>
 		/// Sets the checkers on the DamageInfo page to reflect the current
 		/// damageinfo value.
@@ -847,5 +853,6 @@ namespace nwn2_ai_2da_editor
 			val >>= HENCH_SPELL_INFO_DAMAGE_FIXED_COUNT_SHIFT;
 			di_DetFixedcount.Text = val.ToString();
 		}
+		#endregion setstate
 	}
 }

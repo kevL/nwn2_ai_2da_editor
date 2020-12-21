@@ -10,8 +10,12 @@ namespace nwn2_ai_2da_editor
 	/// </summary>
 	partial class tabcontrol_Racial
 	{
+		#region Fields (static)
 		const int HENCH_FEAT_SPELL_SHIFT_SPELL = 16;
+		#endregion Fields (static)
 
+
+		#region eventhandlers
 		/// <summary>
 		/// Handles TextChanged event on the Racial pages.
 		/// </summary>
@@ -19,12 +23,17 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void TextChanged_racial(object sender, EventArgs e)
 		{
-			var tb = sender as TextBox;
+			// NOTE: TextChanged needs to fire when HenchSpells loads in order
+			// to set the checkboxes and dropdown-fields.
+			//
+			// 'BypassDiffer' is set true since this does not need to go through
+			// creating and deleting each SpellChanged-struct (since nothing has
+			// changed yet OnLoad of the 2da-file).
+			//
+			// 'BypassDiffer' is also set true by AfterSelect_node() since the
+			// Spell-structs already contain proper diff-data.
 
-			// NOTE: TextChanged needs to fire when HenchRacial loads in order
-			// to set the checkers. Technically however this does not need to go
-			// through creating and deleting each Racial-struct (since nothing
-			// has changed yet OnLoad of the 2da-file)
+			var tb = sender as TextBox;
 
 			int val;
 			if (Int32.TryParse(tb.Text, out val))
@@ -167,17 +176,17 @@ namespace nwn2_ai_2da_editor
 
 				if (isFlags)
 				{
-					CheckRacialFlagsCheckers(val);
+					state_RacialFlags(val);
 //					PrintInfoVersion_race(val);
 				}
 				else
 					state_RacialFeats(tb);
 
-
 				_he.EnableApplys(differ != bit_clean);
 			}
 			// else TODO: error dialog here.
 		}
+
 
 //		/// <summary>
 //		/// Updates InfoVersion for the current race.
@@ -237,6 +246,7 @@ namespace nwn2_ai_2da_editor
 //			}
 //			return false;
 //		}
+
 
 		/// <summary>
 		/// Handles resetting the current race's info.
@@ -312,7 +322,6 @@ namespace nwn2_ai_2da_editor
 				tb.Text = info.ToString();
 			}
 		}
-
 
 		/// <summary>
 		/// Handles toggling bits by checkboxes on the RacialFlags page.
@@ -486,46 +495,54 @@ namespace nwn2_ai_2da_editor
 				}
 			}
 		}
+		#endregion eventhandlers
 
+
+		#region HenchControl (override)
+		/// <summary>
+		/// 
+		/// </summary>
 		internal override void SetSpellLabelTexts()
 		{
-			Race race = he.Races[he.Id];
-
 			int id;
-			id = (race.feat1 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
-			if (id < he.spellLabels.Count)
+
+			// NOTE: Texts shall not be negative.
+			// TODO: Texts shall parse to ints.
+
+			if (Int32.TryParse(rf1_SpellId.Text, out id)
+				&& id < he.spellLabels.Count)
 			{
 				rf1_SpellLabel.Text = he.spellLabels[id];
 			}
 			else
 				rf1_SpellLabel.Text = String.Empty;
 
-			id = (race.feat2 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
-			if (id < he.spellLabels.Count)
+			if (Int32.TryParse(rf2_SpellId.Text, out id)
+				&& id < he.spellLabels.Count)
 			{
 				rf2_SpellLabel.Text = he.spellLabels[id];
 			}
 			else
 				rf2_SpellLabel.Text = String.Empty;
 
-			id = (race.feat3 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
-			if (id < he.spellLabels.Count)
+			if (Int32.TryParse(rf3_SpellId.Text, out id)
+				&& id < he.spellLabels.Count)
 			{
 				rf3_SpellLabel.Text = he.spellLabels[id];
 			}
 			else
 				rf3_SpellLabel.Text = String.Empty;
 
-			id = (race.feat4 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
-			if (id < he.spellLabels.Count)
+			if (Int32.TryParse(rf4_SpellId.Text, out id)
+				&& id < he.spellLabels.Count)
 			{
 				rf4_SpellLabel.Text = he.spellLabels[id];
 			}
 			else
 				rf4_SpellLabel.Text = String.Empty;
 
-			id = (race.feat5 & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
-			if (id < he.spellLabels.Count)
+			if (Int32.TryParse(rf5_SpellId.Text, out id)
+				&& id < he.spellLabels.Count)
 			{
 				rf5_SpellLabel.Text = he.spellLabels[id];
 			}
@@ -533,6 +550,9 @@ namespace nwn2_ai_2da_editor
 				rf5_SpellLabel.Text = String.Empty;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		internal override void ClearSpellLabelTexts()
 		{
 			rf1_SpellLabel.Text =
@@ -542,45 +562,50 @@ namespace nwn2_ai_2da_editor
 			rf5_SpellLabel.Text = String.Empty;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		internal override void SetFeatLabelTexts()
 		{
-			Race race = he.Races[he.Id];
-
 			int id;
-			id = (race.feat1 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
-			if (id < he.featLabels.Count)
+
+			// NOTE: Texts shall not be negative.
+			// TODO: Texts shall parse to ints.
+
+			if (Int32.TryParse(rf1_FeatId.Text, out id)
+				&& id < he.featLabels.Count)
 			{
 				rf1_FeatLabel.Text = he.featLabels[id];
 			}
 			else
 				rf1_FeatLabel.Text = String.Empty;
 
-			id = (race.feat2 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
-			if (id < he.featLabels.Count)
+			if (Int32.TryParse(rf2_FeatId.Text, out id)
+				&& id < he.featLabels.Count)
 			{
 				rf2_FeatLabel.Text = he.featLabels[id];
 			}
 			else
 				rf2_FeatLabel.Text = String.Empty;
 
-			id = (race.feat3 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
-			if (id < he.featLabels.Count)
+			if (Int32.TryParse(rf3_FeatId.Text, out id)
+				&& id < he.featLabels.Count)
 			{
 				rf3_FeatLabel.Text = he.featLabels[id];
 			}
 			else
 				rf3_FeatLabel.Text = String.Empty;
 
-			id = (race.feat4 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
-			if (id < he.featLabels.Count)
+			if (Int32.TryParse(rf4_FeatId.Text, out id)
+				&& id < he.featLabels.Count)
 			{
 				rf4_FeatLabel.Text = he.featLabels[id];
 			}
 			else
 				rf4_FeatLabel.Text = String.Empty;
 
-			id = (race.feat5 & hc.HENCH_FEAT_SPELL_MASK_FEAT);
-			if (id < he.featLabels.Count)
+			if (Int32.TryParse(rf5_FeatId.Text, out id)
+				&& id < he.featLabels.Count)
 			{
 				rf5_FeatLabel.Text = he.featLabels[id];
 			}
@@ -588,6 +613,9 @@ namespace nwn2_ai_2da_editor
 				rf5_FeatLabel.Text = String.Empty;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		internal override void ClearFeatLabelTexts()
 		{
 			rf1_FeatLabel.Text =
@@ -596,6 +624,8 @@ namespace nwn2_ai_2da_editor
 			rf4_FeatLabel.Text =
 			rf5_FeatLabel.Text = String.Empty;
 		}
+		#endregion HenchControl (override)
+
 
 //		/// <summary>
 //		/// Prints the info-version of the currently selected race ID.
@@ -610,12 +640,13 @@ namespace nwn2_ai_2da_editor
 //		}
 
 
+		#region setstate
 		/// <summary>
 		/// Sets the checkers on the RacialFlags page to reflect the current
 		/// flags value.
 		/// <param name="flags"></param>
 		/// </summary>
-		void CheckRacialFlagsCheckers(int flags)
+		void state_RacialFlags(int flags)
 		{
 			rf_HasFeatSpells.Checked = (flags & hc.HENCH_RACIAL_FEAT_SPELLS) != 0;
 		}
@@ -696,5 +727,6 @@ namespace nwn2_ai_2da_editor
 				}
 			}
 		}
+		#endregion setstate
 	}
 }

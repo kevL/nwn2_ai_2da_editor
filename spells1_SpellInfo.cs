@@ -10,6 +10,7 @@ namespace nwn2_ai_2da_editor
 	/// </summary>
 	partial class tabcontrol_Spells
 	{
+		#region eventhandlers
 		/// <summary>
 		/// Handles TextChanged event on the SpellInfo page.
 		/// </summary>
@@ -314,7 +315,14 @@ namespace nwn2_ai_2da_editor
 				}
 			}
 		}
+		#endregion eventhandlers
 
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="label"></param>
+		/// <param name="id"></param>
 		void SetSpellLabelText(Control label, int id)
 		{
 			if (he.spellLabels.Count != 0
@@ -326,9 +334,17 @@ namespace nwn2_ai_2da_editor
 				label.Text = String.Empty;
 		}
 
+
+		#region HenchControl (override)
+		/// <summary>
+		/// 
+		/// </summary>
 		internal override void SetSpellLabelTexts()
 		{
 			int id;
+
+			// TODO: Texts shall parse to ints.
+
 			if (Int32.TryParse(TargetInfo_text.Text, out id)
 				&& id > -1 && id < he.spellLabels.Count)
 			{
@@ -370,6 +386,9 @@ namespace nwn2_ai_2da_editor
 				si_SubspellLabel5.Text = String.Empty;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
 		internal override void ClearSpellLabelTexts()
 		{
 			si_SubspellLabel1.Text =
@@ -378,6 +397,7 @@ namespace nwn2_ai_2da_editor
 			si_SubspellLabel4.Text =
 			si_SubspellLabel5.Text = String.Empty;
 		}
+		#endregion HenchControl (override)
 
 
 //		/// <summary>
@@ -393,6 +413,7 @@ namespace nwn2_ai_2da_editor
 //		}
 
 
+		#region setstate
 		/// <summary>
 		/// Sets the checkers on the SpellInfo page to reflect the current
 		/// spellinfo value.
@@ -656,6 +677,7 @@ namespace nwn2_ai_2da_editor
 				}
 			}
 		}
+		#endregion setstate
 
 		// OBSOLETE: Set all groups false then toggle the one(s) that's
 		// supposed to show on. This works around a .NET anomaly in which
