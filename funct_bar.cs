@@ -44,6 +44,8 @@ namespace nwn2_ai_2da_editor
 		const string HEAD_COLS_SPELLS  = " Label SpellInfo TargetInfo EffectWeight EffectTypes DamageInfo SaveType SaveDCType";
 		const string HEAD_COLS_RACIAL  = " Label Flags FeatSpell1 FeatSpell2 FeatSpell3 FeatSpell4 FeatSpell5";
 		const string HEAD_COLS_CLASSES = " Label Flags FeatSpell1 FeatSpell2 FeatSpell3 FeatSpell4 FeatSpell5 FeatSpell6 FeatSpell7 FeatSpell8 FeatSpell9 FeatSpell10 FeatSpell11";
+
+		const string RECENTLABELDIR = "recentlabeldir.cfg";
 		#endregion Fields (static)
 
 
@@ -371,6 +373,15 @@ namespace nwn2_ai_2da_editor
 					ofd.Filter   = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
 					ofd.FileName = "spells.2da";
 
+					string dir = null;
+					string pfe = Path.Combine(Application.StartupPath, RECENTLABELDIR);
+					if (File.Exists(pfe))
+					{
+						dir = File.ReadAllText(pfe);
+						if (Directory.Exists(dir))
+							ofd.InitialDirectory = dir;
+					}
+
 					if (ofd.ShowDialog() == DialogResult.OK)
 					{
 						GropeLabels(ofd.FileName, spellLabels, pathSpells);
@@ -381,6 +392,12 @@ namespace nwn2_ai_2da_editor
 								LabelTreenodes(spellLabels);
 
 							HenchControl.SetSpellLabelTexts();
+						}
+
+						if (dir != null)
+						{
+							dir = Path.GetDirectoryName(ofd.FileName);
+							File.WriteAllText(pfe, dir);
 						}
 					}
 				}
@@ -417,6 +434,15 @@ namespace nwn2_ai_2da_editor
 					ofd.Filter   = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
 					ofd.FileName = "racialsubtypes.2da";
 
+					string dir = null;
+					string pfe = Path.Combine(Application.StartupPath, RECENTLABELDIR);
+					if (File.Exists(pfe))
+					{
+						dir = File.ReadAllText(pfe);
+						if (Directory.Exists(dir))
+							ofd.InitialDirectory = dir;
+					}
+
 					if (ofd.ShowDialog() == DialogResult.OK)
 					{
 						GropeLabels(ofd.FileName, raceLabels, pathRacialSubtypes);
@@ -426,6 +452,12 @@ namespace nwn2_ai_2da_editor
 							&& raceLabels.Count != 0)
 						{
 							LabelTreenodes(raceLabels);
+						}
+
+						if (dir != null)
+						{
+							dir = Path.GetDirectoryName(ofd.FileName);
+							File.WriteAllText(pfe, dir);
 						}
 					}
 				}
@@ -456,6 +488,15 @@ namespace nwn2_ai_2da_editor
 					ofd.Filter   = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
 					ofd.FileName = "classes.2da";
 
+					string dir = null;
+					string pfe = Path.Combine(Application.StartupPath, RECENTLABELDIR);
+					if (File.Exists(pfe))
+					{
+						dir = File.ReadAllText(pfe);
+						if (Directory.Exists(dir))
+							ofd.InitialDirectory = dir;
+					}
+
 					if (ofd.ShowDialog() == DialogResult.OK)
 					{
 						GropeLabels(ofd.FileName, classLabels, pathClasses);
@@ -465,6 +506,12 @@ namespace nwn2_ai_2da_editor
 							&& classLabels.Count != 0)
 						{
 							LabelTreenodes(classLabels);
+						}
+
+						if (dir != null)
+						{
+							dir = Path.GetDirectoryName(ofd.FileName);
+							File.WriteAllText(pfe, dir);
 						}
 					}
 				}
@@ -539,6 +586,15 @@ namespace nwn2_ai_2da_editor
 					ofd.Filter   = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
 					ofd.FileName = "feat.2da";
 
+					string dir = null;
+					string pfe = Path.Combine(Application.StartupPath, RECENTLABELDIR);
+					if (File.Exists(pfe))
+					{
+						dir = File.ReadAllText(pfe);
+						if (Directory.Exists(dir))
+							ofd.InitialDirectory = dir;
+					}
+
 					if (ofd.ShowDialog() == DialogResult.OK)
 					{
 						GropeLabels(ofd.FileName, featLabels, pathFeat);
@@ -546,6 +602,12 @@ namespace nwn2_ai_2da_editor
 						if (Type != Type2da.TYPE_NONE && featLabels.Count != 0)
 						{
 							HenchControl.SetFeatLabelTexts();
+						}
+
+						if (dir != null)
+						{
+							dir = Path.GetDirectoryName(ofd.FileName);
+							File.WriteAllText(pfe, dir);
 						}
 					}
 				}
