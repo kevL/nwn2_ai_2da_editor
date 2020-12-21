@@ -161,7 +161,7 @@ namespace nwn2_ai_2da_editor
 			// NOTE: current val doesn't have to be tested for validity since
 			// this is a direct assignment.
 
-			int sel = cbo_dc_SaveDC.SelectedIndex;
+			int sel = dc_co_SaveDC.SelectedIndex;
 
 			//logfile.Log("SelectionChangeCommitted_dc_savedctype() selectedId= " + sel);
 
@@ -236,7 +236,7 @@ namespace nwn2_ai_2da_editor
 			// this is a direct assignment.
 
 			string text = String.Empty;
-			switch (cbo_dc_WeaponBonus.SelectedIndex)
+			switch (dc_co_WeaponBonus.SelectedIndex)
 			{
 				case 0: text = "0";   break;
 				case 1: text = "100"; break; // no constants defined in CoreAI ->
@@ -318,16 +318,16 @@ namespace nwn2_ai_2da_editor
 
 				default:
 					val = -1;
-					cbo_dc_WeaponBonus.ForeColor = Color.Crimson;
+					dc_co_WeaponBonus.ForeColor = Color.Crimson;
 					break;
 			}
 
 			if (val != -1)
 			{
-				cbo_dc_WeaponBonus.ForeColor = DefaultForeColor;
+				dc_co_WeaponBonus.ForeColor = DefaultForeColor;
 			}
 
-			cbo_dc_WeaponBonus.SelectedIndex = val;
+			dc_co_WeaponBonus.SelectedIndex = val;
 
 // SaveDc dropdown-list
 			switch (savedctype)
@@ -359,16 +359,16 @@ namespace nwn2_ai_2da_editor
 
 				default:
 					val = -1;
-					cbo_dc_SaveDC.ForeColor = Color.Crimson;
+					dc_co_SaveDC.ForeColor = Color.Crimson;
 					break;
 			}
 
 			if (val != -1)
 			{
-				cbo_dc_SaveDC.ForeColor = DefaultForeColor;
+				dc_co_SaveDC.ForeColor = DefaultForeColor;
 			}
 
-			cbo_dc_SaveDC.SelectedIndex = val;
+			dc_co_SaveDC.SelectedIndex = val;
 		}
 	}
 }

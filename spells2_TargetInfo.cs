@@ -107,7 +107,7 @@ namespace nwn2_ai_2da_editor
 
 
 				// set DamageInfo colors based on SpellInfo spelltype and TargetInfo scaledeffect
-				switch (cbo_si_Spelltype.SelectedIndex) // (spellinfo & hc.HENCH_SPELL_INFO_SPELL_TYPE_MASK)
+				switch (si_co_Spelltype.SelectedIndex) // (spellinfo & hc.HENCH_SPELL_INFO_SPELL_TYPE_MASK)
 				{
 					case hc.HENCH_SPELL_INFO_SPELL_TYPE_ATTACK:
 					case hc.HENCH_SPELL_INFO_SPELL_TYPE_HEAL:
@@ -172,15 +172,15 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		void SelectionChangeCommitted_ti_cbo_Shape(object sender, EventArgs e)
+		void SelectionChangeCommitted_ti_co_Shape(object sender, EventArgs e)
 		{
-			//logfile.Log("SelectionChangeCommitted_ti_cbo_Shape() selectedId= " + cbo_ti_Shape.SelectedIndex);
+			//logfile.Log("SelectionChangeCommitted_ti_co_Shape() selectedId= " + ti_co_Shape.SelectedIndex);
 
 			int targetinfo;
 			if (Int32.TryParse(TargetInfo_text.Text, out targetinfo))
 			{
 				targetinfo &= ~hc.HENCH_SPELL_TARGET_SHAPE_MASK; // clear specific bits
-				TargetInfo_text.Text = (targetinfo | cbo_ti_Shape.SelectedIndex).ToString();
+				TargetInfo_text.Text = (targetinfo | ti_co_Shape.SelectedIndex).ToString();
 			}
 		}
 
@@ -189,9 +189,9 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		void SelectionChangeCommitted_ti_cbo_Range(object sender, EventArgs e)
+		void SelectionChangeCommitted_ti_co_Range(object sender, EventArgs e)
 		{
-			//logfile.Log("SelectionChangeCommitted_ti_cbo_Range() selectedId= " + cbo_ti_Range.SelectedIndex);
+			//logfile.Log("SelectionChangeCommitted_ti_co_Range() selectedId= " + ti_co_Range.SelectedIndex);
 
 			int targetinfo;
 			if (Int32.TryParse(TargetInfo_text.Text, out targetinfo))
@@ -199,7 +199,7 @@ namespace nwn2_ai_2da_editor
 				targetinfo &= ~hc.HENCH_SPELL_TARGET_RANGE_MASK; // clear specific bits
 
 				int val;
-				switch (cbo_ti_Range.SelectedIndex)
+				switch (ti_co_Range.SelectedIndex)
 				{
 					default: val = hc.HENCH_SPELL_TARGET_RANGE_PERSONAL; break;
 					case 1:  val = hc.HENCH_SPELL_TARGET_RANGE_TOUCH;    break;
@@ -355,18 +355,18 @@ namespace nwn2_ai_2da_editor
 
 // Shape dropdown
 			int val = (targetinfo & hc.HENCH_SPELL_TARGET_SHAPE_MASK); // 0x00000007
-			if (val >= cbo_ti_Shape.Items.Count)
+			if (val >= ti_co_Shape.Items.Count)
 			{
 				val = -1;
-				cbo_ti_Shape.ForeColor = Color.Crimson;
+				ti_co_Shape.ForeColor = Color.Crimson;
 			}
 			else
-				cbo_ti_Shape.ForeColor = DefaultForeColor;
+				ti_co_Shape.ForeColor = DefaultForeColor;
 
-			cbo_ti_Shape.SelectedIndex = val;
+			ti_co_Shape.SelectedIndex = val;
 
 // Range dropdown
-			cbo_ti_Range.ForeColor = DefaultForeColor;
+			ti_co_Range.ForeColor = DefaultForeColor;
 
 			switch (targetinfo & hc.HENCH_SPELL_TARGET_RANGE_MASK) // 0x00000038
 			{
@@ -379,10 +379,10 @@ namespace nwn2_ai_2da_editor
 
 				default:
 					val = -1;
-					cbo_ti_Range.ForeColor = Color.Crimson;
+					ti_co_Range.ForeColor = Color.Crimson;
 					break;
 			}
-			cbo_ti_Range.SelectedIndex = val;
+			ti_co_Range.SelectedIndex = val;
 
 // Radius textbox
 			val = targetinfo;

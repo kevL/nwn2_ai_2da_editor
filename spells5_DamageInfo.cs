@@ -168,9 +168,9 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		void SelectionChangeCommitted_di_cbo_ben_Powerbase(object sender, EventArgs e)
+		void SelectionChangeCommitted_di_co_ben_Powerbase(object sender, EventArgs e)
 		{
-			//logfile.Log("SelectionChangeCommitted_di_cbo_ben_Powerbase() selectedId= " + cbo_di_BenPowerbase.SelectedIndex);
+			//logfile.Log("SelectionChangeCommitted_di_co_ben_Powerbase() selectedId= " + di_co_BenPowerbase.SelectedIndex);
 
 			int damageinfo;
 			if (Int32.TryParse(DamageInfo_text.Text, out damageinfo))
@@ -178,7 +178,7 @@ namespace nwn2_ai_2da_editor
 				damageinfo &= ~hc.HENCH_SPELL_INFO_BUFF_MASK; // 0x0f000000 - clear specific bits
 
 				int val;
-				switch (cbo_di_BenPowerbase.SelectedIndex)
+				switch (di_co_BenPowerbase.SelectedIndex)
 				{
 					// TODO: case -1 for all comboboxes in the editor.
 
@@ -199,9 +199,9 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		void SelectionChangeCommitted_di_cbo_ben_Leveltype(object sender, EventArgs e)
+		void SelectionChangeCommitted_di_co_ben_Leveltype(object sender, EventArgs e)
 		{
-			//logfile.Log("SelectionChangeCommitted_di_cbo_ben_Leveltype() selectedId= " + cbo_di_BenLeveltype.SelectedIndex);
+			//logfile.Log("SelectionChangeCommitted_di_co_ben_Leveltype() selectedId= " + di_co_BenLeveltype.SelectedIndex);
 
 			int damageinfo;
 			if (Int32.TryParse(DamageInfo_text.Text, out damageinfo))
@@ -209,7 +209,7 @@ namespace nwn2_ai_2da_editor
 				damageinfo &= ~hc.HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_MASK; // 0x0000c000 - clear specific bits
 
 				int val;
-				switch (cbo_di_BenLeveltype.SelectedIndex)
+				switch (di_co_BenLeveltype.SelectedIndex)
 				{
 					default: val = hc.HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_DICE;  break; // 0x00000000
 					case 1:  val = hc.HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_ADJ;   break; // 0x00004000
@@ -225,9 +225,9 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		void SelectionChangeCommitted_di_cbo_det_Damagebase(object sender, EventArgs e)
+		void SelectionChangeCommitted_di_co_det_Damagebase(object sender, EventArgs e)
 		{
-			//logfile.Log("SelectionChangeCommitted_di_cbo_det_Damagebase() selectedId= " + cbo_di_DetDamagebase.SelectedIndex);
+			//logfile.Log("SelectionChangeCommitted_di_co_det_Damagebase() selectedId= " + di_co_DetDamagebase.SelectedIndex);
 
 			int damageinfo;
 			if (Int32.TryParse(DamageInfo_text.Text, out damageinfo))
@@ -235,7 +235,7 @@ namespace nwn2_ai_2da_editor
 				damageinfo &= ~hc.HENCH_SPELL_INFO_DAMAGE_MASK; // 0xf0000000 - clear specific bits
 
 				int val;
-				switch (cbo_di_DetDamagebase.SelectedIndex)
+				switch (di_co_DetDamagebase.SelectedIndex)
 				{
 					default: val = hc.HENCH_SPELL_INFO_DAMAGE_CASTER_LEVEL;  break; // 0x00000000
 					case  1: val = hc.HENCH_SPELL_INFO_DAMAGE_HD_LEVEL;      break; // 0x10000000
@@ -261,9 +261,9 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		void SelectionChangeCommitted_di_cbo_det_Leveltype(object sender, EventArgs e)
+		void SelectionChangeCommitted_di_co_det_Leveltype(object sender, EventArgs e)
 		{
-			//logfile.Log("SelectionChangeCommitted_di_cbo_det_Leveltype() selectedId= " + cbo_di_DetLeveltype.SelectedIndex);
+			//logfile.Log("SelectionChangeCommitted_di_co_det_Leveltype() selectedId= " + di_co_DetLeveltype.SelectedIndex);
 
 			int damageinfo;
 			if (Int32.TryParse(DamageInfo_text.Text, out damageinfo))
@@ -271,7 +271,7 @@ namespace nwn2_ai_2da_editor
 				damageinfo &= ~hc.HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_MASK; // 0x03000000 - clear specific bits - overlaps FixedCount
 
 				int val;
-				switch (cbo_di_DetLeveltype.SelectedIndex)
+				switch (di_co_DetLeveltype.SelectedIndex)
 				{
 					default: val = hc.HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_DICE;  break; // 0x00000000
 					case 1:  val = hc.HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_ADJ;   break; // 0x01000000
@@ -720,19 +720,19 @@ namespace nwn2_ai_2da_editor
 					break;
 			}
 
-			if (val >= cbo_di_BenPowerbase.Items.Count)
+			if (val >= di_co_BenPowerbase.Items.Count)
 			{
 				val = -1;
 			}
 
 			if (val == -1)
 			{
-				cbo_di_BenPowerbase.ForeColor = Color.Crimson;
+				di_co_BenPowerbase.ForeColor = Color.Crimson;
 			}
 			else
-				cbo_di_BenPowerbase.ForeColor = DefaultForeColor;
+				di_co_BenPowerbase.ForeColor = DefaultForeColor;
 
-			cbo_di_BenPowerbase.SelectedIndex = val;
+			di_co_BenPowerbase.SelectedIndex = val;
 
 // beneficial LevelType dropdown
 			switch (val = (damageinfo & hc.HENCH_SPELL_INFO_BUFF_LEVEL_TYPE_MASK)) // 0x0000c000
@@ -747,19 +747,19 @@ namespace nwn2_ai_2da_editor
 					break;
 			}
 
-			if (val >= cbo_di_BenLeveltype.Items.Count)
+			if (val >= di_co_BenLeveltype.Items.Count)
 			{
 				val = -1;
 			}
 
 			if (val == -1)
 			{
-				cbo_di_BenLeveltype.ForeColor = Color.Crimson;
+				di_co_BenLeveltype.ForeColor = Color.Crimson;
 			}
 			else
-				cbo_di_BenLeveltype.ForeColor = DefaultForeColor;
+				di_co_BenLeveltype.ForeColor = DefaultForeColor;
 
-			cbo_di_BenLeveltype.SelectedIndex = val;
+			di_co_BenLeveltype.SelectedIndex = val;
 
 // detrimental DamageBase dropdown
 			switch (damageinfo & hc.HENCH_SPELL_INFO_DAMAGE_MASK) // 0xf0000000
@@ -784,19 +784,19 @@ namespace nwn2_ai_2da_editor
 					break;
 			}
 
-			if (val >= cbo_di_DetDamagebase.Items.Count)
+			if (val >= di_co_DetDamagebase.Items.Count)
 			{
 				val = -1;
 			}
 
 			if (val == -1)
 			{
-				cbo_di_DetDamagebase.ForeColor = Color.Crimson;
+				di_co_DetDamagebase.ForeColor = Color.Crimson;
 			}
 			else
-				cbo_di_DetDamagebase.ForeColor = DefaultForeColor;
+				di_co_DetDamagebase.ForeColor = DefaultForeColor;
 
-			cbo_di_DetDamagebase.SelectedIndex = val;
+			di_co_DetDamagebase.SelectedIndex = val;
 
 // detrimental LevelType dropdown
 			switch (damageinfo & hc.HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_MASK) // 0x03000000 - overlaps FixedCount
@@ -811,19 +811,19 @@ namespace nwn2_ai_2da_editor
 					break;
 			}
 
-			if (val >= cbo_di_DetLeveltype.Items.Count)
+			if (val >= di_co_DetLeveltype.Items.Count)
 			{
 				val = -1;
 			}
 
 			if (val == -1)
 			{
-				cbo_di_DetLeveltype.ForeColor = Color.Crimson;
+				di_co_DetLeveltype.ForeColor = Color.Crimson;
 			}
 			else
-				cbo_di_DetLeveltype.ForeColor = DefaultForeColor;
+				di_co_DetLeveltype.ForeColor = DefaultForeColor;
 
-			cbo_di_DetLeveltype.SelectedIndex = val;
+			di_co_DetLeveltype.SelectedIndex = val;
 
 // ben Power texbox
 			val = (damageinfo & hc.HENCH_SPELL_INFO_BUFF_AMOUNT_MASK);			// 0x000000ff

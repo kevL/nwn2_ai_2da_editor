@@ -87,7 +87,7 @@ namespace nwn2_ai_2da_editor
 
 			si_Clear.Click += Click_clear;
 
-			cbo_si_Spelltype.SelectionChangeCommitted += SelectionChangeCommitted_si_cbo_Spelltype;
+			si_co_Spelltype.SelectionChangeCommitted += SelectionChangeCommitted_si_co_Spelltype;
 
 			si_Ignore       .MouseClick += MouseClick_si_Flags;
 			si_IsMaster     .MouseClick += MouseClick_si_Flags;
@@ -99,7 +99,7 @@ namespace nwn2_ai_2da_editor
 			si_MediumDurBuff.MouseClick += MouseClick_si_Flags;
 			si_LongDurBuff  .MouseClick += MouseClick_si_Flags;
 
-			cbo_si_Spelllevel.SelectionChangeCommitted += SelectionChangeCommitted_si_cbo_Spelllevel;
+			si_co_Spelllevel.SelectionChangeCommitted += SelectionChangeCommitted_si_co_Spelllevel;
 
 			si_Subspell1.TextChanged += TextChanged_si_Subspell;
 			si_Subspell2.TextChanged += TextChanged_si_Subspell;
@@ -125,9 +125,9 @@ namespace nwn2_ai_2da_editor
 			ti_Necromancy         .MouseClick += MouseClick_ti_Flags;
 			ti_Regular            .MouseClick += MouseClick_ti_Flags;
 
-			cbo_ti_Shape.SelectionChangeCommitted += SelectionChangeCommitted_ti_cbo_Shape;
+			ti_co_Shape.SelectionChangeCommitted += SelectionChangeCommitted_ti_co_Shape;
 
-			cbo_ti_Range.SelectionChangeCommitted += SelectionChangeCommitted_ti_cbo_Range;
+			ti_co_Range.SelectionChangeCommitted += SelectionChangeCommitted_ti_co_Range;
 
 			ti_Radius.TextChanged += TextChanged_ti_Radius;
 
@@ -206,11 +206,11 @@ namespace nwn2_ai_2da_editor
 
 			di_Clear.Click += Click_clear;
 
-			cbo_di_DetDamagebase.SelectionChangeCommitted += SelectionChangeCommitted_di_cbo_det_Damagebase;
+			di_co_DetDamagebase.SelectionChangeCommitted += SelectionChangeCommitted_di_co_det_Damagebase;
 
 			di_DetDamage        .TextChanged              += TextChanged_di_det_Damage;
 
-			cbo_di_DetLeveltype .SelectionChangeCommitted += SelectionChangeCommitted_di_cbo_det_Leveltype;
+			di_co_DetLeveltype .SelectionChangeCommitted += SelectionChangeCommitted_di_co_det_Leveltype;
 
 			di_DetLevellimit    .TextChanged              += TextChanged_di_det_Levellimit;
 
@@ -231,11 +231,11 @@ namespace nwn2_ai_2da_editor
 			di_Piercing   .MouseClick += MouseClick_di_det_Damagetype;
 			di_Slashing   .MouseClick += MouseClick_di_det_Damagetype;
 
-			cbo_di_BenPowerbase.SelectionChangeCommitted += SelectionChangeCommitted_di_cbo_ben_Powerbase;
+			di_co_BenPowerbase.SelectionChangeCommitted += SelectionChangeCommitted_di_co_ben_Powerbase;
 
 			di_BenPower        .TextChanged              += TextChanged_di_ben_Power;
 
-			cbo_di_BenLeveltype.SelectionChangeCommitted += SelectionChangeCommitted_di_cbo_ben_Leveltype;
+			di_co_BenLeveltype.SelectionChangeCommitted += SelectionChangeCommitted_di_co_ben_Leveltype;
 
 			di_BenLevellimit   .TextChanged              += TextChanged_di_ben_Levellimit;
 
@@ -281,11 +281,11 @@ namespace nwn2_ai_2da_editor
 			st_TouchMelee       .MouseClick += MouseClick_st_Flags;
 			st_TouchRanged      .MouseClick += MouseClick_st_Flags;
 
-			cbo_st_Immunity1.SelectionChangeCommitted += SelectionChangeCommitted_st_cbo_Immunity1;
+			st_co_Immunity1.SelectionChangeCommitted += SelectionChangeCommitted_st_co_Immunity1;
 
-			cbo_st_Immunity2.SelectionChangeCommitted += SelectionChangeCommitted_st_cbo_Immunity2;
+			st_co_Immunity2.SelectionChangeCommitted += SelectionChangeCommitted_st_co_Immunity2;
 
-			cbo_st_Specific .SelectionChangeCommitted += SelectionChangeCommitted_st_cbo_Specific;
+			st_co_Specific .SelectionChangeCommitted += SelectionChangeCommitted_st_co_Specific;
 
 			st_Excl_Magical    .MouseClick += MouseClick_st_excl_Damagetype;
 			st_Excl_Divine     .MouseClick += MouseClick_st_excl_Damagetype;
@@ -307,9 +307,9 @@ namespace nwn2_ai_2da_editor
 			st_Excl_Onlyone     .MouseClick += MouseClick_st_excl_Flags;
 			st_Excl_General     .MouseClick += MouseClick_st_excl_Flags;
 
-			cbo_st_TargetRestriction.SelectionChangeCommitted += SelectionChangeCommitted_st_cbo_Weapon;
+			st_co_TargetRestriction.SelectionChangeCommitted += SelectionChangeCommitted_st_co_Weapon;
 
-			cbo_st_AcBonus          .SelectionChangeCommitted += SelectionChangeCommitted_st_cbo_AcBonus;
+			st_co_AcBonus          .SelectionChangeCommitted += SelectionChangeCommitted_st_co_AcBonus;
 
 // handlers for SaveDCType ->
 			SaveDCType_reset.Click       += Click_dc_reset;
@@ -317,11 +317,11 @@ namespace nwn2_ai_2da_editor
 
 			dc_Clear.Click += Click_clear;
 
-			cbo_dc_SaveDC.SelectionChangeCommitted += SelectionChangeCommitted_dc_savedctype;
+			dc_co_SaveDC.SelectionChangeCommitted += SelectionChangeCommitted_dc_savedctype;
 			savedc_up    .Click                    += Click_dc_adjustors;
 			savedc_dn    .Click                    += Click_dc_adjustors;
 
-			cbo_dc_WeaponBonus.SelectionChangeCommitted += SelectionChangeCommitted_dc_weaponbonustype;
+			dc_co_WeaponBonus.SelectionChangeCommitted += SelectionChangeCommitted_dc_weaponbonustype;
 
 			savedc_ac1.MouseClick += MouseClick_dc_armorchecktype;
 			savedc_ac2.MouseClick += MouseClick_dc_armorchecktype;
@@ -366,298 +366,298 @@ namespace nwn2_ai_2da_editor
 // SpellInfo ->
 			// populate the dropdown list for SpellInfo - SpellType
 			// NOTE: These cases are considered in 'hench_i0_itemsp' DispatchSpell()
-			cbo_si_Spelltype.Items.Add("none or MasterID");			//  0
-			cbo_si_Spelltype.Items.Add("attack");					//  1
-			cbo_si_Spelltype.Items.Add("ac buff");					//  2
-			cbo_si_Spelltype.Items.Add("buff");						//  3
-			cbo_si_Spelltype.Items.Add("persistent aoe");			//  4
-			cbo_si_Spelltype.Items.Add("polymorph");				//  5
-			cbo_si_Spelltype.Items.Add("dispel");					//  6
-			cbo_si_Spelltype.Items.Add("invisibility");				//  7
-			cbo_si_Spelltype.Items.Add("cure condition");			//  8
-			cbo_si_Spelltype.Items.Add("summon");					//  9
-			cbo_si_Spelltype.Items.Add("heal");						// 10
-			cbo_si_Spelltype.Items.Add("harm");						// 11
-			cbo_si_Spelltype.Items.Add("attribute buff");			// 12
-			cbo_si_Spelltype.Items.Add("energy protection");		// 13
-			cbo_si_Spelltype.Items.Add("melee attack");				// 14
-			cbo_si_Spelltype.Items.Add("arcane archer");			// 15
-			cbo_si_Spelltype.Items.Add("spell protection");			// 16
-			cbo_si_Spelltype.Items.Add("dragon breath");			// 17
-			cbo_si_Spelltype.Items.Add("detect invisible");			// 18
-			cbo_si_Spelltype.Items.Add("warlock [not used]");		// 19
-			cbo_si_Spelltype.Items.Add("dominate");					// 20
-			cbo_si_Spelltype.Items.Add("weapon buff");				// 21
-			cbo_si_Spelltype.Items.Add("animal companion buff");	// 22
-			cbo_si_Spelltype.Items.Add("protection vs evil");		// 23
-			cbo_si_Spelltype.Items.Add("protection vs good");		// 24
-			cbo_si_Spelltype.Items.Add("regenerate");				// 25
-			cbo_si_Spelltype.Items.Add("gust of wind");				// 26
-			cbo_si_Spelltype.Items.Add("elemental shield");			// 27
-			cbo_si_Spelltype.Items.Add("turn undead");				// 28
-			cbo_si_Spelltype.Items.Add("dr buff");					// 29
-			cbo_si_Spelltype.Items.Add("melee attack buff");		// 30
-			cbo_si_Spelltype.Items.Add("raise dead");				// 31
-			cbo_si_Spelltype.Items.Add("concealment");				// 32
-			cbo_si_Spelltype.Items.Add("attack special");			// 33
-			cbo_si_Spelltype.Items.Add("heal special");				// 34
+			si_co_Spelltype.Items.Add("none or MasterID");		//  0
+			si_co_Spelltype.Items.Add("attack");				//  1
+			si_co_Spelltype.Items.Add("ac buff");				//  2
+			si_co_Spelltype.Items.Add("buff");					//  3
+			si_co_Spelltype.Items.Add("persistent aoe");		//  4
+			si_co_Spelltype.Items.Add("polymorph");				//  5
+			si_co_Spelltype.Items.Add("dispel");				//  6
+			si_co_Spelltype.Items.Add("invisibility");			//  7
+			si_co_Spelltype.Items.Add("cure condition");		//  8
+			si_co_Spelltype.Items.Add("summon");				//  9
+			si_co_Spelltype.Items.Add("heal");					// 10
+			si_co_Spelltype.Items.Add("harm");					// 11
+			si_co_Spelltype.Items.Add("attribute buff");		// 12
+			si_co_Spelltype.Items.Add("energy protection");		// 13
+			si_co_Spelltype.Items.Add("melee attack");			// 14
+			si_co_Spelltype.Items.Add("arcane archer");			// 15
+			si_co_Spelltype.Items.Add("spell protection");		// 16
+			si_co_Spelltype.Items.Add("dragon breath");			// 17
+			si_co_Spelltype.Items.Add("detect invisible");		// 18
+			si_co_Spelltype.Items.Add("warlock [not used]");	// 19
+			si_co_Spelltype.Items.Add("dominate");				// 20
+			si_co_Spelltype.Items.Add("weapon buff");			// 21
+			si_co_Spelltype.Items.Add("animal companion buff");	// 22
+			si_co_Spelltype.Items.Add("protection vs evil");	// 23
+			si_co_Spelltype.Items.Add("protection vs good");	// 24
+			si_co_Spelltype.Items.Add("regenerate");			// 25
+			si_co_Spelltype.Items.Add("gust of wind");			// 26
+			si_co_Spelltype.Items.Add("elemental shield");		// 27
+			si_co_Spelltype.Items.Add("turn undead");			// 28
+			si_co_Spelltype.Items.Add("dr buff");				// 29
+			si_co_Spelltype.Items.Add("melee attack buff");		// 30
+			si_co_Spelltype.Items.Add("raise dead");			// 31
+			si_co_Spelltype.Items.Add("concealment");			// 32
+			si_co_Spelltype.Items.Add("attack special");		// 33
+			si_co_Spelltype.Items.Add("heal special");			// 34
 
 			// populate the dropdown list for SpellInfo - SpellLevel
-			cbo_si_Spelllevel.Items.Add("0");
-			cbo_si_Spelllevel.Items.Add("1");
-			cbo_si_Spelllevel.Items.Add("2");
-			cbo_si_Spelllevel.Items.Add("3");
-			cbo_si_Spelllevel.Items.Add("4");
-			cbo_si_Spelllevel.Items.Add("5");
-			cbo_si_Spelllevel.Items.Add("6");
-			cbo_si_Spelllevel.Items.Add("7");
-			cbo_si_Spelllevel.Items.Add("8");
-			cbo_si_Spelllevel.Items.Add("9");
+			si_co_Spelllevel.Items.Add("0");
+			si_co_Spelllevel.Items.Add("1");
+			si_co_Spelllevel.Items.Add("2");
+			si_co_Spelllevel.Items.Add("3");
+			si_co_Spelllevel.Items.Add("4");
+			si_co_Spelllevel.Items.Add("5");
+			si_co_Spelllevel.Items.Add("6");
+			si_co_Spelllevel.Items.Add("7");
+			si_co_Spelllevel.Items.Add("8");
+			si_co_Spelllevel.Items.Add("9");
 
 // TargetInfo ->
 			// NOTE: See 'hench_i0_itemsp' DispatchSpell()
 
 			// populate the dropdown list for TargetInfo - Shape
-			cbo_ti_Shape.Items.Add("spellcylinder");	// 0
-			cbo_ti_Shape.Items.Add("cone");				// 1
-			cbo_ti_Shape.Items.Add("cube");				// 2
-			cbo_ti_Shape.Items.Add("spellcone");		// 3
-			cbo_ti_Shape.Items.Add("sphere");			// 4
-			cbo_ti_Shape.Items.Add("[not used]");		// 5
-			cbo_ti_Shape.Items.Add("faction");			// 6
-			cbo_ti_Shape.Items.Add("none");				// 7
+			ti_co_Shape.Items.Add("spellcylinder");	// 0
+			ti_co_Shape.Items.Add("cone");			// 1
+			ti_co_Shape.Items.Add("cube");			// 2
+			ti_co_Shape.Items.Add("spellcone");		// 3
+			ti_co_Shape.Items.Add("sphere");		// 4
+			ti_co_Shape.Items.Add("[not used]");	// 5
+			ti_co_Shape.Items.Add("faction");		// 6
+			ti_co_Shape.Items.Add("none");			// 7
 
 			// populate the dropdown list for TargetInfo - Range
-			cbo_ti_Range.Items.Add("personal");	// 0
-			cbo_ti_Range.Items.Add("touch");	// 1
-			cbo_ti_Range.Items.Add("short");	// 2
-			cbo_ti_Range.Items.Add("medium");	// 3
-			cbo_ti_Range.Items.Add("long");		// 4
-			cbo_ti_Range.Items.Add("infinite");	// 5
+			ti_co_Range.Items.Add("personal");	// 0
+			ti_co_Range.Items.Add("touch");		// 1
+			ti_co_Range.Items.Add("short");		// 2
+			ti_co_Range.Items.Add("medium");	// 3
+			ti_co_Range.Items.Add("long");		// 4
+			ti_co_Range.Items.Add("infinite");	// 5
 
 // DamageInfo ->
 			// populate the dropdown list for DamageInfo - beneficial PowerBase
 			// NOTE: These cases are considered in 'hench_i0_spells' GetCurrentSpellBuffAmount()
-			cbo_di_BenPowerbase.Items.Add("none");					// 0
-			cbo_di_BenPowerbase.Items.Add("casterlevel");			// 1
-			cbo_di_BenPowerbase.Items.Add("hd");					// 2
-			cbo_di_BenPowerbase.Items.Add("fixed");					// 3
-			cbo_di_BenPowerbase.Items.Add("charisma");				// 4
-			cbo_di_BenPowerbase.Items.Add("bard level [not used]");	// 5
-			cbo_di_BenPowerbase.Items.Add("dragon");				// 6
+			di_co_BenPowerbase.Items.Add("none");					// 0
+			di_co_BenPowerbase.Items.Add("casterlevel");			// 1
+			di_co_BenPowerbase.Items.Add("hd");						// 2
+			di_co_BenPowerbase.Items.Add("fixed");					// 3
+			di_co_BenPowerbase.Items.Add("charisma");				// 4
+			di_co_BenPowerbase.Items.Add("bard level [not used]");	// 5
+			di_co_BenPowerbase.Items.Add("dragon");					// 6
 
 			// populate the dropdown list for DamageInfo - beneficial LevelType
 			// NOTE: These cases are considered in 'hench_i0_spells' GetCurrentSpellBuffAmount()
 			// NOTE: These are bit-exclusive and so could be checkboxes but ....
-			cbo_di_BenLeveltype.Items.Add("dice");				// 0
-			cbo_di_BenLeveltype.Items.Add("adjust");			// 1
-			cbo_di_BenLeveltype.Items.Add("count [not used]");	// 2
-			cbo_di_BenLeveltype.Items.Add("const");				// 3
+			di_co_BenLeveltype.Items.Add("dice");				// 0
+			di_co_BenLeveltype.Items.Add("adjust");				// 1
+			di_co_BenLeveltype.Items.Add("count [not used]");	// 2
+			di_co_BenLeveltype.Items.Add("const");				// 3
 
 
 			// populate the dropdown list for DamageInfo - detrimental DamageBase
 			// NOTE: These cases are considered in 'hench_i0_spells' GetCurrentSpellDamage()
-			cbo_di_DetDamagebase.Items.Add("casterlevel");			//  0
-			cbo_di_DetDamagebase.Items.Add("hd");					//  1
-			cbo_di_DetDamagebase.Items.Add("fixed");				//  2
-			cbo_di_DetDamagebase.Items.Add("cure");					//  3
-			cbo_di_DetDamagebase.Items.Add("dragon");				//  4
-			cbo_di_DetDamagebase.Items.Add("special count");		//  5
-			cbo_di_DetDamagebase.Items.Add("custom");				//  6
-			cbo_di_DetDamagebase.Items.Add("dragon disciple");		//  7
-			cbo_di_DetDamagebase.Items.Add("arcane archer");		//  8
-			cbo_di_DetDamagebase.Items.Add("warpriest [not used]");	//  9
-			cbo_di_DetDamagebase.Items.Add("lay on hands");			// 10
-			cbo_di_DetDamagebase.Items.Add("charisma");				// 11
-			cbo_di_DetDamagebase.Items.Add("bard perform");			// 12
-			cbo_di_DetDamagebase.Items.Add("warlock");				// 13
+			di_co_DetDamagebase.Items.Add("casterlevel");			//  0
+			di_co_DetDamagebase.Items.Add("hd");					//  1
+			di_co_DetDamagebase.Items.Add("fixed");					//  2
+			di_co_DetDamagebase.Items.Add("cure");					//  3
+			di_co_DetDamagebase.Items.Add("dragon");				//  4
+			di_co_DetDamagebase.Items.Add("special count");			//  5
+			di_co_DetDamagebase.Items.Add("custom");				//  6
+			di_co_DetDamagebase.Items.Add("dragon disciple");		//  7
+			di_co_DetDamagebase.Items.Add("arcane archer");			//  8
+			di_co_DetDamagebase.Items.Add("warpriest [not used]");	//  9
+			di_co_DetDamagebase.Items.Add("lay on hands");			// 10
+			di_co_DetDamagebase.Items.Add("charisma");				// 11
+			di_co_DetDamagebase.Items.Add("bard perform");			// 12
+			di_co_DetDamagebase.Items.Add("warlock");				// 13
 
 			// populate the dropdown list for DamageInfo - detrimental LevelType
 			// NOTE: These cases are considered in 'hench_i0_spells' GetCurrentSpellDamage()
 			// NOTE: These are bit-exclusive and so could be checkboxes but ....
-			cbo_di_DetLeveltype.Items.Add("dice");		// 0
-			cbo_di_DetLeveltype.Items.Add("adjust");	// 1
-			cbo_di_DetLeveltype.Items.Add("count");		// 2
-			cbo_di_DetLeveltype.Items.Add("const");		// 3
+			di_co_DetLeveltype.Items.Add("dice");	// 0
+			di_co_DetLeveltype.Items.Add("adjust");	// 1
+			di_co_DetLeveltype.Items.Add("count");	// 2
+			di_co_DetLeveltype.Items.Add("const");	// 3
 
 // SaveType ->
 			// populate the dropdown list for SaveType - Special type
 			// NOTE: These special cases are considered in 'hench_i0_attack' HenchSpellAttack()
-			cbo_st_Specific.Items.Add("none");											//  0
-			cbo_st_Specific.Items.Add("heal");											//  1
-			cbo_st_Specific.Items.Add("negative heal");									//  2
-			cbo_st_Specific.Items.Add("targets humanoid");								//  3
-			cbo_st_Specific.Items.Add("not already affected");							//  4
-			cbo_st_Specific.Items.Add("does not affect incorporeal");					//  5
-			cbo_st_Specific.Items.Add("darkness");										//  6
-			cbo_st_Specific.Items.Add("petrify");										//  7
-			cbo_st_Specific.Items.Add("targets animal");								//  8
-			cbo_st_Specific.Items.Add("does not affect construct or undead");			//  9
-			cbo_st_Specific.Items.Add("drown");											// 10
-			cbo_st_Specific.Items.Add("sleep");											// 11
-			cbo_st_Specific.Items.Add("bigby's hand");									// 12
-			cbo_st_Specific.Items.Add("targets undead");								// 13
-			cbo_st_Specific.Items.Add("does not affect undead");						// 14
-			cbo_st_Specific.Items.Add("does not affect creatures immune to phantasms");	// 15
-			cbo_st_Specific.Items.Add("magic missile");									// 16
-			cbo_st_Specific.Items.Add("inferno or combust");							// 17
-			cbo_st_Specific.Items.Add("dismissal or banishment");						// 18
-			cbo_st_Specific.Items.Add("targets spellcasters");							// 19
-			cbo_st_Specific.Items.Add("does not affect elf");							// 20
-			cbo_st_Specific.Items.Add("targets construct");								// 21
-			cbo_st_Specific.Items.Add("searing light");									// 22
-			cbo_st_Specific.Items.Add("mindflayer's mindblast");						// 23
-			cbo_st_Specific.Items.Add("evard's tentacles");								// 24
-			cbo_st_Specific.Items.Add("ironhorn");										// 25
-			cbo_st_Specific.Items.Add("prism");											// 26
-			cbo_st_Specific.Items.Add("targets spirit");								// 27
-			cbo_st_Specific.Items.Add("word of faith");									// 28
-			cbo_st_Specific.Items.Add("cloudkill");										// 29
-			cbo_st_Specific.Items.Add("targets humanoid or animal");					// 30
-			cbo_st_Specific.Items.Add("daze");											// 31
-			cbo_st_Specific.Items.Add("tasha's");										// 32
-			cbo_st_Specific.Items.Add("cause fear");									// 33
-			cbo_st_Specific.Items.Add("reduce damage-weight by target's hp%");			// 34
-			cbo_st_Specific.Items.Add("creeping doom");									// 35
-			cbo_st_Specific.Items.Add("deathknell");									// 36
-			cbo_st_Specific.Items.Add("caster is warlock");								// 37
-			cbo_st_Specific.Items.Add("moonbolt");										// 38
-			cbo_st_Specific.Items.Add("swamplung");										// 39
-			cbo_st_Specific.Items.Add("targets seen only");								// 40
-			cbo_st_Specific.Items.Add("color spray");									// 41
-			cbo_st_Specific.Items.Add("sunbeam");										// 42
-			cbo_st_Specific.Items.Add("sunburst");										// 43
-			cbo_st_Specific.Items.Add("targets medium or smaller creatures");			// 44
-			cbo_st_Specific.Items.Add("castigate");										// 45
-			cbo_st_Specific.Items.Add("target is doing fighter-like actions");			// 46
-			cbo_st_Specific.Items.Add("does not affect deaf creatures");				// 47
-			cbo_st_Specific.Items.Add("holy blas");										// 48
-			cbo_st_Specific.Items.Add("targets evil");									// 49
+			st_co_Specific.Items.Add("none");											//  0
+			st_co_Specific.Items.Add("heal");											//  1
+			st_co_Specific.Items.Add("negative heal");									//  2
+			st_co_Specific.Items.Add("targets humanoid");								//  3
+			st_co_Specific.Items.Add("not already affected");							//  4
+			st_co_Specific.Items.Add("does not affect incorporeal");					//  5
+			st_co_Specific.Items.Add("darkness");										//  6
+			st_co_Specific.Items.Add("petrify");										//  7
+			st_co_Specific.Items.Add("targets animal");									//  8
+			st_co_Specific.Items.Add("does not affect construct or undead");			//  9
+			st_co_Specific.Items.Add("drown");											// 10
+			st_co_Specific.Items.Add("sleep");											// 11
+			st_co_Specific.Items.Add("bigby's hand");									// 12
+			st_co_Specific.Items.Add("targets undead");									// 13
+			st_co_Specific.Items.Add("does not affect undead");							// 14
+			st_co_Specific.Items.Add("does not affect creatures immune to phantasms");	// 15
+			st_co_Specific.Items.Add("magic missile");									// 16
+			st_co_Specific.Items.Add("inferno or combust");								// 17
+			st_co_Specific.Items.Add("dismissal or banishment");						// 18
+			st_co_Specific.Items.Add("targets spellcasters");							// 19
+			st_co_Specific.Items.Add("does not affect elf");							// 20
+			st_co_Specific.Items.Add("targets construct");								// 21
+			st_co_Specific.Items.Add("searing light");									// 22
+			st_co_Specific.Items.Add("mindflayer's mindblast");							// 23
+			st_co_Specific.Items.Add("evard's tentacles");								// 24
+			st_co_Specific.Items.Add("ironhorn");										// 25
+			st_co_Specific.Items.Add("prism");											// 26
+			st_co_Specific.Items.Add("targets spirit");									// 27
+			st_co_Specific.Items.Add("word of faith");									// 28
+			st_co_Specific.Items.Add("cloudkill");										// 29
+			st_co_Specific.Items.Add("targets humanoid or animal");						// 30
+			st_co_Specific.Items.Add("daze");											// 31
+			st_co_Specific.Items.Add("tasha's");										// 32
+			st_co_Specific.Items.Add("cause fear");										// 33
+			st_co_Specific.Items.Add("reduce damage-weight by target's hp%");			// 34
+			st_co_Specific.Items.Add("creeping doom");									// 35
+			st_co_Specific.Items.Add("deathknell");										// 36
+			st_co_Specific.Items.Add("caster is warlock");								// 37
+			st_co_Specific.Items.Add("moonbolt");										// 38
+			st_co_Specific.Items.Add("swamplung");										// 39
+			st_co_Specific.Items.Add("targets seen only");								// 40
+			st_co_Specific.Items.Add("color spray");									// 41
+			st_co_Specific.Items.Add("sunbeam");										// 42
+			st_co_Specific.Items.Add("sunburst");										// 43
+			st_co_Specific.Items.Add("targets medium or smaller creatures");			// 44
+			st_co_Specific.Items.Add("castigate");										// 45
+			st_co_Specific.Items.Add("target is doing fighter-like actions");			// 46
+			st_co_Specific.Items.Add("does not affect deaf creatures");					// 47
+			st_co_Specific.Items.Add("holy blas");										// 48
+			st_co_Specific.Items.Add("targets evil");									// 49
 
 			// populate the dropdown list for SaveType - Immunity1 type
 			// NOTE: These immunity cases are considered in 'hench_i0_attack' HenchSpellAttack()
 			// NOTE: These immunity cases are considered in 'hench_i0_buff'   HenchCheckBuff()
 			// NOTE: These immunity cases are considered in 'hench_i0_dispel' HenchGetAOEProblem()
 			// NOTE: These immunity cases are considered in 'hench_i0_heal'   HenchCheckCureCondition()
-			cbo_st_Immunity1.Items.Add("none");							//  0
-			cbo_st_Immunity1.Items.Add("mind-affecting");				//  1 // these need to be shifted << 6
-			cbo_st_Immunity1.Items.Add("poison");						//  2
-			cbo_st_Immunity1.Items.Add("disease");						//  3
-			cbo_st_Immunity1.Items.Add("fear");							//  4
-			cbo_st_Immunity1.Items.Add("trap");							//  5
-			cbo_st_Immunity1.Items.Add("paralysis");					//  6
-			cbo_st_Immunity1.Items.Add("blindness");					//  7
-			cbo_st_Immunity1.Items.Add("deafness");						//  8
-			cbo_st_Immunity1.Items.Add("slow");							//  9
-			cbo_st_Immunity1.Items.Add("entangle");						// 10
-			cbo_st_Immunity1.Items.Add("silence");						// 11
-			cbo_st_Immunity1.Items.Add("stun");							// 12
-			cbo_st_Immunity1.Items.Add("sleep");						// 13
-			cbo_st_Immunity1.Items.Add("charm");						// 14
-			cbo_st_Immunity1.Items.Add("dominate");						// 15
-			cbo_st_Immunity1.Items.Add("confused");						// 16
-			cbo_st_Immunity1.Items.Add("cursed");						// 17
-			cbo_st_Immunity1.Items.Add("dazed");						// 18
-			cbo_st_Immunity1.Items.Add("ability decrease");				// 19
-			cbo_st_Immunity1.Items.Add("attack decrease");				// 20
-			cbo_st_Immunity1.Items.Add("damage decrease");				// 21
-			cbo_st_Immunity1.Items.Add("damage immunity decrease");		// 22
-			cbo_st_Immunity1.Items.Add("ac decrease");					// 23
-			cbo_st_Immunity1.Items.Add("movement speed decrease");		// 24
-			cbo_st_Immunity1.Items.Add("saving throw decrease");		// 25
-			cbo_st_Immunity1.Items.Add("spell resistance decrease");	// 26
-			cbo_st_Immunity1.Items.Add("skill decrease");				// 27
-			cbo_st_Immunity1.Items.Add("knockdown");					// 28
-			cbo_st_Immunity1.Items.Add("negative level");				// 29
-			cbo_st_Immunity1.Items.Add("sneak attack");					// 30
-			cbo_st_Immunity1.Items.Add("critical hit");					// 31
-			cbo_st_Immunity1.Items.Add("death");						// 32
+			st_co_Immunity1.Items.Add("none");						//  0
+			st_co_Immunity1.Items.Add("mind-affecting");			//  1 // these need to be shifted << 6
+			st_co_Immunity1.Items.Add("poison");					//  2
+			st_co_Immunity1.Items.Add("disease");					//  3
+			st_co_Immunity1.Items.Add("fear");						//  4
+			st_co_Immunity1.Items.Add("trap");						//  5
+			st_co_Immunity1.Items.Add("paralysis");					//  6
+			st_co_Immunity1.Items.Add("blindness");					//  7
+			st_co_Immunity1.Items.Add("deafness");					//  8
+			st_co_Immunity1.Items.Add("slow");						//  9
+			st_co_Immunity1.Items.Add("entangle");					// 10
+			st_co_Immunity1.Items.Add("silence");					// 11
+			st_co_Immunity1.Items.Add("stun");						// 12
+			st_co_Immunity1.Items.Add("sleep");						// 13
+			st_co_Immunity1.Items.Add("charm");						// 14
+			st_co_Immunity1.Items.Add("dominate");					// 15
+			st_co_Immunity1.Items.Add("confused");					// 16
+			st_co_Immunity1.Items.Add("cursed");					// 17
+			st_co_Immunity1.Items.Add("dazed");						// 18
+			st_co_Immunity1.Items.Add("ability decrease");			// 19
+			st_co_Immunity1.Items.Add("attack decrease");			// 20
+			st_co_Immunity1.Items.Add("damage decrease");			// 21
+			st_co_Immunity1.Items.Add("damage immunity decrease");	// 22
+			st_co_Immunity1.Items.Add("ac decrease");				// 23
+			st_co_Immunity1.Items.Add("movement speed decrease");	// 24
+			st_co_Immunity1.Items.Add("saving throw decrease");		// 25
+			st_co_Immunity1.Items.Add("spell resistance decrease");	// 26
+			st_co_Immunity1.Items.Add("skill decrease");			// 27
+			st_co_Immunity1.Items.Add("knockdown");					// 28
+			st_co_Immunity1.Items.Add("negative level");			// 29
+			st_co_Immunity1.Items.Add("sneak attack");				// 30
+			st_co_Immunity1.Items.Add("critical hit");				// 31
+			st_co_Immunity1.Items.Add("death");						// 32
 
 			// populate the dropdown list for SaveType - Immunity2 type
 			// NOTE: These immunity cases are considered in 'hench_i0_attack' HenchSpellAttack()
 			// NOTE: These immunity cases are considered in 'hench_i0_dispel' HenchGetAOEProblem()
-			cbo_st_Immunity2.Items.Add("none");							//  0
-			cbo_st_Immunity2.Items.Add("mind-affecting");				//  1 // these need to be shifted << 12
-			cbo_st_Immunity2.Items.Add("poison");						//  2
-			cbo_st_Immunity2.Items.Add("disease");						//  3
-			cbo_st_Immunity2.Items.Add("fear");							//  4
-			cbo_st_Immunity2.Items.Add("trap");							//  5
-			cbo_st_Immunity2.Items.Add("paralysis");					//  6
-			cbo_st_Immunity2.Items.Add("blindness");					//  7
-			cbo_st_Immunity2.Items.Add("deafness");						//  8
-			cbo_st_Immunity2.Items.Add("slow");							//  9
-			cbo_st_Immunity2.Items.Add("entangle");						// 10
-			cbo_st_Immunity2.Items.Add("silence");						// 11
-			cbo_st_Immunity2.Items.Add("stun");							// 12
-			cbo_st_Immunity2.Items.Add("sleep");						// 13
-			cbo_st_Immunity2.Items.Add("charm");						// 14
-			cbo_st_Immunity2.Items.Add("dominate");						// 15
-			cbo_st_Immunity2.Items.Add("confused");						// 16
-			cbo_st_Immunity2.Items.Add("cursed");						// 17
-			cbo_st_Immunity2.Items.Add("dazed");						// 18
-			cbo_st_Immunity2.Items.Add("ability decrease");				// 19
-			cbo_st_Immunity2.Items.Add("attack decrease");				// 20
-			cbo_st_Immunity2.Items.Add("damage decrease");				// 21
-			cbo_st_Immunity2.Items.Add("damage immunity decrease");		// 22
-			cbo_st_Immunity2.Items.Add("ac decrease");					// 23
-			cbo_st_Immunity2.Items.Add("movement speed decrease");		// 24
-			cbo_st_Immunity2.Items.Add("saving throw decrease");		// 25
-			cbo_st_Immunity2.Items.Add("spell resistance decrease");	// 26
-			cbo_st_Immunity2.Items.Add("skill decrease");				// 27
-			cbo_st_Immunity2.Items.Add("knockdown");					// 28
-			cbo_st_Immunity2.Items.Add("negative level");				// 29
-			cbo_st_Immunity2.Items.Add("sneak attack");					// 30
-			cbo_st_Immunity2.Items.Add("critical hit");					// 31
-			cbo_st_Immunity2.Items.Add("death");						// 32
+			st_co_Immunity2.Items.Add("none");						//  0
+			st_co_Immunity2.Items.Add("mind-affecting");			//  1 // these need to be shifted << 12
+			st_co_Immunity2.Items.Add("poison");					//  2
+			st_co_Immunity2.Items.Add("disease");					//  3
+			st_co_Immunity2.Items.Add("fear");						//  4
+			st_co_Immunity2.Items.Add("trap");						//  5
+			st_co_Immunity2.Items.Add("paralysis");					//  6
+			st_co_Immunity2.Items.Add("blindness");					//  7
+			st_co_Immunity2.Items.Add("deafness");					//  8
+			st_co_Immunity2.Items.Add("slow");						//  9
+			st_co_Immunity2.Items.Add("entangle");					// 10
+			st_co_Immunity2.Items.Add("silence");					// 11
+			st_co_Immunity2.Items.Add("stun");						// 12
+			st_co_Immunity2.Items.Add("sleep");						// 13
+			st_co_Immunity2.Items.Add("charm");						// 14
+			st_co_Immunity2.Items.Add("dominate");					// 15
+			st_co_Immunity2.Items.Add("confused");					// 16
+			st_co_Immunity2.Items.Add("cursed");					// 17
+			st_co_Immunity2.Items.Add("dazed");						// 18
+			st_co_Immunity2.Items.Add("ability decrease");			// 19
+			st_co_Immunity2.Items.Add("attack decrease");			// 20
+			st_co_Immunity2.Items.Add("damage decrease");			// 21
+			st_co_Immunity2.Items.Add("damage immunity decrease");	// 22
+			st_co_Immunity2.Items.Add("ac decrease");				// 23
+			st_co_Immunity2.Items.Add("movement speed decrease");	// 24
+			st_co_Immunity2.Items.Add("saving throw decrease");		// 25
+			st_co_Immunity2.Items.Add("spell resistance decrease");	// 26
+			st_co_Immunity2.Items.Add("skill decrease");			// 27
+			st_co_Immunity2.Items.Add("knockdown");					// 28
+			st_co_Immunity2.Items.Add("negative level");			// 29
+			st_co_Immunity2.Items.Add("sneak attack");				// 30
+			st_co_Immunity2.Items.Add("critical hit");				// 31
+			st_co_Immunity2.Items.Add("death");						// 32
 
 			// populate the dropdown list for SaveType - Weapon type
 			// NOTE: These weapon cases are considered in 'hench_i0_buff' HenchCheckWeaponBuff()
-			cbo_st_TargetRestriction.Items.Add("none");																		//    0
-			cbo_st_TargetRestriction.Items.Add("target must be a staff");													//    1
-			cbo_st_TargetRestriction.Items.Add("target must be a slashing weapon");											//    2
-			cbo_st_TargetRestriction.Items.Add("target must be usable by a Paladin (holy sword)");							//    4
-			cbo_st_TargetRestriction.Items.Add("target must be a bludgeoning weapon");										//    8
-			cbo_st_TargetRestriction.Items.Add("damage increase vs undead only");											//   16
-			cbo_st_TargetRestriction.Items.Add("target must be an animal-like creature (self or animal companion only)");	// 4096
+			st_co_TargetRestriction.Items.Add("none");																		//    0
+			st_co_TargetRestriction.Items.Add("target must be a staff");													//    1
+			st_co_TargetRestriction.Items.Add("target must be a slashing weapon");											//    2
+			st_co_TargetRestriction.Items.Add("target must be usable by a Paladin (holy sword)");							//    4
+			st_co_TargetRestriction.Items.Add("target must be a bludgeoning weapon");										//    8
+			st_co_TargetRestriction.Items.Add("damage increase vs undead only");											//   16
+			st_co_TargetRestriction.Items.Add("target must be an animal-like creature (self or animal companion only)");	// 4096
 
 			// populate the dropdown list for SaveType - AcBonus type
 			// NOTE: These ac-bonus cases are considered in 'hench_i0_buff' HenchCheckACBuff()
-			cbo_st_AcBonus.Items.Add("dodge or none");	// 0
-			cbo_st_AcBonus.Items.Add("natural");		// 1 // these need to be shifted << 18
-			cbo_st_AcBonus.Items.Add("armor");			// 2
-			cbo_st_AcBonus.Items.Add("shield");			// 3
-			cbo_st_AcBonus.Items.Add("deflection");		// 4
+			st_co_AcBonus.Items.Add("dodge or none");	// 0
+			st_co_AcBonus.Items.Add("natural");			// 1 // these need to be shifted << 18
+			st_co_AcBonus.Items.Add("armor");			// 2
+			st_co_AcBonus.Items.Add("shield");			// 3
+			st_co_AcBonus.Items.Add("deflection");		// 4
 
 			// TODO: There are further issues in 'hench_i0_buff'.
 
 // SaveDCType ->
 			// populate the dropdown list for SaveDCType
-			cbo_dc_SaveDC.Items.Add("spell dc standard");			// -1000
-			cbo_dc_SaveDC.Items.Add("no save");						// 0
-			cbo_dc_SaveDC.Items.Add("dc = 10 + hd");				// 1000
-			cbo_dc_SaveDC.Items.Add("dc = 10 + hd / 2");			// 1001
-			cbo_dc_SaveDC.Items.Add("dc = 10 + hd / 4");			// 1002
-			cbo_dc_SaveDC.Items.Add("dc = 10 + hd / 2 + Con");		// 1003
-			cbo_dc_SaveDC.Items.Add("dc = 10 + hd / 2 + Con - 5");	// 1004
-			cbo_dc_SaveDC.Items.Add("dc = 10 + hd / 2 + Wis");		// 1005
-			cbo_dc_SaveDC.Items.Add("dc = 10 + hd / 2 + 5");		// 1006
-			cbo_dc_SaveDC.Items.Add("dc = 10 + hd / 2 + Cha");		// 1007
-			cbo_dc_SaveDC.Items.Add("disease bolt");				// 1010
-			cbo_dc_SaveDC.Items.Add("disease cone");				// 1011
-			cbo_dc_SaveDC.Items.Add("disease pulse");				// 1012
-			cbo_dc_SaveDC.Items.Add("poison");						// 1013
-			cbo_dc_SaveDC.Items.Add("epic dc");						// 1014
-			cbo_dc_SaveDC.Items.Add("deathless master touch");		// 1020
-			cbo_dc_SaveDC.Items.Add("undead graft");				// 1021
-			cbo_dc_SaveDC.Items.Add("caster dc (n/a spell-level)");	// 1022
-			cbo_dc_SaveDC.Items.Add("bardic slow");					// 1024
-			cbo_dc_SaveDC.Items.Add("bardic fascinate");			// 1025
+			dc_co_SaveDC.Items.Add("spell dc standard");			// -1000
+			dc_co_SaveDC.Items.Add("no save");						// 0
+			dc_co_SaveDC.Items.Add("dc = 10 + hd");					// 1000
+			dc_co_SaveDC.Items.Add("dc = 10 + hd / 2");				// 1001
+			dc_co_SaveDC.Items.Add("dc = 10 + hd / 4");				// 1002
+			dc_co_SaveDC.Items.Add("dc = 10 + hd / 2 + Con");		// 1003
+			dc_co_SaveDC.Items.Add("dc = 10 + hd / 2 + Con - 5");	// 1004
+			dc_co_SaveDC.Items.Add("dc = 10 + hd / 2 + Wis");		// 1005
+			dc_co_SaveDC.Items.Add("dc = 10 + hd / 2 + 5");			// 1006
+			dc_co_SaveDC.Items.Add("dc = 10 + hd / 2 + Cha");		// 1007
+			dc_co_SaveDC.Items.Add("disease bolt");					// 1010
+			dc_co_SaveDC.Items.Add("disease cone");					// 1011
+			dc_co_SaveDC.Items.Add("disease pulse");				// 1012
+			dc_co_SaveDC.Items.Add("poison");						// 1013
+			dc_co_SaveDC.Items.Add("epic dc");						// 1014
+			dc_co_SaveDC.Items.Add("deathless master touch");		// 1020
+			dc_co_SaveDC.Items.Add("undead graft");					// 1021
+			dc_co_SaveDC.Items.Add("caster dc (n/a spell-level)");	// 1022
+			dc_co_SaveDC.Items.Add("bardic slow");					// 1024
+			dc_co_SaveDC.Items.Add("bardic fascinate");				// 1025
 
 			// populate the dropdown list for SaveDCType - WeaponBonusType
-			cbo_dc_WeaponBonus.Items.Add("none");									// 0
-			cbo_dc_WeaponBonus.Items.Add("weapon bonus - (casterlevel / 4)");		// 100
-			cbo_dc_WeaponBonus.Items.Add("weapon bonus - (casterlevel + 1) / 3");	// 101
-			cbo_dc_WeaponBonus.Items.Add("weapon bonus - (casterlevel / 3) - 1");	// 102
+			dc_co_WeaponBonus.Items.Add("none");									// 0
+			dc_co_WeaponBonus.Items.Add("weapon bonus - (casterlevel / 4)");		// 100
+			dc_co_WeaponBonus.Items.Add("weapon bonus - (casterlevel + 1) / 3");	// 101
+			dc_co_WeaponBonus.Items.Add("weapon bonus - (casterlevel / 3) - 1");	// 102
 		}
 
 

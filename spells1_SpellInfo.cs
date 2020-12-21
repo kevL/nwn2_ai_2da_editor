@@ -165,15 +165,15 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		void SelectionChangeCommitted_si_cbo_Spelltype(object sender, EventArgs e)
+		void SelectionChangeCommitted_si_co_Spelltype(object sender, EventArgs e)
 		{
-			//logfile.Log("SelectionChangeCommitted_si_cbo_Spelltype() selectedId= " + cbo_si_Spelltype.SelectedIndex);
+			//logfile.Log("SelectionChangeCommitted_si_co_Spelltype() selectedId= " + si_co_Spelltype.SelectedIndex);
 
 			int spellinfo;
 			if (Int32.TryParse(SpellInfo_text.Text, out spellinfo))
 			{
 				spellinfo &= ~hc.HENCH_SPELL_INFO_SPELL_TYPE_MASK; // 0x000000ff
-				SpellInfo_text.Text = (spellinfo | cbo_si_Spelltype.SelectedIndex).ToString();
+				SpellInfo_text.Text = (spellinfo | si_co_Spelltype.SelectedIndex).ToString();
 			}
 		}
 
@@ -182,15 +182,15 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		void SelectionChangeCommitted_si_cbo_Spelllevel(object sender, EventArgs e)
+		void SelectionChangeCommitted_si_co_Spelllevel(object sender, EventArgs e)
 		{
-			//logfile.Log("SelectionChangeCommitted_si_cbo_Spelllevel() selectedId= " + cbo_si_Spelllevel.SelectedIndex);
+			//logfile.Log("SelectionChangeCommitted_si_co_Spelllevel() selectedId= " + si_co_Spelllevel.SelectedIndex);
 
 			int spellinfo;
 			if (Int32.TryParse(SpellInfo_text.Text, out spellinfo))
 			{
 				spellinfo &= ~hc.HENCH_SPELL_INFO_SPELL_LEVEL_MASK; // 0x0001e000
-				int val = cbo_si_Spelllevel.SelectedIndex << hc.HENCH_SPELL_INFO_SPELL_LEVEL_SHIFT;
+				int val = si_co_Spelllevel.SelectedIndex << hc.HENCH_SPELL_INFO_SPELL_LEVEL_SHIFT;
 				SpellInfo_text.Text = (spellinfo | val).ToString();
 			}
 		}
@@ -422,29 +422,29 @@ namespace nwn2_ai_2da_editor
 // Spelltype dropdown-list
 			int val = spellinfo;
 			val &= hc.HENCH_SPELL_INFO_SPELL_TYPE_MASK;
-			if (val >= cbo_si_Spelltype.Items.Count)
+			if (val >= si_co_Spelltype.Items.Count)
 			{
 				val = -1;
-				cbo_si_Spelltype.ForeColor = Color.Crimson;
+				si_co_Spelltype.ForeColor = Color.Crimson;
 			}
 			else
-				cbo_si_Spelltype.ForeColor = DefaultForeColor;
+				si_co_Spelltype.ForeColor = DefaultForeColor;
 
-			cbo_si_Spelltype.SelectedIndex = val;
+			si_co_Spelltype.SelectedIndex = val;
 
 // Spelllevel dropdown-list
 			val = spellinfo;
 			val &= hc.HENCH_SPELL_INFO_SPELL_LEVEL_MASK;
 			val >>= hc.HENCH_SPELL_INFO_SPELL_LEVEL_SHIFT;
-			if (val >= cbo_si_Spelllevel.Items.Count)
+			if (val >= si_co_Spelllevel.Items.Count)
 			{
 				val = -1;
-				cbo_si_Spelllevel.ForeColor = Color.Crimson;
+				si_co_Spelllevel.ForeColor = Color.Crimson;
 			}
 			else
-				cbo_si_Spelllevel.ForeColor = DefaultForeColor;
+				si_co_Spelllevel.ForeColor = DefaultForeColor;
 
-			cbo_si_Spelllevel.SelectedIndex = val;
+			si_co_Spelllevel.SelectedIndex = val;
 		}
 
 
@@ -455,7 +455,7 @@ namespace nwn2_ai_2da_editor
 		void SetDetrimentalBeneficial()
 		{
 			string text;
-			switch (cbo_si_Spelltype.SelectedIndex) // (spellinfo & HENCH_SPELL_INFO_SPELL_TYPE_MASK);
+			switch (si_co_Spelltype.SelectedIndex) // (spellinfo & HENCH_SPELL_INFO_SPELL_TYPE_MASK);
 			{
 				case -1: // safety.
 				case  0:
@@ -486,7 +486,7 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void SetGroupColors()
 		{
-			int spelltype = cbo_si_Spelltype.SelectedIndex; // (spellinfo & HENCH_SPELL_INFO_SPELL_TYPE_MASK);
+			int spelltype = si_co_Spelltype.SelectedIndex; // (spellinfo & HENCH_SPELL_INFO_SPELL_TYPE_MASK);
 
 // TargetInfo groups
 			Color color;

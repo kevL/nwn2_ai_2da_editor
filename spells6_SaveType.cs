@@ -151,43 +151,43 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		void SelectionChangeCommitted_st_cbo_Specific(object sender, EventArgs e)
+		void SelectionChangeCommitted_st_co_Specific(object sender, EventArgs e)
 		{
-			//logfile.Log("SelectionChangeCommitted_st_cbo_Specific() selectedId= " + cbo_st_Specific.SelectedIndex);
+			//logfile.Log("SelectionChangeCommitted_st_co_Specific() selectedId= " + st_co_Specific.SelectedIndex);
 
 			int savetype;
 			if (Int32.TryParse(SaveType_text.Text, out savetype))
 			{
 				savetype &= ~hc.HENCH_SPELL_SAVE_TYPE_CUSTOM_MASK; // 0x0000003f
-				SaveType_text.Text = (savetype | cbo_st_Specific.SelectedIndex).ToString();
+				SaveType_text.Text = (savetype | st_co_Specific.SelectedIndex).ToString();
 			}
 		}
 
-		void SelectionChangeCommitted_st_cbo_Immunity1(object sender, EventArgs e)
+		void SelectionChangeCommitted_st_co_Immunity1(object sender, EventArgs e)
 		{
 			int savetype;
 			if (Int32.TryParse(SaveType_text.Text, out savetype))
 			{
 				savetype &= ~hc.HENCH_SPELL_SAVE_TYPE_IMMUNITY1_MASK; // 0x00000fc0
 
-				int val = (cbo_st_Immunity1.SelectedIndex << HENCH_SPELL_SAVE_TYPE_IMMUNITY1_SHIFT);
+				int val = (st_co_Immunity1.SelectedIndex << HENCH_SPELL_SAVE_TYPE_IMMUNITY1_SHIFT);
 				SaveType_text.Text = (savetype | val).ToString();
 			}
 		}
 
-		void SelectionChangeCommitted_st_cbo_Immunity2(object sender, EventArgs e)
+		void SelectionChangeCommitted_st_co_Immunity2(object sender, EventArgs e)
 		{
 			int savetype;
 			if (Int32.TryParse(SaveType_text.Text, out savetype))
 			{
 				savetype &= ~hc.HENCH_SPELL_SAVE_TYPE_IMMUNITY2_MASK; // 0x0003f000
 
-				int val = cbo_st_Immunity2.SelectedIndex << HENCH_SPELL_SAVE_TYPE_IMMUNITY2_SHIFT;
+				int val = st_co_Immunity2.SelectedIndex << HENCH_SPELL_SAVE_TYPE_IMMUNITY2_SHIFT;
 				SaveType_text.Text = (savetype | val).ToString();
 			}
 		}
 
-		void SelectionChangeCommitted_st_cbo_Weapon(object sender, EventArgs e)
+		void SelectionChangeCommitted_st_co_Weapon(object sender, EventArgs e)
 		{
 			int savetype;
 			if (Int32.TryParse(SaveType_text.Text, out savetype))
@@ -198,7 +198,7 @@ namespace nwn2_ai_2da_editor
 				savetype &= ~hc.HENCH_SPELL_SAVE_TYPE_IMMUNITY2_MASK;
 				savetype &= ~hc.HENCH_SPELL_SAVE_TYPE_CUSTOM_MASK;		// and specific-types
 
-				int val = cbo_st_TargetRestriction.SelectedIndex;
+				int val = st_co_TargetRestriction.SelectedIndex;
 				switch (val)
 				{
 //					default: val = 0;                       break; // let "0" fallthrough
@@ -214,7 +214,7 @@ namespace nwn2_ai_2da_editor
 			}
 		}
 
-		void SelectionChangeCommitted_st_cbo_AcBonus(object sender, EventArgs e)
+		void SelectionChangeCommitted_st_co_AcBonus(object sender, EventArgs e)
 		{
 			int savetype;
 			if (Int32.TryParse(SaveType_text.Text, out savetype))
@@ -223,7 +223,7 @@ namespace nwn2_ai_2da_editor
 
 				savetype &= ~hc.HENCH_SPELL_SAVE_TYPE_SAVES_MASK; // clear all type1 and type2 save- and damage-types incl/ AcBonus-types
 
-				int val = (cbo_st_AcBonus.SelectedIndex << HENCH_SPELL_SAVE_TYPE_ACBONUS_SHIFT);
+				int val = (st_co_AcBonus.SelectedIndex << HENCH_SPELL_SAVE_TYPE_ACBONUS_SHIFT);
 				SaveType_text.Text = (savetype | val).ToString();
 			}
 		}
@@ -633,58 +633,58 @@ namespace nwn2_ai_2da_editor
 // Specific dropdown-list
 			val = savetype;
 			val &= hc.HENCH_SPELL_SAVE_TYPE_CUSTOM_MASK;
-			if (val >= cbo_st_Specific.Items.Count)
+			if (val >= st_co_Specific.Items.Count)
 			{
 				val = -1;
-				cbo_st_Specific.ForeColor = Color.Crimson;
+				st_co_Specific.ForeColor = Color.Crimson;
 			}
 			else
-				cbo_st_Specific.ForeColor = DefaultForeColor;
+				st_co_Specific.ForeColor = DefaultForeColor;
 
-			cbo_st_Specific.SelectedIndex = val;
+			st_co_Specific.SelectedIndex = val;
 
 // Immunity1 dropdown-list
 			val = savetype;
 			val &= hc.HENCH_SPELL_SAVE_TYPE_IMMUNITY1_MASK;
 			val >>= HENCH_SPELL_SAVE_TYPE_IMMUNITY1_SHIFT;
-			if (val >= cbo_st_Immunity1.Items.Count)
+			if (val >= st_co_Immunity1.Items.Count)
 			{
 				val = -1;
-				cbo_st_Immunity1.ForeColor = Color.Crimson;
+				st_co_Immunity1.ForeColor = Color.Crimson;
 			}
 			else
-				cbo_st_Immunity1.ForeColor = DefaultForeColor;
+				st_co_Immunity1.ForeColor = DefaultForeColor;
 
-			cbo_st_Immunity1.SelectedIndex = val;
+			st_co_Immunity1.SelectedIndex = val;
 
 // Immunity2 dropdown-list
 			val = savetype;
 			val &= hc.HENCH_SPELL_SAVE_TYPE_IMMUNITY2_MASK;
 			val >>= HENCH_SPELL_SAVE_TYPE_IMMUNITY2_SHIFT;
-			if (val >= cbo_st_Immunity2.Items.Count)
+			if (val >= st_co_Immunity2.Items.Count)
 			{
 				val = -1;
-				cbo_st_Immunity2.ForeColor = Color.Crimson;
+				st_co_Immunity2.ForeColor = Color.Crimson;
 			}
 			else
-				cbo_st_Immunity2.ForeColor = DefaultForeColor;
+				st_co_Immunity2.ForeColor = DefaultForeColor;
 
-			cbo_st_Immunity2.SelectedIndex = val;
+			st_co_Immunity2.SelectedIndex = val;
 
 
 // AcBonus dropdown-list
 			val = savetype;
 			val &= HENCH_SPELL_SAVE_TYPE_ACBONUS_MASK;
 			val >>= HENCH_SPELL_SAVE_TYPE_ACBONUS_SHIFT;
-			if (val >= cbo_st_AcBonus.Items.Count)
+			if (val >= st_co_AcBonus.Items.Count)
 			{
 				val = -1;
-				cbo_st_AcBonus.ForeColor = Color.Crimson;
+				st_co_AcBonus.ForeColor = Color.Crimson;
 			}
 			else
-				cbo_st_AcBonus.ForeColor = DefaultForeColor;
+				st_co_AcBonus.ForeColor = DefaultForeColor;
 
-			cbo_st_AcBonus.SelectedIndex = val;
+			st_co_AcBonus.SelectedIndex = val;
 
 // Weapon dropdown-list
 			val = savetype;
@@ -717,15 +717,15 @@ namespace nwn2_ai_2da_editor
 			else if (val != 0) // ie. let val==0 fallthrough
 			{
 				val = -1;
-				cbo_st_TargetRestriction.ForeColor = Color.Crimson;
+				st_co_TargetRestriction.ForeColor = Color.Crimson;
 			}
 
 			if (val != -1)
 			{
-				cbo_st_TargetRestriction.ForeColor = DefaultForeColor;
+				st_co_TargetRestriction.ForeColor = DefaultForeColor;
 			}
 
-			cbo_st_TargetRestriction.SelectedIndex = val;
+			st_co_TargetRestriction.SelectedIndex = val;
 
 // Exclusive Group
 // DamageType checkboxes

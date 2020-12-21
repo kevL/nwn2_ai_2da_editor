@@ -62,7 +62,7 @@ namespace nwn2_ai_2da_editor
 
 		// 'si_SpelltypeGrp' controls
 		Label    si_hostile;
-		ComboBox cbo_si_Spelltype;
+		ComboBox si_co_Spelltype;
 
 		// 'si_FlagsGrp' controls
 		CheckBox si_Ignore;
@@ -76,7 +76,7 @@ namespace nwn2_ai_2da_editor
 		CheckBox si_LongDurBuff;
 
 		// 'si_SpelllevelGrp' controls
-		ComboBox cbo_si_Spelllevel;
+		ComboBox si_co_Spelllevel;
 
 		// 'si_SubspellsGrp' controls
 		Label      si_SubspellTi;
@@ -90,11 +90,11 @@ namespace nwn2_ai_2da_editor
 		TextboxInt si_Subspell4;
 		TextboxInt si_Subspell5;
 
-		Label   si_SubspellLabel1; // to right of 'si_SubspellsGrp' ->
-		Label   si_SubspellLabel2;
-		Label   si_SubspellLabel3;
-		Label   si_SubspellLabel4;
-		Label   si_SubspellLabel5;
+		Label si_SubspellLabel1; // to right of 'si_SubspellsGrp' ->
+		Label si_SubspellLabel2;
+		Label si_SubspellLabel3;
+		Label si_SubspellLabel4;
+		Label si_SubspellLabel5;
 
 // 'tp_TargetInfo' controls
 		Button     TargetInfo_reset; // TODO: ToolTip "reset"
@@ -125,10 +125,10 @@ namespace nwn2_ai_2da_editor
 		CheckBox ti_Regular;
 
 		// 'ti_ShapeGrp' controls
-		ComboBox cbo_ti_Shape;
+		ComboBox ti_co_Shape;
 
 		// 'ti_RangeGrp' controls
-		ComboBox cbo_ti_Range;
+		ComboBox ti_co_Range;
 
 		// 'ti_RadiusGrp' controls
 		TextboxFloat ti_Radius;
@@ -237,9 +237,9 @@ namespace nwn2_ai_2da_editor
 		GroupBox di_DetFixedCountGrp;
 		GroupBox di_DetDamagetypeGrp;
 
-		ComboBox   cbo_di_DetDamagebase;	// 'di_DetDamagebaseGrp' controls
+		ComboBox   di_co_DetDamagebase;		// 'di_DetDamagebaseGrp' controls
 		TextboxInt di_DetDamage;			// 'di_DetDamageGrp' controls
-		ComboBox   cbo_di_DetLeveltype;		// 'di_DetLeveltypeGrp' controls
+		ComboBox   di_co_DetLeveltype;		// 'di_DetLeveltypeGrp' controls
 		TextboxInt di_DetLevellimit;		// 'di_DetLevellimitGrp' controls
 		TextboxInt di_DetLeveldivisor;		// 'di_DetLeveldivisorGrp' controls
 		TextboxInt di_DetFixedcount;		// 'di_DetFixedCountGrp' controls
@@ -265,9 +265,9 @@ namespace nwn2_ai_2da_editor
 		GroupBox di_BenLeveldivisorGrp;
 		GroupBox di_BenLeveldecreaseGrp;
 
-		ComboBox   cbo_di_BenPowerbase;	// 'di_BenPowerbaseGrp' controls
+		ComboBox   di_co_BenPowerbase;	// 'di_BenPowerbaseGrp' controls
 		TextboxInt di_BenPower;			// 'di_BenPowerGrp' controls
-		ComboBox   cbo_di_BenLeveltype;	// 'di_BenLeveltypeGrp' controls
+		ComboBox   di_co_BenLeveltype;	// 'di_BenLeveltypeGrp' controls
 		TextboxInt di_BenLevellimit;	// 'di_BenLevellimitGrp' controls
 		TextboxInt di_BenLeveldivisor;	// 'di_BenLeveldivisorGrp' controls
 		TextboxInt di_BenLeveldecrease;	// 'di_BenLeveldecreaseGrp' controls
@@ -324,9 +324,9 @@ namespace nwn2_ai_2da_editor
 		CheckBox    st_SpellResistance;
 		CheckBox    st_TouchMelee;
 		CheckBox    st_TouchRanged;
-		ComboBox    cbo_st_Immunity1;			// 'st_Immunity1Grp' controls
-		ComboBox    cbo_st_Immunity2;			// 'st_Immunity2Grp' controls
-		ComboBox    cbo_st_Specific;			// 'st_SpecificGrp' controls
+		ComboBox    st_co_Immunity1;			// 'st_Immunity1Grp' controls
+		ComboBox    st_co_Immunity2;			// 'st_Immunity2Grp' controls
+		ComboBox    st_co_Specific;				// 'st_SpecificGrp' controls
 
 		// 'st_ExclusiveGrp' controls
 		GroupBox st_Excl_DamagetypesGrp;
@@ -352,10 +352,10 @@ namespace nwn2_ai_2da_editor
 		CheckBox    st_Excl_General; // TODO: ToolTip
 
 		// 'st_TargetRestrictionGrp' controls
-		ComboBox cbo_st_TargetRestriction;
+		ComboBox st_co_TargetRestriction;
 
 		// 'st_AcBonusGrp' controls
-		ComboBox cbo_st_AcBonus;
+		ComboBox st_co_AcBonus;
 
 // 'tp_SaveDCType' controls
 		Button     SaveDCType_reset; // TODO: ToolTip "reset"
@@ -373,14 +373,14 @@ namespace nwn2_ai_2da_editor
 		Label    savedctype_label;
 
 		// 'dc_SaveDCGrp' controls
-		ComboBox cbo_dc_SaveDC;
+		ComboBox dc_co_SaveDC;
 		Button   savedc_up;
 		Button   savedc_dn;
 		Label    savedc_adjustor_info;
 		Label    savedc_info;
 
 		// 'dc_WeaponBonusGrp' controls
-		ComboBox cbo_dc_WeaponBonus;
+		ComboBox dc_co_WeaponBonus;
 
 		// 'dc_ArmorCheckGrp' controls
 		CheckBox savedc_ac3;
@@ -405,7 +405,7 @@ namespace nwn2_ai_2da_editor
 			this.si_bin = new System.Windows.Forms.Label();
 			this.si_SpelltypeGrp = new System.Windows.Forms.GroupBox();
 			this.si_hostile = new System.Windows.Forms.Label();
-			this.cbo_si_Spelltype = new System.Windows.Forms.ComboBox();
+			this.si_co_Spelltype = new System.Windows.Forms.ComboBox();
 			this.si_FlagsGrp = new System.Windows.Forms.GroupBox();
 			this.si_Ignore = new System.Windows.Forms.CheckBox();
 			this.si_IsMaster = new System.Windows.Forms.CheckBox();
@@ -417,7 +417,7 @@ namespace nwn2_ai_2da_editor
 			this.si_MediumDurBuff = new System.Windows.Forms.CheckBox();
 			this.si_LongDurBuff = new System.Windows.Forms.CheckBox();
 			this.si_SpelllevelGrp = new System.Windows.Forms.GroupBox();
-			this.cbo_si_Spelllevel = new System.Windows.Forms.ComboBox();
+			this.si_co_Spelllevel = new System.Windows.Forms.ComboBox();
 			this.si_SubspellsGrp = new System.Windows.Forms.GroupBox();
 			this.si_SubspellTi = new System.Windows.Forms.Label();
 			this.si_SubspellEt = new System.Windows.Forms.Label();
@@ -455,9 +455,9 @@ namespace nwn2_ai_2da_editor
 			this.ti_Necromancy = new System.Windows.Forms.CheckBox();
 			this.ti_Regular = new System.Windows.Forms.CheckBox();
 			this.ti_ShapeGrp = new System.Windows.Forms.GroupBox();
-			this.cbo_ti_Shape = new System.Windows.Forms.ComboBox();
+			this.ti_co_Shape = new System.Windows.Forms.ComboBox();
 			this.ti_RangeGrp = new System.Windows.Forms.GroupBox();
-			this.cbo_ti_Range = new System.Windows.Forms.ComboBox();
+			this.ti_co_Range = new System.Windows.Forms.ComboBox();
 			this.ti_RadiusGrp = new System.Windows.Forms.GroupBox();
 			this.ti_Radius = new nwn2_ai_2da_editor.TextboxFloat();
 			this.tp_EffectWeight = new System.Windows.Forms.TabPage();
@@ -541,11 +541,11 @@ namespace nwn2_ai_2da_editor
 			this.di_bin = new System.Windows.Forms.Label();
 			this.di_DetrimentalGrp = new System.Windows.Forms.GroupBox();
 			this.di_DetDamagebaseGrp = new System.Windows.Forms.GroupBox();
-			this.cbo_di_DetDamagebase = new System.Windows.Forms.ComboBox();
+			this.di_co_DetDamagebase = new System.Windows.Forms.ComboBox();
 			this.di_DetDamageGrp = new System.Windows.Forms.GroupBox();
 			this.di_DetDamage = new nwn2_ai_2da_editor.TextboxInt();
 			this.di_DetLeveltypeGrp = new System.Windows.Forms.GroupBox();
-			this.cbo_di_DetLeveltype = new System.Windows.Forms.ComboBox();
+			this.di_co_DetLeveltype = new System.Windows.Forms.ComboBox();
 			this.di_DetLevellimitGrp = new System.Windows.Forms.GroupBox();
 			this.di_DetLevellimit = new nwn2_ai_2da_editor.TextboxInt();
 			this.di_DetLeveldivisorGrp = new System.Windows.Forms.GroupBox();
@@ -568,11 +568,11 @@ namespace nwn2_ai_2da_editor
 			this.di_Slashing = new System.Windows.Forms.CheckBox();
 			this.di_BeneficialGrp = new System.Windows.Forms.GroupBox();
 			this.di_BenPowerbaseGrp = new System.Windows.Forms.GroupBox();
-			this.cbo_di_BenPowerbase = new System.Windows.Forms.ComboBox();
+			this.di_co_BenPowerbase = new System.Windows.Forms.ComboBox();
 			this.di_BenPowerGrp = new System.Windows.Forms.GroupBox();
 			this.di_BenPower = new nwn2_ai_2da_editor.TextboxInt();
 			this.di_BenLeveltypeGrp = new System.Windows.Forms.GroupBox();
-			this.cbo_di_BenLeveltype = new System.Windows.Forms.ComboBox();
+			this.di_co_BenLeveltype = new System.Windows.Forms.ComboBox();
 			this.di_BenLevellimitGrp = new System.Windows.Forms.GroupBox();
 			this.di_BenLevellimit = new nwn2_ai_2da_editor.TextboxInt();
 			this.di_BenLeveldivisorGrp = new System.Windows.Forms.GroupBox();
@@ -619,11 +619,11 @@ namespace nwn2_ai_2da_editor
 			this.st_TouchMelee = new System.Windows.Forms.CheckBox();
 			this.st_TouchRanged = new System.Windows.Forms.CheckBox();
 			this.st_Immunity1Grp = new System.Windows.Forms.GroupBox();
-			this.cbo_st_Immunity1 = new System.Windows.Forms.ComboBox();
+			this.st_co_Immunity1 = new System.Windows.Forms.ComboBox();
 			this.st_Immunity2Grp = new System.Windows.Forms.GroupBox();
-			this.cbo_st_Immunity2 = new System.Windows.Forms.ComboBox();
+			this.st_co_Immunity2 = new System.Windows.Forms.ComboBox();
 			this.st_SpecificGrp = new System.Windows.Forms.GroupBox();
-			this.cbo_st_Specific = new System.Windows.Forms.ComboBox();
+			this.st_co_Specific = new System.Windows.Forms.ComboBox();
 			this.st_ExclusiveGrp = new System.Windows.Forms.GroupBox();
 			this.st_Excl_DamagetypesGrp = new System.Windows.Forms.GroupBox();
 			this.st_Excl_Magical = new System.Windows.Forms.CheckBox();
@@ -646,10 +646,10 @@ namespace nwn2_ai_2da_editor
 			this.st_Excl_Onlyone = new System.Windows.Forms.CheckBox();
 			this.st_Excl_General = new System.Windows.Forms.CheckBox();
 			this.st_TargetRestrictionGrp = new System.Windows.Forms.GroupBox();
-			this.cbo_st_TargetRestriction = new System.Windows.Forms.ComboBox();
+			this.st_co_TargetRestriction = new System.Windows.Forms.ComboBox();
 			this.st_NotCaster = new System.Windows.Forms.CheckBox();
 			this.st_AcBonusGrp = new System.Windows.Forms.GroupBox();
-			this.cbo_st_AcBonus = new System.Windows.Forms.ComboBox();
+			this.st_co_AcBonus = new System.Windows.Forms.ComboBox();
 			this.tp_SaveDCType = new System.Windows.Forms.TabPage();
 			this.SaveDCType_reset = new System.Windows.Forms.Button();
 			this.SaveDCType_text = new nwn2_ai_2da_editor.TextboxInt();
@@ -659,13 +659,13 @@ namespace nwn2_ai_2da_editor
 			this.dc_hex = new System.Windows.Forms.Label();
 			this.dc_bin = new System.Windows.Forms.Label();
 			this.dc_SaveDCGrp = new System.Windows.Forms.GroupBox();
-			this.cbo_dc_SaveDC = new System.Windows.Forms.ComboBox();
+			this.dc_co_SaveDC = new System.Windows.Forms.ComboBox();
 			this.savedc_up = new System.Windows.Forms.Button();
 			this.savedc_dn = new System.Windows.Forms.Button();
 			this.savedc_adjustor_info = new System.Windows.Forms.Label();
 			this.savedc_info = new System.Windows.Forms.Label();
 			this.dc_WeaponBonusGrp = new System.Windows.Forms.GroupBox();
-			this.cbo_dc_WeaponBonus = new System.Windows.Forms.ComboBox();
+			this.dc_co_WeaponBonus = new System.Windows.Forms.ComboBox();
 			this.dc_ArmorCheckGrp = new System.Windows.Forms.GroupBox();
 			this.savedc_ac1 = new System.Windows.Forms.CheckBox();
 			this.savedc_ac2 = new System.Windows.Forms.CheckBox();
@@ -843,7 +843,7 @@ namespace nwn2_ai_2da_editor
 			// si_SpelltypeGrp
 			// 
 			this.si_SpelltypeGrp.Controls.Add(this.si_hostile);
-			this.si_SpelltypeGrp.Controls.Add(this.cbo_si_Spelltype);
+			this.si_SpelltypeGrp.Controls.Add(this.si_co_Spelltype);
 			this.si_SpelltypeGrp.Location = new System.Drawing.Point(5, 60);
 			this.si_SpelltypeGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.si_SpelltypeGrp.Name = "si_SpelltypeGrp";
@@ -862,15 +862,15 @@ namespace nwn2_ai_2da_editor
 			this.si_hostile.TabIndex = 0;
 			this.si_hostile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
-			// cbo_si_Spelltype
+			// si_co_Spelltype
 			// 
-			this.cbo_si_Spelltype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbo_si_Spelltype.FormattingEnabled = true;
-			this.cbo_si_Spelltype.Location = new System.Drawing.Point(5, 15);
-			this.cbo_si_Spelltype.Margin = new System.Windows.Forms.Padding(0);
-			this.cbo_si_Spelltype.Name = "cbo_si_Spelltype";
-			this.cbo_si_Spelltype.Size = new System.Drawing.Size(290, 21);
-			this.cbo_si_Spelltype.TabIndex = 1;
+			this.si_co_Spelltype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.si_co_Spelltype.FormattingEnabled = true;
+			this.si_co_Spelltype.Location = new System.Drawing.Point(5, 15);
+			this.si_co_Spelltype.Margin = new System.Windows.Forms.Padding(0);
+			this.si_co_Spelltype.Name = "si_co_Spelltype";
+			this.si_co_Spelltype.Size = new System.Drawing.Size(290, 21);
+			this.si_co_Spelltype.TabIndex = 1;
 			// 
 			// si_FlagsGrp
 			// 
@@ -984,7 +984,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// si_SpelllevelGrp
 			// 
-			this.si_SpelllevelGrp.Controls.Add(this.cbo_si_Spelllevel);
+			this.si_SpelllevelGrp.Controls.Add(this.si_co_Spelllevel);
 			this.si_SpelllevelGrp.Location = new System.Drawing.Point(305, 105);
 			this.si_SpelllevelGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.si_SpelllevelGrp.Name = "si_SpelllevelGrp";
@@ -994,15 +994,15 @@ namespace nwn2_ai_2da_editor
 			this.si_SpelllevelGrp.TabStop = false;
 			this.si_SpelllevelGrp.Text = "0001 E000 spelllevel";
 			// 
-			// cbo_si_Spelllevel
+			// si_co_Spelllevel
 			// 
-			this.cbo_si_Spelllevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbo_si_Spelllevel.FormattingEnabled = true;
-			this.cbo_si_Spelllevel.Location = new System.Drawing.Point(5, 15);
-			this.cbo_si_Spelllevel.Margin = new System.Windows.Forms.Padding(0);
-			this.cbo_si_Spelllevel.Name = "cbo_si_Spelllevel";
-			this.cbo_si_Spelllevel.Size = new System.Drawing.Size(155, 21);
-			this.cbo_si_Spelllevel.TabIndex = 0;
+			this.si_co_Spelllevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.si_co_Spelllevel.FormattingEnabled = true;
+			this.si_co_Spelllevel.Location = new System.Drawing.Point(5, 15);
+			this.si_co_Spelllevel.Margin = new System.Windows.Forms.Padding(0);
+			this.si_co_Spelllevel.Name = "si_co_Spelllevel";
+			this.si_co_Spelllevel.Size = new System.Drawing.Size(155, 21);
+			this.si_co_Spelllevel.TabIndex = 0;
 			// 
 			// si_SubspellsGrp
 			// 
@@ -1380,7 +1380,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// ti_ShapeGrp
 			// 
-			this.ti_ShapeGrp.Controls.Add(this.cbo_ti_Shape);
+			this.ti_ShapeGrp.Controls.Add(this.ti_co_Shape);
 			this.ti_ShapeGrp.Location = new System.Drawing.Point(350, 60);
 			this.ti_ShapeGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.ti_ShapeGrp.Name = "ti_ShapeGrp";
@@ -1390,19 +1390,19 @@ namespace nwn2_ai_2da_editor
 			this.ti_ShapeGrp.TabStop = false;
 			this.ti_ShapeGrp.Text = "0000 0007 shape";
 			// 
-			// cbo_ti_Shape
+			// ti_co_Shape
 			// 
-			this.cbo_ti_Shape.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbo_ti_Shape.FormattingEnabled = true;
-			this.cbo_ti_Shape.Location = new System.Drawing.Point(5, 15);
-			this.cbo_ti_Shape.Margin = new System.Windows.Forms.Padding(0);
-			this.cbo_ti_Shape.Name = "cbo_ti_Shape";
-			this.cbo_ti_Shape.Size = new System.Drawing.Size(215, 21);
-			this.cbo_ti_Shape.TabIndex = 0;
+			this.ti_co_Shape.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.ti_co_Shape.FormattingEnabled = true;
+			this.ti_co_Shape.Location = new System.Drawing.Point(5, 15);
+			this.ti_co_Shape.Margin = new System.Windows.Forms.Padding(0);
+			this.ti_co_Shape.Name = "ti_co_Shape";
+			this.ti_co_Shape.Size = new System.Drawing.Size(215, 21);
+			this.ti_co_Shape.TabIndex = 0;
 			// 
 			// ti_RangeGrp
 			// 
-			this.ti_RangeGrp.Controls.Add(this.cbo_ti_Range);
+			this.ti_RangeGrp.Controls.Add(this.ti_co_Range);
 			this.ti_RangeGrp.Location = new System.Drawing.Point(350, 105);
 			this.ti_RangeGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.ti_RangeGrp.Name = "ti_RangeGrp";
@@ -1412,15 +1412,15 @@ namespace nwn2_ai_2da_editor
 			this.ti_RangeGrp.TabStop = false;
 			this.ti_RangeGrp.Text = "0000 0038 range";
 			// 
-			// cbo_ti_Range
+			// ti_co_Range
 			// 
-			this.cbo_ti_Range.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbo_ti_Range.FormattingEnabled = true;
-			this.cbo_ti_Range.Location = new System.Drawing.Point(5, 15);
-			this.cbo_ti_Range.Margin = new System.Windows.Forms.Padding(0);
-			this.cbo_ti_Range.Name = "cbo_ti_Range";
-			this.cbo_ti_Range.Size = new System.Drawing.Size(215, 21);
-			this.cbo_ti_Range.TabIndex = 0;
+			this.ti_co_Range.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.ti_co_Range.FormattingEnabled = true;
+			this.ti_co_Range.Location = new System.Drawing.Point(5, 15);
+			this.ti_co_Range.Margin = new System.Windows.Forms.Padding(0);
+			this.ti_co_Range.Name = "ti_co_Range";
+			this.ti_co_Range.Size = new System.Drawing.Size(215, 21);
+			this.ti_co_Range.TabIndex = 0;
 			// 
 			// ti_RadiusGrp
 			// 
@@ -2329,7 +2329,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// di_DetDamagebaseGrp
 			// 
-			this.di_DetDamagebaseGrp.Controls.Add(this.cbo_di_DetDamagebase);
+			this.di_DetDamagebaseGrp.Controls.Add(this.di_co_DetDamagebase);
 			this.di_DetDamagebaseGrp.Location = new System.Drawing.Point(5, 15);
 			this.di_DetDamagebaseGrp.Name = "di_DetDamagebaseGrp";
 			this.di_DetDamagebaseGrp.Size = new System.Drawing.Size(240, 45);
@@ -2337,15 +2337,15 @@ namespace nwn2_ai_2da_editor
 			this.di_DetDamagebaseGrp.TabStop = false;
 			this.di_DetDamagebaseGrp.Text = "F000 0000 damagebase";
 			// 
-			// cbo_di_DetDamagebase
+			// di_co_DetDamagebase
 			// 
-			this.cbo_di_DetDamagebase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbo_di_DetDamagebase.FormattingEnabled = true;
-			this.cbo_di_DetDamagebase.Location = new System.Drawing.Point(5, 15);
-			this.cbo_di_DetDamagebase.Margin = new System.Windows.Forms.Padding(0);
-			this.cbo_di_DetDamagebase.Name = "cbo_di_DetDamagebase";
-			this.cbo_di_DetDamagebase.Size = new System.Drawing.Size(230, 21);
-			this.cbo_di_DetDamagebase.TabIndex = 0;
+			this.di_co_DetDamagebase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.di_co_DetDamagebase.FormattingEnabled = true;
+			this.di_co_DetDamagebase.Location = new System.Drawing.Point(5, 15);
+			this.di_co_DetDamagebase.Margin = new System.Windows.Forms.Padding(0);
+			this.di_co_DetDamagebase.Name = "di_co_DetDamagebase";
+			this.di_co_DetDamagebase.Size = new System.Drawing.Size(230, 21);
+			this.di_co_DetDamagebase.TabIndex = 0;
 			// 
 			// di_DetDamageGrp
 			// 
@@ -2369,7 +2369,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// di_DetLeveltypeGrp
 			// 
-			this.di_DetLeveltypeGrp.Controls.Add(this.cbo_di_DetLeveltype);
+			this.di_DetLeveltypeGrp.Controls.Add(this.di_co_DetLeveltype);
 			this.di_DetLeveltypeGrp.Location = new System.Drawing.Point(5, 100);
 			this.di_DetLeveltypeGrp.Name = "di_DetLeveltypeGrp";
 			this.di_DetLeveltypeGrp.Size = new System.Drawing.Size(240, 45);
@@ -2377,15 +2377,15 @@ namespace nwn2_ai_2da_editor
 			this.di_DetLeveltypeGrp.TabStop = false;
 			this.di_DetLeveltypeGrp.Text = "0300 0000 leveltype";
 			// 
-			// cbo_di_DetLeveltype
+			// di_co_DetLeveltype
 			// 
-			this.cbo_di_DetLeveltype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbo_di_DetLeveltype.FormattingEnabled = true;
-			this.cbo_di_DetLeveltype.Location = new System.Drawing.Point(5, 15);
-			this.cbo_di_DetLeveltype.Margin = new System.Windows.Forms.Padding(0);
-			this.cbo_di_DetLeveltype.Name = "cbo_di_DetLeveltype";
-			this.cbo_di_DetLeveltype.Size = new System.Drawing.Size(230, 21);
-			this.cbo_di_DetLeveltype.TabIndex = 0;
+			this.di_co_DetLeveltype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.di_co_DetLeveltype.FormattingEnabled = true;
+			this.di_co_DetLeveltype.Location = new System.Drawing.Point(5, 15);
+			this.di_co_DetLeveltype.Margin = new System.Windows.Forms.Padding(0);
+			this.di_co_DetLeveltype.Name = "di_co_DetLeveltype";
+			this.di_co_DetLeveltype.Size = new System.Drawing.Size(230, 21);
+			this.di_co_DetLeveltype.TabIndex = 0;
 			// 
 			// di_DetLevellimitGrp
 			// 
@@ -2620,7 +2620,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// di_BenPowerbaseGrp
 			// 
-			this.di_BenPowerbaseGrp.Controls.Add(this.cbo_di_BenPowerbase);
+			this.di_BenPowerbaseGrp.Controls.Add(this.di_co_BenPowerbase);
 			this.di_BenPowerbaseGrp.Location = new System.Drawing.Point(5, 15);
 			this.di_BenPowerbaseGrp.Name = "di_BenPowerbaseGrp";
 			this.di_BenPowerbaseGrp.Size = new System.Drawing.Size(240, 45);
@@ -2628,15 +2628,15 @@ namespace nwn2_ai_2da_editor
 			this.di_BenPowerbaseGrp.TabStop = false;
 			this.di_BenPowerbaseGrp.Text = "0F00 0000 powerbase";
 			// 
-			// cbo_di_BenPowerbase
+			// di_co_BenPowerbase
 			// 
-			this.cbo_di_BenPowerbase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbo_di_BenPowerbase.FormattingEnabled = true;
-			this.cbo_di_BenPowerbase.Location = new System.Drawing.Point(5, 15);
-			this.cbo_di_BenPowerbase.Margin = new System.Windows.Forms.Padding(0);
-			this.cbo_di_BenPowerbase.Name = "cbo_di_BenPowerbase";
-			this.cbo_di_BenPowerbase.Size = new System.Drawing.Size(230, 21);
-			this.cbo_di_BenPowerbase.TabIndex = 0;
+			this.di_co_BenPowerbase.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.di_co_BenPowerbase.FormattingEnabled = true;
+			this.di_co_BenPowerbase.Location = new System.Drawing.Point(5, 15);
+			this.di_co_BenPowerbase.Margin = new System.Windows.Forms.Padding(0);
+			this.di_co_BenPowerbase.Name = "di_co_BenPowerbase";
+			this.di_co_BenPowerbase.Size = new System.Drawing.Size(230, 21);
+			this.di_co_BenPowerbase.TabIndex = 0;
 			// 
 			// di_BenPowerGrp
 			// 
@@ -2660,7 +2660,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// di_BenLeveltypeGrp
 			// 
-			this.di_BenLeveltypeGrp.Controls.Add(this.cbo_di_BenLeveltype);
+			this.di_BenLeveltypeGrp.Controls.Add(this.di_co_BenLeveltype);
 			this.di_BenLeveltypeGrp.Location = new System.Drawing.Point(5, 100);
 			this.di_BenLeveltypeGrp.Name = "di_BenLeveltypeGrp";
 			this.di_BenLeveltypeGrp.Size = new System.Drawing.Size(240, 45);
@@ -2668,15 +2668,15 @@ namespace nwn2_ai_2da_editor
 			this.di_BenLeveltypeGrp.TabStop = false;
 			this.di_BenLeveltypeGrp.Text = "0000 C000 leveltype";
 			// 
-			// cbo_di_BenLeveltype
+			// di_co_BenLeveltype
 			// 
-			this.cbo_di_BenLeveltype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbo_di_BenLeveltype.FormattingEnabled = true;
-			this.cbo_di_BenLeveltype.Location = new System.Drawing.Point(5, 15);
-			this.cbo_di_BenLeveltype.Margin = new System.Windows.Forms.Padding(0);
-			this.cbo_di_BenLeveltype.Name = "cbo_di_BenLeveltype";
-			this.cbo_di_BenLeveltype.Size = new System.Drawing.Size(230, 21);
-			this.cbo_di_BenLeveltype.TabIndex = 0;
+			this.di_co_BenLeveltype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.di_co_BenLeveltype.FormattingEnabled = true;
+			this.di_co_BenLeveltype.Location = new System.Drawing.Point(5, 15);
+			this.di_co_BenLeveltype.Margin = new System.Windows.Forms.Padding(0);
+			this.di_co_BenLeveltype.Name = "di_co_BenLeveltype";
+			this.di_co_BenLeveltype.Size = new System.Drawing.Size(230, 21);
+			this.di_co_BenLeveltype.TabIndex = 0;
 			// 
 			// di_BenLevellimitGrp
 			// 
@@ -3195,7 +3195,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// st_Immunity1Grp
 			// 
-			this.st_Immunity1Grp.Controls.Add(this.cbo_st_Immunity1);
+			this.st_Immunity1Grp.Controls.Add(this.st_co_Immunity1);
 			this.st_Immunity1Grp.Location = new System.Drawing.Point(295, 135);
 			this.st_Immunity1Grp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Immunity1Grp.Name = "st_Immunity1Grp";
@@ -3205,19 +3205,19 @@ namespace nwn2_ai_2da_editor
 			this.st_Immunity1Grp.TabStop = false;
 			this.st_Immunity1Grp.Text = "0000 0FC0 immunity1";
 			// 
-			// cbo_st_Immunity1
+			// st_co_Immunity1
 			// 
-			this.cbo_st_Immunity1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbo_st_Immunity1.FormattingEnabled = true;
-			this.cbo_st_Immunity1.Location = new System.Drawing.Point(5, 15);
-			this.cbo_st_Immunity1.Margin = new System.Windows.Forms.Padding(0);
-			this.cbo_st_Immunity1.Name = "cbo_st_Immunity1";
-			this.cbo_st_Immunity1.Size = new System.Drawing.Size(225, 21);
-			this.cbo_st_Immunity1.TabIndex = 0;
+			this.st_co_Immunity1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.st_co_Immunity1.FormattingEnabled = true;
+			this.st_co_Immunity1.Location = new System.Drawing.Point(5, 15);
+			this.st_co_Immunity1.Margin = new System.Windows.Forms.Padding(0);
+			this.st_co_Immunity1.Name = "st_co_Immunity1";
+			this.st_co_Immunity1.Size = new System.Drawing.Size(225, 21);
+			this.st_co_Immunity1.TabIndex = 0;
 			// 
 			// st_Immunity2Grp
 			// 
-			this.st_Immunity2Grp.Controls.Add(this.cbo_st_Immunity2);
+			this.st_Immunity2Grp.Controls.Add(this.st_co_Immunity2);
 			this.st_Immunity2Grp.Location = new System.Drawing.Point(295, 180);
 			this.st_Immunity2Grp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Immunity2Grp.Name = "st_Immunity2Grp";
@@ -3227,19 +3227,19 @@ namespace nwn2_ai_2da_editor
 			this.st_Immunity2Grp.TabStop = false;
 			this.st_Immunity2Grp.Text = "0003 F000 immunity2";
 			// 
-			// cbo_st_Immunity2
+			// st_co_Immunity2
 			// 
-			this.cbo_st_Immunity2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbo_st_Immunity2.FormattingEnabled = true;
-			this.cbo_st_Immunity2.Location = new System.Drawing.Point(5, 15);
-			this.cbo_st_Immunity2.Margin = new System.Windows.Forms.Padding(0);
-			this.cbo_st_Immunity2.Name = "cbo_st_Immunity2";
-			this.cbo_st_Immunity2.Size = new System.Drawing.Size(225, 21);
-			this.cbo_st_Immunity2.TabIndex = 0;
+			this.st_co_Immunity2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.st_co_Immunity2.FormattingEnabled = true;
+			this.st_co_Immunity2.Location = new System.Drawing.Point(5, 15);
+			this.st_co_Immunity2.Margin = new System.Windows.Forms.Padding(0);
+			this.st_co_Immunity2.Name = "st_co_Immunity2";
+			this.st_co_Immunity2.Size = new System.Drawing.Size(225, 21);
+			this.st_co_Immunity2.TabIndex = 0;
 			// 
 			// st_SpecificGrp
 			// 
-			this.st_SpecificGrp.Controls.Add(this.cbo_st_Specific);
+			this.st_SpecificGrp.Controls.Add(this.st_co_Specific);
 			this.st_SpecificGrp.Location = new System.Drawing.Point(5, 225);
 			this.st_SpecificGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_SpecificGrp.Name = "st_SpecificGrp";
@@ -3249,15 +3249,15 @@ namespace nwn2_ai_2da_editor
 			this.st_SpecificGrp.TabStop = false;
 			this.st_SpecificGrp.Text = "0000 003F specific";
 			// 
-			// cbo_st_Specific
+			// st_co_Specific
 			// 
-			this.cbo_st_Specific.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbo_st_Specific.FormattingEnabled = true;
-			this.cbo_st_Specific.Location = new System.Drawing.Point(5, 15);
-			this.cbo_st_Specific.Margin = new System.Windows.Forms.Padding(0);
-			this.cbo_st_Specific.Name = "cbo_st_Specific";
-			this.cbo_st_Specific.Size = new System.Drawing.Size(465, 21);
-			this.cbo_st_Specific.TabIndex = 0;
+			this.st_co_Specific.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.st_co_Specific.FormattingEnabled = true;
+			this.st_co_Specific.Location = new System.Drawing.Point(5, 15);
+			this.st_co_Specific.Margin = new System.Windows.Forms.Padding(0);
+			this.st_co_Specific.Name = "st_co_Specific";
+			this.st_co_Specific.Size = new System.Drawing.Size(465, 21);
+			this.st_co_Specific.TabIndex = 0;
 			// 
 			// st_ExclusiveGrp
 			// 
@@ -3495,7 +3495,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// st_TargetRestrictionGrp
 			// 
-			this.st_TargetRestrictionGrp.Controls.Add(this.cbo_st_TargetRestriction);
+			this.st_TargetRestrictionGrp.Controls.Add(this.st_co_TargetRestriction);
 			this.st_TargetRestrictionGrp.Location = new System.Drawing.Point(5, 360);
 			this.st_TargetRestrictionGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_TargetRestrictionGrp.Name = "st_TargetRestrictionGrp";
@@ -3505,16 +3505,16 @@ namespace nwn2_ai_2da_editor
 			this.st_TargetRestrictionGrp.TabStop = false;
 			this.st_TargetRestrictionGrp.Text = "0000 101F targetrestriction";
 			// 
-			// cbo_st_TargetRestriction
+			// st_co_TargetRestriction
 			// 
-			this.cbo_st_TargetRestriction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbo_st_TargetRestriction.DropDownWidth = 510;
-			this.cbo_st_TargetRestriction.FormattingEnabled = true;
-			this.cbo_st_TargetRestriction.Location = new System.Drawing.Point(5, 15);
-			this.cbo_st_TargetRestriction.Margin = new System.Windows.Forms.Padding(0);
-			this.cbo_st_TargetRestriction.Name = "cbo_st_TargetRestriction";
-			this.cbo_st_TargetRestriction.Size = new System.Drawing.Size(510, 21);
-			this.cbo_st_TargetRestriction.TabIndex = 0;
+			this.st_co_TargetRestriction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.st_co_TargetRestriction.DropDownWidth = 510;
+			this.st_co_TargetRestriction.FormattingEnabled = true;
+			this.st_co_TargetRestriction.Location = new System.Drawing.Point(5, 15);
+			this.st_co_TargetRestriction.Margin = new System.Windows.Forms.Padding(0);
+			this.st_co_TargetRestriction.Name = "st_co_TargetRestriction";
+			this.st_co_TargetRestriction.Size = new System.Drawing.Size(510, 21);
+			this.st_co_TargetRestriction.TabIndex = 0;
 			// 
 			// st_NotCaster
 			// 
@@ -3528,7 +3528,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// st_AcBonusGrp
 			// 
-			this.st_AcBonusGrp.Controls.Add(this.cbo_st_AcBonus);
+			this.st_AcBonusGrp.Controls.Add(this.st_co_AcBonus);
 			this.st_AcBonusGrp.Location = new System.Drawing.Point(525, 360);
 			this.st_AcBonusGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_AcBonusGrp.Name = "st_AcBonusGrp";
@@ -3538,15 +3538,15 @@ namespace nwn2_ai_2da_editor
 			this.st_AcBonusGrp.TabStop = false;
 			this.st_AcBonusGrp.Text = "001C 0000 ac";
 			// 
-			// cbo_st_AcBonus
+			// st_co_AcBonus
 			// 
-			this.cbo_st_AcBonus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbo_st_AcBonus.FormattingEnabled = true;
-			this.cbo_st_AcBonus.Location = new System.Drawing.Point(5, 15);
-			this.cbo_st_AcBonus.Margin = new System.Windows.Forms.Padding(0);
-			this.cbo_st_AcBonus.Name = "cbo_st_AcBonus";
-			this.cbo_st_AcBonus.Size = new System.Drawing.Size(185, 21);
-			this.cbo_st_AcBonus.TabIndex = 0;
+			this.st_co_AcBonus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.st_co_AcBonus.FormattingEnabled = true;
+			this.st_co_AcBonus.Location = new System.Drawing.Point(5, 15);
+			this.st_co_AcBonus.Margin = new System.Windows.Forms.Padding(0);
+			this.st_co_AcBonus.Name = "st_co_AcBonus";
+			this.st_co_AcBonus.Size = new System.Drawing.Size(185, 21);
+			this.st_co_AcBonus.TabIndex = 0;
 			// 
 			// tp_SaveDCType
 			// 
@@ -3641,7 +3641,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// dc_SaveDCGrp
 			// 
-			this.dc_SaveDCGrp.Controls.Add(this.cbo_dc_SaveDC);
+			this.dc_SaveDCGrp.Controls.Add(this.dc_co_SaveDC);
 			this.dc_SaveDCGrp.Controls.Add(this.savedc_up);
 			this.dc_SaveDCGrp.Controls.Add(this.savedc_dn);
 			this.dc_SaveDCGrp.Controls.Add(this.savedc_adjustor_info);
@@ -3655,15 +3655,15 @@ namespace nwn2_ai_2da_editor
 			this.dc_SaveDCGrp.TabStop = false;
 			this.dc_SaveDCGrp.Text = "FFFF FFFF savedc";
 			// 
-			// cbo_dc_SaveDC
+			// dc_co_SaveDC
 			// 
-			this.cbo_dc_SaveDC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbo_dc_SaveDC.FormattingEnabled = true;
-			this.cbo_dc_SaveDC.Location = new System.Drawing.Point(5, 15);
-			this.cbo_dc_SaveDC.Margin = new System.Windows.Forms.Padding(0);
-			this.cbo_dc_SaveDC.Name = "cbo_dc_SaveDC";
-			this.cbo_dc_SaveDC.Size = new System.Drawing.Size(330, 21);
-			this.cbo_dc_SaveDC.TabIndex = 0;
+			this.dc_co_SaveDC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.dc_co_SaveDC.FormattingEnabled = true;
+			this.dc_co_SaveDC.Location = new System.Drawing.Point(5, 15);
+			this.dc_co_SaveDC.Margin = new System.Windows.Forms.Padding(0);
+			this.dc_co_SaveDC.Name = "dc_co_SaveDC";
+			this.dc_co_SaveDC.Size = new System.Drawing.Size(330, 21);
+			this.dc_co_SaveDC.TabIndex = 0;
 			// 
 			// savedc_up
 			// 
@@ -3707,7 +3707,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// dc_WeaponBonusGrp
 			// 
-			this.dc_WeaponBonusGrp.Controls.Add(this.cbo_dc_WeaponBonus);
+			this.dc_WeaponBonusGrp.Controls.Add(this.dc_co_WeaponBonus);
 			this.dc_WeaponBonusGrp.Location = new System.Drawing.Point(345, 60);
 			this.dc_WeaponBonusGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.dc_WeaponBonusGrp.Name = "dc_WeaponBonusGrp";
@@ -3717,15 +3717,15 @@ namespace nwn2_ai_2da_editor
 			this.dc_WeaponBonusGrp.TabStop = false;
 			this.dc_WeaponBonusGrp.Text = "0000 0067 weaponbonus";
 			// 
-			// cbo_dc_WeaponBonus
+			// dc_co_WeaponBonus
 			// 
-			this.cbo_dc_WeaponBonus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.cbo_dc_WeaponBonus.FormattingEnabled = true;
-			this.cbo_dc_WeaponBonus.Location = new System.Drawing.Point(5, 15);
-			this.cbo_dc_WeaponBonus.Margin = new System.Windows.Forms.Padding(0);
-			this.cbo_dc_WeaponBonus.Name = "cbo_dc_WeaponBonus";
-			this.cbo_dc_WeaponBonus.Size = new System.Drawing.Size(305, 21);
-			this.cbo_dc_WeaponBonus.TabIndex = 0;
+			this.dc_co_WeaponBonus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.dc_co_WeaponBonus.FormattingEnabled = true;
+			this.dc_co_WeaponBonus.Location = new System.Drawing.Point(5, 15);
+			this.dc_co_WeaponBonus.Margin = new System.Windows.Forms.Padding(0);
+			this.dc_co_WeaponBonus.Name = "dc_co_WeaponBonus";
+			this.dc_co_WeaponBonus.Size = new System.Drawing.Size(305, 21);
+			this.dc_co_WeaponBonus.TabIndex = 0;
 			// 
 			// dc_ArmorCheckGrp
 			// 
