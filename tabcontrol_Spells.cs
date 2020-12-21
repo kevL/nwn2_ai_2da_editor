@@ -810,7 +810,7 @@ namespace nwn2_ai_2da_editor
 			string info = String.Empty;
 			switch (tc_Spells.SelectedIndex)
 			{
-				case 2: // NOTE: Copy_decimal only.
+				case 2: // Click_copy_decimal() only.
 				{
 					info = EffectWeight_text.Text;
 					float f;
