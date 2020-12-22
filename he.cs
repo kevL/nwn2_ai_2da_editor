@@ -274,8 +274,7 @@ namespace nwn2_ai_2da_editor
 
 					string text0 = String.Empty;
 					string text1 = String.Empty;
-					int i = 0;
-					for (; i != lines.Length; ++i)
+					for (int i = 0; i != lines.Length; ++i)
 					{
 						lines[i] = lines[i].TrimEnd();
 						text1 += TabsToSpaces(lines[i]) + Environment.NewLine;

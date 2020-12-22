@@ -258,28 +258,18 @@ namespace nwn2_ai_2da_editor
 		protected override void WndProc(ref Message m)
 		{
 			// Trap WM_VSCROLL and WM_MOUSEWHEEL message and pass to 'Slave'
-			if (Slave != null)
+			if (Slave != null && Slave.IsHandleCreated)
 			{
 				switch (m.Msg)
 				{
 					case WM_VSCROLL:
-						if (Slave != null && Slave.IsHandleCreated)
-						{
-							//logfile.Log("mMsg= " + m.Msg + " m.WParam= " + m.WParam + " m.LParam= " + m.LParam); // does not print.
-							SendMessage(Slave.Handle, m.Msg, m.WParam, m.LParam);
-						}
+						SendMessage(Slave.Handle, m.Msg, m.WParam, m.LParam);
 						break;
 
 					case WM_MOUSEWHEEL:
 						// m.WParam: 1 - scroll down, 0 - scroll up
-						if ((int)m.WParam < 0)
-						{
-							SendMessage(Handle, WM_VSCROLL, new IntPtr(1), new IntPtr(0));
-						}
-						else if ((int)m.WParam > 0)
-						{
-							SendMessage(Handle, WM_VSCROLL, new IntPtr(0), new IntPtr(0));
-						}
+						if      ((int)m.WParam < 0) SendMessage(Handle, WM_VSCROLL, new IntPtr(1), new IntPtr(0)); // recurse
+						else if ((int)m.WParam > 0) SendMessage(Handle, WM_VSCROLL, new IntPtr(0), new IntPtr(0)); // recurse
 						return; // prevent base.WndProc() from messing synchronization up
 				}
 			}
