@@ -272,14 +272,20 @@ namespace nwn2_ai_2da_editor
 
 					string[] lines = File.ReadAllLines(ofd.FileName);
 
-					string text = String.Empty;
-					for (int i = 0; i != lines.Length; ++i)
+					string text0 = String.Empty;
+					string text1 = String.Empty;
+					int i = 0;
+					for (; i != lines.Length; ++i)
 					{
 						lines[i] = lines[i].TrimEnd();
-						text += TabsToSpaces(lines[i]) + Environment.NewLine;
-					}
+						text1 += TabsToSpaces(lines[i]) + Environment.NewLine;
 
-					Scripter.tb_Script.Text = text;
+						text0 += (i + 1) + Environment.NewLine;
+					}
+//					text0 += (i + 1) + Environment.NewLine; // don't do that - make linecounts equal.
+
+					Scripter.tb_nos   .Text = text0;
+					Scripter.tb_Script.Text = text1;
 
 					Scripter.Show();
 

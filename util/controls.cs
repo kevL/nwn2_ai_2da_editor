@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
 
@@ -223,5 +224,70 @@ namespace nwn2_ai_2da_editor
 			base.OnKeyDown(e);
 		}
 		#endregion eventhandlers (override)
+	}
+
+
+	/// <summary>
+	/// Synchronizes scrolling a slave-control with this derived TextBox.
+	/// https://stackoverflow.com/questions/3823188/how-can-i-sync-the-scrolling-of-two-multiline-textboxes
+	/// Issues
+	/// - does not scroll by key-input when the caret forces the text to scroll
+	/// - does not work when key-input on the slave-control forces its text to
+	///   scroll (although that can be worked around by not allowing the slave
+	///   to take focus)
+	/// - mousedown (repeats) on the up/down scrollbar-arrows can cause the
+	///   boxes to go out of synch at the bot if the slave has more lines than
+	///   the master has (workaround: don't add more lines to the slave)
+	/// </summary>
+	class TextboxMasterSyncher
+		: TextBox
+	{
+		public Control Slave { get; set; }
+
+#if !__MonoCS__ // bypass on Mono builds - uses DllImport("user32.dll")
+// NOTE: My IDE (#develop) renders the following text as disabled but it's not.
+// It is working as expected ...
+
+		const int WM_VSCROLL    = 0x115;
+		const int WM_MOUSEWHEEL = 0x20a;
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="m"></param>
+		protected override void WndProc(ref Message m)
+		{
+			// Trap WM_VSCROLL and WM_MOUSEWHEEL message and pass to 'Slave'
+			if (Slave != null)
+			{
+				switch (m.Msg)
+				{
+					case WM_VSCROLL:
+						if (Slave != null && Slave.IsHandleCreated)
+						{
+							//logfile.Log("mMsg= " + m.Msg + " m.WParam= " + m.WParam + " m.LParam= " + m.LParam); // does not print.
+							SendMessage(Slave.Handle, m.Msg, m.WParam, m.LParam);
+						}
+						break;
+
+					case WM_MOUSEWHEEL:
+						// m.WParam: 1 - scroll down, 0 - scroll up
+						if ((int)m.WParam < 0)
+						{
+							SendMessage(Handle, WM_VSCROLL, new IntPtr(1), new IntPtr(0));
+						}
+						else if ((int)m.WParam > 0)
+						{
+							SendMessage(Handle, WM_VSCROLL, new IntPtr(0), new IntPtr(0));
+						}
+						return; // prevent base.WndProc() from messing synchronization up
+				}
+			}
+			base.WndProc(ref m); // do the usual
+		}
+
+		[DllImport("user32.dll", CharSet = CharSet.Auto)]
+		static extern IntPtr SendMessage(IntPtr hWnd, int msg, IntPtr wp, IntPtr lp);
+#endif
 	}
 }

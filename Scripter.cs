@@ -69,7 +69,24 @@ namespace nwn2_ai_2da_editor
 		#endregion eventhandlers (override)
 
 
+		#region eventhandlers
+		/// <summary>
+		/// Prevents the nose from taking focus. Don't look at the nose.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void enter_Nos(object sender, EventArgs e)
+		{
+			tb_Script.Select();
+		}
+		#endregion eventhandlers
+
+
 		#region Methods
+		/// <summary>
+		/// Sets the titlebar text.
+		/// </summary>
+		/// <param name="title"></param>
 		internal void SetTitleText(string title)
 		{
 			Text = title;
@@ -79,7 +96,8 @@ namespace nwn2_ai_2da_editor
 
 		#region Designer
 		SplitContainer splitContainer;
-		internal TextBox tb_Script;
+		internal TextboxMasterSyncher tb_Script;
+		internal TextBox tb_nos;
 
 		/// <summary>
 		/// 
@@ -87,7 +105,8 @@ namespace nwn2_ai_2da_editor
 		void InitializeComponent()
 		{
 			this.splitContainer = new System.Windows.Forms.SplitContainer();
-			this.tb_Script = new System.Windows.Forms.TextBox();
+			this.tb_Script = new nwn2_ai_2da_editor.TextboxMasterSyncher();
+			this.tb_nos = new System.Windows.Forms.TextBox();
 			this.splitContainer.Panel2.SuspendLayout();
 			this.splitContainer.SuspendLayout();
 			this.SuspendLayout();
@@ -104,6 +123,7 @@ namespace nwn2_ai_2da_editor
 			// splitContainer.Panel2
 			// 
 			this.splitContainer.Panel2.Controls.Add(this.tb_Script);
+			this.splitContainer.Panel2.Controls.Add(this.tb_nos);
 			this.splitContainer.Panel2MinSize = 0;
 			this.splitContainer.Size = new System.Drawing.Size(792, 774);
 			this.splitContainer.SplitterDistance = 150;
@@ -114,15 +134,31 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.tb_Script.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
 			this.tb_Script.Dock = System.Windows.Forms.DockStyle.Fill;
-			this.tb_Script.Location = new System.Drawing.Point(0, 0);
+			this.tb_Script.Location = new System.Drawing.Point(35, 0);
 			this.tb_Script.Margin = new System.Windows.Forms.Padding(0);
 			this.tb_Script.Multiline = true;
 			this.tb_Script.Name = "tb_Script";
 			this.tb_Script.ReadOnly = true;
 			this.tb_Script.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-			this.tb_Script.Size = new System.Drawing.Size(639, 774);
+			this.tb_Script.Size = new System.Drawing.Size(604, 774);
+			this.tb_Script.Slave = this.tb_nos;
 			this.tb_Script.TabIndex = 0;
 			this.tb_Script.WordWrap = false;
+			// 
+			// tb_nos
+			// 
+			this.tb_nos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+			this.tb_nos.Dock = System.Windows.Forms.DockStyle.Left;
+			this.tb_nos.Location = new System.Drawing.Point(0, 0);
+			this.tb_nos.Margin = new System.Windows.Forms.Padding(0);
+			this.tb_nos.Multiline = true;
+			this.tb_nos.Name = "tb_nos";
+			this.tb_nos.ReadOnly = true;
+			this.tb_nos.Size = new System.Drawing.Size(35, 774);
+			this.tb_nos.TabIndex = 1;
+			this.tb_nos.TabStop = false;
+			this.tb_nos.WordWrap = false;
+			this.tb_nos.Enter += new System.EventHandler(this.enter_Nos);
 			// 
 			// Scripter
 			// 
