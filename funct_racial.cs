@@ -720,8 +720,7 @@ namespace nwn2_ai_2da_editor
 				val = (feat & hc.HENCH_FEAT_SPELL_MASK_SPELL) >> HENCH_FEAT_SPELL_SHIFT_SPELL;
 				tb_spell.Text = val.ToString();
 
-				if (he.spellLabels.Count != 0
-					&& val < he.spellLabels.Count)
+				if (he.spellLabels.Count != 0 && val < he.spellLabels.Count)
 				{
 					lbl_spell.Text = he.spellLabels[val];
 				}

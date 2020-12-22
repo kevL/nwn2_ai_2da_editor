@@ -21,6 +21,12 @@ namespace nwn2_ai_2da_editor
 		internal static List<string> spellLabels = new List<string>();
 
 		/// <summary>
+		/// A list that holds labels for spellscripts in Spells.2da.
+		/// - optional
+		/// </summary>
+		static List<string> spellScripts = new List<string>();
+
+		/// <summary>
 		/// A list that holds labels for races in Races.2da.
 		/// - optional
 		/// </summary>
@@ -44,8 +50,6 @@ namespace nwn2_ai_2da_editor
 		const string HEAD_COLS_SPELLS  = " Label SpellInfo TargetInfo EffectWeight EffectTypes DamageInfo SaveType SaveDCType";
 		const string HEAD_COLS_RACIAL  = " Label Flags FeatSpell1 FeatSpell2 FeatSpell3 FeatSpell4 FeatSpell5";
 		const string HEAD_COLS_CLASSES = " Label Flags FeatSpell1 FeatSpell2 FeatSpell3 FeatSpell4 FeatSpell5 FeatSpell6 FeatSpell7 FeatSpell8 FeatSpell9 FeatSpell10 FeatSpell11";
-
-		const string RECENTLABELDIR = "recentlabeldir.cfg";
 		#endregion Fields (static)
 
 
@@ -102,10 +106,12 @@ namespace nwn2_ai_2da_editor
 
 			using (var ofd = new OpenFileDialog())
 			{
+				ofd.AutoUpgradeEnabled = false; // loL fu.net
+
 				ofd.Title  = "Select a Hench*.2da file";
 				ofd.Filter = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
 
-				if (ofd.ShowDialog() == DialogResult.OK)
+				if (ofd.ShowDialog(this) == DialogResult.OK)
 				{
 					_pfe = ofd.FileName;
 					Load_file();
@@ -193,11 +199,17 @@ namespace nwn2_ai_2da_editor
 		{
 			using (var sfd = new SaveFileDialog())
 			{
+				sfd.AutoUpgradeEnabled = false; // loL fu.net
+
 				sfd.Title    = "Save as ...";
 				sfd.Filter   = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
 				sfd.FileName = Path.GetFileName(_pfe);
 
-				if (sfd.ShowDialog() == DialogResult.OK)
+				string dir = Path.GetDirectoryName(_pfe);
+				if (Directory.Exists(dir))
+					sfd.InitialDirectory = dir;
+
+				if (sfd.ShowDialog(this) == DialogResult.OK)
 				{
 					_pfeT = sfd.FileName; // the fullpath still needs user-confirmation (if there's dirty data)
 
@@ -369,12 +381,14 @@ namespace nwn2_ai_2da_editor
 			{
 				using (var ofd = new OpenFileDialog())
 				{
+					ofd.AutoUpgradeEnabled = false; // loL fu.net
+
 					ofd.Title    = "Select Spells.2da";
 					ofd.Filter   = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
 					ofd.FileName = "spells.2da";
 
 					string dir = null;
-					string pfe = Path.Combine(Application.StartupPath, RECENTLABELDIR);
+					string pfe = Path.Combine(Application.StartupPath, RD_LABELS_CFG);
 					if (File.Exists(pfe))
 					{
 						dir = File.ReadAllText(pfe);
@@ -382,7 +396,7 @@ namespace nwn2_ai_2da_editor
 							ofd.InitialDirectory = dir;
 					}
 
-					if (ofd.ShowDialog() == DialogResult.OK)
+					if (ofd.ShowDialog(this) == DialogResult.OK)
 					{
 						GropeLabels(ofd.FileName, spellLabels, pathSpells);
 
@@ -405,7 +419,9 @@ namespace nwn2_ai_2da_editor
 			else
 			{
 				pathSpells.Checked = false;
-				spellLabels.Clear();
+
+				spellLabels .Clear();
+				spellScripts.Clear();
 
 				if (Type != Type2da.TYPE_NONE)
 				{
@@ -430,12 +446,14 @@ namespace nwn2_ai_2da_editor
 			{
 				using (var ofd = new OpenFileDialog())
 				{
+					ofd.AutoUpgradeEnabled = false; // loL fu.net
+
 					ofd.Title    = "Select RacialSubtypes.2da";
 					ofd.Filter   = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
 					ofd.FileName = "racialsubtypes.2da";
 
 					string dir = null;
-					string pfe = Path.Combine(Application.StartupPath, RECENTLABELDIR);
+					string pfe = Path.Combine(Application.StartupPath, RD_LABELS_CFG);
 					if (File.Exists(pfe))
 					{
 						dir = File.ReadAllText(pfe);
@@ -443,7 +461,7 @@ namespace nwn2_ai_2da_editor
 							ofd.InitialDirectory = dir;
 					}
 
-					if (ofd.ShowDialog() == DialogResult.OK)
+					if (ofd.ShowDialog(this) == DialogResult.OK)
 					{
 						GropeLabels(ofd.FileName, raceLabels, pathRacialSubtypes);
 
@@ -484,12 +502,14 @@ namespace nwn2_ai_2da_editor
 			{
 				using (var ofd = new OpenFileDialog())
 				{
+					ofd.AutoUpgradeEnabled = false; // loL fu.net
+
 					ofd.Title    = "Select Classes.2da";
 					ofd.Filter   = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
 					ofd.FileName = "classes.2da";
 
 					string dir = null;
-					string pfe = Path.Combine(Application.StartupPath, RECENTLABELDIR);
+					string pfe = Path.Combine(Application.StartupPath, RD_LABELS_CFG);
 					if (File.Exists(pfe))
 					{
 						dir = File.ReadAllText(pfe);
@@ -497,7 +517,7 @@ namespace nwn2_ai_2da_editor
 							ofd.InitialDirectory = dir;
 					}
 
-					if (ofd.ShowDialog() == DialogResult.OK)
+					if (ofd.ShowDialog(this) == DialogResult.OK)
 					{
 						GropeLabels(ofd.FileName, classLabels, pathClasses);
 
@@ -582,12 +602,14 @@ namespace nwn2_ai_2da_editor
 			{
 				using (var ofd = new OpenFileDialog())
 				{
+					ofd.AutoUpgradeEnabled = false; // loL fu.net
+
 					ofd.Title    = "Select Feat.2da";
 					ofd.Filter   = "2da files (*.2da)|*.2da|All files (*.*)|*.*";
 					ofd.FileName = "feat.2da";
 
 					string dir = null;
-					string pfe = Path.Combine(Application.StartupPath, RECENTLABELDIR);
+					string pfe = Path.Combine(Application.StartupPath, RD_LABELS_CFG);
 					if (File.Exists(pfe))
 					{
 						dir = File.ReadAllText(pfe);
@@ -595,7 +617,7 @@ namespace nwn2_ai_2da_editor
 							ofd.InitialDirectory = dir;
 					}
 
-					if (ofd.ShowDialog() == DialogResult.OK)
+					if (ofd.ShowDialog(this) == DialogResult.OK)
 					{
 						GropeLabels(ofd.FileName, featLabels, pathFeat);
 
@@ -656,6 +678,9 @@ namespace nwn2_ai_2da_editor
 							if (Int32.TryParse(fields[0], out id)) // is a valid 2da row
 							{
 								labels.Add(fields[1]); // and hope for the best.
+
+								if (labels == spellLabels)
+									spellScripts.Add(fields[9]);
 							}
 						}
 					}

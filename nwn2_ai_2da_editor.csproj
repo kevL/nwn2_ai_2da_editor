@@ -57,6 +57,7 @@
     <Compile Include="hc.cs" />
     <Compile Include="funct_bar.cs" />
     <Compile Include="HenchControl.cs" />
+    <Compile Include="Scripter.cs" />
     <Compile Include="spells1_SpellInfo.cs" />
     <Compile Include="spells2_TargetInfo.cs" />
     <Compile Include="spells3_EffectWeight.cs" />
@@ -95,6 +96,9 @@
   <ItemGroup>
     <EmbeddedResource Include="he.resx">
       <DependentUpon>he.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Scripter.resx">
+      <DependentUpon>Scripter.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="tabcontrol_Classes.resx">
       <DependentUpon>tabcontrol_Classes.cs</DependentUpon>

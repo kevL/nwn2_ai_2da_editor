@@ -124,8 +124,13 @@ namespace nwn2_ai_2da_editor
 		int userHeight = 480;
 		int panel2width, panel2height;
 
-		const string RECENT_CFG = "recent.cfg";
+		const string RF_CFG        = "recent_files.cfg";
+		const string RD_LABELS_CFG = "recent_dir_labels.cfg";
+		const string RD_SCRIPS_CFG = "recent_dir_scripts.cfg";
 
+
+		Scripter Scripter;
+		Button bu_Script;
 
 		/// <summary>
 		/// A fixed-width font for all the hex and bin textboxes.
@@ -140,9 +145,9 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		public he()
 		{
-			// The InitializeComponent() call is required for Windows Forms designer support.
 			InitializeComponent();
-			// Add constructor code after the InitializeComponent() call.
+
+			CreateScript_button();
 
 			logfile.CreateLog(); // NOTE: The logfile works in debug-builds only.
 			// To write a line to the logfile:
@@ -158,15 +163,15 @@ namespace nwn2_ai_2da_editor
 
 			Size = new Size(800, userHeight);
 
-			initRecents(); // init recents before (potentially) loading a table from FileExplorer
+			initRecent(); // init recents before (potentially) loading a table from FileExplorer
 		}
 
 		/// <summary>
 		/// 
 		/// </summary>
-		void initRecents()
+		void initRecent()
 		{
-			string pfe = Path.Combine(Application.StartupPath, RECENT_CFG);
+			string pfe = Path.Combine(Application.StartupPath, RF_CFG);
 			if (File.Exists(pfe))
 			{
 				ToolStripItemCollection recents = it_Recent.DropDownItems;
@@ -186,6 +191,128 @@ namespace nwn2_ai_2da_editor
 				}
 			}
 		}
+
+		/// <summary>
+		/// Creates and initializes a button to show a spell's script.
+		/// </summary>
+		void CreateScript_button()
+		{
+			bu_Script = new Button();
+
+			bu_Script.Text = "script";
+			bu_Script.Font = new Font("Courier New", 7f);
+
+			bu_Script.Name     = "bu_Script";
+			bu_Script.TabIndex = 2;
+
+			bu_Script.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+			bu_Script.UseVisualStyleBackColor = true;
+
+			bu_Script.Location = new Point(ClientSize.Width - 60,0);
+			bu_Script.Size     = new Size(60,20);
+			bu_Script.Margin   = new Padding(0);
+
+			bu_Script.MouseClick += click_Script;
+
+			Controls.Add(bu_Script);
+
+			bu_Script.BringToFront();
+		}
+
+		/// <summary>
+		/// Handles a click on the script-button.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void click_Script(object sender, EventArgs e)
+		{
+			using (var ofd = new OpenFileDialog())
+			{
+				ofd.AutoUpgradeEnabled = false; // loL fu.net
+
+				ofd.Title  = "Select a spellscript file";
+				ofd.Filter = "NwScript files (*.nss)|*.nss|All files (*.*)|*.*";
+
+				if (Type == Type2da.TYPE_SPELLS
+					&& spellScripts.Count != 0 && Id < spellScripts.Count)
+				{
+					string spellscript = spellScripts[Id];
+					if (!String.IsNullOrEmpty(spellscript) && spellscript != blank)
+					{
+						ofd.FileName = spellscript + ".nss";
+					}
+				}
+
+				string pfe_recentscriptsfile = Path.Combine(Application.StartupPath, RD_SCRIPS_CFG);
+				if (File.Exists(pfe_recentscriptsfile))
+				{
+					string dir_scripts = File.ReadAllText(pfe_recentscriptsfile);
+					if (Directory.Exists(dir_scripts))
+						ofd.InitialDirectory = dir_scripts;
+				}
+				else
+					pfe_recentscriptsfile = null;
+
+
+				if (ofd.ShowDialog(this) == DialogResult.OK)
+				{
+					if (pfe_recentscriptsfile != null)
+					{
+						string dir_scripts = Path.GetDirectoryName(ofd.FileName);
+						if (Directory.Exists(dir_scripts))
+						{
+							File.WriteAllText(pfe_recentscriptsfile, dir_scripts);
+						}
+					}
+
+					if (Scripter == null || Scripter.IsDisposed)
+						Scripter = new Scripter(this);
+
+					Scripter.SetTitleText(ofd.SafeFileName);
+
+					string[] lines = File.ReadAllLines(ofd.FileName);
+
+					string text = String.Empty;
+					for (int i = 0; i != lines.Length; ++i)
+					{
+						lines[i] = lines[i].TrimEnd();
+						text += TabsToSpaces(lines[i]) + Environment.NewLine;
+					}
+
+					Scripter.tb_Script.Text = text;
+
+					Scripter.Show();
+
+					Scripter.TopMost = true;
+					Scripter.TopMost = false;
+				}
+			}
+		}
+
+		/// <summary>
+		/// Replaces tabs in a string with spaces.
+		/// </summary>
+		/// <param name="line"></param>
+		/// <returns></returns>
+		public static string TabsToSpaces(string line)
+		{
+			var list = new List<string>();
+	
+			var texts = line.Split('\t');
+
+			foreach (var text in texts)
+			{
+				int spacecount = 4 - text.Length % 4;
+				if (spacecount == 0)
+					spacecount  = 4;
+
+				list.Add(text + new string(' ', spacecount));
+			}
+
+			list[list.Count - 1] = list[list.Count - 1].TrimEnd();
+
+			return String.Join("", list.ToArray());
+		}
 		#endregion cTor
 
 
@@ -196,6 +323,9 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		protected override void OnFormClosing(FormClosingEventArgs e)
 		{
+			if (Scripter != null && !Scripter.IsDisposed)
+				Scripter.Close();
+
 			if (e.CloseReason != CloseReason.WindowsShutDown)
 			{
 				if (isChanged())
@@ -211,7 +341,7 @@ namespace nwn2_ai_2da_editor
 				{
 					// track recent files only if a file 'recent.cfg' exists in the appdir
 
-					string pfe = Path.Combine(Application.StartupPath, RECENT_CFG);
+					string pfe = Path.Combine(Application.StartupPath, RF_CFG);
 					if (File.Exists(pfe))
 					{
 						int i = -1;
@@ -1137,7 +1267,6 @@ namespace nwn2_ai_2da_editor
 			Copy_decimal    .Enabled = // edit ->
 			Copy_hexadecimal.Enabled =
 			Copy_binary     .Enabled =
-
 			clearCoreAIver  .Enabled = true;
 
 			tree_Highlight  .Visible = true;
