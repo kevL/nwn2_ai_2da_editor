@@ -27,6 +27,11 @@ namespace nwn2_ai_2da_editor
 		static List<string> spellScripts = new List<string>();
 
 		/// <summary>
+		/// Stores relevant AI field-data in Spells.2da.
+		/// </summary>
+		static List<List<string>> spellTable = new List<List<string>>();
+
+		/// <summary>
 		/// A list that holds labels for races in Races.2da.
 		/// - optional
 		/// </summary>
@@ -422,6 +427,7 @@ namespace nwn2_ai_2da_editor
 
 				spellLabels .Clear();
 				spellScripts.Clear();
+				spellTable  .Clear();
 
 				if (Type != Type2da.TYPE_NONE)
 				{
@@ -680,7 +686,10 @@ namespace nwn2_ai_2da_editor
 								labels.Add(fields[1]); // and hope for the best.
 
 								if (labels == spellLabels)
+								{
 									spellScripts.Add(fields[9]);
+									GrabSpellFields(id, fields);
+								}
 							}
 						}
 					}
@@ -690,6 +699,50 @@ namespace nwn2_ai_2da_editor
 			}
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="id"></param>
+		/// <param name="fields"></param>
+		void GrabSpellFields(int id, IList<string> fields)
+		{
+			var list = new List<string>();
+
+			list.Add(fields[ 4]); // School
+			list.Add(fields[ 5]); // Range
+			list.Add(fields[ 6]); // VS
+			list.Add(fields[ 7]); // MetaMagic
+			list.Add(fields[ 8]); // TargetType
+			list.Add(fields[10]); // Bard
+			list.Add(fields[11]); // Cleric
+			list.Add(fields[12]); // Druid
+			list.Add(fields[13]); // Paladin
+			list.Add(fields[14]); // Ranger
+			list.Add(fields[15]); // Wiz_Sorc
+			list.Add(fields[16]); // Warlock
+			list.Add(fields[17]); // Innate
+			list.Add(fields[45]); // ImmunityType
+			list.Add(fields[46]); // ItemImmunity
+			list.Add(fields[47]); // SubRadSpell1
+			list.Add(fields[48]); // SubRadSpell2
+			list.Add(fields[49]); // SubRadSpell3
+			list.Add(fields[50]); // SubRadSpell4
+			list.Add(fields[51]); // SubRadSpell5
+			list.Add(fields[52]); // Category
+			list.Add(fields[53]); // Master
+			list.Add(fields[54]); // UserType
+			list.Add(fields[56]); // UsesConcentration
+			list.Add(fields[57]); // SpontaneouslyCast
+			list.Add(fields[58]); // SpontCastClassReq
+			list.Add(fields[60]); // HostileSetting
+			list.Add(fields[61]); // FeatID
+			list.Add(fields[65]); // AsMetaMagic
+			list.Add(fields[66]); // TargetingUI
+			list.Add(fields[67]); // CastableOnDead
+			list.Add(fields[68]); // REMOVED
+
+			spellTable.Add(list);
+		}
 
 //		/// <summary>
 //		/// Invokes and handles the SetCoreAiVersion inputbox via the Edit.

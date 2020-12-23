@@ -233,15 +233,13 @@ namespace nwn2_ai_2da_editor
 				ofd.Title  = "Select a spellscript file";
 				ofd.Filter = "NwScript files (*.nss)|*.nss|All files (*.*)|*.*";
 
-				if (Type == Type2da.TYPE_SPELLS
-					&& spellScripts.Count != 0 && Id < spellScripts.Count)
+				if (Type == Type2da.TYPE_SPELLS && Id < spellScripts.Count)
 				{
 					string spellscript = spellScripts[Id];
-					if (!String.IsNullOrEmpty(spellscript) && spellscript != blank)
-					{
+					if (spellscript != blank)
 						ofd.FileName = spellscript + ".nss";
-					}
 				}
+				string file = ofd.FileName;
 
 				string pfe_recentscriptsfile = Path.Combine(Application.StartupPath, RD_SCRIPS_CFG);
 				if (File.Exists(pfe_recentscriptsfile))
@@ -266,25 +264,29 @@ namespace nwn2_ai_2da_editor
 					}
 
 					if (Scripter == null || Scripter.IsDisposed)
-						Scripter = new Scripter(this);
+						Scripter = new Scripter(Location.X + 20, Location.Y + 20);
 
 					Scripter.SetTitleText(ofd.SafeFileName);
 
-					string[] lines = File.ReadAllLines(ofd.FileName);
+					Scripter.SetScriptText(File.ReadAllLines(ofd.FileName));
 
-					string text0 = String.Empty;
-					string text1 = String.Empty;
-					for (int i = 0; i != lines.Length; ++i)
+					if (Type == Type2da.TYPE_SPELLS && Id < spellTable.Count
+						&& file.ToLower() == ofd.SafeFileName.ToLower())
 					{
-						lines[i] = lines[i].TrimEnd();
-						text1 += TabsToSpaces(lines[i]) + Environment.NewLine;
-
-						text0 += (i + 1) + Environment.NewLine;
+						// NOTE: Do not search for a match between the chosen
+						// script and the scripts in 'spellScripts' because the
+						// id of the script in 'spellScripts' is not necessarily
+						// the id of the spell that user wants to look at; ie,
+						// spellscripts in Spells.2da can be (and are) slotted
+						// in more than one spellid.
+						//
+						// Ergo rely only on a specific id that user has
+						// selected in HenchSpells.2da. Else bail and clear the
+						// fields-text.
+						Scripter.SetFieldsText(spellTable[Id]);
 					}
-//					text0 += (i + 1) + Environment.NewLine; // don't do that - make linecounts equal.
-
-					Scripter.tb_nos   .Text = text0;
-					Scripter.tb_Script.Text = text1;
+					else
+						Scripter.ClearFieldsText();
 
 					Scripter.Show();
 
@@ -292,31 +294,6 @@ namespace nwn2_ai_2da_editor
 					Scripter.TopMost = false;
 				}
 			}
-		}
-
-		/// <summary>
-		/// Replaces tabs in a string with spaces.
-		/// </summary>
-		/// <param name="line"></param>
-		/// <returns></returns>
-		public static string TabsToSpaces(string line)
-		{
-			var list = new List<string>();
-	
-			var texts = line.Split('\t');
-
-			foreach (var text in texts)
-			{
-				int spacecount = 4 - text.Length % 4;
-				if (spacecount == 0)
-					spacecount  = 4;
-
-				list.Add(text + new string(' ', spacecount));
-			}
-
-			list[list.Count - 1] = list[list.Count - 1].TrimEnd();
-
-			return String.Join("", list.ToArray());
 		}
 		#endregion cTor
 
