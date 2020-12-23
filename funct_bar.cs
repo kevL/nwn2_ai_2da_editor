@@ -737,7 +737,6 @@ namespace nwn2_ai_2da_editor
 			list.Add(fields[60]); // HostileSetting
 			list.Add(fields[61]); // FeatID
 			list.Add(fields[65]); // AsMetaMagic
-			list.Add(fields[66]); // TargetingUI
 			list.Add(fields[67]); // CastableOnDead
 			list.Add(fields[68]); // REMOVED
 

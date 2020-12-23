@@ -25,7 +25,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// The 'blank' 2da-string.
 		/// </summary>
-		const string blank = "****";
+		internal const string blank = "****";
 
 		/// <summary>
 		/// Tracks which 2da-type is currently loaded:
