@@ -11,8 +11,21 @@
 	{
 		#region SpellInfo
 		// 'hench_i0_generic'
+		// NOTE: InfoVersion has been taken out of TonyAI 2.3+
+		// The mask (and shift) in the HenchEditor here is used only if the user
+		// chooses to delete all old InfoVersion bits from their 2das. But
+		// that's not recommended for those who don't know what they're doing
+		// since the bits have been repurposed for spontaneous metamagic by
+		// those spells that are capable of being spontaneously cast.
+		//
+		// The recommended route is to start with the HenchSpells.2da that's in
+		// the latest TonyAI and do any customizations from there. That is, do
+		// diffs of your custom HenchSpells.2da against the TonyAI 2.2
+		// HenchSpells.2da and judiciously merge that diff into the TonyAI 2.3+
+		// HenchSpells.2da ...
+
+//		internal const int HENCH_SPELL_INFO_VERSION                      = 0x16000000; // not needed in TonyAI 2.3+
 		internal const int HENCH_SPELL_INFO_VERSION_MASK                 = unchecked((int)0xff000000); // -16777216 fu.net
-		internal const int HENCH_SPELL_INFO_VERSION                      = 0x16000000;
 
 		// 'hench_i0_itemsp'
 		internal const int HENCH_SPELL_INFO_SPELL_LEVEL_MASK             = 0x0001e000; // shift >> 13
@@ -521,6 +534,7 @@
 		#region Classes
 //		internal const int HENCH_CLASS_SPELL_PROG_MASK              = 0x00000007;
 		internal const int HENCH_NO_SPELL_PROGRESSION               = 0x00000000;
+		internal const int HENCH_SKIP_SECOND_SPELL_PROGRESSION      = 0x00000001; // 2.3 add
 		internal const int HENCH_SKIP_FIRST_THIRD_SPELL_PROGRESSION = 0x00000002;
 		internal const int HENCH_EVERY_OTHER_EVEN_SPELL_PROGRESSION = 0x00000003;
 		internal const int HENCH_EVERY_OTHER_ODD_SPELL_PROGRESSION  = 0x00000004;
