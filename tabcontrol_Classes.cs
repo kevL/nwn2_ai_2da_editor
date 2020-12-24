@@ -253,43 +253,43 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void initCos()
 		{
-			// populate the dropdown list for Casting Ability
+			// populate the dropdown list for primary Caster Ability
 			cbo_cf_Ability.Items.Add("none");			// 0
 			cbo_cf_Ability.Items.Add("intelligence");	// 1
 			cbo_cf_Ability.Items.Add("wisdom");			// 2
 			cbo_cf_Ability.Items.Add("charisma");		// 3
 
-			// populate the dropdown list for Buff Others
+			// populate the dropdown list for Buff Others weight
 			cbo_cf_BuffOthers.Items.Add("full");	// 0
 			cbo_cf_BuffOthers.Items.Add("high");	// 1
 			cbo_cf_BuffOthers.Items.Add("medium");	// 2
 			cbo_cf_BuffOthers.Items.Add("low");		// 3
 
-			// populate the dropdown list for Attack
+			// populate the dropdown list for Attack table
 			cbo_cf_Attack.Items.Add("full");	// 0
 			cbo_cf_Attack.Items.Add("high");	// 1
 			cbo_cf_Attack.Items.Add("medium");	// 2
 			cbo_cf_Attack.Items.Add("low");		// 3
 
 			// populate the dropdown list for Spell Progression
-			cbo_cf_SpellProg.Items.Add("none");				// 0
-			cbo_cf_SpellProg.Items.Add("[not used]");		// 1 - not used.
-			cbo_cf_SpellProg.Items.Add("skip 1st & 3rd");	// 2
-			cbo_cf_SpellProg.Items.Add("even levels");		// 3
-			cbo_cf_SpellProg.Items.Add("odd levels");		// 4
-			cbo_cf_SpellProg.Items.Add("skip 4th");			// 5
-			cbo_cf_SpellProg.Items.Add("skip 1st");			// 6
-			cbo_cf_SpellProg.Items.Add("full");				// 7
+			cbo_cf_SpellProg.Items.Add("none");							// 0
+			cbo_cf_SpellProg.Items.Add("every level skip 2nd");			// 1 - 2.3 add
+			cbo_cf_SpellProg.Items.Add("every level skip 1st & 3rd");	// 2
+			cbo_cf_SpellProg.Items.Add("every even level");				// 3
+			cbo_cf_SpellProg.Items.Add("every odd level");				// 4
+			cbo_cf_SpellProg.Items.Add("every level skip 4th");			// 5
+			cbo_cf_SpellProg.Items.Add("every level skip 1st");			// 6
+			cbo_cf_SpellProg.Items.Add("every level");					// 7
 
-			// populate the dropdown list for Sneak Attack
-			cbo_cf_SneakAttack.Items.Add("none");					// 0
-			cbo_cf_SneakAttack.Items.Add("odd levels");				// 1
-			cbo_cf_SneakAttack.Items.Add("even levels");			// 2
-			cbo_cf_SneakAttack.Items.Add("every 3rd, skip 1st");	// 3
-			cbo_cf_SneakAttack.Items.Add("every 3rd");				// 4
-			cbo_cf_SneakAttack.Items.Add("every 3rd after 2nd");	// 5
-			cbo_cf_SneakAttack.Items.Add("every 3rd after 1st");	// 6
-			cbo_cf_SneakAttack.Items.Add("every 4th");				// 7
+			// populate the dropdown list for Sneak Attack progression
+			cbo_cf_SneakAttack.Items.Add("none");						// 0
+			cbo_cf_SneakAttack.Items.Add("every odd level");			// 1
+			cbo_cf_SneakAttack.Items.Add("every even level");			// 2
+			cbo_cf_SneakAttack.Items.Add("every 3rd level skip 1st");	// 3
+			cbo_cf_SneakAttack.Items.Add("every 3rd level");			// 4
+			cbo_cf_SneakAttack.Items.Add("every 3rd level after 2nd");	// 5
+			cbo_cf_SneakAttack.Items.Add("every 3rd level after 1st");	// 6
+			cbo_cf_SneakAttack.Items.Add("every 4th level");			// 7
 		}
 		#endregion Methods
 
