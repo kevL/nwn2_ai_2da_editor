@@ -712,7 +712,7 @@ namespace nwn2_ai_2da_editor
 			list.Add(fields[ 5]); // Range
 			list.Add(fields[ 6]); // VS
 			list.Add(fields[ 7]); // MetaMagic
-			list.Add(fields[ 8]); // TargetType
+//			list.Add(fields[ 8]); // TargetType
 			list.Add(fields[10]); // Bard
 			list.Add(fields[11]); // Cleric
 			list.Add(fields[12]); // Druid
@@ -737,7 +737,6 @@ namespace nwn2_ai_2da_editor
 			list.Add(fields[60]); // HostileSetting
 			list.Add(fields[61]); // FeatID
 			list.Add(fields[65]); // AsMetaMagic
-			list.Add(fields[67]); // CastableOnDead
 			list.Add(fields[68]); // REMOVED
 
 			spellTable.Add(list);

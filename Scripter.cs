@@ -136,39 +136,39 @@ namespace nwn2_ai_2da_editor
 					case 3: // MetaMagic
 						if (fields[i].Length > 2 && fields[i].Substring(0,2) == "0x"
 							&& Int32.TryParse(fields[i].Substring(2),
-											  NumberStyles.AllowHexSpecifier, // <- that treats the string as hexadecimal notatation
+											  NumberStyles.AllowHexSpecifier, // <- that treats the string as hexadecimal notation
 											  CultureInfo.InvariantCulture,   //    but does *not* allow the hex-specifier "0x"
 											  out result))
 						{
 							// standard ->
-							if ((result & META_EMPOWER)            != 0) line += Environment.NewLine + "- empower";
-							if ((result & META_EXTEND)             != 0) line += Environment.NewLine + "- extend";
-							if ((result & META_MAXIMIZE)           != 0) line += Environment.NewLine + "- maximize";
-							if ((result & META_QUICKEN)            != 0) line += Environment.NewLine + "- quicken";
-							if ((result & META_SILENT)             != 0) line += Environment.NewLine + "- silent";
-							if ((result & META_STILL)              != 0) line += Environment.NewLine + "- still";
-							if ((result & META_PERSISTENT)         != 0) line += Environment.NewLine + "- persistent";
-							if ((result & META_PERMANENT)          != 0) line += Environment.NewLine + "- permanent";
+							if ((result & META_EMPOWER)            != 0) line += Environment.NewLine + "  empower";
+							if ((result & META_EXTEND)             != 0) line += Environment.NewLine + "  extend";
+							if ((result & META_MAXIMIZE)           != 0) line += Environment.NewLine + "  maximize";
+							if ((result & META_QUICKEN)            != 0) line += Environment.NewLine + "  quicken";
+							if ((result & META_SILENT)             != 0) line += Environment.NewLine + "  silent";
+							if ((result & META_STILL)              != 0) line += Environment.NewLine + "  still";
+							if ((result & META_PERSISTENT)         != 0) line += Environment.NewLine + "  persistent";
+							if ((result & META_PERMANENT)          != 0) line += Environment.NewLine + "  permanent";
 
 							// Eldritch Essences ->
-							if ((result & META_I_BESHADOWED_BLAST) != 0) line += Environment.NewLine + "- beshadowed blast";
-							if ((result & META_I_BEWITCHING_BLAST) != 0) line += Environment.NewLine + "- bewitching blast";
-							if ((result & META_I_BINDING_BLAST)    != 0) line += Environment.NewLine + "- binding blast";
-							if ((result & META_I_BRIMSTONE_BLAST)  != 0) line += Environment.NewLine + "- brimstone blast";
-							if ((result & META_I_DRAINING_BLAST)   != 0) line += Environment.NewLine + "- draining blast";
-							if ((result & META_I_FRIGHTFUL_BLAST)  != 0) line += Environment.NewLine + "- frightful blast";
-							if ((result & META_I_HELLRIME_BLAST)   != 0) line += Environment.NewLine + "- hellrime blast";
-							if ((result & META_I_HINDERING_BLAST)  != 0) line += Environment.NewLine + "- hindering blast";
-							if ((result & META_I_NOXIOUS_BLAST)    != 0) line += Environment.NewLine + "- noxious blast";
-							if ((result & META_I_UTTERDARK_BLAST)  != 0) line += Environment.NewLine + "- utterdark blast";
-							if ((result & META_I_VITRIOLIC_BLAST)  != 0) line += Environment.NewLine + "- vitriolic blast";
+							if ((result & META_I_BESHADOWED_BLAST) != 0) line += Environment.NewLine + "  beshadowed blast";
+							if ((result & META_I_BEWITCHING_BLAST) != 0) line += Environment.NewLine + "  bewitching blast";
+							if ((result & META_I_BINDING_BLAST)    != 0) line += Environment.NewLine + "  binding blast";
+							if ((result & META_I_BRIMSTONE_BLAST)  != 0) line += Environment.NewLine + "  brimstone blast";
+							if ((result & META_I_DRAINING_BLAST)   != 0) line += Environment.NewLine + "  draining blast";
+							if ((result & META_I_FRIGHTFUL_BLAST)  != 0) line += Environment.NewLine + "  frightful blast";
+							if ((result & META_I_HELLRIME_BLAST)   != 0) line += Environment.NewLine + "  hellrime blast";
+							if ((result & META_I_HINDERING_BLAST)  != 0) line += Environment.NewLine + "  hindering blast";
+							if ((result & META_I_NOXIOUS_BLAST)    != 0) line += Environment.NewLine + "  noxious blast";
+							if ((result & META_I_UTTERDARK_BLAST)  != 0) line += Environment.NewLine + "  utterdark blast";
+							if ((result & META_I_VITRIOLIC_BLAST)  != 0) line += Environment.NewLine + "  vitriolic blast";
 
 							// Blast Shapes ->
-							if ((result & META_I_ELDRITCH_CHAIN)   != 0) line += Environment.NewLine + "- eldritch chain";
-							if ((result & META_I_ELDRITCH_CONE)    != 0) line += Environment.NewLine + "- eldritch cone";
-							if ((result & META_I_ELDRITCH_DOOM)    != 0) line += Environment.NewLine + "- eldritch doom";
-							if ((result & META_I_ELDRITCH_SPEAR)   != 0) line += Environment.NewLine + "- eldritch spear";
-							if ((result & META_I_HIDEOUS_BLOW)     != 0) line += Environment.NewLine + "- hideous blow";
+							if ((result & META_I_ELDRITCH_CHAIN)   != 0) line += Environment.NewLine + "  eldritch chain";
+							if ((result & META_I_ELDRITCH_CONE)    != 0) line += Environment.NewLine + "  eldritch cone";
+							if ((result & META_I_ELDRITCH_DOOM)    != 0) line += Environment.NewLine + "  eldritch doom";
+							if ((result & META_I_ELDRITCH_SPEAR)   != 0) line += Environment.NewLine + "  eldritch spear";
+							if ((result & META_I_HIDEOUS_BLOW)     != 0) line += Environment.NewLine + "  hideous blow";
 						}
 						break;
 
@@ -182,32 +182,32 @@ namespace nwn2_ai_2da_editor
 							line += Environment.NewLine;
 							switch (result)
 							{
-								case  0: line += "- none";                              break;
-								case  1: line += "- HARMFUL_AREAEFFECT_DISCRIMINANT";   break;
-								case  2: line += "- HARMFUL_RANGED";                    break;
-								case  3: line += "- HARMFUL_TOUCH";                     break;
-								case  4: line += "- BENEFICIAL_HEALING_AREAEFFECT";     break;
-								case  5: line += "- BENEFICIAL_HEALING_TOUCH";          break;
-								case  6: line += "- BENEFICIAL_CONDITIONAL_AREAEFFECT"; break;
-								case  7: line += "- BENEFICIAL_CONDITIONAL_SINGLE";     break;
-								case  8: line += "- BENEFICIAL_ENHANCEMENT_AREAEFFECT"; break;
-								case  9: line += "- BENEFICIAL_ENHANCEMENT_SINGLE";     break;
-								case 10: line += "- BENEFICIAL_ENHANCEMENT_SELF";       break;
-								case 11: line += "- HARMFUL_AREAEFFECT_INDISCRIMINANT"; break;
-								case 12: line += "- BENEFICIAL_PROTECTION_SELF";        break;
-								case 13: line += "- BENEFICIAL_PROTECTION_SINGLE";      break;
-								case 14: line += "- BENEFICIAL_PROTECTION_AREAEFFECT";  break;
-								case 15: line += "- BENEFICIAL_OBTAIN_ALLIES";          break;
-								case 16: line += "- PERSISTENT_AREA_OF_EFFECT";         break;
-								case 17: line += "- BENEFICIAL_HEALING_POTION";         break;
-								case 18: line += "- BENEFICIAL_CONDITIONAL_POTION";     break;
-								case 19: line += "- DRAGONS_BREATH";                    break;
-								case 20: line += "- BENEFICIAL_PROTECTION_POTION";      break;
-								case 21: line += "- BENEFICIAL_ENHANCEMENT_POTION";     break;
-								case 22: line += "- HARMFUL_MELEE";                     break;
-								case 23: line += "- DISPEL";                            break;
-								case 24: line += "- SPELLBREACH";                       break;
-								case 25: line += "- CANTRIP";                           break;
+								case  0: line += "  none";                              break;
+								case  1: line += "  HARMFUL_AREAEFFECT_DISCRIMINANT";   break;
+								case  2: line += "  HARMFUL_RANGED";                    break;
+								case  3: line += "  HARMFUL_TOUCH";                     break;
+								case  4: line += "  BENEFICIAL_HEALING_AREAEFFECT";     break;
+								case  5: line += "  BENEFICIAL_HEALING_TOUCH";          break;
+								case  6: line += "  BENEFICIAL_CONDITIONAL_AREAEFFECT"; break;
+								case  7: line += "  BENEFICIAL_CONDITIONAL_SINGLE";     break;
+								case  8: line += "  BENEFICIAL_ENHANCEMENT_AREAEFFECT"; break;
+								case  9: line += "  BENEFICIAL_ENHANCEMENT_SINGLE";     break;
+								case 10: line += "  BENEFICIAL_ENHANCEMENT_SELF";       break;
+								case 11: line += "  HARMFUL_AREAEFFECT_INDISCRIMINANT"; break;
+								case 12: line += "  BENEFICIAL_PROTECTION_SELF";        break;
+								case 13: line += "  BENEFICIAL_PROTECTION_SINGLE";      break;
+								case 14: line += "  BENEFICIAL_PROTECTION_AREAEFFECT";  break;
+								case 15: line += "  BENEFICIAL_OBTAIN_ALLIES";          break;
+								case 16: line += "  PERSISTENT_AREA_OF_EFFECT";         break;
+								case 17: line += "  BENEFICIAL_HEALING_POTION";         break;
+								case 18: line += "  BENEFICIAL_CONDITIONAL_POTION";     break;
+								case 19: line += "  DRAGONS_BREATH";                    break;
+								case 20: line += "  BENEFICIAL_PROTECTION_POTION";      break;
+								case 21: line += "  BENEFICIAL_ENHANCEMENT_POTION";     break;
+								case 22: line += "  HARMFUL_MELEE";                     break;
+								case 23: line += "  DISPEL";                            break;
+								case 24: line += "  SPELLBREACH";                       break;
+								case 25: line += "  CANTRIP";                           break;
 							}
 						}
 						break;
@@ -219,10 +219,10 @@ namespace nwn2_ai_2da_editor
 							line += Environment.NewLine;
 							switch (result)
 							{
-								case 1: line += "- spell";           break;
-								case 2: line += "- special ability"; break;
-								case 3: line += "- feat";            break;
-								case 4: line += "- item power";      break;
+								case 1: line += "  spell";           break;
+								case 2: line += "  special ability"; break;
+								case 3: line += "  feat";            break;
+								case 4: line += "  item power";      break;
 							}
 						}
 						break;
@@ -280,7 +280,7 @@ namespace nwn2_ai_2da_editor
 			_fieldcols.Add("[Range]");				//  1
 			_fieldcols.Add("[VS]");					//  2
 			_fieldcols.Add("[MetaMagic]");			//  3
-			_fieldcols.Add("[TargetType]");			//  4
+//			_fieldcols.Add("[TargetType]");			//  4
 			_fieldcols.Add("[Bard]");				//  5
 			_fieldcols.Add("[Cleric]");				//  6
 			_fieldcols.Add("[Druid]");				//  7
@@ -305,7 +305,6 @@ namespace nwn2_ai_2da_editor
 			_fieldcols.Add("[HostileSetting]");		// 26
 			_fieldcols.Add("[FeatID]");				// 27
 			_fieldcols.Add("[AsMetaMagic]");		// 28
-			_fieldcols.Add("[CastableOnDead]");		// 29
 			_fieldcols.Add("[REMOVED]");			// 30
 		}
 
