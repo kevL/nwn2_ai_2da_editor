@@ -210,15 +210,15 @@ namespace nwn2_ai_2da_editor
 
 			di_co_DetDamagebase.SelectionChangeCommitted += SelectionChangeCommitted_di_co_det_Damagebase;
 
-			di_DetDamage        .TextChanged              += TextChanged_di_det_Damage;
+			di_DetDamage       .TextChanged              += TextChanged_di_det_Damage;
 
 			di_co_DetLeveltype .SelectionChangeCommitted += SelectionChangeCommitted_di_co_det_Leveltype;
 
-			di_DetLevellimit    .TextChanged              += TextChanged_di_det_Levellimit;
+			di_DetLevellimit   .TextChanged              += TextChanged_di_det_Levellimit;
 
-			di_DetLeveldivisor  .TextChanged              += TextChanged_di_det_Leveldivisor;
+			di_DetLeveldivisor .TextChanged              += TextChanged_di_det_Leveldivisor;
 
-			di_DetFixedcount    .TextChanged              += TextChanged_di_det_Fixedcount;
+			di_DetFixedcount   .TextChanged              += TextChanged_di_det_Fixedcount;
 
 			di_Magical    .MouseClick += MouseClick_di_det_Damagetype;
 			di_Divine     .MouseClick += MouseClick_di_det_Damagetype;
@@ -233,11 +233,11 @@ namespace nwn2_ai_2da_editor
 			di_Piercing   .MouseClick += MouseClick_di_det_Damagetype;
 			di_Slashing   .MouseClick += MouseClick_di_det_Damagetype;
 
-			di_co_BenPowerbase.SelectionChangeCommitted += SelectionChangeCommitted_di_co_ben_Powerbase;
+			di_co_BenPowerbase .SelectionChangeCommitted += SelectionChangeCommitted_di_co_ben_Powerbase;
 
 			di_BenPower        .TextChanged              += TextChanged_di_ben_Power;
 
-			di_co_BenLeveltype.SelectionChangeCommitted += SelectionChangeCommitted_di_co_ben_Leveltype;
+			di_co_BenLeveltype .SelectionChangeCommitted += SelectionChangeCommitted_di_co_ben_Leveltype;
 
 			di_BenLevellimit   .TextChanged              += TextChanged_di_ben_Levellimit;
 
@@ -254,8 +254,6 @@ namespace nwn2_ai_2da_editor
 			SaveType_text .TextChanged += TextChanged_st;
 
 			st_Clear.Click += Click_clear;
-
-			st_NotCaster.MouseClick += MouseClick_st_Flags; // is a flag see below
 
 			st_Save1rb_none.MouseClick += MouseClick_st_Type1Save;
 			st_Save1rb_fort.MouseClick += MouseClick_st_Type1Save;
@@ -282,6 +280,7 @@ namespace nwn2_ai_2da_editor
 			st_SpellResistance  .MouseClick += MouseClick_st_Flags;
 			st_TouchMelee       .MouseClick += MouseClick_st_Flags;
 			st_TouchRanged      .MouseClick += MouseClick_st_Flags;
+			st_NotCaster        .MouseClick += MouseClick_st_Flags;
 
 			st_co_Immunity1.SelectionChangeCommitted += SelectionChangeCommitted_st_co_Immunity1;
 
@@ -309,9 +308,13 @@ namespace nwn2_ai_2da_editor
 			st_Excl_Onlyone     .MouseClick += MouseClick_st_excl_Flags;
 			st_Excl_General     .MouseClick += MouseClick_st_excl_Flags;
 
-			st_co_TargetRestriction.SelectionChangeCommitted += SelectionChangeCommitted_st_co_Weapon;
+			st_co_AcBonus.SelectionChangeCommitted += SelectionChangeCommitted_st_co_AcBonus;
 
-			st_co_AcBonus          .SelectionChangeCommitted += SelectionChangeCommitted_st_co_AcBonus;
+			st_ReduceNotEnlarge.MouseClick += MouseClick_st_SizeEffect;
+			st_AnimalOnly      .MouseClick += MouseClick_st_SizeEffect;
+			st_NotHumanoid     .MouseClick += MouseClick_st_SizeEffect;
+
+			st_co_TargetRestriction.SelectionChangeCommitted += SelectionChangeCommitted_st_co_Weapon;
 
 // handlers for SaveDCType ->
 			SaveDCType_reset.Click       += Click_dc_reset;
@@ -320,8 +323,8 @@ namespace nwn2_ai_2da_editor
 			dc_Clear.Click += Click_clear;
 
 			dc_co_SaveDC.SelectionChangeCommitted += SelectionChangeCommitted_dc_savedctype;
-			savedc_up    .Click                    += Click_dc_adjustors;
-			savedc_dn    .Click                    += Click_dc_adjustors;
+			savedc_up   .Click                    += Click_dc_adjustors;
+			savedc_dn   .Click                    += Click_dc_adjustors;
 
 			dc_co_WeaponBonus.SelectionChangeCommitted += SelectionChangeCommitted_dc_weaponbonustype;
 

@@ -18,6 +18,10 @@ namespace nwn2_ai_2da_editor
 		const int HENCH_SPELL_SAVE_TYPE_ACBONUS_SHIFT   = 18;
 
 		const int HENCH_IMMUNITY_WEIGHT_AMOUNT_SHIFT    = 12;
+
+		const int HENCH_SAVETYPE_SIZEBUFF_REDUCE      = 0x1; // use reduce instead of enlarge
+		const int HENCH_SAVETYPE_SIZEBUFF_ANIMAL      = 0x2; // check for animal instead of humanoid
+		const int HENCH_SAVETYPE_SIZEBUFF_NOTHUMANOID = 0x4; // don't do humanoid check
 		#endregion Fields (static)
 
 
@@ -505,8 +509,7 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Handles toggling bits by checkboxes/radiobuttons on the SaveType
-		/// page - exclusive Flags group.
+		/// Handles toggling bits by checkboxes/radiobuttons on the SaveType page - exclusive Flags group.
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -565,14 +568,12 @@ namespace nwn2_ai_2da_editor
 			{
 				if (weight < 0)
 				{
-					weight = 0;
-					st_Excl_Weight.Text = weight.ToString(); // re-trigger this funct.
+					st_Excl_Weight.Text = "0"; // recurse this funct.
 					st_Excl_Weight.SelectionStart = st_Excl_Weight.Text.Length;
 				}
 				else if (weight > 255) // 8 bits
 				{
-					weight = 255;
-					st_Excl_Weight.Text = weight.ToString(); // re-trigger this funct.
+					st_Excl_Weight.Text = "255"; // recurse this funct.
 					st_Excl_Weight.SelectionStart = st_Excl_Weight.Text.Length;
 				}
 				else
@@ -583,6 +584,43 @@ namespace nwn2_ai_2da_editor
 					weight <<= HENCH_IMMUNITY_WEIGHT_AMOUNT_SHIFT;
 					SaveType_text.Text = (savetype | weight).ToString();
 				}
+			}
+		}
+
+		/// <summary>
+		/// Handles toggling bits by checkboxes on the SaveType page - SizeEffect group.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void MouseClick_st_SizeEffect(object sender, MouseEventArgs e)
+		{
+			int savetype;
+			if (Int32.TryParse(SaveType_text.Text, out savetype))
+			{
+				int bit;
+
+				var cb = sender as CheckBox;
+				if (cb == st_ReduceNotEnlarge)
+				{
+					bit = HENCH_SAVETYPE_SIZEBUFF_REDUCE;
+				}
+				else if (cb == st_AnimalOnly)
+				{
+					bit = HENCH_SAVETYPE_SIZEBUFF_ANIMAL;
+				}
+				else //if (cb == st_NotHumanoid)
+				{
+					bit = HENCH_SAVETYPE_SIZEBUFF_NOTHUMANOID;
+				}
+
+				if (cb.Checked)
+				{
+					savetype |= bit;
+				}
+				else
+					savetype &= ~bit;
+
+				SaveType_text.Text = savetype.ToString();
 			}
 		}
 		#endregion eventhandlers
@@ -730,6 +768,11 @@ namespace nwn2_ai_2da_editor
 			}
 
 			st_co_TargetRestriction.SelectedIndex = val;
+
+// Size-effect checkboxes
+			st_ReduceNotEnlarge.Checked = (savetype & HENCH_SAVETYPE_SIZEBUFF_REDUCE)      != 0;
+			st_AnimalOnly      .Checked = (savetype & HENCH_SAVETYPE_SIZEBUFF_ANIMAL)      != 0;
+			st_NotHumanoid     .Checked = (savetype & HENCH_SAVETYPE_SIZEBUFF_NOTHUMANOID) != 0;
 
 // Exclusive Group
 // DamageType checkboxes

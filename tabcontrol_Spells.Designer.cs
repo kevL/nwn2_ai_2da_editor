@@ -263,9 +263,10 @@ namespace nwn2_ai_2da_editor
 
 		GroupBox st_DetrimentalGrp;
 		GroupBox st_ExclusiveGrp;
-		CheckBox st_NotCaster; // this is actually flag in 'st_DetrimentalGrp'<-'st_FlagsGrp' ...
-		GroupBox st_TargetRestrictionGrp;
 		GroupBox st_AcBonusGrp;
+		GroupBox st_SizeEffectGrp;
+		GroupBox st_TargetRestrictionGrp;
+		CheckBox st_NotCaster; // this is actually flag in 'st_DetrimentalGrp'->'st_FlagsGrp' ...
 
 		// 'st_DetrimentalGrp' controls
 		GroupBox st_Save1Grp;
@@ -325,11 +326,16 @@ namespace nwn2_ai_2da_editor
 		CheckBox    st_Excl_Onlyone; // TODO: ToolTip
 		CheckBox    st_Excl_General; // TODO: ToolTip
 
-		// 'st_TargetRestrictionGrp' controls
-		ComboBox st_co_TargetRestriction;
-
 		// 'st_AcBonusGrp' controls
 		ComboBox st_co_AcBonus;
+
+		// 'st_SizeEffectGrp' controls
+		CheckBox st_ReduceNotEnlarge;
+		CheckBox st_AnimalOnly;
+		CheckBox st_NotHumanoid; // TODO: ToolTip req'd
+
+		// 'st_TargetRestrictionGrp' controls
+		ComboBox st_co_TargetRestriction;
 
 // 'tp_SaveDCType' controls
 		Button     SaveDCType_reset; // TODO: ToolTip "reset"
@@ -619,11 +625,15 @@ namespace nwn2_ai_2da_editor
 			this.st_Excl_rbImmunity = new System.Windows.Forms.RadioButton();
 			this.st_Excl_Onlyone = new System.Windows.Forms.CheckBox();
 			this.st_Excl_General = new System.Windows.Forms.CheckBox();
+			this.st_AcBonusGrp = new System.Windows.Forms.GroupBox();
+			this.st_co_AcBonus = new System.Windows.Forms.ComboBox();
+			this.st_SizeEffectGrp = new System.Windows.Forms.GroupBox();
+			this.st_ReduceNotEnlarge = new System.Windows.Forms.CheckBox();
+			this.st_AnimalOnly = new System.Windows.Forms.CheckBox();
+			this.st_NotHumanoid = new System.Windows.Forms.CheckBox();
 			this.st_TargetRestrictionGrp = new System.Windows.Forms.GroupBox();
 			this.st_co_TargetRestriction = new System.Windows.Forms.ComboBox();
 			this.st_NotCaster = new System.Windows.Forms.CheckBox();
-			this.st_AcBonusGrp = new System.Windows.Forms.GroupBox();
-			this.st_co_AcBonus = new System.Windows.Forms.ComboBox();
 			this.tp_SaveDCType = new System.Windows.Forms.TabPage();
 			this.SaveDCType_reset = new System.Windows.Forms.Button();
 			this.SaveDCType_text = new nwn2_ai_2da_editor.TextboxInt();
@@ -692,8 +702,9 @@ namespace nwn2_ai_2da_editor
 			this.st_Excl_DamagetypesGrp.SuspendLayout();
 			this.st_Excl_WeightGrp.SuspendLayout();
 			this.st_Excl_FlagsGrp.SuspendLayout();
-			this.st_TargetRestrictionGrp.SuspendLayout();
 			this.st_AcBonusGrp.SuspendLayout();
+			this.st_SizeEffectGrp.SuspendLayout();
+			this.st_TargetRestrictionGrp.SuspendLayout();
 			this.tp_SaveDCType.SuspendLayout();
 			this.dc_SaveDCGrp.SuspendLayout();
 			this.dc_WeaponBonusGrp.SuspendLayout();
@@ -2776,9 +2787,10 @@ namespace nwn2_ai_2da_editor
 			this.tp_SaveType.Controls.Add(this.st_bin);
 			this.tp_SaveType.Controls.Add(this.st_DetrimentalGrp);
 			this.tp_SaveType.Controls.Add(this.st_ExclusiveGrp);
+			this.tp_SaveType.Controls.Add(this.st_AcBonusGrp);
+			this.tp_SaveType.Controls.Add(this.st_SizeEffectGrp);
 			this.tp_SaveType.Controls.Add(this.st_TargetRestrictionGrp);
 			this.tp_SaveType.Controls.Add(this.st_NotCaster);
-			this.tp_SaveType.Controls.Add(this.st_AcBonusGrp);
 			this.tp_SaveType.Location = new System.Drawing.Point(4, 22);
 			this.tp_SaveType.Margin = new System.Windows.Forms.Padding(0);
 			this.tp_SaveType.Name = "tp_SaveType";
@@ -2870,10 +2882,10 @@ namespace nwn2_ai_2da_editor
 			this.st_DetrimentalGrp.Controls.Add(this.st_SpecificGrp);
 			this.st_DetrimentalGrp.Location = new System.Drawing.Point(5, 60);
 			this.st_DetrimentalGrp.Name = "st_DetrimentalGrp";
-			this.st_DetrimentalGrp.Size = new System.Drawing.Size(535, 275);
+			this.st_DetrimentalGrp.Size = new System.Drawing.Size(485, 280);
 			this.st_DetrimentalGrp.TabIndex = 7;
 			this.st_DetrimentalGrp.TabStop = false;
-			this.st_DetrimentalGrp.Text = "attack";
+			this.st_DetrimentalGrp.Text = " attack ";
 			// 
 			// st_Save1Grp
 			// 
@@ -2885,17 +2897,17 @@ namespace nwn2_ai_2da_editor
 			this.st_Save1Grp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Save1Grp.Name = "st_Save1Grp";
 			this.st_Save1Grp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_Save1Grp.Size = new System.Drawing.Size(130, 105);
+			this.st_Save1Grp.Size = new System.Drawing.Size(120, 105);
 			this.st_Save1Grp.TabIndex = 0;
 			this.st_Save1Grp.TabStop = false;
-			this.st_Save1Grp.Text = "000C 0000 save1";
+			this.st_Save1Grp.Text = " 000C 0000 save1 ";
 			// 
 			// st_Save1rb_will
 			// 
 			this.st_Save1rb_will.Location = new System.Drawing.Point(5, 75);
 			this.st_Save1rb_will.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Save1rb_will.Name = "st_Save1rb_will";
-			this.st_Save1rb_will.Size = new System.Drawing.Size(90, 20);
+			this.st_Save1rb_will.Size = new System.Drawing.Size(80, 20);
 			this.st_Save1rb_will.TabIndex = 3;
 			this.st_Save1rb_will.TabStop = true;
 			this.st_Save1rb_will.Text = "will";
@@ -2906,7 +2918,7 @@ namespace nwn2_ai_2da_editor
 			this.st_Save1rb_refl.Location = new System.Drawing.Point(5, 55);
 			this.st_Save1rb_refl.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Save1rb_refl.Name = "st_Save1rb_refl";
-			this.st_Save1rb_refl.Size = new System.Drawing.Size(90, 20);
+			this.st_Save1rb_refl.Size = new System.Drawing.Size(80, 20);
 			this.st_Save1rb_refl.TabIndex = 2;
 			this.st_Save1rb_refl.TabStop = true;
 			this.st_Save1rb_refl.Text = "reflex";
@@ -2917,7 +2929,7 @@ namespace nwn2_ai_2da_editor
 			this.st_Save1rb_fort.Location = new System.Drawing.Point(5, 35);
 			this.st_Save1rb_fort.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Save1rb_fort.Name = "st_Save1rb_fort";
-			this.st_Save1rb_fort.Size = new System.Drawing.Size(90, 20);
+			this.st_Save1rb_fort.Size = new System.Drawing.Size(80, 20);
 			this.st_Save1rb_fort.TabIndex = 1;
 			this.st_Save1rb_fort.TabStop = true;
 			this.st_Save1rb_fort.Text = "fortitude";
@@ -2928,7 +2940,7 @@ namespace nwn2_ai_2da_editor
 			this.st_Save1rb_none.Location = new System.Drawing.Point(5, 15);
 			this.st_Save1rb_none.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Save1rb_none.Name = "st_Save1rb_none";
-			this.st_Save1rb_none.Size = new System.Drawing.Size(90, 20);
+			this.st_Save1rb_none.Size = new System.Drawing.Size(80, 20);
 			this.st_Save1rb_none.TabIndex = 0;
 			this.st_Save1rb_none.TabStop = true;
 			this.st_Save1rb_none.Text = "none";
@@ -2944,17 +2956,17 @@ namespace nwn2_ai_2da_editor
 			this.st_Save2Grp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Save2Grp.Name = "st_Save2Grp";
 			this.st_Save2Grp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_Save2Grp.Size = new System.Drawing.Size(130, 105);
+			this.st_Save2Grp.Size = new System.Drawing.Size(120, 110);
 			this.st_Save2Grp.TabIndex = 1;
 			this.st_Save2Grp.TabStop = false;
-			this.st_Save2Grp.Text = "00C0 0000 save2";
+			this.st_Save2Grp.Text = " 00C0 0000 save2 ";
 			// 
 			// st_Save2rb_will
 			// 
 			this.st_Save2rb_will.Location = new System.Drawing.Point(5, 75);
 			this.st_Save2rb_will.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Save2rb_will.Name = "st_Save2rb_will";
-			this.st_Save2rb_will.Size = new System.Drawing.Size(90, 20);
+			this.st_Save2rb_will.Size = new System.Drawing.Size(80, 20);
 			this.st_Save2rb_will.TabIndex = 3;
 			this.st_Save2rb_will.TabStop = true;
 			this.st_Save2rb_will.Text = "will";
@@ -2965,7 +2977,7 @@ namespace nwn2_ai_2da_editor
 			this.st_Save2rb_refl.Location = new System.Drawing.Point(5, 55);
 			this.st_Save2rb_refl.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Save2rb_refl.Name = "st_Save2rb_refl";
-			this.st_Save2rb_refl.Size = new System.Drawing.Size(90, 20);
+			this.st_Save2rb_refl.Size = new System.Drawing.Size(80, 20);
 			this.st_Save2rb_refl.TabIndex = 2;
 			this.st_Save2rb_refl.TabStop = true;
 			this.st_Save2rb_refl.Text = "reflex";
@@ -2976,7 +2988,7 @@ namespace nwn2_ai_2da_editor
 			this.st_Save2rb_fort.Location = new System.Drawing.Point(5, 35);
 			this.st_Save2rb_fort.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Save2rb_fort.Name = "st_Save2rb_fort";
-			this.st_Save2rb_fort.Size = new System.Drawing.Size(90, 20);
+			this.st_Save2rb_fort.Size = new System.Drawing.Size(80, 20);
 			this.st_Save2rb_fort.TabIndex = 1;
 			this.st_Save2rb_fort.TabStop = true;
 			this.st_Save2rb_fort.Text = "fortitude";
@@ -2987,7 +2999,7 @@ namespace nwn2_ai_2da_editor
 			this.st_Save2rb_none.Location = new System.Drawing.Point(5, 15);
 			this.st_Save2rb_none.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Save2rb_none.Name = "st_Save2rb_none";
-			this.st_Save2rb_none.Size = new System.Drawing.Size(90, 20);
+			this.st_Save2rb_none.Size = new System.Drawing.Size(80, 20);
 			this.st_Save2rb_none.TabIndex = 0;
 			this.st_Save2rb_none.TabStop = true;
 			this.st_Save2rb_none.Text = "none";
@@ -2999,21 +3011,21 @@ namespace nwn2_ai_2da_editor
 			this.st_Impact1Grp.Controls.Add(this.st_Impact1rb_damagehalf);
 			this.st_Impact1Grp.Controls.Add(this.st_Impact1rb_effectdamage);
 			this.st_Impact1Grp.Controls.Add(this.st_Impact1rb_damageevasion);
-			this.st_Impact1Grp.Location = new System.Drawing.Point(145, 15);
+			this.st_Impact1Grp.Location = new System.Drawing.Point(130, 15);
 			this.st_Impact1Grp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Impact1Grp.Name = "st_Impact1Grp";
 			this.st_Impact1Grp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_Impact1Grp.Size = new System.Drawing.Size(140, 105);
+			this.st_Impact1Grp.Size = new System.Drawing.Size(130, 105);
 			this.st_Impact1Grp.TabIndex = 2;
 			this.st_Impact1Grp.TabStop = false;
-			this.st_Impact1Grp.Text = "0030 0000 damage1";
+			this.st_Impact1Grp.Text = " 0030 0000 damage1 ";
 			// 
 			// st_Impact1rb_effectonly
 			// 
 			this.st_Impact1rb_effectonly.Location = new System.Drawing.Point(5, 15);
 			this.st_Impact1rb_effectonly.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Impact1rb_effectonly.Name = "st_Impact1rb_effectonly";
-			this.st_Impact1rb_effectonly.Size = new System.Drawing.Size(75, 20);
+			this.st_Impact1rb_effectonly.Size = new System.Drawing.Size(70, 20);
 			this.st_Impact1rb_effectonly.TabIndex = 0;
 			this.st_Impact1rb_effectonly.TabStop = true;
 			this.st_Impact1rb_effectonly.Text = "none";
@@ -3024,7 +3036,7 @@ namespace nwn2_ai_2da_editor
 			this.st_Impact1rb_damagehalf.Location = new System.Drawing.Point(5, 35);
 			this.st_Impact1rb_damagehalf.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Impact1rb_damagehalf.Name = "st_Impact1rb_damagehalf";
-			this.st_Impact1rb_damagehalf.Size = new System.Drawing.Size(75, 20);
+			this.st_Impact1rb_damagehalf.Size = new System.Drawing.Size(70, 20);
 			this.st_Impact1rb_damagehalf.TabIndex = 1;
 			this.st_Impact1rb_damagehalf.TabStop = true;
 			this.st_Impact1rb_damagehalf.Text = "half";
@@ -3035,7 +3047,7 @@ namespace nwn2_ai_2da_editor
 			this.st_Impact1rb_effectdamage.Location = new System.Drawing.Point(5, 55);
 			this.st_Impact1rb_effectdamage.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Impact1rb_effectdamage.Name = "st_Impact1rb_effectdamage";
-			this.st_Impact1rb_effectdamage.Size = new System.Drawing.Size(75, 20);
+			this.st_Impact1rb_effectdamage.Size = new System.Drawing.Size(70, 20);
 			this.st_Impact1rb_effectdamage.TabIndex = 2;
 			this.st_Impact1rb_effectdamage.TabStop = true;
 			this.st_Impact1rb_effectdamage.Text = "regular";
@@ -3046,7 +3058,7 @@ namespace nwn2_ai_2da_editor
 			this.st_Impact1rb_damageevasion.Location = new System.Drawing.Point(5, 75);
 			this.st_Impact1rb_damageevasion.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Impact1rb_damageevasion.Name = "st_Impact1rb_damageevasion";
-			this.st_Impact1rb_damageevasion.Size = new System.Drawing.Size(75, 20);
+			this.st_Impact1rb_damageevasion.Size = new System.Drawing.Size(70, 20);
 			this.st_Impact1rb_damageevasion.TabIndex = 3;
 			this.st_Impact1rb_damageevasion.TabStop = true;
 			this.st_Impact1rb_damageevasion.Text = "evasion";
@@ -3058,21 +3070,21 @@ namespace nwn2_ai_2da_editor
 			this.st_Impact2Grp.Controls.Add(this.st_Impact2rb_damagehalf);
 			this.st_Impact2Grp.Controls.Add(this.st_Impact2rb_effectdamage);
 			this.st_Impact2Grp.Controls.Add(this.st_Impact2rb_damageevasion);
-			this.st_Impact2Grp.Location = new System.Drawing.Point(145, 120);
+			this.st_Impact2Grp.Location = new System.Drawing.Point(130, 120);
 			this.st_Impact2Grp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Impact2Grp.Name = "st_Impact2Grp";
 			this.st_Impact2Grp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_Impact2Grp.Size = new System.Drawing.Size(140, 105);
+			this.st_Impact2Grp.Size = new System.Drawing.Size(130, 110);
 			this.st_Impact2Grp.TabIndex = 3;
 			this.st_Impact2Grp.TabStop = false;
-			this.st_Impact2Grp.Text = "0300 0000 damage2";
+			this.st_Impact2Grp.Text = " 0300 0000 damage2 ";
 			// 
 			// st_Impact2rb_effectonly
 			// 
 			this.st_Impact2rb_effectonly.Location = new System.Drawing.Point(5, 15);
 			this.st_Impact2rb_effectonly.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Impact2rb_effectonly.Name = "st_Impact2rb_effectonly";
-			this.st_Impact2rb_effectonly.Size = new System.Drawing.Size(75, 20);
+			this.st_Impact2rb_effectonly.Size = new System.Drawing.Size(70, 20);
 			this.st_Impact2rb_effectonly.TabIndex = 0;
 			this.st_Impact2rb_effectonly.TabStop = true;
 			this.st_Impact2rb_effectonly.Text = "none";
@@ -3083,7 +3095,7 @@ namespace nwn2_ai_2da_editor
 			this.st_Impact2rb_damagehalf.Location = new System.Drawing.Point(5, 35);
 			this.st_Impact2rb_damagehalf.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Impact2rb_damagehalf.Name = "st_Impact2rb_damagehalf";
-			this.st_Impact2rb_damagehalf.Size = new System.Drawing.Size(75, 20);
+			this.st_Impact2rb_damagehalf.Size = new System.Drawing.Size(70, 20);
 			this.st_Impact2rb_damagehalf.TabIndex = 1;
 			this.st_Impact2rb_damagehalf.TabStop = true;
 			this.st_Impact2rb_damagehalf.Text = "half";
@@ -3094,7 +3106,7 @@ namespace nwn2_ai_2da_editor
 			this.st_Impact2rb_effectdamage.Location = new System.Drawing.Point(5, 55);
 			this.st_Impact2rb_effectdamage.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Impact2rb_effectdamage.Name = "st_Impact2rb_effectdamage";
-			this.st_Impact2rb_effectdamage.Size = new System.Drawing.Size(75, 20);
+			this.st_Impact2rb_effectdamage.Size = new System.Drawing.Size(70, 20);
 			this.st_Impact2rb_effectdamage.TabIndex = 2;
 			this.st_Impact2rb_effectdamage.TabStop = true;
 			this.st_Impact2rb_effectdamage.Text = "regular";
@@ -3105,7 +3117,7 @@ namespace nwn2_ai_2da_editor
 			this.st_Impact2rb_damageevasion.Location = new System.Drawing.Point(5, 75);
 			this.st_Impact2rb_damageevasion.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Impact2rb_damageevasion.Name = "st_Impact2rb_damageevasion";
-			this.st_Impact2rb_damageevasion.Size = new System.Drawing.Size(75, 20);
+			this.st_Impact2rb_damageevasion.Size = new System.Drawing.Size(70, 20);
 			this.st_Impact2rb_damageevasion.TabIndex = 3;
 			this.st_Impact2rb_damageevasion.TabStop = true;
 			this.st_Impact2rb_damageevasion.Text = "evasion";
@@ -3118,21 +3130,21 @@ namespace nwn2_ai_2da_editor
 			this.st_FlagsGrp.Controls.Add(this.st_SpellResistance);
 			this.st_FlagsGrp.Controls.Add(this.st_TouchMelee);
 			this.st_FlagsGrp.Controls.Add(this.st_TouchRanged);
-			this.st_FlagsGrp.Location = new System.Drawing.Point(295, 15);
+			this.st_FlagsGrp.Location = new System.Drawing.Point(265, 15);
 			this.st_FlagsGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_FlagsGrp.Name = "st_FlagsGrp";
 			this.st_FlagsGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_FlagsGrp.Size = new System.Drawing.Size(235, 120);
+			this.st_FlagsGrp.Size = new System.Drawing.Size(215, 120);
 			this.st_FlagsGrp.TabIndex = 4;
 			this.st_FlagsGrp.TabStop = false;
-			this.st_FlagsGrp.Text = "FC00 0000 flags";
+			this.st_FlagsGrp.Text = " FC00 0000 flags ";
 			// 
 			// st_AffectsFriendlies
 			// 
 			this.st_AffectsFriendlies.Location = new System.Drawing.Point(5, 15);
 			this.st_AffectsFriendlies.Margin = new System.Windows.Forms.Padding(0);
 			this.st_AffectsFriendlies.Name = "st_AffectsFriendlies";
-			this.st_AffectsFriendlies.Size = new System.Drawing.Size(225, 20);
+			this.st_AffectsFriendlies.Size = new System.Drawing.Size(165, 20);
 			this.st_AffectsFriendlies.TabIndex = 0;
 			this.st_AffectsFriendlies.Text = "affects allies";
 			this.st_AffectsFriendlies.UseVisualStyleBackColor = true;
@@ -3142,9 +3154,9 @@ namespace nwn2_ai_2da_editor
 			this.st_MindAffecting.Location = new System.Drawing.Point(5, 35);
 			this.st_MindAffecting.Margin = new System.Windows.Forms.Padding(0);
 			this.st_MindAffecting.Name = "st_MindAffecting";
-			this.st_MindAffecting.Size = new System.Drawing.Size(225, 20);
+			this.st_MindAffecting.Size = new System.Drawing.Size(165, 20);
 			this.st_MindAffecting.TabIndex = 1;
-			this.st_MindAffecting.Text = "mind-affecting";
+			this.st_MindAffecting.Text = "is mind-affecting";
 			this.st_MindAffecting.UseVisualStyleBackColor = true;
 			// 
 			// st_SpellResistance
@@ -3152,9 +3164,9 @@ namespace nwn2_ai_2da_editor
 			this.st_SpellResistance.Location = new System.Drawing.Point(5, 55);
 			this.st_SpellResistance.Margin = new System.Windows.Forms.Padding(0);
 			this.st_SpellResistance.Name = "st_SpellResistance";
-			this.st_SpellResistance.Size = new System.Drawing.Size(225, 20);
+			this.st_SpellResistance.Size = new System.Drawing.Size(165, 20);
 			this.st_SpellResistance.TabIndex = 2;
-			this.st_SpellResistance.Text = "spell resistance";
+			this.st_SpellResistance.Text = "checks spell resistance";
 			this.st_SpellResistance.UseVisualStyleBackColor = true;
 			// 
 			// st_TouchMelee
@@ -3162,9 +3174,9 @@ namespace nwn2_ai_2da_editor
 			this.st_TouchMelee.Location = new System.Drawing.Point(5, 75);
 			this.st_TouchMelee.Margin = new System.Windows.Forms.Padding(0);
 			this.st_TouchMelee.Name = "st_TouchMelee";
-			this.st_TouchMelee.Size = new System.Drawing.Size(225, 20);
+			this.st_TouchMelee.Size = new System.Drawing.Size(165, 20);
 			this.st_TouchMelee.TabIndex = 3;
-			this.st_TouchMelee.Text = "melee touch attack";
+			this.st_TouchMelee.Text = "requires melee touch";
 			this.st_TouchMelee.UseVisualStyleBackColor = true;
 			// 
 			// st_TouchRanged
@@ -3172,22 +3184,22 @@ namespace nwn2_ai_2da_editor
 			this.st_TouchRanged.Location = new System.Drawing.Point(5, 95);
 			this.st_TouchRanged.Margin = new System.Windows.Forms.Padding(0);
 			this.st_TouchRanged.Name = "st_TouchRanged";
-			this.st_TouchRanged.Size = new System.Drawing.Size(225, 20);
+			this.st_TouchRanged.Size = new System.Drawing.Size(165, 20);
 			this.st_TouchRanged.TabIndex = 4;
-			this.st_TouchRanged.Text = "ranged touch attack";
+			this.st_TouchRanged.Text = "requires ranged touch";
 			this.st_TouchRanged.UseVisualStyleBackColor = true;
 			// 
 			// st_Immunity1Grp
 			// 
 			this.st_Immunity1Grp.Controls.Add(this.st_co_Immunity1);
-			this.st_Immunity1Grp.Location = new System.Drawing.Point(295, 135);
+			this.st_Immunity1Grp.Location = new System.Drawing.Point(265, 140);
 			this.st_Immunity1Grp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Immunity1Grp.Name = "st_Immunity1Grp";
 			this.st_Immunity1Grp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_Immunity1Grp.Size = new System.Drawing.Size(235, 45);
+			this.st_Immunity1Grp.Size = new System.Drawing.Size(215, 45);
 			this.st_Immunity1Grp.TabIndex = 5;
 			this.st_Immunity1Grp.TabStop = false;
-			this.st_Immunity1Grp.Text = "0000 0FC0 immunity1";
+			this.st_Immunity1Grp.Text = " 0000 0FC0 immunity1 ";
 			// 
 			// st_co_Immunity1
 			// 
@@ -3196,20 +3208,20 @@ namespace nwn2_ai_2da_editor
 			this.st_co_Immunity1.Location = new System.Drawing.Point(5, 15);
 			this.st_co_Immunity1.Margin = new System.Windows.Forms.Padding(0);
 			this.st_co_Immunity1.Name = "st_co_Immunity1";
-			this.st_co_Immunity1.Size = new System.Drawing.Size(225, 21);
+			this.st_co_Immunity1.Size = new System.Drawing.Size(205, 21);
 			this.st_co_Immunity1.TabIndex = 0;
 			// 
 			// st_Immunity2Grp
 			// 
 			this.st_Immunity2Grp.Controls.Add(this.st_co_Immunity2);
-			this.st_Immunity2Grp.Location = new System.Drawing.Point(295, 180);
+			this.st_Immunity2Grp.Location = new System.Drawing.Point(265, 185);
 			this.st_Immunity2Grp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Immunity2Grp.Name = "st_Immunity2Grp";
 			this.st_Immunity2Grp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_Immunity2Grp.Size = new System.Drawing.Size(235, 45);
+			this.st_Immunity2Grp.Size = new System.Drawing.Size(215, 45);
 			this.st_Immunity2Grp.TabIndex = 6;
 			this.st_Immunity2Grp.TabStop = false;
-			this.st_Immunity2Grp.Text = "0003 F000 immunity2";
+			this.st_Immunity2Grp.Text = " 0003 F000 immunity2 ";
 			// 
 			// st_co_Immunity2
 			// 
@@ -3218,13 +3230,13 @@ namespace nwn2_ai_2da_editor
 			this.st_co_Immunity2.Location = new System.Drawing.Point(5, 15);
 			this.st_co_Immunity2.Margin = new System.Windows.Forms.Padding(0);
 			this.st_co_Immunity2.Name = "st_co_Immunity2";
-			this.st_co_Immunity2.Size = new System.Drawing.Size(225, 21);
+			this.st_co_Immunity2.Size = new System.Drawing.Size(205, 21);
 			this.st_co_Immunity2.TabIndex = 0;
 			// 
 			// st_SpecificGrp
 			// 
 			this.st_SpecificGrp.Controls.Add(this.st_co_Specific);
-			this.st_SpecificGrp.Location = new System.Drawing.Point(5, 225);
+			this.st_SpecificGrp.Location = new System.Drawing.Point(5, 230);
 			this.st_SpecificGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_SpecificGrp.Name = "st_SpecificGrp";
 			this.st_SpecificGrp.Padding = new System.Windows.Forms.Padding(0);
@@ -3248,14 +3260,14 @@ namespace nwn2_ai_2da_editor
 			this.st_ExclusiveGrp.Controls.Add(this.st_Excl_DamagetypesGrp);
 			this.st_ExclusiveGrp.Controls.Add(this.st_Excl_WeightGrp);
 			this.st_ExclusiveGrp.Controls.Add(this.st_Excl_FlagsGrp);
-			this.st_ExclusiveGrp.Location = new System.Drawing.Point(540, 60);
+			this.st_ExclusiveGrp.Location = new System.Drawing.Point(495, 60);
 			this.st_ExclusiveGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_ExclusiveGrp.Name = "st_ExclusiveGrp";
 			this.st_ExclusiveGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_ExclusiveGrp.Size = new System.Drawing.Size(270, 280);
+			this.st_ExclusiveGrp.Size = new System.Drawing.Size(260, 280);
 			this.st_ExclusiveGrp.TabIndex = 8;
 			this.st_ExclusiveGrp.TabStop = false;
-			this.st_ExclusiveGrp.Text = "buff - energy resistance/immunity";
+			this.st_ExclusiveGrp.Text = " beneficial - resistance or immunity ";
 			// 
 			// st_Excl_DamagetypesGrp
 			// 
@@ -3275,17 +3287,17 @@ namespace nwn2_ai_2da_editor
 			this.st_Excl_DamagetypesGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_DamagetypesGrp.Name = "st_Excl_DamagetypesGrp";
 			this.st_Excl_DamagetypesGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_Excl_DamagetypesGrp.Size = new System.Drawing.Size(130, 260);
+			this.st_Excl_DamagetypesGrp.Size = new System.Drawing.Size(115, 260);
 			this.st_Excl_DamagetypesGrp.TabIndex = 0;
 			this.st_Excl_DamagetypesGrp.TabStop = false;
-			this.st_Excl_DamagetypesGrp.Text = "0000 0FFF type";
+			this.st_Excl_DamagetypesGrp.Text = " 0000 0FFF type ";
 			// 
 			// st_Excl_Magical
 			// 
 			this.st_Excl_Magical.Location = new System.Drawing.Point(5, 15);
 			this.st_Excl_Magical.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_Magical.Name = "st_Excl_Magical";
-			this.st_Excl_Magical.Size = new System.Drawing.Size(105, 20);
+			this.st_Excl_Magical.Size = new System.Drawing.Size(95, 20);
 			this.st_Excl_Magical.TabIndex = 0;
 			this.st_Excl_Magical.Text = "magical";
 			this.st_Excl_Magical.UseVisualStyleBackColor = true;
@@ -3295,7 +3307,7 @@ namespace nwn2_ai_2da_editor
 			this.st_Excl_Divine.Location = new System.Drawing.Point(5, 35);
 			this.st_Excl_Divine.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_Divine.Name = "st_Excl_Divine";
-			this.st_Excl_Divine.Size = new System.Drawing.Size(105, 20);
+			this.st_Excl_Divine.Size = new System.Drawing.Size(95, 20);
 			this.st_Excl_Divine.TabIndex = 1;
 			this.st_Excl_Divine.Text = "divine";
 			this.st_Excl_Divine.UseVisualStyleBackColor = true;
@@ -3305,7 +3317,7 @@ namespace nwn2_ai_2da_editor
 			this.st_Excl_Acid.Location = new System.Drawing.Point(5, 55);
 			this.st_Excl_Acid.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_Acid.Name = "st_Excl_Acid";
-			this.st_Excl_Acid.Size = new System.Drawing.Size(105, 20);
+			this.st_Excl_Acid.Size = new System.Drawing.Size(95, 20);
 			this.st_Excl_Acid.TabIndex = 2;
 			this.st_Excl_Acid.Text = "acid";
 			this.st_Excl_Acid.UseVisualStyleBackColor = true;
@@ -3315,7 +3327,7 @@ namespace nwn2_ai_2da_editor
 			this.st_Excl_Cold.Location = new System.Drawing.Point(5, 75);
 			this.st_Excl_Cold.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_Cold.Name = "st_Excl_Cold";
-			this.st_Excl_Cold.Size = new System.Drawing.Size(105, 20);
+			this.st_Excl_Cold.Size = new System.Drawing.Size(95, 20);
 			this.st_Excl_Cold.TabIndex = 3;
 			this.st_Excl_Cold.Text = "cold";
 			this.st_Excl_Cold.UseVisualStyleBackColor = true;
@@ -3325,7 +3337,7 @@ namespace nwn2_ai_2da_editor
 			this.st_Excl_Electrical.Location = new System.Drawing.Point(5, 95);
 			this.st_Excl_Electrical.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_Electrical.Name = "st_Excl_Electrical";
-			this.st_Excl_Electrical.Size = new System.Drawing.Size(105, 20);
+			this.st_Excl_Electrical.Size = new System.Drawing.Size(95, 20);
 			this.st_Excl_Electrical.TabIndex = 4;
 			this.st_Excl_Electrical.Text = "electrical";
 			this.st_Excl_Electrical.UseVisualStyleBackColor = true;
@@ -3335,7 +3347,7 @@ namespace nwn2_ai_2da_editor
 			this.st_Excl_Fire.Location = new System.Drawing.Point(5, 115);
 			this.st_Excl_Fire.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_Fire.Name = "st_Excl_Fire";
-			this.st_Excl_Fire.Size = new System.Drawing.Size(105, 20);
+			this.st_Excl_Fire.Size = new System.Drawing.Size(95, 20);
 			this.st_Excl_Fire.TabIndex = 5;
 			this.st_Excl_Fire.Text = "fire";
 			this.st_Excl_Fire.UseVisualStyleBackColor = true;
@@ -3345,7 +3357,7 @@ namespace nwn2_ai_2da_editor
 			this.st_Excl_Sonic.Location = new System.Drawing.Point(5, 135);
 			this.st_Excl_Sonic.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_Sonic.Name = "st_Excl_Sonic";
-			this.st_Excl_Sonic.Size = new System.Drawing.Size(105, 20);
+			this.st_Excl_Sonic.Size = new System.Drawing.Size(95, 20);
 			this.st_Excl_Sonic.TabIndex = 6;
 			this.st_Excl_Sonic.Text = "sonic";
 			this.st_Excl_Sonic.UseVisualStyleBackColor = true;
@@ -3355,7 +3367,7 @@ namespace nwn2_ai_2da_editor
 			this.st_Excl_Negative.Location = new System.Drawing.Point(5, 155);
 			this.st_Excl_Negative.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_Negative.Name = "st_Excl_Negative";
-			this.st_Excl_Negative.Size = new System.Drawing.Size(105, 20);
+			this.st_Excl_Negative.Size = new System.Drawing.Size(95, 20);
 			this.st_Excl_Negative.TabIndex = 7;
 			this.st_Excl_Negative.Text = "negative";
 			this.st_Excl_Negative.UseVisualStyleBackColor = true;
@@ -3365,7 +3377,7 @@ namespace nwn2_ai_2da_editor
 			this.st_Excl_Positive.Location = new System.Drawing.Point(5, 175);
 			this.st_Excl_Positive.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_Positive.Name = "st_Excl_Positive";
-			this.st_Excl_Positive.Size = new System.Drawing.Size(105, 20);
+			this.st_Excl_Positive.Size = new System.Drawing.Size(95, 20);
 			this.st_Excl_Positive.TabIndex = 8;
 			this.st_Excl_Positive.Text = "positive";
 			this.st_Excl_Positive.UseVisualStyleBackColor = true;
@@ -3375,7 +3387,7 @@ namespace nwn2_ai_2da_editor
 			this.st_Excl_Bludgeoning.Location = new System.Drawing.Point(5, 195);
 			this.st_Excl_Bludgeoning.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_Bludgeoning.Name = "st_Excl_Bludgeoning";
-			this.st_Excl_Bludgeoning.Size = new System.Drawing.Size(105, 20);
+			this.st_Excl_Bludgeoning.Size = new System.Drawing.Size(95, 20);
 			this.st_Excl_Bludgeoning.TabIndex = 9;
 			this.st_Excl_Bludgeoning.Text = "bludgeoning";
 			this.st_Excl_Bludgeoning.UseVisualStyleBackColor = true;
@@ -3385,7 +3397,7 @@ namespace nwn2_ai_2da_editor
 			this.st_Excl_Piercing.Location = new System.Drawing.Point(5, 215);
 			this.st_Excl_Piercing.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_Piercing.Name = "st_Excl_Piercing";
-			this.st_Excl_Piercing.Size = new System.Drawing.Size(105, 20);
+			this.st_Excl_Piercing.Size = new System.Drawing.Size(95, 20);
 			this.st_Excl_Piercing.TabIndex = 10;
 			this.st_Excl_Piercing.Text = "piercing";
 			this.st_Excl_Piercing.UseVisualStyleBackColor = true;
@@ -3395,7 +3407,7 @@ namespace nwn2_ai_2da_editor
 			this.st_Excl_Slashing.Location = new System.Drawing.Point(5, 235);
 			this.st_Excl_Slashing.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_Slashing.Name = "st_Excl_Slashing";
-			this.st_Excl_Slashing.Size = new System.Drawing.Size(105, 20);
+			this.st_Excl_Slashing.Size = new System.Drawing.Size(95, 20);
 			this.st_Excl_Slashing.TabIndex = 11;
 			this.st_Excl_Slashing.Text = "slashing";
 			this.st_Excl_Slashing.UseVisualStyleBackColor = true;
@@ -3403,14 +3415,14 @@ namespace nwn2_ai_2da_editor
 			// st_Excl_WeightGrp
 			// 
 			this.st_Excl_WeightGrp.Controls.Add(this.st_Excl_Weight);
-			this.st_Excl_WeightGrp.Location = new System.Drawing.Point(135, 15);
+			this.st_Excl_WeightGrp.Location = new System.Drawing.Point(125, 15);
 			this.st_Excl_WeightGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_WeightGrp.Name = "st_Excl_WeightGrp";
 			this.st_Excl_WeightGrp.Padding = new System.Windows.Forms.Padding(0);
 			this.st_Excl_WeightGrp.Size = new System.Drawing.Size(130, 40);
 			this.st_Excl_WeightGrp.TabIndex = 1;
 			this.st_Excl_WeightGrp.TabStop = false;
-			this.st_Excl_WeightGrp.Text = "000F F000 power";
+			this.st_Excl_WeightGrp.Text = " 000F F000 power ";
 			// 
 			// st_Excl_Weight
 			// 
@@ -3426,21 +3438,21 @@ namespace nwn2_ai_2da_editor
 			this.st_Excl_FlagsGrp.Controls.Add(this.st_Excl_rbImmunity);
 			this.st_Excl_FlagsGrp.Controls.Add(this.st_Excl_Onlyone);
 			this.st_Excl_FlagsGrp.Controls.Add(this.st_Excl_General);
-			this.st_Excl_FlagsGrp.Location = new System.Drawing.Point(135, 55);
+			this.st_Excl_FlagsGrp.Location = new System.Drawing.Point(125, 55);
 			this.st_Excl_FlagsGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_FlagsGrp.Name = "st_Excl_FlagsGrp";
 			this.st_Excl_FlagsGrp.Padding = new System.Windows.Forms.Padding(0);
 			this.st_Excl_FlagsGrp.Size = new System.Drawing.Size(130, 100);
 			this.st_Excl_FlagsGrp.TabIndex = 2;
 			this.st_Excl_FlagsGrp.TabStop = false;
-			this.st_Excl_FlagsGrp.Text = "0070 0000 flags";
+			this.st_Excl_FlagsGrp.Text = " 0070 0000 flags ";
 			// 
 			// st_Excl_rbResistance
 			// 
 			this.st_Excl_rbResistance.Location = new System.Drawing.Point(5, 15);
 			this.st_Excl_rbResistance.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_rbResistance.Name = "st_Excl_rbResistance";
-			this.st_Excl_rbResistance.Size = new System.Drawing.Size(120, 20);
+			this.st_Excl_rbResistance.Size = new System.Drawing.Size(105, 20);
 			this.st_Excl_rbResistance.TabIndex = 0;
 			this.st_Excl_rbResistance.TabStop = true;
 			this.st_Excl_rbResistance.Text = "is Resistance";
@@ -3451,7 +3463,7 @@ namespace nwn2_ai_2da_editor
 			this.st_Excl_rbImmunity.Location = new System.Drawing.Point(5, 35);
 			this.st_Excl_rbImmunity.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_rbImmunity.Name = "st_Excl_rbImmunity";
-			this.st_Excl_rbImmunity.Size = new System.Drawing.Size(120, 20);
+			this.st_Excl_rbImmunity.Size = new System.Drawing.Size(105, 20);
 			this.st_Excl_rbImmunity.TabIndex = 1;
 			this.st_Excl_rbImmunity.TabStop = true;
 			this.st_Excl_rbImmunity.Text = "is Immunity";
@@ -3462,7 +3474,7 @@ namespace nwn2_ai_2da_editor
 			this.st_Excl_Onlyone.Location = new System.Drawing.Point(5, 55);
 			this.st_Excl_Onlyone.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_Onlyone.Name = "st_Excl_Onlyone";
-			this.st_Excl_Onlyone.Size = new System.Drawing.Size(120, 20);
+			this.st_Excl_Onlyone.Size = new System.Drawing.Size(105, 20);
 			this.st_Excl_Onlyone.TabIndex = 2;
 			this.st_Excl_Onlyone.Text = "only one type";
 			this.st_Excl_Onlyone.UseVisualStyleBackColor = true;
@@ -3472,55 +3484,22 @@ namespace nwn2_ai_2da_editor
 			this.st_Excl_General.Location = new System.Drawing.Point(5, 75);
 			this.st_Excl_General.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Excl_General.Name = "st_Excl_General";
-			this.st_Excl_General.Size = new System.Drawing.Size(120, 20);
+			this.st_Excl_General.Size = new System.Drawing.Size(105, 20);
 			this.st_Excl_General.TabIndex = 3;
 			this.st_Excl_General.Text = "general";
 			this.st_Excl_General.UseVisualStyleBackColor = true;
 			// 
-			// st_TargetRestrictionGrp
-			// 
-			this.st_TargetRestrictionGrp.Controls.Add(this.st_co_TargetRestriction);
-			this.st_TargetRestrictionGrp.Location = new System.Drawing.Point(5, 360);
-			this.st_TargetRestrictionGrp.Margin = new System.Windows.Forms.Padding(0);
-			this.st_TargetRestrictionGrp.Name = "st_TargetRestrictionGrp";
-			this.st_TargetRestrictionGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_TargetRestrictionGrp.Size = new System.Drawing.Size(520, 45);
-			this.st_TargetRestrictionGrp.TabIndex = 10;
-			this.st_TargetRestrictionGrp.TabStop = false;
-			this.st_TargetRestrictionGrp.Text = "0000 101F targetrestriction";
-			// 
-			// st_co_TargetRestriction
-			// 
-			this.st_co_TargetRestriction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-			this.st_co_TargetRestriction.DropDownWidth = 510;
-			this.st_co_TargetRestriction.FormattingEnabled = true;
-			this.st_co_TargetRestriction.Location = new System.Drawing.Point(5, 15);
-			this.st_co_TargetRestriction.Margin = new System.Windows.Forms.Padding(0);
-			this.st_co_TargetRestriction.Name = "st_co_TargetRestriction";
-			this.st_co_TargetRestriction.Size = new System.Drawing.Size(510, 21);
-			this.st_co_TargetRestriction.TabIndex = 0;
-			// 
-			// st_NotCaster
-			// 
-			this.st_NotCaster.Location = new System.Drawing.Point(10, 340);
-			this.st_NotCaster.Margin = new System.Windows.Forms.Padding(0);
-			this.st_NotCaster.Name = "st_NotCaster";
-			this.st_NotCaster.Size = new System.Drawing.Size(225, 20);
-			this.st_NotCaster.TabIndex = 9;
-			this.st_NotCaster.Text = "does not affect caster";
-			this.st_NotCaster.UseVisualStyleBackColor = true;
-			// 
 			// st_AcBonusGrp
 			// 
 			this.st_AcBonusGrp.Controls.Add(this.st_co_AcBonus);
-			this.st_AcBonusGrp.Location = new System.Drawing.Point(525, 360);
+			this.st_AcBonusGrp.Location = new System.Drawing.Point(5, 340);
 			this.st_AcBonusGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_AcBonusGrp.Name = "st_AcBonusGrp";
 			this.st_AcBonusGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_AcBonusGrp.Size = new System.Drawing.Size(195, 45);
-			this.st_AcBonusGrp.TabIndex = 11;
+			this.st_AcBonusGrp.Size = new System.Drawing.Size(165, 45);
+			this.st_AcBonusGrp.TabIndex = 9;
 			this.st_AcBonusGrp.TabStop = false;
-			this.st_AcBonusGrp.Text = "001C 0000 ac";
+			this.st_AcBonusGrp.Text = " 001C 0000 ac bonus ";
 			// 
 			// st_co_AcBonus
 			// 
@@ -3529,8 +3508,84 @@ namespace nwn2_ai_2da_editor
 			this.st_co_AcBonus.Location = new System.Drawing.Point(5, 15);
 			this.st_co_AcBonus.Margin = new System.Windows.Forms.Padding(0);
 			this.st_co_AcBonus.Name = "st_co_AcBonus";
-			this.st_co_AcBonus.Size = new System.Drawing.Size(185, 21);
+			this.st_co_AcBonus.Size = new System.Drawing.Size(155, 21);
 			this.st_co_AcBonus.TabIndex = 0;
+			// 
+			// st_SizeEffectGrp
+			// 
+			this.st_SizeEffectGrp.Controls.Add(this.st_ReduceNotEnlarge);
+			this.st_SizeEffectGrp.Controls.Add(this.st_AnimalOnly);
+			this.st_SizeEffectGrp.Controls.Add(this.st_NotHumanoid);
+			this.st_SizeEffectGrp.Location = new System.Drawing.Point(175, 340);
+			this.st_SizeEffectGrp.Margin = new System.Windows.Forms.Padding(0);
+			this.st_SizeEffectGrp.Name = "st_SizeEffectGrp";
+			this.st_SizeEffectGrp.Padding = new System.Windows.Forms.Padding(0);
+			this.st_SizeEffectGrp.Size = new System.Drawing.Size(165, 80);
+			this.st_SizeEffectGrp.TabIndex = 10;
+			this.st_SizeEffectGrp.TabStop = false;
+			this.st_SizeEffectGrp.Text = " 0000 0007 size effect ";
+			// 
+			// st_ReduceNotEnlarge
+			// 
+			this.st_ReduceNotEnlarge.Location = new System.Drawing.Point(5, 15);
+			this.st_ReduceNotEnlarge.Margin = new System.Windows.Forms.Padding(0);
+			this.st_ReduceNotEnlarge.Name = "st_ReduceNotEnlarge";
+			this.st_ReduceNotEnlarge.Size = new System.Drawing.Size(155, 20);
+			this.st_ReduceNotEnlarge.TabIndex = 0;
+			this.st_ReduceNotEnlarge.Text = "reduce not enlarge";
+			this.st_ReduceNotEnlarge.UseVisualStyleBackColor = true;
+			// 
+			// st_AnimalOnly
+			// 
+			this.st_AnimalOnly.Location = new System.Drawing.Point(5, 35);
+			this.st_AnimalOnly.Margin = new System.Windows.Forms.Padding(0);
+			this.st_AnimalOnly.Name = "st_AnimalOnly";
+			this.st_AnimalOnly.Size = new System.Drawing.Size(155, 20);
+			this.st_AnimalOnly.TabIndex = 1;
+			this.st_AnimalOnly.Text = "animal or beast only";
+			this.st_AnimalOnly.UseVisualStyleBackColor = true;
+			// 
+			// st_NotHumanoid
+			// 
+			this.st_NotHumanoid.Location = new System.Drawing.Point(5, 55);
+			this.st_NotHumanoid.Margin = new System.Windows.Forms.Padding(0);
+			this.st_NotHumanoid.Name = "st_NotHumanoid";
+			this.st_NotHumanoid.Size = new System.Drawing.Size(155, 20);
+			this.st_NotHumanoid.TabIndex = 2;
+			this.st_NotHumanoid.Text = "bypass humanoid check";
+			this.st_NotHumanoid.UseVisualStyleBackColor = true;
+			// 
+			// st_TargetRestrictionGrp
+			// 
+			this.st_TargetRestrictionGrp.Controls.Add(this.st_co_TargetRestriction);
+			this.st_TargetRestrictionGrp.Location = new System.Drawing.Point(345, 340);
+			this.st_TargetRestrictionGrp.Margin = new System.Windows.Forms.Padding(0);
+			this.st_TargetRestrictionGrp.Name = "st_TargetRestrictionGrp";
+			this.st_TargetRestrictionGrp.Padding = new System.Windows.Forms.Padding(0);
+			this.st_TargetRestrictionGrp.Size = new System.Drawing.Size(410, 45);
+			this.st_TargetRestrictionGrp.TabIndex = 11;
+			this.st_TargetRestrictionGrp.TabStop = false;
+			this.st_TargetRestrictionGrp.Text = " 0000 101F targetrestriction ";
+			// 
+			// st_co_TargetRestriction
+			// 
+			this.st_co_TargetRestriction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+			this.st_co_TargetRestriction.FormattingEnabled = true;
+			this.st_co_TargetRestriction.Location = new System.Drawing.Point(5, 15);
+			this.st_co_TargetRestriction.Margin = new System.Windows.Forms.Padding(0);
+			this.st_co_TargetRestriction.Name = "st_co_TargetRestriction";
+			this.st_co_TargetRestriction.Size = new System.Drawing.Size(400, 21);
+			this.st_co_TargetRestriction.TabIndex = 0;
+			// 
+			// st_NotCaster
+			// 
+			this.st_NotCaster.Location = new System.Drawing.Point(10, 395);
+			this.st_NotCaster.Margin = new System.Windows.Forms.Padding(0);
+			this.st_NotCaster.Name = "st_NotCaster";
+			this.st_NotCaster.Size = new System.Drawing.Size(160, 20);
+			this.st_NotCaster.TabIndex = 12;
+			this.st_NotCaster.Text = "does not affect caster";
+			this.st_NotCaster.UseVisualStyleBackColor = true;
 			// 
 			// tp_SaveDCType
 			// 
@@ -3845,8 +3900,9 @@ namespace nwn2_ai_2da_editor
 			this.st_Excl_WeightGrp.ResumeLayout(false);
 			this.st_Excl_WeightGrp.PerformLayout();
 			this.st_Excl_FlagsGrp.ResumeLayout(false);
-			this.st_TargetRestrictionGrp.ResumeLayout(false);
 			this.st_AcBonusGrp.ResumeLayout(false);
+			this.st_SizeEffectGrp.ResumeLayout(false);
+			this.st_TargetRestrictionGrp.ResumeLayout(false);
 			this.tp_SaveDCType.ResumeLayout(false);
 			this.tp_SaveDCType.PerformLayout();
 			this.dc_SaveDCGrp.ResumeLayout(false);
