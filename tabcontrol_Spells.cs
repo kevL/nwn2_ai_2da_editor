@@ -884,64 +884,6 @@ namespace nwn2_ai_2da_editor
 			SaveType_reset    .ForeColor =
 			SaveDCType_reset  .ForeColor = color;
 		}
-
-		/// <summary>
-		/// The TonyAI 2.3+ sets bits of data by reading it directly from
-		/// Spells.2da - such data is no longer stored in HenchSpells.2da. This
-		/// funct clears those bits auto right after HenchSpells.2da loads.
-		/// @note The controls are disabled on the tabpage.
-		/// @note Is based on SetInfoVersion_spells(). This funct, however,
-		/// ASSUMES that nothing in the spell-list has changed yet; this funct
-		/// bypasses a bunch of differ-stuff that SetInfoVersion_spells()
-		/// doesn't.
-		/// </summary>
-		internal override void UpdateSpellInfo()
-		{
-			Spell spell;
-			SpellChanged spellchanged;
-
-			int spellinfo0, spellinfo, differ;
-
-			int total = he.Spells.Count;
-			for (int id = 0; id != total; ++id)
-			{
-				spell = he.Spells[id];
-
-				spellinfo0 = spell.spellinfo;
-
-				spellinfo = spellinfo0 & ~(hc.HENCH_SPELL_INFO_CONCENTRATION_FLAG
-										 | hc.HENCH_SPELL_INFO_SPELL_LEVEL_MASK);
-
-				if (spellinfo != spellinfo0)
-				{
-					if (id == he.Id)
-					{
-						he.HenchControl.SetMasterText(spellinfo.ToString()); // firing the TextChanged event takes care of it.
-					}
-					else
-					{
-						spellchanged = new SpellChanged();
-
-						spellchanged.targetinfo   = spell.targetinfo;
-						spellchanged.effectweight = spell.effectweight;
-						spellchanged.effecttypes  = spell.effecttypes;
-						spellchanged.damageinfo   = spell.damageinfo;
-						spellchanged.savetype     = spell.savetype;
-						spellchanged.savedctype   = spell.savedctype;
-
-						spellchanged.spellinfo = spellinfo;
-
-						// check it
-						differ = tabcontrol_Spells.SpellDiffer(spell, spellchanged);
-						spell.differ = differ;
-						he.Spells[id] = spell;
-
-						he.SpellsChanged[id] = spellchanged;
-						_he.SetNodeColor(Color.Crimson, id);
-					}
-				}
-			}
-		}
 		#endregion HenchControl (override)
 
 

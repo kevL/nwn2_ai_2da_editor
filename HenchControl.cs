@@ -34,8 +34,5 @@ namespace nwn2_ai_2da_editor
 		// these two are relevant only to 'tabcontrol_Racial' and 'tabcontrol_Classes'
 		internal virtual void SetFeatLabelTexts(){}
 		internal virtual void ClearFeatLabelTexts(){}
-
-		// this one is relevant only to 'tabcontrol_Spells'
-		internal virtual void UpdateSpellInfo(){}
 	}
 }

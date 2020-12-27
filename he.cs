@@ -603,7 +603,7 @@ namespace nwn2_ai_2da_editor
 					// This need to be done after 'BypassDiffer' ...
 					if (Type == Type2da.TYPE_SPELLS)
 					{
-						HenchControl.UpdateSpellInfo();
+						UpdateSpellInfo();
 					}
 				}
 			}
@@ -716,6 +716,63 @@ namespace nwn2_ai_2da_editor
 
 			btn_Apply     .Text = "apply this spell\'s data";
 			tree_Highlight.Text = "highlight blank SpellInfo nodes";
+		}
+
+		/// <summary>
+		/// The TonyAI 2.3+ sets bits of data by reading it directly from
+		/// Spells.2da - such data is no longer stored in HenchSpells.2da. This
+		/// funct clears those bits auto right after HenchSpells.2da loads.
+		/// @note The controls are disabled on the tabpage.
+		/// @note Is based on <see cref="SetInfoVersion_spells"/>. This funct,
+		/// however, ASSUMES that nothing in the spell-list has changed yet;
+		/// this funct bypasses a bunch of differ-stuff that
+		/// SetInfoVersion_spells() doesn't.
+		/// </summary>
+		void UpdateSpellInfo()
+		{
+			Spell spell;
+			SpellChanged spellchanged;
+
+			int spellinfo0, spellinfo;
+
+			int total = Spells.Count;
+			for (int id = 0; id != total; ++id)
+			{
+				spell = Spells[id];
+
+				spellinfo0 = spell.spellinfo;
+
+				spellinfo = spellinfo0 & ~(hc.HENCH_SPELL_INFO_CONCENTRATION_FLAG
+										 | hc.HENCH_SPELL_INFO_SPELL_LEVEL_MASK);
+
+				if (spellinfo != spellinfo0)
+				{
+					if (id == Id)
+					{
+						HenchControl.SetMasterText(spellinfo.ToString()); // firing the TextChanged event takes care of it.
+					}
+					else
+					{
+						spellchanged = new SpellChanged();
+
+						spellchanged.targetinfo   = spell.targetinfo;
+						spellchanged.effectweight = spell.effectweight;
+						spellchanged.effecttypes  = spell.effecttypes;
+						spellchanged.damageinfo   = spell.damageinfo;
+						spellchanged.savetype     = spell.savetype;
+						spellchanged.savedctype   = spell.savedctype;
+
+						spellchanged.spellinfo = spellinfo;
+						SpellsChanged[id] = spellchanged;
+
+						// check it
+						spell.differ = tabcontrol_Spells.SpellDiffer(spell, spellchanged);
+						Spells[id] = spell;
+
+						Tree.Nodes[id].ForeColor = Color.Crimson;
+					}
+				}
+			}
 		}
 
 /*		/// <summary>
@@ -1302,22 +1359,12 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// 
+		/// Sets the color of the currently selected node.
 		/// </summary>
 		/// <param name="color"></param>
 		internal void SetNodeColor(Color color)
 		{
 			Tree.SelectedNode.ForeColor = color;
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="color"></param>
-		/// <param name="id"></param>
-		internal void SetNodeColor(Color color, int id)
-		{
-			Tree.Nodes[id].ForeColor = color;
 		}
 
 		/// <summary>
