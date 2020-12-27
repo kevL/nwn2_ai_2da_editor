@@ -835,14 +835,14 @@ namespace nwn2_ai_2da_editor
 			this.si_SpelltypeGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.si_SpelltypeGrp.Name = "si_SpelltypeGrp";
 			this.si_SpelltypeGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.si_SpelltypeGrp.Size = new System.Drawing.Size(380, 45);
+			this.si_SpelltypeGrp.Size = new System.Drawing.Size(245, 45);
 			this.si_SpelltypeGrp.TabIndex = 7;
 			this.si_SpelltypeGrp.TabStop = false;
 			this.si_SpelltypeGrp.Text = " 0000 00FF spelltype ";
 			// 
 			// si_hostile
 			// 
-			this.si_hostile.Location = new System.Drawing.Point(300, 15);
+			this.si_hostile.Location = new System.Drawing.Point(165, 15);
 			this.si_hostile.Margin = new System.Windows.Forms.Padding(0);
 			this.si_hostile.Name = "si_hostile";
 			this.si_hostile.Size = new System.Drawing.Size(75, 20);
@@ -973,7 +973,7 @@ namespace nwn2_ai_2da_editor
 			// si_SpelllevelGrp
 			// 
 			this.si_SpelllevelGrp.Controls.Add(this.si_co_Spelllevel);
-			this.si_SpelllevelGrp.Location = new System.Drawing.Point(390, 60);
+			this.si_SpelllevelGrp.Location = new System.Drawing.Point(255, 60);
 			this.si_SpelllevelGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.si_SpelllevelGrp.Name = "si_SpelllevelGrp";
 			this.si_SpelllevelGrp.Padding = new System.Windows.Forms.Padding(0);
