@@ -130,8 +130,20 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		void fileclick_Recent(object sender, EventArgs e)
+		void Click_recent(object sender, EventArgs e)
 		{
+			if (isChanged())
+			{
+				string info = "Data has changed."
+							+ Environment.NewLine + Environment.NewLine
+							+ "Okay to exit ...";
+				using (var ib = new infobox(" Warning", info, "yessir", "no"))
+				{
+					if (ib.ShowDialog(this) != DialogResult.OK)
+						return;
+				}
+			}
+
 			var it = sender as ToolStripMenuItem;
 			if (File.Exists(it.Text))
 			{
@@ -161,7 +173,7 @@ namespace nwn2_ai_2da_editor
 			}
 			else
 			{
-				const string info = "There is data that has been modified but not applied.";
+				const string info = "There is data that has been altered but not applied.";
 				using (var ib = new infobox(" Attention", info, "save anyway", "cancel", "apply & save"))
 				{
 					switch (ib.ShowDialog(this))

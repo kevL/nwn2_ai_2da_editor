@@ -182,7 +182,7 @@ namespace nwn2_ai_2da_editor
 					if (File.Exists(line))
 					{
 						var it = new ToolStripMenuItem(line);
-						it.Click += fileclick_Recent;
+						it.Click += Click_recent;
 						recents.Add(it);
 
 						if (recents.Count == 8) // up to 8 recents
@@ -421,7 +421,7 @@ namespace nwn2_ai_2da_editor
 				if (!found)
 				{
 					it = new ToolStripMenuItem(_pfe);
-					it.Click += fileclick_Recent;
+					it.Click += Click_recent;
 					recents.Insert(0, it);
 
 					if (recents.Count > 8) // up to 8 recents
