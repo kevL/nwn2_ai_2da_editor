@@ -596,7 +596,7 @@ namespace nwn2_ai_2da_editor
 
 					BypassDiffer = false;
 
-					// TODO: if (HenchSpells.2da) clear bits for
+					// if (HenchSpells.2da) clear bits for
 					// - Concentration
 					// - SpellLevel
 					// because TonyAI 2.3+ sets those auto.
