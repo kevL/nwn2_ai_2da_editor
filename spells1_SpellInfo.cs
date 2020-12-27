@@ -222,6 +222,10 @@ namespace nwn2_ai_2da_editor
 				{
 					bit = hc.HENCH_SPELL_INFO_UNLIMITED_FLAG;		// 0x00000800
 				}
+//				else if (cb == si_NonVerbal) // TonyAI 2.3+ add ->
+//				{
+//					bit = hc.HENCH_SPELL_INFO_NO_VERBAL;			// 0x00001000
+//				}
 				else if (cb == si_HealOrCure)
 				{
 					bit = hc.HENCH_SPELL_INFO_HEAL_OR_CURE;			// 0x00020000
@@ -431,6 +435,7 @@ namespace nwn2_ai_2da_editor
 			si_MediumDurBuff.Checked = (spellinfo & hc.HENCH_SPELL_INFO_MEDIUM_DUR_BUFF)    != 0;
 			si_LongDurBuff  .Checked = (spellinfo & hc.HENCH_SPELL_INFO_LONG_DUR_BUFF)      != 0;
 			si_ItemCast     .Checked = (spellinfo & hc.HENCH_SPELL_INFO_ITEM_FLAG)          != 0;
+//			si_NonVerbal    .Checked = (spellinfo & hc.HENCH_SPELL_INFO_NO_VERBAL)          != 0; // TonyAI 2.3+ add
 
 // Spelltype dropdown-list
 			int val = spellinfo;

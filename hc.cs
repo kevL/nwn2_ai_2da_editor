@@ -29,12 +29,13 @@
 
 		// 'hench_i0_itemsp'
 		internal const int HENCH_SPELL_INFO_SPELL_LEVEL_MASK             = 0x0001e000; // shift >> 13
-		internal const int HENCH_SPELL_INFO_SPELL_LEVEL_SHIFT            = 13;
+		internal const int HENCH_SPELL_INFO_SPELL_LEVEL_SHIFT            = 13;         // NOTE: spelllevel is set auto in TonyAI 2.3+
 
 		internal const int HENCH_SPELL_INFO_MASTER_FLAG                  = 0x00000100;
 		internal const int HENCH_SPELL_INFO_IGNORE_FLAG                  = 0x00000200;
-		internal const int HENCH_SPELL_INFO_CONCENTRATION_FLAG           = 0x00000400;
+		internal const int HENCH_SPELL_INFO_CONCENTRATION_FLAG           = 0x00000400; // NOTE: is set auto in TonyAI 2.3+
 		internal const int HENCH_SPELL_INFO_UNLIMITED_FLAG               = 0x00000800;
+//		internal const int HENCH_SPELL_INFO_NO_VERBAL                    = 0x00001000; // TonyAI 2.3+ add - NOTE: is set auto
 
 		internal const int HENCH_SPELL_INFO_HEAL_OR_CURE                 = 0x00020000;
 		internal const int HENCH_SPELL_INFO_SHORT_DUR_BUFF               = 0x00040000;

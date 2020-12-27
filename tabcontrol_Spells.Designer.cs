@@ -799,7 +799,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// si_Clear
 			// 
-			this.si_Clear.Location = new System.Drawing.Point(450, 5);
+			this.si_Clear.Location = new System.Drawing.Point(445, 5);
 			this.si_Clear.Margin = new System.Windows.Forms.Padding(0);
 			this.si_Clear.Name = "si_Clear";
 			this.si_Clear.Size = new System.Drawing.Size(65, 50);
@@ -835,18 +835,19 @@ namespace nwn2_ai_2da_editor
 			this.si_SpelltypeGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.si_SpelltypeGrp.Name = "si_SpelltypeGrp";
 			this.si_SpelltypeGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.si_SpelltypeGrp.Size = new System.Drawing.Size(405, 45);
+			this.si_SpelltypeGrp.Size = new System.Drawing.Size(380, 45);
 			this.si_SpelltypeGrp.TabIndex = 7;
 			this.si_SpelltypeGrp.TabStop = false;
-			this.si_SpelltypeGrp.Text = "0000 00FF spelltype";
+			this.si_SpelltypeGrp.Text = " 0000 00FF spelltype ";
 			// 
 			// si_hostile
 			// 
-			this.si_hostile.Location = new System.Drawing.Point(305, 15);
+			this.si_hostile.Location = new System.Drawing.Point(300, 15);
 			this.si_hostile.Margin = new System.Windows.Forms.Padding(0);
 			this.si_hostile.Name = "si_hostile";
-			this.si_hostile.Size = new System.Drawing.Size(95, 25);
+			this.si_hostile.Size = new System.Drawing.Size(75, 20);
 			this.si_hostile.TabIndex = 0;
+			this.si_hostile.Text = "si_hostile";
 			this.si_hostile.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// si_co_Spelltype
@@ -874,19 +875,19 @@ namespace nwn2_ai_2da_editor
 			this.si_FlagsGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.si_FlagsGrp.Name = "si_FlagsGrp";
 			this.si_FlagsGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.si_FlagsGrp.Size = new System.Drawing.Size(300, 200);
+			this.si_FlagsGrp.Size = new System.Drawing.Size(185, 180);
 			this.si_FlagsGrp.TabIndex = 8;
 			this.si_FlagsGrp.TabStop = false;
-			this.si_FlagsGrp.Text = "009E 0F00 flags";
+			this.si_FlagsGrp.Text = " 009E CF00 flags ";
 			// 
 			// si_Ignore
 			// 
 			this.si_Ignore.Location = new System.Drawing.Point(10, 15);
 			this.si_Ignore.Margin = new System.Windows.Forms.Padding(0);
 			this.si_Ignore.Name = "si_Ignore";
-			this.si_Ignore.Size = new System.Drawing.Size(285, 20);
+			this.si_Ignore.Size = new System.Drawing.Size(165, 20);
 			this.si_Ignore.TabIndex = 0;
-			this.si_Ignore.Text = "ignore";
+			this.si_Ignore.Text = "IGNORE";
 			this.si_Ignore.UseVisualStyleBackColor = true;
 			// 
 			// si_IsMaster
@@ -894,9 +895,9 @@ namespace nwn2_ai_2da_editor
 			this.si_IsMaster.Location = new System.Drawing.Point(10, 35);
 			this.si_IsMaster.Margin = new System.Windows.Forms.Padding(0);
 			this.si_IsMaster.Name = "si_IsMaster";
-			this.si_IsMaster.Size = new System.Drawing.Size(285, 20);
+			this.si_IsMaster.Size = new System.Drawing.Size(165, 20);
 			this.si_IsMaster.TabIndex = 1;
-			this.si_IsMaster.Text = "is Master Spell ID";
+			this.si_IsMaster.Text = "is masterspell";
 			this.si_IsMaster.UseVisualStyleBackColor = true;
 			// 
 			// si_Concentration
@@ -904,82 +905,82 @@ namespace nwn2_ai_2da_editor
 			this.si_Concentration.Location = new System.Drawing.Point(10, 55);
 			this.si_Concentration.Margin = new System.Windows.Forms.Padding(0);
 			this.si_Concentration.Name = "si_Concentration";
-			this.si_Concentration.Size = new System.Drawing.Size(285, 20);
+			this.si_Concentration.Size = new System.Drawing.Size(165, 20);
 			this.si_Concentration.TabIndex = 2;
-			this.si_Concentration.Text = "does a Concentration check";
+			this.si_Concentration.Text = "has Concentration check";
 			this.si_Concentration.UseVisualStyleBackColor = true;
 			// 
 			// si_HealOrCure
 			// 
-			this.si_HealOrCure.Location = new System.Drawing.Point(10, 75);
+			this.si_HealOrCure.Location = new System.Drawing.Point(10, 55);
 			this.si_HealOrCure.Margin = new System.Windows.Forms.Padding(0);
 			this.si_HealOrCure.Name = "si_HealOrCure";
-			this.si_HealOrCure.Size = new System.Drawing.Size(285, 20);
+			this.si_HealOrCure.Size = new System.Drawing.Size(165, 20);
 			this.si_HealOrCure.TabIndex = 3;
-			this.si_HealOrCure.Text = "is Heal or Cure";
+			this.si_HealOrCure.Text = "is heal or cure";
 			this.si_HealOrCure.UseVisualStyleBackColor = true;
 			// 
 			// si_ItemCast
 			// 
-			this.si_ItemCast.Location = new System.Drawing.Point(10, 95);
+			this.si_ItemCast.Location = new System.Drawing.Point(10, 75);
 			this.si_ItemCast.Margin = new System.Windows.Forms.Padding(0);
 			this.si_ItemCast.Name = "si_ItemCast";
-			this.si_ItemCast.Size = new System.Drawing.Size(285, 20);
+			this.si_ItemCast.Size = new System.Drawing.Size(165, 20);
 			this.si_ItemCast.TabIndex = 4;
-			this.si_ItemCast.Text = "is cast by an Item";
+			this.si_ItemCast.Text = "is cast by item";
 			this.si_ItemCast.UseVisualStyleBackColor = true;
 			// 
 			// si_Unlimited
 			// 
-			this.si_Unlimited.Location = new System.Drawing.Point(10, 115);
+			this.si_Unlimited.Location = new System.Drawing.Point(10, 95);
 			this.si_Unlimited.Margin = new System.Windows.Forms.Padding(0);
 			this.si_Unlimited.Name = "si_Unlimited";
-			this.si_Unlimited.Size = new System.Drawing.Size(285, 20);
+			this.si_Unlimited.Size = new System.Drawing.Size(165, 20);
 			this.si_Unlimited.TabIndex = 5;
-			this.si_Unlimited.Text = "has Unlimited casts";
+			this.si_Unlimited.Text = "has unlimited casts";
 			this.si_Unlimited.UseVisualStyleBackColor = true;
 			// 
 			// si_ShortDurBuff
 			// 
-			this.si_ShortDurBuff.Location = new System.Drawing.Point(10, 135);
+			this.si_ShortDurBuff.Location = new System.Drawing.Point(10, 115);
 			this.si_ShortDurBuff.Margin = new System.Windows.Forms.Padding(0);
 			this.si_ShortDurBuff.Name = "si_ShortDurBuff";
-			this.si_ShortDurBuff.Size = new System.Drawing.Size(285, 20);
+			this.si_ShortDurBuff.Size = new System.Drawing.Size(165, 20);
 			this.si_ShortDurBuff.TabIndex = 6;
-			this.si_ShortDurBuff.Text = "short Duration buff";
+			this.si_ShortDurBuff.Text = "is short duration buff";
 			this.si_ShortDurBuff.UseVisualStyleBackColor = true;
 			// 
 			// si_MediumDurBuff
 			// 
-			this.si_MediumDurBuff.Location = new System.Drawing.Point(10, 155);
+			this.si_MediumDurBuff.Location = new System.Drawing.Point(10, 135);
 			this.si_MediumDurBuff.Margin = new System.Windows.Forms.Padding(0);
 			this.si_MediumDurBuff.Name = "si_MediumDurBuff";
-			this.si_MediumDurBuff.Size = new System.Drawing.Size(285, 20);
+			this.si_MediumDurBuff.Size = new System.Drawing.Size(165, 20);
 			this.si_MediumDurBuff.TabIndex = 7;
-			this.si_MediumDurBuff.Text = "medium Duration buff";
+			this.si_MediumDurBuff.Text = "is medium duration buff";
 			this.si_MediumDurBuff.UseVisualStyleBackColor = true;
 			// 
 			// si_LongDurBuff
 			// 
-			this.si_LongDurBuff.Location = new System.Drawing.Point(10, 175);
+			this.si_LongDurBuff.Location = new System.Drawing.Point(10, 155);
 			this.si_LongDurBuff.Margin = new System.Windows.Forms.Padding(0);
 			this.si_LongDurBuff.Name = "si_LongDurBuff";
-			this.si_LongDurBuff.Size = new System.Drawing.Size(285, 20);
+			this.si_LongDurBuff.Size = new System.Drawing.Size(165, 20);
 			this.si_LongDurBuff.TabIndex = 8;
-			this.si_LongDurBuff.Text = "long Duration buff";
+			this.si_LongDurBuff.Text = "is long duration buff";
 			this.si_LongDurBuff.UseVisualStyleBackColor = true;
 			// 
 			// si_SpelllevelGrp
 			// 
 			this.si_SpelllevelGrp.Controls.Add(this.si_co_Spelllevel);
-			this.si_SpelllevelGrp.Location = new System.Drawing.Point(305, 105);
+			this.si_SpelllevelGrp.Location = new System.Drawing.Point(390, 60);
 			this.si_SpelllevelGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.si_SpelllevelGrp.Name = "si_SpelllevelGrp";
 			this.si_SpelllevelGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.si_SpelllevelGrp.Size = new System.Drawing.Size(165, 45);
+			this.si_SpelllevelGrp.Size = new System.Drawing.Size(160, 45);
 			this.si_SpelllevelGrp.TabIndex = 9;
 			this.si_SpelllevelGrp.TabStop = false;
-			this.si_SpelllevelGrp.Text = "0001 E000 spelllevel";
+			this.si_SpelllevelGrp.Text = " 0001 E000 spelllevel ";
 			// 
 			// si_co_Spelllevel
 			// 
@@ -988,7 +989,7 @@ namespace nwn2_ai_2da_editor
 			this.si_co_Spelllevel.Location = new System.Drawing.Point(5, 15);
 			this.si_co_Spelllevel.Margin = new System.Windows.Forms.Padding(0);
 			this.si_co_Spelllevel.Name = "si_co_Spelllevel";
-			this.si_co_Spelllevel.Size = new System.Drawing.Size(155, 21);
+			this.si_co_Spelllevel.Size = new System.Drawing.Size(150, 21);
 			this.si_co_Spelllevel.TabIndex = 0;
 			// 
 			// si_SubspellsGrp
@@ -1004,18 +1005,18 @@ namespace nwn2_ai_2da_editor
 			this.si_SubspellsGrp.Controls.Add(this.si_Subspell4);
 			this.si_SubspellsGrp.Controls.Add(this.si_Subspell5);
 			this.si_SubspellsGrp.Enabled = false;
-			this.si_SubspellsGrp.Location = new System.Drawing.Point(305, 150);
+			this.si_SubspellsGrp.Location = new System.Drawing.Point(195, 105);
 			this.si_SubspellsGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.si_SubspellsGrp.Name = "si_SubspellsGrp";
 			this.si_SubspellsGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.si_SubspellsGrp.Size = new System.Drawing.Size(115, 155);
+			this.si_SubspellsGrp.Size = new System.Drawing.Size(115, 145);
 			this.si_SubspellsGrp.TabIndex = 10;
 			this.si_SubspellsGrp.TabStop = false;
 			this.si_SubspellsGrp.Text = " Subspells ";
 			// 
 			// si_SubspellTi
 			// 
-			this.si_SubspellTi.Location = new System.Drawing.Point(5, 20);
+			this.si_SubspellTi.Location = new System.Drawing.Point(5, 15);
 			this.si_SubspellTi.Margin = new System.Windows.Forms.Padding(0);
 			this.si_SubspellTi.Name = "si_SubspellTi";
 			this.si_SubspellTi.Size = new System.Drawing.Size(25, 20);
@@ -1025,7 +1026,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// si_SubspellEt
 			// 
-			this.si_SubspellEt.Location = new System.Drawing.Point(5, 45);
+			this.si_SubspellEt.Location = new System.Drawing.Point(5, 40);
 			this.si_SubspellEt.Margin = new System.Windows.Forms.Padding(0);
 			this.si_SubspellEt.Name = "si_SubspellEt";
 			this.si_SubspellEt.Size = new System.Drawing.Size(25, 20);
@@ -1035,7 +1036,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// si_SubspellDi
 			// 
-			this.si_SubspellDi.Location = new System.Drawing.Point(5, 70);
+			this.si_SubspellDi.Location = new System.Drawing.Point(5, 65);
 			this.si_SubspellDi.Margin = new System.Windows.Forms.Padding(0);
 			this.si_SubspellDi.Name = "si_SubspellDi";
 			this.si_SubspellDi.Size = new System.Drawing.Size(25, 20);
@@ -1045,7 +1046,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// si_SubspellSt
 			// 
-			this.si_SubspellSt.Location = new System.Drawing.Point(5, 95);
+			this.si_SubspellSt.Location = new System.Drawing.Point(5, 90);
 			this.si_SubspellSt.Margin = new System.Windows.Forms.Padding(0);
 			this.si_SubspellSt.Name = "si_SubspellSt";
 			this.si_SubspellSt.Size = new System.Drawing.Size(25, 20);
@@ -1055,7 +1056,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// si_SubspellDc
 			// 
-			this.si_SubspellDc.Location = new System.Drawing.Point(5, 120);
+			this.si_SubspellDc.Location = new System.Drawing.Point(5, 115);
 			this.si_SubspellDc.Margin = new System.Windows.Forms.Padding(0);
 			this.si_SubspellDc.Name = "si_SubspellDc";
 			this.si_SubspellDc.Size = new System.Drawing.Size(25, 20);
@@ -1065,7 +1066,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// si_Subspell1
 			// 
-			this.si_Subspell1.Location = new System.Drawing.Point(30, 20);
+			this.si_Subspell1.Location = new System.Drawing.Point(30, 15);
 			this.si_Subspell1.Margin = new System.Windows.Forms.Padding(0);
 			this.si_Subspell1.Name = "si_Subspell1";
 			this.si_Subspell1.Size = new System.Drawing.Size(80, 20);
@@ -1073,7 +1074,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// si_Subspell2
 			// 
-			this.si_Subspell2.Location = new System.Drawing.Point(30, 45);
+			this.si_Subspell2.Location = new System.Drawing.Point(30, 40);
 			this.si_Subspell2.Margin = new System.Windows.Forms.Padding(0);
 			this.si_Subspell2.Name = "si_Subspell2";
 			this.si_Subspell2.Size = new System.Drawing.Size(80, 20);
@@ -1081,7 +1082,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// si_Subspell3
 			// 
-			this.si_Subspell3.Location = new System.Drawing.Point(30, 70);
+			this.si_Subspell3.Location = new System.Drawing.Point(30, 65);
 			this.si_Subspell3.Margin = new System.Windows.Forms.Padding(0);
 			this.si_Subspell3.Name = "si_Subspell3";
 			this.si_Subspell3.Size = new System.Drawing.Size(80, 20);
@@ -1089,7 +1090,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// si_Subspell4
 			// 
-			this.si_Subspell4.Location = new System.Drawing.Point(30, 95);
+			this.si_Subspell4.Location = new System.Drawing.Point(30, 90);
 			this.si_Subspell4.Margin = new System.Windows.Forms.Padding(0);
 			this.si_Subspell4.Name = "si_Subspell4";
 			this.si_Subspell4.Size = new System.Drawing.Size(80, 20);
@@ -1097,7 +1098,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// si_Subspell5
 			// 
-			this.si_Subspell5.Location = new System.Drawing.Point(30, 120);
+			this.si_Subspell5.Location = new System.Drawing.Point(30, 115);
 			this.si_Subspell5.Margin = new System.Windows.Forms.Padding(0);
 			this.si_Subspell5.Name = "si_Subspell5";
 			this.si_Subspell5.Size = new System.Drawing.Size(80, 20);
@@ -1105,50 +1106,50 @@ namespace nwn2_ai_2da_editor
 			// 
 			// si_SubspellLabel1
 			// 
-			this.si_SubspellLabel1.Location = new System.Drawing.Point(425, 170);
+			this.si_SubspellLabel1.Location = new System.Drawing.Point(315, 120);
 			this.si_SubspellLabel1.Margin = new System.Windows.Forms.Padding(0);
 			this.si_SubspellLabel1.Name = "si_SubspellLabel1";
-			this.si_SubspellLabel1.Size = new System.Drawing.Size(385, 20);
+			this.si_SubspellLabel1.Size = new System.Drawing.Size(380, 20);
 			this.si_SubspellLabel1.TabIndex = 11;
 			this.si_SubspellLabel1.Text = "si_SubspellLabel1";
 			this.si_SubspellLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// si_SubspellLabel2
 			// 
-			this.si_SubspellLabel2.Location = new System.Drawing.Point(425, 195);
+			this.si_SubspellLabel2.Location = new System.Drawing.Point(315, 145);
 			this.si_SubspellLabel2.Margin = new System.Windows.Forms.Padding(0);
 			this.si_SubspellLabel2.Name = "si_SubspellLabel2";
-			this.si_SubspellLabel2.Size = new System.Drawing.Size(385, 20);
+			this.si_SubspellLabel2.Size = new System.Drawing.Size(380, 20);
 			this.si_SubspellLabel2.TabIndex = 12;
 			this.si_SubspellLabel2.Text = "si_SubspellLabel2";
 			this.si_SubspellLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// si_SubspellLabel3
 			// 
-			this.si_SubspellLabel3.Location = new System.Drawing.Point(425, 220);
+			this.si_SubspellLabel3.Location = new System.Drawing.Point(315, 170);
 			this.si_SubspellLabel3.Margin = new System.Windows.Forms.Padding(0);
 			this.si_SubspellLabel3.Name = "si_SubspellLabel3";
-			this.si_SubspellLabel3.Size = new System.Drawing.Size(385, 20);
+			this.si_SubspellLabel3.Size = new System.Drawing.Size(380, 20);
 			this.si_SubspellLabel3.TabIndex = 13;
 			this.si_SubspellLabel3.Text = "si_SubspellLabel3";
 			this.si_SubspellLabel3.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// si_SubspellLabel4
 			// 
-			this.si_SubspellLabel4.Location = new System.Drawing.Point(425, 245);
+			this.si_SubspellLabel4.Location = new System.Drawing.Point(315, 195);
 			this.si_SubspellLabel4.Margin = new System.Windows.Forms.Padding(0);
 			this.si_SubspellLabel4.Name = "si_SubspellLabel4";
-			this.si_SubspellLabel4.Size = new System.Drawing.Size(385, 20);
+			this.si_SubspellLabel4.Size = new System.Drawing.Size(380, 20);
 			this.si_SubspellLabel4.TabIndex = 14;
 			this.si_SubspellLabel4.Text = "si_SubspellLabel4";
 			this.si_SubspellLabel4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 			// 
 			// si_SubspellLabel5
 			// 
-			this.si_SubspellLabel5.Location = new System.Drawing.Point(425, 270);
+			this.si_SubspellLabel5.Location = new System.Drawing.Point(315, 220);
 			this.si_SubspellLabel5.Margin = new System.Windows.Forms.Padding(0);
 			this.si_SubspellLabel5.Name = "si_SubspellLabel5";
-			this.si_SubspellLabel5.Size = new System.Drawing.Size(385, 20);
+			this.si_SubspellLabel5.Size = new System.Drawing.Size(380, 20);
 			this.si_SubspellLabel5.TabIndex = 15;
 			this.si_SubspellLabel5.Text = "si_SubspellLabel5";
 			this.si_SubspellLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1218,7 +1219,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// ti_Clear
 			// 
-			this.ti_Clear.Location = new System.Drawing.Point(450, 5);
+			this.ti_Clear.Location = new System.Drawing.Point(445, 5);
 			this.ti_Clear.Margin = new System.Windows.Forms.Padding(0);
 			this.ti_Clear.Name = "ti_Clear";
 			this.ti_Clear.Size = new System.Drawing.Size(65, 50);
@@ -1448,7 +1449,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// ew_Clear
 			// 
-			this.ew_Clear.Location = new System.Drawing.Point(135, 5);
+			this.ew_Clear.Location = new System.Drawing.Point(130, 5);
 			this.ew_Clear.Margin = new System.Windows.Forms.Padding(0);
 			this.ew_Clear.Name = "ew_Clear";
 			this.ew_Clear.Size = new System.Drawing.Size(65, 50);
@@ -1555,7 +1556,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// et_Clear
 			// 
-			this.et_Clear.Location = new System.Drawing.Point(450, 5);
+			this.et_Clear.Location = new System.Drawing.Point(445, 5);
 			this.et_Clear.Margin = new System.Windows.Forms.Padding(0);
 			this.et_Clear.Name = "et_Clear";
 			this.et_Clear.Size = new System.Drawing.Size(65, 50);
@@ -2274,7 +2275,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// di_Clear
 			// 
-			this.di_Clear.Location = new System.Drawing.Point(450, 5);
+			this.di_Clear.Location = new System.Drawing.Point(445, 5);
 			this.di_Clear.Margin = new System.Windows.Forms.Padding(0);
 			this.di_Clear.Name = "di_Clear";
 			this.di_Clear.Size = new System.Drawing.Size(65, 50);
@@ -2842,7 +2843,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// st_Clear
 			// 
-			this.st_Clear.Location = new System.Drawing.Point(450, 5);
+			this.st_Clear.Location = new System.Drawing.Point(445, 5);
 			this.st_Clear.Margin = new System.Windows.Forms.Padding(0);
 			this.st_Clear.Name = "st_Clear";
 			this.st_Clear.Size = new System.Drawing.Size(65, 50);
@@ -3652,7 +3653,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// dc_Clear
 			// 
-			this.dc_Clear.Location = new System.Drawing.Point(450, 5);
+			this.dc_Clear.Location = new System.Drawing.Point(445, 5);
 			this.dc_Clear.Margin = new System.Windows.Forms.Padding(0);
 			this.dc_Clear.Name = "dc_Clear";
 			this.dc_Clear.Size = new System.Drawing.Size(65, 50);

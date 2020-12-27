@@ -100,6 +100,7 @@ namespace nwn2_ai_2da_editor
 			si_ShortDurBuff .MouseClick += MouseClick_si_Flags;
 			si_MediumDurBuff.MouseClick += MouseClick_si_Flags;
 			si_LongDurBuff  .MouseClick += MouseClick_si_Flags;
+//			si_NonVerbal    .MouseClick += MouseClick_si_Flags;
 
 			si_co_Spelllevel.SelectionChangeCommitted += SelectionChangeCommitted_si_co_Spelllevel;
 
