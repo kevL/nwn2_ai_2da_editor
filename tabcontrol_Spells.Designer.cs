@@ -857,7 +857,7 @@ namespace nwn2_ai_2da_editor
 			this.si_co_Spelltype.Location = new System.Drawing.Point(5, 15);
 			this.si_co_Spelltype.Margin = new System.Windows.Forms.Padding(0);
 			this.si_co_Spelltype.Name = "si_co_Spelltype";
-			this.si_co_Spelltype.Size = new System.Drawing.Size(290, 21);
+			this.si_co_Spelltype.Size = new System.Drawing.Size(155, 21);
 			this.si_co_Spelltype.TabIndex = 1;
 			// 
 			// si_FlagsGrp
@@ -875,7 +875,7 @@ namespace nwn2_ai_2da_editor
 			this.si_FlagsGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.si_FlagsGrp.Name = "si_FlagsGrp";
 			this.si_FlagsGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.si_FlagsGrp.Size = new System.Drawing.Size(185, 180);
+			this.si_FlagsGrp.Size = new System.Drawing.Size(180, 180);
 			this.si_FlagsGrp.TabIndex = 8;
 			this.si_FlagsGrp.TabStop = false;
 			this.si_FlagsGrp.Text = " 009E CF00 flags ";
@@ -907,7 +907,7 @@ namespace nwn2_ai_2da_editor
 			this.si_Concentration.Name = "si_Concentration";
 			this.si_Concentration.Size = new System.Drawing.Size(165, 20);
 			this.si_Concentration.TabIndex = 2;
-			this.si_Concentration.Text = "has Concentration check";
+			this.si_Concentration.Text = "has concentration check";
 			this.si_Concentration.UseVisualStyleBackColor = true;
 			// 
 			// si_HealOrCure
@@ -1005,11 +1005,11 @@ namespace nwn2_ai_2da_editor
 			this.si_SubspellsGrp.Controls.Add(this.si_Subspell4);
 			this.si_SubspellsGrp.Controls.Add(this.si_Subspell5);
 			this.si_SubspellsGrp.Enabled = false;
-			this.si_SubspellsGrp.Location = new System.Drawing.Point(195, 105);
+			this.si_SubspellsGrp.Location = new System.Drawing.Point(190, 105);
 			this.si_SubspellsGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.si_SubspellsGrp.Name = "si_SubspellsGrp";
 			this.si_SubspellsGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.si_SubspellsGrp.Size = new System.Drawing.Size(115, 145);
+			this.si_SubspellsGrp.Size = new System.Drawing.Size(90, 145);
 			this.si_SubspellsGrp.TabIndex = 10;
 			this.si_SubspellsGrp.TabStop = false;
 			this.si_SubspellsGrp.Text = " Subspells ";
@@ -1069,7 +1069,7 @@ namespace nwn2_ai_2da_editor
 			this.si_Subspell1.Location = new System.Drawing.Point(30, 15);
 			this.si_Subspell1.Margin = new System.Windows.Forms.Padding(0);
 			this.si_Subspell1.Name = "si_Subspell1";
-			this.si_Subspell1.Size = new System.Drawing.Size(80, 20);
+			this.si_Subspell1.Size = new System.Drawing.Size(50, 20);
 			this.si_Subspell1.TabIndex = 5;
 			// 
 			// si_Subspell2
@@ -1077,7 +1077,7 @@ namespace nwn2_ai_2da_editor
 			this.si_Subspell2.Location = new System.Drawing.Point(30, 40);
 			this.si_Subspell2.Margin = new System.Windows.Forms.Padding(0);
 			this.si_Subspell2.Name = "si_Subspell2";
-			this.si_Subspell2.Size = new System.Drawing.Size(80, 20);
+			this.si_Subspell2.Size = new System.Drawing.Size(50, 20);
 			this.si_Subspell2.TabIndex = 6;
 			// 
 			// si_Subspell3
@@ -1085,7 +1085,7 @@ namespace nwn2_ai_2da_editor
 			this.si_Subspell3.Location = new System.Drawing.Point(30, 65);
 			this.si_Subspell3.Margin = new System.Windows.Forms.Padding(0);
 			this.si_Subspell3.Name = "si_Subspell3";
-			this.si_Subspell3.Size = new System.Drawing.Size(80, 20);
+			this.si_Subspell3.Size = new System.Drawing.Size(50, 20);
 			this.si_Subspell3.TabIndex = 7;
 			// 
 			// si_Subspell4
@@ -1093,7 +1093,7 @@ namespace nwn2_ai_2da_editor
 			this.si_Subspell4.Location = new System.Drawing.Point(30, 90);
 			this.si_Subspell4.Margin = new System.Windows.Forms.Padding(0);
 			this.si_Subspell4.Name = "si_Subspell4";
-			this.si_Subspell4.Size = new System.Drawing.Size(80, 20);
+			this.si_Subspell4.Size = new System.Drawing.Size(50, 20);
 			this.si_Subspell4.TabIndex = 8;
 			// 
 			// si_Subspell5
@@ -1101,12 +1101,12 @@ namespace nwn2_ai_2da_editor
 			this.si_Subspell5.Location = new System.Drawing.Point(30, 115);
 			this.si_Subspell5.Margin = new System.Windows.Forms.Padding(0);
 			this.si_Subspell5.Name = "si_Subspell5";
-			this.si_Subspell5.Size = new System.Drawing.Size(80, 20);
+			this.si_Subspell5.Size = new System.Drawing.Size(50, 20);
 			this.si_Subspell5.TabIndex = 9;
 			// 
 			// si_SubspellLabel1
 			// 
-			this.si_SubspellLabel1.Location = new System.Drawing.Point(315, 120);
+			this.si_SubspellLabel1.Location = new System.Drawing.Point(285, 120);
 			this.si_SubspellLabel1.Margin = new System.Windows.Forms.Padding(0);
 			this.si_SubspellLabel1.Name = "si_SubspellLabel1";
 			this.si_SubspellLabel1.Size = new System.Drawing.Size(380, 20);
@@ -1116,7 +1116,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// si_SubspellLabel2
 			// 
-			this.si_SubspellLabel2.Location = new System.Drawing.Point(315, 145);
+			this.si_SubspellLabel2.Location = new System.Drawing.Point(285, 145);
 			this.si_SubspellLabel2.Margin = new System.Windows.Forms.Padding(0);
 			this.si_SubspellLabel2.Name = "si_SubspellLabel2";
 			this.si_SubspellLabel2.Size = new System.Drawing.Size(380, 20);
@@ -1126,7 +1126,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// si_SubspellLabel3
 			// 
-			this.si_SubspellLabel3.Location = new System.Drawing.Point(315, 170);
+			this.si_SubspellLabel3.Location = new System.Drawing.Point(285, 170);
 			this.si_SubspellLabel3.Margin = new System.Windows.Forms.Padding(0);
 			this.si_SubspellLabel3.Name = "si_SubspellLabel3";
 			this.si_SubspellLabel3.Size = new System.Drawing.Size(380, 20);
@@ -1136,7 +1136,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// si_SubspellLabel4
 			// 
-			this.si_SubspellLabel4.Location = new System.Drawing.Point(315, 195);
+			this.si_SubspellLabel4.Location = new System.Drawing.Point(285, 195);
 			this.si_SubspellLabel4.Margin = new System.Windows.Forms.Padding(0);
 			this.si_SubspellLabel4.Name = "si_SubspellLabel4";
 			this.si_SubspellLabel4.Size = new System.Drawing.Size(380, 20);
@@ -1146,7 +1146,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// si_SubspellLabel5
 			// 
-			this.si_SubspellLabel5.Location = new System.Drawing.Point(315, 220);
+			this.si_SubspellLabel5.Location = new System.Drawing.Point(285, 220);
 			this.si_SubspellLabel5.Margin = new System.Windows.Forms.Padding(0);
 			this.si_SubspellLabel5.Name = "si_SubspellLabel5";
 			this.si_SubspellLabel5.Size = new System.Drawing.Size(380, 20);
