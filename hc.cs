@@ -44,6 +44,11 @@
 
 		internal const int HENCH_SPELL_INFO_ITEM_FLAG                    = 0x00800000;
 
+		internal const int HENCH_SPELL_INFO_EXTEND_OK                    = 0x01000000; // TonyAI 2.3+ add ->
+		internal const int HENCH_SPELL_INFO_PERSIST_OK                   = 0x02000000;
+		internal const int HENCH_SPELL_INFO_EMPOWER_OK                   = 0x04000000;
+		internal const int HENCH_SPELL_INFO_MAXIMIZE_OK                  = 0x08000000;
+
 
 		internal const int HENCH_SPELL_INFO_SPELL_TYPE_MASK              = 0x000000ff; // actually 0x0000003f
 

@@ -258,6 +258,47 @@ namespace nwn2_ai_2da_editor
 			}
 		}
 
+
+		/// <summary>
+		/// Handles toggling bits by checkboxes on the SpellInfo page - Metamagic group.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void MouseClick_si_Metamagic(object sender, MouseEventArgs e)
+		{
+			int spellinfo;
+			if (Int32.TryParse(SpellInfo_text.Text, out spellinfo))
+			{
+				int bit;
+
+				var cb = sender as CheckBox;
+				if (cb == si_Extend)
+				{
+					bit = hc.HENCH_SPELL_INFO_EXTEND_OK;	// 0x01000000
+				}
+				else if (cb == si_Persistent)
+				{
+					bit = hc.HENCH_SPELL_INFO_PERSIST_OK;	// 0x02000000
+				}
+				else if (cb == si_Empower)
+				{
+					bit = hc.HENCH_SPELL_INFO_EMPOWER_OK;	// 0x04000000
+				}
+				else //if (cb == si_Maximize)
+				{
+					bit = hc.HENCH_SPELL_INFO_MAXIMIZE_OK;	// 0x08000000
+				}
+
+				if (cb.Checked)
+				{
+					spellinfo |= bit;
+				}
+				else
+					spellinfo &= ~bit;
+
+				SpellInfo_text.Text = spellinfo.ToString();
+			}
+		}
 		/// <summary>
 		/// Sends the text in the Subspell boxes to where they should go.
 		/// Note that the EffectWeight field is skipped since it is a
@@ -463,6 +504,12 @@ namespace nwn2_ai_2da_editor
 				si_co_Spelllevel.ForeColor = DefaultForeColor;
 
 			si_co_Spelllevel.SelectedIndex = val;
+
+// Metamagic checkboxes (actually just more Flags - but they're kinda special so put them in their own groupbox)
+			si_Extend    .Checked = (spellinfo & hc.HENCH_SPELL_INFO_EXTEND_OK)   != 0; // TonyAI 2.3+ add ->
+			si_Empower   .Checked = (spellinfo & hc.HENCH_SPELL_INFO_EMPOWER_OK)  != 0;
+			si_Maximize  .Checked = (spellinfo & hc.HENCH_SPELL_INFO_MAXIMIZE_OK) != 0;
+			si_Persistent.Checked = (spellinfo & hc.HENCH_SPELL_INFO_PERSIST_OK)  != 0;
 		}
 
 

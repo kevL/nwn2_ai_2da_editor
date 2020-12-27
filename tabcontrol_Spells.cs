@@ -110,6 +110,11 @@ namespace nwn2_ai_2da_editor
 			si_Subspell4.TextChanged += TextChanged_si_Subspell;
 			si_Subspell5.TextChanged += TextChanged_si_Subspell;
 
+			si_Extend    .MouseClick += MouseClick_si_Metamagic;
+			si_Empower   .MouseClick += MouseClick_si_Metamagic;
+			si_Maximize  .MouseClick += MouseClick_si_Metamagic;
+			si_Persistent.MouseClick += MouseClick_si_Metamagic;
+
 // handlers for TargetInfo ->
 			TargetInfo_reset.Click       += Click_ti_reset;
 			TargetInfo_text .TextChanged += TextChanged_ti;
