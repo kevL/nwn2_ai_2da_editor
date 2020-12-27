@@ -19,17 +19,17 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		internal const int bit_clean  = 0x000;
 		internal const int bit_flags  = 0x001;
-		internal const int bit_feat1  = 0x002;
-		internal const int bit_feat2  = 0x004;
-		internal const int bit_feat3  = 0x008;
-		internal const int bit_feat4  = 0x010;
-		internal const int bit_feat5  = 0x020;
-		internal const int bit_feat6  = 0x040;
-		internal const int bit_feat7  = 0x080;
-		internal const int bit_feat8  = 0x100;
-		internal const int bit_feat9  = 0x200;
-		internal const int bit_feat10 = 0x400;
-		internal const int bit_feat11 = 0x800;
+				 const int bit_feat1  = 0x002;
+				 const int bit_feat2  = 0x004;
+				 const int bit_feat3  = 0x008;
+				 const int bit_feat4  = 0x010;
+				 const int bit_feat5  = 0x020;
+				 const int bit_feat6  = 0x040;
+				 const int bit_feat7  = 0x080;
+				 const int bit_feat8  = 0x100;
+				 const int bit_feat9  = 0x200;
+				 const int bit_feat10 = 0x400;
+				 const int bit_feat11 = 0x800;
 		#endregion Fields (static)
 
 

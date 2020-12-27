@@ -595,6 +595,16 @@ namespace nwn2_ai_2da_editor
 					}
 
 					BypassDiffer = false;
+
+					// TODO: if (HenchSpells.2da) clear bits for
+					// - Concentration
+					// - SpellLevel
+					// because TonyAI 2.3+ sets those auto.
+					// This need to be done after 'BypassDiffer' ...
+					if (Type == Type2da.TYPE_SPELLS)
+					{
+						HenchControl.UpdateSpellInfo();
+					}
 				}
 			}
 		}
@@ -1298,6 +1308,16 @@ namespace nwn2_ai_2da_editor
 		internal void SetNodeColor(Color color)
 		{
 			Tree.SelectedNode.ForeColor = color;
+		}
+
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="color"></param>
+		/// <param name="id"></param>
+		internal void SetNodeColor(Color color, int id)
+		{
+			Tree.Nodes[id].ForeColor = color;
 		}
 
 		/// <summary>
