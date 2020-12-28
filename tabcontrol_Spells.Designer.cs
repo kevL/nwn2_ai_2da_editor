@@ -3634,7 +3634,7 @@ namespace nwn2_ai_2da_editor
 			this.st_TargetRestrictionGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.st_TargetRestrictionGrp.Name = "st_TargetRestrictionGrp";
 			this.st_TargetRestrictionGrp.Padding = new System.Windows.Forms.Padding(0);
-			this.st_TargetRestrictionGrp.Size = new System.Drawing.Size(410, 45);
+			this.st_TargetRestrictionGrp.Size = new System.Drawing.Size(465, 45);
 			this.st_TargetRestrictionGrp.TabIndex = 11;
 			this.st_TargetRestrictionGrp.TabStop = false;
 			this.st_TargetRestrictionGrp.Text = " 0000 101F targetrestriction ";
@@ -3646,7 +3646,7 @@ namespace nwn2_ai_2da_editor
 			this.st_co_TargetRestriction.Location = new System.Drawing.Point(5, 15);
 			this.st_co_TargetRestriction.Margin = new System.Windows.Forms.Padding(0);
 			this.st_co_TargetRestriction.Name = "st_co_TargetRestriction";
-			this.st_co_TargetRestriction.Size = new System.Drawing.Size(400, 21);
+			this.st_co_TargetRestriction.Size = new System.Drawing.Size(455, 21);
 			this.st_co_TargetRestriction.TabIndex = 0;
 			// 
 			// st_NotCaster
