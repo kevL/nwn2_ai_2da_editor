@@ -167,6 +167,7 @@ namespace nwn2_ai_2da_editor
 				{
 					_pfe = _pfeT;
 					_pfeT = String.Empty;
+					recent();
 				}
 
 				Write2daFile();
@@ -174,7 +175,7 @@ namespace nwn2_ai_2da_editor
 			else
 			{
 				const string info = "There is data that has been altered but not applied.";
-				using (var ib = new infobox(" Attention", info, "save anyway", "cancel", "apply & save"))
+				using (var ib = new infobox(" Attention", info, "just save", "cancel", "apply + save"))
 				{
 					switch (ib.ShowDialog(this))
 					{
@@ -183,21 +184,15 @@ namespace nwn2_ai_2da_editor
 							break;
 
 						case DialogResult.Retry:
-							if (sender == null) // is Saveas
-							{
-								_pfe = _pfeT;
-								_pfeT = String.Empty;
-							}
-
-							apply();
-							Write2daFile();
-							break;
+							applyall();
+							goto case DialogResult.OK;
 
 						case DialogResult.OK:
 							if (sender == null) // is Saveas
 							{
 								_pfe = _pfeT;
 								_pfeT = String.Empty;
+								recent();
 							}
 
 							Write2daFile();
@@ -247,7 +242,7 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_applyGlobal(object sender, EventArgs e)
 		{
-			apply();
+			applyall();
 		}
 
 		/// <summary>
@@ -1088,7 +1083,7 @@ namespace nwn2_ai_2da_editor
 		/// Applies all altered data to their structs. See <see cref="Click_apply"/>
 		/// to apply altered data to only the selected struct.
 		/// </summary>
-		void apply()
+		void applyall()
 		{
 			Text = "nwn2_ai_2da_editor - " + _pfe + " *"; // titlebar text (append path of saved file + asterisk)
 

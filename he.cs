@@ -385,6 +385,43 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
+		/// Adds a recent at the top of the dropdown collection. Deletes an old
+		/// one if found. Limits count to 8 recents.
+		/// </summary>
+		void recent()
+		{
+			ToolStripItemCollection recents = it_Recent.DropDownItems;
+			ToolStripItem it;
+
+			bool found = false;
+
+			for (int i = 0; i != recents.Count; ++i)
+			{
+				if ((it = recents[i]).Text == _pfe)
+				{
+					found = true;
+
+					if (i != 0)
+					{
+						recents.Remove(it);
+						recents.Insert(0, it);
+					}
+					break;
+				}
+			}
+
+			if (!found)
+			{
+				it = new ToolStripMenuItem(_pfe);
+				it.Click += Click_recent;
+				recents.Insert(0, it);
+
+				if (recents.Count > 8) // up to 8 recents
+					recents.Remove(recents[recents.Count - 1]);
+			}
+		}
+
+		/// <summary>
 		/// Determines which file to load: HenchSpells, HenchRacial, or
 		/// HenchClasses.
 		/// The fullpath of the file must already be stored in '_pfe'.
@@ -397,37 +434,7 @@ namespace nwn2_ai_2da_editor
 				// deal with recent-files first
 				// NOTE: Recents won't be written to disk unless a file
 				// "recent.cfg" already exists in the appdir.
-
-				ToolStripItemCollection recents = it_Recent.DropDownItems;
-				ToolStripItem it;
-
-				bool found = false;
-
-				for (int i = 0; i != recents.Count; ++i)
-				{
-					if ((it = recents[i]).Text == _pfe)
-					{
-						found = true;
-
-						if (i != 0)
-						{
-							recents.Remove(it);
-							recents.Insert(0, it);
-						}
-						break;
-					}
-				}
-
-				if (!found)
-				{
-					it = new ToolStripMenuItem(_pfe);
-					it.Click += Click_recent;
-					recents.Insert(0, it);
-
-					if (recents.Count > 8) // up to 8 recents
-						recents.Remove(recents[recents.Count - 1]);
-				}
-
+				recent();
 
 				// read and load the 2da second
 				string[] rows = File.ReadAllLines(_pfe);
