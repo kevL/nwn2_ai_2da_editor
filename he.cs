@@ -163,33 +163,7 @@ namespace nwn2_ai_2da_editor
 
 			Size = new Size(800, userHeight);
 
-			initRecent(); // init recents before (potentially) loading a table from FileExplorer
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		void initRecent()
-		{
-			string pfe = Path.Combine(Application.StartupPath, RF_CFG);
-			if (File.Exists(pfe))
-			{
-				ToolStripItemCollection recents = it_Recent.DropDownItems;
-
-				string[] lines = File.ReadAllLines(pfe);
-				foreach (string line in lines)
-				{
-					if (File.Exists(line))
-					{
-						var it = new ToolStripMenuItem(line);
-						it.Click += Click_recent;
-						recents.Add(it);
-
-						if (recents.Count == 8) // up to 8 recents
-							break;
-					}
-				}
-			}
+			recent_init(); // init recents before (potentially) loading a table from FileExplorer
 		}
 
 		/// <summary>
@@ -298,97 +272,38 @@ namespace nwn2_ai_2da_editor
 		#endregion cTor
 
 
-		#region eventhandlers (override)
+		#region Recent
 		/// <summary>
-		/// 
+		/// Loads up to 8 recents from a textfile in the app-dir.
 		/// </summary>
-		/// <param name="e"></param>
-		protected override void OnFormClosing(FormClosingEventArgs e)
+		void recent_init()
 		{
-			if (Scripter != null && !Scripter.IsDisposed)
-				Scripter.Close();
-
-			if (e.CloseReason != CloseReason.WindowsShutDown)
+			string pfe = Path.Combine(Application.StartupPath, RF_CFG);
+			if (File.Exists(pfe))
 			{
-				if (isChanged())
-				{
-					string info = "Data has changed."
-								+ Environment.NewLine + Environment.NewLine
-								+ "Okay to exit ...";
-					using (var ib = new infobox(" Warning", info, "yessir", "no"))
-						e.Cancel = ib.ShowDialog(this) != DialogResult.OK;
-				}
+				ToolStripItemCollection recents = it_Recent.DropDownItems;
 
-				if (!e.Cancel)
+				string[] lines = File.ReadAllLines(pfe);
+				foreach (string line in lines)
 				{
-					// track recent files only if a file 'recent.cfg' exists in the appdir
-
-					string pfe = Path.Combine(Application.StartupPath, RF_CFG);
-					if (File.Exists(pfe))
+					if (File.Exists(line))
 					{
-						int i = -1;
-						var recents = new string[it_Recent.DropDownItems.Count];
-						foreach (ToolStripMenuItem recent in it_Recent.DropDownItems)
-							recents[++i] = recent.Text;
+						var it = new ToolStripMenuItem(line);
+						it.Click += Click_recent;
+						recents.Add(it);
 
-						try
-						{
-							File.WriteAllLines(pfe, recents);
-						}
-						catch (Exception ex)
-						{
-							MessageBox.Show(ex.Message);
-						}
+						if (recents.Count == 8) // up to 8 recents
+							break;
 					}
 				}
 			}
-			base.OnFormClosing(e);
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="e"></param>
-		protected override void OnResize(EventArgs e)
-		{
-			if (WindowState == FormWindowState.Normal)
-				userHeight = ClientSize.Height;
-
-			base.OnResize(e);
-		}
-		#endregion eventhandlers (override)
-
-
-		#region Load file
-		bool DoubleQuoteCondition(string[] rows)
-		{
-			// WARNING: This editor does *not* handle quotation marks around 2da fields.
-			foreach (string row in rows) // test for double-quote character and exit if found.
-			{
-				foreach (char character in row)
-				{
-					if (character == '"')
-					{
-						const string info = "The 2da-file contains double-quotes. Although that can be"
-										  + " valid in a 2da-file this editor is not coded to cope."
-										  + " Format the 2da-file to not use double-quotes if you want"
-										  + " to open it here.";
-
-						using (var ib = new infobox(" Error", info, "drat"))
-							ib.ShowDialog(this);
-
-						return true;
-					}
-				}
-			}
-			return false;
 		}
 
 		/// <summary>
 		/// Adds a recent at the top of the dropdown collection. Deletes an old
 		/// one if found. Limits count to 8 recents.
 		/// </summary>
-		void recent()
+		void recent_add()
 		{
 			ToolStripItemCollection recents = it_Recent.DropDownItems;
 			ToolStripItem it;
@@ -422,6 +337,105 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
+		/// Writes recents to a file 'recent.cfg' in the app-dir.
+		/// @note Recents will be tracked only if a file 'recent.cfg' already
+		/// exists in the app-dir.
+		/// </summary>
+		void recent_write()
+		{
+			string pfe = Path.Combine(Application.StartupPath, RF_CFG);
+			if (File.Exists(pfe))
+			{
+				int i = -1;
+				var recents = new string[it_Recent.DropDownItems.Count];
+				foreach (ToolStripMenuItem recent in it_Recent.DropDownItems)
+					recents[++i] = recent.Text;
+
+				try
+				{
+					File.WriteAllLines(pfe, recents);
+				}
+				catch (Exception ex)
+				{
+					MessageBox.Show(ex.Message); // is that worthwhile. Probly not.
+				}
+			}
+		}
+		#endregion Recent
+
+
+		#region eventhandlers (override)
+		/// <summary>
+		/// Handles the FormClosing event.
+		/// </summary>
+		/// <param name="e"></param>
+		protected override void OnFormClosing(FormClosingEventArgs e)
+		{
+			if (Scripter != null && !Scripter.IsDisposed)
+				Scripter.Close();
+
+			if (e.CloseReason != CloseReason.WindowsShutDown)
+			{
+				if (isChanged())
+				{
+					string info = "Data has changed."
+								+ Environment.NewLine + Environment.NewLine
+								+ "Okay to exit ...";
+					using (var ib = new infobox(" Warning", info, "yessir", "no"))
+						e.Cancel = ib.ShowDialog(this) != DialogResult.OK;
+				}
+
+				if (!e.Cancel) recent_write();
+			}
+			base.OnFormClosing(e);
+		}
+
+		/// <summary>
+		/// Handles the OnResize event.
+		/// </summary>
+		/// <param name="e"></param>
+		protected override void OnResize(EventArgs e)
+		{
+			if (WindowState == FormWindowState.Normal)
+				userHeight = ClientSize.Height;
+
+			base.OnResize(e);
+		}
+		#endregion eventhandlers (override)
+
+
+		#region Load file
+		/// <summary>
+		/// Checks a 2da for any double-quote chars and displays an error if any
+		/// are found.
+		/// </summary>
+		/// <param name="rows">an array of 2da rows</param>
+		/// <returns>true if a double-quote char is found</returns>
+		bool DoubleQuoteCondition(string[] rows)
+		{
+			// WARNING: This editor does *not* handle quotation marks around 2da fields.
+			foreach (string row in rows) // test for double-quote character and exit if found.
+			{
+				foreach (char character in row)
+				{
+					if (character == '"')
+					{
+						const string info = "The 2da-file contains double-quotes. Although that can be"
+										  + " valid in a 2da-file this editor is not coded to cope."
+										  + " Format the 2da-file to not use double-quotes if you want"
+										  + " to open it here.";
+
+						using (var ib = new infobox(" Error", info, "drat"))
+							ib.ShowDialog(this);
+
+						return true;
+					}
+				}
+			}
+			return false;
+		}
+
+		/// <summary>
 		/// Determines which file to load: HenchSpells, HenchRacial, or
 		/// HenchClasses.
 		/// The fullpath of the file must already be stored in '_pfe'.
@@ -434,7 +448,7 @@ namespace nwn2_ai_2da_editor
 				// deal with recent-files first
 				// NOTE: Recents won't be written to disk unless a file
 				// "recent.cfg" already exists in the appdir.
-				recent();
+				recent_add();
 
 				// read and load the 2da second
 				string[] rows = File.ReadAllLines(_pfe);
@@ -576,7 +590,7 @@ namespace nwn2_ai_2da_editor
 
 					if (!error) // TODO: That should be predicated on Load_Hench*() not throwing an exception.
 					{
-						Text = "nwn2_ai_2da_editor - " + _pfe; // titlebar text (append path of current file)
+						SetTitleText(true);
 
 						// NOTE: Tree.SelectedNode=Tree.Nodes[0] is done auto.
 						// Not necessarily ...
@@ -1348,6 +1362,26 @@ namespace nwn2_ai_2da_editor
 
 
 		/// <summary>
+		/// Sets the titlebar text.
+		/// </summary>
+		/// <param name="saved">true if saved, false if changed</param>
+		internal void SetTitleText(bool saved = false)
+		{
+			string title = "nwn2_ai_2da_editor - " + _pfe;
+			if (!saved) title += " *";
+			Text = title;
+		}
+
+		/// <summary>
+		/// Sets the color of the currently selected node.
+		/// </summary>
+		/// <param name="color"></param>
+		internal void SetNodeColor(Color color)
+		{
+			Tree.SelectedNode.ForeColor = color;
+		}
+
+		/// <summary>
 		/// Selects the search-box after a file loads.
 		/// </summary>
 		internal void SelectSearch()
@@ -1363,33 +1397,6 @@ namespace nwn2_ai_2da_editor
 		{
 			Copy_hexadecimal.Enabled =
 			Copy_binary     .Enabled = enabled;
-		}
-
-		/// <summary>
-		/// Sets the color of the currently selected node.
-		/// </summary>
-		/// <param name="color"></param>
-		internal void SetNodeColor(Color color)
-		{
-			Tree.SelectedNode.ForeColor = color;
-		}
-
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="differs"></param>
-		internal void EnableApplys(bool differs)
-		{
-			bool changes = false;
-			switch (Type)
-			{
-				case Type2da.TYPE_SPELLS:  changes = (SpellsChanged .Count != 0); break;
-				case Type2da.TYPE_RACIAL:  changes = (RacesChanged  .Count != 0); break;
-				case Type2da.TYPE_CLASSES: changes = (ClassesChanged.Count != 0); break;
-			}
-			btn_Apply     .Enabled = differs;
-			it_ApplyGlobal.Enabled = differs || changes;
-			it_GotoChanged.Enabled = differs || changes || hasSpareChange();
 		}
 
 		/// <summary>
@@ -1425,15 +1432,33 @@ namespace nwn2_ai_2da_editor
 
 
 		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="differs"></param>
+		internal void EnableApplys(bool differs)
+		{
+			bool changes = false;
+			switch (Type)
+			{
+				case Type2da.TYPE_SPELLS:  changes = (SpellsChanged .Count != 0); break;
+				case Type2da.TYPE_RACIAL:  changes = (RacesChanged  .Count != 0); break;
+				case Type2da.TYPE_CLASSES: changes = (ClassesChanged.Count != 0); break;
+			}
+			btn_Apply     .Enabled = differs;
+			it_ApplyGlobal.Enabled = differs || changes;
+			it_GotoChanged.Enabled = differs || changes || hasSpareChange();
+		}
+
+		/// <summary>
 		/// Handler for the "apply changed data to currently selected
-		/// spell/race/class" button. See <see cref="apply"/> to apply all
+		/// spell/race/class" button. See <see cref="applyall"/> to apply all
 		/// altered data globally.
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
 		void Click_apply(object sender, EventArgs e)
 		{
-			Text = "nwn2_ai_2da_editor - " + _pfe + " *"; // titlebar text (append path of saved file + asterisk)
+			SetTitleText();
 
 			switch (Type)
 			{

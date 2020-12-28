@@ -124,6 +124,25 @@ namespace nwn2_ai_2da_editor
 			}
 		}
 
+
+		/// <summary>
+		/// Checks recents when the dropdown opens and deletes the paths of
+		/// files that don't exist on disk.
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
+		void dropdownopening_Recent(object sender, EventArgs e)
+		{
+			ToolStripItemCollection recents = it_Recent.DropDownItems;
+			ToolStripItem it;
+
+			for (int i = recents.Count - 1; i != -1; --i)
+			{
+				if (!File.Exists((it = recents[i]).Text))
+					recents.Remove(it);
+			}
+		}
+
 		/// <summary>
 		/// Opens a 2da-file from the Recent-files list. Removes the item from
 		/// the list if it was not found on disk.
@@ -144,14 +163,8 @@ namespace nwn2_ai_2da_editor
 				}
 			}
 
-			var it = sender as ToolStripMenuItem;
-			if (File.Exists(it.Text))
-			{
-				_pfe = it.Text;
-				Load_file();
-			}
-			else
-				it_Recent.DropDownItems.Remove(it);
+			_pfe = (sender as ToolStripMenuItem).Text;
+			Load_file();
 		}
 
 		/// <summary>
@@ -167,7 +180,7 @@ namespace nwn2_ai_2da_editor
 				{
 					_pfe = _pfeT;
 					_pfeT = String.Empty;
-					recent();
+					recent_add();
 				}
 
 				Write2daFile();
@@ -192,7 +205,7 @@ namespace nwn2_ai_2da_editor
 							{
 								_pfe = _pfeT;
 								_pfeT = String.Empty;
-								recent();
+								recent_add();
 							}
 
 							Write2daFile();
@@ -856,7 +869,7 @@ namespace nwn2_ai_2da_editor
 		{
 			if (spellLabels.Count != 0)
 			{
-				Text = "nwn2_ai_2da_editor - " + _pfe + " *"; // titlebar text (append path of saved file + asterisk)
+				SetTitleText();
 
 				hasLabels = true;
 
@@ -890,7 +903,7 @@ namespace nwn2_ai_2da_editor
 		{
 			if (raceLabels.Count != 0)
 			{
-				Text = "nwn2_ai_2da_editor - " + _pfe + " *"; // titlebar text (append path of saved file + asterisk)
+				SetTitleText();
 
 				hasLabels = true;
 
@@ -924,7 +937,7 @@ namespace nwn2_ai_2da_editor
 		{
 			if (classLabels.Count != 0)
 			{
-				Text = "nwn2_ai_2da_editor - " + _pfe + " *"; // titlebar text (append path of saved file + asterisk)
+				SetTitleText();
 
 				hasLabels = true;
 
@@ -1085,7 +1098,7 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void applyall()
 		{
-			Text = "nwn2_ai_2da_editor - " + _pfe + " *"; // titlebar text (append path of saved file + asterisk)
+			SetTitleText(); // TitleText will be written again (properly) by Write2daFile() if saved.
 
 			it_ApplyGlobal.Enabled = false;
 
@@ -1227,7 +1240,7 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void Write2daFile()
 		{
-			Text = "nwn2_ai_2da_editor - " + _pfe; // titlebar text (append path of saved file)
+			SetTitleText(true);
 
 			it_GotoChanged.Enabled = false;
 

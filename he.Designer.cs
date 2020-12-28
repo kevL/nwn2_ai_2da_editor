@@ -165,6 +165,7 @@ namespace nwn2_ai_2da_editor
 			this.it_Recent.Padding = new System.Windows.Forms.Padding(0);
 			this.it_Recent.Size = new System.Drawing.Size(160, 20);
 			this.it_Recent.Text = "Recen&t";
+			this.it_Recent.DropDownOpening += new System.EventHandler(this.dropdownopening_Recent);
 			// 
 			// toolStripSeparator1
 			// 
