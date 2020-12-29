@@ -228,14 +228,14 @@ namespace nwn2_ai_2da_editor
 			this.it_ApplyGlobal.Name = "it_ApplyGlobal";
 			this.it_ApplyGlobal.Padding = new System.Windows.Forms.Padding(0);
 			this.it_ApplyGlobal.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
-			this.it_ApplyGlobal.Size = new System.Drawing.Size(195, 20);
+			this.it_ApplyGlobal.Size = new System.Drawing.Size(190, 20);
 			this.it_ApplyGlobal.Text = "global &Apply";
 			this.it_ApplyGlobal.Click += new System.EventHandler(this.Click_applyGlobal);
 			// 
 			// toolStripSeparator5
 			// 
 			this.toolStripSeparator5.Name = "toolStripSeparator5";
-			this.toolStripSeparator5.Size = new System.Drawing.Size(192, 6);
+			this.toolStripSeparator5.Size = new System.Drawing.Size(187, 6);
 			// 
 			// it_GotoChanged
 			// 
@@ -243,14 +243,14 @@ namespace nwn2_ai_2da_editor
 			this.it_GotoChanged.Name = "it_GotoChanged";
 			this.it_GotoChanged.Padding = new System.Windows.Forms.Padding(0);
 			this.it_GotoChanged.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-			this.it_GotoChanged.Size = new System.Drawing.Size(195, 20);
-			this.it_GotoChanged.Text = "go to &next changed";
+			this.it_GotoChanged.Size = new System.Drawing.Size(190, 20);
+			this.it_GotoChanged.Text = "goto &next changed";
 			this.it_GotoChanged.Click += new System.EventHandler(this.Click_gotonextchanged);
 			// 
 			// toolStripSeparator3
 			// 
 			this.toolStripSeparator3.Name = "toolStripSeparator3";
-			this.toolStripSeparator3.Size = new System.Drawing.Size(192, 6);
+			this.toolStripSeparator3.Size = new System.Drawing.Size(187, 6);
 			// 
 			// Copy_decimal
 			// 
@@ -258,7 +258,7 @@ namespace nwn2_ai_2da_editor
 			this.Copy_decimal.Name = "Copy_decimal";
 			this.Copy_decimal.Padding = new System.Windows.Forms.Padding(0);
 			this.Copy_decimal.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-			this.Copy_decimal.Size = new System.Drawing.Size(195, 20);
+			this.Copy_decimal.Size = new System.Drawing.Size(190, 20);
 			this.Copy_decimal.Text = "Copy &decimal";
 			this.Copy_decimal.Click += new System.EventHandler(this.Click_copy_decimal);
 			// 
@@ -268,7 +268,7 @@ namespace nwn2_ai_2da_editor
 			this.Copy_hexadecimal.Name = "Copy_hexadecimal";
 			this.Copy_hexadecimal.Padding = new System.Windows.Forms.Padding(0);
 			this.Copy_hexadecimal.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
-			this.Copy_hexadecimal.Size = new System.Drawing.Size(195, 20);
+			this.Copy_hexadecimal.Size = new System.Drawing.Size(190, 20);
 			this.Copy_hexadecimal.Text = "Copy &hexadecimal";
 			this.Copy_hexadecimal.Click += new System.EventHandler(this.Click_copy_hexadecimal);
 			// 
@@ -278,22 +278,22 @@ namespace nwn2_ai_2da_editor
 			this.Copy_binary.Name = "Copy_binary";
 			this.Copy_binary.Padding = new System.Windows.Forms.Padding(0);
 			this.Copy_binary.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
-			this.Copy_binary.Size = new System.Drawing.Size(195, 20);
+			this.Copy_binary.Size = new System.Drawing.Size(190, 20);
 			this.Copy_binary.Text = "Copy &binary";
 			this.Copy_binary.Click += new System.EventHandler(this.Click_copy_binary);
 			// 
 			// toolStripSeparator6
 			// 
 			this.toolStripSeparator6.Name = "toolStripSeparator6";
-			this.toolStripSeparator6.Size = new System.Drawing.Size(192, 6);
+			this.toolStripSeparator6.Size = new System.Drawing.Size(187, 6);
 			// 
 			// clearCoreAIver
 			// 
 			this.clearCoreAIver.Enabled = false;
 			this.clearCoreAIver.Name = "clearCoreAIver";
 			this.clearCoreAIver.Padding = new System.Windows.Forms.Padding(0);
-			this.clearCoreAIver.Size = new System.Drawing.Size(195, 20);
-			this.clearCoreAIver.Text = "&Clear CoreAI version";
+			this.clearCoreAIver.Size = new System.Drawing.Size(190, 20);
+			this.clearCoreAIver.Text = "Clear CoreA&I version";
 			this.clearCoreAIver.Click += new System.EventHandler(this.Click_clearCoreAiVersion);
 			// 
 			// tsmi_labels
@@ -388,6 +388,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			this.About.Name = "About";
 			this.About.Padding = new System.Windows.Forms.Padding(0);
+			this.About.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
 			this.About.Size = new System.Drawing.Size(152, 20);
 			this.About.Text = "&About";
 			this.About.Click += new System.EventHandler(this.Click_about);
