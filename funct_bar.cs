@@ -124,7 +124,6 @@ namespace nwn2_ai_2da_editor
 			}
 		}
 
-
 		/// <summary>
 		/// Checks recents when the dropdown opens and deletes the paths of
 		/// files that don't exist on disk.
