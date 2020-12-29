@@ -117,7 +117,6 @@ namespace nwn2_ai_2da_editor
 
 
 				SetDetrimentalBeneficial();
-				SetGroupColors();
 
 				si_SubspellsGrp.Enabled = si_IsMaster.Checked;
 
@@ -542,6 +541,7 @@ namespace nwn2_ai_2da_editor
 			}
 
 			si_hostile.Text = text;
+			SetGroupColors();
 		}
 
 		/// <summary>
