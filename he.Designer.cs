@@ -147,7 +147,7 @@ namespace nwn2_ai_2da_editor
 			this.Quit});
 			this.tsmi_file.Name = "tsmi_file";
 			this.tsmi_file.Size = new System.Drawing.Size(37, 24);
-			this.tsmi_file.Text = "File";
+			this.tsmi_file.Text = "&File";
 			this.tsmi_file.DropDownOpening += new System.EventHandler(this.dropdownopening_File);
 			// 
 			// Open
@@ -156,7 +156,7 @@ namespace nwn2_ai_2da_editor
 			this.Open.Padding = new System.Windows.Forms.Padding(0);
 			this.Open.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
 			this.Open.Size = new System.Drawing.Size(160, 20);
-			this.Open.Text = "Open ...";
+			this.Open.Text = "&Open ...";
 			this.Open.Click += new System.EventHandler(this.Click_open);
 			// 
 			// it_Recent
@@ -164,7 +164,7 @@ namespace nwn2_ai_2da_editor
 			this.it_Recent.Name = "it_Recent";
 			this.it_Recent.Padding = new System.Windows.Forms.Padding(0);
 			this.it_Recent.Size = new System.Drawing.Size(160, 20);
-			this.it_Recent.Text = "Recen&t";
+			this.it_Recent.Text = "&Recent";
 			this.it_Recent.DropDownOpening += new System.EventHandler(this.dropdownopening_Recent);
 			// 
 			// toolStripSeparator1
@@ -179,7 +179,7 @@ namespace nwn2_ai_2da_editor
 			this.Save.Padding = new System.Windows.Forms.Padding(0);
 			this.Save.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
 			this.Save.Size = new System.Drawing.Size(160, 20);
-			this.Save.Text = "Save";
+			this.Save.Text = "&Save";
 			this.Save.Click += new System.EventHandler(this.Click_save);
 			// 
 			// Saveas
@@ -187,9 +187,9 @@ namespace nwn2_ai_2da_editor
 			this.Saveas.Enabled = false;
 			this.Saveas.Name = "Saveas";
 			this.Saveas.Padding = new System.Windows.Forms.Padding(0);
-			this.Saveas.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
+			this.Saveas.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
 			this.Saveas.Size = new System.Drawing.Size(160, 20);
-			this.Saveas.Text = "Save As ...";
+			this.Saveas.Text = "Sav&e As ...";
 			this.Saveas.Click += new System.EventHandler(this.Click_saveas);
 			// 
 			// toolStripSeparator2
@@ -203,7 +203,7 @@ namespace nwn2_ai_2da_editor
 			this.Quit.Padding = new System.Windows.Forms.Padding(0);
 			this.Quit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
 			this.Quit.Size = new System.Drawing.Size(160, 20);
-			this.Quit.Text = "Quit";
+			this.Quit.Text = "&Quit";
 			this.Quit.Click += new System.EventHandler(this.Click_quit);
 			// 
 			// tsmi_edit
@@ -220,7 +220,7 @@ namespace nwn2_ai_2da_editor
 			this.clearCoreAIver});
 			this.tsmi_edit.Name = "tsmi_edit";
 			this.tsmi_edit.Size = new System.Drawing.Size(37, 24);
-			this.tsmi_edit.Text = "Edit";
+			this.tsmi_edit.Text = "&Edit";
 			// 
 			// it_ApplyGlobal
 			// 
@@ -229,7 +229,7 @@ namespace nwn2_ai_2da_editor
 			this.it_ApplyGlobal.Padding = new System.Windows.Forms.Padding(0);
 			this.it_ApplyGlobal.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.G)));
 			this.it_ApplyGlobal.Size = new System.Drawing.Size(195, 20);
-			this.it_ApplyGlobal.Text = "global Apply";
+			this.it_ApplyGlobal.Text = "global &Apply";
 			this.it_ApplyGlobal.Click += new System.EventHandler(this.Click_applyGlobal);
 			// 
 			// toolStripSeparator5
@@ -244,7 +244,7 @@ namespace nwn2_ai_2da_editor
 			this.it_GotoChanged.Padding = new System.Windows.Forms.Padding(0);
 			this.it_GotoChanged.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
 			this.it_GotoChanged.Size = new System.Drawing.Size(195, 20);
-			this.it_GotoChanged.Text = "go to next changed";
+			this.it_GotoChanged.Text = "go to &next changed";
 			this.it_GotoChanged.Click += new System.EventHandler(this.Click_gotonextchanged);
 			// 
 			// toolStripSeparator3
@@ -259,7 +259,7 @@ namespace nwn2_ai_2da_editor
 			this.Copy_decimal.Padding = new System.Windows.Forms.Padding(0);
 			this.Copy_decimal.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
 			this.Copy_decimal.Size = new System.Drawing.Size(195, 20);
-			this.Copy_decimal.Text = "Copy decimal";
+			this.Copy_decimal.Text = "Copy &decimal";
 			this.Copy_decimal.Click += new System.EventHandler(this.Click_copy_decimal);
 			// 
 			// Copy_hexadecimal
@@ -269,7 +269,7 @@ namespace nwn2_ai_2da_editor
 			this.Copy_hexadecimal.Padding = new System.Windows.Forms.Padding(0);
 			this.Copy_hexadecimal.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
 			this.Copy_hexadecimal.Size = new System.Drawing.Size(195, 20);
-			this.Copy_hexadecimal.Text = "Copy hexadecimal";
+			this.Copy_hexadecimal.Text = "Copy &hexadecimal";
 			this.Copy_hexadecimal.Click += new System.EventHandler(this.Click_copy_hexadecimal);
 			// 
 			// Copy_binary
@@ -279,7 +279,7 @@ namespace nwn2_ai_2da_editor
 			this.Copy_binary.Padding = new System.Windows.Forms.Padding(0);
 			this.Copy_binary.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
 			this.Copy_binary.Size = new System.Drawing.Size(195, 20);
-			this.Copy_binary.Text = "Copy binary";
+			this.Copy_binary.Text = "Copy &binary";
 			this.Copy_binary.Click += new System.EventHandler(this.Click_copy_binary);
 			// 
 			// toolStripSeparator6
@@ -293,7 +293,7 @@ namespace nwn2_ai_2da_editor
 			this.clearCoreAIver.Name = "clearCoreAIver";
 			this.clearCoreAIver.Padding = new System.Windows.Forms.Padding(0);
 			this.clearCoreAIver.Size = new System.Drawing.Size(195, 20);
-			this.clearCoreAIver.Text = "Clear CoreAI version";
+			this.clearCoreAIver.Text = "&Clear CoreAI version";
 			this.clearCoreAIver.Click += new System.EventHandler(this.Click_clearCoreAiVersion);
 			// 
 			// tsmi_labels
@@ -309,7 +309,7 @@ namespace nwn2_ai_2da_editor
 			this.it_insertClassLabels});
 			this.tsmi_labels.Name = "tsmi_labels";
 			this.tsmi_labels.Size = new System.Drawing.Size(47, 24);
-			this.tsmi_labels.Text = "Labels";
+			this.tsmi_labels.Text = "&Labels";
 			this.tsmi_labels.DropDownOpening += new System.EventHandler(this.dropdownopening_Labels);
 			// 
 			// pathSpells
@@ -317,7 +317,7 @@ namespace nwn2_ai_2da_editor
 			this.pathSpells.Name = "pathSpells";
 			this.pathSpells.Padding = new System.Windows.Forms.Padding(0);
 			this.pathSpells.Size = new System.Drawing.Size(185, 20);
-			this.pathSpells.Text = "path Spells.2da";
+			this.pathSpells.Text = "path &Spells.2da";
 			this.pathSpells.Click += new System.EventHandler(this.Click_pathSpells);
 			// 
 			// pathRacialSubtypes
@@ -325,7 +325,7 @@ namespace nwn2_ai_2da_editor
 			this.pathRacialSubtypes.Name = "pathRacialSubtypes";
 			this.pathRacialSubtypes.Padding = new System.Windows.Forms.Padding(0);
 			this.pathRacialSubtypes.Size = new System.Drawing.Size(185, 20);
-			this.pathRacialSubtypes.Text = "path RacialSubtypes.2da";
+			this.pathRacialSubtypes.Text = "path &RacialSubtypes.2da";
 			this.pathRacialSubtypes.Click += new System.EventHandler(this.Click_pathRacialSubtypes);
 			// 
 			// pathClasses
@@ -333,7 +333,7 @@ namespace nwn2_ai_2da_editor
 			this.pathClasses.Name = "pathClasses";
 			this.pathClasses.Padding = new System.Windows.Forms.Padding(0);
 			this.pathClasses.Size = new System.Drawing.Size(185, 20);
-			this.pathClasses.Text = "path Classes.2da";
+			this.pathClasses.Text = "path &Classes.2da";
 			this.pathClasses.Click += new System.EventHandler(this.Click_pathClasses);
 			// 
 			// pathFeat
@@ -341,7 +341,7 @@ namespace nwn2_ai_2da_editor
 			this.pathFeat.Name = "pathFeat";
 			this.pathFeat.Padding = new System.Windows.Forms.Padding(0);
 			this.pathFeat.Size = new System.Drawing.Size(185, 20);
-			this.pathFeat.Text = "path Feat.2da";
+			this.pathFeat.Text = "path &Feat.2da";
 			this.pathFeat.Click += new System.EventHandler(this.Click_pathFeat);
 			// 
 			// toolStripSeparator4
@@ -355,7 +355,7 @@ namespace nwn2_ai_2da_editor
 			this.it_insertSpellLabels.Name = "it_insertSpellLabels";
 			this.it_insertSpellLabels.Padding = new System.Windows.Forms.Padding(0);
 			this.it_insertSpellLabels.Size = new System.Drawing.Size(185, 20);
-			this.it_insertSpellLabels.Text = "insert spell labels";
+			this.it_insertSpellLabels.Text = "insert s&pell labels";
 			this.it_insertSpellLabels.Click += new System.EventHandler(this.Click_insertSpellLabels);
 			// 
 			// it_insertRaceLabels
@@ -364,7 +364,7 @@ namespace nwn2_ai_2da_editor
 			this.it_insertRaceLabels.Name = "it_insertRaceLabels";
 			this.it_insertRaceLabels.Padding = new System.Windows.Forms.Padding(0);
 			this.it_insertRaceLabels.Size = new System.Drawing.Size(185, 20);
-			this.it_insertRaceLabels.Text = "insert race labels";
+			this.it_insertRaceLabels.Text = "insert r&ace labels";
 			this.it_insertRaceLabels.Click += new System.EventHandler(this.Click_insertRaceLabels);
 			// 
 			// it_insertClassLabels
@@ -373,7 +373,7 @@ namespace nwn2_ai_2da_editor
 			this.it_insertClassLabels.Name = "it_insertClassLabels";
 			this.it_insertClassLabels.Padding = new System.Windows.Forms.Padding(0);
 			this.it_insertClassLabels.Size = new System.Drawing.Size(185, 20);
-			this.it_insertClassLabels.Text = "insert class labels";
+			this.it_insertClassLabels.Text = "insert c&lass labels";
 			this.it_insertClassLabels.Click += new System.EventHandler(this.Click_insertClassLabels);
 			// 
 			// tsmi_help
@@ -382,14 +382,14 @@ namespace nwn2_ai_2da_editor
 			this.About});
 			this.tsmi_help.Name = "tsmi_help";
 			this.tsmi_help.Size = new System.Drawing.Size(37, 24);
-			this.tsmi_help.Text = "Help";
+			this.tsmi_help.Text = "&Help";
 			// 
 			// About
 			// 
 			this.About.Name = "About";
 			this.About.Padding = new System.Windows.Forms.Padding(0);
-			this.About.Size = new System.Drawing.Size(95, 20);
-			this.About.Text = "About";
+			this.About.Size = new System.Drawing.Size(152, 20);
+			this.About.Text = "&About";
 			this.About.Click += new System.EventHandler(this.Click_about);
 			// 
 			// splitContainer
