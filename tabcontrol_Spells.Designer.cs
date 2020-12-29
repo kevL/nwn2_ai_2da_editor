@@ -916,7 +916,6 @@ namespace nwn2_ai_2da_editor
 			// 
 			// si_Concentration
 			// 
-			this.si_Concentration.Enabled = false;
 			this.si_Concentration.Location = new System.Drawing.Point(5, 55);
 			this.si_Concentration.Margin = new System.Windows.Forms.Padding(0);
 			this.si_Concentration.Name = "si_Concentration";
@@ -924,6 +923,7 @@ namespace nwn2_ai_2da_editor
 			this.si_Concentration.TabIndex = 2;
 			this.si_Concentration.Text = "has concentration check";
 			this.si_Concentration.UseVisualStyleBackColor = true;
+			this.si_Concentration.Visible = false;
 			// 
 			// si_HealOrCure
 			// 
@@ -988,7 +988,6 @@ namespace nwn2_ai_2da_editor
 			// si_SpelllevelGrp
 			// 
 			this.si_SpelllevelGrp.Controls.Add(this.si_co_Spelllevel);
-			this.si_SpelllevelGrp.Enabled = false;
 			this.si_SpelllevelGrp.Location = new System.Drawing.Point(5, 305);
 			this.si_SpelllevelGrp.Margin = new System.Windows.Forms.Padding(0);
 			this.si_SpelllevelGrp.Name = "si_SpelllevelGrp";
@@ -997,6 +996,7 @@ namespace nwn2_ai_2da_editor
 			this.si_SpelllevelGrp.TabIndex = 9;
 			this.si_SpelllevelGrp.TabStop = false;
 			this.si_SpelllevelGrp.Text = " 0001 E000 spelllevel ";
+			this.si_SpelllevelGrp.Visible = false;
 			// 
 			// si_co_Spelllevel
 			// 
