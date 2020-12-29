@@ -375,6 +375,14 @@ namespace nwn2_ai_2da_editor
 		CheckBox savedc_ac1;
 		Label    armorcheck_info;
 
+// RogueBits texboxes ->
+		TextboxInt si_RogueBits;
+		TextboxInt ti_RogueBits;
+		TextboxInt et_RogueBits;
+		TextboxInt di_RogueBits;
+		TextboxInt st_RogueBits;
+		TextboxInt dc_RogueBits;
+
 
 		/// <summary>
 		/// *si effin designer bs
@@ -668,6 +676,12 @@ namespace nwn2_ai_2da_editor
 			this.savedc_ac3 = new System.Windows.Forms.CheckBox();
 			this.armorcheck_info = new System.Windows.Forms.Label();
 			this.savedctype_label = new System.Windows.Forms.Label();
+			this.si_RogueBits = new nwn2_ai_2da_editor.TextboxInt();
+			this.ti_RogueBits = new nwn2_ai_2da_editor.TextboxInt();
+			this.et_RogueBits = new nwn2_ai_2da_editor.TextboxInt();
+			this.di_RogueBits = new nwn2_ai_2da_editor.TextboxInt();
+			this.st_RogueBits = new nwn2_ai_2da_editor.TextboxInt();
+			this.dc_RogueBits = new nwn2_ai_2da_editor.TextboxInt();
 			this.tc_Spells.SuspendLayout();
 			this.tp_SpellInfo.SuspendLayout();
 			this.si_SpelltypeGrp.SuspendLayout();
@@ -745,6 +759,7 @@ namespace nwn2_ai_2da_editor
 			// tp_SpellInfo
 			// 
 			this.tp_SpellInfo.BackColor = System.Drawing.Color.OldLace;
+			this.tp_SpellInfo.Controls.Add(this.si_RogueBits);
 			this.tp_SpellInfo.Controls.Add(this.SpellInfo_reset);
 			this.tp_SpellInfo.Controls.Add(this.SpellInfo_text);
 			this.tp_SpellInfo.Controls.Add(this.SpellInfo_hex);
@@ -786,6 +801,7 @@ namespace nwn2_ai_2da_editor
 			this.SpellInfo_text.Size = new System.Drawing.Size(100, 20);
 			this.SpellInfo_text.TabIndex = 1;
 			this.SpellInfo_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.SpellInfo_text.WordWrap = false;
 			// 
 			// SpellInfo_hex
 			// 
@@ -798,6 +814,7 @@ namespace nwn2_ai_2da_editor
 			this.SpellInfo_hex.Size = new System.Drawing.Size(275, 13);
 			this.SpellInfo_hex.TabIndex = 2;
 			this.SpellInfo_hex.TabStop = false;
+			this.SpellInfo_hex.WordWrap = false;
 			// 
 			// SpellInfo_bin
 			// 
@@ -810,6 +827,7 @@ namespace nwn2_ai_2da_editor
 			this.SpellInfo_bin.Size = new System.Drawing.Size(275, 13);
 			this.SpellInfo_bin.TabIndex = 3;
 			this.SpellInfo_bin.TabStop = false;
+			this.SpellInfo_bin.WordWrap = false;
 			// 
 			// si_Clear
 			// 
@@ -1087,6 +1105,7 @@ namespace nwn2_ai_2da_editor
 			this.si_Subspell1.Name = "si_Subspell1";
 			this.si_Subspell1.Size = new System.Drawing.Size(75, 20);
 			this.si_Subspell1.TabIndex = 5;
+			this.si_Subspell1.WordWrap = false;
 			// 
 			// si_Subspell2
 			// 
@@ -1095,6 +1114,7 @@ namespace nwn2_ai_2da_editor
 			this.si_Subspell2.Name = "si_Subspell2";
 			this.si_Subspell2.Size = new System.Drawing.Size(75, 20);
 			this.si_Subspell2.TabIndex = 6;
+			this.si_Subspell2.WordWrap = false;
 			// 
 			// si_Subspell3
 			// 
@@ -1103,6 +1123,7 @@ namespace nwn2_ai_2da_editor
 			this.si_Subspell3.Name = "si_Subspell3";
 			this.si_Subspell3.Size = new System.Drawing.Size(75, 20);
 			this.si_Subspell3.TabIndex = 7;
+			this.si_Subspell3.WordWrap = false;
 			// 
 			// si_Subspell4
 			// 
@@ -1111,6 +1132,7 @@ namespace nwn2_ai_2da_editor
 			this.si_Subspell4.Name = "si_Subspell4";
 			this.si_Subspell4.Size = new System.Drawing.Size(75, 20);
 			this.si_Subspell4.TabIndex = 8;
+			this.si_Subspell4.WordWrap = false;
 			// 
 			// si_Subspell5
 			// 
@@ -1119,6 +1141,7 @@ namespace nwn2_ai_2da_editor
 			this.si_Subspell5.Name = "si_Subspell5";
 			this.si_Subspell5.Size = new System.Drawing.Size(75, 20);
 			this.si_Subspell5.TabIndex = 9;
+			this.si_Subspell5.WordWrap = false;
 			// 
 			// si_SubspellLabel1
 			// 
@@ -1228,6 +1251,7 @@ namespace nwn2_ai_2da_editor
 			// tp_TargetInfo
 			// 
 			this.tp_TargetInfo.BackColor = System.Drawing.Color.OldLace;
+			this.tp_TargetInfo.Controls.Add(this.ti_RogueBits);
 			this.tp_TargetInfo.Controls.Add(this.TargetInfo_reset);
 			this.tp_TargetInfo.Controls.Add(this.TargetInfo_text);
 			this.tp_TargetInfo.Controls.Add(this.TargetInfo_hex);
@@ -1263,6 +1287,7 @@ namespace nwn2_ai_2da_editor
 			this.TargetInfo_text.Size = new System.Drawing.Size(100, 20);
 			this.TargetInfo_text.TabIndex = 1;
 			this.TargetInfo_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.TargetInfo_text.WordWrap = false;
 			// 
 			// TargetInfo_hex
 			// 
@@ -1275,6 +1300,7 @@ namespace nwn2_ai_2da_editor
 			this.TargetInfo_hex.Size = new System.Drawing.Size(275, 13);
 			this.TargetInfo_hex.TabIndex = 2;
 			this.TargetInfo_hex.TabStop = false;
+			this.TargetInfo_hex.WordWrap = false;
 			// 
 			// TargetInfo_bin
 			// 
@@ -1287,6 +1313,7 @@ namespace nwn2_ai_2da_editor
 			this.TargetInfo_bin.Size = new System.Drawing.Size(275, 13);
 			this.TargetInfo_bin.TabIndex = 3;
 			this.TargetInfo_bin.TabStop = false;
+			this.TargetInfo_bin.WordWrap = false;
 			// 
 			// ti_Clear
 			// 
@@ -1502,6 +1529,7 @@ namespace nwn2_ai_2da_editor
 			this.ti_Radius.Name = "ti_Radius";
 			this.ti_Radius.Size = new System.Drawing.Size(215, 20);
 			this.ti_Radius.TabIndex = 0;
+			this.ti_Radius.WordWrap = false;
 			// 
 			// tp_EffectWeight
 			// 
@@ -1563,10 +1591,12 @@ namespace nwn2_ai_2da_editor
 			this.EffectWeight_text.Size = new System.Drawing.Size(100, 20);
 			this.EffectWeight_text.TabIndex = 1;
 			this.EffectWeight_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.EffectWeight_text.WordWrap = false;
 			// 
 			// tp_EffectTypes
 			// 
 			this.tp_EffectTypes.BackColor = System.Drawing.Color.OldLace;
+			this.tp_EffectTypes.Controls.Add(this.et_RogueBits);
 			this.tp_EffectTypes.Controls.Add(this.EffectTypes_reset);
 			this.tp_EffectTypes.Controls.Add(this.EffectTypes_text);
 			this.tp_EffectTypes.Controls.Add(this.EffectTypes_hex);
@@ -1600,6 +1630,7 @@ namespace nwn2_ai_2da_editor
 			this.EffectTypes_text.Size = new System.Drawing.Size(100, 20);
 			this.EffectTypes_text.TabIndex = 1;
 			this.EffectTypes_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.EffectTypes_text.WordWrap = false;
 			// 
 			// EffectTypes_hex
 			// 
@@ -1612,6 +1643,7 @@ namespace nwn2_ai_2da_editor
 			this.EffectTypes_hex.Size = new System.Drawing.Size(275, 13);
 			this.EffectTypes_hex.TabIndex = 2;
 			this.EffectTypes_hex.TabStop = false;
+			this.EffectTypes_hex.WordWrap = false;
 			// 
 			// EffectTypes_bin
 			// 
@@ -1624,6 +1656,7 @@ namespace nwn2_ai_2da_editor
 			this.EffectTypes_bin.Size = new System.Drawing.Size(275, 13);
 			this.EffectTypes_bin.TabIndex = 3;
 			this.EffectTypes_bin.TabStop = false;
+			this.EffectTypes_bin.WordWrap = false;
 			// 
 			// et_Clear
 			// 
@@ -2285,6 +2318,7 @@ namespace nwn2_ai_2da_editor
 			// tp_DamageInfo
 			// 
 			this.tp_DamageInfo.BackColor = System.Drawing.Color.OldLace;
+			this.tp_DamageInfo.Controls.Add(this.di_RogueBits);
 			this.tp_DamageInfo.Controls.Add(this.DamageInfo_reset);
 			this.tp_DamageInfo.Controls.Add(this.DamageInfo_text);
 			this.tp_DamageInfo.Controls.Add(this.DamageInfo_hex);
@@ -2319,6 +2353,7 @@ namespace nwn2_ai_2da_editor
 			this.DamageInfo_text.Size = new System.Drawing.Size(100, 20);
 			this.DamageInfo_text.TabIndex = 1;
 			this.DamageInfo_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.DamageInfo_text.WordWrap = false;
 			// 
 			// DamageInfo_hex
 			// 
@@ -2331,6 +2366,7 @@ namespace nwn2_ai_2da_editor
 			this.DamageInfo_hex.Size = new System.Drawing.Size(275, 13);
 			this.DamageInfo_hex.TabIndex = 2;
 			this.DamageInfo_hex.TabStop = false;
+			this.DamageInfo_hex.WordWrap = false;
 			// 
 			// DamageInfo_bin
 			// 
@@ -2343,6 +2379,7 @@ namespace nwn2_ai_2da_editor
 			this.DamageInfo_bin.Size = new System.Drawing.Size(275, 13);
 			this.DamageInfo_bin.TabIndex = 3;
 			this.DamageInfo_bin.TabStop = false;
+			this.DamageInfo_bin.WordWrap = false;
 			// 
 			// di_Clear
 			// 
@@ -2431,6 +2468,7 @@ namespace nwn2_ai_2da_editor
 			this.di_DetDamage.Name = "di_DetDamage";
 			this.di_DetDamage.Size = new System.Drawing.Size(85, 20);
 			this.di_DetDamage.TabIndex = 0;
+			this.di_DetDamage.WordWrap = false;
 			// 
 			// di_DetLeveltypeGrp
 			// 
@@ -2471,6 +2509,7 @@ namespace nwn2_ai_2da_editor
 			this.di_DetLevellimit.Name = "di_DetLevellimit";
 			this.di_DetLevellimit.Size = new System.Drawing.Size(85, 20);
 			this.di_DetLevellimit.TabIndex = 0;
+			this.di_DetLevellimit.WordWrap = false;
 			// 
 			// di_DetLeveldivisorGrp
 			// 
@@ -2491,6 +2530,7 @@ namespace nwn2_ai_2da_editor
 			this.di_DetLeveldivisor.Name = "di_DetLeveldivisor";
 			this.di_DetLeveldivisor.Size = new System.Drawing.Size(85, 20);
 			this.di_DetLeveldivisor.TabIndex = 0;
+			this.di_DetLeveldivisor.WordWrap = false;
 			// 
 			// di_DetFixedCountGrp
 			// 
@@ -2512,6 +2552,7 @@ namespace nwn2_ai_2da_editor
 			this.di_DetFixedcount.Name = "di_DetFixedcount";
 			this.di_DetFixedcount.Size = new System.Drawing.Size(85, 20);
 			this.di_DetFixedcount.TabIndex = 0;
+			this.di_DetFixedcount.WordWrap = false;
 			// 
 			// di_lbl_FixedCountPlusOne
 			// 
@@ -2722,6 +2763,7 @@ namespace nwn2_ai_2da_editor
 			this.di_BenPower.Name = "di_BenPower";
 			this.di_BenPower.Size = new System.Drawing.Size(85, 20);
 			this.di_BenPower.TabIndex = 0;
+			this.di_BenPower.WordWrap = false;
 			// 
 			// di_BenLeveltypeGrp
 			// 
@@ -2762,6 +2804,7 @@ namespace nwn2_ai_2da_editor
 			this.di_BenLevellimit.Name = "di_BenLevellimit";
 			this.di_BenLevellimit.Size = new System.Drawing.Size(85, 20);
 			this.di_BenLevellimit.TabIndex = 0;
+			this.di_BenLevellimit.WordWrap = false;
 			// 
 			// di_BenLeveldivisorGrp
 			// 
@@ -2782,6 +2825,7 @@ namespace nwn2_ai_2da_editor
 			this.di_BenLeveldivisor.Name = "di_BenLeveldivisor";
 			this.di_BenLeveldivisor.Size = new System.Drawing.Size(85, 20);
 			this.di_BenLeveldivisor.TabIndex = 0;
+			this.di_BenLeveldivisor.WordWrap = false;
 			// 
 			// di_BenLeveldecreaseGrp
 			// 
@@ -2802,6 +2846,7 @@ namespace nwn2_ai_2da_editor
 			this.di_BenLeveldecrease.Name = "di_BenLeveldecrease";
 			this.di_BenLeveldecrease.Size = new System.Drawing.Size(85, 20);
 			this.di_BenLeveldecrease.TabIndex = 0;
+			this.di_BenLeveldecrease.WordWrap = false;
 			// 
 			// di_DispelTypesGrp
 			// 
@@ -2850,6 +2895,7 @@ namespace nwn2_ai_2da_editor
 			// tp_SaveType
 			// 
 			this.tp_SaveType.BackColor = System.Drawing.Color.OldLace;
+			this.tp_SaveType.Controls.Add(this.st_RogueBits);
 			this.tp_SaveType.Controls.Add(this.SaveType_reset);
 			this.tp_SaveType.Controls.Add(this.SaveType_text);
 			this.tp_SaveType.Controls.Add(this.SaveType_hex);
@@ -2887,6 +2933,7 @@ namespace nwn2_ai_2da_editor
 			this.SaveType_text.Size = new System.Drawing.Size(100, 20);
 			this.SaveType_text.TabIndex = 1;
 			this.SaveType_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.SaveType_text.WordWrap = false;
 			// 
 			// SaveType_hex
 			// 
@@ -2899,6 +2946,7 @@ namespace nwn2_ai_2da_editor
 			this.SaveType_hex.Size = new System.Drawing.Size(275, 13);
 			this.SaveType_hex.TabIndex = 2;
 			this.SaveType_hex.TabStop = false;
+			this.SaveType_hex.WordWrap = false;
 			// 
 			// SaveType_bin
 			// 
@@ -2911,6 +2959,7 @@ namespace nwn2_ai_2da_editor
 			this.SaveType_bin.Size = new System.Drawing.Size(275, 13);
 			this.SaveType_bin.TabIndex = 3;
 			this.SaveType_bin.TabStop = false;
+			this.SaveType_bin.WordWrap = false;
 			// 
 			// st_Clear
 			// 
@@ -3503,6 +3552,7 @@ namespace nwn2_ai_2da_editor
 			this.st_Excl_Weight.Name = "st_Excl_Weight";
 			this.st_Excl_Weight.Size = new System.Drawing.Size(120, 20);
 			this.st_Excl_Weight.TabIndex = 0;
+			this.st_Excl_Weight.WordWrap = false;
 			// 
 			// st_Excl_FlagsGrp
 			// 
@@ -3662,6 +3712,7 @@ namespace nwn2_ai_2da_editor
 			// tp_SaveDCType
 			// 
 			this.tp_SaveDCType.BackColor = System.Drawing.Color.OldLace;
+			this.tp_SaveDCType.Controls.Add(this.dc_RogueBits);
 			this.tp_SaveDCType.Controls.Add(this.SaveDCType_reset);
 			this.tp_SaveDCType.Controls.Add(this.SaveDCType_text);
 			this.tp_SaveDCType.Controls.Add(this.SaveDCType_hex);
@@ -3697,6 +3748,7 @@ namespace nwn2_ai_2da_editor
 			this.SaveDCType_text.Size = new System.Drawing.Size(100, 20);
 			this.SaveDCType_text.TabIndex = 1;
 			this.SaveDCType_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.SaveDCType_text.WordWrap = false;
 			// 
 			// SaveDCType_hex
 			// 
@@ -3709,6 +3761,7 @@ namespace nwn2_ai_2da_editor
 			this.SaveDCType_hex.Size = new System.Drawing.Size(275, 13);
 			this.SaveDCType_hex.TabIndex = 2;
 			this.SaveDCType_hex.TabStop = false;
+			this.SaveDCType_hex.WordWrap = false;
 			// 
 			// SaveDCType_bin
 			// 
@@ -3721,6 +3774,7 @@ namespace nwn2_ai_2da_editor
 			this.SaveDCType_bin.Size = new System.Drawing.Size(275, 13);
 			this.SaveDCType_bin.TabIndex = 3;
 			this.SaveDCType_bin.TabStop = false;
+			this.SaveDCType_bin.WordWrap = false;
 			// 
 			// dc_Clear
 			// 
@@ -3901,6 +3955,66 @@ namespace nwn2_ai_2da_editor
 			this.savedctype_label.Name = "savedctype_label";
 			this.savedctype_label.Size = new System.Drawing.Size(655, 45);
 			this.savedctype_label.TabIndex = 10;
+			// 
+			// si_RogueBits
+			// 
+			this.si_RogueBits.Location = new System.Drawing.Point(515, 10);
+			this.si_RogueBits.Margin = new System.Windows.Forms.Padding(0);
+			this.si_RogueBits.Name = "si_RogueBits";
+			this.si_RogueBits.Size = new System.Drawing.Size(100, 20);
+			this.si_RogueBits.TabIndex = 17;
+			this.si_RogueBits.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.si_RogueBits.WordWrap = false;
+			// 
+			// ti_RogueBits
+			// 
+			this.ti_RogueBits.Location = new System.Drawing.Point(515, 10);
+			this.ti_RogueBits.Margin = new System.Windows.Forms.Padding(0);
+			this.ti_RogueBits.Name = "ti_RogueBits";
+			this.ti_RogueBits.Size = new System.Drawing.Size(100, 20);
+			this.ti_RogueBits.TabIndex = 18;
+			this.ti_RogueBits.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.ti_RogueBits.WordWrap = false;
+			// 
+			// et_RogueBits
+			// 
+			this.et_RogueBits.Location = new System.Drawing.Point(515, 10);
+			this.et_RogueBits.Margin = new System.Windows.Forms.Padding(0);
+			this.et_RogueBits.Name = "et_RogueBits";
+			this.et_RogueBits.Size = new System.Drawing.Size(100, 20);
+			this.et_RogueBits.TabIndex = 19;
+			this.et_RogueBits.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.et_RogueBits.WordWrap = false;
+			// 
+			// di_RogueBits
+			// 
+			this.di_RogueBits.Location = new System.Drawing.Point(515, 10);
+			this.di_RogueBits.Margin = new System.Windows.Forms.Padding(0);
+			this.di_RogueBits.Name = "di_RogueBits";
+			this.di_RogueBits.Size = new System.Drawing.Size(100, 20);
+			this.di_RogueBits.TabIndex = 20;
+			this.di_RogueBits.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.di_RogueBits.WordWrap = false;
+			// 
+			// st_RogueBits
+			// 
+			this.st_RogueBits.Location = new System.Drawing.Point(515, 10);
+			this.st_RogueBits.Margin = new System.Windows.Forms.Padding(0);
+			this.st_RogueBits.Name = "st_RogueBits";
+			this.st_RogueBits.Size = new System.Drawing.Size(100, 20);
+			this.st_RogueBits.TabIndex = 21;
+			this.st_RogueBits.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.st_RogueBits.WordWrap = false;
+			// 
+			// dc_RogueBits
+			// 
+			this.dc_RogueBits.Location = new System.Drawing.Point(515, 10);
+			this.dc_RogueBits.Margin = new System.Windows.Forms.Padding(0);
+			this.dc_RogueBits.Name = "dc_RogueBits";
+			this.dc_RogueBits.Size = new System.Drawing.Size(100, 20);
+			this.dc_RogueBits.TabIndex = 22;
+			this.dc_RogueBits.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+			this.dc_RogueBits.WordWrap = false;
 			// 
 			// tabcontrol_Spells
 			// 
