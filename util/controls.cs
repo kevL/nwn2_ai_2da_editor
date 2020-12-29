@@ -177,17 +177,13 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		protected override void OnLeave(EventArgs e)
 		{
-			string text = Text.Trim().Trim('0');
+			string text = Text.Trim();
 
 			bool n = text.StartsWith("-", StringComparison.Ordinal);
 			if (n)
 				text = text.TrimStart('-');
 
-			if (text.StartsWith(".", StringComparison.Ordinal))
-				text = "0" + text;
-
-			if (text.EndsWith(".", StringComparison.Ordinal))
-				text += "0";
+			text = text.Trim('0');
 
 			float result;
 			if (!Single.TryParse(text, out result)
@@ -195,13 +191,18 @@ namespace nwn2_ai_2da_editor
 			{
 				text = "0.0";
 			}
-			else if (n)
-				text = "-" + text;
+			else
+			{
+				if (text.StartsWith(".", StringComparison.Ordinal))
+					text = "0" + text;
+				else if (text.EndsWith(".", StringComparison.Ordinal))
+					text += "0";
+				else if (text.IndexOf('.') == -1)
+					text += ".0";
 
-			if (text.IndexOf('.') == -1)
-				text += ".0";
-			else if (text.EndsWith(".", StringComparison.Ordinal))
-				text += "0";
+				if (n)
+					text = "-" + text;
+			}
 
 			if (text != Text)
 				Text = text;
