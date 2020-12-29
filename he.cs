@@ -103,12 +103,12 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		internal static bool BypassInfoVersion;
 
-		/// <summary>
-		/// A boolean to track whether to inform the user if any InfoVersions
-		/// have been updated once a 2da finishes loading.
-		/// </summary>
-		bool InfoVersionUpdate
-		{ get; set; }
+//		/// <summary>
+//		/// A boolean to track whether to inform the user if any InfoVersions
+//		/// have been updated once a 2da finishes loading.
+//		/// </summary>
+//		bool InfoVersionUpdate
+//		{ get; set; }
 
 		/// <summary>
 		/// A boolean indicating that the currently loaded 2da has a "Label" col.
