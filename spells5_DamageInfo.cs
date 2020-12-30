@@ -680,7 +680,7 @@ namespace nwn2_ai_2da_editor
 // beneficial PowerBase dropdown
 			switch (damageinfo & hc.HENCH_SPELL_INFO_BUFF_MASK) // 0x0f000000
 			{
-				case 0:                                  val = 0; break;
+				case 0:                                     val = 0; break;
 				case hc.HENCH_SPELL_INFO_BUFF_CASTER_LEVEL: val = 1; break;
 				case hc.HENCH_SPELL_INFO_BUFF_HD_LEVEL:     val = 2; break;
 				case hc.HENCH_SPELL_INFO_BUFF_FIXED:        val = 3; break;
@@ -803,40 +803,83 @@ namespace nwn2_ai_2da_editor
 			di_BenPower.Text = val.ToString();
 
 // ben LevelLimit textbox
-			val = (damageinfo & hc.HENCH_SPELL_INFO_BUFF_LEVEL_LIMIT_MASK);		// 0x00003f00
-			val >>= HENCH_SPELL_INFO_BUFF_LEVEL_LIMIT_SHIFT;
+			val = (damageinfo & hc.HENCH_SPELL_INFO_BUFF_LEVEL_LIMIT_MASK)		// 0x00003f00
+								>> HENCH_SPELL_INFO_BUFF_LEVEL_LIMIT_SHIFT;
 			di_BenLevellimit.Text = val.ToString();
 
 // ben LevelDivisor textbox
-			val = (damageinfo & hc.HENCH_SPELL_INFO_BUFF_LEVEL_DIV_MASK);		// 0x000f0000
-			val >>= HENCH_SPELL_INFO_BUFF_LEVEL_DIV_SHIFT;
+			val = (damageinfo & hc.HENCH_SPELL_INFO_BUFF_LEVEL_DIV_MASK)		// 0x000f0000
+								>> HENCH_SPELL_INFO_BUFF_LEVEL_DIV_SHIFT;
 			di_BenLeveldivisor.Text = val.ToString();
 
 // ben LevelDecrease textbox
-			val = (damageinfo & hc.HENCH_SPELL_INFO_BUFF_LEVEL_DECR_MASK);		// 0x00f00000
-			val >>= HENCH_SPELL_INFO_BUFF_LEVEL_DECR_SHIFT;
+			val = (damageinfo & hc.HENCH_SPELL_INFO_BUFF_LEVEL_DECR_MASK)		// 0x00f00000
+								>> HENCH_SPELL_INFO_BUFF_LEVEL_DECR_SHIFT;
 			di_BenLeveldecrease.Text = val.ToString();
 
 // det Damage textbox
-			val = (damageinfo & hc.HENCH_SPELL_INFO_DAMAGE_AMOUNT_MASK);		// 0x000ff000
-			val >>= HENCH_SPELL_INFO_DAMAGE_AMOUNT_SHIFT;
+			val = (damageinfo & hc.HENCH_SPELL_INFO_DAMAGE_AMOUNT_MASK)			// 0x000ff000
+								>> HENCH_SPELL_INFO_DAMAGE_AMOUNT_SHIFT;
 			di_DetDamage.Text = val.ToString();
 
 // det LevelLimit textbox
-			val = (damageinfo & hc.HENCH_SPELL_INFO_DAMAGE_LEVEL_LIMIT_MASK);	// 0x00f00000
-			val >>= HENCH_SPELL_INFO_DAMAGE_LEVEL_LIMIT_SHIFT;
+			val = (damageinfo & hc.HENCH_SPELL_INFO_DAMAGE_LEVEL_LIMIT_MASK)	// 0x00f00000
+								>> HENCH_SPELL_INFO_DAMAGE_LEVEL_LIMIT_SHIFT;
 			di_DetLevellimit.Text = val.ToString();
 
 // det LevelDivisor textbox
-			val = (damageinfo & hc.HENCH_SPELL_INFO_DAMAGE_LEVEL_DIV_MASK);		// 0x0c000000 - overlaps FixedCount
-			val >>= HENCH_SPELL_INFO_DAMAGE_LEVEL_DIV_SHIFT;
+			val = (damageinfo & hc.HENCH_SPELL_INFO_DAMAGE_LEVEL_DIV_MASK)		// 0x0c000000 - overlaps FixedCount
+								>> HENCH_SPELL_INFO_DAMAGE_LEVEL_DIV_SHIFT;
 			di_DetLeveldivisor.Text = val.ToString();
 
 // det FixedCount textbox
-			val = (damageinfo & hc.HENCH_SPELL_INFO_DAMAGE_FIXED_COUNT);		// 0x0f000000 - overlaps LevelType and LevelDivisor
-			val >>= HENCH_SPELL_INFO_DAMAGE_FIXED_COUNT_SHIFT;
+			val = (damageinfo & hc.HENCH_SPELL_INFO_DAMAGE_FIXED_COUNT)			// 0x0f000000 - overlaps LevelType and LevelDivisor
+								>> HENCH_SPELL_INFO_DAMAGE_FIXED_COUNT_SHIFT;
 			di_DetFixedcount.Text = val.ToString();
+
+			// test ->
+			int roguebits = (damageinfo & ~di_legitbits);
+			if (roguebits != 0)
+			{
+				di_RogueBits.Text = roguebits.ToString("X8");
+				di_RogueBits   .Visible =
+				di_la_RogueBits.Visible = true;
+			}
+			else
+				di_RogueBits   .Visible =
+				di_la_RogueBits.Visible = false;
 		}
+
+		const int di_legitbits = hc.HENCH_SPELL_INFO_DAMAGE_BREACH				// 0x00000001 // all bits are legal -> (which are illegal depends on spelltype etc.)
+							   | hc.HENCH_SPELL_INFO_DAMAGE_DISPEL				// 0x00000002
+							   | hc.HENCH_SPELL_INFO_DAMAGE_RESIST				// 0x00000004
+
+							   | hc.DAMAGE_TYPE_BLUDGEONING						// 0x00000001
+							   | hc.DAMAGE_TYPE_PIERCING						// 0x00000002
+							   | hc.DAMAGE_TYPE_SLASHING						// 0x00000004
+							   | hc.DAMAGE_TYPE_MAGICAL							// 0x00000008
+							   | hc.DAMAGE_TYPE_ACID							// 0x00000010
+							   | hc.DAMAGE_TYPE_COLD							// 0x00000020
+							   | hc.DAMAGE_TYPE_DIVINE							// 0x00000040
+							   | hc.DAMAGE_TYPE_ELECTRICAL						// 0x00000080
+							   | hc.DAMAGE_TYPE_FIRE							// 0x00000100
+							   | hc.DAMAGE_TYPE_NEGATIVE						// 0x00000200
+							   | hc.DAMAGE_TYPE_POSITIVE						// 0x00000400
+							   | hc.DAMAGE_TYPE_SONIC							// 0x00000800
+
+							   | hc.HENCH_SPELL_INFO_DAMAGE_AMOUNT_MASK			// 0x000ff000
+							   | hc.HENCH_SPELL_INFO_DAMAGE_LEVEL_LIMIT_MASK	// 0x00f00000
+							   | hc.HENCH_SPELL_INFO_DAMAGE_LEVEL_TYPE_MASK		// 0x03000000
+							   | hc.HENCH_SPELL_INFO_DAMAGE_LEVEL_DIV_MASK		// 0x0c000000
+							   | hc.HENCH_SPELL_INFO_DAMAGE_FIXED_COUNT			// 0x0f000000
+							   | hc.HENCH_SPELL_INFO_DAMAGE_MASK				// 0xf0000000
+
+							   | hc.HENCH_SPELL_INFO_BUFF_AMOUNT_MASK			// 0x000000ff
+							   | hc.HENCH_SPELL_INFO_BUFF_LEVEL_LIMIT_MASK		// 0x00003f00
+																				// 0x0000c000 <-
+							   | hc.HENCH_SPELL_INFO_BUFF_LEVEL_DIV_MASK		// 0x000f0000
+							   | hc.HENCH_SPELL_INFO_BUFF_LEVEL_DECR_MASK		// 0x00f00000
+							   | hc.HENCH_SPELL_INFO_BUFF_MASK;					// 0x0f000000
 		#endregion setstate
 	}
 }

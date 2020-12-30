@@ -435,31 +435,31 @@ namespace nwn2_ai_2da_editor
 		void state_EffectTypes(int effecttypes)
 		{
 // Beneficial Effects checkboxes
-			et_AcIncrease         .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_AC_INCREASE)           != 0;
-			et_Regenerate         .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_REGENERATE)            != 0;
-			et_AttackIncrease     .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_ATTACK_INCREASE)       != 0;
-			et_DamageReduction    .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_DAMAGE_REDUCTION)      != 0;
-			et_Haste              .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_HASTE)                 != 0;
-			et_TempHitpoints      .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_TEMPORARY_HITPOINTS)   != 0;
-			et_Sanctuary          .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_SANCTUARY)             != 0;
-			et_Timestop           .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_TIMESTOP)              != 0;
-			et_SpellAbsorption    .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_SPELLLEVELABSORPTION)  != 0;
-			et_SavingThrowIncrease.Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_SAVING_THROW_INCREASE) != 0;
-			et_Concealment        .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_CONCEALMENT)           != 0;
-			et_DamageIncrease     .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_DAMAGE_INCREASE)       != 0;
-			et_AbsorbDamage       .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_ABSORBDAMAGE)          != 0;
-			et_Ethereal           .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_ETHEREAL)              != 0;
-			et_Invisibility       .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_INVISIBILITY)          != 0;
-			et_Polymorph          .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_POLYMORPH)             != 0;
-			et_Ultravision        .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_ULTRAVISION)           != 0;
-			et_TrueSeeing         .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_TRUESEEING)            != 0;
-			et_Wildshape          .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_WILDSHAPE)             != 0;
-			et_GreaterInvisibility.Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_GREATER_INVIS)         != 0;
-			et_ElementalShield    .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_ELEMENTALSHIELD)       != 0;
-			et_AbilityIncrease    .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_ABILITY_INCREASE)      != 0;
-			et_SeeInvisible       .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_SEEINVISIBLE)          != 0;
-			et_SpellShield        .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_SPELL_SHIELD)          != 0;
-			et_ImmunityNecromancy .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_IMMUNE_NECROMANCY)     != 0;
+			et_AcIncrease         .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_AC_INCREASE)             != 0;
+			et_Regenerate         .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_REGENERATE)              != 0;
+			et_AttackIncrease     .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_ATTACK_INCREASE)         != 0;
+			et_DamageReduction    .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_DAMAGE_REDUCTION)        != 0;
+			et_Haste              .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_HASTE)                   != 0;
+			et_TempHitpoints      .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_TEMPORARY_HITPOINTS)     != 0;
+			et_Sanctuary          .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_SANCTUARY)               != 0;
+			et_Timestop           .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_TIMESTOP)                != 0;
+			et_SpellAbsorption    .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_SPELLLEVELABSORPTION)    != 0;
+			et_SavingThrowIncrease.Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_SAVING_THROW_INCREASE)   != 0;
+			et_Concealment        .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_CONCEALMENT)             != 0;
+			et_DamageIncrease     .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_DAMAGE_INCREASE)         != 0;
+			et_AbsorbDamage       .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_ABSORBDAMAGE)            != 0;
+			et_Ethereal           .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_ETHEREAL)                != 0;
+			et_Invisibility       .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_INVISIBILITY)            != 0;
+			et_Polymorph          .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_POLYMORPH)               != 0;
+			et_Ultravision        .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_ULTRAVISION)             != 0;
+			et_TrueSeeing         .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_TRUESEEING)              != 0;
+			et_Wildshape          .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_WILDSHAPE)               != 0;
+			et_GreaterInvisibility.Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_GREATER_INVIS)           != 0;
+			et_ElementalShield    .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_ELEMENTALSHIELD)         != 0;
+			et_AbilityIncrease    .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_ABILITY_INCREASE)        != 0;
+			et_SeeInvisible       .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_SEEINVISIBLE)            != 0;
+			et_SpellShield        .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_SPELL_SHIELD)            != 0;
+			et_ImmunityNecromancy .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_IMMUNE_NECROMANCY)       != 0;
 
 // Detrimental Effects checkboxes
 			et_Entangle           .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_ENTANGLE)                != 0;
@@ -492,7 +492,89 @@ namespace nwn2_ai_2da_editor
 			et_Dying              .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_DYING)                   != 0;
 			et_Mesmerize          .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_MESMERIZE)               != 0;
 			et_CutsceneParalyze   .Checked = (effecttypes & hc.HENCH_EFFECT_TYPE_CUTSCENE_PARALYZE)       != 0;
+
+			// test ->
+			int roguebits = (effecttypes & ~et_legitbits);
+			if (roguebits != 0)
+			{
+				et_RogueBits.Text = roguebits.ToString("X8");
+				et_RogueBits   .Visible =
+				et_la_RogueBits.Visible = true;
+			}
+			else
+				et_RogueBits   .Visible =
+				et_la_RogueBits.Visible = false;
 		}
+
+		const int et_legitbits = hc.HENCH_EFFECT_TYPE_AC_INCREASE				// 0x00000001 // all bits are legal -> (which are illegal depends on spelltype etc.)
+							   | hc.HENCH_EFFECT_TYPE_REGENERATE				// 0x00000002
+							   | hc.HENCH_EFFECT_TYPE_ATTACK_INCREASE			// 0x00000004
+							   | hc.HENCH_EFFECT_TYPE_DAMAGE_REDUCTION			// 0x00000008
+							   | hc.HENCH_EFFECT_TYPE_HASTE						// 0x00000010
+							   | hc.HENCH_EFFECT_TYPE_TEMPORARY_HITPOINTS		// 0x00000020
+							   | hc.HENCH_EFFECT_TYPE_SANCTUARY					// 0x00000040
+							   | hc.HENCH_EFFECT_TYPE_TIMESTOP					// 0x00000080
+							   | hc.HENCH_EFFECT_TYPE_SPELLLEVELABSORPTION		// 0x00000100
+							   | hc.HENCH_EFFECT_TYPE_SAVING_THROW_INCREASE		// 0x00000200
+							   | hc.HENCH_EFFECT_TYPE_CONCEALMENT				// 0x00000400
+//							   | hc.HENCH_EFFECT_TYPE_SUMMON					// 0x00000800 <-
+							   | hc.HENCH_EFFECT_TYPE_DAMAGE_INCREASE			// 0x00001000
+							   | hc.HENCH_EFFECT_TYPE_ABSORBDAMAGE				// 0x00002000
+							   | hc.HENCH_EFFECT_TYPE_ETHEREAL					// 0x00004000
+							   | hc.HENCH_EFFECT_TYPE_INVISIBILITY				// 0x00008000
+							   | hc.HENCH_EFFECT_TYPE_POLYMORPH					// 0x00010000
+							   | hc.HENCH_EFFECT_TYPE_ULTRAVISION				// 0x00020000
+							   | hc.HENCH_EFFECT_TYPE_TRUESEEING				// 0x00040000
+							   | hc.HENCH_EFFECT_TYPE_WILDSHAPE					// 0x00080000
+							   | hc.HENCH_EFFECT_TYPE_GREATER_INVIS				// 0x00100000
+							   | hc.HENCH_EFFECT_TYPE_ELEMENTALSHIELD			// 0x00200000
+							   | hc.HENCH_EFFECT_TYPE_ABILITY_INCREASE			// 0x00400000
+							   | hc.HENCH_EFFECT_TYPE_SEEINVISIBLE				// 0x00800000
+
+																				// 0x01000000 <-
+																				// 0x02000000 <-
+																				// 0x04000000 <-
+																				// 0x08000000 <-
+																				// 0x10000000 <-
+																				// 0x20000000 <-
+
+							   | hc.HENCH_EFFECT_TYPE_SPELL_SHIELD				// 0x40000000
+							   | hc.HENCH_EFFECT_TYPE_IMMUNE_NECROMANCY			// 0x80000000
+
+							   | hc.HENCH_EFFECT_TYPE_ENTANGLE					// 0x00000001
+							   | hc.HENCH_EFFECT_TYPE_PARALYZE					// 0x00000002
+							   | hc.HENCH_EFFECT_TYPE_DEAF						// 0x00000004
+							   | hc.HENCH_EFFECT_TYPE_BLINDNESS					// 0x00000008
+							   | hc.HENCH_EFFECT_TYPE_CURSE						// 0x00000010
+							   | hc.HENCH_EFFECT_TYPE_SLEEP						// 0x00000020
+							   | hc.HENCH_EFFECT_TYPE_CHARMED					// 0x00000040
+							   | hc.HENCH_EFFECT_TYPE_CONFUSED					// 0x00000080
+							   | hc.HENCH_EFFECT_TYPE_FRIGHTENED				// 0x00000100
+							   | hc.HENCH_EFFECT_TYPE_DOMINATED					// 0x00000200
+							   | hc.HENCH_EFFECT_TYPE_DAZED						// 0x00000400
+							   | hc.HENCH_EFFECT_TYPE_POISON					// 0x00000800
+							   | hc.HENCH_EFFECT_TYPE_DISEASE					// 0x00001000
+							   | hc.HENCH_EFFECT_TYPE_SILENCE					// 0x00002000
+							   | hc.HENCH_EFFECT_TYPE_SLOW						// 0x00004000
+							   | hc.HENCH_EFFECT_TYPE_ABILITY_DECREASE			// 0x00008000
+							   | hc.HENCH_EFFECT_TYPE_DAMAGE_DECREASE			// 0x00010000
+							   | hc.HENCH_EFFECT_TYPE_ATTACK_DECREASE			// 0x00020000
+							   | hc.HENCH_EFFECT_TYPE_SKILL_DECREASE			// 0x00040000
+
+																				// 0x00080000 <-
+
+							   | hc.HENCH_EFFECT_TYPE_STUNNED					// 0x00100000
+							   | hc.HENCH_EFFECT_TYPE_PETRIFY					// 0x00200000
+							   | hc.HENCH_EFFECT_TYPE_MOVEMENT_SPEED_DECREASE	// 0x00400000
+							   | hc.HENCH_EFFECT_TYPE_DEATH						// 0x00800000
+							   | hc.HENCH_EFFECT_TYPE_NEGATIVELEVEL				// 0x01000000
+							   | hc.HENCH_EFFECT_TYPE_AC_DECREASE				// 0x02000000
+							   | hc.HENCH_EFFECT_TYPE_SAVING_THROW_DECREASE		// 0x04000000
+							   | hc.HENCH_EFFECT_TYPE_KNOCKDOWN					// 0x08000000
+							   | hc.HENCH_EFFECT_TYPE_DYING						// 0x10000000
+							   | hc.HENCH_EFFECT_TYPE_MESMERIZE					// 0x20000000
+//							   | hc.HENCH_EFFECT_TYPE_SPELL_FAILURE				// 0x40000000 <-
+							   | hc.HENCH_EFFECT_TYPE_CUTSCENE_PARALYZE;		// 0x80000000
 		#endregion setstate
 	}
 }

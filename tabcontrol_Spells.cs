@@ -74,6 +74,13 @@ namespace nwn2_ai_2da_editor
 			SaveDCType_hex .Font =
 			SaveDCType_bin .Font = he.FixedFont;
 
+			si_RogueBits.BackColor =
+			ti_RogueBits.BackColor =
+			et_RogueBits.BackColor =
+			di_RogueBits.BackColor =
+			st_RogueBits.BackColor =
+			dc_RogueBits.BackColor = Color.LightSalmon;
+
 			// Groups on SpellInfo and TargetInfo generally stay green unless
 			// SpellInfo is flagged as a MasterID
 			SetDefaultGroupColors();
@@ -672,10 +679,10 @@ namespace nwn2_ai_2da_editor
 			dc_co_SaveDC.Items.Add("bardic fascinate");				// 1025
 
 			// populate the dropdown list for SaveDCType - WeaponBonusType
-			dc_co_WeaponBonus.Items.Add("none");									// 0
-			dc_co_WeaponBonus.Items.Add("weapon bonus - (casterlevel / 4)");		// 100
-			dc_co_WeaponBonus.Items.Add("weapon bonus - (casterlevel + 1) / 3");	// 101
-			dc_co_WeaponBonus.Items.Add("weapon bonus - (casterlevel / 3) - 1");	// 102
+			dc_co_WeaponBonus.Items.Add("none");					// 0
+			dc_co_WeaponBonus.Items.Add("casterlevel / 4");			// 100
+			dc_co_WeaponBonus.Items.Add("(casterlevel + 1) / 3");	// 101
+			dc_co_WeaponBonus.Items.Add("casterlevel / 3 - 1");		// 102
 		}
 
 		/// <summary>

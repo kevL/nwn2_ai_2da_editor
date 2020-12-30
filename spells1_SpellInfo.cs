@@ -478,8 +478,7 @@ namespace nwn2_ai_2da_editor
 //			si_NonVerbal    .Checked = (spellinfo & hc.HENCH_SPELL_INFO_NO_VERBAL)          != 0; // TonyAI 2.3+ add
 
 // Spelltype dropdown-list
-			int val = spellinfo;
-			val &= hc.HENCH_SPELL_INFO_SPELL_TYPE_MASK;
+			int val = (spellinfo & hc.HENCH_SPELL_INFO_SPELL_TYPE_MASK);
 			if (val >= si_co_Spelltype.Items.Count)
 			{
 				val = -1;
@@ -491,9 +490,8 @@ namespace nwn2_ai_2da_editor
 			si_co_Spelltype.SelectedIndex = val;
 
 // Spelllevel dropdown-list
-			val = spellinfo;
-			val &= hc.HENCH_SPELL_INFO_SPELL_LEVEL_MASK;
-			val >>= hc.HENCH_SPELL_INFO_SPELL_LEVEL_SHIFT;
+			val = (spellinfo & hc.HENCH_SPELL_INFO_SPELL_LEVEL_MASK)
+							>> hc.HENCH_SPELL_INFO_SPELL_LEVEL_SHIFT;
 			if (val >= si_co_Spelllevel.Items.Count)
 			{
 				val = -1;
@@ -509,7 +507,49 @@ namespace nwn2_ai_2da_editor
 			si_Empower   .Checked = (spellinfo & hc.HENCH_SPELL_INFO_EMPOWER_OK)  != 0;
 			si_Maximize  .Checked = (spellinfo & hc.HENCH_SPELL_INFO_MAXIMIZE_OK) != 0;
 			si_Persistent.Checked = (spellinfo & hc.HENCH_SPELL_INFO_PERSIST_OK)  != 0;
+
+			// test ->
+			int roguebits = (spellinfo & ~si_legitbits);
+			if (roguebits != 0)
+			{
+				si_RogueBits.Text = roguebits.ToString("X8");
+				si_RogueBits   .Visible =
+				si_la_RogueBits.Visible = true;
+			}
+			else
+				si_RogueBits   .Visible =
+				si_la_RogueBits.Visible = false;
 		}
+
+		const int si_legitbits = hc.HENCH_SPELL_INFO_SPELL_TYPE_MASK	// 0x000000ff
+
+							   | hc.HENCH_SPELL_INFO_MASTER_FLAG		// 0x00000100
+							   | hc.HENCH_SPELL_INFO_IGNORE_FLAG		// 0x00000200
+							   | hc.HENCH_SPELL_INFO_CONCENTRATION_FLAG	// 0x00000400
+							   | hc.HENCH_SPELL_INFO_UNLIMITED_FLAG		// 0x00000800
+//							   | hc.HENCH_SPELL_INFO_NO_VERBAL			// 0x00001000
+
+							   | hc.HENCH_SPELL_INFO_SPELL_LEVEL_MASK	// 0x0001e000
+
+							   | hc.HENCH_SPELL_INFO_HEAL_OR_CURE		// 0x00020000
+							   | hc.HENCH_SPELL_INFO_SHORT_DUR_BUFF		// 0x00040000
+							   | hc.HENCH_SPELL_INFO_MEDIUM_DUR_BUFF	// 0x00080000
+							   | hc.HENCH_SPELL_INFO_LONG_DUR_BUFF		// 0x00100000
+
+																		// 0x00200000 - eg. Golem_Breath_Gas in TonyAI 2.5 HenchSpell.2da
+																		// 0x00400000
+
+							   | hc.HENCH_SPELL_INFO_ITEM_FLAG			// 0x00800000
+
+							   | hc.HENCH_SPELL_INFO_EXTEND_OK			// 0x01000000
+							   | hc.HENCH_SPELL_INFO_PERSIST_OK			// 0x02000000
+							   | hc.HENCH_SPELL_INFO_EMPOWER_OK			// 0x04000000
+							   | hc.HENCH_SPELL_INFO_MAXIMIZE_OK;		// 0x08000000
+
+																		// 0x10000000 <-
+																		// 0x20000000 <-
+																		// 0x40000000 <-
+																		// 0x80000000 <-
 
 
 		/// <summary>

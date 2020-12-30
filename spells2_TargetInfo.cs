@@ -380,10 +380,44 @@ namespace nwn2_ai_2da_editor
 			ti_co_Range.SelectedIndex = val;
 
 // Radius textbox
-			val = (targetinfo & hc.HENCH_SPELL_TARGET_RADIUS_MASK);
-			val >>= HENCH_SPELL_TARGET_RADIUS_SHIFT;
+			val = (targetinfo & hc.HENCH_SPELL_TARGET_RADIUS_MASK)
+								>> HENCH_SPELL_TARGET_RADIUS_SHIFT;
 			ti_Radius.Text = he.Float2daFormat((float)val * 0.1f);
+
+			// test ->
+			int roguebits = (targetinfo & ~ti_legitbits);
+			if (roguebits != 0)
+			{
+				ti_RogueBits.Text = roguebits.ToString("X8");
+				ti_RogueBits   .Visible =
+				ti_la_RogueBits.Visible = true;
+			}
+			else
+				ti_RogueBits   .Visible =
+				ti_la_RogueBits.Visible = false;
 		}
+
+		const int ti_legitbits = hc.HENCH_SPELL_TARGET_SHAPE_MASK			// 0x00000007
+							   | hc.HENCH_SPELL_TARGET_RANGE_MASK			// 0x00000038
+							   | hc.HENCH_SPELL_TARGET_RADIUS_MASK			// 0x0000ffc0
+
+							   | hc.HENCH_SPELL_TARGET_SHAPE_LOOP			// 0x00010000
+							   | hc.HENCH_SPELL_TARGET_CHECK_COUNT			// 0x00020000
+							   | hc.HENCH_SPELL_TARGET_MISSILE_TARGETS		// 0x00040000
+							   | hc.HENCH_SPELL_TARGET_SECONDARY_TARGETS	// 0x00080000
+							   | hc.HENCH_SPELL_TARGET_SECONDARY_HALF_DAM	// 0x00100000
+							   | hc.HENCH_SPELL_TARGET_VIS_REQUIRED_FLAG	// 0x00200000
+							   | hc.HENCH_SPELL_TARGET_RANGED_SEL_AREA_FLAG	// 0x00400000
+							   | hc.HENCH_SPELL_TARGET_PERSISTENT_SPELL		// 0x00800000
+							   | hc.HENCH_SPELL_TARGET_SCALE_EFFECT			// 0x01000000
+							   | hc.HENCH_SPELL_TARGET_NECROMANCY_SPELL		// 0x02000000
+							   | hc.HENCH_SPELL_TARGET_REGULAR_SPELL;		// 0x04000000
+
+																			// 0x08000000 <-
+																			// 0x10000000 <-
+																			// 0x20000000 <-
+																			// 0x40000000 <-
+																			// 0x80000000 <-
 		#endregion setstate
 	}
 }

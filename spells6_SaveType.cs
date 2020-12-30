@@ -19,9 +19,11 @@ namespace nwn2_ai_2da_editor
 
 		const int HENCH_IMMUNITY_WEIGHT_AMOUNT_SHIFT    = 12;
 
-		const int HENCH_SAVETYPE_SIZEBUFF_REDUCE      = 0x1; // use reduce instead of enlarge
-		const int HENCH_SAVETYPE_SIZEBUFF_ANIMAL      = 0x2; // check for animal instead of humanoid
-		const int HENCH_SAVETYPE_SIZEBUFF_NOTHUMANOID = 0x4; // don't do humanoid check
+		const int HENCH_SAVETYPE_SIZEBUFF_REDUCE        = 0x00000001; // use reduce instead of enlarge
+		const int HENCH_SAVETYPE_SIZEBUFF_ANIMAL        = 0x00000002; // check for animal instead of humanoid
+		const int HENCH_SAVETYPE_SIZEBUFF_NOTHUMANOID   = 0x00000004; // don't do humanoid check
+
+		const int HENCH_WEAPON_RESTRICTION_MASK         = 0x0000101f;
 		#endregion Fields (static)
 
 
@@ -673,8 +675,7 @@ namespace nwn2_ai_2da_editor
 			st_TouchRanged      .Checked = (savetype & hc.HENCH_SPELL_SAVE_TYPE_TOUCH_RANGE_FLAG)    != 0;
 
 // Specific dropdown-list
-			val = savetype;
-			val &= hc.HENCH_SPELL_SAVE_TYPE_CUSTOM_MASK;
+			val = (savetype & hc.HENCH_SPELL_SAVE_TYPE_CUSTOM_MASK);
 			if (val >= st_co_Specific.Items.Count)
 			{
 				val = -1;
@@ -686,9 +687,8 @@ namespace nwn2_ai_2da_editor
 			st_co_Specific.SelectedIndex = val;
 
 // Immunity1 dropdown-list
-			val = savetype;
-			val &= hc.HENCH_SPELL_SAVE_TYPE_IMMUNITY1_MASK;
-			val >>= HENCH_SPELL_SAVE_TYPE_IMMUNITY1_SHIFT;
+			val = (savetype & hc.HENCH_SPELL_SAVE_TYPE_IMMUNITY1_MASK)
+							  >> HENCH_SPELL_SAVE_TYPE_IMMUNITY1_SHIFT;
 			if (val >= st_co_Immunity1.Items.Count)
 			{
 				val = -1;
@@ -700,9 +700,8 @@ namespace nwn2_ai_2da_editor
 			st_co_Immunity1.SelectedIndex = val;
 
 // Immunity2 dropdown-list
-			val = savetype;
-			val &= hc.HENCH_SPELL_SAVE_TYPE_IMMUNITY2_MASK;
-			val >>= HENCH_SPELL_SAVE_TYPE_IMMUNITY2_SHIFT;
+			val = (savetype & hc.HENCH_SPELL_SAVE_TYPE_IMMUNITY2_MASK)
+							  >> HENCH_SPELL_SAVE_TYPE_IMMUNITY2_SHIFT;
 			if (val >= st_co_Immunity2.Items.Count)
 			{
 				val = -1;
@@ -715,9 +714,8 @@ namespace nwn2_ai_2da_editor
 
 
 // AcBonus dropdown-list
-			val = savetype;
-			val &= HENCH_SPELL_SAVE_TYPE_ACBONUS_MASK;
-			val >>= HENCH_SPELL_SAVE_TYPE_ACBONUS_SHIFT;
+			val = (savetype & HENCH_SPELL_SAVE_TYPE_ACBONUS_MASK)
+						   >> HENCH_SPELL_SAVE_TYPE_ACBONUS_SHIFT;
 			if (val >= st_co_AcBonus.Items.Count)
 			{
 				val = -1;
@@ -729,34 +727,36 @@ namespace nwn2_ai_2da_editor
 			st_co_AcBonus.SelectedIndex = val;
 
 // Weapon dropdown-list
-			val = savetype;
-			val &= 0x0001fff;
+			val = (savetype & HENCH_WEAPON_RESTRICTION_MASK);
 
-			if      ((savetype & hc.HENCH_WEAPON_STAFF_FLAG)  != 0) // 1
+			// TODO: The following routine prioritizes the flags (although more
+			// than one flag could be erroneously set).
+
+			if      ((savetype & hc.HENCH_WEAPON_STAFF_FLAG)  != 0) // 0x00000001
 			{
 				val = 1;
 			}
-			else if ((savetype & hc.HENCH_WEAPON_SLASH_FLAG)  != 0) // 2
+			else if ((savetype & hc.HENCH_WEAPON_SLASH_FLAG)  != 0) // 0x00000002
 			{
 				val = 2;
 			}
-			else if ((savetype & hc.HENCH_WEAPON_HOLY_SWORD)  != 0) // 4
+			else if ((savetype & hc.HENCH_WEAPON_HOLY_SWORD)  != 0) // 0x00000004
 			{
 				val = 3;
 			}
-			else if ((savetype & hc.HENCH_WEAPON_BLUNT_FLAG)  != 0) // 8
+			else if ((savetype & hc.HENCH_WEAPON_BLUNT_FLAG)  != 0) // 0x00000008
 			{
 				val = 4;
 			}
-			else if ((savetype & hc.HENCH_WEAPON_UNDEAD_FLAG) != 0) // 16
+			else if ((savetype & hc.HENCH_WEAPON_UNDEAD_FLAG) != 0) // 0x00000010
 			{
 				val = 5;
 			}
-			else if ((savetype & hc.HENCH_WEAPON_DRUID_FLAG)  != 0) // 4096
+			else if ((savetype & hc.HENCH_WEAPON_DRUID_FLAG)  != 0) // 0x00001000
 			{
 				val = 6;
 			}
-			else if (val != 0) // ie. let val==0 fallthrough
+			else if (val != 0) // ie. let val=0 fallthrough
 			{
 				val = -1;
 				st_co_TargetRestriction.ForeColor = Color.Crimson;
@@ -799,10 +799,63 @@ namespace nwn2_ai_2da_editor
 			st_Excl_General.Checked = (savetype & hc.HENCH_IMMUNITY_GENERAL)  != 0;
 
 // Weight textbox
-			val = (savetype & hc.HENCH_IMMUNITY_WEIGHT_AMOUNT_MASK); // 0x000ff000
-			val >>= HENCH_IMMUNITY_WEIGHT_AMOUNT_SHIFT;
+			val = (savetype & hc.HENCH_IMMUNITY_WEIGHT_AMOUNT_MASK) // 0x000ff000
+							  >> HENCH_IMMUNITY_WEIGHT_AMOUNT_SHIFT;
 			st_Excl_Weight.Text = val.ToString();
+
+			// test ->
+			int roguebits = (savetype & ~st_legitbits);
+			if (roguebits != 0)
+			{
+				st_RogueBits.Text = roguebits.ToString("X8");
+				st_RogueBits   .Visible =
+				st_la_RogueBits.Visible = true;
+			}
+			else
+				st_RogueBits   .Visible =
+				st_la_RogueBits.Visible = false;
 		}
+
+		const int st_legitbits = HENCH_WEAPON_RESTRICTION_MASK					// 0x0000101f // all bits are legal -> (which are illegal depends on spelltype etc.)
+
+							   | HENCH_SPELL_SAVE_TYPE_ACBONUS_MASK				// 0x001c0000
+
+							   | HENCH_SAVETYPE_SIZEBUFF_REDUCE					// 0x00000001
+							   | HENCH_SAVETYPE_SIZEBUFF_ANIMAL					// 0x00000002
+							   | HENCH_SAVETYPE_SIZEBUFF_NOTHUMANOID			// 0x00000004
+
+							   | hc.HENCH_IMMUNITY_WEIGHT_RESISTANCE			// 0x00100000
+							   | hc.HENCH_IMMUNITY_ONLY_ONE						// 0x00200000
+							   | hc.HENCH_IMMUNITY_GENERAL						// 0x00400000
+
+							   | hc.DAMAGE_TYPE_BLUDGEONING						// 0x00000001
+							   | hc.DAMAGE_TYPE_PIERCING						// 0x00000002
+							   | hc.DAMAGE_TYPE_SLASHING						// 0x00000004
+							   | hc.DAMAGE_TYPE_MAGICAL							// 0x00000008
+							   | hc.DAMAGE_TYPE_ACID							// 0x00000010
+							   | hc.DAMAGE_TYPE_COLD							// 0x00000020
+							   | hc.DAMAGE_TYPE_DIVINE							// 0x00000040
+							   | hc.DAMAGE_TYPE_ELECTRICAL						// 0x00000080
+							   | hc.DAMAGE_TYPE_FIRE							// 0x00000100
+							   | hc.DAMAGE_TYPE_NEGATIVE						// 0x00000200
+							   | hc.DAMAGE_TYPE_POSITIVE						// 0x00000400
+							   | hc.DAMAGE_TYPE_SONIC							// 0x00000800
+
+							   | hc.HENCH_IMMUNITY_WEIGHT_AMOUNT_MASK			// 0x000ff000
+
+							   | hc.HENCH_SPELL_SAVE_TYPE_CUSTOM_MASK			// 0x0000003f
+							   | hc.HENCH_SPELL_SAVE_TYPE_IMMUNITY1_MASK		// 0x00000fc0
+							   | hc.HENCH_SPELL_SAVE_TYPE_IMMUNITY2_MASK		// 0x0003f000
+							   | hc.HENCH_SPELL_SAVE_TYPE_SAVE1_WILL			// 0x000c0000
+							   | hc.HENCH_SPELL_SAVE_TYPE_SAVE1_DAMAGE_EVASION	// 0x00300000
+							   | hc.HENCH_SPELL_SAVE_TYPE_SAVE2_WILL			// 0x00c00000
+							   | hc.HENCH_SPELL_SAVE_TYPE_SAVE2_DAMAGE_EVASION	// 0x03000000
+							   | hc.HENCH_SPELL_SAVE_TYPE_MIND_SPELL_FLAG		// 0x04000000
+							   | hc.HENCH_SPELL_SAVE_TYPE_TOUCH_RANGE_FLAG		// 0x08000000
+							   | hc.HENCH_SPELL_SAVE_TYPE_TOUCH_MELEE_FLAG		// 0x10000000
+							   | hc.HENCH_SPELL_SAVE_TYPE_NOTSELF_FLAG			// 0x20000000
+							   | hc.HENCH_SPELL_SAVE_TYPE_CHECK_FRIENDLY_FLAG	// 0x40000000
+							   | hc.HENCH_SPELL_SAVE_TYPE_SR_FLAG;				// 0x80000000
 		#endregion setstate
 	}
 }

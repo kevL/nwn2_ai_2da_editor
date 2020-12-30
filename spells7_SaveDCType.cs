@@ -324,7 +324,6 @@ namespace nwn2_ai_2da_editor
 
 				default:
 					val = -1;
-					dc_co_WeaponBonus.ForeColor = Color.Crimson;
 					break;
 			}
 
@@ -332,6 +331,8 @@ namespace nwn2_ai_2da_editor
 			{
 				dc_co_WeaponBonus.ForeColor = DefaultForeColor;
 			}
+			else
+				dc_co_WeaponBonus.ForeColor = Color.Crimson;
 
 			dc_co_WeaponBonus.SelectedIndex = val;
 
@@ -365,7 +366,6 @@ namespace nwn2_ai_2da_editor
 
 				default:
 					val = -1;
-					dc_co_SaveDC.ForeColor = Color.Crimson;
 					break;
 			}
 
@@ -373,9 +373,27 @@ namespace nwn2_ai_2da_editor
 			{
 				dc_co_SaveDC.ForeColor = DefaultForeColor;
 			}
+			else
+				dc_co_SaveDC.ForeColor = Color.Crimson;
 
 			dc_co_SaveDC.SelectedIndex = val;
+
+			// test ->
+			int roguebits = (savedctype & ~dc_legitbits);
+			if (roguebits != 0)
+			{
+				dc_RogueBits.Text = roguebits.ToString("X8");
+				dc_RogueBits   .Visible =
+				dc_la_RogueBits.Visible = true;
+			}
+			else
+				dc_RogueBits   .Visible =
+				dc_la_RogueBits.Visible = false;
 		}
+
+		const int dc_legitbits = hc.HENCH_AC_CHECK_ARMOR					// 0x00000001 // works only for AC Bonus Restrictions ->
+							   | hc.HENCH_AC_CHECK_SHIELD					// 0x00000002
+							   | hc.HENCH_AC_CHECK_MOVEMENT_SPEED_DECREASE;	// 0x10000000
 		#endregion setstate
 	}
 }
