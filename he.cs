@@ -1331,15 +1331,15 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		void EnableMenu()
 		{
-			Save            .Enabled = // file ->
-			Saveas          .Enabled =
+			it_Save       .Enabled = // file ->
+			it_Saveas     .Enabled =
 
-			Copy_decimal    .Enabled = // edit ->
-			Copy_hexadecimal.Enabled =
-			Copy_binary     .Enabled =
-			clearCoreAIver  .Enabled = true;
+			it_Copy_dec   .Enabled = // edit ->
+			it_Copy_hex   .Enabled =
+			it_Copy_bin   .Enabled =
+			it_ClearCoreAI.Enabled = true;
 
-			tree_Highlight  .Visible = true;
+			tree_Highlight.Visible = true;
 		}
 		#endregion Load file
 
@@ -1395,8 +1395,8 @@ namespace nwn2_ai_2da_editor
 		/// <param name="enabled"></param>
 		internal void EnableCopy(bool enabled)
 		{
-			Copy_hexadecimal.Enabled =
-			Copy_binary     .Enabled = enabled;
+			it_Copy_hex.Enabled =
+			it_Copy_bin.Enabled = enabled;
 		}
 
 		/// <summary>

@@ -27,34 +27,34 @@ namespace nwn2_ai_2da_editor
 
 		MenuStrip menubar;
 		ToolStripMenuItem tsmi_file;
-		ToolStripMenuItem Open;
+		ToolStripMenuItem it_Open;
 		ToolStripMenuItem it_Recent;
 		ToolStripSeparator toolStripSeparator1;
-		ToolStripMenuItem Save;
-		ToolStripMenuItem Saveas;
+		ToolStripMenuItem it_Save;
+		ToolStripMenuItem it_Saveas;
 		ToolStripSeparator toolStripSeparator2;
-		ToolStripMenuItem Quit;
+		ToolStripMenuItem it_Quit;
 		ToolStripMenuItem tsmi_edit;
 		ToolStripMenuItem it_ApplyGlobal;
 		ToolStripSeparator toolStripSeparator5;
 		ToolStripMenuItem it_GotoChanged;
 		ToolStripSeparator toolStripSeparator3;
-		ToolStripMenuItem Copy_decimal;
-		ToolStripMenuItem Copy_hexadecimal;
-		ToolStripMenuItem Copy_binary;
+		ToolStripMenuItem it_Copy_dec;
+		ToolStripMenuItem it_Copy_hex;
+		ToolStripMenuItem it_Copy_bin;
 		ToolStripSeparator toolStripSeparator6;
-		ToolStripMenuItem clearCoreAIver;
+		ToolStripMenuItem it_ClearCoreAI;
 		ToolStripMenuItem tsmi_labels;
-		ToolStripMenuItem pathSpells;
-		ToolStripMenuItem pathRacialSubtypes;
-		ToolStripMenuItem pathClasses;
-		ToolStripMenuItem pathFeat;
+		ToolStripMenuItem it_pathSpells;
+		ToolStripMenuItem it_pathRacialSubtypes;
+		ToolStripMenuItem it_pathClasses;
+		ToolStripMenuItem it_pathFeat;
 		ToolStripSeparator toolStripSeparator4;
 		ToolStripMenuItem it_insertSpellLabels;
 		ToolStripMenuItem it_insertRaceLabels;
 		ToolStripMenuItem it_insertClassLabels;
 		ToolStripMenuItem tsmi_help;
-		ToolStripMenuItem About;
+		ToolStripMenuItem it_About;
 
 		SplitContainer splitContainer;
 
@@ -75,34 +75,34 @@ namespace nwn2_ai_2da_editor
 			this.components = new System.ComponentModel.Container();
 			this.menubar = new System.Windows.Forms.MenuStrip();
 			this.tsmi_file = new System.Windows.Forms.ToolStripMenuItem();
-			this.Open = new System.Windows.Forms.ToolStripMenuItem();
+			this.it_Open = new System.Windows.Forms.ToolStripMenuItem();
 			this.it_Recent = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-			this.Save = new System.Windows.Forms.ToolStripMenuItem();
-			this.Saveas = new System.Windows.Forms.ToolStripMenuItem();
+			this.it_Save = new System.Windows.Forms.ToolStripMenuItem();
+			this.it_Saveas = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-			this.Quit = new System.Windows.Forms.ToolStripMenuItem();
+			this.it_Quit = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsmi_edit = new System.Windows.Forms.ToolStripMenuItem();
 			this.it_ApplyGlobal = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
 			this.it_GotoChanged = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-			this.Copy_decimal = new System.Windows.Forms.ToolStripMenuItem();
-			this.Copy_hexadecimal = new System.Windows.Forms.ToolStripMenuItem();
-			this.Copy_binary = new System.Windows.Forms.ToolStripMenuItem();
+			this.it_Copy_dec = new System.Windows.Forms.ToolStripMenuItem();
+			this.it_Copy_hex = new System.Windows.Forms.ToolStripMenuItem();
+			this.it_Copy_bin = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-			this.clearCoreAIver = new System.Windows.Forms.ToolStripMenuItem();
+			this.it_ClearCoreAI = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsmi_labels = new System.Windows.Forms.ToolStripMenuItem();
-			this.pathSpells = new System.Windows.Forms.ToolStripMenuItem();
-			this.pathRacialSubtypes = new System.Windows.Forms.ToolStripMenuItem();
-			this.pathClasses = new System.Windows.Forms.ToolStripMenuItem();
-			this.pathFeat = new System.Windows.Forms.ToolStripMenuItem();
+			this.it_pathSpells = new System.Windows.Forms.ToolStripMenuItem();
+			this.it_pathRacialSubtypes = new System.Windows.Forms.ToolStripMenuItem();
+			this.it_pathClasses = new System.Windows.Forms.ToolStripMenuItem();
+			this.it_pathFeat = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
 			this.it_insertSpellLabels = new System.Windows.Forms.ToolStripMenuItem();
 			this.it_insertRaceLabels = new System.Windows.Forms.ToolStripMenuItem();
 			this.it_insertClassLabels = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsmi_help = new System.Windows.Forms.ToolStripMenuItem();
-			this.About = new System.Windows.Forms.ToolStripMenuItem();
+			this.it_About = new System.Windows.Forms.ToolStripMenuItem();
 			this.splitContainer = new System.Windows.Forms.SplitContainer();
 			this.Tree = new nwn2_ai_2da_editor.CompositedTreeView();
 			this.treeMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -138,26 +138,26 @@ namespace nwn2_ai_2da_editor
 			// tsmi_file
 			// 
 			this.tsmi_file.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-			this.Open,
+			this.it_Open,
 			this.it_Recent,
 			this.toolStripSeparator1,
-			this.Save,
-			this.Saveas,
+			this.it_Save,
+			this.it_Saveas,
 			this.toolStripSeparator2,
-			this.Quit});
+			this.it_Quit});
 			this.tsmi_file.Name = "tsmi_file";
 			this.tsmi_file.Size = new System.Drawing.Size(37, 24);
 			this.tsmi_file.Text = "&File";
 			this.tsmi_file.DropDownOpening += new System.EventHandler(this.dropdownopening_File);
 			// 
-			// Open
+			// it_Open
 			// 
-			this.Open.Name = "Open";
-			this.Open.Padding = new System.Windows.Forms.Padding(0);
-			this.Open.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-			this.Open.Size = new System.Drawing.Size(160, 20);
-			this.Open.Text = "&Open ...";
-			this.Open.Click += new System.EventHandler(this.Click_open);
+			this.it_Open.Name = "it_Open";
+			this.it_Open.Padding = new System.Windows.Forms.Padding(0);
+			this.it_Open.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+			this.it_Open.Size = new System.Drawing.Size(160, 20);
+			this.it_Open.Text = "&Open ...";
+			this.it_Open.Click += new System.EventHandler(this.Click_open);
 			// 
 			// it_Recent
 			// 
@@ -172,39 +172,39 @@ namespace nwn2_ai_2da_editor
 			this.toolStripSeparator1.Name = "toolStripSeparator1";
 			this.toolStripSeparator1.Size = new System.Drawing.Size(157, 6);
 			// 
-			// Save
+			// it_Save
 			// 
-			this.Save.Enabled = false;
-			this.Save.Name = "Save";
-			this.Save.Padding = new System.Windows.Forms.Padding(0);
-			this.Save.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-			this.Save.Size = new System.Drawing.Size(160, 20);
-			this.Save.Text = "&Save";
-			this.Save.Click += new System.EventHandler(this.Click_save);
+			this.it_Save.Enabled = false;
+			this.it_Save.Name = "it_Save";
+			this.it_Save.Padding = new System.Windows.Forms.Padding(0);
+			this.it_Save.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+			this.it_Save.Size = new System.Drawing.Size(160, 20);
+			this.it_Save.Text = "&Save";
+			this.it_Save.Click += new System.EventHandler(this.Click_save);
 			// 
-			// Saveas
+			// it_Saveas
 			// 
-			this.Saveas.Enabled = false;
-			this.Saveas.Name = "Saveas";
-			this.Saveas.Padding = new System.Windows.Forms.Padding(0);
-			this.Saveas.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
-			this.Saveas.Size = new System.Drawing.Size(160, 20);
-			this.Saveas.Text = "Sav&e As ...";
-			this.Saveas.Click += new System.EventHandler(this.Click_saveas);
+			this.it_Saveas.Enabled = false;
+			this.it_Saveas.Name = "it_Saveas";
+			this.it_Saveas.Padding = new System.Windows.Forms.Padding(0);
+			this.it_Saveas.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.E)));
+			this.it_Saveas.Size = new System.Drawing.Size(160, 20);
+			this.it_Saveas.Text = "Sav&e As ...";
+			this.it_Saveas.Click += new System.EventHandler(this.Click_saveas);
 			// 
 			// toolStripSeparator2
 			// 
 			this.toolStripSeparator2.Name = "toolStripSeparator2";
 			this.toolStripSeparator2.Size = new System.Drawing.Size(157, 6);
 			// 
-			// Quit
+			// it_Quit
 			// 
-			this.Quit.Name = "Quit";
-			this.Quit.Padding = new System.Windows.Forms.Padding(0);
-			this.Quit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
-			this.Quit.Size = new System.Drawing.Size(160, 20);
-			this.Quit.Text = "&Quit";
-			this.Quit.Click += new System.EventHandler(this.Click_quit);
+			this.it_Quit.Name = "it_Quit";
+			this.it_Quit.Padding = new System.Windows.Forms.Padding(0);
+			this.it_Quit.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Q)));
+			this.it_Quit.Size = new System.Drawing.Size(160, 20);
+			this.it_Quit.Text = "&Quit";
+			this.it_Quit.Click += new System.EventHandler(this.Click_quit);
 			// 
 			// tsmi_edit
 			// 
@@ -213,11 +213,11 @@ namespace nwn2_ai_2da_editor
 			this.toolStripSeparator5,
 			this.it_GotoChanged,
 			this.toolStripSeparator3,
-			this.Copy_decimal,
-			this.Copy_hexadecimal,
-			this.Copy_binary,
+			this.it_Copy_dec,
+			this.it_Copy_hex,
+			this.it_Copy_bin,
 			this.toolStripSeparator6,
-			this.clearCoreAIver});
+			this.it_ClearCoreAI});
 			this.tsmi_edit.Name = "tsmi_edit";
 			this.tsmi_edit.Size = new System.Drawing.Size(37, 24);
 			this.tsmi_edit.Text = "&Edit";
@@ -252,57 +252,57 @@ namespace nwn2_ai_2da_editor
 			this.toolStripSeparator3.Name = "toolStripSeparator3";
 			this.toolStripSeparator3.Size = new System.Drawing.Size(187, 6);
 			// 
-			// Copy_decimal
+			// it_Copy_dec
 			// 
-			this.Copy_decimal.Enabled = false;
-			this.Copy_decimal.Name = "Copy_decimal";
-			this.Copy_decimal.Padding = new System.Windows.Forms.Padding(0);
-			this.Copy_decimal.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
-			this.Copy_decimal.Size = new System.Drawing.Size(190, 20);
-			this.Copy_decimal.Text = "Copy &decimal";
-			this.Copy_decimal.Click += new System.EventHandler(this.Click_copy_decimal);
+			this.it_Copy_dec.Enabled = false;
+			this.it_Copy_dec.Name = "it_Copy_dec";
+			this.it_Copy_dec.Padding = new System.Windows.Forms.Padding(0);
+			this.it_Copy_dec.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.D)));
+			this.it_Copy_dec.Size = new System.Drawing.Size(190, 20);
+			this.it_Copy_dec.Text = "Copy &decimal";
+			this.it_Copy_dec.Click += new System.EventHandler(this.Click_copy_decimal);
 			// 
-			// Copy_hexadecimal
+			// it_Copy_hex
 			// 
-			this.Copy_hexadecimal.Enabled = false;
-			this.Copy_hexadecimal.Name = "Copy_hexadecimal";
-			this.Copy_hexadecimal.Padding = new System.Windows.Forms.Padding(0);
-			this.Copy_hexadecimal.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
-			this.Copy_hexadecimal.Size = new System.Drawing.Size(190, 20);
-			this.Copy_hexadecimal.Text = "Copy &hexadecimal";
-			this.Copy_hexadecimal.Click += new System.EventHandler(this.Click_copy_hexadecimal);
+			this.it_Copy_hex.Enabled = false;
+			this.it_Copy_hex.Name = "it_Copy_hex";
+			this.it_Copy_hex.Padding = new System.Windows.Forms.Padding(0);
+			this.it_Copy_hex.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.H)));
+			this.it_Copy_hex.Size = new System.Drawing.Size(190, 20);
+			this.it_Copy_hex.Text = "Copy &hexadecimal";
+			this.it_Copy_hex.Click += new System.EventHandler(this.Click_copy_hexadecimal);
 			// 
-			// Copy_binary
+			// it_Copy_bin
 			// 
-			this.Copy_binary.Enabled = false;
-			this.Copy_binary.Name = "Copy_binary";
-			this.Copy_binary.Padding = new System.Windows.Forms.Padding(0);
-			this.Copy_binary.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
-			this.Copy_binary.Size = new System.Drawing.Size(190, 20);
-			this.Copy_binary.Text = "Copy &binary";
-			this.Copy_binary.Click += new System.EventHandler(this.Click_copy_binary);
+			this.it_Copy_bin.Enabled = false;
+			this.it_Copy_bin.Name = "it_Copy_bin";
+			this.it_Copy_bin.Padding = new System.Windows.Forms.Padding(0);
+			this.it_Copy_bin.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.B)));
+			this.it_Copy_bin.Size = new System.Drawing.Size(190, 20);
+			this.it_Copy_bin.Text = "Copy &binary";
+			this.it_Copy_bin.Click += new System.EventHandler(this.Click_copy_binary);
 			// 
 			// toolStripSeparator6
 			// 
 			this.toolStripSeparator6.Name = "toolStripSeparator6";
 			this.toolStripSeparator6.Size = new System.Drawing.Size(187, 6);
 			// 
-			// clearCoreAIver
+			// it_ClearCoreAI
 			// 
-			this.clearCoreAIver.Enabled = false;
-			this.clearCoreAIver.Name = "clearCoreAIver";
-			this.clearCoreAIver.Padding = new System.Windows.Forms.Padding(0);
-			this.clearCoreAIver.Size = new System.Drawing.Size(190, 20);
-			this.clearCoreAIver.Text = "Clear CoreA&I version";
-			this.clearCoreAIver.Click += new System.EventHandler(this.Click_clearCoreAiVersion);
+			this.it_ClearCoreAI.Enabled = false;
+			this.it_ClearCoreAI.Name = "it_ClearCoreAI";
+			this.it_ClearCoreAI.Padding = new System.Windows.Forms.Padding(0);
+			this.it_ClearCoreAI.Size = new System.Drawing.Size(190, 20);
+			this.it_ClearCoreAI.Text = "Clear CoreA&I version ...";
+			this.it_ClearCoreAI.Click += new System.EventHandler(this.Click_clearCoreAiVersion);
 			// 
 			// tsmi_labels
 			// 
 			this.tsmi_labels.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-			this.pathSpells,
-			this.pathRacialSubtypes,
-			this.pathClasses,
-			this.pathFeat,
+			this.it_pathSpells,
+			this.it_pathRacialSubtypes,
+			this.it_pathClasses,
+			this.it_pathFeat,
 			this.toolStripSeparator4,
 			this.it_insertSpellLabels,
 			this.it_insertRaceLabels,
@@ -312,37 +312,37 @@ namespace nwn2_ai_2da_editor
 			this.tsmi_labels.Text = "&Labels";
 			this.tsmi_labels.DropDownOpening += new System.EventHandler(this.dropdownopening_Labels);
 			// 
-			// pathSpells
+			// it_pathSpells
 			// 
-			this.pathSpells.Name = "pathSpells";
-			this.pathSpells.Padding = new System.Windows.Forms.Padding(0);
-			this.pathSpells.Size = new System.Drawing.Size(185, 20);
-			this.pathSpells.Text = "path &Spells.2da";
-			this.pathSpells.Click += new System.EventHandler(this.Click_pathSpells);
+			this.it_pathSpells.Name = "it_pathSpells";
+			this.it_pathSpells.Padding = new System.Windows.Forms.Padding(0);
+			this.it_pathSpells.Size = new System.Drawing.Size(185, 20);
+			this.it_pathSpells.Text = "path &Spells.2da";
+			this.it_pathSpells.Click += new System.EventHandler(this.Click_pathSpells);
 			// 
-			// pathRacialSubtypes
+			// it_pathRacialSubtypes
 			// 
-			this.pathRacialSubtypes.Name = "pathRacialSubtypes";
-			this.pathRacialSubtypes.Padding = new System.Windows.Forms.Padding(0);
-			this.pathRacialSubtypes.Size = new System.Drawing.Size(185, 20);
-			this.pathRacialSubtypes.Text = "path &RacialSubtypes.2da";
-			this.pathRacialSubtypes.Click += new System.EventHandler(this.Click_pathRacialSubtypes);
+			this.it_pathRacialSubtypes.Name = "it_pathRacialSubtypes";
+			this.it_pathRacialSubtypes.Padding = new System.Windows.Forms.Padding(0);
+			this.it_pathRacialSubtypes.Size = new System.Drawing.Size(185, 20);
+			this.it_pathRacialSubtypes.Text = "path &RacialSubtypes.2da";
+			this.it_pathRacialSubtypes.Click += new System.EventHandler(this.Click_pathRacialSubtypes);
 			// 
-			// pathClasses
+			// it_pathClasses
 			// 
-			this.pathClasses.Name = "pathClasses";
-			this.pathClasses.Padding = new System.Windows.Forms.Padding(0);
-			this.pathClasses.Size = new System.Drawing.Size(185, 20);
-			this.pathClasses.Text = "path &Classes.2da";
-			this.pathClasses.Click += new System.EventHandler(this.Click_pathClasses);
+			this.it_pathClasses.Name = "it_pathClasses";
+			this.it_pathClasses.Padding = new System.Windows.Forms.Padding(0);
+			this.it_pathClasses.Size = new System.Drawing.Size(185, 20);
+			this.it_pathClasses.Text = "path &Classes.2da";
+			this.it_pathClasses.Click += new System.EventHandler(this.Click_pathClasses);
 			// 
-			// pathFeat
+			// it_pathFeat
 			// 
-			this.pathFeat.Name = "pathFeat";
-			this.pathFeat.Padding = new System.Windows.Forms.Padding(0);
-			this.pathFeat.Size = new System.Drawing.Size(185, 20);
-			this.pathFeat.Text = "path &Feat.2da";
-			this.pathFeat.Click += new System.EventHandler(this.Click_pathFeat);
+			this.it_pathFeat.Name = "it_pathFeat";
+			this.it_pathFeat.Padding = new System.Windows.Forms.Padding(0);
+			this.it_pathFeat.Size = new System.Drawing.Size(185, 20);
+			this.it_pathFeat.Text = "path &Feat.2da";
+			this.it_pathFeat.Click += new System.EventHandler(this.Click_pathFeat);
 			// 
 			// toolStripSeparator4
 			// 
@@ -379,19 +379,19 @@ namespace nwn2_ai_2da_editor
 			// tsmi_help
 			// 
 			this.tsmi_help.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-			this.About});
+			this.it_About});
 			this.tsmi_help.Name = "tsmi_help";
 			this.tsmi_help.Size = new System.Drawing.Size(37, 24);
 			this.tsmi_help.Text = "&Help";
 			// 
-			// About
+			// it_About
 			// 
-			this.About.Name = "About";
-			this.About.Padding = new System.Windows.Forms.Padding(0);
-			this.About.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-			this.About.Size = new System.Drawing.Size(130, 20);
-			this.About.Text = "&About";
-			this.About.Click += new System.EventHandler(this.Click_about);
+			this.it_About.Name = "it_About";
+			this.it_About.Padding = new System.Windows.Forms.Padding(0);
+			this.it_About.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
+			this.it_About.Size = new System.Drawing.Size(152, 20);
+			this.it_About.Text = "&About";
+			this.it_About.Click += new System.EventHandler(this.Click_about);
 			// 
 			// splitContainer
 			// 

@@ -383,13 +383,13 @@ namespace nwn2_ai_2da_editor
 		#region Labels
 		void dropdownopening_Labels(object sender, EventArgs e)
 		{
-			it_insertSpellLabels.Enabled = pathSpells.Checked
+			it_insertSpellLabels.Enabled = it_pathSpells.Checked
 										&& Type == Type2da.TYPE_SPELLS;
 
-			it_insertRaceLabels .Enabled = pathRacialSubtypes.Checked
+			it_insertRaceLabels .Enabled = it_pathRacialSubtypes.Checked
 										&& Type == Type2da.TYPE_RACIAL;
 
-			it_insertClassLabels.Enabled = pathClasses.Checked
+			it_insertClassLabels.Enabled = it_pathClasses.Checked
 										&& Type == Type2da.TYPE_CLASSES;
 		}
 
@@ -401,7 +401,7 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_pathSpells(object sender, EventArgs e)
 		{
-			if (!pathSpells.Checked)
+			if (!it_pathSpells.Checked)
 			{
 				using (var ofd = new OpenFileDialog())
 				{
@@ -422,7 +422,7 @@ namespace nwn2_ai_2da_editor
 
 					if (ofd.ShowDialog(this) == DialogResult.OK)
 					{
-						GropeLabels(ofd.FileName, spellLabels, pathSpells);
+						GropeLabels(ofd.FileName, spellLabels, it_pathSpells);
 
 						if (Type != Type2da.TYPE_NONE && spellLabels.Count != 0)
 						{
@@ -442,7 +442,7 @@ namespace nwn2_ai_2da_editor
 			}
 			else
 			{
-				pathSpells.Checked = false;
+				it_pathSpells.Checked = false;
 
 				spellLabels .Clear();
 				spellScripts.Clear();
@@ -467,7 +467,7 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_pathRacialSubtypes(object sender, EventArgs e)
 		{
-			if (!pathRacialSubtypes.Checked)
+			if (!it_pathRacialSubtypes.Checked)
 			{
 				using (var ofd = new OpenFileDialog())
 				{
@@ -488,7 +488,7 @@ namespace nwn2_ai_2da_editor
 
 					if (ofd.ShowDialog(this) == DialogResult.OK)
 					{
-						GropeLabels(ofd.FileName, raceLabels, pathRacialSubtypes);
+						GropeLabels(ofd.FileName, raceLabels, it_pathRacialSubtypes);
 
 						if (!hasLabels
 							&& Type == Type2da.TYPE_RACIAL
@@ -507,7 +507,7 @@ namespace nwn2_ai_2da_editor
 			}
 			else
 			{
-				pathRacialSubtypes.Checked = false;
+				it_pathRacialSubtypes.Checked = false;
 				raceLabels.Clear();
 
 				if (!hasLabels && Type == Type2da.TYPE_RACIAL)
@@ -523,7 +523,7 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_pathClasses(object sender, EventArgs e)
 		{
-			if (!pathClasses.Checked)
+			if (!it_pathClasses.Checked)
 			{
 				using (var ofd = new OpenFileDialog())
 				{
@@ -544,7 +544,7 @@ namespace nwn2_ai_2da_editor
 
 					if (ofd.ShowDialog(this) == DialogResult.OK)
 					{
-						GropeLabels(ofd.FileName, classLabels, pathClasses);
+						GropeLabels(ofd.FileName, classLabels, it_pathClasses);
 
 						if (!hasLabels
 							&& Type == Type2da.TYPE_CLASSES
@@ -563,7 +563,7 @@ namespace nwn2_ai_2da_editor
 			}
 			else
 			{
-				pathClasses.Checked = false;
+				it_pathClasses.Checked = false;
 				classLabels.Clear();
 
 				if (!hasLabels && Type == Type2da.TYPE_CLASSES)
@@ -623,7 +623,7 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_pathFeat(object sender, EventArgs e)
 		{
-			if (!pathFeat.Checked)
+			if (!it_pathFeat.Checked)
 			{
 				using (var ofd = new OpenFileDialog())
 				{
@@ -644,7 +644,7 @@ namespace nwn2_ai_2da_editor
 
 					if (ofd.ShowDialog(this) == DialogResult.OK)
 					{
-						GropeLabels(ofd.FileName, featLabels, pathFeat);
+						GropeLabels(ofd.FileName, featLabels, it_pathFeat);
 
 						if (Type != Type2da.TYPE_NONE && featLabels.Count != 0)
 						{
@@ -661,7 +661,7 @@ namespace nwn2_ai_2da_editor
 			}
 			else
 			{
-				pathFeat.Checked = false;
+				it_pathFeat.Checked = false;
 				featLabels.Clear();
 
 				if (Type != Type2da.TYPE_NONE)
