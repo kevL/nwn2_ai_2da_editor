@@ -522,7 +522,6 @@
 		// 'hench_i0_buff'
 		internal const int HENCH_AC_CHECK_ARMOR                   = 0x00000001;
 		internal const int HENCH_AC_CHECK_SHIELD                  = 0x00000002;
-
 		internal const int HENCH_AC_CHECK_MOVEMENT_SPEED_DECREASE = 0x10000000;
 		#endregion SaveDCType
 

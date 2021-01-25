@@ -15,6 +15,8 @@ namespace nwn2_ai_2da_editor
 		/// Mask for all allowable ArmorCheckType bits.
 		/// </summary>
 		const int HENCH_SAVEDCTYPE_ARMORCHECK_MASK = 0x10000003;
+
+		const int HENCH_SAVEDC_EXACT = 13;
 		#endregion Fields (static)
 
 
@@ -177,27 +179,29 @@ namespace nwn2_ai_2da_editor
 
 				case  1: text = hc.HENCH_SAVEDC_NONE.ToString();                   break; // 0
 
-				case  2: text = hc.HENCH_SAVEDC_HD_1.ToString();                   break; // 1000
-				case  3: text = hc.HENCH_SAVEDC_HD_2.ToString();                   break; // 1001
-				case  4: text = hc.HENCH_SAVEDC_HD_4.ToString();                   break; // 1002
-				case  5: text = hc.HENCH_SAVEDC_HD_2_CONST.ToString();             break; // 1003
-				case  6: text = hc.HENCH_SAVEDC_HD_2_CONST_MINUS_5.ToString();     break; // 1004
-				case  7: text = hc.HENCH_SAVEDC_HD_2_WIS.ToString();               break; // 1005
-				case  8: text = hc.HENCH_SAVEDC_HD_2_PLUS_5.ToString();            break; // 1006
-				case  9: text = hc.HENCH_SAVEDC_HD_2_CHA.ToString();               break; // 1007
+				case  2: text = HENCH_SAVEDC_EXACT.ToString();                     break; // 1..999
 
-				case 10: text = hc.HENCH_SAVEDC_DISEASE_BOLT.ToString();           break; // 1010
-				case 11: text = hc.HENCH_SAVEDC_DISEASE_CONE.ToString();           break; // 1011
-				case 12: text = hc.HENCH_SAVEDC_DISEASE_PULSE.ToString();          break; // 1012
-				case 13: text = hc.HENCH_SAVEDC_POISON.ToString();                 break; // 1013
-				case 14: text = hc.HENCH_SAVEDC_EPIC.ToString();                   break; // 1014
+				case  3: text = hc.HENCH_SAVEDC_HD_1.ToString();                   break; // 1000
+				case  4: text = hc.HENCH_SAVEDC_HD_2.ToString();                   break; // 1001
+				case  5: text = hc.HENCH_SAVEDC_HD_4.ToString();                   break; // 1002
+				case  6: text = hc.HENCH_SAVEDC_HD_2_CONST.ToString();             break; // 1003
+				case  7: text = hc.HENCH_SAVEDC_HD_2_CONST_MINUS_5.ToString();     break; // 1004
+				case  8: text = hc.HENCH_SAVEDC_HD_2_WIS.ToString();               break; // 1005
+				case  9: text = hc.HENCH_SAVEDC_HD_2_PLUS_5.ToString();            break; // 1006
+				case 10: text = hc.HENCH_SAVEDC_HD_2_CHA.ToString();               break; // 1007
 
-				case 15: text = hc.HENCH_SAVEDC_DEATHLESS_MASTER_TOUCH.ToString(); break; // 1020
-				case 16: text = hc.HENCH_SAVEDC_UNDEAD_GRAFT.ToString();           break; // 1021
-				case 17: text = hc.HENCH_SAVEDC_SPELL_NO_SPELL_LEVEL.ToString();   break; // 1022
+				case 11: text = hc.HENCH_SAVEDC_DISEASE_BOLT.ToString();           break; // 1010
+				case 12: text = hc.HENCH_SAVEDC_DISEASE_CONE.ToString();           break; // 1011
+				case 13: text = hc.HENCH_SAVEDC_DISEASE_PULSE.ToString();          break; // 1012
+				case 14: text = hc.HENCH_SAVEDC_POISON.ToString();                 break; // 1013
+				case 15: text = hc.HENCH_SAVEDC_EPIC.ToString();                   break; // 1014
 
-				case 18: text = hc.HENCH_SAVEDC_BARD_SLOWING.ToString();           break; // 1024
-				case 19: text = hc.HENCH_SAVEDC_BARD_FASCINATE.ToString();         break; // 1025
+				case 16: text = hc.HENCH_SAVEDC_DEATHLESS_MASTER_TOUCH.ToString(); break; // 1020
+				case 17: text = hc.HENCH_SAVEDC_UNDEAD_GRAFT.ToString();           break; // 1021
+				case 18: text = hc.HENCH_SAVEDC_SPELL_NO_SPELL_LEVEL.ToString();   break; // 1022
+
+				case 19: text = hc.HENCH_SAVEDC_BARD_SLOWING.ToString();           break; // 1024
+				case 20: text = hc.HENCH_SAVEDC_BARD_FASCINATE.ToString();         break; // 1025
 			}
 
 			SaveDCType_text.Text = text;
@@ -305,14 +309,52 @@ namespace nwn2_ai_2da_editor
 		/// <param name="savedctype"></param>
 		void state_SaveDcType(int savedctype)
 		{
-// ArmorCheck checkboxes
-			bool b = (savedctype > -1); // a negative value wreaks havoc on the speed-decrease bit ...
-
-			savedc_ac1.Checked = b && (savedctype & hc.HENCH_AC_CHECK_ARMOR)                   != 0;
-			savedc_ac2.Checked = b && (savedctype & hc.HENCH_AC_CHECK_SHIELD)                  != 0;
-			savedc_ac3.Checked = b && (savedctype & hc.HENCH_AC_CHECK_MOVEMENT_SPEED_DECREASE) != 0;
+			bool b = true;
 
 			int val;
+
+// SaveDc dropdown-list
+			if (savedctype < 1000)
+			{
+				b = false;
+				if (savedctype < 0)
+					val = 0;
+				else if (savedctype == 0)
+					val = 1;
+				else
+					val = 2;
+			}
+			else
+			{
+				switch (savedctype)
+				{
+					case 1000: case 1001: case 1002: case 1003:
+					case 1004: case 1005: case 1006: case 1007:
+						val = savedctype -  997; b = false; break;
+
+					case 1010: case 1011: case 1012: case 1013: case 1014:
+						val = savedctype -  999; b = false; break;
+
+					case 1020: case 1021: case 1022:
+						val = savedctype - 1004; b = false; break;
+
+					case 1024: case 1025:
+						val = savedctype - 1005; b = false; break;
+
+					default:
+						val = -1;
+						break;
+				}
+			}
+
+			if (val != -1)
+			{
+				dc_co_SaveDC.ForeColor = DefaultForeColor;
+			}
+			else
+				dc_co_SaveDC.ForeColor = Color.Crimson;
+
+			dc_co_SaveDC.SelectedIndex = val;
 
 // WeaponBonus dropdown-list
 			switch (savedctype)
@@ -336,59 +378,24 @@ namespace nwn2_ai_2da_editor
 
 			dc_co_WeaponBonus.SelectedIndex = val;
 
-// SaveDc dropdown-list
-			switch (savedctype)
-			{
-				case -1000: val = 0; break;
-				case     0: val = 1; break;
-
-				case  1000:
-				case  1001:
-				case  1002:
-				case  1003:
-				case  1004:
-				case  1005:
-				case  1006:
-				case  1007: val = savedctype -  998; break;
-
-				case  1010:
-				case  1011:
-				case  1012:
-				case  1013:
-				case  1014: val = savedctype - 1000; break;
-
-				case  1020:
-				case  1021:
-				case  1022: val = savedctype - 1005; break;
-
-				case  1024:
-				case  1025: val = savedctype - 1006; break;
-
-				default:
-					val = -1;
-					break;
-			}
-
-			if (val != -1)
-			{
-				dc_co_SaveDC.ForeColor = DefaultForeColor;
-			}
-			else
-				dc_co_SaveDC.ForeColor = Color.Crimson;
-
-			dc_co_SaveDC.SelectedIndex = val;
+// ArmorCheck checkboxes
+			savedc_ac1.Checked = (savedctype & hc.HENCH_AC_CHECK_ARMOR)                   != 0; // 0x00000001 - 1
+			savedc_ac2.Checked = (savedctype & hc.HENCH_AC_CHECK_SHIELD)                  != 0; // 0x00000002 - 2
+			savedc_ac3.Checked = (savedctype & hc.HENCH_AC_CHECK_MOVEMENT_SPEED_DECREASE) != 0; // 0x10000000 - 268,435,456
 
 			// test ->
-			int roguebits = (savedctype & ~dc_legitbits);
-			if (roguebits != 0)
+			if (b)
 			{
-				dc_RogueBits.Text = roguebits.ToString("X8");
-				dc_RogueBits   .Visible =
-				dc_la_RogueBits.Visible = true;
+				int roguebits = (savedctype & ~dc_legitbits);
+				if (roguebits != 0)
+				{
+					dc_RogueBits.Text = roguebits.ToString("X8");
+				}
+				else b = false;
 			}
-			else
-				dc_RogueBits   .Visible =
-				dc_la_RogueBits.Visible = false;
+
+			dc_RogueBits   .Visible =
+			dc_la_RogueBits.Visible = b;
 		}
 
 		const int dc_legitbits = hc.HENCH_AC_CHECK_ARMOR					// 0x00000001 // works only for AC Bonus Restrictions ->

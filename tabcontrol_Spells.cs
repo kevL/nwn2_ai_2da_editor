@@ -657,26 +657,27 @@ namespace nwn2_ai_2da_editor
 
 // SaveDCType ->
 			// populate the dropdown list for SaveDCType
-			dc_co_SaveDC.Items.Add("spell dc standard");			// -1000
-			dc_co_SaveDC.Items.Add("no save");						// 0
-			dc_co_SaveDC.Items.Add("dc = 10 + hd");					// 1000
-			dc_co_SaveDC.Items.Add("dc = 10 + hd / 2");				// 1001
-			dc_co_SaveDC.Items.Add("dc = 10 + hd / 4");				// 1002
-			dc_co_SaveDC.Items.Add("dc = 10 + hd / 2 + Con");		// 1003
-			dc_co_SaveDC.Items.Add("dc = 10 + hd / 2 + Con - 5");	// 1004
-			dc_co_SaveDC.Items.Add("dc = 10 + hd / 2 + Wis");		// 1005
-			dc_co_SaveDC.Items.Add("dc = 10 + hd / 2 + 5");			// 1006
-			dc_co_SaveDC.Items.Add("dc = 10 + hd / 2 + Cha");		// 1007
-			dc_co_SaveDC.Items.Add("disease bolt");					// 1010
-			dc_co_SaveDC.Items.Add("disease cone");					// 1011
-			dc_co_SaveDC.Items.Add("disease pulse");				// 1012
-			dc_co_SaveDC.Items.Add("poison");						// 1013
-			dc_co_SaveDC.Items.Add("epic dc");						// 1014
-			dc_co_SaveDC.Items.Add("deathless master touch");		// 1020
-			dc_co_SaveDC.Items.Add("undead graft");					// 1021
-			dc_co_SaveDC.Items.Add("caster dc (n/a spell-level)");	// 1022
-			dc_co_SaveDC.Items.Add("bardic slow");					// 1024
-			dc_co_SaveDC.Items.Add("bardic fascinate");				// 1025
+			dc_co_SaveDC.Items.Add("spell dc standard");			// -1000 - less than 0
+			dc_co_SaveDC.Items.Add("no save");						//     0
+			dc_co_SaveDC.Items.Add("exact save");					//     1..999
+			dc_co_SaveDC.Items.Add("dc = 10 + hd");					//  1000
+			dc_co_SaveDC.Items.Add("dc = 10 + hd / 2");				//  1001
+			dc_co_SaveDC.Items.Add("dc = 10 + hd / 4");				//  1002
+			dc_co_SaveDC.Items.Add("dc = 10 + hd / 2 + Con");		//  1003
+			dc_co_SaveDC.Items.Add("dc = 10 + hd / 2 + Con - 5");	//  1004
+			dc_co_SaveDC.Items.Add("dc = 10 + hd / 2 + Wis");		//  1005
+			dc_co_SaveDC.Items.Add("dc = 10 + hd / 2 + 5");			//  1006
+			dc_co_SaveDC.Items.Add("dc = 10 + hd / 2 + Cha");		//  1007
+			dc_co_SaveDC.Items.Add("disease bolt");					//  1010
+			dc_co_SaveDC.Items.Add("disease cone");					//  1011
+			dc_co_SaveDC.Items.Add("disease pulse");				//  1012
+			dc_co_SaveDC.Items.Add("poison");						//  1013
+			dc_co_SaveDC.Items.Add("epic dc");						//  1014
+			dc_co_SaveDC.Items.Add("deathless master touch");		//  1020
+			dc_co_SaveDC.Items.Add("undead graft");					//  1021
+			dc_co_SaveDC.Items.Add("caster dc (n/a spell-level)");	//  1022
+			dc_co_SaveDC.Items.Add("bardic slow");					//  1024
+			dc_co_SaveDC.Items.Add("bardic fascinate");				//  1025
 
 			// populate the dropdown list for SaveDCType - WeaponBonusType
 			dc_co_WeaponBonus.Items.Add("none");					// 0
