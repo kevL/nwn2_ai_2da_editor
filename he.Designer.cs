@@ -389,7 +389,7 @@ namespace nwn2_ai_2da_editor
 			this.About.Name = "About";
 			this.About.Padding = new System.Windows.Forms.Padding(0);
 			this.About.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-			this.About.Size = new System.Drawing.Size(152, 20);
+			this.About.Size = new System.Drawing.Size(130, 20);
 			this.About.Text = "&About";
 			this.About.Click += new System.EventHandler(this.Click_about);
 			// 
@@ -473,6 +473,7 @@ namespace nwn2_ai_2da_editor
 			this.tb_Search.Name = "tb_Search";
 			this.tb_Search.Size = new System.Drawing.Size(225, 20);
 			this.tb_Search.TabIndex = 0;
+			this.tb_Search.WordWrap = false;
 			this.tb_Search.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress_search);
 			// 
 			// btn_Search_d
