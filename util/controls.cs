@@ -1,12 +1,14 @@
 ﻿using System;
+#if !__MonoCS__
 using System.Runtime.InteropServices;
+#endif
 using System.Windows.Forms;
 
 
 namespace nwn2_ai_2da_editor
 {
 	/// <summary>
-	/// Derived class for TreeView.
+	/// Derived class for <c>TreeView</c>.
 	/// </summary>
 	sealed class CompositedTreeView
 		: TreeView
@@ -29,7 +31,7 @@ namespace nwn2_ai_2da_editor
 
 
 	/// <summary>
-	/// Derived class for TabControl.
+	/// Derived class for <c>TabControl</c>.
 	/// </summary>
 	sealed class CompositedTabControl
 		: TabControl
@@ -52,8 +54,8 @@ namespace nwn2_ai_2da_editor
 
 
 	/// <summary>
-	/// Derived class for TextBox. Allows integers only entered in the textbox.
-	/// And ensures a decent format on Leave event.
+	/// Derived class for <c>TextBox</c>. Allows integers only entered in the
+	/// text. And ensures a decent format on <c>Leave</c> event.
 	/// </summary>
 	sealed class TextboxInt
 		: TextBox
@@ -70,8 +72,8 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		protected override void OnTextChanged(EventArgs e)
 		{
-			bool retry = !String.IsNullOrEmpty(Text)	// allow blank string
-					  && Text != "-";					// allow "-"
+			bool retry = Text.Length != 0	// allow blank string
+					  && Text != "-";		// allow "-"
 
 			if (retry)
 			{
@@ -82,7 +84,6 @@ namespace nwn2_ai_2da_editor
 			if (retry)
 			{
 				Text = _pre; // revert & recurse
-				SelectionLength = 0;
 				SelectionStart = Text.Length;
 			}
 			else
@@ -122,18 +123,21 @@ namespace nwn2_ai_2da_editor
 				case Keys.Enter:
 				case Keys.Escape:
 					he.HenchControl.SelectResetButton();
-					e.Handled = e.SuppressKeyPress = true;
+					e.SuppressKeyPress = true;
+					break;
+
+				default:
+					base.OnKeyDown(e);
 					break;
 			}
-			base.OnKeyDown(e);
 		}
 		#endregion eventhandlers (override)
 	}
 
 
 	/// <summary>
-	/// Derived class for TextBox. Allows floats only entered in the textbox.
-	/// And ensures a decent format on Leave event.
+	/// Derived class for <c>TextBox</c>. Allows floats only entered in the
+	/// text. And ensures a decent format on <c>Leave</c> event.
 	/// </summary>
 	sealed class TextboxFloat
 		: TextBox
@@ -147,10 +151,10 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		protected override void OnTextChanged(EventArgs e)
 		{
-			bool retry = !String.IsNullOrEmpty(Text)	// allow blank string
-					  && Text != "-"					// allow "-"
-					  && Text != "."					// allow "."
-					  && Text != "-.";					// allow "-."
+			bool retry = Text.Length != 0	// allow blank string
+					  && Text != "-"		// allow "-"
+					  && Text != "."		// allow "."
+					  && Text != "-.";		// allow "-."
 
 			if (retry)
 			{
@@ -161,7 +165,6 @@ namespace nwn2_ai_2da_editor
 			if (retry)
 			{
 				Text = _pre; // revert & recurse
-				SelectionLength = 0;
 				SelectionStart = Text.Length;
 			}
 			else
@@ -219,10 +222,13 @@ namespace nwn2_ai_2da_editor
 				case Keys.Enter:
 				case Keys.Escape:
 					he.HenchControl.SelectResetButton();
-					e.Handled = e.SuppressKeyPress = true;
+					e.SuppressKeyPress = true;
+					break;
+
+				default:
+					base.OnKeyDown(e);
 					break;
 			}
-			base.OnKeyDown(e);
 		}
 		#endregion eventhandlers (override)
 	}
