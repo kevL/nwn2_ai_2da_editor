@@ -536,7 +536,7 @@ namespace nwn2_ai_2da_editor
 							   | hc.HENCH_SPELL_INFO_MEDIUM_DUR_BUFF	// 0x00080000
 							   | hc.HENCH_SPELL_INFO_LONG_DUR_BUFF		// 0x00100000
 
-																		// 0x00200000 - eg. Golem_Breath_Gas in TonyAI 2.5 HenchSpell.2da
+																		// 0x00200000 - eg. Golem_Breath_Gas in tonyAi 2.5 HenchSpells.2da
 																		// 0x00400000
 
 							   | hc.HENCH_SPELL_INFO_ITEM_FLAG			// 0x00800000
