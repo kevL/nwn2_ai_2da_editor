@@ -389,7 +389,7 @@ namespace nwn2_ai_2da_editor
 			this.it_About.Name = "it_About";
 			this.it_About.Padding = new System.Windows.Forms.Padding(0);
 			this.it_About.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.T)));
-			this.it_About.Size = new System.Drawing.Size(152, 20);
+			this.it_About.Size = new System.Drawing.Size(130, 20);
 			this.it_About.Text = "&About";
 			this.it_About.Click += new System.EventHandler(this.Click_about);
 			// 
