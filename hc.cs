@@ -1,12 +1,15 @@
-﻿namespace nwn2_ai_2da_editor
+﻿using System;
+
+
+namespace nwn2_ai_2da_editor
 {
 	/// <summary>
-	/// Constants with vars and vals that are equivalent to those in the
-	/// Core AI scripts.
-	/// NOTE: The vars could be different in your CoreAI scripts (because I
-	/// could change identifiers to make things readable) but the
-	/// appropriate values ought stay equivalent.
+	/// Constants with vars and vals that are equivalent to those in the Core AI
+	/// scripts.
 	/// </summary>
+	/// <remarks>The vars could be different in your CoreAI scripts (because I
+	/// could change identifiers to make things readable) but the appropriate
+	/// values ought stay equivalent.</remarks>
 	static class hc // -> short for "HenchConstants"
 	{
 		#region SpellInfo

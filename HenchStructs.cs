@@ -5,10 +5,12 @@ namespace nwn2_ai_2da_editor
 {
 	/// <summary>
 	/// Struct that holds data of each spell in HenchSpells.2da.
-	/// NOTE: This data can change when the Apply-btn is clicked (but only if
-	/// the spell-data has in fact been changed of c).
-	/// NOTE: This is the data that gets saved to file on File|Save.
 	/// </summary>
+	/// <remarks>This data can change when the Apply-btn is clicked (but only if
+	/// the spell-data has in fact been changed ofc).
+	/// 
+	/// 
+	/// This is the data that gets saved to file on File|Save.</remarks>
 	struct Spell
 	{
 		public int id;
@@ -43,9 +45,9 @@ namespace nwn2_ai_2da_editor
 	/// <summary>
 	/// Struct that holds changed data of any spell that has been modified in
 	/// the editor.
-	/// NOTE: These structs get created and deleted on-the-fly as stuff changes
-	/// in the editor.
 	/// </summary>
+	/// <remarks>These structs get created and deleted on-the-fly as stuff
+	/// changes in the editor.</remarks>
 	struct SpellChanged
 	{
 		public int   spellinfo;
@@ -60,10 +62,12 @@ namespace nwn2_ai_2da_editor
 
 	/// <summary>
 	/// Struct that holds data of each race in HenchRacial.2da.
-	/// NOTE: This data can change when the Apply-btn is clicked (but only if
-	/// the race-data has in fact been changed of c).
-	/// NOTE: This is the data that gets saved to file on File|Save.
 	/// </summary>
+	/// <remarks>This data can change when the Apply-btn is clicked (but only if
+	/// the race-data has in fact been changed ofc).
+	/// 
+	/// 
+	/// This is the data that gets saved to file on File|Save.</remarks>
 	struct Race
 	{
 		public int id;
@@ -97,9 +101,9 @@ namespace nwn2_ai_2da_editor
 	/// <summary>
 	/// Struct that holds changed data of any race that has been modified in
 	/// the editor.
-	/// NOTE: These structs get created and deleted on-the-fly as stuff changes
-	/// in the editor.
 	/// </summary>
+	/// <remarks>These structs get created and deleted on-the-fly as stuff
+	/// changes in the editor.</remarks>
 	struct RaceChanged
 	{
 		public int flags;
@@ -113,10 +117,12 @@ namespace nwn2_ai_2da_editor
 
 	/// <summary>
 	/// Struct that holds data of each class in HenchClasses.2da.
-	/// NOTE: This data can change when the Apply-btn is clicked (but only if
-	/// the class-data has in fact been changed of c).
-	/// NOTE: This is the data that gets saved to file on File|Save.
 	/// </summary>
+	/// <remarks>This data can change when the Apply-btn is clicked (but only if
+	/// the class-data has in fact been changed ofc).
+	/// 
+	/// 
+	/// This is the data that gets saved to file on File|Save.</remarks>
 	struct Class
 	{
 		public int id;
@@ -156,9 +162,9 @@ namespace nwn2_ai_2da_editor
 	/// <summary>
 	/// Struct that holds changed data of any class that has been modified in
 	/// the editor.
-	/// NOTE: These structs get created and deleted on-the-fly as stuff changes
-	/// in the editor.
 	/// </summary>
+	/// <remarks>These structs get created and deleted on-the-fly as stuff
+	/// changes in the editor.</remarks>
 	struct ClassChanged
 	{
 		public int flags;
