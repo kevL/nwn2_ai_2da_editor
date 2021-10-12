@@ -235,17 +235,20 @@ namespace nwn2_ai_2da_editor
 
 
 	/// <summary>
-	/// Synchronizes scrolling a slave-control with this derived TextBox.
-	/// https://stackoverflow.com/questions/3823188/how-can-i-sync-the-scrolling-of-two-multiline-textboxes
+	/// Synchronizes scrolling a slave-control with this derived <c>TextBox</c>.
 	/// Issues
-	/// - does not scroll by key-input when the caret forces the text to scroll
-	/// - does not work when key-input on the slave-control forces its text to
-	///   scroll (although that can be worked around by not allowing the slave
-	///   to take focus)
-	/// - mousedown (repeats) on the up/down scrollbar-arrows can cause the
-	///   boxes to go out of synch at the bot if the slave has more lines than
-	///   the master has (workaround: don't add more lines to the slave)
+	/// <list type="bullet">
+	/// <item>does not scroll by key-input when the caret forces the text to
+	/// scroll</item>
+	/// <item>does not work when key-input on the slave-control forces its text
+	/// to scroll (although that can be worked around by not allowing the slave
+	/// to take focus)</item>
+	/// <item>mousedown (repeats) on the up/down scrollbar-arrows can cause the
+	/// boxes to go out of synch at the bot if the slave has more lines than the
+	/// master has (workaround: don't add more lines to the slave)</item>
+	/// </list>
 	/// </summary>
+	/// <remarks>https://stackoverflow.com/questions/3823188/how-can-i-sync-the-scrolling-of-two-multiline-textboxes</remarks>
 	class TextboxMasterSyncher
 		: TextBox
 	{
