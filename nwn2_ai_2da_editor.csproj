@@ -60,15 +60,33 @@
     </Compile>
     <Compile Include="HenchControl.cs" />
     <Compile Include="Scripter.cs" />
-    <Compile Include="spells1_SpellInfo.cs" />
-    <Compile Include="spells2_TargetInfo.cs" />
-    <Compile Include="spells3_EffectWeight.cs" />
-    <Compile Include="spells4_EffectTypes.cs" />
-    <Compile Include="spells5_DamageInfo.cs" />
-    <Compile Include="spells6_SaveType.cs" />
-    <Compile Include="spells7_SaveDCType.cs" />
-    <Compile Include="funct_racial.cs" />
-    <Compile Include="funct_classes.cs" />
+    <Compile Include="spells1_SpellInfo.cs">
+      <DependentUpon>tabcontrol_Spells.cs</DependentUpon>
+    </Compile>
+    <Compile Include="spells2_TargetInfo.cs">
+      <DependentUpon>tabcontrol_Spells.cs</DependentUpon>
+    </Compile>
+    <Compile Include="spells3_EffectWeight.cs">
+      <DependentUpon>tabcontrol_Spells.cs</DependentUpon>
+    </Compile>
+    <Compile Include="spells4_EffectTypes.cs">
+      <DependentUpon>tabcontrol_Spells.cs</DependentUpon>
+    </Compile>
+    <Compile Include="spells5_DamageInfo.cs">
+      <DependentUpon>tabcontrol_Spells.cs</DependentUpon>
+    </Compile>
+    <Compile Include="spells6_SaveType.cs">
+      <DependentUpon>tabcontrol_Spells.cs</DependentUpon>
+    </Compile>
+    <Compile Include="spells7_SaveDCType.cs">
+      <DependentUpon>tabcontrol_Spells.cs</DependentUpon>
+    </Compile>
+    <Compile Include="funct_racial.cs">
+      <DependentUpon>tabcontrol_Racial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="funct_classes.cs">
+      <DependentUpon>tabcontrol_Classes.cs</DependentUpon>
+    </Compile>
     <Compile Include="HenchStructs.cs" />
     <Compile Include="InfoVersion.cs">
       <DependentUpon>he.cs</DependentUpon>
