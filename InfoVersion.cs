@@ -4,9 +4,7 @@ using System.Drawing;
 
 namespace nwn2_ai_2da_editor
 {
-	/// <summary>
-	/// Contains functions for changing the InfoVersion of spells/races/classes.
-	/// </summary>
+	// Contains functions for changing the InfoVersion of spells/races/classes.
 	partial class he
 	{
 		const int HENCH_SPELL_INFO_VERSION_SHIFT = 24;

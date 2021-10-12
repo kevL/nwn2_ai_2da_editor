@@ -8,9 +8,7 @@ using System.Windows.Forms;
 
 namespace nwn2_ai_2da_editor
 {
-	/// <summary>
-	/// Event handlers for menu-items and related stuff.
-	/// </summary>
+	// Event handlers for menu-items and related stuff.
 	partial class he
 	{
 		#region Fields (static)
