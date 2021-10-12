@@ -60,6 +60,9 @@
     </Compile>
     <Compile Include="HenchControl.cs" />
     <Compile Include="Scripter.cs" />
+    <Compile Include="Scripter.Designer.cs">
+      <DependentUpon>Scripter.cs</DependentUpon>
+    </Compile>
     <Compile Include="spells1_SpellInfo.cs">
       <DependentUpon>tabcontrol_Spells.cs</DependentUpon>
     </Compile>
