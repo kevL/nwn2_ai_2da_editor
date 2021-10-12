@@ -11,13 +11,13 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("kevL")]
 [assembly: AssemblyProduct("nwn2_ai_2da_editor")]
-[assembly: AssemblyCopyright("2018-20")]
+[assembly: AssemblyCopyright("2018-21")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
 // This sets the default COM visibility of types in the assembly to invisible.
 // If you need to expose a type to COM, use [ComVisible(true)] on that type.
-[assembly: ComVisible (false)]
+[assembly: ComVisible(false)]
 
 // The assembly version has following format:
 //
