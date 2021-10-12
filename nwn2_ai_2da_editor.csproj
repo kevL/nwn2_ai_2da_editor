@@ -55,7 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="hc.cs" />
-    <Compile Include="funct_bar.cs" />
+    <Compile Include="funct_bar.cs">
+      <DependentUpon>he.cs</DependentUpon>
+    </Compile>
     <Compile Include="HenchControl.cs" />
     <Compile Include="Scripter.cs" />
     <Compile Include="spells1_SpellInfo.cs" />
@@ -68,7 +70,9 @@
     <Compile Include="funct_racial.cs" />
     <Compile Include="funct_classes.cs" />
     <Compile Include="HenchStructs.cs" />
-    <Compile Include="InfoVersion.cs" />
+    <Compile Include="InfoVersion.cs">
+      <DependentUpon>he.cs</DependentUpon>
+    </Compile>
     <Compile Include="he.cs" />
     <Compile Include="he.Designer.cs">
       <DependentUpon>he.cs</DependentUpon>
