@@ -53,9 +53,10 @@ namespace nwn2_ai_2da_editor
 
 		#region Events (override)
 		/// <summary>
-		/// Requires 'KeyPreview' true.
+		/// Overrides the <c>KeyDown</c> handler.
 		/// </summary>
 		/// <param name="e"></param>
+		/// <remarks>Requires <c>KeyPreview</c> <c>true</c>.</remarks>
 		protected override void OnKeyDown(KeyEventArgs e)
 		{
 			switch (e.KeyData)
@@ -80,9 +81,9 @@ namespace nwn2_ai_2da_editor
 
 		#region Events
 		/// <summary>
-		/// Closes this infobox and returns 'DialogResult.OK'.
+		/// Closes this <c>infobox</c> and returns <c>DialogResult.OK</c>.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="bu_accept"/></c></param>
 		/// <param name="e"></param>
 		void click_Okay(object sender, EventArgs e)
 		{
@@ -90,9 +91,9 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Closes this infobox and returns 'DialogResult.Cancel'.
+		/// Closes this infobox and returns <c>DialogResult.Cancel</c>.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="bu_cancel"/></c></param>
 		/// <param name="e"></param>
 		void click_Cancel(object sender, EventArgs e)
 		{
@@ -100,9 +101,9 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Closes this infobox and returns 'DialogResult.Retry'.
+		/// Closes this infobox and returns <c>DialogResult.Retry</c>.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="bu_retry"/></c></param>
 		/// <param name="e"></param>
 		void click_Retry(object sender, EventArgs e)
 		{
