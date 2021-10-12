@@ -9,7 +9,7 @@ namespace nwn2_ai_2da_editor
 {
 	#region he
 	/// <summary>
-	/// The he - HenchEditor - is the application.
+	/// The <c>he</c> - HenchEditor - is the application.
 	/// </summary>
 	sealed partial class he
 		: Form
@@ -28,10 +28,12 @@ namespace nwn2_ai_2da_editor
 		internal const string blank = "****";
 
 		/// <summary>
-		/// Tracks which 2da-type is currently loaded:
-		/// - henchspells
-		/// - henchracial
-		/// - henchclasses
+		/// Tracks which 2da-type is currently loaded.
+		/// <list type="bullet">
+		/// <item>henchspells</item>
+		/// <item>henchracial</item>
+		/// <item>henchclasses</item>
+		/// </list>
 		/// </summary>
 		enum Type2da
 		{
@@ -51,48 +53,49 @@ namespace nwn2_ai_2da_editor
 		/// A list-object that contains structs of all spells currently in
 		/// HenchSpells.2da.
 		/// </summary>
-		internal static List<Spell> Spells = new List<Spell>();
+		internal static IList<Spell> Spells = new List<Spell>();
 
 		/// <summary>
 		/// A dictionary-object that contains structs of any spell that has been
 		/// changed by the editor.
 		/// </summary>
-		internal static Dictionary<int, SpellChanged> SpellsChanged = new Dictionary<int, SpellChanged>();
+		internal static IDictionary<int, SpellChanged> SpellsChanged = new Dictionary<int, SpellChanged>();
 
 		/// <summary>
 		/// A list-object that contains structs of all races currently in
 		/// HenchRacial.2da.
 		/// </summary>
-		internal static List<Race> Races = new List<Race>();
+		internal static IList<Race> Races = new List<Race>();
 
 		/// <summary>
 		/// A dictionary-object that contains structs of any race that has been
 		/// changed by the editor.
 		/// </summary>
-		internal static Dictionary<int, RaceChanged> RacesChanged = new Dictionary<int, RaceChanged>();
+		internal static IDictionary<int, RaceChanged> RacesChanged = new Dictionary<int, RaceChanged>();
 
 		/// <summary>
 		/// A list-object that contains structs of all classes currently in
 		/// HenchClasses.2da.
 		/// </summary>
-		internal static List<Class> Classes = new List<Class>();
+		internal static IList<Class> Classes = new List<Class>();
 
 		/// <summary>
 		/// A dictionary-object that contains structs of any class that has been
 		/// changed by the editor.
 		/// </summary>
-		internal static Dictionary<int, ClassChanged> ClassesChanged = new Dictionary<int, ClassChanged>();
+		internal static IDictionary<int, ClassChanged> ClassesChanged = new Dictionary<int, ClassChanged>();
 
 		/// <summary>
-		/// The currently selected node in the Tree.
+		/// The currently selected node in the <c><see cref="Tree"/></c>.
 		/// </summary>
 		internal static int Id
 		{ get; set; }
 
 		/// <summary>
-		/// A boolean that prevents firing the TextChanged handlers when true.
-		/// That is don't fire the text-changed event when the tree is initially
-		/// populated or is being re-populated.
+		/// A boolean that prevents firing the <c>TextChanged</c> handlers when
+		/// true. That is don't fire the <c>event</c> when the
+		/// <c><see cref="Tree"/></c> is initially populated or is being
+		/// re-populated.
 		/// </summary>
 		internal static bool BypassDiffer;
 
@@ -111,12 +114,13 @@ namespace nwn2_ai_2da_editor
 //		{ get; set; }
 
 		/// <summary>
-		/// A boolean indicating that the currently loaded 2da has a "Label" col.
+		/// A boolean indicating that the currently loaded 2da has a "Label"
+		/// col.
 		/// </summary>
 		bool hasLabels;
 
 		/// <summary>
-		/// The fullpath of the currently opened 2da file.
+		/// The fullpath of the currently opened 2da-file.
 		/// </summary>
 		string _pfe  = String.Empty;
 		string _pfeT = String.Empty;
@@ -133,7 +137,7 @@ namespace nwn2_ai_2da_editor
 		Button bu_Script;
 
 		/// <summary>
-		/// A fixed-width font for all the hex and bin textboxes.
+		/// A fixed-width <c>Font</c> for all the hex and bin textboxes.
 		/// </summary>
 		internal static readonly Font FixedFont = new Font("Courier New", 8F);
 		#endregion class Vars
@@ -141,7 +145,7 @@ namespace nwn2_ai_2da_editor
 
 		#region cTor
 		/// <summary>
-		/// cTor.
+		/// cTor. Instantiates the HenchEditor application.
 		/// </summary>
 		public he()
 		{
@@ -196,7 +200,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Handles a click on the script-button.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="bu_Script"/></c></param>
 		/// <param name="e"></param>
 		void click_Script(object sender, EventArgs e)
 		{
@@ -338,9 +342,9 @@ namespace nwn2_ai_2da_editor
 
 		/// <summary>
 		/// Writes recents to a file 'recent.cfg' in the app-dir.
-		/// @note Recents will be tracked only if a file 'recent.cfg' already
-		/// exists in the app-dir.
 		/// </summary>
+		/// <remarks>Recents will be tracked only if a file 'recent.cfg' already
+		/// exists in the app-dir.</remarks>
 		void recent_write()
 		{
 			string pfe = Path.Combine(Application.StartupPath, RF_CFG);
@@ -366,7 +370,7 @@ namespace nwn2_ai_2da_editor
 
 		#region eventhandlers (override)
 		/// <summary>
-		/// Handles the FormClosing event.
+		/// Overrides the <c>FormClosing</c> handler.
 		/// </summary>
 		/// <param name="e"></param>
 		protected override void OnFormClosing(FormClosingEventArgs e)
@@ -391,7 +395,7 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Handles the OnResize event.
+		/// Overrides the <c>Resize</c> handler.
 		/// </summary>
 		/// <param name="e"></param>
 		protected override void OnResize(EventArgs e)
@@ -410,7 +414,7 @@ namespace nwn2_ai_2da_editor
 		/// are found.
 		/// </summary>
 		/// <param name="rows">an array of 2da rows</param>
-		/// <returns>true if a double-quote char is found</returns>
+		/// <returns><c>true</c> if a double-quote char is found</returns>
 		bool DoubleQuoteCondition(string[] rows)
 		{
 			// WARNING: This editor does *not* handle quotation marks around 2da fields.
@@ -438,9 +442,12 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Determines which file to load: HenchSpells, HenchRacial, or
 		/// HenchClasses.
-		/// The fullpath of the file must already be stored in '_pfe'.
-		/// NOTE: "pfe" stands for "path_file_extension"
 		/// </summary>
+		/// <remarks>The fullpath of the file must already be stored in
+		/// <c><see cref="_pfe"/></c>.
+		/// 
+		/// 
+		/// <c>pfe</c> stands for path_file_extension.</remarks>
 		void Load_file()
 		{
 			if (File.Exists(_pfe)) // safety.
@@ -645,11 +652,11 @@ namespace nwn2_ai_2da_editor
 
 		/// <summary>
 		/// Loads a HenchSpells.2da file.
-		/// If the file is not a valid HenchSpells.2da then this should
-		/// hopefully throw an exception at the user. If it doesn't all bets are
-		/// off.
 		/// </summary>
 		/// <param name="rows"></param>
+		/// <remarks>If the file is not a valid HenchSpells.2da then this should
+		/// hopefully throw an exception at the user. If it doesn't all bets are
+		/// off.</remarks>
 		void Load_HenchSpells(string[] rows)
 		{
 			if (HenchControl != null)
@@ -743,12 +750,15 @@ namespace nwn2_ai_2da_editor
 		/// The TonyAI 2.3+ sets bits of data by reading it directly from
 		/// Spells.2da - such data is no longer stored in HenchSpells.2da. This
 		/// funct clears those bits auto right after HenchSpells.2da loads.
-		/// @note The controls are disabled on the tabpage.
-		/// @note Is based on <see cref="SetInfoVersion_spells"/>. This funct,
-		/// however, ASSUMES that nothing in the spell-list has changed yet;
-		/// this funct bypasses a bunch of differ-stuff that
-		/// SetInfoVersion_spells() doesn't.
 		/// </summary>
+		/// <remarks>The controls are disabled on the tabpage.
+		/// 
+		///
+		/// Is based on
+		/// <c><see cref="SetInfoVersion_spells()">SetInfoVersion_spells()</see></c>.
+		/// This funct, however, ASSUMES that nothing in the spell-list has
+		/// changed yet; this funct bypasses a bunch of differ-stuff that
+		/// <c>SetInfoVersion_spells()</c> doesn't.</remarks>
 		void UpdateSpellInfo()
 		{
 			Spell spell;
@@ -862,11 +872,11 @@ namespace nwn2_ai_2da_editor
 
 		/// <summary>
 		/// Loads a HenchRacial.2da file.
-		/// If the file is not a valid HenchRacial.2da then this should
-		/// hopefully throw an exception at the user. If it doesn't all bets are
-		/// off.
 		/// </summary>
 		/// <param name="rows"></param>
+		/// <remarks>If the file is not a valid HenchRacial.2da then this should
+		/// hopefully throw an exception at the user. If it doesn't all bets are
+		/// off.</remarks>
 		void Load_HenchRacial(string[] rows)
 		{
 			if (HenchControl != null)
@@ -995,11 +1005,11 @@ namespace nwn2_ai_2da_editor
 
 		/// <summary>
 		/// Loads a HenchClasses.2da file.
-		/// If the file is not a valid HenchClasses.2da then this should
-		/// hopefully throw an exception at the user. If it doesn't all bets are
-		/// off.
 		/// </summary>
 		/// <param name="rows"></param>
+		/// <remarks>If the file is not a valid HenchClasses.2da then this
+		/// should hopefully throw an exception at the user. If it doesn't all
+		/// bets are off.</remarks>
 		void Load_HenchClasses(string[] rows)
 		{
 			if (HenchControl != null)
@@ -1326,9 +1336,9 @@ namespace nwn2_ai_2da_editor
 
 		/// <summary>
 		/// Enables several menu-items.
-		/// NOTE: Calls to this need to be adjusted if a Close 2da function is
-		/// added - and perhaps if a 2da fails to load leaving a blank tree.
 		/// </summary>
+		/// <remarks>Calls to this need to be adjusted if a Close 2da function
+		/// is added - and perhaps if a 2da fails to load leaving a blank tree.</remarks>
 		void EnableMenu()
 		{
 			it_Save       .Enabled = // file ->
@@ -1346,7 +1356,7 @@ namespace nwn2_ai_2da_editor
 
 		#region SpellTree node-select
 		/// <summary>
-		/// Handles AfterSelect event for nodes in the tree.
+		/// Handles <c>AfterSelect</c> event for nodes in the tree.
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
@@ -1364,7 +1374,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Sets the titlebar text.
 		/// </summary>
-		/// <param name="saved">true if saved, false if changed</param>
+		/// <param name="saved"><c>true</c> if saved, <c>false</c> if changed</param>
 		internal void SetTitleText(bool saved = false)
 		{
 			string title = "nwn2_ai_2da_editor - " + _pfe;
@@ -1390,7 +1400,7 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// 
+		/// Enables or disables the Copy hex and Copy bin its.
 		/// </summary>
 		/// <param name="enabled"></param>
 		internal void EnableCopy(bool enabled)
@@ -1432,17 +1442,21 @@ namespace nwn2_ai_2da_editor
 
 
 		/// <summary>
-		/// 
+		/// Enables or disables the Apply button as well as the GlobalApply and
+		/// GotoChanged its.
 		/// </summary>
 		/// <param name="differs"></param>
 		internal void EnableApplys(bool differs)
 		{
-			bool changes = false;
+			bool changes;
 			switch (Type)
 			{
 				case Type2da.TYPE_SPELLS:  changes = (SpellsChanged .Count != 0); break;
 				case Type2da.TYPE_RACIAL:  changes = (RacesChanged  .Count != 0); break;
 				case Type2da.TYPE_CLASSES: changes = (ClassesChanged.Count != 0); break;
+
+				default: changes = false;
+					break;
 			}
 			btn_Apply     .Enabled = differs;
 			it_ApplyGlobal.Enabled = differs || changes;
@@ -1451,11 +1465,12 @@ namespace nwn2_ai_2da_editor
 
 		/// <summary>
 		/// Handler for the "apply changed data to currently selected
-		/// spell/race/class" button. See <see cref="applyall"/> to apply all
-		/// altered data globally.
+		/// spell/race/class" button.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">btn_Apply</param>
 		/// <param name="e"></param>
+		/// <remarks>See <c><see cref="applyall()">applyall()</see></c> to apply
+		/// all altered data globally.</remarks>
 		void Click_apply(object sender, EventArgs e)
 		{
 			SetTitleText();
@@ -1589,21 +1604,22 @@ namespace nwn2_ai_2da_editor
 
 		/// <summary>
 		/// Checks if two floats are within epsilon.
-		/// note: Does not handle NaNs, infinities or whathaveya.
 		/// </summary>
 		/// <param name="a"></param>
 		/// <param name="b"></param>
 		/// <returns>true if equal enough</returns>
+		/// <remarks>Does not handle NaNs, infinities or whathaveya.</remarks>
 		internal static bool FloatsEqual(float a, float b)
 		{
 			return Math.Abs(b - a) < epsilon;
 		}
 
 		/// <summary>
-		/// Formats a float to a string that is consistent with a 2da-field.
+		/// Formats a <c>float</c> to a <c>string</c> that is consistent with a
+		/// 2da-field.
 		/// </summary>
 		/// <param name="f"></param>
-		/// <returns>string of a float</returns>
+		/// <returns><c>string</c> of a <c>float</c></returns>
 		internal static string Float2daFormat(float f)
 		{
 			string val = f.ToString();
@@ -1618,16 +1634,21 @@ namespace nwn2_ai_2da_editor
 
 		#region Search
 		/// <summary>
-		/// Handler for pressing the Enter-key when either the search-textbox or
-		/// the spell-tree is focused.
+		/// Handler for pressing the <c>Enter</c> key when either the
+		/// search-textbox or the spell-tree is focused.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="tb_Search"/></c></item>
+		/// <item><c><see cref="Tree"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
+		/// <remarks>Searches downward only.</remarks>
 		void KeyPress_search(object sender, KeyPressEventArgs e)
 		{
 			if (e.KeyChar == (char)Keys.Enter)
 			{
-				Click_search(null, EventArgs.Empty);
+				Click_search(btn_Search_d, EventArgs.Empty);
 				e.Handled = true;
 			}
 		}
@@ -1635,22 +1656,25 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Handler for clicking the Search btns.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="btn_Search_d"/></c></item>
+		/// <item><c><see cref="btn_Search_u"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
 		void Click_search(object sender, EventArgs e)
 		{
-			int total = Tree.Nodes.Count;
-			if (total > 1)
+			if (tb_Search.Text.Length != 0)
 			{
-				string text = tb_Search.Text;
-				if (!String.IsNullOrEmpty(text))
+				int total = Tree.Nodes.Count;
+				if (total > 1)
 				{
-					text = text.ToLower();
+					string text = tb_Search.Text.ToLower();
 
 					int id;
 
 					var btn = sender as Button;
-					if (btn == btn_Search_d || btn == null)
+					if (btn == btn_Search_d)
 					{
 						if (Id == total - 1)
 						{
@@ -1708,7 +1732,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Highlights nodes on the tree that don't have page1 info.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="tree_Highlight"/></c></param>
 		/// <param name="e"></param>
 		void Click_treeHighlight(object sender, EventArgs e)
 		{
