@@ -14,9 +14,10 @@ namespace nwn2_ai_2da_editor
 		#region Fields (static)
 		/// <summary>
 		/// Bitflags for spell-fields that have changed.
-		/// @note: The master-int 'differ' is tracked in each class-struct but
-		/// is not saved to file.
 		/// </summary>
+		/// <remarks>The master-int
+		/// <c><see cref="Class.differ">Class.differ</see></c> is tracked in
+		/// each <c><see cref="Class"/></c> struct but is not saved to file.</remarks>
 		internal const int bit_clean  = 0x000;
 		internal const int bit_flags  = 0x001;
 				 const int bit_feat1  = 0x002;

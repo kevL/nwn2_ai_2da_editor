@@ -14,9 +14,10 @@ namespace nwn2_ai_2da_editor
 		#region Fields (static)
 		/// <summary>
 		/// Bitflags for spell-fields that have changed.
-		/// @note: The master-int 'differ' is tracked in each spell-struct but
-		/// is not saved to file.
 		/// </summary>
+		/// <remarks>The master-int
+		/// <c><see cref="Spell.differ">Spell.differ</see></c> is tracked in
+		/// each <c><see cref="Spell"/></c> struct but is not saved to file.</remarks>
 		internal const int bit_clean        = 0x00;
 		internal const int bit_spellinfo    = 0x01;
 				 const int bit_targetinfo   = 0x02;
@@ -36,6 +37,10 @@ namespace nwn2_ai_2da_editor
 
 
 		#region cTor
+		/// <summary>
+		/// cTor.
+		/// </summary>
+		/// <param name="he"></param>
 		internal tabcontrol_Spells(he he)
 		{
 			InitializeComponent();
