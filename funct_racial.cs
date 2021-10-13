@@ -5,9 +5,7 @@ using System.Windows.Forms;
 
 namespace nwn2_ai_2da_editor
 {
-	/// <summary>
-	/// Functions for the Racial pages.
-	/// </summary>
+	// Functions for the Racial pages.
 	partial class tabcontrol_Racial
 	{
 		#region Fields (static)

@@ -4,9 +4,7 @@ using System.Drawing;
 
 namespace nwn2_ai_2da_editor
 {
-	/// <summary>
-	/// Functions for the EffectWeight page.
-	/// </summary>
+	// Functions for the EffectWeight page.
 	partial class tabcontrol_Spells
 	{
 		#region eventhandlers

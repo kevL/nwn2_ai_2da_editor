@@ -85,10 +85,10 @@
       <DependentUpon>tabcontrol_Spells.cs</DependentUpon>
     </Compile>
     <Compile Include="funct_racial.cs">
-      <DependentUpon>tabcontrol_Racial.cs</DependentUpon>
+      <DependentUpon>control_Racial.cs</DependentUpon>
     </Compile>
     <Compile Include="funct_classes.cs">
-      <DependentUpon>tabcontrol_Classes.cs</DependentUpon>
+      <DependentUpon>control_Classes.cs</DependentUpon>
     </Compile>
     <Compile Include="HenchStructs.cs" />
     <Compile Include="he_InfoVersion.cs">
@@ -100,13 +100,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="tabcontrol_Classes.cs" />
-    <Compile Include="tabcontrol_Classes.Designer.cs">
-      <DependentUpon>tabcontrol_Classes.cs</DependentUpon>
+    <Compile Include="control_Classes.cs" />
+    <Compile Include="control_Classes.Designer.cs">
+      <DependentUpon>control_Classes.cs</DependentUpon>
     </Compile>
-    <Compile Include="tabcontrol_Racial.cs" />
-    <Compile Include="tabcontrol_Racial.Designer.cs">
-      <DependentUpon>tabcontrol_Racial.cs</DependentUpon>
+    <Compile Include="control_Racial.cs" />
+    <Compile Include="control_Racial.Designer.cs">
+      <DependentUpon>control_Racial.cs</DependentUpon>
     </Compile>
     <Compile Include="tabcontrol_Spells.cs" />
     <Compile Include="tabcontrol_Spells.Designer.cs">
@@ -125,11 +125,11 @@
     <EmbeddedResource Include="Scripter.resx">
       <DependentUpon>Scripter.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="tabcontrol_Classes.resx">
-      <DependentUpon>tabcontrol_Classes.cs</DependentUpon>
+    <EmbeddedResource Include="control_Classes.resx">
+      <DependentUpon>control_Classes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="tabcontrol_Racial.resx">
-      <DependentUpon>tabcontrol_Racial.cs</DependentUpon>
+    <EmbeddedResource Include="control_Racial.resx">
+      <DependentUpon>control_Racial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="tabcontrol_Spells.resx">
       <DependentUpon>tabcontrol_Spells.cs</DependentUpon>

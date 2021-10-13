@@ -5,9 +5,7 @@ using System.Windows.Forms;
 
 namespace nwn2_ai_2da_editor
 {
-	/// <summary>
-	/// Functions for the SaveType page.
-	/// </summary>
+	// Functions for the SaveType page.
 	partial class tabcontrol_Spells
 	{
 		#region Fields (static)

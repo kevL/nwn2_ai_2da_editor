@@ -5,9 +5,7 @@ using System.Windows.Forms;
 
 namespace nwn2_ai_2da_editor
 {
-	/// <summary>
-	/// Functions for the Classes pages.
-	/// </summary>
+	// Functions for the Classes pages.
 	partial class tabcontrol_Classes
 	{
 		#region Fields (static)

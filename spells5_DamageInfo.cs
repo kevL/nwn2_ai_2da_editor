@@ -16,9 +16,7 @@ namespace nwn2_ai_2da_editor
 	// eg. HenchCheckWeaponBuff() 'hench_i0_buff
 
 
-	/// <summary>
-	/// Functions for the DamageInfo page.
-	/// </summary>
+	// Functions for the DamageInfo page.
 	partial class tabcontrol_Spells
 	{
 		#region Fields (static)

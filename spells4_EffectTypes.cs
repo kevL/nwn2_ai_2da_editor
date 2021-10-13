@@ -12,9 +12,7 @@ namespace nwn2_ai_2da_editor
 	// eg. HenchCheckWeaponBuff() 'hench_i0_buff
 
 
-	/// <summary>
-	/// Functions for the EffectTypes page.
-	/// </summary>
+	// Functions for the EffectTypes page.
 	partial class tabcontrol_Spells
 	{
 		#region eventhandlers
