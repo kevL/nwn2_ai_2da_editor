@@ -17,7 +17,7 @@ namespace nwn2_ai_2da_editor
 
 
 	// Functions for the DamageInfo page.
-	partial class tabcontrol_Spells
+	partial class control_Spells
 	{
 		#region Fields (static)
 		const int HENCH_SPELL_INFO_BUFF_LEVEL_LIMIT_SHIFT   =  8;

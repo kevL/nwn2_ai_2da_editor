@@ -9,7 +9,7 @@ namespace nwn2_ai_2da_editor
 	/// A <c><see cref="HenchControl"/></c> with a <c>TabControl</c> set to
 	/// <c>Dock.Fill</c>.
 	/// </summary>
-	sealed partial class tabcontrol_Racial
+	sealed partial class control_Racial
 		: HenchControl
 	{
 		#region Fields (static)
@@ -39,7 +39,7 @@ namespace nwn2_ai_2da_editor
 		/// cTor.
 		/// </summary>
 		/// <param name="he"></param>
-		internal tabcontrol_Racial(he he)
+		internal control_Racial(he he)
 		{
 			InitializeComponent();
 
@@ -307,25 +307,25 @@ namespace nwn2_ai_2da_editor
 		/// <returns>bitwise value containing flags for fields that have changed</returns>
 		internal static int RaceDiffer(Race race, RaceChanged racechanged)
 		{
-			int differ = tabcontrol_Racial.bit_clean;
+			int differ = control_Racial.bit_clean;
 
 			if (race.flags != racechanged.flags)
-				differ |= tabcontrol_Racial.bit_flags;
+				differ |= control_Racial.bit_flags;
 
 			if (race.feat1 != racechanged.feat1)
-				differ |= tabcontrol_Racial.bit_feat1;
+				differ |= control_Racial.bit_feat1;
 
 			if (race.feat2 != racechanged.feat2)
-				differ |= tabcontrol_Racial.bit_feat2;
+				differ |= control_Racial.bit_feat2;
 
 			if (race.feat3 != racechanged.feat3)
-				differ |= tabcontrol_Racial.bit_feat3;
+				differ |= control_Racial.bit_feat3;
 
 			if (race.feat4 != racechanged.feat4)
-				differ |= tabcontrol_Racial.bit_feat4;
+				differ |= control_Racial.bit_feat4;
 
 			if (race.feat5 != racechanged.feat5)
-				differ |= tabcontrol_Racial.bit_feat5;
+				differ |= control_Racial.bit_feat5;
 
 			return differ;
 		}

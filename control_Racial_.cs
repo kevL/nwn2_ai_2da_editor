@@ -6,7 +6,7 @@ using System.Windows.Forms;
 namespace nwn2_ai_2da_editor
 {
 	// Functions for the Racial pages.
-	partial class tabcontrol_Racial
+	partial class control_Racial
 	{
 		#region Fields (static)
 		const int HENCH_FEAT_SPELL_SHIFT_SPELL = 16;

@@ -9,7 +9,7 @@ namespace nwn2_ai_2da_editor
 	/// A <c><see cref="HenchControl"/></c> with a <c>TabControl</c> set to
 	/// <c>Dock.Fill</c>.
 	/// </summary>
-	sealed partial class tabcontrol_Spells
+	sealed partial class control_Spells
 		: HenchControl
 	{
 		#region Fields (static)
@@ -42,7 +42,7 @@ namespace nwn2_ai_2da_editor
 		/// cTor.
 		/// </summary>
 		/// <param name="he"></param>
-		internal tabcontrol_Spells(he he)
+		internal control_Spells(he he)
 		{
 			InitializeComponent();
 
@@ -910,28 +910,28 @@ namespace nwn2_ai_2da_editor
 		/// <returns>bitwise value containing flags for fields that have changed</returns>
 		internal static int SpellDiffer(Spell spell, SpellChanged spellchanged)
 		{
-			int differ = tabcontrol_Spells.bit_clean;
+			int differ = control_Spells.bit_clean;
 
 			if (spell.spellinfo != spellchanged.spellinfo)
-				differ |= tabcontrol_Spells.bit_spellinfo;
+				differ |= control_Spells.bit_spellinfo;
 
 			if (spell.targetinfo != spellchanged.targetinfo)
-				differ |= tabcontrol_Spells.bit_targetinfo;
+				differ |= control_Spells.bit_targetinfo;
 
 			if (!he.FloatsEqual(spell.effectweight, spellchanged.effectweight))
-				differ |= tabcontrol_Spells.bit_effectweight;
+				differ |= control_Spells.bit_effectweight;
 
 			if (spell.effecttypes != spellchanged.effecttypes)
-				differ |= tabcontrol_Spells.bit_effecttypes;
+				differ |= control_Spells.bit_effecttypes;
 
 			if (spell.damageinfo != spellchanged.damageinfo)
-				differ |= tabcontrol_Spells.bit_damageinfo;
+				differ |= control_Spells.bit_damageinfo;
 
 			if (spell.savetype != spellchanged.savetype)
-				differ |= tabcontrol_Spells.bit_savetype;
+				differ |= control_Spells.bit_savetype;
 
 			if (spell.savedctype != spellchanged.savedctype)
-				differ |= tabcontrol_Spells.bit_savedctype;
+				differ |= control_Spells.bit_savedctype;
 
 			return differ;
 		}

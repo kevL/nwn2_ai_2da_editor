@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace nwn2_ai_2da_editor
 {
-	partial class tabcontrol_Spells
+	partial class control_Spells
 	{
 //		tp_SpellInfo.Controls.Add(si_infoversion);
 //		tp_SpellInfo.Controls.Add(si_infoversion_lbl);
@@ -4112,12 +4112,12 @@ namespace nwn2_ai_2da_editor
 			this.savedctype_label.Size = new System.Drawing.Size(655, 45);
 			this.savedctype_label.TabIndex = 10;
 			// 
-			// tabcontrol_Spells
+			// control_Spells
 			// 
 			this.Controls.Add(this.tc_Spells);
 			this.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Margin = new System.Windows.Forms.Padding(0);
-			this.Name = "tabcontrol_Spells";
+			this.Name = "control_Spells";
 			this.Size = new System.Drawing.Size(823, 449);
 			this.tc_Spells.ResumeLayout(false);
 			this.tp_SpellInfo.ResumeLayout(false);

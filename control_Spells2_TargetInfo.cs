@@ -6,7 +6,7 @@ using System.Windows.Forms;
 namespace nwn2_ai_2da_editor
 {
 	// Functions for the TargetInfo page.
-	partial class tabcontrol_Spells
+	partial class control_Spells
 	{
 		#region Fields (static)
 		const int HENCH_SPELL_TARGET_RADIUS_SHIFT = 6;

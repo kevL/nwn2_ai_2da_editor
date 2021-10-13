@@ -6,7 +6,7 @@ using System.Windows.Forms;
 namespace nwn2_ai_2da_editor
 {
 	// Functions for the Classes pages.
-	partial class tabcontrol_Classes
+	partial class control_Classes
 	{
 		#region Fields (static)
 		const int HENCH_FEAT_SPELL_SHIFT_SPELL  = 16;

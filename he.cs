@@ -662,7 +662,7 @@ namespace nwn2_ai_2da_editor
 			if (HenchControl != null)
 				HenchControl.Dispose(); // <- also removes the control from its collection
 
-			HenchControl = new tabcontrol_Spells(this);
+			HenchControl = new control_Spells(this);
 			panel2width  = HenchControl.Width;  // cache that
 			panel2height = HenchControl.Height; // cache that
 			splitContainer.Panel2.Controls.Add(HenchControl);
@@ -688,7 +688,7 @@ namespace nwn2_ai_2da_editor
 
 						spell.id        = id;
 						spell.isChanged = false;
-						spell.differ    = tabcontrol_Spells.bit_clean;
+						spell.differ    = control_Spells.bit_clean;
 
 						int col = 0;
 
@@ -797,7 +797,7 @@ namespace nwn2_ai_2da_editor
 						SpellsChanged[id] = spellchanged;
 
 						// check it
-						spell.differ = tabcontrol_Spells.SpellDiffer(spell, spellchanged);
+						spell.differ = control_Spells.SpellDiffer(spell, spellchanged);
 						Spells[id] = spell;
 
 						Tree.Nodes[id].ForeColor = Color.Crimson;
@@ -882,7 +882,7 @@ namespace nwn2_ai_2da_editor
 			if (HenchControl != null)
 				HenchControl.Dispose(); // <- also removes the control from its collection
 
-			HenchControl = new tabcontrol_Racial(this);
+			HenchControl = new control_Racial(this);
 			panel2width  = HenchControl.Width;  // cache that
 			panel2height = HenchControl.Height; // cache that
 			splitContainer.Panel2.Controls.Add(HenchControl);
@@ -908,7 +908,7 @@ namespace nwn2_ai_2da_editor
 
 						race.id        = id;
 						race.isChanged = false;
-						race.differ    = tabcontrol_Racial.bit_clean;
+						race.differ    = control_Racial.bit_clean;
 
 						int col = 0;
 
@@ -1015,7 +1015,7 @@ namespace nwn2_ai_2da_editor
 			if (HenchControl != null)
 				HenchControl.Dispose(); // <- also removes the control from its collection
 
-			HenchControl = new tabcontrol_Classes(this);
+			HenchControl = new control_Classes(this);
 			panel2width  = HenchControl.Width;  // cache that
 			panel2height = HenchControl.Height; // cache that
 			splitContainer.Panel2.Controls.Add(HenchControl);
@@ -1041,7 +1041,7 @@ namespace nwn2_ai_2da_editor
 
 						@class.id        = id;
 						@class.isChanged = false;
-						@class.differ    = tabcontrol_Classes.bit_clean;
+						@class.differ    = control_Classes.bit_clean;
 
 						int col = 0;
 
@@ -1480,9 +1480,9 @@ namespace nwn2_ai_2da_editor
 				case Type2da.TYPE_SPELLS:
 				{
 					Spell spell = Spells[Id];
-					if (spell.differ != tabcontrol_Spells.bit_clean)
+					if (spell.differ != control_Spells.bit_clean)
 					{
-						spell.differ = tabcontrol_Spells.bit_clean;
+						spell.differ = control_Spells.bit_clean;
 						spell.isChanged = true;
 
 						SpellChanged spellchanged = SpellsChanged[Id];
@@ -1517,9 +1517,9 @@ namespace nwn2_ai_2da_editor
 				case Type2da.TYPE_RACIAL:
 				{
 					Race race = Races[Id];
-					if (race.differ != tabcontrol_Racial.bit_clean)
+					if (race.differ != control_Racial.bit_clean)
 					{
-						race.differ = tabcontrol_Racial.bit_clean;
+						race.differ = control_Racial.bit_clean;
 						race.isChanged = true;
 
 						RaceChanged racechanged = RacesChanged[Id];
@@ -1554,9 +1554,9 @@ namespace nwn2_ai_2da_editor
 				case Type2da.TYPE_CLASSES:
 				{
 					Class @class = Classes[Id];
-					if (@class.differ != tabcontrol_Classes.bit_clean)
+					if (@class.differ != control_Classes.bit_clean)
 					{
-						@class.differ = tabcontrol_Classes.bit_clean;
+						@class.differ = control_Classes.bit_clean;
 						@class.isChanged = true;
 
 						ClassChanged classchanged = ClassesChanged[Id];
@@ -1756,9 +1756,9 @@ namespace nwn2_ai_2da_editor
 						for (int id = 0; id != total; ++id)
 						{
 							spell = Spells[id];
-							if      (spell.differ != tabcontrol_Spells.bit_clean) color = Color.Crimson;
-							else if (spell.isChanged)                             color = Color.Blue;
-							else                                                  color = DefaultForeColor;
+							if      (spell.differ != control_Spells.bit_clean) color = Color.Crimson;
+							else if (spell.isChanged)                          color = Color.Blue;
+							else                                               color = DefaultForeColor;
 
 							Tree.Nodes[id].ForeColor = color;
 						}
@@ -1784,9 +1784,9 @@ namespace nwn2_ai_2da_editor
 						for (int id = 0; id != total; ++id)
 						{
 							race = Races[id];
-							if      (race.differ != tabcontrol_Racial.bit_clean) color = Color.Crimson;
-							else if (race.isChanged)                             color = Color.Blue;
-							else                                                 color = DefaultForeColor;
+							if      (race.differ != control_Racial.bit_clean) color = Color.Crimson;
+							else if (race.isChanged)                          color = Color.Blue;
+							else                                              color = DefaultForeColor;
 
 							Tree.Nodes[id].ForeColor = color;
 						}
@@ -1812,9 +1812,9 @@ namespace nwn2_ai_2da_editor
 						for (int id = 0; id != total; ++id)
 						{
 							@class = Classes[id];
-							if      (@class.differ != tabcontrol_Classes.bit_clean) color = Color.Crimson;
-							else if (@class.isChanged)                              color = Color.Blue;
-							else                                                    color = DefaultForeColor;
+							if      (@class.differ != control_Classes.bit_clean) color = Color.Crimson;
+							else if (@class.isChanged)                           color = Color.Blue;
+							else                                                 color = DefaultForeColor;
 
 							Tree.Nodes[id].ForeColor = color;
 						}

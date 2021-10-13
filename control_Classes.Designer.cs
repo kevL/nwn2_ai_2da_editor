@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace nwn2_ai_2da_editor
 {
-	partial class tabcontrol_Classes
+	partial class control_Classes
 	{
 //		tp_Flags.Controls.Add(this.cf_infoversion);
 //		tp_Flags.Controls.Add(this.cf_infoversion_lbl);
@@ -2544,12 +2544,12 @@ namespace nwn2_ai_2da_editor
 			this.cf11_cheatCast.Text = "cheat cast";
 			this.cf11_cheatCast.UseVisualStyleBackColor = true;
 			// 
-			// tabcontrol_Classes
+			// control_Classes
 			// 
 			this.Controls.Add(this.tc_Classes);
 			this.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Margin = new System.Windows.Forms.Padding(0);
-			this.Name = "tabcontrol_Classes";
+			this.Name = "control_Classes";
 			this.Size = new System.Drawing.Size(980, 159);
 			this.tc_Classes.ResumeLayout(false);
 			this.tp_Flags.ResumeLayout(false);

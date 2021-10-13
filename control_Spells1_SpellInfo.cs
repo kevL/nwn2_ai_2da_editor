@@ -6,7 +6,7 @@ using System.Windows.Forms;
 namespace nwn2_ai_2da_editor
 {
 	// Functions for the SpellInfo page.
-	partial class tabcontrol_Spells
+	partial class control_Spells
 	{
 		#region eventhandlers
 		/// <summary>

@@ -32,7 +32,7 @@ namespace nwn2_ai_2da_editor
 			{
 				spell = Spells[id];
 
-				if (dirty = ((spell.differ & tabcontrol_Spells.bit_spellinfo) != 0))
+				if (dirty = ((spell.differ & control_Spells.bit_spellinfo) != 0))
 				{
 					spellinfo0 = SpellsChanged[id].spellinfo;
 				}
@@ -84,12 +84,12 @@ namespace nwn2_ai_2da_editor
 						spellchanged.spellinfo = spellinfo;
 
 						// check it
-						differ = tabcontrol_Spells.SpellDiffer(spell, spellchanged);
+						differ = control_Spells.SpellDiffer(spell, spellchanged);
 						spell.differ = differ;
 						Spells[id] = spell;
 
 						Color color;
-						if (differ != tabcontrol_Spells.bit_clean)
+						if (differ != control_Spells.bit_clean)
 						{
 							SpellsChanged[id] = spellchanged;
 							color = Color.Crimson;
@@ -135,7 +135,7 @@ namespace nwn2_ai_2da_editor
 			{
 				race = Races[id];
 
-				if (dirty = ((race.differ & tabcontrol_Racial.bit_flags) != 0))
+				if (dirty = ((race.differ & control_Racial.bit_flags) != 0))
 				{
 					racialflags0 = RacesChanged[id].flags;
 				}
@@ -181,12 +181,12 @@ namespace nwn2_ai_2da_editor
 						racechanged.flags = racialflags;
 
 						// check it
-						differ = tabcontrol_Racial.RaceDiffer(race, racechanged);
+						differ = control_Racial.RaceDiffer(race, racechanged);
 						race.differ = differ;
 						Races[id] = race;
 
 						Color color;
-						if (differ != tabcontrol_Racial.bit_clean)
+						if (differ != control_Racial.bit_clean)
 						{
 							RacesChanged[id] = racechanged;
 							color = Color.Crimson;
@@ -227,7 +227,7 @@ namespace nwn2_ai_2da_editor
 			{
 				@class = Classes[id];
 
-				if (dirty = ((@class.differ & tabcontrol_Classes.bit_flags) != 0))
+				if (dirty = ((@class.differ & control_Classes.bit_flags) != 0))
 				{
 					classflags0 = ClassesChanged[id].flags;
 				}
@@ -278,12 +278,12 @@ namespace nwn2_ai_2da_editor
 						classchanged.flags = classflags;
 
 						// check it
-						differ = tabcontrol_Classes.ClassDiffer(@class, classchanged);
+						differ = control_Classes.ClassDiffer(@class, classchanged);
 						@class.differ = differ;
 						Classes[id] = @class;
 
 						Color color;
-						if (differ != tabcontrol_Classes.bit_clean)
+						if (differ != control_Classes.bit_clean)
 						{
 							ClassesChanged[id] = classchanged;
 							color = Color.Crimson;
@@ -449,7 +449,7 @@ namespace nwn2_ai_2da_editor
 //			Spell spell = Spells[Id];											// use the current spell's ver as a basis
 //
 //			int spellinfo;
-//			if ((spell.differ & tabcontrol_Spells.bit_spellinfo) != 0)
+//			if ((spell.differ & control_Spells.bit_spellinfo) != 0)
 //			{
 //				spellinfo = SpellsChanged[Id].spellinfo;
 //			}
@@ -509,7 +509,7 @@ namespace nwn2_ai_2da_editor
 //			Race race = Races[Id];												// use the current race's ver as a basis
 //
 //			int racialflags;
-//			if ((race.differ & tabcontrol_Racial.bit_flags) != 0)
+//			if ((race.differ & control_Racial.bit_flags) != 0)
 //			{
 //				racialflags = RacesChanged[Id].flags;
 //			}
@@ -554,7 +554,7 @@ namespace nwn2_ai_2da_editor
 //			Class @class = Classes[Id];											// use the current class' ver as a basis
 //
 //			int classflags;
-//			if ((@class.differ & tabcontrol_Classes.bit_flags) != 0)
+//			if ((@class.differ & control_Classes.bit_flags) != 0)
 //			{
 //				classflags = ClassesChanged[Id].flags;
 //			}

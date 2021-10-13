@@ -4,7 +4,7 @@ using System.Windows.Forms;
 
 namespace nwn2_ai_2da_editor
 {
-	partial class tabcontrol_Racial
+	partial class control_Racial
 	{
 //		tp_Flags.Controls.Add(this.rf_infoversion);
 //		tp_Flags.Controls.Add(this.rf_infoversion_lbl);
@@ -1154,12 +1154,12 @@ namespace nwn2_ai_2da_editor
 			this.rf5_cheatCast.Text = "cheat cast";
 			this.rf5_cheatCast.UseVisualStyleBackColor = true;
 			// 
-			// tabcontrol_Racial
+			// control_Racial
 			// 
 			this.Controls.Add(this.tc_Racial);
 			this.Font = new System.Drawing.Font("Consolas", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
 			this.Margin = new System.Windows.Forms.Padding(0);
-			this.Name = "tabcontrol_Racial";
+			this.Name = "control_Racial";
 			this.Size = new System.Drawing.Size(527, 159);
 			this.tc_Racial.ResumeLayout(false);
 			this.tp_Flags.ResumeLayout(false);

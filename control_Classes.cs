@@ -9,7 +9,7 @@ namespace nwn2_ai_2da_editor
 	/// A <c><see cref="HenchControl"/></c> with a <c>TabControl</c> set to
 	/// <c>Dock.Fill</c>.
 	/// </summary>
-	sealed partial class tabcontrol_Classes
+	sealed partial class control_Classes
 		: HenchControl
 	{
 		#region Fields (static)
@@ -45,7 +45,7 @@ namespace nwn2_ai_2da_editor
 		/// cTor.
 		/// </summary>
 		/// <param name="he"></param>
-		internal tabcontrol_Classes(he he)
+		internal control_Classes(he he)
 		{
 			InitializeComponent();
 
@@ -529,43 +529,43 @@ namespace nwn2_ai_2da_editor
 		/// <returns>bitwise value containing flags for fields that have changed</returns>
 		internal static int ClassDiffer(Class @class, ClassChanged classchanged)
 		{
-			int differ = tabcontrol_Classes.bit_clean;
+			int differ = control_Classes.bit_clean;
 
 			if (@class.flags != classchanged.flags)
-				differ |= tabcontrol_Classes.bit_flags;
+				differ |= control_Classes.bit_flags;
 
 			if (@class.feat1 != classchanged.feat1)
-				differ |= tabcontrol_Classes.bit_feat1;
+				differ |= control_Classes.bit_feat1;
 
 			if (@class.feat2 != classchanged.feat2)
-				differ |= tabcontrol_Classes.bit_feat2;
+				differ |= control_Classes.bit_feat2;
 
 			if (@class.feat3 != classchanged.feat3)
-				differ |= tabcontrol_Classes.bit_feat3;
+				differ |= control_Classes.bit_feat3;
 
 			if (@class.feat4 != classchanged.feat4)
-				differ |= tabcontrol_Classes.bit_feat4;
+				differ |= control_Classes.bit_feat4;
 
 			if (@class.feat5 != classchanged.feat5)
-				differ |= tabcontrol_Classes.bit_feat5;
+				differ |= control_Classes.bit_feat5;
 
 			if (@class.feat6 != classchanged.feat6)
-				differ |= tabcontrol_Classes.bit_feat6;
+				differ |= control_Classes.bit_feat6;
 
 			if (@class.feat7 != classchanged.feat7)
-				differ |= tabcontrol_Classes.bit_feat7;
+				differ |= control_Classes.bit_feat7;
 
 			if (@class.feat8 != classchanged.feat8)
-				differ |= tabcontrol_Classes.bit_feat8;
+				differ |= control_Classes.bit_feat8;
 
 			if (@class.feat9 != classchanged.feat9)
-				differ |= tabcontrol_Classes.bit_feat9;
+				differ |= control_Classes.bit_feat9;
 
 			if (@class.feat10 != classchanged.feat10)
-				differ |= tabcontrol_Classes.bit_feat10;
+				differ |= control_Classes.bit_feat10;
 
 			if (@class.feat11 != classchanged.feat11)
-				differ |= tabcontrol_Classes.bit_feat11;
+				differ |= control_Classes.bit_feat11;
 
 			return differ;
 		}
