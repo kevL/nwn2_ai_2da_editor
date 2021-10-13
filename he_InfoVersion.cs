@@ -10,11 +10,12 @@ namespace nwn2_ai_2da_editor
 		const int HENCH_SPELL_INFO_VERSION_SHIFT = 24;
 
 		/// <summary>
-		/// This funct is used only for Click_clearCoreAiVersion().
-		/// @note Used to be a helper for SetInfoVersion_spells().
+		/// This funct is used only for
+		/// <c><see cref="Click_clearCoreAiVersion()">Click_clearCoreAiVersion()</see></c>.
 		/// </summary>
 		/// <param name="str"></param>
 		/// <param name="all"></param>
+		/// <remarks>Used to be a helper for <c>SetInfoVersion_spells()</c>.</remarks>
 		void SetInfoVersion_spells(string str, bool all)
 		{
 			Spell spell;
@@ -107,11 +108,12 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// This funct is used only for Click_clearCoreAiVersion().
-		/// @note Used to be a helper for SetInfoVersion_racial().
+		/// This funct is used only for
+		/// <c><see cref="Click_clearCoreAiVersion()">Click_clearCoreAiVersion()</see></c>.
 		/// </summary>
 		/// <param name="str"></param>
 		/// <param name="all"></param>
+		/// <remarks>Used to be a helper for <c>SetInfoVersion_racial()</c>.</remarks>
 		void SetInfoVersion_racial(string str, bool all)
 		{
 			// NOTE: This will iterate through all changed races even
@@ -203,11 +205,12 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// This funct is used only for Click_clearCoreAiVersion().
-		/// @note Used to be a helper for SetInfoVersion_classes().
+		/// This funct is used only for
+		/// <c><see cref="Click_clearCoreAiVersion()">Click_clearCoreAiVersion()</see></c>.
 		/// </summary>
 		/// <param name="str"></param>
 		/// <param name="all"></param>
+		/// <remarks>Used to be a helper for <c>SetInfoVersion_classes()</c>.</remarks>
 		void SetInfoVersion_classes(string str, bool all)
 		{
 			Class @class;

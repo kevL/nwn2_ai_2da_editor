@@ -55,7 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="hc.cs" />
-    <Compile Include="funct_bar.cs">
+    <Compile Include="he_Menu.cs">
       <DependentUpon>he.cs</DependentUpon>
     </Compile>
     <Compile Include="HenchControl.cs" />
@@ -91,7 +91,7 @@
       <DependentUpon>tabcontrol_Classes.cs</DependentUpon>
     </Compile>
     <Compile Include="HenchStructs.cs" />
-    <Compile Include="InfoVersion.cs">
+    <Compile Include="he_InfoVersion.cs">
       <DependentUpon>he.cs</DependentUpon>
     </Compile>
     <Compile Include="he.cs" />
