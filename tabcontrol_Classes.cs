@@ -6,7 +6,8 @@ using System.Windows.Forms;
 namespace nwn2_ai_2da_editor
 {
 	/// <summary>
-	/// A UserControl with a TabControl set to Dock.Fill.
+	/// A <c><see cref="HenchControl"/></c> with a <c>TabControl</c> set to
+	/// <c>Dock.Fill</c>.
 	/// </summary>
 	sealed partial class tabcontrol_Classes
 		: HenchControl
