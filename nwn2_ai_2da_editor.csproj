@@ -63,31 +63,31 @@
     <Compile Include="Scripter.Designer.cs">
       <DependentUpon>Scripter.cs</DependentUpon>
     </Compile>
-    <Compile Include="spells1_SpellInfo.cs">
-      <DependentUpon>tabcontrol_Spells.cs</DependentUpon>
+    <Compile Include="control_Spells1_SpellInfo.cs">
+      <DependentUpon>control_Spells.cs</DependentUpon>
     </Compile>
-    <Compile Include="spells2_TargetInfo.cs">
-      <DependentUpon>tabcontrol_Spells.cs</DependentUpon>
+    <Compile Include="control_Spells2_TargetInfo.cs">
+      <DependentUpon>control_Spells.cs</DependentUpon>
     </Compile>
-    <Compile Include="spells3_EffectWeight.cs">
-      <DependentUpon>tabcontrol_Spells.cs</DependentUpon>
+    <Compile Include="control_Spells3_EffectWeight.cs">
+      <DependentUpon>control_Spells.cs</DependentUpon>
     </Compile>
-    <Compile Include="spells4_EffectTypes.cs">
-      <DependentUpon>tabcontrol_Spells.cs</DependentUpon>
+    <Compile Include="control_Spells4_EffectTypes.cs">
+      <DependentUpon>control_Spells.cs</DependentUpon>
     </Compile>
-    <Compile Include="spells5_DamageInfo.cs">
-      <DependentUpon>tabcontrol_Spells.cs</DependentUpon>
+    <Compile Include="control_Spells5_DamageInfo.cs">
+      <DependentUpon>control_Spells.cs</DependentUpon>
     </Compile>
-    <Compile Include="spells6_SaveType.cs">
-      <DependentUpon>tabcontrol_Spells.cs</DependentUpon>
+    <Compile Include="control_Spells6_SaveType.cs">
+      <DependentUpon>control_Spells.cs</DependentUpon>
     </Compile>
-    <Compile Include="spells7_SaveDCType.cs">
-      <DependentUpon>tabcontrol_Spells.cs</DependentUpon>
+    <Compile Include="control_Spells7_SaveDCType.cs">
+      <DependentUpon>control_Spells.cs</DependentUpon>
     </Compile>
-    <Compile Include="funct_racial.cs">
+    <Compile Include="control_Racial_.cs">
       <DependentUpon>control_Racial.cs</DependentUpon>
     </Compile>
-    <Compile Include="funct_classes.cs">
+    <Compile Include="control_Classes_.cs">
       <DependentUpon>control_Classes.cs</DependentUpon>
     </Compile>
     <Compile Include="HenchStructs.cs" />
@@ -108,9 +108,9 @@
     <Compile Include="control_Racial.Designer.cs">
       <DependentUpon>control_Racial.cs</DependentUpon>
     </Compile>
-    <Compile Include="tabcontrol_Spells.cs" />
-    <Compile Include="tabcontrol_Spells.Designer.cs">
-      <DependentUpon>tabcontrol_Spells.cs</DependentUpon>
+    <Compile Include="control_Spells.cs" />
+    <Compile Include="control_Spells.Designer.cs">
+      <DependentUpon>control_Spells.cs</DependentUpon>
     </Compile>
     <Compile Include="util\controls.cs" />
     <Compile Include="util\extensions.cs" />
@@ -131,8 +131,8 @@
     <EmbeddedResource Include="control_Racial.resx">
       <DependentUpon>control_Racial.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="tabcontrol_Spells.resx">
-      <DependentUpon>tabcontrol_Spells.cs</DependentUpon>
+    <EmbeddedResource Include="control_Spells.resx">
+      <DependentUpon>control_Spells.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="util\infobox.resx">
       <DependentUpon>infobox.cs</DependentUpon>
