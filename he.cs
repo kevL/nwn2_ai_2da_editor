@@ -17,14 +17,14 @@ namespace nwn2_ai_2da_editor
 	{
 		#region class Vars
 		/// <summary>
-		/// The control added to 'splitContainer.Panel2' that displays a
-		/// TabControl for spells, races, or classes. It will be created and
-		/// disposed dynamically.
+		/// The control added to <c><see cref="splitContainer"></see>.Panel2</c>
+		/// that displays a <c>TabControl</c> for spells, races, or classes. It
+		/// will be created and disposed dynamically.
 		/// </summary>
 		internal static HenchControl HenchControl;
 
 		/// <summary>
-		/// The 'blank' 2da-string.
+		/// The blank 2da-string: <c>****</c>.
 		/// </summary>
 		internal const string blank = "****";
 
