@@ -13,46 +13,43 @@ namespace nwn2_ai_2da_editor
 	{
 		#region Fields (static)
 		/// <summary>
-		/// A list that holds labels for spells in Spells.2da.
+		/// A list that holds labels for the spells in Spells.2da.
 		/// - optional
 		/// </summary>
 		internal static List<string> spellLabels = new List<string>();
 
 		/// <summary>
-		/// A list that holds labels for spellscripts in Spells.2da.
-		/// - optional
-		/// </summary>
-		static List<string> spellScripts = new List<string>();
-
-		/// <summary>
-		/// Stores relevant AI field-data in Spells.2da.
-		/// </summary>
-		static List<List<string>> spellTable = new List<List<string>>();
-
-		/// <summary>
-		/// A list that holds labels for races in Races.2da.
+		/// A list that holds labels for the races in Races.2da.
 		/// - optional
 		/// </summary>
 		internal static List<string> raceLabels = new List<string>();
 
 		/// <summary>
-		/// A list that holds labels for classes in Classes.2da.
+		/// A list that holds labels for the classes in Classes.2da.
 		/// - optional
 		/// </summary>
 		internal static List<string> classLabels = new List<string>();
 
 		/// <summary>
-		/// A list that holds labels for feats in Feat.2da.
+		/// A list that holds labels for the feats in Feat.2da.
 		/// - optional
 		/// </summary>
 		internal static List<string> featLabels = new List<string>();
 
 
-		// const strings for writing the 2da files
-		const string HEAD_2DA          =  "2DA V2.0";
-		const string HEAD_COLS_SPELLS  = " Label SpellInfo TargetInfo EffectWeight EffectTypes DamageInfo SaveType SaveDCType";
-		const string HEAD_COLS_RACIAL  = " Label Flags FeatSpell1 FeatSpell2 FeatSpell3 FeatSpell4 FeatSpell5";
-		const string HEAD_COLS_CLASSES = " Label Flags FeatSpell1 FeatSpell2 FeatSpell3 FeatSpell4 FeatSpell5 FeatSpell6 FeatSpell7 FeatSpell8 FeatSpell9 FeatSpell10 FeatSpell11";
+		/// <summary>
+		/// A list that holds labels for spellscripts in Spells.2da.
+		/// - optional
+		/// </summary>
+		/// <remarks>For the Scripter.</remarks>
+		static List<string> spellScripts = new List<string>();
+
+		/// <summary>
+		/// Stores relevant AI field-data in Spells.2da. A list of rows that
+		/// contains a list of cell-fields.
+		/// </summary>
+		/// <remarks>For the Scripter.</remarks>
+		static List<List<string>> spellTable = new List<List<string>>();
 		#endregion Fields (static)
 
 
@@ -1241,369 +1238,9 @@ namespace nwn2_ai_2da_editor
 
 			switch (Type)
 			{
-				case Type2da.Spells:  WriteHenchSpells();  break;
-				case Type2da.Racial:  WriteHenchRacial();  break;
-				case Type2da.Classes: WriteHenchClasses(); break;
-			}
-		}
-
-		/// <summary>
-		/// Writes HenchSpells.2da.
-		/// </summary>
-		void WriteHenchSpells()
-		{
-			Spell clear;
-
-			int total = Spells.Count; // clear any 'isChanged' flags
-			for (int id = 0; id != total; ++id)
-			{
-				clear = Spells[id];
-				if (clear.isChanged)
-				{
-					clear.isChanged = false;
-					Spells[id] = clear;
-
-					Tree.Nodes[id].ForeColor = DefaultForeColor;
-				}
-			}
-
-
-			using (var sw = new StreamWriter(_pfe))
-			{
-				sw.WriteLine(HEAD_2DA);
-				sw.WriteLine(String.Empty);
-				sw.WriteLine(HEAD_COLS_SPELLS);
-
-				string line;
-
-				foreach (var spell in Spells) // this writes Applied data only.
-				{
-					line = spell.id + " ";
-
-					if (!String.IsNullOrEmpty(spell.label))
-					{
-						line += spell.label;
-					}
-					else
-						line += stars;
-
-					line += " ";
-
-					if (spell.spellinfo != 0)
-					{
-						line += spell.spellinfo.ToString();
-					}
-					else
-						line += stars;
-
-					line += " ";
-
-					if (spell.targetinfo != 0)
-					{
-						line += spell.targetinfo.ToString();
-					}
-					else
-						line += stars;
-
-					line += " ";
-
-					if (!FloatsEqual(spell.effectweight, 0.0f))
-					{
-						line += Float2daFormat(spell.effectweight);
-					}
-					else
-						line += stars;
-
-					line += " ";
-
-					if (spell.effecttypes != 0)
-					{
-						line += spell.effecttypes.ToString();
-					}
-					else
-						line += stars;
-
-					line += " ";
-
-					if (spell.damageinfo != 0)
-					{
-						line += spell.damageinfo.ToString();
-					}
-					else
-						line += stars;
-
-					line += " ";
-
-					if (spell.savetype != 0)
-					{
-						line += spell.savetype.ToString();
-					}
-					else
-						line += stars;
-
-					line += " ";
-
-					if (spell.savedctype != 0)
-					{
-						line += spell.savedctype.ToString();
-					}
-					else
-						line += stars;
-
-					sw.WriteLine(line);
-				}
-			}
-		}
-
-		/// <summary>
-		/// Writes HenchRacial.2da.
-		/// </summary>
-		void WriteHenchRacial()
-		{
-			Race clear;
-
-			int total = Races.Count; // clear any 'isChanged' flags
-			for (int id = 0; id != total; ++id)
-			{
-				clear = Races[id];
-				if (clear.isChanged)
-				{
-					clear.isChanged = false;
-					Races[id] = clear;
-
-					Tree.Nodes[id].ForeColor = DefaultForeColor;
-				}
-			}
-
-
-			using (var sw = new StreamWriter(_pfe))
-			{
-				sw.WriteLine(HEAD_2DA);
-				sw.WriteLine(String.Empty);
-				sw.WriteLine(HEAD_COLS_RACIAL);
-
-				string line;
-
-				foreach (var race in Races) // this writes Applied data only.
-				{
-					line = race.id + " ";
-
-					if (!String.IsNullOrEmpty(race.label))
-					{
-						line += race.label;
-					}
-					else
-						line += stars;
-
-					line += " ";
-
-					if (race.flags != 0)
-					{
-						line += race.flags.ToString();
-					}
-					else
-						line += stars;
-
-					line += " ";
-
-					if (race.feat1 != 0)
-					{
-						line += race.feat1.ToString();
-					}
-					else
-						line += stars;
-
-					line += " ";
-
-					if (race.feat2 != 0)
-					{
-						line += race.feat2.ToString();
-					}
-					else
-						line += stars;
-
-					line += " ";
-
-					if (race.feat3 != 0)
-					{
-						line += race.feat3.ToString();
-					}
-					else
-						line += stars;
-
-					line += " ";
-
-					if (race.feat4 != 0)
-					{
-						line += race.feat4.ToString();
-					}
-					else
-						line += stars;
-
-					line += " ";
-
-					if (race.feat5 != 0)
-					{
-						line += race.feat5.ToString();
-					}
-					else
-						line += stars;
-
-					sw.WriteLine(line);
-				}
-			}
-		}
-
-		/// <summary>
-		/// Writes HenchClasses.2da.
-		/// </summary>
-		void WriteHenchClasses()
-		{
-			Class clear;
-
-			int total = Classes.Count; // clear any 'isChanged' flags
-			for (int id = 0; id != total; ++id)
-			{
-				clear = Classes[id];
-				if (clear.isChanged)
-				{
-					clear.isChanged = false;
-					Classes[id] = clear;
-
-					Tree.Nodes[id].ForeColor = DefaultForeColor;
-				}
-			}
-
-
-			using (var sw = new StreamWriter(_pfe))
-			{
-				sw.WriteLine(HEAD_2DA);
-				sw.WriteLine(String.Empty);
-				sw.WriteLine(HEAD_COLS_CLASSES);
-
-				string line;
-
-				foreach (var @class in Classes) // this writes Applied data only.
-				{
-					line = @class.id + " ";
-
-					if (!String.IsNullOrEmpty(@class.label))
-					{
-						line += @class.label;
-					}
-					else
-						line += stars;
-
-					line += " ";
-
-					if (@class.flags != 0)
-					{
-						line += @class.flags.ToString();
-					}
-					else
-						line += stars;
-
-					line += " ";
-
-					if (@class.feat1 != 0)
-					{
-						line += @class.feat1.ToString();
-					}
-					else
-						line += stars;
-
-					line += " ";
-
-					if (@class.feat2 != 0)
-					{
-						line += @class.feat2.ToString();
-					}
-					else
-						line += stars;
-
-					line += " ";
-
-					if (@class.feat3 != 0)
-					{
-						line += @class.feat3.ToString();
-					}
-					else
-						line += stars;
-
-					line += " ";
-
-					if (@class.feat4 != 0)
-					{
-						line += @class.feat4.ToString();
-					}
-					else
-						line += stars;
-
-					line += " ";
-
-					if (@class.feat5 != 0)
-					{
-						line += @class.feat5.ToString();
-					}
-					else
-						line += stars;
-
-					line += " ";
-
-					if (@class.feat6 != 0)
-					{
-						line += @class.feat6.ToString();
-					}
-					else
-						line += stars;
-
-					line += " ";
-
-					if (@class.feat7 != 0)
-					{
-						line += @class.feat7.ToString();
-					}
-					else
-						line += stars;
-
-					line += " ";
-
-					if (@class.feat8 != 0)
-					{
-						line += @class.feat8.ToString();
-					}
-					else
-						line += stars;
-
-					line += " ";
-
-					if (@class.feat9 != 0)
-					{
-						line += @class.feat9.ToString();
-					}
-					else
-						line += stars;
-
-					line += " ";
-
-					if (@class.feat10 != 0)
-					{
-						line += @class.feat10.ToString();
-					}
-					else
-						line += stars;
-
-					line += " ";
-
-					if (@class.feat11 != 0)
-					{
-						line += @class.feat11.ToString();
-					}
-					else
-						line += stars;
-
-					sw.WriteLine(line);
-				}
+				case Type2da.Spells:  Output2da.WriteHenchSpells( _pfe, Spells,  Tree.Nodes); break;
+				case Type2da.Racial:  Output2da.WriteHenchRacial( _pfe, Races,   Tree.Nodes); break;
+				case Type2da.Classes: Output2da.WriteHenchClasses(_pfe, Classes, Tree.Nodes); break;
 			}
 		}
 		#endregion Write file

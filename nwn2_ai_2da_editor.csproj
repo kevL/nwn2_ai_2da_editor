@@ -59,6 +59,7 @@
       <DependentUpon>he.cs</DependentUpon>
     </Compile>
     <Compile Include="HenchControl.cs" />
+    <Compile Include="Output2da.cs" />
     <Compile Include="Scripter.cs" />
     <Compile Include="Scripter.Designer.cs">
       <DependentUpon>Scripter.cs</DependentUpon>
