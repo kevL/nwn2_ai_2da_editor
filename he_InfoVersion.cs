@@ -313,21 +313,21 @@ namespace nwn2_ai_2da_editor
 //			switch (type)
 //			{
 //				default:
-//				case Type2da.TYPE_SPELLS:
+//				case Type2da.Spells:
 //					title = "  Spell Info version";
 //					text_1 = "current spell only";
 //					text_2 = "any changed spells";
 //					text_3 = "all spells in 2da";
 //					break;
 //
-//				case Type2da.TYPE_RACIAL:
+//				case Type2da.Racial:
 //					title = "  Racial Info version";
 //					text_1 = "current race only";
 //					text_2 = "any changed race";
 //					text_3 = "all races in 2da";
 //					break;
 //
-//				case Type2da.TYPE_CLASSES:
+//				case Type2da.Classes:
 //					title = "  Class Info version";
 //					text_1 = "current class only";
 //					text_2 = "any changed class";
@@ -465,7 +465,7 @@ namespace nwn2_ai_2da_editor
 //
 //
 //			string str = ver0.ToString();
-//			switch (InfoVersion(Type2da.TYPE_SPELLS, ref str))					// get user-input w/ InfoVersion dialog
+//			switch (InfoVersion(Type2da.Spells, ref str))						// get user-input w/ InfoVersion dialog
 //			{
 //				case DialogResult.OK:											// change the current spell's version only
 //					if ((spellinfo & ~hc.HENCH_SPELL_INFO_VERSION_MASK) == 0)	// force-clear the version if the rest of spellinfo is blank
@@ -519,7 +519,7 @@ namespace nwn2_ai_2da_editor
 //			int ver0 = (racialflags & hc.HENCH_SPELL_INFO_VERSION_MASK) >> HENCH_SPELL_INFO_VERSION_SHIFT;
 //
 //			string str = ver0.ToString();
-//			switch (InfoVersion(Type2da.TYPE_RACIAL, ref str))					// get user-input w/ InfoVersion dialog
+//			switch (InfoVersion(Type2da.Racial, ref str))						// get user-input w/ InfoVersion dialog
 //			{
 //				case DialogResult.OK:											// change the current race's version only
 //				{
@@ -564,7 +564,7 @@ namespace nwn2_ai_2da_editor
 //			int ver0 = (classflags & hc.HENCH_SPELL_INFO_VERSION_MASK) >> HENCH_SPELL_INFO_VERSION_SHIFT;
 //
 //			string str = ver0.ToString();
-//			switch (InfoVersion(Type2da.TYPE_CLASSES, ref str))					// get user-input w/ InfoVersion dialog
+//			switch (InfoVersion(Type2da.Classes, ref str))						// get user-input w/ InfoVersion dialog
 //			{
 //				case DialogResult.OK:											// change the current class' version only
 //				{

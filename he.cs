@@ -38,10 +38,10 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		enum Type2da
 		{
-			TYPE_NONE,   // 0 - default on startup.
-			TYPE_SPELLS, // 1
-			TYPE_RACIAL, // 2
-			TYPE_CLASSES // 3
+			None,   // 0 - default on startup.
+			Spells, // 1
+			Racial, // 2
+			Classes // 3
 		}
 
 		/// <summary>
@@ -212,7 +212,7 @@ namespace nwn2_ai_2da_editor
 				ofd.Title  = "Select a spellscript file";
 				ofd.Filter = "NwScript files (*.nss)|*.nss|All files (*.*)|*.*";
 
-				if (Type == Type2da.TYPE_SPELLS && Id < spellScripts.Count)
+				if (Type == Type2da.Spells && Id < spellScripts.Count)
 				{
 					string spellscript = spellScripts[Id];
 					if (spellscript != stars)
@@ -249,7 +249,7 @@ namespace nwn2_ai_2da_editor
 
 					Scripter.SetScriptText(File.ReadAllLines(ofd.FileName));
 
-					if (Type == Type2da.TYPE_SPELLS && Id < spellTable.Count
+					if (Type == Type2da.Spells && Id < spellTable.Count
 						&& file.ToLower() == ofd.SafeFileName.ToLower())
 					{
 						// NOTE: Do not search for a match between the chosen
@@ -630,7 +630,7 @@ namespace nwn2_ai_2da_editor
 					// - SpellLevel
 					// because TonyAI 2.3+ sets those auto.
 					// This need to be done after 'BypassDiffer' ...
-					if (Type == Type2da.TYPE_SPELLS)
+					if (Type == Type2da.Spells)
 					{
 						UpdateSpellInfo();
 					}
@@ -668,7 +668,7 @@ namespace nwn2_ai_2da_editor
 			panel2height = HenchControl.Height; // cache that
 			splitContainer.Panel2.Controls.Add(HenchControl);
 
-			Type = Type2da.TYPE_SPELLS;
+			Type = Type2da.Spells;
 
 			ClearData();
 
@@ -888,7 +888,7 @@ namespace nwn2_ai_2da_editor
 			panel2height = HenchControl.Height; // cache that
 			splitContainer.Panel2.Controls.Add(HenchControl);
 
-			Type = Type2da.TYPE_RACIAL;
+			Type = Type2da.Racial;
 
 			ClearData();
 
@@ -1021,7 +1021,7 @@ namespace nwn2_ai_2da_editor
 			panel2height = HenchControl.Height; // cache that
 			splitContainer.Panel2.Controls.Add(HenchControl);
 
-			Type = Type2da.TYPE_CLASSES;
+			Type = Type2da.Classes;
 
 			ClearData();
 
@@ -1198,7 +1198,7 @@ namespace nwn2_ai_2da_editor
 
 			switch (Type)
 			{
-				case Type2da.TYPE_SPELLS:
+				case Type2da.Spells:
 				{
 					var pb = new ProgBar(); // populating the spells-tree takes a second or 3.
 					pb.Stop = Spells.Count;
@@ -1239,7 +1239,7 @@ namespace nwn2_ai_2da_editor
 					break;
 				}
 
-				case Type2da.TYPE_RACIAL:
+				case Type2da.Racial:
 				{
 					int preLength = (Races.Count - 1).ToString().Length + 1;
 
@@ -1274,7 +1274,7 @@ namespace nwn2_ai_2da_editor
 					break;
 				}
 
-				case Type2da.TYPE_CLASSES:
+				case Type2da.Classes:
 				{
 					int preLength = (Classes.Count - 1).ToString().Length + 1;
 
@@ -1452,9 +1452,9 @@ namespace nwn2_ai_2da_editor
 			bool changes;
 			switch (Type)
 			{
-				case Type2da.TYPE_SPELLS:  changes = (SpellsChanged .Count != 0); break;
-				case Type2da.TYPE_RACIAL:  changes = (RacesChanged  .Count != 0); break;
-				case Type2da.TYPE_CLASSES: changes = (ClassesChanged.Count != 0); break;
+				case Type2da.Spells:  changes = (SpellsChanged .Count != 0); break;
+				case Type2da.Racial:  changes = (RacesChanged  .Count != 0); break;
+				case Type2da.Classes: changes = (ClassesChanged.Count != 0); break;
 
 				default: changes = false;
 					break;
@@ -1478,7 +1478,7 @@ namespace nwn2_ai_2da_editor
 
 			switch (Type)
 			{
-				case Type2da.TYPE_SPELLS:
+				case Type2da.Spells:
 				{
 					Spell spell = Spells[Id];
 					if (spell.differ != control_Spells.bit_clean)
@@ -1515,7 +1515,7 @@ namespace nwn2_ai_2da_editor
 					break;
 				}
 
-				case Type2da.TYPE_RACIAL:
+				case Type2da.Racial:
 				{
 					Race race = Races[Id];
 					if (race.differ != control_Racial.bit_clean)
@@ -1552,7 +1552,7 @@ namespace nwn2_ai_2da_editor
 					break;
 				}
 
-				case Type2da.TYPE_CLASSES:
+				case Type2da.Classes:
 				{
 					Class @class = Classes[Id];
 					if (@class.differ != control_Classes.bit_clean)
@@ -1739,7 +1739,7 @@ namespace nwn2_ai_2da_editor
 		{
 			switch (Type)
 			{
-				case Type2da.TYPE_SPELLS:
+				case Type2da.Spells:
 				{
 					int total = Spells.Count;
 					if (tree_Highlight.Checked = !tree_Highlight.Checked)
@@ -1767,7 +1767,7 @@ namespace nwn2_ai_2da_editor
 					break;
 				}
 
-				case Type2da.TYPE_RACIAL:
+				case Type2da.Racial:
 				{
 					int total = Races.Count;
 					if (tree_Highlight.Checked = !tree_Highlight.Checked)
@@ -1795,7 +1795,7 @@ namespace nwn2_ai_2da_editor
 					break;
 				}
 
-				case Type2da.TYPE_CLASSES:
+				case Type2da.Classes:
 				{
 					int total = Classes.Count;
 					if (tree_Highlight.Checked = !tree_Highlight.Checked)
@@ -1834,7 +1834,7 @@ namespace nwn2_ai_2da_editor
 		// assigning 'treeMenu' to the TreeView's ContextMenuStrip. And
 		// Click_addnode() to its "addNode" menu-item. And uncomment the functs
 		// in 'inputbox.cs' along with the "addNode.Text = " lines in the
-		// Load_Hench*() functs. And uncomment Type2da.TYPE_NONE
+		// Load_Hench*() functs.
 		//
 		// ps. "addNode" has been repurposed to "tree_Highlight". So you'd have
 		// to create a new menu-item.
@@ -1854,22 +1854,14 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_addnode(object sender, EventArgs e)
 		{
-			if (Type != Type2da.TYPE_NONE)
+			if (Type != Type2da.None)
 			{
 				int id = Tree.Nodes.Count;
 				switch (Type)
 				{
-					case Type2da.TYPE_SPELLS:
-						AddSpell(id);
-						break;
-
-					case Type2da.TYPE_RACIAL:
-						AddRace(id);
-						break;
-
-					case Type2da.TYPE_CLASSES:
-						AddClass(id);
-						break;
+					case Type2da.Spells:  AddSpell(id); break;
+					case Type2da.Racial:  AddRace(id);  break;
+					case Type2da.Classes: AddClass(id); break;
 				}
 			}
 		} */

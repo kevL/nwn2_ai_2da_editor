@@ -275,7 +275,7 @@ namespace nwn2_ai_2da_editor
 
 				switch (Type)
 				{
-					case Type2da.TYPE_SPELLS:
+					case Type2da.Spells:
 						while (!Spells[id].isChanged && Spells[id].differ == control_Spells.bit_clean)
 						{
 							if (id == Id) // not found.
@@ -289,7 +289,7 @@ namespace nwn2_ai_2da_editor
 						}
 						break;
 
-					case Type2da.TYPE_RACIAL:
+					case Type2da.Racial:
 						while (!Races[id].isChanged && Races[id].differ == control_Racial.bit_clean)
 						{
 							if (id == Id) // not found.
@@ -303,7 +303,7 @@ namespace nwn2_ai_2da_editor
 						}
 						break;
 
-					case Type2da.TYPE_CLASSES:
+					case Type2da.Classes:
 						while (!Classes[id].isChanged && Classes[id].differ == control_Classes.bit_clean)
 						{
 							if (id == Id) // not found.
@@ -382,13 +382,13 @@ namespace nwn2_ai_2da_editor
 		void dropdownopening_Labels(object sender, EventArgs e)
 		{
 			it_insertSpellLabels.Enabled = it_pathSpells.Checked
-										&& Type == Type2da.TYPE_SPELLS;
+										&& Type == Type2da.Spells;
 
 			it_insertRaceLabels .Enabled = it_pathRacialSubtypes.Checked
-										&& Type == Type2da.TYPE_RACIAL;
+										&& Type == Type2da.Racial;
 
 			it_insertClassLabels.Enabled = it_pathClasses.Checked
-										&& Type == Type2da.TYPE_CLASSES;
+										&& Type == Type2da.Classes;
 		}
 
 		/// <summary>
@@ -422,9 +422,9 @@ namespace nwn2_ai_2da_editor
 					{
 						GropeLabels(ofd.FileName, spellLabels, it_pathSpells);
 
-						if (Type != Type2da.TYPE_NONE && spellLabels.Count != 0)
+						if (Type != Type2da.None && spellLabels.Count != 0)
 						{
-							if (!hasLabels && Type == Type2da.TYPE_SPELLS)
+							if (!hasLabels && Type == Type2da.Spells)
 								LabelTreenodes(spellLabels);
 
 							HenchControl.SetSpellLabelTexts();
@@ -446,9 +446,9 @@ namespace nwn2_ai_2da_editor
 				spellScripts.Clear();
 				spellTable  .Clear();
 
-				if (Type != Type2da.TYPE_NONE)
+				if (Type != Type2da.None)
 				{
-					if (!hasLabels && Type == Type2da.TYPE_SPELLS)
+					if (!hasLabels && Type == Type2da.Spells)
 						ClearTreeLabels();
 
 					HenchControl.ClearSpellLabelTexts();
@@ -489,7 +489,7 @@ namespace nwn2_ai_2da_editor
 						GropeLabels(ofd.FileName, raceLabels, it_pathRacialSubtypes);
 
 						if (!hasLabels
-							&& Type == Type2da.TYPE_RACIAL
+							&& Type == Type2da.Racial
 							&& raceLabels.Count != 0)
 						{
 							LabelTreenodes(raceLabels);
@@ -508,7 +508,7 @@ namespace nwn2_ai_2da_editor
 				it_pathRacialSubtypes.Checked = false;
 				raceLabels.Clear();
 
-				if (!hasLabels && Type == Type2da.TYPE_RACIAL)
+				if (!hasLabels && Type == Type2da.Racial)
 					ClearTreeLabels();
 			}
 		}
@@ -545,7 +545,7 @@ namespace nwn2_ai_2da_editor
 						GropeLabels(ofd.FileName, classLabels, it_pathClasses);
 
 						if (!hasLabels
-							&& Type == Type2da.TYPE_CLASSES
+							&& Type == Type2da.Classes
 							&& classLabels.Count != 0)
 						{
 							LabelTreenodes(classLabels);
@@ -564,7 +564,7 @@ namespace nwn2_ai_2da_editor
 				it_pathClasses.Checked = false;
 				classLabels.Clear();
 
-				if (!hasLabels && Type == Type2da.TYPE_CLASSES)
+				if (!hasLabels && Type == Type2da.Classes)
 					ClearTreeLabels();
 			}
 		}
@@ -644,7 +644,7 @@ namespace nwn2_ai_2da_editor
 					{
 						GropeLabels(ofd.FileName, featLabels, it_pathFeat);
 
-						if (Type != Type2da.TYPE_NONE && featLabels.Count != 0)
+						if (Type != Type2da.None && featLabels.Count != 0)
 						{
 							HenchControl.SetFeatLabelTexts();
 						}
@@ -662,7 +662,7 @@ namespace nwn2_ai_2da_editor
 				it_pathFeat.Checked = false;
 				featLabels.Clear();
 
-				if (Type != Type2da.TYPE_NONE)
+				if (Type != Type2da.None)
 				{
 					HenchControl.ClearFeatLabelTexts();
 				}
@@ -761,33 +761,33 @@ namespace nwn2_ai_2da_editor
 
 //		/// <summary>
 //		/// Invokes and handles the SetCoreAiVersion inputbox via the Edit.
-//		/// NOTE: The version is not really the version of the CoreAI. It's the
-//		/// version of the data of each entry. Apparently it can be updated IG
-//		/// (after info-data has already been cached to the module-object) such
-//		/// that that stale data will be bypassed in favor of the new data. But
-//		/// I haven't looked into it thoroughly.
 //		/// </summary>
 //		/// <param name="sender"></param>
 //		/// <param name="e"></param>
+//		/// <remarks>The version is not really the version of the CoreAI. It's
+//		/// the version of the data of each entry. Apparently it can be updated
+//		/// IG (after info-data has already been cached to the module-object)
+//		/// such that that stale data will be bypassed in favor of the new data.
+//		/// But I haven't looked into it thoroughly.</remarks>
 //		void Click_setCoreAiVersion(object sender, EventArgs e)
 //		{
 //			switch (Type)
 //			{
-//				case Type2da.TYPE_SPELLS:
+//				case Type2da.Spells:
 //					SetInfoVersion_spells();
 //
 //					it_ApplyGlobal.Enabled = SpellsChanged.Count != 0;
 //					it_GotoChanged.Enabled = SpellsChanged.Count != 0 || SpareChange();
 //					break;
 //
-//				case Type2da.TYPE_RACIAL:
+//				case Type2da.Racial:
 //					SetInfoVersion_racial();
 //
 //					it_ApplyGlobal.Enabled = RacesChanged.Count != 0;
 //					it_GotoChanged.Enabled = RacesChanged.Count != 0 || SpareChange();
 //					break;
 //
-//				case Type2da.TYPE_CLASSES:
+//				case Type2da.Classes:
 //					SetInfoVersion_classes();
 //
 //					it_ApplyGlobal.Enabled = ClassesChanged.Count != 0;
@@ -800,19 +800,19 @@ namespace nwn2_ai_2da_editor
 		/// IMPORTANT: This is an interim function that forcefully clears the
 		/// InfoVersion bits. InfoVersion is obsolete in TonyAI 2.3+ - the bits
 		/// have been repurposed.
-		/// @note This is implemented only to allow a user to pseudo-update his/
-		/// her TonyAI 2.2 Hench*.2das to be compatible with 2.3+. But the
-		/// repurposed bits would still need to be accounted for ....
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
+		/// <remarks>This is implemented only to allow a user to pseudo-update
+		/// his/her TonyAI 2.2 Hench*.2das to be compatible with 2.3+. But the
+		/// repurposed bits would still need to be accounted for ....</remarks>
 		void Click_clearCoreAiVersion(object sender, EventArgs e)
 		{
 			string info2da;
 			switch (Type)
 			{
-				case Type2da.TYPE_SPELLS: info2da = "SpellInfo"; break;
-				default:                  info2da = "Flags";     break;
+				case Type2da.Spells: info2da = "SpellInfo"; break;
+				default:             info2da = "Flags";     break;
 			}
 
 			string info = "This clears the bits @ 0xFF000000 on the " + info2da + " page."
@@ -827,21 +827,21 @@ namespace nwn2_ai_2da_editor
 
 					switch (Type)
 					{
-						case Type2da.TYPE_SPELLS:
+						case Type2da.Spells:
 							SetInfoVersion_spells("0", true);
 
 							it_ApplyGlobal.Enabled = SpellsChanged.Count != 0;
 							it_GotoChanged.Enabled = SpellsChanged.Count != 0 || hasSpareChange();
 							break;
 
-						case Type2da.TYPE_RACIAL:
+						case Type2da.Racial:
 							SetInfoVersion_racial("0", true);
 
 							it_ApplyGlobal.Enabled = RacesChanged.Count != 0;
 							it_GotoChanged.Enabled = RacesChanged.Count != 0 || hasSpareChange();
 							break;
 
-						case Type2da.TYPE_CLASSES:
+						case Type2da.Classes:
 							SetInfoVersion_classes("0", true);
 
 							it_ApplyGlobal.Enabled = ClassesChanged.Count != 0;
@@ -991,12 +991,13 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Checks if there is any altered data or unsaved structs.
 		/// </summary>
-		/// <returns></returns>
+		/// <returns><c>true</c> if there any dirty structs or any have yet to
+		/// to be saved</returns>
 		bool isChanged()
 		{
 			switch (Type)
 			{
-				case Type2da.TYPE_SPELLS:
+				case Type2da.Spells:
 					foreach (var spell in Spells)
 					{
 						if (spell.isChanged || spell.differ != control_Spells.bit_clean)
@@ -1004,7 +1005,7 @@ namespace nwn2_ai_2da_editor
 					}
 					break;
 
-				case Type2da.TYPE_RACIAL:
+				case Type2da.Racial:
 					foreach (var race in Races)
 					{
 						if (race.isChanged || race.differ != control_Racial.bit_clean)
@@ -1012,7 +1013,7 @@ namespace nwn2_ai_2da_editor
 					}
 					break;
 
-				case Type2da.TYPE_CLASSES:
+				case Type2da.Classes:
 					foreach (var @class in Classes)
 					{
 						if (@class.isChanged || @class.differ != control_Classes.bit_clean)
@@ -1027,12 +1028,12 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Checks if there are any unsaved structs.
 		/// </summary>
-		/// <returns>true if basic structs have yet to be saved</returns>
+		/// <returns><c>true</c> if basic structs have yet to be saved</returns>
 		bool hasSpareChange()
 		{
 			switch (Type)
 			{
-				case Type2da.TYPE_SPELLS:
+				case Type2da.Spells:
 					foreach (var spell in Spells)
 					{
 						if (spell.isChanged)
@@ -1040,7 +1041,7 @@ namespace nwn2_ai_2da_editor
 					}
 					break;
 
-				case Type2da.TYPE_RACIAL:
+				case Type2da.Racial:
 					foreach (var race in Races)
 					{
 						if (race.isChanged)
@@ -1048,7 +1049,7 @@ namespace nwn2_ai_2da_editor
 					}
 					break;
 
-				case Type2da.TYPE_CLASSES:
+				case Type2da.Classes:
 					foreach (var @class in Classes)
 					{
 						if (@class.isChanged)
@@ -1063,27 +1064,24 @@ namespace nwn2_ai_2da_editor
 		/// Checks if there is any altered data - data that's been modified but
 		/// has yet to be applied to their structs.
 		/// </summary>
-		/// <returns>true if there are dirty structs</returns>
+		/// <returns><c>true</c> if there are dirty structs</returns>
 		bool hasDirtyData()
 		{
 			switch (Type)
 			{
-				case Type2da.TYPE_SPELLS:
+				case Type2da.Spells:
 					if (SpellsChanged.Count != 0)
 						return true;
-
 					break;
 
-				case Type2da.TYPE_RACIAL:
+				case Type2da.Racial:
 					if (RacesChanged.Count != 0)
 						return true;
-
 					break;
 
-				case Type2da.TYPE_CLASSES:
+				case Type2da.Classes:
 					if (ClassesChanged.Count != 0)
 						return true;
-
 					break;
 			}
 			return false;
@@ -1103,7 +1101,7 @@ namespace nwn2_ai_2da_editor
 
 			switch (Type)
 			{
-				case Type2da.TYPE_SPELLS:
+				case Type2da.Spells:
 				{
 					Spell spell;
 
@@ -1143,7 +1141,7 @@ namespace nwn2_ai_2da_editor
 					break;
 				}
 
-				case Type2da.TYPE_RACIAL:
+				case Type2da.Racial:
 				{
 					Race race;
 
@@ -1182,7 +1180,7 @@ namespace nwn2_ai_2da_editor
 					break;
 				}
 
-				case Type2da.TYPE_CLASSES:
+				case Type2da.Classes:
 				{
 					Class @class;
 
@@ -1243,22 +1241,14 @@ namespace nwn2_ai_2da_editor
 
 			switch (Type)
 			{
-				case Type2da.TYPE_SPELLS:
-					WriteHenchSpells();
-					break;
-
-				case Type2da.TYPE_RACIAL:
-					WriteHenchRacial();
-					break;
-
-				case Type2da.TYPE_CLASSES:
-					WriteHenchClasses();
-					break;
+				case Type2da.Spells:  WriteHenchSpells();  break;
+				case Type2da.Racial:  WriteHenchRacial();  break;
+				case Type2da.Classes: WriteHenchClasses(); break;
 			}
 		}
 
 		/// <summary>
-		/// Writes HenchSpells.2da
+		/// Writes HenchSpells.2da.
 		/// </summary>
 		void WriteHenchSpells()
 		{
@@ -1366,7 +1356,7 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Writes HenchRacial.2da
+		/// Writes HenchRacial.2da.
 		/// </summary>
 		void WriteHenchRacial()
 		{
@@ -1465,7 +1455,7 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Writes HenchClasses.2da
+		/// Writes HenchClasses.2da.
 		/// </summary>
 		void WriteHenchClasses()
 		{
