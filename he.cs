@@ -26,7 +26,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// The blank 2da-string: <c>****</c>.
 		/// </summary>
-		internal const string blank = "****";
+		internal const string stars = "****";
 
 		/// <summary>
 		/// Tracks which 2da-type is currently loaded.
@@ -215,7 +215,7 @@ namespace nwn2_ai_2da_editor
 				if (Type == Type2da.TYPE_SPELLS && Id < spellScripts.Count)
 				{
 					string spellscript = spellScripts[Id];
-					if (spellscript != blank)
+					if (spellscript != stars)
 						ofd.FileName = spellscript + ".nss";
 				}
 				string file = ofd.FileName;
@@ -693,42 +693,42 @@ namespace nwn2_ai_2da_editor
 
 						int col = 0;
 
-						if (hasLabels && (field = fields[++col]) != blank)
+						if (hasLabels && (field = fields[++col]) != stars)
 							spell.label = field;
 						else
 							spell.label = String.Empty;
 
-						if ((field = fields[++col]) != blank)
+						if ((field = fields[++col]) != stars)
 							spell.spellinfo = Int32.Parse(field);
 						else
 							spell.spellinfo = 0;
 
-						if ((field = fields[++col]) != blank)
+						if ((field = fields[++col]) != stars)
 							spell.targetinfo = Int32.Parse(field);
 						else
 							spell.targetinfo = 0;
 
-						if ((field = fields[++col]) != blank)
+						if ((field = fields[++col]) != stars)
 							spell.effectweight = Single.Parse(field);
 						else
 							spell.effectweight = 0.0f;
 
-						if ((field = fields[++col]) != blank)
+						if ((field = fields[++col]) != stars)
 							spell.effecttypes = Int32.Parse(field);
 						else
 							spell.effecttypes = 0;
 
-						if ((field = fields[++col]) != blank)
+						if ((field = fields[++col]) != stars)
 							spell.damageinfo = Int32.Parse(field);
 						else
 							spell.damageinfo = 0;
 
-						if ((field = fields[++col]) != blank)
+						if ((field = fields[++col]) != stars)
 							spell.savetype = Int32.Parse(field);
 						else
 							spell.savetype = 0;
 
-						if ((field = fields[++col]) != blank)
+						if ((field = fields[++col]) != stars)
 							spell.savedctype = Int32.Parse(field);
 						else
 							spell.savedctype = 0;
@@ -913,37 +913,37 @@ namespace nwn2_ai_2da_editor
 
 						int col = 0;
 
-						if (hasLabels && (field = fields[++col]) != blank)
+						if (hasLabels && (field = fields[++col]) != stars)
 							race.label = field;
 						else
 							race.label = String.Empty;
 
-						if ((field = fields[++col]) != blank)
+						if ((field = fields[++col]) != stars)
 							race.flags = Int32.Parse(field);
 						else
 							race.flags = 0;
 
-						if ((field = fields[++col]) != blank)
+						if ((field = fields[++col]) != stars)
 							race.feat1 = Int32.Parse(field);
 						else
 							race.feat1 = 0;
 
-						if ((field = fields[++col]) != blank)
+						if ((field = fields[++col]) != stars)
 							race.feat2 = Int32.Parse(field);
 						else
 							race.feat2 = 0;
 
-						if ((field = fields[++col]) != blank)
+						if ((field = fields[++col]) != stars)
 							race.feat3 = Int32.Parse(field);
 						else
 							race.feat3 = 0;
 
-						if ((field = fields[++col]) != blank)
+						if ((field = fields[++col]) != stars)
 							race.feat4 = Int32.Parse(field);
 						else
 							race.feat4 = 0;
 
-						if ((field = fields[++col]) != blank)
+						if ((field = fields[++col]) != stars)
 							race.feat5 = Int32.Parse(field);
 						else
 							race.feat5 = 0;
@@ -1046,67 +1046,67 @@ namespace nwn2_ai_2da_editor
 
 						int col = 0;
 
-						if (hasLabels && (field = fields[++col]) != blank)
+						if (hasLabels && (field = fields[++col]) != stars)
 							@class.label = field;
 						else
 							@class.label = String.Empty;
 
-						if ((field = fields[++col]) != blank)
+						if ((field = fields[++col]) != stars)
 							@class.flags = Int32.Parse(field);
 						else
 							@class.flags = 0;
 
-						if ((field = fields[++col]) != blank)
+						if ((field = fields[++col]) != stars)
 							@class.feat1 = Int32.Parse(field);
 						else
 							@class.feat1 = 0;
 
-						if ((field = fields[++col]) != blank)
+						if ((field = fields[++col]) != stars)
 							@class.feat2 = Int32.Parse(field);
 						else
 							@class.feat2 = 0;
 
-						if ((field = fields[++col]) != blank)
+						if ((field = fields[++col]) != stars)
 							@class.feat3 = Int32.Parse(field);
 						else
 							@class.feat3 = 0;
 
-						if ((field = fields[++col]) != blank)
+						if ((field = fields[++col]) != stars)
 							@class.feat4 = Int32.Parse(field);
 						else
 							@class.feat4 = 0;
 
-						if ((field = fields[++col]) != blank)
+						if ((field = fields[++col]) != stars)
 							@class.feat5 = Int32.Parse(field);
 						else
 							@class.feat5 = 0;
 
-						if ((field = fields[++col]) != blank)
+						if ((field = fields[++col]) != stars)
 							@class.feat6 = Int32.Parse(field);
 						else
 							@class.feat6 = 0;
 
-						if ((field = fields[++col]) != blank)
+						if ((field = fields[++col]) != stars)
 							@class.feat7 = Int32.Parse(field);
 						else
 							@class.feat7 = 0;
 
-						if ((field = fields[++col]) != blank)
+						if ((field = fields[++col]) != stars)
 							@class.feat8 = Int32.Parse(field);
 						else
 							@class.feat8 = 0;
 
-						if ((field = fields[++col]) != blank)
+						if ((field = fields[++col]) != stars)
 							@class.feat9 = Int32.Parse(field);
 						else
 							@class.feat9 = 0;
 
-						if ((field = fields[++col]) != blank)
+						if ((field = fields[++col]) != stars)
 							@class.feat10 = Int32.Parse(field);
 						else
 							@class.feat10 = 0;
 
-						if ((field = fields[++col]) != blank)
+						if ((field = fields[++col]) != stars)
 							@class.feat11 = Int32.Parse(field);
 						else
 							@class.feat11 = 0;

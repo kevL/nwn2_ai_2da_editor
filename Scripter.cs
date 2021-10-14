@@ -183,7 +183,7 @@ namespace nwn2_ai_2da_editor
 			{
 				line = _fieldcols[i];
 
-				if (fields[i] != he.blank)
+				if (fields[i] != he.stars)
 				{
 					while (line.Length < 20) line += " ";
 					line += fields[i];

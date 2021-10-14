@@ -1295,7 +1295,7 @@ namespace nwn2_ai_2da_editor
 						line += spell.label;
 					}
 					else
-						line += blank;
+						line += stars;
 
 					line += " ";
 
@@ -1304,7 +1304,7 @@ namespace nwn2_ai_2da_editor
 						line += spell.spellinfo.ToString();
 					}
 					else
-						line += blank;
+						line += stars;
 
 					line += " ";
 
@@ -1313,7 +1313,7 @@ namespace nwn2_ai_2da_editor
 						line += spell.targetinfo.ToString();
 					}
 					else
-						line += blank;
+						line += stars;
 
 					line += " ";
 
@@ -1322,7 +1322,7 @@ namespace nwn2_ai_2da_editor
 						line += Float2daFormat(spell.effectweight);
 					}
 					else
-						line += blank;
+						line += stars;
 
 					line += " ";
 
@@ -1331,7 +1331,7 @@ namespace nwn2_ai_2da_editor
 						line += spell.effecttypes.ToString();
 					}
 					else
-						line += blank;
+						line += stars;
 
 					line += " ";
 
@@ -1340,7 +1340,7 @@ namespace nwn2_ai_2da_editor
 						line += spell.damageinfo.ToString();
 					}
 					else
-						line += blank;
+						line += stars;
 
 					line += " ";
 
@@ -1349,7 +1349,7 @@ namespace nwn2_ai_2da_editor
 						line += spell.savetype.ToString();
 					}
 					else
-						line += blank;
+						line += stars;
 
 					line += " ";
 
@@ -1358,7 +1358,7 @@ namespace nwn2_ai_2da_editor
 						line += spell.savedctype.ToString();
 					}
 					else
-						line += blank;
+						line += stars;
 
 					sw.WriteLine(line);
 				}
@@ -1403,7 +1403,7 @@ namespace nwn2_ai_2da_editor
 						line += race.label;
 					}
 					else
-						line += blank;
+						line += stars;
 
 					line += " ";
 
@@ -1412,7 +1412,7 @@ namespace nwn2_ai_2da_editor
 						line += race.flags.ToString();
 					}
 					else
-						line += blank;
+						line += stars;
 
 					line += " ";
 
@@ -1421,7 +1421,7 @@ namespace nwn2_ai_2da_editor
 						line += race.feat1.ToString();
 					}
 					else
-						line += blank;
+						line += stars;
 
 					line += " ";
 
@@ -1430,7 +1430,7 @@ namespace nwn2_ai_2da_editor
 						line += race.feat2.ToString();
 					}
 					else
-						line += blank;
+						line += stars;
 
 					line += " ";
 
@@ -1439,7 +1439,7 @@ namespace nwn2_ai_2da_editor
 						line += race.feat3.ToString();
 					}
 					else
-						line += blank;
+						line += stars;
 
 					line += " ";
 
@@ -1448,7 +1448,7 @@ namespace nwn2_ai_2da_editor
 						line += race.feat4.ToString();
 					}
 					else
-						line += blank;
+						line += stars;
 
 					line += " ";
 
@@ -1457,7 +1457,7 @@ namespace nwn2_ai_2da_editor
 						line += race.feat5.ToString();
 					}
 					else
-						line += blank;
+						line += stars;
 
 					sw.WriteLine(line);
 				}
@@ -1502,7 +1502,7 @@ namespace nwn2_ai_2da_editor
 						line += @class.label;
 					}
 					else
-						line += blank;
+						line += stars;
 
 					line += " ";
 
@@ -1511,7 +1511,7 @@ namespace nwn2_ai_2da_editor
 						line += @class.flags.ToString();
 					}
 					else
-						line += blank;
+						line += stars;
 
 					line += " ";
 
@@ -1520,7 +1520,7 @@ namespace nwn2_ai_2da_editor
 						line += @class.feat1.ToString();
 					}
 					else
-						line += blank;
+						line += stars;
 
 					line += " ";
 
@@ -1529,7 +1529,7 @@ namespace nwn2_ai_2da_editor
 						line += @class.feat2.ToString();
 					}
 					else
-						line += blank;
+						line += stars;
 
 					line += " ";
 
@@ -1538,7 +1538,7 @@ namespace nwn2_ai_2da_editor
 						line += @class.feat3.ToString();
 					}
 					else
-						line += blank;
+						line += stars;
 
 					line += " ";
 
@@ -1547,7 +1547,7 @@ namespace nwn2_ai_2da_editor
 						line += @class.feat4.ToString();
 					}
 					else
-						line += blank;
+						line += stars;
 
 					line += " ";
 
@@ -1556,7 +1556,7 @@ namespace nwn2_ai_2da_editor
 						line += @class.feat5.ToString();
 					}
 					else
-						line += blank;
+						line += stars;
 
 					line += " ";
 
@@ -1565,7 +1565,7 @@ namespace nwn2_ai_2da_editor
 						line += @class.feat6.ToString();
 					}
 					else
-						line += blank;
+						line += stars;
 
 					line += " ";
 
@@ -1574,7 +1574,7 @@ namespace nwn2_ai_2da_editor
 						line += @class.feat7.ToString();
 					}
 					else
-						line += blank;
+						line += stars;
 
 					line += " ";
 
@@ -1583,7 +1583,7 @@ namespace nwn2_ai_2da_editor
 						line += @class.feat8.ToString();
 					}
 					else
-						line += blank;
+						line += stars;
 
 					line += " ";
 
@@ -1592,7 +1592,7 @@ namespace nwn2_ai_2da_editor
 						line += @class.feat9.ToString();
 					}
 					else
-						line += blank;
+						line += stars;
 
 					line += " ";
 
@@ -1601,7 +1601,7 @@ namespace nwn2_ai_2da_editor
 						line += @class.feat10.ToString();
 					}
 					else
-						line += blank;
+						line += stars;
 
 					line += " ";
 
@@ -1610,7 +1610,7 @@ namespace nwn2_ai_2da_editor
 						line += @class.feat11.ToString();
 					}
 					else
-						line += blank;
+						line += stars;
 
 					sw.WriteLine(line);
 				}
