@@ -160,8 +160,8 @@ namespace nwn2_ai_2da_editor
 			// The logfile ought appear in the directory with the executable.
 
 			// set unicode text on the up/down Search btns.
-			btn_Search_d.Text = "\u25bc"; // down triangle
-			btn_Search_u.Text = "\u25b2"; // up triangle
+			bu_Search_d.Text = "\u25bc"; // down triangle
+			bu_Search_u.Text = "\u25b2"; // up triangle
 
 			ActiveControl = tb_Search; // focus the Search-box
 
@@ -742,7 +742,7 @@ namespace nwn2_ai_2da_editor
 			// check if any info-version(s) need to be updated in spellinfo-int.
 //			InfoVersionLoad_spells();
 
-			btn_Apply     .Text = "apply this spell\'s data";
+			bu_Apply      .Text = "apply this spell\'s data";
 			tree_Highlight.Text = "highlight blank SpellInfo nodes";
 		}
 
@@ -957,7 +957,7 @@ namespace nwn2_ai_2da_editor
 			// check if any info-version(s) need to be updated in flags-int.
 //			InfoVersionLoad_racial();
 
-			btn_Apply     .Text = "apply this race\'s data";
+			bu_Apply      .Text = "apply this race\'s data";
 			tree_Highlight.Text = "highlight blank Racial flags nodes";
 		}
 
@@ -1120,7 +1120,7 @@ namespace nwn2_ai_2da_editor
 			// check if any info-version(s) need to be updated in flags-int.
 //			InfoVersionLoad_classes();
 
-			btn_Apply     .Text = "apply this class\' data";
+			bu_Apply      .Text = "apply this class\' data";
 			tree_Highlight.Text = "highlight blank Class flags nodes";
 		}
 
@@ -1328,7 +1328,7 @@ namespace nwn2_ai_2da_editor
 
 			int height; // set ClientSize ->
 			width  = splitContainer.Panel1.Width + splitContainer.SplitterWidth + panel2width + 1;
-			height = Math.Max(userHeight, menubar.Height + btn_Apply.Height + panel2height);
+			height = Math.Max(userHeight, menubar.Height + bu_Apply.Height + panel2height);
 			ClientSize = new Size(width, height);
 
 			ResumeLayout();
@@ -1458,7 +1458,7 @@ namespace nwn2_ai_2da_editor
 				default: changes = false;
 					break;
 			}
-			btn_Apply     .Enabled = differs;
+			bu_Apply      .Enabled = differs;
 			it_ApplyGlobal.Enabled = differs || changes;
 			it_GotoChanged.Enabled = differs || changes || hasSpareChange();
 		}
@@ -1467,7 +1467,7 @@ namespace nwn2_ai_2da_editor
 		/// Handler for the "apply changed data to currently selected
 		/// spell/race/class" button.
 		/// </summary>
-		/// <param name="sender">btn_Apply</param>
+		/// <param name="sender">bu_Apply</param>
 		/// <param name="e"></param>
 		/// <remarks>See <c><see cref="applyall()">applyall()</see></c> to apply
 		/// all altered data globally.</remarks>
@@ -1648,7 +1648,7 @@ namespace nwn2_ai_2da_editor
 		{
 			if (e.KeyChar == (char)Keys.Enter)
 			{
-				Click_search(btn_Search_d, EventArgs.Empty);
+				Click_search(bu_Search_d, EventArgs.Empty);
 				e.Handled = true;
 			}
 		}
@@ -1658,8 +1658,8 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		/// <param name="sender">
 		/// <list type="bullet">
-		/// <item><c><see cref="btn_Search_d"/></c></item>
-		/// <item><c><see cref="btn_Search_u"/></c></item>
+		/// <item><c><see cref="bu_Search_d"/></c></item>
+		/// <item><c><see cref="bu_Search_u"/></c></item>
 		/// </list></param>
 		/// <param name="e"></param>
 		void Click_search(object sender, EventArgs e)
@@ -1673,8 +1673,8 @@ namespace nwn2_ai_2da_editor
 
 					int id;
 
-					var btn = sender as Button;
-					if (btn == btn_Search_d)
+					var bu = sender as Button;
+					if (bu == bu_Search_d)
 					{
 						if (Id == total - 1)
 						{
@@ -1697,7 +1697,7 @@ namespace nwn2_ai_2da_editor
 							}
 						}
 					}
-					else //if (btn == btn_Search_u)
+					else // bu == bu_Search_u
 					{
 						if (Id == 0)
 						{

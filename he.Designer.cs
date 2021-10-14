@@ -64,10 +64,10 @@ namespace nwn2_ai_2da_editor
 
 		Panel panel1_top;
 		TextBox tb_Search;
-		Button btn_Search_d;
-		Button btn_Search_u;
+		Button bu_Search_d;
+		Button bu_Search_u;
 
-		Button btn_Apply;
+		Button bu_Apply;
 
 
 		private void InitializeComponent()
@@ -109,9 +109,9 @@ namespace nwn2_ai_2da_editor
 			this.tree_Highlight = new System.Windows.Forms.ToolStripMenuItem();
 			this.panel1_top = new System.Windows.Forms.Panel();
 			this.tb_Search = new System.Windows.Forms.TextBox();
-			this.btn_Search_d = new System.Windows.Forms.Button();
-			this.btn_Search_u = new System.Windows.Forms.Button();
-			this.btn_Apply = new System.Windows.Forms.Button();
+			this.bu_Search_d = new System.Windows.Forms.Button();
+			this.bu_Search_u = new System.Windows.Forms.Button();
+			this.bu_Apply = new System.Windows.Forms.Button();
 			this.menubar.SuspendLayout();
 			this.splitContainer.Panel1.SuspendLayout();
 			this.splitContainer.Panel2.SuspendLayout();
@@ -409,7 +409,7 @@ namespace nwn2_ai_2da_editor
 			// 
 			// splitContainer.Panel2
 			// 
-			this.splitContainer.Panel2.Controls.Add(this.btn_Apply);
+			this.splitContainer.Panel2.Controls.Add(this.bu_Apply);
 			this.splitContainer.Size = new System.Drawing.Size(792, 430);
 			this.splitContainer.SplitterDistance = 275;
 			this.splitContainer.SplitterWidth = 3;
@@ -456,8 +456,8 @@ namespace nwn2_ai_2da_editor
 			// panel1_top
 			// 
 			this.panel1_top.Controls.Add(this.tb_Search);
-			this.panel1_top.Controls.Add(this.btn_Search_d);
-			this.panel1_top.Controls.Add(this.btn_Search_u);
+			this.panel1_top.Controls.Add(this.bu_Search_d);
+			this.panel1_top.Controls.Add(this.bu_Search_u);
 			this.panel1_top.Dock = System.Windows.Forms.DockStyle.Top;
 			this.panel1_top.Location = new System.Drawing.Point(0, 0);
 			this.panel1_top.Margin = new System.Windows.Forms.Padding(0);
@@ -476,41 +476,41 @@ namespace nwn2_ai_2da_editor
 			this.tb_Search.WordWrap = false;
 			this.tb_Search.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.KeyPress_search);
 			// 
-			// btn_Search_d
+			// bu_Search_d
 			// 
-			this.btn_Search_d.Dock = System.Windows.Forms.DockStyle.Right;
-			this.btn_Search_d.Location = new System.Drawing.Point(225, 0);
-			this.btn_Search_d.Margin = new System.Windows.Forms.Padding(0);
-			this.btn_Search_d.Name = "btn_Search_d";
-			this.btn_Search_d.Size = new System.Drawing.Size(25, 20);
-			this.btn_Search_d.TabIndex = 1;
-			this.btn_Search_d.Text = "d";
-			this.btn_Search_d.UseVisualStyleBackColor = true;
-			this.btn_Search_d.Click += new System.EventHandler(this.Click_search);
+			this.bu_Search_d.Dock = System.Windows.Forms.DockStyle.Right;
+			this.bu_Search_d.Location = new System.Drawing.Point(225, 0);
+			this.bu_Search_d.Margin = new System.Windows.Forms.Padding(0);
+			this.bu_Search_d.Name = "bu_Search_d";
+			this.bu_Search_d.Size = new System.Drawing.Size(25, 20);
+			this.bu_Search_d.TabIndex = 1;
+			this.bu_Search_d.Text = "d";
+			this.bu_Search_d.UseVisualStyleBackColor = true;
+			this.bu_Search_d.Click += new System.EventHandler(this.Click_search);
 			// 
-			// btn_Search_u
+			// bu_Search_u
 			// 
-			this.btn_Search_u.Dock = System.Windows.Forms.DockStyle.Right;
-			this.btn_Search_u.Location = new System.Drawing.Point(250, 0);
-			this.btn_Search_u.Margin = new System.Windows.Forms.Padding(0);
-			this.btn_Search_u.Name = "btn_Search_u";
-			this.btn_Search_u.Size = new System.Drawing.Size(25, 20);
-			this.btn_Search_u.TabIndex = 2;
-			this.btn_Search_u.Text = "u";
-			this.btn_Search_u.UseVisualStyleBackColor = true;
-			this.btn_Search_u.Click += new System.EventHandler(this.Click_search);
+			this.bu_Search_u.Dock = System.Windows.Forms.DockStyle.Right;
+			this.bu_Search_u.Location = new System.Drawing.Point(250, 0);
+			this.bu_Search_u.Margin = new System.Windows.Forms.Padding(0);
+			this.bu_Search_u.Name = "bu_Search_u";
+			this.bu_Search_u.Size = new System.Drawing.Size(25, 20);
+			this.bu_Search_u.TabIndex = 2;
+			this.bu_Search_u.Text = "u";
+			this.bu_Search_u.UseVisualStyleBackColor = true;
+			this.bu_Search_u.Click += new System.EventHandler(this.Click_search);
 			// 
-			// btn_Apply
+			// bu_Apply
 			// 
-			this.btn_Apply.Dock = System.Windows.Forms.DockStyle.Bottom;
-			this.btn_Apply.Enabled = false;
-			this.btn_Apply.Location = new System.Drawing.Point(0, 405);
-			this.btn_Apply.Margin = new System.Windows.Forms.Padding(0);
-			this.btn_Apply.Name = "btn_Apply";
-			this.btn_Apply.Size = new System.Drawing.Size(514, 25);
-			this.btn_Apply.TabIndex = 0;
-			this.btn_Apply.UseVisualStyleBackColor = true;
-			this.btn_Apply.Click += new System.EventHandler(this.Click_apply);
+			this.bu_Apply.Dock = System.Windows.Forms.DockStyle.Bottom;
+			this.bu_Apply.Enabled = false;
+			this.bu_Apply.Location = new System.Drawing.Point(0, 405);
+			this.bu_Apply.Margin = new System.Windows.Forms.Padding(0);
+			this.bu_Apply.Name = "bu_Apply";
+			this.bu_Apply.Size = new System.Drawing.Size(514, 25);
+			this.bu_Apply.TabIndex = 0;
+			this.bu_Apply.UseVisualStyleBackColor = true;
+			this.bu_Apply.Click += new System.EventHandler(this.Click_apply);
 			// 
 			// he
 			// 
