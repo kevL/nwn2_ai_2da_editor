@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Media;
 using System.Windows.Forms;
 
 
@@ -1687,7 +1688,7 @@ namespace nwn2_ai_2da_editor
 						{
 							if (id == Id) // not found.
 							{
-								System.Media.SystemSounds.Beep.Play();
+								SystemSounds.Beep.Play();
 								break;
 							}
 
@@ -1710,7 +1711,7 @@ namespace nwn2_ai_2da_editor
 						{
 							if (id == Id) // not found.
 							{
-								System.Media.SystemSounds.Beep.Play();
+								SystemSounds.Beep.Play();
 								break;
 							}
 
