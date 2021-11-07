@@ -15,7 +15,7 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		/// <param name="str"></param>
 		/// <param name="all"></param>
-		/// <remarks>Used to be a helper for <c>SetInfoVersion_spells()</c>.</remarks>
+		/// <remarks>Used to be a helper for <c>Click_setCoreAiVersion()</c>.</remarks>
 		void SetInfoVersion_spells(string str, bool all)
 		{
 			Spell spell;
@@ -113,7 +113,7 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		/// <param name="str"></param>
 		/// <param name="all"></param>
-		/// <remarks>Used to be a helper for <c>SetInfoVersion_racial()</c>.</remarks>
+		/// <remarks>Used to be a helper for <c>Click_setCoreAiVersion()</c>.</remarks>
 		void SetInfoVersion_racial(string str, bool all)
 		{
 			// NOTE: This will iterate through all changed races even
@@ -209,8 +209,9 @@ namespace nwn2_ai_2da_editor
 		/// <c><see cref="Click_clearCoreAiVersion()">Click_clearCoreAiVersion()</see></c>.
 		/// </summary>
 		/// <param name="str"></param>
-		/// <param name="all"></param>
-		/// <remarks>Used to be a helper for <c>SetInfoVersion_classes()</c>.</remarks>
+		/// <param name="all"><c>true</c> to apply version to all classes else
+		/// apply to changed classes only</param>
+		/// <remarks>Used to be a helper for <c>Click_setCoreAiVersion()</c>.</remarks>
 		void SetInfoVersion_classes(string str, bool all)
 		{
 			Class @class;

@@ -172,7 +172,7 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Creates and initializes a button to show a spell's script.
+		/// Creates and initializes a <c>Button</c> to show a spell's script.
 		/// </summary>
 		void CreateScript_button()
 		{
@@ -1597,14 +1597,14 @@ namespace nwn2_ai_2da_editor
 		}
 
 
-		#region Utilities
+		#region Utilities (static)
 		/// <summary>
-		/// Value of epsilon.
+		/// Value of <c>epsilon</c>.
 		/// </summary>
 		const float epsilon = 0.0001f;
 
 		/// <summary>
-		/// Checks if two floats are within epsilon.
+		/// Checks if two <c>floats</c> are within <c><see cref="epsilon"/></c>.
 		/// </summary>
 		/// <param name="a"></param>
 		/// <param name="b"></param>
@@ -1630,7 +1630,7 @@ namespace nwn2_ai_2da_editor
 
 			return val;
 		}
-		#endregion Utilities
+		#endregion Utilities (static)
 
 
 		#region Search
