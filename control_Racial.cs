@@ -92,11 +92,11 @@ namespace nwn2_ai_2da_editor
 			rf_HasFeatSpells.MouseClick += MouseClick_rFlags;
 
 // handlers for Feats ->
-			RacialFeat1_reset.Click       += Click_racial_reset;
-			RacialFeat2_reset.Click       += Click_racial_reset;
-			RacialFeat3_reset.Click       += Click_racial_reset;
-			RacialFeat4_reset.Click       += Click_racial_reset;
-			RacialFeat5_reset.Click       += Click_racial_reset;
+			RacialFeat1_reset.Click += Click_racial_reset;
+			RacialFeat2_reset.Click += Click_racial_reset;
+			RacialFeat3_reset.Click += Click_racial_reset;
+			RacialFeat4_reset.Click += Click_racial_reset;
+			RacialFeat5_reset.Click += Click_racial_reset;
 
 			RacialFeat1_text .TextChanged += TextChanged_racial;
 			RacialFeat2_text .TextChanged += TextChanged_racial;
@@ -300,11 +300,13 @@ namespace nwn2_ai_2da_editor
 
 		#region Methods (static)
 		/// <summary>
-		/// Gets a bitwise value containing flags for fields that have changed.
+		/// Gets a bitwise <c>int</c> containing flags for fields that have
+		/// changed.
 		/// </summary>
-		/// <param name="race">a Race struct</param>
-		/// <param name="racechanged">a RaceChanged struct</param>
-		/// <returns>bitwise value containing flags for fields that have changed</returns>
+		/// <param name="race">a <c>Race</c> <c>struct</c></param>
+		/// <param name="racechanged">a <c>RaceChanged</c> <c>struct</c></param>
+		/// <returns>bitwise <c>int</c> containing flags for fields that have
+		/// changed</returns>
 		internal static int RaceDiffer(Race race, RaceChanged racechanged)
 		{
 			int differ = control_Racial.bit_clean;

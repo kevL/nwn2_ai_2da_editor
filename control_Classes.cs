@@ -147,17 +147,17 @@ namespace nwn2_ai_2da_editor
 			cf_HasFeatSpells.MouseClick += MouseClick_cFlags;
 
 // handlers for Feats ->
-			ClassFeat1_reset .Click       += Click_classes_reset;
-			ClassFeat2_reset .Click       += Click_classes_reset;
-			ClassFeat3_reset .Click       += Click_classes_reset;
-			ClassFeat4_reset .Click       += Click_classes_reset;
-			ClassFeat5_reset .Click       += Click_classes_reset;
-			ClassFeat6_reset .Click       += Click_classes_reset;
-			ClassFeat7_reset .Click       += Click_classes_reset;
-			ClassFeat8_reset .Click       += Click_classes_reset;
-			ClassFeat9_reset .Click       += Click_classes_reset;
-			ClassFeat10_reset.Click       += Click_classes_reset;
-			ClassFeat11_reset.Click       += Click_classes_reset;
+			ClassFeat1_reset .Click += Click_classes_reset;
+			ClassFeat2_reset .Click += Click_classes_reset;
+			ClassFeat3_reset .Click += Click_classes_reset;
+			ClassFeat4_reset .Click += Click_classes_reset;
+			ClassFeat5_reset .Click += Click_classes_reset;
+			ClassFeat6_reset .Click += Click_classes_reset;
+			ClassFeat7_reset .Click += Click_classes_reset;
+			ClassFeat8_reset .Click += Click_classes_reset;
+			ClassFeat9_reset .Click += Click_classes_reset;
+			ClassFeat10_reset.Click += Click_classes_reset;
+			ClassFeat11_reset.Click += Click_classes_reset;
 
 			ClassFeat1_text  .TextChanged += TextChanged_classes;
 			ClassFeat2_text  .TextChanged += TextChanged_classes;
@@ -522,11 +522,13 @@ namespace nwn2_ai_2da_editor
 
 		#region Methods (static)
 		/// <summary>
-		/// Gets a bitwise value containing flags for fields that have changed.
+		/// Gets a bitwise <c>int</c> containing flags for fields that have
+		/// changed.
 		/// </summary>
-		/// <param name="class">a Class struct</param>
-		/// <param name="classchanged">a ClassChanged struct</param>
-		/// <returns>bitwise value containing flags for fields that have changed</returns>
+		/// <param name="class">a <c>Class</c> <c>struct</c></param>
+		/// <param name="classchanged">a <c>ClassChanged</c> <c>struct</c></param>
+		/// <returns>bitwise <c>int</c> containing flags for fields that have
+		/// changed</returns>
 		internal static int ClassDiffer(Class @class, ClassChanged classchanged)
 		{
 			int differ = control_Classes.bit_clean;

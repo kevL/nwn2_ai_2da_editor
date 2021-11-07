@@ -903,11 +903,13 @@ namespace nwn2_ai_2da_editor
 
 		#region Methods (static)
 		/// <summary>
-		/// Gets a bitwise value containing flags for fields that have changed.
+		/// Gets a bitwise <c>int</c> containing flags for fields that have
+		/// changed.
 		/// </summary>
-		/// <param name="spell">a Spell struct</param>
-		/// <param name="spellchanged">a SpellChanged struct</param>
-		/// <returns>bitwise value containing flags for fields that have changed</returns>
+		/// <param name="spell">a <c>Spell</c> <c>struct</c></param>
+		/// <param name="spellchanged">a <c>SpellChanged</c> <c>struct</c></param>
+		/// <returns>bitwise <c>int</c> containing flags for fields that have
+		/// changed</returns>
 		internal static int SpellDiffer(Spell spell, SpellChanged spellchanged)
 		{
 			int differ = control_Spells.bit_clean;
