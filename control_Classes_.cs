@@ -814,7 +814,7 @@ namespace nwn2_ai_2da_editor
 
 		#region HenchControl (override)
 		/// <summary>
-		/// 
+		/// Sets spell-labels in various <c>Labels</c>.
 		/// </summary>
 		internal override void SetSpellLabelTexts()
 		{
@@ -913,7 +913,7 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// 
+		/// Clears spell-labels.
 		/// </summary>
 		internal override void ClearSpellLabelTexts()
 		{
@@ -931,7 +931,7 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// 
+		/// Sets feat-labels in various <c>Labels</c>.
 		/// </summary>
 		internal override void SetFeatLabelTexts()
 		{
@@ -1030,7 +1030,7 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// 
+		/// Clears feat-labels.
 		/// </summary>
 		internal override void ClearFeatLabelTexts()
 		{

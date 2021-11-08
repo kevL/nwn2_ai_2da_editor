@@ -379,12 +379,13 @@ namespace nwn2_ai_2da_editor
 
 		#region HenchControl (override)
 		/// <summary>
-		/// 
+		/// Sets spell-labels in various <c>Labels</c>.
 		/// </summary>
 		internal override void SetSpellLabelTexts()
 		{
 			int id;
 
+			// NOTE: Texts shall not be negative.
 			// TODO: Texts shall parse to ints.
 
 			if (Int32.TryParse(TargetInfo_text.Text, out id)
@@ -429,7 +430,7 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// 
+		/// Clears spell-labels.
 		/// </summary>
 		internal override void ClearSpellLabelTexts()
 		{

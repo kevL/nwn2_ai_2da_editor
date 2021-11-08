@@ -468,7 +468,7 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// 
+		/// Sets the master-int in <c><see cref="ClassFlags_text"/></c>.
 		/// </summary>
 		/// <param name="text"></param>
 		internal override void SetMasterText(string text)
@@ -477,7 +477,8 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// 
+		/// Selects a Reset <c>Button</c> as the (default or fallback) control
+		/// to take focus.
 		/// </summary>
 		internal override void SelectResetButton()
 		{
@@ -499,7 +500,7 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// 
+		/// Sets the Reset <c>Buttons'</c> text-color.
 		/// </summary>
 		/// <param name="color"></param>
 		internal override void SetResetColor(Color color)
