@@ -476,8 +476,8 @@ namespace nwn2_ai_2da_editor
 
 //		/// <summary>
 //		/// Prints the info-version of the currently selected spell ID.
-//		/// <param name="spellinfo"></param>
 //		/// </summary>
+//		/// <param name="spellinfo"></param>
 //		void PrintInfoVersion_spell(int spellinfo)
 //		{
 //			spellinfo &= hc.HENCH_SPELL_INFO_VERSION_MASK;

@@ -18,9 +18,23 @@ namespace nwn2_ai_2da_editor
 
 		#region eventhandlers
 		/// <summary>
-		/// Handles TextChanged event on the Classes pages.
+		/// Handles <c>TextChanged</c> event on the Classes pages.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="ClassFlags_text"/></c></item>
+		/// <item><c><see cref="ClassFeat1_text"/></c></item>
+		/// <item><c><see cref="ClassFeat2_text"/></c></item>
+		/// <item><c><see cref="ClassFeat3_text"/></c></item>
+		/// <item><c><see cref="ClassFeat4_text"/></c></item>
+		/// <item><c><see cref="ClassFeat5_text"/></c></item>
+		/// <item><c><see cref="ClassFeat6_text"/></c></item>
+		/// <item><c><see cref="ClassFeat7_text"/></c></item>
+		/// <item><c><see cref="ClassFeat8_text"/></c></item>
+		/// <item><c><see cref="ClassFeat9_text"/></c></item>
+		/// <item><c><see cref="ClassFeat10_text"/></c></item>
+		/// <item><c><see cref="ClassFeat11_text"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
 		void TextChanged_classes(object sender, EventArgs e)
 		{
@@ -329,12 +343,26 @@ namespace nwn2_ai_2da_editor
 
 		/// <summary>
 		/// Handles resetting the current class' info.
-		/// Note that if the Apply-btn has been clicked for the class then that
-		/// data will be used instead of the data from the originally loaded
-		/// HenchClasses.2da file.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="ClassFlags_reset"/></c></item>
+		/// <item><c><see cref="ClassFeat1_reset"/></c></item>
+		/// <item><c><see cref="ClassFeat2_reset"/></c></item>
+		/// <item><c><see cref="ClassFeat3_reset"/></c></item>
+		/// <item><c><see cref="ClassFeat4_reset"/></c></item>
+		/// <item><c><see cref="ClassFeat5_reset"/></c></item>
+		/// <item><c><see cref="ClassFeat6_reset"/></c></item>
+		/// <item><c><see cref="ClassFeat7_reset"/></c></item>
+		/// <item><c><see cref="ClassFeat8_reset"/></c></item>
+		/// <item><c><see cref="ClassFeat9_reset"/></c></item>
+		/// <item><c><see cref="ClassFeat10_reset"/></c></item>
+		/// <item><c><see cref="ClassFeat11_reset"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
+		/// <remarks>If the Apply-btn has been clicked for the spell then that
+		/// data will be used instead of the data from the originally loaded
+		/// HenchSpells.2da file.</remarks>
 		void Click_classes_reset(object sender, EventArgs e)
 		{
 			if (he.ClassesChanged.ContainsKey(he.Id))
@@ -441,7 +469,15 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Handles toggling bits by checkboxes on the ClassFlags page.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="cf_rbArcane"/></c></item>
+		/// <item><c><see cref="cf_rbDivine"/></c></item>
+		/// <item><c><see cref="cf_isPrestigeClass"/></c></item>
+		/// <item><c><see cref="cf_DcBonus"/></c></item>
+		/// <item><c><see cref="cf_L4Required"/></c></item>
+		/// <item><c><see cref="cf_HasFeatSpells"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
 		void MouseClick_cFlags(object sender, MouseEventArgs e)
 		{
@@ -495,9 +531,10 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Handles toggling bits by combobox on the ClassFlags page - caster ability.
+		/// Handles toggling bits by combobox on the ClassFlags page - caster
+		/// ability.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="cbo_cf_Ability"/></c></param>
 		/// <param name="e"></param>
 		void SelectionChangeCommitted_cf_cbo_CasterAbility(object sender, EventArgs e)
 		{
@@ -511,9 +548,10 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Handles toggling bits by combobox on the ClassFlags page - buff others.
+		/// Handles toggling bits by combobox on the ClassFlags page - buff
+		/// others.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="cbo_cf_BuffOthers"/></c></param>
 		/// <param name="e"></param>
 		void SelectionChangeCommitted_cf_cbo_BuffOthers(object sender, EventArgs e)
 		{
@@ -529,7 +567,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Handles toggling bits by combobox on the ClassFlags page - attack.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="cbo_cf_Attack"/></c></param>
 		/// <param name="e"></param>
 		void SelectionChangeCommitted_cf_cbo_Attack(object sender, EventArgs e)
 		{
@@ -543,9 +581,10 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Handles toggling bits by combobox on the ClassFlags page - spell progression.
+		/// Handles toggling bits by combobox on the ClassFlags page - spell
+		/// progression.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="cbo_cf_SpellProg"/></c></param>
 		/// <param name="e"></param>
 		void SelectionChangeCommitted_cf_cbo_SpellProg(object sender, EventArgs e)
 		{
@@ -561,7 +600,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Handles toggling bits by combobox on the ClassFlags page - sneak attack.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="cbo_cf_SneakAttack"/></c></param>
 		/// <param name="e"></param>
 		void SelectionChangeCommitted_cf_cbo_SneakAttack(object sender, EventArgs e)
 		{
@@ -589,6 +628,21 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Handles toggling bits by checkboxes on the ClassFeats pages.
 		/// </summary>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="cf1_cheatCast"/></c></item>
+		/// <item><c><see cref="cf2_cheatCast"/></c></item>
+		/// <item><c><see cref="cf3_cheatCast"/></c></item>
+		/// <item><c><see cref="cf4_cheatCast"/></c></item>
+		/// <item><c><see cref="cf5_cheatCast"/></c></item>
+		/// <item><c><see cref="cf6_cheatCast"/></c></item>
+		/// <item><c><see cref="cf7_cheatCast"/></c></item>
+		/// <item><c><see cref="cf8_cheatCast"/></c></item>
+		/// <item><c><see cref="cf9_cheatCast"/></c></item>
+		/// <item><c><see cref="cf10_cheatCast"/></c></item>
+		/// <item><c><see cref="cf11_cheatCast"/></c></item>
+		/// </list></param>
+		/// <param name="e"></param>
 		void MouseClick_cFeats(object sender, MouseEventArgs e)
 		{
 			TextBox tb;
@@ -656,7 +710,20 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Handles changing ClassFeat feats in their textboxes.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="cf1_FeatId"/></c></item>
+		/// <item><c><see cref="cf2_FeatId"/></c></item>
+		/// <item><c><see cref="cf3_FeatId"/></c></item>
+		/// <item><c><see cref="cf4_FeatId"/></c></item>
+		/// <item><c><see cref="cf5_FeatId"/></c></item>
+		/// <item><c><see cref="cf6_FeatId"/></c></item>
+		/// <item><c><see cref="cf7_FeatId"/></c></item>
+		/// <item><c><see cref="cf8_FeatId"/></c></item>
+		/// <item><c><see cref="cf9_FeatId"/></c></item>
+		/// <item><c><see cref="cf10_FeatId"/></c></item>
+		/// <item><c><see cref="cf11_FeatId"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
 		void TextChanged_cFeat(object sender, EventArgs e)
 		{
@@ -734,7 +801,20 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Handles changing ClassFeat spells in their textboxes.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="cf1_SpellId"/></c></item>
+		/// <item><c><see cref="cf2_SpellId"/></c></item>
+		/// <item><c><see cref="cf3_SpellId"/></c></item>
+		/// <item><c><see cref="cf4_SpellId"/></c></item>
+		/// <item><c><see cref="cf5_SpellId"/></c></item>
+		/// <item><c><see cref="cf6_SpellId"/></c></item>
+		/// <item><c><see cref="cf7_SpellId"/></c></item>
+		/// <item><c><see cref="cf8_SpellId"/></c></item>
+		/// <item><c><see cref="cf9_SpellId"/></c></item>
+		/// <item><c><see cref="cf10_SpellId"/></c></item>
+		/// <item><c><see cref="cf11_SpellId"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
 		void TextChanged_cSpell(object sender, EventArgs e)
 		{

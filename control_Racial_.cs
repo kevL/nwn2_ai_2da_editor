@@ -15,9 +15,17 @@ namespace nwn2_ai_2da_editor
 
 		#region eventhandlers
 		/// <summary>
-		/// Handles TextChanged event on the Racial pages.
+		/// Handles <c>TextChanged</c> event on the Racial pages.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="RacialFlags_text"/></c></item>
+		/// <item><c><see cref="RacialFeat1_text"/></c></item>
+		/// <item><c><see cref="RacialFeat2_text"/></c></item>
+		/// <item><c><see cref="RacialFeat3_text"/></c></item>
+		/// <item><c><see cref="RacialFeat4_text"/></c></item>
+		/// <item><c><see cref="RacialFeat5_text"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
 		void TextChanged_racial(object sender, EventArgs e)
 		{
@@ -248,12 +256,20 @@ namespace nwn2_ai_2da_editor
 
 		/// <summary>
 		/// Handles resetting the current race's info.
-		/// Note that if the Apply-btn has been clicked for the race then that
-		/// data will be used instead of the data from the originally loaded
-		/// HenchRacial.2da file.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="RacialFlags_reset"/></c></item>
+		/// <item><c><see cref="RacialFeat1_reset"/></c></item>
+		/// <item><c><see cref="RacialFeat2_reset"/></c></item>
+		/// <item><c><see cref="RacialFeat3_reset"/></c></item>
+		/// <item><c><see cref="RacialFeat4_reset"/></c></item>
+		/// <item><c><see cref="RacialFeat5_reset"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
+		/// <remarks>If the Apply-btn has been clicked for the spell then that
+		/// data will be used instead of the data from the originally loaded
+		/// HenchSpells.2da file.</remarks>
 		void Click_racial_reset(object sender, EventArgs e)
 		{
 			if (he.RacesChanged.ContainsKey(he.Id))
@@ -324,7 +340,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Handles toggling bits by checkboxes on the RacialFlags page.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="rf_HasFeatSpells"/></c></param>
 		/// <param name="e"></param>
 		void MouseClick_rFlags(object sender, MouseEventArgs e)
 		{
@@ -345,6 +361,15 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Handles toggling bits by checkboxes on the RacialFeats pages.
 		/// </summary>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="rf1_cheatCast"/></c></item>
+		/// <item><c><see cref="rf2_cheatCast"/></c></item>
+		/// <item><c><see cref="rf3_cheatCast"/></c></item>
+		/// <item><c><see cref="rf4_cheatCast"/></c></item>
+		/// <item><c><see cref="rf5_cheatCast"/></c></item>
+		/// </list></param>
+		/// <param name="e"></param>
 		void MouseClick_rFeats(object sender, MouseEventArgs e)
 		{
 			TextBox tb;
@@ -388,7 +413,14 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Handles changing RacialFeat feats in their textboxes.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="rf1_FeatId"/></c></item>
+		/// <item><c><see cref="rf2_FeatId"/></c></item>
+		/// <item><c><see cref="rf3_FeatId"/></c></item>
+		/// <item><c><see cref="rf4_FeatId"/></c></item>
+		/// <item><c><see cref="rf5_FeatId"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
 		void TextChanged_rFeat(object sender, EventArgs e)
 		{
@@ -442,7 +474,14 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Handles changing RacialFeat spells in their textboxes.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="rf1_SpellId"/></c></item>
+		/// <item><c><see cref="rf2_SpellId"/></c></item>
+		/// <item><c><see cref="rf3_SpellId"/></c></item>
+		/// <item><c><see cref="rf4_SpellId"/></c></item>
+		/// <item><c><see cref="rf5_SpellId"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
 		void TextChanged_rSpell(object sender, EventArgs e)
 		{
@@ -627,8 +666,8 @@ namespace nwn2_ai_2da_editor
 
 //		/// <summary>
 //		/// Prints the info-version of the currently selected race ID.
-//		/// <param name="flags"></param>
 //		/// </summary>
+//		/// <param name="flags"></param>
 //		void PrintInfoVersion_race(int flags)
 //		{
 //			flags &= hc.HENCH_SPELL_INFO_VERSION_MASK;
@@ -642,8 +681,8 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Sets the checkers on the RacialFlags page to reflect the current
 		/// flags value.
-		/// <param name="flags"></param>
 		/// </summary>
+		/// <param name="flags"></param>
 		void state_RacialFlags(int flags)
 		{
 			rf_HasFeatSpells.Checked = (flags & hc.HENCH_RACIAL_FEAT_SPELLS) != 0;
@@ -695,7 +734,7 @@ namespace nwn2_ai_2da_editor
 					lbl_feat  = rf4_FeatLabel;
 					lbl_spell = rf4_SpellLabel;
 				}
-				else //if (tb == RacialFeat5_text)
+				else // tb == RacialFeat5_text
 				{
 					cb        = rf5_cheatCast;
 					tb_feat   = rf5_FeatId;
