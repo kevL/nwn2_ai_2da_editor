@@ -20,9 +20,9 @@ namespace nwn2_ai_2da_editor
 
 		#region eventhandlers
 		/// <summary>
-		/// Handles TextChanged event on the SaveDCType page.
+		/// Handles <c>TextChanged</c> event on the SaveDCType page.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="SaveDCType_text"/></c></param>
 		/// <param name="e"></param>
 		void TextChanged_dc(object sender, EventArgs e)
 		{
@@ -129,12 +129,12 @@ namespace nwn2_ai_2da_editor
 
 		/// <summary>
 		/// Handles resetting the current spell's savedctype.
-		/// Note that if the Apply-btn has been clicked for the spell then that
-		/// data will be used instead of the data from the originally loaded
-		/// HenchSpells.2da file.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="SaveDCType_reset"/></c></param>
 		/// <param name="e"></param>
+		/// <remarks>If the Apply-btn has been clicked for the spell then that
+		/// data will be used instead of the data from the originally loaded
+		/// HenchSpells.2da file.</remarks>
 		void Click_dc_reset(object sender, EventArgs e)
 		{
 			Spell spell = he.Spells[he.Id];
@@ -163,7 +163,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Handler for SaveDCType-type combobox.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="dc_co_SaveDC"/></c></param>
 		/// <param name="e"></param>
 		void SelectionChangeCommitted_dc_savedctype(object sender, EventArgs e)
 		{
@@ -208,7 +208,11 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Handler for the +/- buttons on the SaveDCType page.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="savedc_up"/></c></item>
+		/// <item><c><see cref="savedc_dn"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
 		void Click_dc_adjustors(object sender, EventArgs e)
 		{
@@ -232,11 +236,11 @@ namespace nwn2_ai_2da_editor
 
 		/// <summary>
 		/// Handler for the WeaponBonusType combobox.
-		/// The values represent specific formula in the CoreAI for calculating
-		/// casterlevel for a weapon-bonus.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="dc_co_WeaponBonus"/></c></param>
 		/// <param name="e"></param>
+		/// <remarks>The values represent specific formula in the CoreAI for
+		/// calculating casterlevel for a weapon-bonus.</remarks>
 		void SelectionChangeCommitted_dc_weaponbonustype(object sender, EventArgs e)
 		{
 			// NOTE: current val doesn't have to be tested for validity since
@@ -256,13 +260,19 @@ namespace nwn2_ai_2da_editor
 
 		/// <summary>
 		/// Handler for the SaveDCType - ArmorCheckType checkboxes.
-		/// NOTE: Had to change this from the CheckChanged events to the
-		/// MouseClick events. Else the repeated firings are a nightmare when
-		/// trying to keep state straight. Fortunately any CheckChanged happens
-		/// before this MouseClick event.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="savedc_ac1"/></c></item>
+		/// <item><c><see cref="savedc_ac2"/></c></item>
+		/// <item><c><see cref="savedc_ac3"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
+		/// <remarks>Had to change this from the <c>CheckChanged</c>
+		/// <c>events</c> to the <c>MouseClick</c> <c>events</c>. Else the
+		/// repeated firings are a nightmare when trying to keep state straight.
+		/// Fortunately any <c>CheckChanged</c> happens before this
+		/// <c>MouseClick</c> <c>event</c>.</remarks>
 		void MouseClick_dc_armorchecktype(object sender, MouseEventArgs e)
 		{
 			int savedctype;

@@ -15,9 +15,9 @@ namespace nwn2_ai_2da_editor
 
 		#region eventhandlers
 		/// <summary>
-		/// Handles TextChanged event on the TargetInfo page.
+		/// Handles <c>TextChanged</c> event on the TargetInfo page.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="TargetInfo_text"/></c></param>
 		/// <param name="e"></param>
 		void TextChanged_ti(object sender, EventArgs e)
 		{
@@ -138,12 +138,12 @@ namespace nwn2_ai_2da_editor
 
 		/// <summary>
 		/// Handles resetting the current spell's targetinfo.
-		/// Note that if the Apply-btn has been clicked for the spell then that
-		/// data will be used instead of the data from the originally loaded
-		/// HenchSpells.2da file.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="TargetInfo_reset"/></c></param>
 		/// <param name="e"></param>
+		/// <remarks>If the Apply-btn has been clicked for the spell then that
+		/// data will be used instead of the data from the originally loaded
+		/// HenchSpells.2da file.</remarks>
 		void Click_ti_reset(object sender, EventArgs e)
 		{
 			Spell spell = he.Spells[he.Id];
@@ -171,9 +171,10 @@ namespace nwn2_ai_2da_editor
 
 
 		/// <summary>
-		/// Handles toggling bits by combobox on the TargetInfo page - Shape group.
+		/// Handles toggling bits by combobox on the TargetInfo page - Shape
+		/// group.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="ti_co_Shape"/></c></param>
 		/// <param name="e"></param>
 		void SelectionChangeCommitted_ti_co_Shape(object sender, EventArgs e)
 		{
@@ -186,9 +187,10 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Handles toggling bits by combobox on the TargetInfo page - Range group.
+		/// Handles toggling bits by combobox on the TargetInfo page - Range
+		/// group.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="ti_co_Range"/></c></param>
 		/// <param name="e"></param>
 		void SelectionChangeCommitted_ti_co_Range(object sender, EventArgs e)
 		{
@@ -212,9 +214,23 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Handles toggling bits by checkboxes on the TargetInfo page - Flags group.
+		/// Handles toggling bits by checkboxes on the TargetInfo page - Flags
+		/// group.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="ti_ShapeLoop"/></c></item>
+		/// <item><c><see cref="ti_CheckCount"/></c></item>
+		/// <item><c><see cref="ti_MissileTargets"/></c></item>
+		/// <item><c><see cref="ti_SecondaryTargets"/></c></item>
+		/// <item><c><see cref="ti_SecondaryHalfDamage"/></c></item>
+		/// <item><c><see cref="ti_SeenRequired"/></c></item>
+		/// <item><c><see cref="ti_RangedSelectedArea"/></c></item>
+		/// <item><c><see cref="ti_PersistentAoe"/></c></item>
+		/// <item><c><see cref="ti_ScaledEffect"/></c></item>
+		/// <item><c><see cref="ti_Necromancy"/></c></item>
+		/// <item><c><see cref="ti_Regular"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
 		void MouseClick_ti_Flags(object sender, MouseEventArgs e)
 		{
@@ -283,7 +299,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Handles changing the radius in the Radius textbox.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="ti_Radius"/></c></param>
 		/// <param name="e"></param>
 		void TextChanged_ti_Radius(object sender, EventArgs e)
 		{

@@ -27,9 +27,9 @@ namespace nwn2_ai_2da_editor
 
 		#region eventhandlers
 		/// <summary>
-		/// Handles TextChanged event on the SaveType page.
+		/// Handles <c>TextChanged</c> event on the SaveType page.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="SaveType_text"/></c></param>
 		/// <param name="e"></param>
 		void TextChanged_st(object sender, EventArgs e)
 		{
@@ -127,12 +127,12 @@ namespace nwn2_ai_2da_editor
 
 		/// <summary>
 		/// Handles resetting the current spell's savetype.
-		/// Note that if the Apply-btn has been clicked for the spell then that
-		/// data will be used instead of the data from the originally loaded
-		/// HenchSpells.2da file.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="SaveType_reset"/></c></param>
 		/// <param name="e"></param>
+		/// <remarks>If the Apply-btn has been clicked for the spell then that
+		/// data will be used instead of the data from the originally loaded
+		/// HenchSpells.2da file.</remarks>
 		void Click_st_reset(object sender, EventArgs e)
 		{
 			Spell spell = he.Spells[he.Id];
@@ -159,9 +159,10 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Handles toggling bits by combobox on the SaveType page - Specific group.
+		/// Handles toggling bits by combobox on the SaveType page - Specific
+		/// group.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="st_co_Specific"/></c></param>
 		/// <param name="e"></param>
 		void SelectionChangeCommitted_st_co_Specific(object sender, EventArgs e)
 		{
@@ -174,9 +175,10 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// 
+		/// Handles toggling bits by combobox on the SaveType page - Immunity1
+		/// group.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="st_co_Immunity1"/></c></param>
 		/// <param name="e"></param>
 		void SelectionChangeCommitted_st_co_Immunity1(object sender, EventArgs e)
 		{
@@ -191,9 +193,10 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// 
+		/// Handles toggling bits by combobox on the SaveType page - Immunity2
+		/// group.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="st_co_Immunity2"/></c></param>
 		/// <param name="e"></param>
 		void SelectionChangeCommitted_st_co_Immunity2(object sender, EventArgs e)
 		{
@@ -208,9 +211,10 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// 
+		/// Handles toggling bits by combobox on the SaveType page -
+		/// TargetRestriction group.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="st_co_TargetRestriction"/></c></param>
 		/// <param name="e"></param>
 		void SelectionChangeCommitted_st_co_Weapon(object sender, EventArgs e)
 		{
@@ -240,9 +244,10 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// 
+		/// Handles toggling bits by combobox on the SaveType page - AcBonus
+		/// group.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="st_co_AcBonus"/></c></param>
 		/// <param name="e"></param>
 		void SelectionChangeCommitted_st_co_AcBonus(object sender, EventArgs e)
 		{
@@ -259,9 +264,16 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Handles toggling bits by radiobuttons on the SaveType page - Type1Save group.
+		/// Handles toggling bits by radiobuttons on the SaveType page -
+		/// Type1Save group.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="st_Save1rb_none"/></c></item>
+		/// <item><c><see cref="st_Save1rb_fort"/></c></item>
+		/// <item><c><see cref="st_Save1rb_refl"/></c></item>
+		/// <item><c><see cref="st_Save1rb_will"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
 		void MouseClick_st_Type1Save(object sender, MouseEventArgs e)
 		{
@@ -291,9 +303,16 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Handles toggling bits by radiobuttons on the SaveType page - Type2Save group.
+		/// Handles toggling bits by radiobuttons on the SaveType page -
+		/// Type2Save group.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="st_Save2rb_none"/></c></item>
+		/// <item><c><see cref="st_Save2rb_fort"/></c></item>
+		/// <item><c><see cref="st_Save2rb_refl"/></c></item>
+		/// <item><c><see cref="st_Save2rb_will"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
 		void MouseClick_st_Type2Save(object sender, MouseEventArgs e)
 		{
@@ -323,9 +342,16 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Handles toggling bits by radiobuttons on the SaveType page - Type1Damage group.
+		/// Handles toggling bits by radiobuttons on the SaveType page -
+		/// Type1Damage group.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="st_Impact1rb_effectonly"/></c></item>
+		/// <item><c><see cref="st_Impact1rb_damagehalf"/></c></item>
+		/// <item><c><see cref="st_Impact1rb_effectdamage"/></c></item>
+		/// <item><c><see cref="st_Impact1rb_damageevasion"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
 		void MouseClick_st_Type1Damage(object sender, MouseEventArgs e)
 		{
@@ -355,9 +381,16 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Handles toggling bits by radiobuttons on the SaveType page - Type2Damage group.
+		/// Handles toggling bits by radiobuttons on the SaveType page -
+		/// Type2Damage group.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="st_Impact2rb_effectonly"/></c></item>
+		/// <item><c><see cref="st_Impact2rb_damagehalf"/></c></item>
+		/// <item><c><see cref="st_Impact2rb_effectdamage"/></c></item>
+		/// <item><c><see cref="st_Impact2rb_damageevasion"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
 		void MouseClick_st_Type2Damage(object sender, MouseEventArgs e)
 		{
@@ -387,9 +420,18 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Handles toggling bits by checkboxes on the SaveType page - Flags group.
+		/// Handles toggling bits by checkboxes on the SaveType page - Flags
+		/// group.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="st_AffectsFriendlies"/></c></item>
+		/// <item><c><see cref="st_MindAffecting"/></c></item>
+		/// <item><c><see cref="st_SpellResistance"/></c></item>
+		/// <item><c><see cref="st_TouchMelee"/></c></item>
+		/// <item><c><see cref="st_TouchRanged"/></c></item>
+		/// <item><c><see cref="st_NotCaster"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
 		void MouseClick_st_Flags(object sender, MouseEventArgs e)
 		{
@@ -436,9 +478,24 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Handles toggling bits by checkboxes on the SaveType page - exclusive DamageTypes group.
+		/// Handles toggling bits by checkboxes on the SaveType page - exclusive
+		/// DamageTypes group.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="st_Excl_Magical"/></c></item>
+		/// <item><c><see cref="st_Excl_Divine"/></c></item>
+		/// <item><c><see cref="st_Excl_Acid"/></c></item>
+		/// <item><c><see cref="st_Excl_Cold"/></c></item>
+		/// <item><c><see cref="st_Excl_Electrical"/></c></item>
+		/// <item><c><see cref="st_Excl_Fire"/></c></item>
+		/// <item><c><see cref="st_Excl_Sonic"/></c></item>
+		/// <item><c><see cref="st_Excl_Negative"/></c></item>
+		/// <item><c><see cref="st_Excl_Positive"/></c></item>
+		/// <item><c><see cref="st_Excl_Bludgeoning"/></c></item>
+		/// <item><c><see cref="st_Excl_Piercing"/></c></item>
+		/// <item><c><see cref="st_Excl_Slashing"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
 		void MouseClick_st_excl_Damagetype(object sender, MouseEventArgs e)
 		{
@@ -509,9 +566,16 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Handles toggling bits by checkboxes/radiobuttons on the SaveType page - exclusive Flags group.
+		/// Handles toggling bits by checkboxes/radiobuttons on the SaveType
+		/// page - exclusive Flags group.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="st_Excl_rbResistance"/></c></item>
+		/// <item><c><see cref="st_Excl_rbImmunity"/></c></item>
+		/// <item><c><see cref="st_Excl_Onlyone"/></c></item>
+		/// <item><c><see cref="st_Excl_General"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
 		void MouseClick_st_excl_Flags(object sender, MouseEventArgs e)
 		{
@@ -559,7 +623,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Handles changing exclusive Weight in its textbox.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="st_Excl_Weight"/></c></param>
 		/// <param name="e"></param>
 		void TextChanged_st_excl_Weight(object sender, EventArgs e)
 		{
@@ -588,9 +652,15 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Handles toggling bits by checkboxes on the SaveType page - SizeEffect group.
+		/// Handles toggling bits by checkboxes on the SaveType page -
+		/// SizeEffect group.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="st_ReduceNotEnlarge"/></c></item>
+		/// <item><c><see cref="st_AnimalOnly"/></c></item>
+		/// <item><c><see cref="st_NotHumanoid"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
 		void MouseClick_st_SizeEffect(object sender, MouseEventArgs e)
 		{

@@ -33,9 +33,9 @@ namespace nwn2_ai_2da_editor
 
 		#region eventhandlers
 		/// <summary>
-		/// Handles TextChanged event on the DamageInfo page.
+		/// Handles <c>TextChanged</c> event on the DamageInfo page.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="DamageInfo_text"/></c></param>
 		/// <param name="e"></param>
 		void TextChanged_di(object sender, EventArgs e)
 		{
@@ -134,12 +134,12 @@ namespace nwn2_ai_2da_editor
 
 		/// <summary>
 		/// Handles resetting the current spell's damageinfo.
-		/// Note that if the Apply-btn has been clicked for the spell then that
-		/// data will be used instead of the data from the originally loaded
-		/// HenchSpells.2da file.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="DamageInfo_reset"/></c></param>
 		/// <param name="e"></param>
+		/// <remarks>If the Apply-btn has been clicked for the spell then that
+		/// data will be used instead of the data from the originally loaded
+		/// HenchSpells.2da file.</remarks>
 		void Click_di_reset(object sender, EventArgs e)
 		{
 			Spell spell = he.Spells[he.Id];
@@ -167,9 +167,10 @@ namespace nwn2_ai_2da_editor
 
 
 		/// <summary>
-		/// Handles toggling bits by combobox on the DamageInfo page - beneficial PowerBase group.
+		/// Handles toggling bits by combobox on the DamageInfo page -
+		/// beneficial PowerBase group.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="di_co_BenPowerbase"/></c></param>
 		/// <param name="e"></param>
 		void SelectionChangeCommitted_di_co_ben_Powerbase(object sender, EventArgs e)
 		{
@@ -196,9 +197,10 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Handles toggling bits by combobox on the DamageInfo page - beneficial LevelType group.
+		/// Handles toggling bits by combobox on the DamageInfo page -
+		/// beneficial LevelType group.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="di_co_BenLeveltype"/></c></param>
 		/// <param name="e"></param>
 		void SelectionChangeCommitted_di_co_ben_Leveltype(object sender, EventArgs e)
 		{
@@ -220,9 +222,10 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Handles toggling bits by combobox on the DamageInfo page - detrimental DamageBase group.
+		/// Handles toggling bits by combobox on the DamageInfo page -
+		/// detrimental DamageBase group.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="di_co_DetDamagebase"/></c></param>
 		/// <param name="e"></param>
 		void SelectionChangeCommitted_di_co_det_Damagebase(object sender, EventArgs e)
 		{
@@ -254,9 +257,10 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Handles toggling bits by combobox on the DamageInfo page - detrimental LevelType group.
+		/// Handles toggling bits by combobox on the DamageInfo page -
+		/// detrimental LevelType group.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="di_co_DetLeveltype"/></c></param>
 		/// <param name="e"></param>
 		void SelectionChangeCommitted_di_co_det_Leveltype(object sender, EventArgs e)
 		{
@@ -278,9 +282,15 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Handles toggling bits by checkboxes on the DamageInfo page - DispelTypes group.
+		/// Handles toggling bits by checkboxes on the DamageInfo page -
+		/// DispelTypes group.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="di_Breach"/></c></item>
+		/// <item><c><see cref="di_Dispel"/></c></item>
+		/// <item><c><see cref="di_Resist"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
 		void MouseClick_di_Dispeltype(object sender, MouseEventArgs e)
 		{
@@ -315,9 +325,24 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Handles toggling bits by checkboxes on the DamageInfo page - DamageTypes group.
+		/// Handles toggling bits by checkboxes on the DamageInfo page -
+		/// DamageTypes group.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="di_Magical"/></c></item>
+		/// <item><c><see cref="di_Divine"/></c></item>
+		/// <item><c><see cref="di_Acid"/></c></item>
+		/// <item><c><see cref="di_Cold"/></c></item>
+		/// <item><c><see cref="di_Electrical"/></c></item>
+		/// <item><c><see cref="di_Fire"/></c></item>
+		/// <item><c><see cref="di_Sonic"/></c></item>
+		/// <item><c><see cref="di_Negative"/></c></item>
+		/// <item><c><see cref="di_Positive"/></c></item>
+		/// <item><c><see cref="di_Bludgeoning"/></c></item>
+		/// <item><c><see cref="di_Piercing"/></c></item>
+		/// <item><c><see cref="di_Slashing"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
 		void MouseClick_di_det_Damagetype(object sender, MouseEventArgs e)
 		{
@@ -398,7 +423,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Handles changing beneficial Power in its textbox.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="di_BenPower"/></c></param>
 		/// <param name="e"></param>
 		void TextChanged_di_ben_Power(object sender, EventArgs e)
 		{
@@ -428,7 +453,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Handles changing beneficial LevelLimit in its textbox.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="di_BenLevellimit"/></c></param>
 		/// <param name="e"></param>
 		void TextChanged_di_ben_Levellimit(object sender, EventArgs e)
 		{
@@ -459,7 +484,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Handles changing beneficial LevelDivisor in its textbox.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="di_BenLeveldivisor"/></c></param>
 		/// <param name="e"></param>
 		void TextChanged_di_ben_Leveldivisor(object sender, EventArgs e)
 		{
@@ -490,7 +515,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Handles changing beneficial LevelDecrease in its textbox.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="di_BenLeveldecrease"/></c></param>
 		/// <param name="e"></param>
 		void TextChanged_di_ben_Leveldecrease(object sender, EventArgs e)
 		{
@@ -522,7 +547,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Handles changing detrimental Damage in its textbox.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="di_DetDamage"/></c></param>
 		/// <param name="e"></param>
 		void TextChanged_di_det_Damage(object sender, EventArgs e)
 		{
@@ -553,7 +578,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Handles changing detrimental LevelLimit in its textbox.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="di_DetLevellimit"/></c></param>
 		/// <param name="e"></param>
 		void TextChanged_di_det_Levellimit(object sender, EventArgs e)
 		{
@@ -584,7 +609,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Handles changing detrimental LevelDivisor in its textbox.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="di_DetLeveldivisor"/></c></param>
 		/// <param name="e"></param>
 		void TextChanged_di_det_Leveldivisor(object sender, EventArgs e)
 		{
@@ -616,7 +641,7 @@ namespace nwn2_ai_2da_editor
 		/// Handles changing detrimental FixedCount in its textbox.
 		/// WARNING: These bits overlap detrimental LevelType and LevelDivisor.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="di_DetFixedcount"/></c></param>
 		/// <param name="e"></param>
 		void TextChanged_di_det_Fixedcount(object sender, EventArgs e)
 		{

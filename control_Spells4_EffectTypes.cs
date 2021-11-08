@@ -17,9 +17,9 @@ namespace nwn2_ai_2da_editor
 	{
 		#region eventhandlers
 		/// <summary>
-		/// Handles TextChanged event on the EffectTypes page.
+		/// Handles <c>TextChanged</c> event on the EffectTypes page.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="EffectTypes_text"/></c></param>
 		/// <param name="e"></param>
 		void TextChanged_et(object sender, EventArgs e)
 		{
@@ -117,12 +117,12 @@ namespace nwn2_ai_2da_editor
 
 		/// <summary>
 		/// Handles resetting the current spell's effecttypes.
-		/// Note that if the Apply-btn has been clicked for the spell then that
-		/// data will be used instead of the data from the originally loaded
-		/// HenchSpells.2da file.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="EffectTypes_reset"/></c></param>
 		/// <param name="e"></param>
+		/// <remarks>If the Apply-btn has been clicked for the spell then that
+		/// data will be used instead of the data from the originally loaded
+		/// HenchSpells.2da file.</remarks>
 		void Click_et_reset(object sender, EventArgs e)
 		{
 			Spell spell = he.Spells[he.Id];
@@ -150,9 +150,37 @@ namespace nwn2_ai_2da_editor
 
 
 		/// <summary>
-		/// Handles toggling bits by checkboxes on the EffectTypes page - PositiveEffects group.
+		/// Handles toggling bits by checkboxes on the EffectTypes page -
+		/// PositiveEffects group.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="et_AbilityIncrease"/></c></item>
+		/// <item><c><see cref="et_AbsorbDamage"/></c></item>
+		/// <item><c><see cref="et_AcIncrease"/></c></item>
+		/// <item><c><see cref="et_AttackIncrease"/></c></item>
+		/// <item><c><see cref="et_Concealment"/></c></item>
+		/// <item><c><see cref="et_DamageIncrease"/></c></item>
+		/// <item><c><see cref="et_DamageReduction"/></c></item>
+		/// <item><c><see cref="et_ElementalShield"/></c></item>
+		/// <item><c><see cref="et_Ethereal"/></c></item>
+		/// <item><c><see cref="et_GreaterInvisibility"/></c></item>
+		/// <item><c><see cref="et_Haste"/></c></item>
+		/// <item><c><see cref="et_ImmunityNecromancy"/></c></item>
+		/// <item><c><see cref="et_Invisibility"/></c></item>
+		/// <item><c><see cref="et_Polymorph"/></c></item>
+		/// <item><c><see cref="et_Regenerate"/></c></item>
+		/// <item><c><see cref="et_Sanctuary"/></c></item>
+		/// <item><c><see cref="et_SavingThrowIncrease"/></c></item>
+		/// <item><c><see cref="et_SeeInvisible"/></c></item> // TODO: why not SkillIncrease
+		/// <item><c><see cref="et_SpellAbsorption"/></c></item>
+		/// <item><c><see cref="et_SpellShield"/></c></item>
+		/// <item><c><see cref="et_TempHitpoints"/></c></item>
+		/// <item><c><see cref="et_Timestop"/></c></item>
+		/// <item><c><see cref="et_TrueSeeing"/></c></item>
+		/// <item><c><see cref="et_Ultravision"/></c></item>
+		/// <item><c><see cref="et_Wildshape"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
 		void MouseClick_et_positiveeffects(object sender, MouseEventArgs e)
 		{
@@ -275,9 +303,42 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Handles toggling bits by checkboxes on the EffectTypes page - NegativeEffects group.
+		/// Handles toggling bits by checkboxes on the EffectTypes page -
+		/// NegativeEffects group.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="et_AbilityDecrease"/></c></item>
+		/// <item><c><see cref="et_AcDecrease"/></c></item>
+		/// <item><c><see cref="et_AttackDecrease"/></c></item>
+		/// <item><c><see cref="et_Blindness"/></c></item>
+		/// <item><c><see cref="et_Charm"/></c></item>
+		/// <item><c><see cref="et_Confuse"/></c></item>
+		/// <item><c><see cref="et_Curse"/></c></item>
+		/// <item><c><see cref="et_CutsceneParalyze"/></c></item>
+		/// <item><c><see cref="et_DamageDecrease"/></c></item>
+		/// <item><c><see cref="et_Daze"/></c></item>
+		/// <item><c><see cref="et_Deafness"/></c></item>
+		/// <item><c><see cref="et_Death"/></c></item>
+		/// <item><c><see cref="et_Disease"/></c></item>
+		/// <item><c><see cref="et_Dominate"/></c></item>
+		/// <item><c><see cref="et_Dying"/></c></item>
+		/// <item><c><see cref="et_Entangle"/></c></item>
+		/// <item><c><see cref="et_Frighten"/></c></item>
+		/// <item><c><see cref="et_Knockdown"/></c></item>
+		/// <item><c><see cref="et_Mesmerize"/></c></item>
+		/// <item><c><see cref="et_NegativeLevel"/></c></item>
+		/// <item><c><see cref="et_Paralyze"/></c></item>
+		/// <item><c><see cref="et_Petrify"/></c></item>
+		/// <item><c><see cref="et_Poison"/></c></item>
+		/// <item><c><see cref="et_SavingThrowDecrease"/></c></item>
+		/// <item><c><see cref="et_Silence"/></c></item>
+		/// <item><c><see cref="et_SkillDecrease"/></c></item>
+		/// <item><c><see cref="et_Sleep"/></c></item>
+		/// <item><c><see cref="et_Slow"/></c></item>
+		/// <item><c><see cref="et_SpeedDecrease"/></c></item>
+		/// <item><c><see cref="et_Stun"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
 		void MouseClick_et_negativeeffects(object sender, MouseEventArgs e)
 		{

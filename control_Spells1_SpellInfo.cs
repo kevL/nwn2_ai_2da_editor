@@ -10,9 +10,9 @@ namespace nwn2_ai_2da_editor
 	{
 		#region eventhandlers
 		/// <summary>
-		/// Handles TextChanged event on the SpellInfo page.
+		/// Handles <c>TextChanged</c> event on the SpellInfo page.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="SpellInfo_text"/></c></param>
 		/// <param name="e"></param>
 		void TextChanged_si(object sender, EventArgs e)
 		{
@@ -127,12 +127,12 @@ namespace nwn2_ai_2da_editor
 
 		/// <summary>
 		/// Handles resetting the current spell's spellinfo.
-		/// Note that if the Apply-btn has been clicked for the spell then that
-		/// data will be used instead of the data from the originally loaded
-		/// HenchSpells.2da file.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="SpellInfo_reset"/></c></param>
 		/// <param name="e"></param>
+		/// <remarks>If the Apply-btn has been clicked for the spell then that
+		/// data will be used instead of the data from the originally loaded
+		/// HenchSpells.2da file.</remarks>
 		void Click_si_reset(object sender, EventArgs e)
 		{
 			Spell spell = he.Spells[he.Id];
@@ -160,9 +160,10 @@ namespace nwn2_ai_2da_editor
 
 
 		/// <summary>
-		/// Handles toggling bits by combobox on the SpellInfo page - SpellType group.
+		/// Handles toggling bits by combobox on the SpellInfo page - SpellType
+		/// group.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="si_co_Spelltype"/></c></param>
 		/// <param name="e"></param>
 		void SelectionChangeCommitted_si_co_Spelltype(object sender, EventArgs e)
 		{
@@ -175,9 +176,10 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Handles toggling bits by combobox on the SpellInfo page - SpellLevel group.
+		/// Handles toggling bits by combobox on the SpellInfo page - SpellLevel
+		/// group.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="si_co_Spelllevel"/></c></param>
 		/// <param name="e"></param>
 		void SelectionChangeCommitted_si_co_Spelllevel(object sender, EventArgs e)
 		{
@@ -191,9 +193,21 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// Handles toggling bits by checkboxes on the SpellInfo page - Flags group.
+		/// Handles toggling bits by checkboxes on the SpellInfo page - Flags
+		/// group.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="si_Ignore"/></c></item>
+		/// <item><c><see cref="si_IsMaster"/></c></item>
+		/// <item><c><see cref="si_Concentration"/></c></item>
+		/// <item><c><see cref="si_HealOrCure"/></c></item>
+		/// <item><c><see cref="si_ItemCast"/></c></item>
+		/// <item><c><see cref="si_Unlimited"/></c></item>
+		/// <item><c><see cref="si_ShortDurBuff"/></c></item>
+		/// <item><c><see cref="si_MediumDurBuff"/></c></item>
+		/// <item><c><see cref="si_LongDurBuff"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
 		void MouseClick_si_Flags(object sender, MouseEventArgs e)
 		{
@@ -257,9 +271,16 @@ namespace nwn2_ai_2da_editor
 
 
 		/// <summary>
-		/// Handles toggling bits by checkboxes on the SpellInfo page - Metamagic group.
+		/// Handles toggling bits by checkboxes on the SpellInfo page -
+		/// Metamagic group.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="si_Extend"/></c></item>
+		/// <item><c><see cref="si_Empower"/></c></item>
+		/// <item><c><see cref="si_Maximize"/></c></item>
+		/// <item><c><see cref="si_Persistent"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
 		void MouseClick_si_Metamagic(object sender, MouseEventArgs e)
 		{
@@ -298,11 +319,18 @@ namespace nwn2_ai_2da_editor
 		}
 		/// <summary>
 		/// Sends the text in the Subspell boxes to where they should go.
-		/// Note that the EffectWeight field is skipped since it is a
-		/// float-value while the Subspell ids convert to ints.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="si_Subspell1"/></c></item>
+		/// <item><c><see cref="si_Subspell2"/></c></item>
+		/// <item><c><see cref="si_Subspell3"/></c></item>
+		/// <item><c><see cref="si_Subspell4"/></c></item>
+		/// <item><c><see cref="si_Subspell5"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
+		/// <remarks>The EffectWeight field is skipped since it is a
+		/// <c>float</c> while the Subspell ids convert to <c>ints</c>.</remarks>
 		void TextChanged_si_Subspell(object sender, EventArgs e)
 		{
 			if (!BypassSubspell)
@@ -361,10 +389,13 @@ namespace nwn2_ai_2da_editor
 
 
 		/// <summary>
-		/// 
+		/// Sets a <c>Label's</c> text by referencing a specified
+		/// <paramref name="id"/> in
+		/// <c><see cref="he.spellLabels">he.spellLabels</see></c>.
 		/// </summary>
-		/// <param name="label"></param>
-		/// <param name="id"></param>
+		/// <param name="label">the <c>Control</c> to set the text for</param>
+		/// <param name="id">the required <paramref name="id"/> in
+		/// <c>he.spellLabels</c></param>
 		void SetSpellLabelText(Control label, int id)
 		{
 			if (he.spellLabels.Count != 0
