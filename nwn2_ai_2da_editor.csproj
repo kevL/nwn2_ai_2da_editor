@@ -55,10 +55,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="hc.cs" />
+    <Compile Include="he_Load.cs">
+      <DependentUpon>he.cs</DependentUpon>
+    </Compile>
     <Compile Include="he_Menu.cs">
       <DependentUpon>he.cs</DependentUpon>
     </Compile>
     <Compile Include="HenchControl.cs" />
+    <Compile Include="he_Recent.cs">
+      <DependentUpon>he.cs</DependentUpon>
+    </Compile>
     <Compile Include="Output2da.cs" />
     <Compile Include="Scripter.cs" />
     <Compile Include="Scripter.Designer.cs">

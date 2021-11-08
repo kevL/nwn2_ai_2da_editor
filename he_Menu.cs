@@ -375,6 +375,10 @@ namespace nwn2_ai_2da_editor
 		#endregion Edit
 
 
+		#region Edition
+		#endregion Edition
+
+
 		#region Labels
 		void dropdownopening_Labels(object sender, EventArgs e)
 		{
@@ -680,7 +684,7 @@ namespace nwn2_ai_2da_editor
 			{
 				string[] rows = File.ReadAllLines(pfe2da);
 
-				if (!DoubleQuoteCondition(rows))
+				if (!DoubleQuoteCondition(rows, this))
 				{
 					labels.Clear();
 
@@ -958,6 +962,11 @@ namespace nwn2_ai_2da_editor
 
 
 		#region Help
+		/// <summary>
+		/// Shows the About box.
+		/// </summary>
+		/// <param name="sender"><c><see cref="it_About"/></c></param>
+		/// <param name="e"></param>
 		void Click_about(object sender, EventArgs e)
 		{
 			DateTime dt = Assembly.GetExecutingAssembly().GetLinkerTime();
@@ -966,7 +975,7 @@ namespace nwn2_ai_2da_editor
 										dt);
 			// what a fucking pain in the ass!
 
-			var an = Assembly.GetExecutingAssembly().GetName();
+			AssemblyName an = Assembly.GetExecutingAssembly().GetName();
 			string ver = "Ver "
 					   + an.Version.Major + "."
 					   + an.Version.Minor + "."
@@ -982,6 +991,86 @@ namespace nwn2_ai_2da_editor
 				ib.ShowDialog(this);
 		}
 		#endregion Help
+
+
+		#region Scripter
+		/// <summary>
+		/// Handles a click on the script-button.
+		/// </summary>
+		/// <param name="sender"><c><see cref="bu_Script"/></c></param>
+		/// <param name="e"></param>
+		void click_Script(object sender, EventArgs e)
+		{
+			using (var ofd = new OpenFileDialog())
+			{
+				ofd.AutoUpgradeEnabled = false; // loL fu.net
+
+				ofd.Title  = "Select a spellscript file";
+				ofd.Filter = "NwScript files (*.nss)|*.nss|All files (*.*)|*.*";
+
+				if (Type == Type2da.Spells && Id < spellScripts.Count)
+				{
+					string spellscript = spellScripts[Id];
+					if (spellscript != stars)
+						ofd.FileName = spellscript + ".nss";
+				}
+				string file = ofd.FileName;
+
+				string pfe_recentscriptsfile = Path.Combine(Application.StartupPath, RD_SCRIPS_CFG);
+				if (File.Exists(pfe_recentscriptsfile))
+				{
+					string dir_scripts = File.ReadAllText(pfe_recentscriptsfile);
+					if (Directory.Exists(dir_scripts))
+						ofd.InitialDirectory = dir_scripts;
+				}
+				else
+					pfe_recentscriptsfile = null;
+
+
+				if (ofd.ShowDialog(this) == DialogResult.OK)
+				{
+					if (pfe_recentscriptsfile != null)
+					{
+						string dir_scripts = Path.GetDirectoryName(ofd.FileName);
+						if (Directory.Exists(dir_scripts))
+						{
+							File.WriteAllText(pfe_recentscriptsfile, dir_scripts);
+						}
+					}
+
+					if (Scripter == null || Scripter.IsDisposed)
+						Scripter = new Scripter(Location.X + 20, Location.Y + 20);
+
+					Scripter.SetTitleText(ofd.SafeFileName);
+
+					Scripter.SetScriptText(File.ReadAllLines(ofd.FileName));
+
+					if (Type == Type2da.Spells && Id < spellTable.Count
+						&& file.ToLower() == ofd.SafeFileName.ToLower())
+					{
+						// NOTE: Do not search for a match between the chosen
+						// script and the scripts in 'spellScripts' because the
+						// id of the script in 'spellScripts' is not necessarily
+						// the id of the spell that user wants to look at; ie,
+						// spellscripts in Spells.2da can be (and are) slotted
+						// in more than one spellid.
+						//
+						// Ergo rely only on a specific id that user has
+						// selected in HenchSpells.2da. Else bail and clear the
+						// fields-text.
+						Scripter.SetFieldsText(spellTable[Id]);
+					}
+					else
+						Scripter.ClearFieldsText();
+
+					Scripter.Show();
+
+					Scripter.TopMost = true;
+					Scripter.TopMost = false;
+				}
+			}
+		}
+		#endregion Scripter
 
 
 		#region Changes functs

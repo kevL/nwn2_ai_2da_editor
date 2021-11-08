@@ -728,7 +728,7 @@ namespace nwn2_ai_2da_editor
 
 		#region HenchControl (override)
 		/// <summary>
-		/// 
+		/// Fills displayed fields w/ data from the spell's Id.
 		/// </summary>
 		internal override void SelectId()
 		{

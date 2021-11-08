@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Drawing;
 using System.Windows.Forms;
 
 
@@ -7,6 +8,35 @@ namespace nwn2_ai_2da_editor
 {
 	partial class he
 	{
+		Button bu_Script;
+
+		/// <summary>
+		/// Creates and initializes a <c>Button</c> to show a spell's script.
+		/// </summary>
+		void CreateScript_button()
+		{
+			bu_Script = new Button();
+
+			bu_Script.Text = "script";
+			bu_Script.Font = new Font("Courier New", 7f);
+
+			bu_Script.Name     = "bu_Script";
+			bu_Script.TabIndex = 2;
+
+			bu_Script.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+			bu_Script.UseVisualStyleBackColor = true;
+
+			bu_Script.Location = new Point(ClientSize.Width - 60,0);
+			bu_Script.Size     = new Size(60,20);
+			bu_Script.Margin   = new Padding(0);
+
+			bu_Script.MouseClick += click_Script;
+
+			Controls.Add(bu_Script);
+
+			bu_Script.BringToFront();
+		}
+
 		/// <summary>
 		/// Disposes resources used by the form.
 		/// </summary>
@@ -44,6 +74,12 @@ namespace nwn2_ai_2da_editor
 		ToolStripMenuItem it_Copy_bin;
 		ToolStripSeparator toolStripSeparator6;
 		ToolStripMenuItem it_ClearCoreAI;
+		ToolStripMenuItem tsmi_edition;
+		ToolStripMenuItem it_Edition_stock;
+		ToolStripMenuItem it_Edition_tony22;
+		ToolStripMenuItem it_Edition_tony25;
+		ToolStripSeparator toolStripSeparator7;
+		ToolStripMenuItem it_Edition_convert;
 		ToolStripMenuItem tsmi_labels;
 		ToolStripMenuItem it_pathSpells;
 		ToolStripMenuItem it_pathRacialSubtypes;
@@ -92,6 +128,12 @@ namespace nwn2_ai_2da_editor
 			this.it_Copy_bin = new System.Windows.Forms.ToolStripMenuItem();
 			this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
 			this.it_ClearCoreAI = new System.Windows.Forms.ToolStripMenuItem();
+			this.tsmi_edition = new System.Windows.Forms.ToolStripMenuItem();
+			this.it_Edition_stock = new System.Windows.Forms.ToolStripMenuItem();
+			this.it_Edition_tony22 = new System.Windows.Forms.ToolStripMenuItem();
+			this.it_Edition_tony25 = new System.Windows.Forms.ToolStripMenuItem();
+			this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+			this.it_Edition_convert = new System.Windows.Forms.ToolStripMenuItem();
 			this.tsmi_labels = new System.Windows.Forms.ToolStripMenuItem();
 			this.it_pathSpells = new System.Windows.Forms.ToolStripMenuItem();
 			this.it_pathRacialSubtypes = new System.Windows.Forms.ToolStripMenuItem();
@@ -126,6 +168,7 @@ namespace nwn2_ai_2da_editor
 			this.menubar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
 			this.tsmi_file,
 			this.tsmi_edit,
+			this.tsmi_edition,
 			this.tsmi_labels,
 			this.tsmi_help});
 			this.menubar.Location = new System.Drawing.Point(0, 0);
@@ -146,7 +189,8 @@ namespace nwn2_ai_2da_editor
 			this.toolStripSeparator2,
 			this.it_Quit});
 			this.tsmi_file.Name = "tsmi_file";
-			this.tsmi_file.Size = new System.Drawing.Size(37, 24);
+			this.tsmi_file.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+			this.tsmi_file.Size = new System.Drawing.Size(35, 24);
 			this.tsmi_file.Text = "&File";
 			this.tsmi_file.DropDownOpening += new System.EventHandler(this.dropdownopening_File);
 			// 
@@ -219,7 +263,8 @@ namespace nwn2_ai_2da_editor
 			this.toolStripSeparator6,
 			this.it_ClearCoreAI});
 			this.tsmi_edit.Name = "tsmi_edit";
-			this.tsmi_edit.Size = new System.Drawing.Size(37, 24);
+			this.tsmi_edit.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+			this.tsmi_edit.Size = new System.Drawing.Size(35, 24);
 			this.tsmi_edit.Text = "&Edit";
 			// 
 			// it_ApplyGlobal
@@ -296,6 +341,52 @@ namespace nwn2_ai_2da_editor
 			this.it_ClearCoreAI.Text = "Clear CoreA&I version ...";
 			this.it_ClearCoreAI.Click += new System.EventHandler(this.Click_clearCoreAiVersion);
 			// 
+			// tsmi_edition
+			// 
+			this.tsmi_edition.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+			this.it_Edition_stock,
+			this.it_Edition_tony22,
+			this.it_Edition_tony25,
+			this.toolStripSeparator7,
+			this.it_Edition_convert});
+			this.tsmi_edition.Name = "tsmi_edition";
+			this.tsmi_edition.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+			this.tsmi_edition.Size = new System.Drawing.Size(50, 24);
+			this.tsmi_edition.Text = "Edition";
+			// 
+			// it_Edition_stock
+			// 
+			this.it_Edition_stock.Name = "it_Edition_stock";
+			this.it_Edition_stock.Padding = new System.Windows.Forms.Padding(0);
+			this.it_Edition_stock.Size = new System.Drawing.Size(175, 20);
+			this.it_Edition_stock.Text = "stock";
+			// 
+			// it_Edition_tony22
+			// 
+			this.it_Edition_tony22.Name = "it_Edition_tony22";
+			this.it_Edition_tony22.Padding = new System.Windows.Forms.Padding(0);
+			this.it_Edition_tony22.Size = new System.Drawing.Size(175, 20);
+			this.it_Edition_tony22.Text = "tonyAI 2.2";
+			// 
+			// it_Edition_tony25
+			// 
+			this.it_Edition_tony25.Name = "it_Edition_tony25";
+			this.it_Edition_tony25.Padding = new System.Windows.Forms.Padding(0);
+			this.it_Edition_tony25.Size = new System.Drawing.Size(175, 20);
+			this.it_Edition_tony25.Text = "tonyAI 2.5";
+			// 
+			// toolStripSeparator7
+			// 
+			this.toolStripSeparator7.Name = "toolStripSeparator7";
+			this.toolStripSeparator7.Size = new System.Drawing.Size(172, 6);
+			// 
+			// it_Edition_convert
+			// 
+			this.it_Edition_convert.Name = "it_Edition_convert";
+			this.it_Edition_convert.Padding = new System.Windows.Forms.Padding(0);
+			this.it_Edition_convert.Size = new System.Drawing.Size(175, 20);
+			this.it_Edition_convert.Text = "Convert to tonyAI 2.5";
+			// 
 			// tsmi_labels
 			// 
 			this.tsmi_labels.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -308,7 +399,8 @@ namespace nwn2_ai_2da_editor
 			this.it_insertRaceLabels,
 			this.it_insertClassLabels});
 			this.tsmi_labels.Name = "tsmi_labels";
-			this.tsmi_labels.Size = new System.Drawing.Size(47, 24);
+			this.tsmi_labels.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+			this.tsmi_labels.Size = new System.Drawing.Size(45, 24);
 			this.tsmi_labels.Text = "&Labels";
 			this.tsmi_labels.DropDownOpening += new System.EventHandler(this.dropdownopening_Labels);
 			// 
@@ -381,7 +473,8 @@ namespace nwn2_ai_2da_editor
 			this.tsmi_help.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
 			this.it_About});
 			this.tsmi_help.Name = "tsmi_help";
-			this.tsmi_help.Size = new System.Drawing.Size(37, 24);
+			this.tsmi_help.Padding = new System.Windows.Forms.Padding(3, 0, 3, 0);
+			this.tsmi_help.Size = new System.Drawing.Size(35, 24);
 			this.tsmi_help.Text = "&Help";
 			// 
 			// it_About
