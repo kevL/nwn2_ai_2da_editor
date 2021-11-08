@@ -684,7 +684,7 @@ namespace nwn2_ai_2da_editor
 			{
 				string[] rows = File.ReadAllLines(pfe2da);
 
-				if (!DoubleQuoteCondition(rows, this))
+				if (!hasDoubleQuote(rows, this))
 				{
 					labels.Clear();
 

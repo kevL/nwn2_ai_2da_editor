@@ -9,17 +9,19 @@ namespace nwn2_ai_2da_editor
 	// Functions called when loading a 2da-file.
 	partial class he
 	{
+		#region Methods (static)
 		/// <summary>
-		/// Checks a 2da for any double-quote chars and displays an error if any
-		/// are found.
+		/// Checks 2da rows for double-quote <c>chars</c> and displays an error
+		/// if any are found.
 		/// </summary>
 		/// <param name="rows">an array of 2da rows</param>
-		/// <param name="he">parent</param>
+		/// <param name="he">parent for the <c><see cref="infobox"/></c></param>
 		/// <returns><c>true</c> if a double-quote char is found</returns>
-		static bool DoubleQuoteCondition(string[] rows, IWin32Window he)
+		/// <remarks>WARNING: This editor does *not* handle quotation marks
+		/// around 2da fields.</remarks>
+		static bool hasDoubleQuote(string[] rows, IWin32Window he)
 		{
-			// WARNING: This editor does *not* handle quotation marks around 2da fields.
-			foreach (string row in rows) // test for double-quote character and exit if found.
+			foreach (string row in rows)
 			{
 				foreach (char character in row)
 				{
@@ -39,10 +41,17 @@ namespace nwn2_ai_2da_editor
 			}
 			return false;
 		}
+		#endregion Methods (static)
 
+
+		#region Methods
 		/// <summary>
-		/// Determines which file to load: HenchSpells, HenchRacial, or
-		/// HenchClasses.
+		/// Determines which file to load:
+		/// <list type="bullet">
+		/// <item>HenchSpells</item>
+		/// <item>HenchRacial</item>
+		/// <item>HenchClasses</item>
+		/// </list>
 		/// </summary>
 		/// <remarks>The fullpath of the file must already be stored in
 		/// <c><see cref="_pfe"/></c>.
@@ -54,14 +63,14 @@ namespace nwn2_ai_2da_editor
 			if (File.Exists(_pfe)) // safety.
 			{
 				// deal with recent-files first
-				// NOTE: Recents won't be written to disk unless a file
-				// "recent.cfg" already exists in the appdir.
+				// Recents won't be written to disk unless a file "recent.cfg"
+				// already exists in the appdir.
 				recent_add();
 
 				// read and load the 2da second
 				string[] rows = File.ReadAllLines(_pfe);
 
-				if (!DoubleQuoteCondition(rows, this))
+				if (!hasDoubleQuote(rows, this))
 				{
 					SuspendLayout();
 
@@ -72,126 +81,127 @@ namespace nwn2_ai_2da_editor
 					for (int i = 0; i != rows.Length; ++i)
 						rows[i] = rows[i].Trim();
 
-					string[] fields;
-					foreach (string row in rows)
+					// resolve what 2da is being loaded ->
+					//
+					// HenchSpells.2da colheads
+					// Label SpellInfo TargetInfo EffectWeight EffectTypes DamageInfo SaveType SaveDCType
+					//
+					// HenchRacial.2da colheads
+					// Label Flags FeatSpell1 FeatSpell2 FeatSpell3 FeatSpell4 FeatSpell5
+					//
+					// HenchClasses.2da colheads
+					// Label Flags FeatSpell1 FeatSpell2 FeatSpell3 FeatSpell4 FeatSpell5 FeatSpell6 FeatSpell7 FeatSpell8 FeatSpell9 FeatSpell10 FeatSpell11
+
+					string[] fields = rows[2].Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
+
+					if (fields.Length > 5)
 					{
-						if (!String.IsNullOrEmpty(row))
+						if (fields[0].ToLowerInvariant() != "label")
 						{
-							fields = row.Split(new char[0], StringSplitOptions.RemoveEmptyEntries);
-
-							if (fields.Length > 5) // bypass 2da version header
+							switch (fields.Length)
 							{
-								// resolve what 2da is being loaded ->
-
-								// HenchSpells.2da colheads
-								// Label SpellInfo TargetInfo EffectWeight EffectTypes DamageInfo SaveType SaveDCType
-
-								// HenchRacial.2da colheads
-								// Label Flags FeatSpell1 FeatSpell2 FeatSpell3 FeatSpell4 FeatSpell5
-
-								// HenchClasses.2da colheads
-								// Label Flags FeatSpell1 FeatSpell2 FeatSpell3 FeatSpell4 FeatSpell5 FeatSpell6 FeatSpell7 FeatSpell8 FeatSpell9 FeatSpell10 FeatSpell11
-
-								if (fields.Length == 7							// henchspells w/out "Label" col
-									&& fields[0].ToLowerInvariant() == "spellinfo"
-									&& fields[1].ToLowerInvariant() == "targetinfo"
-									&& fields[2].ToLowerInvariant() == "effectweight"
-									&& fields[3].ToLowerInvariant() == "effecttypes"
-									&& fields[4].ToLowerInvariant() == "damageinfo"
-									&& fields[5].ToLowerInvariant() == "savetype"
-									&& fields[6].ToLowerInvariant() == "savedctype")
-								{
-									hasLabels = false;
-									Load_HenchSpells(rows);
-									error = false;
+								case 7: // henchspells w/out "Label" col
+									if (   fields[0].ToLowerInvariant() == "spellinfo"
+										&& fields[1].ToLowerInvariant() == "targetinfo"
+										&& fields[2].ToLowerInvariant() == "effectweight"
+										&& fields[3].ToLowerInvariant() == "effecttypes"
+										&& fields[4].ToLowerInvariant() == "damageinfo"
+										&& fields[5].ToLowerInvariant() == "savetype"
+										&& fields[6].ToLowerInvariant() == "savedctype")
+									{
+										hasLabels = false;
+										Load_HenchSpells(rows);
+										error = false;
+									}
 									break;
-								}
 
-								if (fields.Length == 8							// henchspells w/ "Label" col
-									&& fields[0].ToLowerInvariant() == "label"
-									&& fields[1].ToLowerInvariant() == "spellinfo"
-									&& fields[2].ToLowerInvariant() == "targetinfo"
-									&& fields[3].ToLowerInvariant() == "effectweight"
-									&& fields[4].ToLowerInvariant() == "effecttypes"
-									&& fields[5].ToLowerInvariant() == "damageinfo"
-									&& fields[6].ToLowerInvariant() == "savetype"
-									&& fields[7].ToLowerInvariant() == "savedctype")
-								{
-									hasLabels = true;
-									Load_HenchSpells(rows);
-									error = false;
+								case 6: // henchracial w/out "Label" col
+									if (   fields[0].ToLowerInvariant() == "flags"
+										&& fields[1].ToLowerInvariant() == "featspell1"
+										&& fields[2].ToLowerInvariant() == "featspell2"
+										&& fields[3].ToLowerInvariant() == "featspell3"
+										&& fields[4].ToLowerInvariant() == "featspell4"
+										&& fields[5].ToLowerInvariant() == "featspell5")
+									{
+										hasLabels = false;
+										Load_HenchRacial(rows);
+										error = false;
+									}
 									break;
-								}
 
-								if (fields.Length == 6							// henchracial w/out "Label" col
-									&& fields[0].ToLowerInvariant() == "flags"
-									&& fields[1].ToLowerInvariant() == "featspell1"
-									&& fields[2].ToLowerInvariant() == "featspell2"
-									&& fields[3].ToLowerInvariant() == "featspell3"
-									&& fields[4].ToLowerInvariant() == "featspell4"
-									&& fields[5].ToLowerInvariant() == "featspell5")
-								{
-									hasLabels = false;
-									Load_HenchRacial(rows);
-									error = false;
+								case 12: // henchclasses w/out "Label" col
+									if (   fields[ 0].ToLowerInvariant() == "flags"
+										&& fields[ 1].ToLowerInvariant() == "featspell1"
+										&& fields[ 2].ToLowerInvariant() == "featspell2"
+										&& fields[ 3].ToLowerInvariant() == "featspell3"
+										&& fields[ 4].ToLowerInvariant() == "featspell4"
+										&& fields[ 5].ToLowerInvariant() == "featspell5"
+										&& fields[ 6].ToLowerInvariant() == "featspell6"
+										&& fields[ 7].ToLowerInvariant() == "featspell7"
+										&& fields[ 8].ToLowerInvariant() == "featspell8"
+										&& fields[ 9].ToLowerInvariant() == "featspell9"
+										&& fields[10].ToLowerInvariant() == "featspell10"
+										&& fields[11].ToLowerInvariant() == "featspell11")
+									{
+										hasLabels = false;
+										Load_HenchClasses(rows);
+										error = false;
+									}
 									break;
-								}
+							}
+						}
+						else // fields[0] == "label"
+						{
+							switch (fields.Length)
+							{
+								case 7: // henchracial w/ "Label" col
+									if (   fields[1].ToLowerInvariant() == "flags"
+										&& fields[2].ToLowerInvariant() == "featspell1"
+										&& fields[3].ToLowerInvariant() == "featspell2"
+										&& fields[4].ToLowerInvariant() == "featspell3"
+										&& fields[5].ToLowerInvariant() == "featspell4"
+										&& fields[6].ToLowerInvariant() == "featspell5")
+									{
+										hasLabels = true;
+										Load_HenchRacial(rows);
+										error = false;
+									}
+									break;
 
-								if (fields.Length == 7							// henchracial w/ "Label" col
-									&& fields[0].ToLowerInvariant() == "label"
-									&& fields[1].ToLowerInvariant() == "flags"
-									&& fields[2].ToLowerInvariant() == "featspell1"
-									&& fields[3].ToLowerInvariant() == "featspell2"
-									&& fields[4].ToLowerInvariant() == "featspell3"
-									&& fields[5].ToLowerInvariant() == "featspell4"
-									&& fields[6].ToLowerInvariant() == "featspell5")
-								{
-									hasLabels = true;
-									Load_HenchRacial(rows);
-									error = false;
+								case 8: // henchspells w/ "Label" col
+									if (   fields[1].ToLowerInvariant() == "spellinfo"
+										&& fields[2].ToLowerInvariant() == "targetinfo"
+										&& fields[3].ToLowerInvariant() == "effectweight"
+										&& fields[4].ToLowerInvariant() == "effecttypes"
+										&& fields[5].ToLowerInvariant() == "damageinfo"
+										&& fields[6].ToLowerInvariant() == "savetype"
+										&& fields[7].ToLowerInvariant() == "savedctype")
+									{
+										hasLabels = true;
+										Load_HenchSpells(rows);
+										error = false;
+									}
 									break;
-								}
 
-								if (fields.Length == 12							// henchclasses w/out "Label" col
-									&& fields[ 0].ToLowerInvariant() == "flags"
-									&& fields[ 1].ToLowerInvariant() == "featspell1"
-									&& fields[ 2].ToLowerInvariant() == "featspell2"
-									&& fields[ 3].ToLowerInvariant() == "featspell3"
-									&& fields[ 4].ToLowerInvariant() == "featspell4"
-									&& fields[ 5].ToLowerInvariant() == "featspell5"
-									&& fields[ 6].ToLowerInvariant() == "featspell6"
-									&& fields[ 7].ToLowerInvariant() == "featspell7"
-									&& fields[ 8].ToLowerInvariant() == "featspell8"
-									&& fields[ 9].ToLowerInvariant() == "featspell9"
-									&& fields[10].ToLowerInvariant() == "featspell10"
-									&& fields[11].ToLowerInvariant() == "featspell11")
-								{
-									hasLabels = false;
-									Load_HenchClasses(rows);
-									error = false;
+								case 13: // henchclasses w/ "Label" col
+									if (   fields[ 1].ToLowerInvariant() == "flags"
+										&& fields[ 2].ToLowerInvariant() == "featspell1"
+										&& fields[ 3].ToLowerInvariant() == "featspell2"
+										&& fields[ 4].ToLowerInvariant() == "featspell3"
+										&& fields[ 5].ToLowerInvariant() == "featspell4"
+										&& fields[ 6].ToLowerInvariant() == "featspell5"
+										&& fields[ 7].ToLowerInvariant() == "featspell6"
+										&& fields[ 8].ToLowerInvariant() == "featspell7"
+										&& fields[ 9].ToLowerInvariant() == "featspell8"
+										&& fields[10].ToLowerInvariant() == "featspell9"
+										&& fields[11].ToLowerInvariant() == "featspell10"
+										&& fields[12].ToLowerInvariant() == "featspell11")
+									{
+										hasLabels = true;
+										Load_HenchClasses(rows);
+										error = false;
+									}
 									break;
-								}
-
-								if (fields.Length == 13							// henchclasses w/ "Label" col
-									&& fields[ 0].ToLowerInvariant() == "label"
-									&& fields[ 1].ToLowerInvariant() == "flags"
-									&& fields[ 2].ToLowerInvariant() == "featspell1"
-									&& fields[ 3].ToLowerInvariant() == "featspell2"
-									&& fields[ 4].ToLowerInvariant() == "featspell3"
-									&& fields[ 5].ToLowerInvariant() == "featspell4"
-									&& fields[ 6].ToLowerInvariant() == "featspell5"
-									&& fields[ 7].ToLowerInvariant() == "featspell6"
-									&& fields[ 8].ToLowerInvariant() == "featspell7"
-									&& fields[ 9].ToLowerInvariant() == "featspell8"
-									&& fields[10].ToLowerInvariant() == "featspell9"
-									&& fields[11].ToLowerInvariant() == "featspell10"
-									&& fields[12].ToLowerInvariant() == "featspell11")
-								{
-									hasLabels = true;
-									Load_HenchClasses(rows);
-									error = false;
-									break;
-								}
 							}
 						}
 					}
@@ -200,9 +210,7 @@ namespace nwn2_ai_2da_editor
 					{
 						SetTitleText(true);
 
-						// NOTE: Tree.SelectedNode=Tree.Nodes[0] is done auto.
-						// Not necessarily ...
-						Tree.SelectedNode = Tree.Nodes[0];
+						Tree.SelectedNode = Tree.Nodes[0]; // that should be done auto but doesn't always happen.
 
 //						if (InfoVersionUpdate) // no InfoVersion in TonyAI 2.3+
 //						{
@@ -213,6 +221,17 @@ namespace nwn2_ai_2da_editor
 //											MessageBoxIcon.Information,
 //											MessageBoxDefaultButton.Button1);
 //						}
+
+						BypassDiffer = false;
+
+						// if (HenchSpells.2da) clear bits for
+						// - Concentration
+						// - SpellLevel
+						// because TonyAI 2.3+ sets those auto.
+						if (!error && Type == Type2da.Spells)
+						{
+							UpdateSpellInfo(); // that needs to be done after 'BypassDiffer' ...
+						}
 					}
 					else
 					{
@@ -221,18 +240,8 @@ namespace nwn2_ai_2da_editor
 						const string info = "That file does not appear to be HenchSpells, HenchRacial, or HenchClasses.2da";
 						using (var ib = new infobox(" Error", info, "err"))
 							ib.ShowDialog(this);
-					}
 
-					BypassDiffer = false;
-
-					// if (HenchSpells.2da) clear bits for
-					// - Concentration
-					// - SpellLevel
-					// because TonyAI 2.3+ sets those auto.
-					// This need to be done after 'BypassDiffer' ...
-					if (Type == Type2da.Spells) // TODO: if (!error)
-					{
-						UpdateSpellInfo();
+						BypassDiffer = false;
 					}
 				}
 			}
@@ -953,5 +962,6 @@ namespace nwn2_ai_2da_editor
 
 			tree_Highlight.Visible = true;
 		}
+		#endregion Methods
 	}
 }
