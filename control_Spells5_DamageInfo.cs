@@ -308,7 +308,7 @@ namespace nwn2_ai_2da_editor
 				{
 					bit = hc.HENCH_SPELL_INFO_DAMAGE_DISPEL; // 0x00000002;
 				}
-				else //if (cb == di_Resist)
+				else // cb == di_Resist
 				{
 					bit = hc.HENCH_SPELL_INFO_DAMAGE_RESIST; // 0x00000004;
 				}
@@ -404,7 +404,7 @@ namespace nwn2_ai_2da_editor
 				{
 					bit = hc.DAMAGE_TYPE_POSITIVE;
 				}
-				else //if (cb == di_Sonic)
+				else // cb == di_Sonic
 				{
 					bit = hc.DAMAGE_TYPE_SONIC;
 				}

@@ -461,7 +461,7 @@ namespace nwn2_ai_2da_editor
 				{
 					bit = hc.HENCH_SPELL_SAVE_TYPE_TOUCH_MELEE_FLAG;
 				}
-				else //if (cb == st_TouchRanged)
+				else // cb == st_TouchRanged
 				{
 					bit = hc.HENCH_SPELL_SAVE_TYPE_TOUCH_RANGE_FLAG;
 				}
@@ -549,7 +549,7 @@ namespace nwn2_ai_2da_editor
 				{
 					bit = hc.DAMAGE_TYPE_POSITIVE;
 				}
-				else //if (cb == st_Excl_Sonic)
+				else // cb == st_Excl_Sonic
 				{
 					bit = hc.DAMAGE_TYPE_SONIC;
 				}
@@ -589,7 +589,7 @@ namespace nwn2_ai_2da_editor
 					{
 						savetype &= ~hc.HENCH_IMMUNITY_WEIGHT_RESISTANCE; // 0x00100000
 					}
-					else //if (rb == st_Excl_Flags_rbResistance)
+					else // rb == st_Excl_rbImmunity
 					{
 						savetype |= hc.HENCH_IMMUNITY_WEIGHT_RESISTANCE;
 					}
@@ -603,7 +603,7 @@ namespace nwn2_ai_2da_editor
 					{
 						bit = hc.HENCH_IMMUNITY_ONLY_ONE; // 0x00200000
 					}
-					else //if (cb == st_Excl_General)
+					else // cb == st_Excl_General
 					{
 						bit = hc.HENCH_IMMUNITY_GENERAL; // 0x00400000
 					}
@@ -678,7 +678,7 @@ namespace nwn2_ai_2da_editor
 				{
 					bit = HENCH_SAVETYPE_SIZEBUFF_ANIMAL;
 				}
-				else //if (cb == st_NotHumanoid)
+				else // cb == st_NotHumanoid
 				{
 					bit = HENCH_SAVETYPE_SIZEBUFF_NOTHUMANOID;
 				}

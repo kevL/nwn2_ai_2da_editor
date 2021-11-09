@@ -91,7 +91,7 @@ namespace nwn2_ai_2da_editor
 					tb_bin = RacialFeat4_bin;
 					bit    = bit_feat4;
 				}
-				else //if (tb == RacialFeat5_text)
+				else // tb == RacialFeat5_text
 				{
 					btn    = RacialFeat5_reset;
 					tb_hex = RacialFeat5_hex;
@@ -143,7 +143,7 @@ namespace nwn2_ai_2da_editor
 					{
 						racechanged.feat4 = val;
 					}
-					else if (tb == RacialFeat5_text)
+					else // tb == RacialFeat5_text
 					{
 						racechanged.feat5 = val;
 					}
@@ -310,7 +310,7 @@ namespace nwn2_ai_2da_editor
 					info = race.feat4;
 					tb   = RacialFeat4_text;
 				}
-				else //if (btn == RacialFeat5_reset)
+				else // btn == RacialFeat5_reset
 				{
 					bit  = bit_feat5;
 					info = race.feat5;
@@ -391,7 +391,7 @@ namespace nwn2_ai_2da_editor
 			{
 				tb = RacialFeat4_text;
 			}
-			else //if (cb == rf5_cheatCast)
+			else // cb == rf5_cheatCast
 			{
 				tb = RacialFeat5_text;
 			}
@@ -458,7 +458,7 @@ namespace nwn2_ai_2da_editor
 					{
 						tb_feat = RacialFeat4_text;
 					}
-					else //if (tb_feat == rf5_FeatId)
+					else // tb == rf5_FeatId
 					{
 						tb_feat = RacialFeat5_text;
 					}
@@ -519,7 +519,7 @@ namespace nwn2_ai_2da_editor
 					{
 						tb_feat = RacialFeat4_text;
 					}
-					else //if (tb_spell == rf5_SpellId)
+					else // tb == rf5_SpellId
 					{
 						tb_feat = RacialFeat5_text;
 					}

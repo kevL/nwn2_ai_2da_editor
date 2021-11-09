@@ -142,7 +142,7 @@ namespace nwn2_ai_2da_editor
 					tb_bin = ClassFeat10_bin;
 					bit    = bit_feat10;
 				}
-				else //if (tb == ClassFeat11_text)
+				else // tb == ClassFeat11_text
 				{
 					btn    = ClassFeat11_reset;
 					tb_hex = ClassFeat11_hex;
@@ -224,7 +224,7 @@ namespace nwn2_ai_2da_editor
 					{
 						classchanged.feat10 = val;
 					}
-					else //if (tb == ClassFeat11_text)
+					else // tb == ClassFeat11_text
 					{
 						classchanged.feat11 = val;
 					}
@@ -439,7 +439,7 @@ namespace nwn2_ai_2da_editor
 					info = @class.feat10;
 					tb   = ClassFeat10_text;
 				}
-				else //if (btn == ClassFeat11_reset)
+				else // btn == ClassFeat11_reset
 				{
 					bit  = bit_feat11;
 					info = @class.feat11;
@@ -501,7 +501,7 @@ namespace nwn2_ai_2da_editor
 					{
 						bit = hc.HENCH_CLASS_DC_BONUS_FLAG;
 					}
-					else //if (cb == cf_L4Required)
+					else // cb == cf_L4Required
 					{
 						bit = hc.HENCH_CLASS_FOURTH_LEVEL_NEEDED;
 					}
@@ -520,7 +520,7 @@ namespace nwn2_ai_2da_editor
 					{
 						flags |= hc.HENCH_CLASS_DIVINE_FLAG;
 					}
-					else //if (rb == cf_rbArcane)
+					else // rb == cf_rbArcane
 					{
 						flags &= ~hc.HENCH_CLASS_DIVINE_FLAG;
 					}
@@ -688,7 +688,7 @@ namespace nwn2_ai_2da_editor
 			{
 				tb = ClassFeat10_text;
 			}
-			else //if (cb == cf11_cheatCast)
+			else // cb == cf11_cheatCast
 			{
 				tb = ClassFeat11_text;
 			}
@@ -785,7 +785,7 @@ namespace nwn2_ai_2da_editor
 					{
 						tb_feat = ClassFeat10_text;
 					}
-					else //if (tb_feat == cf11_FeatId)
+					else // tb_feat == cf11_FeatId
 					{
 						tb_feat = ClassFeat11_text;
 					}
@@ -876,7 +876,7 @@ namespace nwn2_ai_2da_editor
 					{
 						tb_feat = ClassFeat10_text;
 					}
-					else //if (tb_spell == cf11_SpellId)
+					else // tb_spell == cf11_SpellId
 					{
 						tb_feat = ClassFeat11_text;
 					}
@@ -1329,7 +1329,7 @@ namespace nwn2_ai_2da_editor
 					lbl_feat  = cf10_FeatLabel;
 					lbl_spell = cf10_SpellLabel;
 				}
-				else //if (tb == ClassFeat11_text)
+				else // tb == ClassFeat11_text
 				{
 					cb        = cf11_cheatCast;
 					tb_feat   = cf11_FeatId;

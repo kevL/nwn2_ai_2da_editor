@@ -286,7 +286,7 @@ namespace nwn2_ai_2da_editor
 				{
 					bit = hc.HENCH_EFFECT_TYPE_SPELL_SHIELD;
 				}
-				else //if (cb == et_ImmunityNecromancy)
+				else // cb == et_ImmunityNecromancy
 				{
 					bit = hc.HENCH_EFFECT_TYPE_IMMUNE_NECROMANCY;
 				}
@@ -464,7 +464,7 @@ namespace nwn2_ai_2da_editor
 				{
 					bit = hc.HENCH_EFFECT_TYPE_MESMERIZE;
 				}
-				else //if (cb == et_CutsceneParalyze)
+				else // cb == et_CutsceneParalyze
 				{
 					bit = hc.HENCH_EFFECT_TYPE_CUTSCENE_PARALYZE;
 				}

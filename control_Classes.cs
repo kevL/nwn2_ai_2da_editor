@@ -244,7 +244,7 @@ namespace nwn2_ai_2da_editor
 			else if (btn ==  cf8_Clear) ClassFeat8_text .Text = "0";
 			else if (btn ==  cf9_Clear) ClassFeat9_text .Text = "0";
 			else if (btn == cf10_Clear) ClassFeat10_text.Text = "0";
-			else                        ClassFeat11_text.Text = "0"; //if (btn == cf11_Clear)
+			else                        ClassFeat11_text.Text = "0"; // btn == cf11_Clear
 		}
 		#endregion eventhandlers
 

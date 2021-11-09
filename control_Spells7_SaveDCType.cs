@@ -224,7 +224,7 @@ namespace nwn2_ai_2da_editor
 				{
 					++savedctype;
 				}
-				else //if (rb == savedc_dn)
+				else // rb == savedc_dn
 				{
 					--savedctype;
 				}
@@ -291,7 +291,7 @@ namespace nwn2_ai_2da_editor
 				{
 					bit = hc.HENCH_AC_CHECK_SHIELD; // 0x00000002
 				}
-				else //if (cb == savedc_ac3)
+				else // cb == savedc_ac3
 				{
 					bit = hc.HENCH_AC_CHECK_MOVEMENT_SPEED_DECREASE; // 0x10000000
 				}

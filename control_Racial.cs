@@ -147,7 +147,7 @@ namespace nwn2_ai_2da_editor
 			else if (btn == rf2_Clear) RacialFeat2_text.Text = "0";
 			else if (btn == rf3_Clear) RacialFeat3_text.Text = "0";
 			else if (btn == rf4_Clear) RacialFeat4_text.Text = "0";
-			else                       RacialFeat5_text.Text = "0"; //if (btn == rf5_Clear)
+			else                       RacialFeat5_text.Text = "0"; // btn == rf5_Clear
 		}
 		#endregion eventhandlers
 

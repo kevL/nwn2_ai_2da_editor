@@ -383,7 +383,7 @@ namespace nwn2_ai_2da_editor
 			else if (btn == et_Clear) EffectTypes_text .Text = "0";
 			else if (btn == di_Clear) DamageInfo_text  .Text = "0";
 			else if (btn == st_Clear) SaveType_text    .Text = "0";
-			else                      SaveDCType_text  .Text = "0"; //if (btn == dc_Clear)
+			else                      SaveDCType_text  .Text = "0"; // btn == dc_Clear
 		}
 		#endregion eventhandlers
 

@@ -253,7 +253,7 @@ namespace nwn2_ai_2da_editor
 				{
 					bit = hc.HENCH_SPELL_INFO_LONG_DUR_BUFF;		// 0x00100000
 				}
-				else //if (cb == si_ItemCast)
+				else // cb == si_ItemCast
 				{
 					bit = hc.HENCH_SPELL_INFO_ITEM_FLAG;			// 0x00800000
 				}
@@ -302,7 +302,7 @@ namespace nwn2_ai_2da_editor
 				{
 					bit = hc.HENCH_SPELL_INFO_EMPOWER_OK;	// 0x04000000
 				}
-				else //if (cb == si_Maximize)
+				else // cb == si_Maximize
 				{
 					bit = hc.HENCH_SPELL_INFO_MAXIMIZE_OK;	// 0x08000000
 				}
@@ -374,7 +374,7 @@ namespace nwn2_ai_2da_editor
 							SaveType_text.Text = tb.Text;
 							lbl_subspell = si_SubspellLabel4;
 						}
-						else //if (tb == si_Subspell5)
+						else // tb == si_Subspell5
 						{
 							SaveDCType_text.Text = tb.Text;
 							lbl_subspell = si_SubspellLabel5;

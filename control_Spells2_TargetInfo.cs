@@ -280,7 +280,7 @@ namespace nwn2_ai_2da_editor
 				{
 					bit = hc.HENCH_SPELL_TARGET_NECROMANCY_SPELL;
 				}
-				else //if (cb == ti_Regular)
+				else // cb == ti_Regular
 				{
 					bit = hc.HENCH_SPELL_TARGET_REGULAR_SPELL;
 				}
