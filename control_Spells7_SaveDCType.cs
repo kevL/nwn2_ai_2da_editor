@@ -219,12 +219,11 @@ namespace nwn2_ai_2da_editor
 			int savedctype;
 			if (Int32.TryParse(SaveDCType_text.Text, out savedctype))
 			{
-				var btn = sender as Button;
-				if (btn == savedc_up)
+				if (sender == savedc_up)
 				{
 					++savedctype;
 				}
-				else // rb == savedc_dn
+				else // sender == savedc_dn
 				{
 					--savedctype;
 				}
