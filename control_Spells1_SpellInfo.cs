@@ -29,8 +29,6 @@ namespace nwn2_ai_2da_editor
 			int spellinfo;
 			if (Int32.TryParse(SpellInfo_text.Text, out spellinfo))
 			{
-				int differ;
-
 				if (!he.BypassDiffer)
 				{
 					// ensure that spellinfo has a CoreAI version
@@ -102,7 +100,7 @@ namespace nwn2_ai_2da_editor
 
 				he.PrintCurrent(spellinfo, SpellInfo_hex, SpellInfo_bin);
 
-				differ = he.Spells[he.Id].differ;
+				int differ = he.Spells[he.Id].differ;
 
 				if ((differ & bit_spellinfo) != 0)
 				{

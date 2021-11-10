@@ -52,8 +52,6 @@ namespace nwn2_ai_2da_editor
 			int damageinfo;
 			if (Int32.TryParse(DamageInfo_text.Text, out damageinfo))
 			{
-				int differ;
-
 				if (!he.BypassDiffer)
 				{
 					Spell spell = he.Spells[he.Id];
@@ -99,7 +97,7 @@ namespace nwn2_ai_2da_editor
 
 				he.PrintCurrent(damageinfo, DamageInfo_hex, DamageInfo_bin);
 
-				differ = he.Spells[he.Id].differ;
+				int differ = he.Spells[he.Id].differ;
 
 				if ((differ & bit_damageinfo) != 0)
 				{

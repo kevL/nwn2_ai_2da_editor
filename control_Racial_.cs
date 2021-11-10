@@ -97,8 +97,6 @@ namespace nwn2_ai_2da_editor
 					bit    = bit_feat5;
 				}
 
-				int differ;
-
 				if (!he.BypassDiffer)
 				{
 					Race race = he.Races[he.Id];
@@ -147,12 +145,11 @@ namespace nwn2_ai_2da_editor
 					}
 
 					// check it
-					differ = RaceDiffer(race, racechanged);
-					race.differ = differ;
+					race.differ = RaceDiffer(race, racechanged);
 					he.Races[he.Id] = race;
 
 					Color color;
-					if (differ != bit_clean)
+					if (race.differ != bit_clean)
 					{
 						he.RacesChanged[he.Id] = racechanged;
 						color = Color.Crimson;
@@ -169,7 +166,7 @@ namespace nwn2_ai_2da_editor
 
 				he.PrintCurrent(val, tb_hex, tb_bin);
 
-				differ = he.Races[he.Id].differ;
+				int differ = he.Races[he.Id].differ;
 
 				if ((differ & bit) != 0)
 				{

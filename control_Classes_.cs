@@ -148,8 +148,6 @@ namespace nwn2_ai_2da_editor
 					bit    = bit_feat11;
 				}
 
-				int differ;
-
 				if (!he.BypassDiffer)
 				{
 					Class @class = he.Classes[he.Id];
@@ -228,12 +226,11 @@ namespace nwn2_ai_2da_editor
 					}
 
 					// check it
-					differ = ClassDiffer(@class, classchanged);
-					@class.differ = differ;
+					@class.differ = ClassDiffer(@class, classchanged);
 					he.Classes[he.Id] = @class;
 
 					Color color;
-					if (differ != bit_clean)
+					if (@class.differ != bit_clean)
 					{
 						he.ClassesChanged[he.Id] = classchanged;
 						color = Color.Crimson;
@@ -250,7 +247,7 @@ namespace nwn2_ai_2da_editor
 
 				he.PrintCurrent(val, tb_hex, tb_bin);
 
-				differ = he.Classes[he.Id].differ;
+				int differ = he.Classes[he.Id].differ;
 
 				if ((differ & bit) != 0)
 				{

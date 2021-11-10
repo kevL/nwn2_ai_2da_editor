@@ -46,8 +46,6 @@ namespace nwn2_ai_2da_editor
 			int savetype;
 			if (Int32.TryParse(SaveType_text.Text, out savetype))
 			{
-				int differ;
-
 				if (!he.BypassDiffer)
 				{
 					Spell spell = he.Spells[he.Id];
@@ -93,7 +91,7 @@ namespace nwn2_ai_2da_editor
 
 				he.PrintCurrent(savetype, SaveType_hex, SaveType_bin);
 
-				differ = he.Spells[he.Id].differ;
+				int differ = he.Spells[he.Id].differ;
 
 				if ((differ & bit_savetype) != 0)
 				{

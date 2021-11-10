@@ -30,8 +30,6 @@ namespace nwn2_ai_2da_editor
 			float effectweight;
 			if (Single.TryParse(EffectWeight_text.Text, out effectweight))
 			{
-				int differ;
-
 				if (!he.BypassDiffer)
 				{
 					Spell spell = he.Spells[he.Id];
@@ -75,7 +73,7 @@ namespace nwn2_ai_2da_editor
 					_he.SetNodeColor(color);
 				}
 
-				differ = he.Spells[he.Id].differ;
+				int differ = he.Spells[he.Id].differ;
 
 				if ((differ & bit_effectweight) != 0)
 				{
