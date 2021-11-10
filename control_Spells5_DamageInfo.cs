@@ -298,22 +298,20 @@ namespace nwn2_ai_2da_editor
 			if (Int32.TryParse(DamageInfo_text.Text, out damageinfo))
 			{
 				int bit;
-
-				var cb = sender as CheckBox;
-				if (cb == di_Breach)
+				if (sender == di_Breach)
 				{
 					bit = hc.HENCH_SPELL_INFO_DAMAGE_BREACH; // 0x00000001;
 				}
-				else if (cb == di_Dispel)
+				else if (sender == di_Dispel)
 				{
 					bit = hc.HENCH_SPELL_INFO_DAMAGE_DISPEL; // 0x00000002;
 				}
-				else // cb == di_Resist
+				else // sender == di_Resist
 				{
 					bit = hc.HENCH_SPELL_INFO_DAMAGE_RESIST; // 0x00000004;
 				}
 
-				if (cb.Checked)
+				if ((sender as CheckBox).Checked)
 				{
 					damageinfo |= bit;
 				}
@@ -358,58 +356,56 @@ namespace nwn2_ai_2da_editor
 				// If so then implement a routine that deselects a Type if a 3rd is clicked.
 
 				int bit;
-
-				var cb = sender as CheckBox;
-				if (cb == di_Bludgeoning)
+				if (sender == di_Bludgeoning)
 				{
 					bit = hc.DAMAGE_TYPE_BLUDGEONING;
 				}
-				else if (cb == di_Piercing)
+				else if (sender == di_Piercing)
 				{
 					bit = hc.DAMAGE_TYPE_PIERCING;
 				}
-				else if (cb == di_Slashing)
+				else if (sender == di_Slashing)
 				{
 					bit = hc.DAMAGE_TYPE_SLASHING;
 				}
-				else if (cb == di_Magical)
+				else if (sender == di_Magical)
 				{
 					bit = hc.DAMAGE_TYPE_MAGICAL;
 				}
-				else if (cb == di_Acid)
+				else if (sender == di_Acid)
 				{
 					bit = hc.DAMAGE_TYPE_ACID;
 				}
-				else if (cb == di_Cold)
+				else if (sender == di_Cold)
 				{
 					bit = hc.DAMAGE_TYPE_COLD;
 				}
-				else if (cb == di_Divine)
+				else if (sender == di_Divine)
 				{
 					bit = hc.DAMAGE_TYPE_DIVINE;
 				}
-				else if (cb == di_Electrical)
+				else if (sender == di_Electrical)
 				{
 					bit = hc.DAMAGE_TYPE_ELECTRICAL;
 				}
-				else if (cb == di_Fire)
+				else if (sender == di_Fire)
 				{
 					bit = hc.DAMAGE_TYPE_FIRE;
 				}
-				else if (cb == di_Negative)
+				else if (sender == di_Negative)
 				{
 					bit = hc.DAMAGE_TYPE_NEGATIVE;
 				}
-				else if (cb == di_Positive)
+				else if (sender == di_Positive)
 				{
 					bit = hc.DAMAGE_TYPE_POSITIVE;
 				}
-				else // cb == di_Sonic
+				else // sender == di_Sonic
 				{
 					bit = hc.DAMAGE_TYPE_SONIC;
 				}
 
-				if (cb.Checked)
+				if ((sender as CheckBox).Checked)
 				{
 					damageinfo |= bit;
 				}

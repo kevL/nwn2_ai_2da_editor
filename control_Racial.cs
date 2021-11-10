@@ -141,13 +141,12 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_clear(object sender, EventArgs e)
 		{
-			var btn = sender as Button;
-			if      (btn ==  rf_Clear) RacialFlags_text.Text = "0";
-			else if (btn == rf1_Clear) RacialFeat1_text.Text = "0";
-			else if (btn == rf2_Clear) RacialFeat2_text.Text = "0";
-			else if (btn == rf3_Clear) RacialFeat3_text.Text = "0";
-			else if (btn == rf4_Clear) RacialFeat4_text.Text = "0";
-			else                       RacialFeat5_text.Text = "0"; // btn == rf5_Clear
+			if      (sender ==  rf_Clear) RacialFlags_text.Text = "0";
+			else if (sender == rf1_Clear) RacialFeat1_text.Text = "0";
+			else if (sender == rf2_Clear) RacialFeat2_text.Text = "0";
+			else if (sender == rf3_Clear) RacialFeat3_text.Text = "0";
+			else if (sender == rf4_Clear) RacialFeat4_text.Text = "0";
+			else                          RacialFeat5_text.Text = "0"; // sender == rf5_Clear
 		}
 		#endregion eventhandlers
 

@@ -39,16 +39,14 @@ namespace nwn2_ai_2da_editor
 			// 'BypassDiffer' is also set true by AfterSelect_node() since the
 			// Spell-structs already contain proper diff-data.
 
-			var tb = sender as TextBox;
-
 			int val;
-			if (Int32.TryParse(tb.Text, out val))
+			if (Int32.TryParse((sender as TextBox).Text, out val))
 			{
-				Button btn;
+				Button bu;
 				TextBox tb_hex, tb_bin;
 				int bit;
 
-				bool isFlags = (tb == RacialFlags_text);
+				bool isFlags = (sender == RacialFlags_text);
 
 				if (isFlags)
 				{
@@ -58,42 +56,42 @@ namespace nwn2_ai_2da_editor
 //						return; // refire this funct.
 //					}
 
-					btn    = RacialFlags_reset;
+					bu     = RacialFlags_reset;
 					tb_hex = RacialFlags_hex;
 					tb_bin = RacialFlags_bin;
 					bit    = bit_flags;
 				}
-				else if (tb == RacialFeat1_text)
+				else if (sender == RacialFeat1_text)
 				{
-					btn    = RacialFeat1_reset;
+					bu     = RacialFeat1_reset;
 					tb_hex = RacialFeat1_hex;
 					tb_bin = RacialFeat1_bin;
 					bit    = bit_feat1;
 				}
-				else if (tb == RacialFeat2_text)
+				else if (sender == RacialFeat2_text)
 				{
-					btn    = RacialFeat2_reset;
+					bu     = RacialFeat2_reset;
 					tb_hex = RacialFeat2_hex;
 					tb_bin = RacialFeat2_bin;
 					bit    = bit_feat2;
 				}
-				else if (tb == RacialFeat3_text)
+				else if (sender == RacialFeat3_text)
 				{
-					btn    = RacialFeat3_reset;
+					bu     = RacialFeat3_reset;
 					tb_hex = RacialFeat3_hex;
 					tb_bin = RacialFeat3_bin;
 					bit    = bit_feat3;
 				}
-				else if (tb == RacialFeat4_text)
+				else if (sender == RacialFeat4_text)
 				{
-					btn    = RacialFeat4_reset;
+					bu     = RacialFeat4_reset;
 					tb_hex = RacialFeat4_hex;
 					tb_bin = RacialFeat4_bin;
 					bit    = bit_feat4;
 				}
-				else // tb == RacialFeat5_text
+				else // sender == RacialFeat5_text
 				{
-					btn    = RacialFeat5_reset;
+					bu     = RacialFeat5_reset;
 					tb_hex = RacialFeat5_hex;
 					tb_bin = RacialFeat5_bin;
 					bit    = bit_feat5;
@@ -127,23 +125,23 @@ namespace nwn2_ai_2da_editor
 					{
 						racechanged.flags = val;
 					}
-					else if (tb == RacialFeat1_text)
+					else if (sender == RacialFeat1_text)
 					{
 						racechanged.feat1 = val;
 					}
-					else if (tb == RacialFeat2_text)
+					else if (sender == RacialFeat2_text)
 					{
 						racechanged.feat2 = val;
 					}
-					else if (tb == RacialFeat3_text)
+					else if (sender == RacialFeat3_text)
 					{
 						racechanged.feat3 = val;
 					}
-					else if (tb == RacialFeat4_text)
+					else if (sender == RacialFeat4_text)
 					{
 						racechanged.feat4 = val;
 					}
-					else // tb == RacialFeat5_text
+					else // sender == RacialFeat5_text
 					{
 						racechanged.feat5 = val;
 					}
@@ -175,10 +173,10 @@ namespace nwn2_ai_2da_editor
 
 				if ((differ & bit) != 0)
 				{
-					btn.ForeColor = Color.Crimson;
+					bu.ForeColor = Color.Crimson;
 				}
 				else
-					btn.ForeColor = DefaultForeColor;
+					bu.ForeColor = DefaultForeColor;
 
 				if (isFlags)
 				{
@@ -186,7 +184,7 @@ namespace nwn2_ai_2da_editor
 //					PrintInfoVersion_race(val);
 				}
 				else
-					state_RacialFeats(tb);
+					state_RacialFeats(sender as Control);
 
 				_he.EnableApplys(differ != bit_clean);
 			}
@@ -279,38 +277,37 @@ namespace nwn2_ai_2da_editor
 
 				Race race = he.Races[he.Id];
 
-				var btn = sender as Button;
-				if (btn == RacialFlags_reset)
+				if (sender == RacialFlags_reset)
 				{
 					bit  = bit_flags;
 					info = race.flags;
 					tb   = RacialFlags_text;
 				}
-				else if (btn == RacialFeat1_reset)
+				else if (sender == RacialFeat1_reset)
 				{
 					bit  = bit_feat1;
 					info = race.feat1;
 					tb   = RacialFeat1_text;
 				}
-				else if (btn == RacialFeat2_reset)
+				else if (sender == RacialFeat2_reset)
 				{
 					bit  = bit_feat2;
 					info = race.feat2;
 					tb   = RacialFeat2_text;
 				}
-				else if (btn == RacialFeat3_reset)
+				else if (sender == RacialFeat3_reset)
 				{
 					bit  = bit_feat3;
 					info = race.feat3;
 					tb   = RacialFeat3_text;
 				}
-				else if (btn == RacialFeat4_reset)
+				else if (sender == RacialFeat4_reset)
 				{
 					bit  = bit_feat4;
 					info = race.feat4;
 					tb   = RacialFeat4_text;
 				}
-				else // btn == RacialFeat5_reset
+				else // sender == RacialFeat5_reset
 				{
 					bit  = bit_feat5;
 					info = race.feat5;
@@ -331,7 +328,7 @@ namespace nwn2_ai_2da_editor
 					_he.SetNodeColor(color);
 				}
 
-				btn.ForeColor = DefaultForeColor;
+				(sender as Button).ForeColor = DefaultForeColor;
 
 				tb.Text = info.ToString();
 			}
@@ -373,25 +370,23 @@ namespace nwn2_ai_2da_editor
 		void MouseClick_rFeats(object sender, MouseEventArgs e)
 		{
 			TextBox tb;
-
-			var cb = sender as CheckBox;
-			if (cb == rf1_cheatCast)
+			if (sender == rf1_cheatCast)
 			{
 				tb = RacialFeat1_text;
 			}
-			else if (cb == rf2_cheatCast)
+			else if (sender == rf2_cheatCast)
 			{
 				tb = RacialFeat2_text;
 			}
-			else if (cb == rf3_cheatCast)
+			else if (sender == rf3_cheatCast)
 			{
 				tb = RacialFeat3_text;
 			}
-			else if (cb == rf4_cheatCast)
+			else if (sender == rf4_cheatCast)
 			{
 				tb = RacialFeat4_text;
 			}
-			else // cb == rf5_cheatCast
+			else // sender == rf5_cheatCast
 			{
 				tb = RacialFeat5_text;
 			}
@@ -399,7 +394,7 @@ namespace nwn2_ai_2da_editor
 			int feat;
 			if (Int32.TryParse(tb.Text, out feat))
 			{
-				if (cb.Checked)
+				if ((sender as CheckBox).Checked)
 				{
 					feat |= hc.HENCH_FEAT_SPELL_CHEAT_CAST;
 				}
@@ -441,32 +436,16 @@ namespace nwn2_ai_2da_editor
 				}
 				else
 				{
-					TextBox tb_feat;
-					if (tb == rf1_FeatId)
-					{
-						tb_feat = RacialFeat1_text;
-					}
-					else if (tb == rf2_FeatId)
-					{
-						tb_feat = RacialFeat2_text;
-					}
-					else if (tb == rf3_FeatId)
-					{
-						tb_feat = RacialFeat3_text;
-					}
-					else if (tb == rf4_FeatId)
-					{
-						tb_feat = RacialFeat4_text;
-					}
-					else // tb == rf5_FeatId
-					{
-						tb_feat = RacialFeat5_text;
-					}
+					if      (sender == rf1_FeatId) tb = RacialFeat1_text;
+					else if (sender == rf2_FeatId) tb = RacialFeat2_text;
+					else if (sender == rf3_FeatId) tb = RacialFeat3_text;
+					else if (sender == rf4_FeatId) tb = RacialFeat4_text;
+					else                           tb = RacialFeat5_text; // sender == rf5_FeatId
 
-					int feaT = Int32.Parse(tb_feat.Text);
+					int feaT = Int32.Parse(tb.Text);
 					feaT &= ~hc.HENCH_FEAT_SPELL_MASK_FEAT;
 
-					tb_feat.Text = (feaT | feat).ToString();
+					tb.Text = (feaT | feat).ToString();
 				}
 			}
 		}
@@ -502,33 +481,17 @@ namespace nwn2_ai_2da_editor
 				}
 				else
 				{
-					TextBox tb_feat;
-					if (tb == rf1_SpellId)
-					{
-						tb_feat = RacialFeat1_text;
-					}
-					else if (tb == rf2_SpellId)
-					{
-						tb_feat = RacialFeat2_text;
-					}
-					else if (tb == rf3_SpellId)
-					{
-						tb_feat = RacialFeat3_text;
-					}
-					else if (tb == rf4_SpellId)
-					{
-						tb_feat = RacialFeat4_text;
-					}
-					else // tb == rf5_SpellId
-					{
-						tb_feat = RacialFeat5_text;
-					}
+					if      (sender == rf1_SpellId) tb = RacialFeat1_text;
+					else if (sender == rf2_SpellId) tb = RacialFeat2_text;
+					else if (sender == rf3_SpellId) tb = RacialFeat3_text;
+					else if (sender == rf4_SpellId) tb = RacialFeat4_text;
+					else                            tb = RacialFeat5_text; // sender == rf5_SpellId
 
-					int feaT = Int32.Parse(tb_feat.Text);
+					int feaT = Int32.Parse(tb.Text);
 					feaT &= ~hc.HENCH_FEAT_SPELL_MASK_SPELL;
 
 					spell <<= HENCH_FEAT_SPELL_SHIFT_SPELL;
-					tb_feat.Text = (feaT | spell).ToString();
+					tb.Text = (feaT | spell).ToString();
 				}
 			}
 		}

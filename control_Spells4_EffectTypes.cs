@@ -188,110 +188,108 @@ namespace nwn2_ai_2da_editor
 			if (Int32.TryParse(EffectTypes_text.Text, out effecttypes))
 			{
 				int bit;
-
-				var cb = sender as CheckBox;
-				if (cb == et_AcIncrease)
+				if (sender == et_AcIncrease)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_AC_INCREASE;
 				}
-				else if (cb == et_Regenerate)
+				else if (sender == et_Regenerate)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_REGENERATE;
 				}
-				else if (cb == et_AttackIncrease)
+				else if (sender == et_AttackIncrease)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_ATTACK_INCREASE;
 				}
-				else if (cb == et_DamageReduction)
+				else if (sender == et_DamageReduction)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_DAMAGE_REDUCTION;
 				}
-				else if (cb == et_Haste)
+				else if (sender == et_Haste)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_HASTE;
 				}
-				else if (cb == et_TempHitpoints)
+				else if (sender == et_TempHitpoints)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_TEMPORARY_HITPOINTS;
 				}
-				else if (cb == et_Sanctuary)
+				else if (sender == et_Sanctuary)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_SANCTUARY;
 				}
-				else if (cb == et_Timestop)
+				else if (sender == et_Timestop)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_TIMESTOP;
 				}
-				else if (cb == et_SpellAbsorption)
+				else if (sender == et_SpellAbsorption)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_SPELLLEVELABSORPTION;
 				}
-				else if (cb == et_SavingThrowIncrease)
+				else if (sender == et_SavingThrowIncrease)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_SAVING_THROW_INCREASE;
 				}
-				else if (cb == et_Concealment)
+				else if (sender == et_Concealment)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_CONCEALMENT;
 				}
-				else if (cb == et_DamageIncrease)
+				else if (sender == et_DamageIncrease)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_DAMAGE_INCREASE;
 				}
-				else if (cb == et_AbsorbDamage)
+				else if (sender == et_AbsorbDamage)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_ABSORBDAMAGE;
 				}
-				else if (cb == et_Ethereal)
+				else if (sender == et_Ethereal)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_ETHEREAL;
 				}
-				else if (cb == et_Invisibility)
+				else if (sender == et_Invisibility)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_INVISIBILITY;
 				}
-				else if (cb == et_Polymorph)
+				else if (sender == et_Polymorph)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_POLYMORPH;
 				}
-				else if (cb == et_Ultravision)
+				else if (sender == et_Ultravision)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_ULTRAVISION;
 				}
-				else if (cb == et_TrueSeeing)
+				else if (sender == et_TrueSeeing)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_TRUESEEING;
 				}
-				else if (cb == et_Wildshape)
+				else if (sender == et_Wildshape)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_WILDSHAPE;
 				}
-				else if (cb == et_GreaterInvisibility)
+				else if (sender == et_GreaterInvisibility)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_GREATER_INVIS;
 				}
-				else if (cb == et_ElementalShield)
+				else if (sender == et_ElementalShield)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_ELEMENTALSHIELD;
 				}
-				else if (cb == et_AbilityIncrease)
+				else if (sender == et_AbilityIncrease)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_ABILITY_INCREASE;
 				}
-				else if (cb == et_SeeInvisible)
+				else if (sender == et_SeeInvisible)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_SEEINVISIBLE;
 				}
-				else if (cb == et_SpellShield)
+				else if (sender == et_SpellShield)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_SPELL_SHIELD;
 				}
-				else // cb == et_ImmunityNecromancy
+				else // sender == et_ImmunityNecromancy
 				{
 					bit = hc.HENCH_EFFECT_TYPE_IMMUNE_NECROMANCY;
 				}
 
-				if (cb.Checked)
+				if ((sender as CheckBox).Checked)
 				{
 					effecttypes |= bit;
 				}
@@ -346,125 +344,123 @@ namespace nwn2_ai_2da_editor
 			if (Int32.TryParse(EffectTypes_text.Text, out effecttypes))
 			{
 				int bit;
-
-				var cb = sender as CheckBox;
-				if (cb == et_Entangle)
+				if (sender == et_Entangle)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_ENTANGLE;
 				}
-				else if (cb == et_Paralyze)
+				else if (sender == et_Paralyze)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_PARALYZE;
 				}
-				else if (cb == et_Deafness)
+				else if (sender == et_Deafness)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_DEAF;
 				}
-				else if (cb == et_Blindness)
+				else if (sender == et_Blindness)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_BLINDNESS;
 				}
-				else if (cb == et_Curse)
+				else if (sender == et_Curse)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_CURSE;
 				}
-				else if (cb == et_Sleep)
+				else if (sender == et_Sleep)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_SLEEP;
 				}
-				else if (cb == et_Charm)
+				else if (sender == et_Charm)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_CHARMED;
 				}
-				else if (cb == et_Confuse)
+				else if (sender == et_Confuse)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_CONFUSED;
 				}
-				else if (cb == et_Frighten)
+				else if (sender == et_Frighten)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_FRIGHTENED;
 				}
-				else if (cb == et_Dominate)
+				else if (sender == et_Dominate)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_DOMINATED;
 				}
-				else if (cb == et_Daze)
+				else if (sender == et_Daze)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_DAZED;
 				}
-				else if (cb == et_Poison)
+				else if (sender == et_Poison)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_POISON;
 				}
-				else if (cb == et_Disease)
+				else if (sender == et_Disease)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_DISEASE;
 				}
-				else if (cb == et_Silence)
+				else if (sender == et_Silence)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_SILENCE;
 				}
-				else if (cb == et_Slow)
+				else if (sender == et_Slow)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_SLOW;
 				}
-				else if (cb == et_AbilityDecrease)
+				else if (sender == et_AbilityDecrease)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_ABILITY_DECREASE;
 				}
-				else if (cb == et_DamageDecrease)
+				else if (sender == et_DamageDecrease)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_DAMAGE_DECREASE;
 				}
-				else if (cb == et_AttackDecrease)
+				else if (sender == et_AttackDecrease)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_ATTACK_DECREASE;
 				}
-				else if (cb == et_SkillDecrease)
+				else if (sender == et_SkillDecrease)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_SKILL_DECREASE;
 				}
-				else if (cb == et_Stun)
+				else if (sender == et_Stun)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_STUNNED;
 				}
-				else if (cb == et_Petrify)
+				else if (sender == et_Petrify)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_PETRIFY;
 				}
-				else if (cb == et_SpeedDecrease)
+				else if (sender == et_SpeedDecrease)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_MOVEMENT_SPEED_DECREASE;
 				}
-				else if (cb == et_Death)
+				else if (sender == et_Death)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_DEATH;
 				}
-				else if (cb == et_NegativeLevel)
+				else if (sender == et_NegativeLevel)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_NEGATIVELEVEL;
 				}
-				else if (cb == et_AcDecrease)
+				else if (sender == et_AcDecrease)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_AC_DECREASE;
 				}
-				else if (cb == et_SavingThrowDecrease)
+				else if (sender == et_SavingThrowDecrease)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_SAVING_THROW_DECREASE;
 				}
-				else if (cb == et_Knockdown)
+				else if (sender == et_Knockdown)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_KNOCKDOWN;
 				}
-				else if (cb == et_Dying)
+				else if (sender == et_Dying)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_DYING;
 				}
-				else if (cb == et_Mesmerize)
+				else if (sender == et_Mesmerize)
 				{
 					bit = hc.HENCH_EFFECT_TYPE_MESMERIZE;
 				}
-				else // cb == et_CutsceneParalyze
+				else // sender == et_CutsceneParalyze
 				{
 					bit = hc.HENCH_EFFECT_TYPE_CUTSCENE_PARALYZE;
 				}
@@ -472,7 +468,7 @@ namespace nwn2_ai_2da_editor
 				// TODO: Implement subsequently added effects like Wounded -
 				// and teach the CoreAI to use them.
 
-				if (cb.Checked)
+				if ((sender as CheckBox).Checked)
 				{
 					effecttypes |= bit;
 				}

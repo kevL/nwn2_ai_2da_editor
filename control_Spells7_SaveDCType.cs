@@ -280,22 +280,20 @@ namespace nwn2_ai_2da_editor
 				savedctype &= HENCH_SAVEDCTYPE_ARMORCHECK_MASK; // clear the other bit-groups.
 
 				int bit;
-
-				var cb = sender as CheckBox;
-				if (cb == savedc_ac1)
+				if (sender == savedc_ac1)
 				{
 					bit = hc.HENCH_AC_CHECK_ARMOR; // 0x00000001
 				}
-				else if (cb == savedc_ac2)
+				else if (sender == savedc_ac2)
 				{
 					bit = hc.HENCH_AC_CHECK_SHIELD; // 0x00000002
 				}
-				else // cb == savedc_ac3
+				else // sender == savedc_ac3
 				{
 					bit = hc.HENCH_AC_CHECK_MOVEMENT_SPEED_DECREASE; // 0x10000000
 				}
 
-				if (cb.Checked)
+				if ((sender as CheckBox).Checked)
 				{
 					savedctype |= bit;
 				}

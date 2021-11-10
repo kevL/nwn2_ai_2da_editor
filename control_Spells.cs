@@ -376,14 +376,13 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_clear(object sender, EventArgs e)
 		{
-			var btn = sender as Button;
-			if      (btn == si_Clear) SpellInfo_text   .Text = "0";
-			else if (btn == ti_Clear) TargetInfo_text  .Text = "0";
-			else if (btn == ew_Clear) EffectWeight_text.Text = "0.0";
-			else if (btn == et_Clear) EffectTypes_text .Text = "0";
-			else if (btn == di_Clear) DamageInfo_text  .Text = "0";
-			else if (btn == st_Clear) SaveType_text    .Text = "0";
-			else                      SaveDCType_text  .Text = "0"; // btn == dc_Clear
+			if      (sender == si_Clear) SpellInfo_text   .Text = "0";
+			else if (sender == ti_Clear) TargetInfo_text  .Text = "0";
+			else if (sender == ew_Clear) EffectWeight_text.Text = "0.0";
+			else if (sender == et_Clear) EffectTypes_text .Text = "0";
+			else if (sender == di_Clear) DamageInfo_text  .Text = "0";
+			else if (sender == st_Clear) SaveType_text    .Text = "0";
+			else                         SaveDCType_text  .Text = "0"; // sender == dc_Clear
 		}
 		#endregion eventhandlers
 

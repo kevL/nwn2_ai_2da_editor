@@ -282,20 +282,19 @@ namespace nwn2_ai_2da_editor
 			{
 				savetype &= ~hc.HENCH_SPELL_SAVE_TYPE_SAVE1_WILL; // 0x000c0000 - acts as mask also
 
-				var rb = sender as RadioButton;
-				if (rb == st_Save1rb_fort)
+				if (sender == st_Save1rb_fort)
 				{
 					savetype |= hc.HENCH_SPELL_SAVE_TYPE_SAVE1_FORT; // NOTE: This bit overlaps AC_NATURAL_BONUS
 				}
-				else if (rb == st_Save1rb_refl)
+				else if (sender == st_Save1rb_refl)
 				{
 					savetype |= hc.HENCH_SPELL_SAVE_TYPE_SAVE1_REFLEX; // NOTE: This bit overlaps AC_ARMOUR_ENCHANTMENT_BONUS
 				}
-				else if (rb == st_Save1rb_will)
+				else if (sender == st_Save1rb_will)
 				{
 					savetype |= hc.HENCH_SPELL_SAVE_TYPE_SAVE1_WILL; // NOTE: This bit overlaps AC_SHIELD_ENCHANTMENT_BONUS
 				}
-//				else if (rb == st_Save1rb_none)
+//				else if (sender == st_Save1rb_none)
 //				{}
 
 				SaveType_text.Text = savetype.ToString();
@@ -321,20 +320,19 @@ namespace nwn2_ai_2da_editor
 			{
 				savetype &= ~hc.HENCH_SPELL_SAVE_TYPE_SAVE2_WILL; // 0x00c00000 - acts as mask also
 
-				var rb = sender as RadioButton;
-				if (rb == st_Save2rb_fort)
+				if (sender == st_Save2rb_fort)
 				{
 					savetype |= hc.HENCH_SPELL_SAVE_TYPE_SAVE2_FORT;
 				}
-				else if (rb == st_Save2rb_refl)
+				else if (sender == st_Save2rb_refl)
 				{
 					savetype |= hc.HENCH_SPELL_SAVE_TYPE_SAVE2_REFLEX;
 				}
-				else if (rb == st_Save2rb_will)
+				else if (sender == st_Save2rb_will)
 				{
 					savetype |= hc.HENCH_SPELL_SAVE_TYPE_SAVE2_WILL;
 				}
-//				else if (rb == st_Save2rb_none)
+//				else if (sender == st_Save2rb_none)
 //				{}
 
 				SaveType_text.Text = savetype.ToString();
@@ -360,20 +358,19 @@ namespace nwn2_ai_2da_editor
 			{
 				savetype &= ~hc.HENCH_SPELL_SAVE_TYPE_SAVE1_DAMAGE_EVASION; // 0x00300000 - acts as mask also
 
-				var rb = sender as RadioButton;
-				if (rb == st_Impact1rb_damagehalf)
+				if (sender == st_Impact1rb_damagehalf)
 				{
 					savetype |= hc.HENCH_SPELL_SAVE_TYPE_SAVE1_DAMAGE_HALF; // NOTE: This bit overlaps AC_DEFLECTION_BONUS
 				}
-				else if (rb == st_Impact1rb_effectdamage)
+				else if (sender == st_Impact1rb_effectdamage)
 				{
 					savetype |= hc.HENCH_SPELL_SAVE_TYPE_SAVE1_EFFECT_DAMAGE;
 				}
-				else if (rb == st_Impact1rb_damageevasion)
+				else if (sender == st_Impact1rb_damageevasion)
 				{
 					savetype |= hc.HENCH_SPELL_SAVE_TYPE_SAVE1_DAMAGE_EVASION;
 				}
-//				else if (rb == st_Impact1rb_effectonly)
+//				else if (sender == st_Impact1rb_effectonly)
 //				{}
 
 				SaveType_text.Text = savetype.ToString();
@@ -399,20 +396,19 @@ namespace nwn2_ai_2da_editor
 			{
 				savetype &= ~hc.HENCH_SPELL_SAVE_TYPE_SAVE2_DAMAGE_EVASION; // 0x03000000 - acts as mask also
 
-				var rb = sender as RadioButton;
-				if (rb == st_Impact2rb_damagehalf)
+				if (sender == st_Impact2rb_damagehalf)
 				{
 					savetype |= hc.HENCH_SPELL_SAVE_TYPE_SAVE2_DAMAGE_HALF;
 				}
-				else if (rb == st_Impact2rb_effectdamage)
+				else if (sender == st_Impact2rb_effectdamage)
 				{
 					savetype |= hc.HENCH_SPELL_SAVE_TYPE_SAVE2_EFFECT_DAMAGE;
 				}
-				else if (rb == st_Impact2rb_damageevasion)
+				else if (sender == st_Impact2rb_damageevasion)
 				{
 					savetype |= hc.HENCH_SPELL_SAVE_TYPE_SAVE2_DAMAGE_EVASION;
 				}
-//				else if (rb == st_Impact2rb_effectonly)
+//				else if (sender == st_Impact2rb_effectonly)
 //				{}
 
 				SaveType_text.Text = savetype.ToString();
@@ -439,34 +435,32 @@ namespace nwn2_ai_2da_editor
 			if (Int32.TryParse(SaveType_text.Text, out savetype))
 			{
 				int bit;
-
-				var cb = sender as CheckBox;
-				if (cb == st_SpellResistance)
+				if (sender == st_SpellResistance)
 				{
 					bit = hc.HENCH_SPELL_SAVE_TYPE_SR_FLAG;
 				}
-				else if (cb == st_MindAffecting)
+				else if (sender == st_MindAffecting)
 				{
 					bit = hc.HENCH_SPELL_SAVE_TYPE_MIND_SPELL_FLAG;
 				}
-				else if (cb == st_AffectsFriendlies)
+				else if (sender == st_AffectsFriendlies)
 				{
 					bit = hc.HENCH_SPELL_SAVE_TYPE_CHECK_FRIENDLY_FLAG;
 				}
-				else if (cb == st_NotCaster)
+				else if (sender == st_NotCaster)
 				{
 					bit = hc.HENCH_SPELL_SAVE_TYPE_NOTSELF_FLAG;
 				}
-				else if (cb == st_TouchMelee)
+				else if (sender == st_TouchMelee)
 				{
 					bit = hc.HENCH_SPELL_SAVE_TYPE_TOUCH_MELEE_FLAG;
 				}
-				else // cb == st_TouchRanged
+				else // sender == st_TouchRanged
 				{
 					bit = hc.HENCH_SPELL_SAVE_TYPE_TOUCH_RANGE_FLAG;
 				}
 
-				if (cb.Checked)
+				if ((sender as CheckBox).Checked)
 				{
 					savetype |= bit;
 				}
@@ -503,58 +497,56 @@ namespace nwn2_ai_2da_editor
 			if (Int32.TryParse(SaveType_text.Text, out savetype))
 			{
 				int bit;
-
-				var cb = sender as CheckBox;
-				if (cb == st_Excl_Bludgeoning)
+				if (sender == st_Excl_Bludgeoning)
 				{
 					bit = hc.DAMAGE_TYPE_BLUDGEONING;
 				}
-				else if (cb == st_Excl_Piercing)
+				else if (sender == st_Excl_Piercing)
 				{
 					bit = hc.DAMAGE_TYPE_PIERCING;
 				}
-				else if (cb == st_Excl_Slashing)
+				else if (sender == st_Excl_Slashing)
 				{
 					bit = hc.DAMAGE_TYPE_SLASHING;
 				}
-				else if (cb == st_Excl_Magical)
+				else if (sender == st_Excl_Magical)
 				{
 					bit = hc.DAMAGE_TYPE_MAGICAL;
 				}
-				else if (cb == st_Excl_Acid)
+				else if (sender == st_Excl_Acid)
 				{
 					bit = hc.DAMAGE_TYPE_ACID;
 				}
-				else if (cb == st_Excl_Cold)
+				else if (sender == st_Excl_Cold)
 				{
 					bit = hc.DAMAGE_TYPE_COLD;
 				}
-				else if (cb == st_Excl_Divine)
+				else if (sender == st_Excl_Divine)
 				{
 					bit = hc.DAMAGE_TYPE_DIVINE;
 				}
-				else if (cb == st_Excl_Electrical)
+				else if (sender == st_Excl_Electrical)
 				{
 					bit = hc.DAMAGE_TYPE_ELECTRICAL;
 				}
-				else if (cb == st_Excl_Fire)
+				else if (sender == st_Excl_Fire)
 				{
 					bit = hc.DAMAGE_TYPE_FIRE;
 				}
-				else if (cb == st_Excl_Negative)
+				else if (sender == st_Excl_Negative)
 				{
 					bit = hc.DAMAGE_TYPE_NEGATIVE;
 				}
-				else if (cb == st_Excl_Positive)
+				else if (sender == st_Excl_Positive)
 				{
 					bit = hc.DAMAGE_TYPE_POSITIVE;
 				}
-				else // cb == st_Excl_Sonic
+				else // sender == st_Excl_Sonic
 				{
 					bit = hc.DAMAGE_TYPE_SONIC;
 				}
 
-				if (cb.Checked)
+				if ((sender as CheckBox).Checked)
 				{
 					savetype |= bit;
 				}
@@ -582,33 +574,27 @@ namespace nwn2_ai_2da_editor
 			int savetype;
 			if (Int32.TryParse(SaveType_text.Text, out savetype))
 			{
-				var rb = sender as RadioButton;
-				if (rb != null)
+				if (sender == st_Excl_rbResistance)
 				{
-					if (rb == st_Excl_rbImmunity)
-					{
-						savetype &= ~hc.HENCH_IMMUNITY_WEIGHT_RESISTANCE; // 0x00100000
-					}
-					else // rb == st_Excl_rbImmunity
-					{
-						savetype |= hc.HENCH_IMMUNITY_WEIGHT_RESISTANCE;
-					}
+					savetype |= hc.HENCH_IMMUNITY_WEIGHT_RESISTANCE; // 0x00100000
+				}
+				else if (sender == st_Excl_rbImmunity)
+				{
+					savetype &= ~hc.HENCH_IMMUNITY_WEIGHT_RESISTANCE;
 				}
 				else
 				{
 					int bit;
-
-					var cb = sender as CheckBox;
-					if (cb == st_Excl_Onlyone)
+					if (sender == st_Excl_Onlyone)
 					{
 						bit = hc.HENCH_IMMUNITY_ONLY_ONE; // 0x00200000
 					}
-					else // cb == st_Excl_General
+					else // sender == st_Excl_General
 					{
 						bit = hc.HENCH_IMMUNITY_GENERAL; // 0x00400000
 					}
 
-					if (cb.Checked)
+					if ((sender as CheckBox).Checked)
 					{
 						savetype |= bit;
 					}
@@ -668,22 +654,20 @@ namespace nwn2_ai_2da_editor
 			if (Int32.TryParse(SaveType_text.Text, out savetype))
 			{
 				int bit;
-
-				var cb = sender as CheckBox;
-				if (cb == st_ReduceNotEnlarge)
+				if (sender == st_ReduceNotEnlarge)
 				{
 					bit = HENCH_SAVETYPE_SIZEBUFF_REDUCE;
 				}
-				else if (cb == st_AnimalOnly)
+				else if (sender == st_AnimalOnly)
 				{
 					bit = HENCH_SAVETYPE_SIZEBUFF_ANIMAL;
 				}
-				else // cb == st_NotHumanoid
+				else // sender == st_NotHumanoid
 				{
 					bit = HENCH_SAVETYPE_SIZEBUFF_NOTHUMANOID;
 				}
 
-				if (cb.Checked)
+				if ((sender as CheckBox).Checked)
 				{
 					savetype |= bit;
 				}

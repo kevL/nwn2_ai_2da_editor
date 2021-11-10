@@ -48,16 +48,14 @@ namespace nwn2_ai_2da_editor
 			// 'BypassDiffer' is also set true by AfterSelect_node() since the
 			// Spell-structs already contain proper diff-data.
 
-			var tb = sender as TextBox;
-
 			int val;
-			if (Int32.TryParse(tb.Text, out val))
+			if (Int32.TryParse((sender as TextBox).Text, out val))
 			{
-				Button btn;
+				Button bu;
 				TextBox tb_hex, tb_bin;
 				int bit;
 
-				bool isFlags = (tb == ClassFlags_text);
+				bool isFlags = (sender == ClassFlags_text);
 
 				if (isFlags)
 				{
@@ -67,84 +65,84 @@ namespace nwn2_ai_2da_editor
 //						return; // refire this funct.
 //					}
 
-					btn    = ClassFlags_reset;
+					bu     = ClassFlags_reset;
 					tb_hex = ClassFlags_hex;
 					tb_bin = ClassFlags_bin;
 					bit    = bit_flags;
 				}
-				else if (tb == ClassFeat1_text)
+				else if (sender == ClassFeat1_text)
 				{
-					btn    = ClassFeat1_reset;
+					bu     = ClassFeat1_reset;
 					tb_hex = ClassFeat1_hex;
 					tb_bin = ClassFeat1_bin;
 					bit    = bit_feat1;
 				}
-				else if (tb == ClassFeat2_text)
+				else if (sender == ClassFeat2_text)
 				{
-					btn    = ClassFeat2_reset;
+					bu     = ClassFeat2_reset;
 					tb_hex = ClassFeat2_hex;
 					tb_bin = ClassFeat2_bin;
 					bit    = bit_feat2;
 				}
-				else if (tb == ClassFeat3_text)
+				else if (sender == ClassFeat3_text)
 				{
-					btn    = ClassFeat3_reset;
+					bu     = ClassFeat3_reset;
 					tb_hex = ClassFeat3_hex;
 					tb_bin = ClassFeat3_bin;
 					bit    = bit_feat3;
 				}
-				else if (tb == ClassFeat4_text)
+				else if (sender == ClassFeat4_text)
 				{
-					btn    = ClassFeat4_reset;
+					bu     = ClassFeat4_reset;
 					tb_hex = ClassFeat4_hex;
 					tb_bin = ClassFeat4_bin;
 					bit    = bit_feat4;
 				}
-				else if (tb == ClassFeat5_text)
+				else if (sender == ClassFeat5_text)
 				{
-					btn    = ClassFeat5_reset;
+					bu     = ClassFeat5_reset;
 					tb_hex = ClassFeat5_hex;
 					tb_bin = ClassFeat5_bin;
 					bit    = bit_feat5;
 				}
-				else if (tb == ClassFeat6_text)
+				else if (sender == ClassFeat6_text)
 				{
-					btn    = ClassFeat6_reset;
+					bu     = ClassFeat6_reset;
 					tb_hex = ClassFeat6_hex;
 					tb_bin = ClassFeat6_bin;
 					bit    = bit_feat6;
 				}
-				else if (tb == ClassFeat7_text)
+				else if (sender == ClassFeat7_text)
 				{
-					btn    = ClassFeat7_reset;
+					bu     = ClassFeat7_reset;
 					tb_hex = ClassFeat7_hex;
 					tb_bin = ClassFeat7_bin;
 					bit    = bit_feat7;
 				}
-				else if (tb == ClassFeat8_text)
+				else if (sender == ClassFeat8_text)
 				{
-					btn    = ClassFeat8_reset;
+					bu     = ClassFeat8_reset;
 					tb_hex = ClassFeat8_hex;
 					tb_bin = ClassFeat8_bin;
 					bit    = bit_feat8;
 				}
-				else if (tb == ClassFeat9_text)
+				else if (sender == ClassFeat9_text)
 				{
-					btn    = ClassFeat9_reset;
+					bu     = ClassFeat9_reset;
 					tb_hex = ClassFeat9_hex;
 					tb_bin = ClassFeat9_bin;
 					bit    = bit_feat9;
 				}
-				else if (tb == ClassFeat10_text)
+				else if (sender == ClassFeat10_text)
 				{
-					btn    = ClassFeat10_reset;
+					bu     = ClassFeat10_reset;
 					tb_hex = ClassFeat10_hex;
 					tb_bin = ClassFeat10_bin;
 					bit    = bit_feat10;
 				}
-				else // tb == ClassFeat11_text
+				else // sender == ClassFeat11_text
 				{
-					btn    = ClassFeat11_reset;
+					bu     = ClassFeat11_reset;
 					tb_hex = ClassFeat11_hex;
 					tb_bin = ClassFeat11_bin;
 					bit    = bit_feat11;
@@ -184,47 +182,47 @@ namespace nwn2_ai_2da_editor
 					{
 						classchanged.flags = val;
 					}
-					else if (tb == ClassFeat1_text)
+					else if (sender == ClassFeat1_text)
 					{
 						classchanged.feat1 = val;
 					}
-					else if (tb == ClassFeat2_text)
+					else if (sender == ClassFeat2_text)
 					{
 						classchanged.feat2 = val;
 					}
-					else if (tb == ClassFeat3_text)
+					else if (sender == ClassFeat3_text)
 					{
 						classchanged.feat3 = val;
 					}
-					else if (tb == ClassFeat4_text)
+					else if (sender == ClassFeat4_text)
 					{
 						classchanged.feat4 = val;
 					}
-					else if (tb == ClassFeat5_text)
+					else if (sender == ClassFeat5_text)
 					{
 						classchanged.feat5 = val;
 					}
-					else if (tb == ClassFeat6_text)
+					else if (sender == ClassFeat6_text)
 					{
 						classchanged.feat6 = val;
 					}
-					else if (tb == ClassFeat7_text)
+					else if (sender == ClassFeat7_text)
 					{
 						classchanged.feat7 = val;
 					}
-					else if (tb == ClassFeat8_text)
+					else if (sender == ClassFeat8_text)
 					{
 						classchanged.feat8 = val;
 					}
-					else if (tb == ClassFeat9_text)
+					else if (sender == ClassFeat9_text)
 					{
 						classchanged.feat9 = val;
 					}
-					else if (tb == ClassFeat10_text)
+					else if (sender == ClassFeat10_text)
 					{
 						classchanged.feat10 = val;
 					}
-					else // tb == ClassFeat11_text
+					else // sender == ClassFeat11_text
 					{
 						classchanged.feat11 = val;
 					}
@@ -256,10 +254,10 @@ namespace nwn2_ai_2da_editor
 
 				if ((differ & bit) != 0)
 				{
-					btn.ForeColor = Color.Crimson;
+					bu.ForeColor = Color.Crimson;
 				}
 				else
-					btn.ForeColor = DefaultForeColor;
+					bu.ForeColor = DefaultForeColor;
 
 				if (isFlags)
 				{
@@ -267,7 +265,7 @@ namespace nwn2_ai_2da_editor
 //					PrintInfoVersion_class(val);
 				}
 				else
-					state_ClassFeats(tb);
+					state_ClassFeats(sender as Control);
 
 				_he.EnableApplys(differ != bit_clean);
 			}
@@ -372,74 +370,73 @@ namespace nwn2_ai_2da_editor
 
 				Class @class = he.Classes[he.Id];
 
-				var btn = sender as Button;
-				if (btn == ClassFlags_reset)
+				if (sender == ClassFlags_reset)
 				{
 					bit  = bit_flags;
 					info = @class.flags;
 					tb   = ClassFlags_text;
 				}
-				else if (btn == ClassFeat1_reset)
+				else if (sender == ClassFeat1_reset)
 				{
 					bit  = bit_feat1;
 					info = @class.feat1;
 					tb   = ClassFeat1_text;
 				}
-				else if (btn == ClassFeat2_reset)
+				else if (sender == ClassFeat2_reset)
 				{
 					bit  = bit_feat2;
 					info = @class.feat2;
 					tb   = ClassFeat2_text;
 				}
-				else if (btn == ClassFeat3_reset)
+				else if (sender == ClassFeat3_reset)
 				{
 					bit  = bit_feat3;
 					info = @class.feat3;
 					tb   = ClassFeat3_text;
 				}
-				else if (btn == ClassFeat4_reset)
+				else if (sender == ClassFeat4_reset)
 				{
 					bit  = bit_feat4;
 					info = @class.feat4;
 					tb   = ClassFeat4_text;
 				}
-				else if (btn == ClassFeat5_reset)
+				else if (sender == ClassFeat5_reset)
 				{
 					bit  = bit_feat5;
 					info = @class.feat5;
 					tb   = ClassFeat5_text;
 				}
-				else if (btn == ClassFeat6_reset)
+				else if (sender == ClassFeat6_reset)
 				{
 					bit  = bit_feat6;
 					info = @class.feat6;
 					tb   = ClassFeat6_text;
 				}
-				else if (btn == ClassFeat7_reset)
+				else if (sender == ClassFeat7_reset)
 				{
 					bit  = bit_feat7;
 					info = @class.feat7;
 					tb   = ClassFeat7_text;
 				}
-				else if (btn == ClassFeat8_reset)
+				else if (sender == ClassFeat8_reset)
 				{
 					bit  = bit_feat8;
 					info = @class.feat8;
 					tb   = ClassFeat8_text;
 				}
-				else if (btn == ClassFeat9_reset)
+				else if (sender == ClassFeat9_reset)
 				{
 					bit  = bit_feat9;
 					info = @class.feat9;
 					tb   = ClassFeat9_text;
 				}
-				else if (btn == ClassFeat10_reset)
+				else if (sender == ClassFeat10_reset)
 				{
 					bit  = bit_feat10;
 					info = @class.feat10;
 					tb   = ClassFeat10_text;
 				}
-				else // btn == ClassFeat11_reset
+				else // sender == ClassFeat11_reset
 				{
 					bit  = bit_feat11;
 					info = @class.feat11;
@@ -460,7 +457,7 @@ namespace nwn2_ai_2da_editor
 					_he.SetNodeColor(color);
 				}
 
-				btn.ForeColor = DefaultForeColor;
+				(sender as Button).ForeColor = DefaultForeColor;
 
 				tb.Text = info.ToString();
 			}
@@ -486,44 +483,39 @@ namespace nwn2_ai_2da_editor
 			{
 				int bit;
 
-				var cb = sender as CheckBox;
-				if (cb != null)
+				if (sender == cf_rbDivine)
 				{
-					if (cb == cf_HasFeatSpells)
+					flags |= hc.HENCH_CLASS_DIVINE_FLAG;
+				}
+				else if (sender == cf_rbArcane)
+				{
+					flags &= ~hc.HENCH_CLASS_DIVINE_FLAG;
+				}
+				else
+				{
+					if (sender == cf_HasFeatSpells)
 					{
 						bit = hc.HENCH_CLASS_FEAT_SPELLS;
 					}
-					else if (cb == cf_isPrestigeClass)
+					else if (sender == cf_isPrestigeClass)
 					{
 						bit = hc.HENCH_CLASS_PRC_FLAG;
 					}
-					else if (cb == cf_DcBonus)
+					else if (sender == cf_DcBonus)
 					{
 						bit = hc.HENCH_CLASS_DC_BONUS_FLAG;
 					}
-					else // cb == cf_L4Required
+					else // sender == cf_L4Required
 					{
 						bit = hc.HENCH_CLASS_FOURTH_LEVEL_NEEDED;
 					}
 
-					if (cb.Checked)
+					if ((sender as CheckBox).Checked)
 					{
 						flags |= bit;
 					}
 					else
 						flags &= ~bit;
-				}
-				else
-				{
-					var rb = sender as RadioButton;
-					if (rb == cf_rbDivine)
-					{
-						flags |= hc.HENCH_CLASS_DIVINE_FLAG;
-					}
-					else // rb == cf_rbArcane
-					{
-						flags &= ~hc.HENCH_CLASS_DIVINE_FLAG;
-					}
 				}
 
 				ClassFlags_text.Text = flags.ToString();
@@ -646,49 +638,47 @@ namespace nwn2_ai_2da_editor
 		void MouseClick_cFeats(object sender, MouseEventArgs e)
 		{
 			TextBox tb;
-
-			var cb = sender as CheckBox;
-			if (cb == cf1_cheatCast)
+			if (sender == cf1_cheatCast)
 			{
 				tb = ClassFeat1_text;
 			}
-			else if (cb == cf2_cheatCast)
+			else if (sender == cf2_cheatCast)
 			{
 				tb = ClassFeat2_text;
 			}
-			else if (cb == cf3_cheatCast)
+			else if (sender == cf3_cheatCast)
 			{
 				tb = ClassFeat3_text;
 			}
-			else if (cb == cf4_cheatCast)
+			else if (sender == cf4_cheatCast)
 			{
 				tb = ClassFeat4_text;
 			}
-			else if (cb == cf5_cheatCast)
+			else if (sender == cf5_cheatCast)
 			{
 				tb = ClassFeat5_text;
 			}
-			else if (cb == cf6_cheatCast)
+			else if (sender == cf6_cheatCast)
 			{
 				tb = ClassFeat6_text;
 			}
-			else if (cb == cf7_cheatCast)
+			else if (sender == cf7_cheatCast)
 			{
 				tb = ClassFeat7_text;
 			}
-			else if (cb == cf8_cheatCast)
+			else if (sender == cf8_cheatCast)
 			{
 				tb = ClassFeat8_text;
 			}
-			else if (cb == cf9_cheatCast)
+			else if (sender == cf9_cheatCast)
 			{
 				tb = ClassFeat9_text;
 			}
-			else if (cb == cf10_cheatCast)
+			else if (sender == cf10_cheatCast)
 			{
 				tb = ClassFeat10_text;
 			}
-			else // cb == cf11_cheatCast
+			else // sender == cf11_cheatCast
 			{
 				tb = ClassFeat11_text;
 			}
@@ -696,7 +686,7 @@ namespace nwn2_ai_2da_editor
 			int feat;
 			if (Int32.TryParse(tb.Text, out feat))
 			{
-				if (cb.Checked)
+				if ((sender as CheckBox).Checked)
 				{
 					feat |= hc.HENCH_FEAT_SPELL_CHEAT_CAST;
 				}
@@ -744,56 +734,22 @@ namespace nwn2_ai_2da_editor
 				}
 				else
 				{
-					TextBox tb_feat;
-					if (tb == cf1_FeatId)
-					{
-						tb_feat = ClassFeat1_text;
-					}
-					else if (tb == cf2_FeatId)
-					{
-						tb_feat = ClassFeat2_text;
-					}
-					else if (tb == cf3_FeatId)
-					{
-						tb_feat = ClassFeat3_text;
-					}
-					else if (tb == cf4_FeatId)
-					{
-						tb_feat = ClassFeat4_text;
-					}
-					else if (tb == cf5_FeatId)
-					{
-						tb_feat = ClassFeat5_text;
-					}
-					else if (tb == cf6_FeatId)
-					{
-						tb_feat = ClassFeat6_text;
-					}
-					else if (tb == cf7_FeatId)
-					{
-						tb_feat = ClassFeat7_text;
-					}
-					else if (tb == cf8_FeatId)
-					{
-						tb_feat = ClassFeat8_text;
-					}
-					else if (tb == cf9_FeatId)
-					{
-						tb_feat = ClassFeat9_text;
-					}
-					else if (tb == cf10_FeatId)
-					{
-						tb_feat = ClassFeat10_text;
-					}
-					else // tb_feat == cf11_FeatId
-					{
-						tb_feat = ClassFeat11_text;
-					}
+					if      (sender == cf1_FeatId)  tb = ClassFeat1_text;
+					else if (sender == cf2_FeatId)  tb = ClassFeat2_text;
+					else if (sender == cf3_FeatId)  tb = ClassFeat3_text;
+					else if (sender == cf4_FeatId)  tb = ClassFeat4_text;
+					else if (sender == cf5_FeatId)  tb = ClassFeat5_text;
+					else if (sender == cf6_FeatId)  tb = ClassFeat6_text;
+					else if (sender == cf7_FeatId)  tb = ClassFeat7_text;
+					else if (sender == cf8_FeatId)  tb = ClassFeat8_text;
+					else if (sender == cf9_FeatId)  tb = ClassFeat9_text;
+					else if (sender == cf10_FeatId) tb = ClassFeat10_text;
+					else                            tb = ClassFeat11_text; // sender == cf11_FeatId
 
-					int feaT = Int32.Parse(tb_feat.Text);
+					int feaT = Int32.Parse(tb.Text);
 					feaT &= ~hc.HENCH_FEAT_SPELL_MASK_FEAT;
 
-					tb_feat.Text = (feaT | feat).ToString();
+					tb.Text = (feaT | feat).ToString();
 				}
 			}
 		}
@@ -835,57 +791,23 @@ namespace nwn2_ai_2da_editor
 				}
 				else
 				{
-					TextBox tb_feat;
-					if (tb == cf1_SpellId)
-					{
-						tb_feat = ClassFeat1_text;
-					}
-					else if (tb == cf2_SpellId)
-					{
-						tb_feat = ClassFeat2_text;
-					}
-					else if (tb == cf3_SpellId)
-					{
-						tb_feat = ClassFeat3_text;
-					}
-					else if (tb == cf4_SpellId)
-					{
-						tb_feat = ClassFeat4_text;
-					}
-					else if (tb == cf5_SpellId)
-					{
-						tb_feat = ClassFeat5_text;
-					}
-					else if (tb == cf6_SpellId)
-					{
-						tb_feat = ClassFeat6_text;
-					}
-					else if (tb == cf7_SpellId)
-					{
-						tb_feat = ClassFeat7_text;
-					}
-					else if (tb == cf8_SpellId)
-					{
-						tb_feat = ClassFeat8_text;
-					}
-					else if (tb == cf9_SpellId)
-					{
-						tb_feat = ClassFeat9_text;
-					}
-					else if (tb == cf10_SpellId)
-					{
-						tb_feat = ClassFeat10_text;
-					}
-					else // tb_spell == cf11_SpellId
-					{
-						tb_feat = ClassFeat11_text;
-					}
+					if      (sender == cf1_SpellId)  tb = ClassFeat1_text;
+					else if (sender == cf2_SpellId)  tb = ClassFeat2_text;
+					else if (sender == cf3_SpellId)  tb = ClassFeat3_text;
+					else if (sender == cf4_SpellId)  tb = ClassFeat4_text;
+					else if (sender == cf5_SpellId)  tb = ClassFeat5_text;
+					else if (sender == cf6_SpellId)  tb = ClassFeat6_text;
+					else if (sender == cf7_SpellId)  tb = ClassFeat7_text;
+					else if (sender == cf8_SpellId)  tb = ClassFeat8_text;
+					else if (sender == cf9_SpellId)  tb = ClassFeat9_text;
+					else if (sender == cf10_SpellId) tb = ClassFeat10_text;
+					else                             tb = ClassFeat11_text; // sender == cf11_SpellId
 
-					int feaT = Int32.Parse(tb_feat.Text);
+					int feaT = Int32.Parse(tb.Text);
 					feaT &= ~hc.HENCH_FEAT_SPELL_MASK_SPELL;
 
 					spell <<= HENCH_FEAT_SPELL_SHIFT_SPELL;
-					tb_feat.Text = (feaT | spell).ToString();
+					tb.Text = (feaT | spell).ToString();
 				}
 			}
 		}

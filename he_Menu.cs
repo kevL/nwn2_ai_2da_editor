@@ -55,9 +55,9 @@ namespace nwn2_ai_2da_editor
 
 		#region File
 		/// <summary>
-		/// 
+		/// Deters if the Recent it is <c>Visible</c>.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="tsmi_file"/></c></param>
 		/// <param name="e"></param>
 		void dropdownopening_File(object sender, EventArgs e)
 		{
@@ -67,7 +67,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Handles FileMenu close program event.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="it_Quit"/></c></param>
 		/// <param name="e"></param>
 		void Click_quit(object sender, EventArgs e)
 		{
@@ -88,7 +88,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Handles FileMenu open file event.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="it_Open"/></c></param>
 		/// <param name="e"></param>
 		void Click_open(object sender, EventArgs e)
 		{
@@ -123,7 +123,7 @@ namespace nwn2_ai_2da_editor
 		/// Checks recents when the dropdown opens and deletes the paths of
 		/// files that don't exist on disk.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="it_Recent"/></c></param>
 		/// <param name="e"></param>
 		void dropdownopening_Recent(object sender, EventArgs e)
 		{
@@ -141,7 +141,7 @@ namespace nwn2_ai_2da_editor
 		/// Opens a 2da-file from the Recent-files list. Removes the item from
 		/// the list if it was not found on disk.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">its on the Recent menu</param>
 		/// <param name="e"></param>
 		void Click_recent(object sender, EventArgs e)
 		{
@@ -164,13 +164,17 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Handles FileMenu save file event.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="it_Save"/></c></item>
+		/// <item><c><see cref="it_Saveas"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
 		void Click_save(object sender, EventArgs e)
 		{
 			if (!hasDirtyData())
 			{
-				if (sender == null) // is Saveas
+				if (sender == it_Saveas)
 				{
 					_pfe = _pfeT;
 					_pfeT = String.Empty;
@@ -191,11 +195,11 @@ namespace nwn2_ai_2da_editor
 							break;
 
 						case DialogResult.Retry:
-							applyall();
+							Click_applyGlobal(sender, e);
 							goto case DialogResult.OK;
 
 						case DialogResult.OK:
-							if (sender == null) // is Saveas
+							if (sender == it_Saveas)
 							{
 								_pfe = _pfeT;
 								_pfeT = String.Empty;
@@ -212,7 +216,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Handles FileMenu saveas file event.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="it_Saveas"/></c></param>
 		/// <param name="e"></param>
 		void Click_saveas(object sender, EventArgs e)
 		{
@@ -232,7 +236,7 @@ namespace nwn2_ai_2da_editor
 				{
 					_pfeT = sfd.FileName; // the fullpath still needs user-confirmation (if there's dirty data)
 
-					Click_save(null, EventArgs.Empty);
+					Click_save(sender, e);
 				}
 				else
 					_pfeT = String.Empty;
@@ -243,19 +247,158 @@ namespace nwn2_ai_2da_editor
 
 		#region Edit
 		/// <summary>
-		/// Handles the GlobalApply menu-item.
+		/// Handles the GlobalApply it. Applies all altered data to their
+		/// <c>structs</c>.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender">
+		/// <list type="bullet">
+		/// <item><c><see cref="it_ApplyGlobal"/></c></item>
+		/// <item><c><see cref="it_Save"/></c></item>
+		/// <item><c><see cref="it_Saveas"/></c></item>
+		/// </list></param>
 		/// <param name="e"></param>
+		/// <remarks>See <c><see cref="Click_apply()">Click_apply()</see></c> to
+		/// apply altered data to only the selected <c>struct</c>.</remarks>
 		void Click_applyGlobal(object sender, EventArgs e)
 		{
-			applyall();
+			SetTitleText(); // TitleText will be written again (properly) by Write2daFile() if saved.
+
+			it_ApplyGlobal.Enabled = false;
+
+			int total;
+
+			switch (Type)
+			{
+				case Type2da.Spells:
+				{
+					Spell spell;
+
+					total = Spells.Count;
+					for (int id = 0; id != total; ++id)
+					{
+						spell = Spells[id];
+
+						if (spell.differ != control_Spells.bit_clean)
+						{
+							spell.differ = control_Spells.bit_clean;
+							spell.isChanged = true; // this flag will be cleared by Write2daFile()
+
+							SpellChanged spellchanged = SpellsChanged[id];
+
+							spell.spellinfo    = spellchanged.spellinfo;
+							spell.targetinfo   = spellchanged.targetinfo;
+							spell.effectweight = spellchanged.effectweight;
+							spell.effecttypes  = spellchanged.effecttypes;
+							spell.damageinfo   = spellchanged.damageinfo;
+							spell.savetype     = spellchanged.savetype;
+							spell.savedctype   = spellchanged.savedctype;
+
+							Spells[id] = spell;
+
+							SpellsChanged.Remove(id);
+
+							if (id == Id) // is currently selected tree-node
+							{
+								HenchControl.SetResetColor(DefaultForeColor);
+								AfterSelect_node(null, null); // refresh all displayed data for the current spell jic
+							}
+
+							Tree.Nodes[id].ForeColor = Color.Blue;
+						}
+					}
+					break;
+				}
+
+				case Type2da.Racial:
+				{
+					Race race;
+
+					total = Races.Count;
+					for (int id = 0; id != total; ++id)
+					{
+						race = Races[id];
+
+						if (race.differ != control_Racial.bit_clean)
+						{
+							race.differ = control_Racial.bit_clean;
+							race.isChanged = true; // this flag will be cleared by Write2daFile()
+
+							RaceChanged racechanged = RacesChanged[id];
+
+							race.flags = racechanged.flags;
+							race.feat1 = racechanged.feat1;
+							race.feat2 = racechanged.feat2;
+							race.feat3 = racechanged.feat3;
+							race.feat4 = racechanged.feat4;
+							race.feat5 = racechanged.feat5;
+
+							Races[id] = race;
+
+							RacesChanged.Remove(id);
+
+							if (id == Id) // is currently selected tree-node
+							{
+								HenchControl.SetResetColor(DefaultForeColor);
+								AfterSelect_node(null, null); // refresh all displayed data for the current race jic
+							}
+
+							Tree.Nodes[id].ForeColor = Color.Blue;
+						}
+					}
+					break;
+				}
+
+				case Type2da.Classes:
+				{
+					Class @class;
+
+					total = Classes.Count;
+					for (int id = 0; id != total; ++id)
+					{
+						@class = Classes[id];
+
+						if (@class.differ != control_Classes.bit_clean)
+						{
+							@class.differ = control_Classes.bit_clean;
+							@class.isChanged = true; // this flag will be cleared by Write2daFile()
+
+							ClassChanged classchanged = ClassesChanged[id];
+
+							@class.flags  = classchanged.flags;
+							@class.feat1  = classchanged.feat1;
+							@class.feat2  = classchanged.feat2;
+							@class.feat3  = classchanged.feat3;
+							@class.feat4  = classchanged.feat4;
+							@class.feat5  = classchanged.feat5;
+							@class.feat6  = classchanged.feat6;
+							@class.feat7  = classchanged.feat7;
+							@class.feat8  = classchanged.feat8;
+							@class.feat9  = classchanged.feat9;
+							@class.feat10 = classchanged.feat10;
+							@class.feat11 = classchanged.feat11;
+
+							Classes[id] = @class;
+
+							ClassesChanged.Remove(id);
+
+							if (id == Id) // is currently selected tree-node
+							{
+								HenchControl.SetResetColor(DefaultForeColor);
+								AfterSelect_node(null, null); // refresh all displayed data for the current class jic
+							}
+
+							Tree.Nodes[id].ForeColor = Color.Blue;
+						}
+					}
+					break;
+				}
+			}
 		}
 
 		/// <summary>
 		/// Handles the GotoNextChanged menu-item.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="it_GotoChanged"/></c></param>
 		/// <param name="e"></param>
 		void Click_gotonextchanged(object sender, EventArgs e)
 		{
@@ -323,7 +466,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Handles the Copy decimal info menu-item.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="it_Copy_dec"/></c></param>
 		/// <param name="e"></param>
 		void Click_copy_decimal(object sender, EventArgs e)
 		{
@@ -340,7 +483,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Handles the Copy hexadecimal info menu-item.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="it_Copy_hex"/></c></param>
 		/// <param name="e"></param>
 		void Click_copy_hexadecimal(object sender, EventArgs e)
 		{
@@ -358,7 +501,7 @@ namespace nwn2_ai_2da_editor
 		/// <summary>
 		/// Handles the Copy binary info menu-item.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="it_Copy_bin"/></c></param>
 		/// <param name="e"></param>
 		void Click_copy_binary(object sender, EventArgs e)
 		{
@@ -380,6 +523,11 @@ namespace nwn2_ai_2da_editor
 
 
 		#region Labels
+		/// <summary>
+		/// Deters if its are <c>Enabled</c>.
+		/// </summary>
+		/// <param name="sender"><c><see cref="tsmi_labels"/></c></param>
+		/// <param name="e"></param>
 		void dropdownopening_Labels(object sender, EventArgs e)
 		{
 			it_insertSpellLabels.Enabled = it_pathSpells.Checked
@@ -396,7 +544,7 @@ namespace nwn2_ai_2da_editor
 		/// Handles clicking the PathSpells menuitem.
 		/// Intended to add labels from Spells.2da to the 'spellLabels' list.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="it_pathSpells"/></c></param>
 		/// <param name="e"></param>
 		void Click_pathSpells(object sender, EventArgs e)
 		{
@@ -462,7 +610,7 @@ namespace nwn2_ai_2da_editor
 		/// Intended to add labels from RacialSubtypes.2da to the 'raceLabels'
 		/// list.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="it_pathRacialSubtypes"/></c></param>
 		/// <param name="e"></param>
 		void Click_pathRacialSubtypes(object sender, EventArgs e)
 		{
@@ -518,7 +666,7 @@ namespace nwn2_ai_2da_editor
 		/// Handles clicking the PathClasses menuitem.
 		/// Intended to add labels from Classes.2da to the 'classLabels' list.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="it_pathClasses"/></c></param>
 		/// <param name="e"></param>
 		void Click_pathClasses(object sender, EventArgs e)
 		{
@@ -618,7 +766,7 @@ namespace nwn2_ai_2da_editor
 		/// Handles clicking the PathFeat menuitem.
 		/// Intended to add labels from Feat.2da to the 'featLabels' list.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="it_pathFeat"/></c></param>
 		/// <param name="e"></param>
 		void Click_pathFeat(object sender, EventArgs e)
 		{
@@ -706,7 +854,7 @@ namespace nwn2_ai_2da_editor
 								if (labels == spellLabels)
 								{
 									spellScripts.Add(fields[9]);
-									GrabSpellFields(id, fields);
+									GrabSpellFields(fields);
 								}
 							}
 						}
@@ -718,11 +866,10 @@ namespace nwn2_ai_2da_editor
 		}
 
 		/// <summary>
-		/// 
+		/// - helper for <c><see cref="GropeLabels()">GropeLabels()</see></c>
 		/// </summary>
-		/// <param name="id"></param>
 		/// <param name="fields"></param>
-		void GrabSpellFields(int id, IList<string> fields)
+		void GrabSpellFields(IList<string> fields)
 		{
 			var list = new List<string>();
 
@@ -802,7 +949,7 @@ namespace nwn2_ai_2da_editor
 		/// InfoVersion bits. InfoVersion is obsolete in TonyAI 2.3+ - the bits
 		/// have been repurposed.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="it_ClearCoreAI"/></c></param>
 		/// <param name="e"></param>
 		/// <remarks>This is implemented only to allow a user to pseudo-update
 		/// his/her TonyAI 2.2 Hench*.2das to be compatible with 2.3+. But the
@@ -861,7 +1008,7 @@ namespace nwn2_ai_2da_editor
 		/// Inserts labels of a groped Spells.2da into the 'Spells' list and the
 		/// tree.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="it_insertSpellLabels"/></c></param>
 		/// <param name="e"></param>
 		void Click_insertSpellLabels(object sender, EventArgs e)
 		{
@@ -895,7 +1042,7 @@ namespace nwn2_ai_2da_editor
 		/// Inserts labels of a groped RacialSubtypes.2da into the 'Races' list
 		/// and the tree.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="it_insertRaceLabels"/></c></param>
 		/// <param name="e"></param>
 		void Click_insertRaceLabels(object sender, EventArgs e)
 		{
@@ -929,7 +1076,7 @@ namespace nwn2_ai_2da_editor
 		/// Inserts labels of a groped Classes.2da into the 'Classes' list and
 		/// the tree.
 		/// </summary>
-		/// <param name="sender"></param>
+		/// <param name="sender"><c><see cref="it_insertClassLabels"/></c></param>
 		/// <param name="e"></param>
 		void Click_insertClassLabels(object sender, EventArgs e)
 		{
@@ -1171,146 +1318,6 @@ namespace nwn2_ai_2da_editor
 					break;
 			}
 			return false;
-		}
-
-		/// <summary>
-		/// Applies all altered data to their structs. See <see cref="Click_apply"/>
-		/// to apply altered data to only the selected struct.
-		/// </summary>
-		void applyall()
-		{
-			SetTitleText(); // TitleText will be written again (properly) by Write2daFile() if saved.
-
-			it_ApplyGlobal.Enabled = false;
-
-			int total;
-
-			switch (Type)
-			{
-				case Type2da.Spells:
-				{
-					Spell spell;
-
-					total = Spells.Count;
-					for (int id = 0; id != total; ++id)
-					{
-						spell = Spells[id];
-
-						if (spell.differ != control_Spells.bit_clean)
-						{
-							spell.differ = control_Spells.bit_clean;
-							spell.isChanged = true; // this flag will be cleared by Write2daFile()
-
-							SpellChanged spellchanged = SpellsChanged[id];
-
-							spell.spellinfo    = spellchanged.spellinfo;
-							spell.targetinfo   = spellchanged.targetinfo;
-							spell.effectweight = spellchanged.effectweight;
-							spell.effecttypes  = spellchanged.effecttypes;
-							spell.damageinfo   = spellchanged.damageinfo;
-							spell.savetype     = spellchanged.savetype;
-							spell.savedctype   = spellchanged.savedctype;
-
-							Spells[id] = spell;
-
-							SpellsChanged.Remove(id);
-
-							if (id == Id) // is currently selected tree-node
-							{
-								HenchControl.SetResetColor(DefaultForeColor);
-								AfterSelect_node(null, null); // refresh all displayed data for the current spell jic
-							}
-
-							Tree.Nodes[id].ForeColor = Color.Blue;
-						}
-					}
-					break;
-				}
-
-				case Type2da.Racial:
-				{
-					Race race;
-
-					total = Races.Count;
-					for (int id = 0; id != total; ++id)
-					{
-						race = Races[id];
-
-						if (race.differ != control_Racial.bit_clean)
-						{
-							race.differ = control_Racial.bit_clean;
-							race.isChanged = true; // this flag will be cleared by Write2daFile()
-
-							RaceChanged racechanged = RacesChanged[id];
-
-							race.flags = racechanged.flags;
-							race.feat1 = racechanged.feat1;
-							race.feat2 = racechanged.feat2;
-							race.feat3 = racechanged.feat3;
-							race.feat4 = racechanged.feat4;
-							race.feat5 = racechanged.feat5;
-
-							Races[id] = race;
-
-							RacesChanged.Remove(id);
-
-							if (id == Id) // is currently selected tree-node
-							{
-								HenchControl.SetResetColor(DefaultForeColor);
-								AfterSelect_node(null, null); // refresh all displayed data for the current race jic
-							}
-
-							Tree.Nodes[id].ForeColor = Color.Blue;
-						}
-					}
-					break;
-				}
-
-				case Type2da.Classes:
-				{
-					Class @class;
-
-					total = Classes.Count;
-					for (int id = 0; id != total; ++id)
-					{
-						@class = Classes[id];
-
-						if (@class.differ != control_Classes.bit_clean)
-						{
-							@class.differ = control_Classes.bit_clean;
-							@class.isChanged = true; // this flag will be cleared by Write2daFile()
-
-							ClassChanged classchanged = ClassesChanged[id];
-
-							@class.flags  = classchanged.flags;
-							@class.feat1  = classchanged.feat1;
-							@class.feat2  = classchanged.feat2;
-							@class.feat3  = classchanged.feat3;
-							@class.feat4  = classchanged.feat4;
-							@class.feat5  = classchanged.feat5;
-							@class.feat6  = classchanged.feat6;
-							@class.feat7  = classchanged.feat7;
-							@class.feat8  = classchanged.feat8;
-							@class.feat9  = classchanged.feat9;
-							@class.feat10 = classchanged.feat10;
-							@class.feat11 = classchanged.feat11;
-
-							Classes[id] = @class;
-
-							ClassesChanged.Remove(id);
-
-							if (id == Id) // is currently selected tree-node
-							{
-								HenchControl.SetResetColor(DefaultForeColor);
-								AfterSelect_node(null, null); // refresh all displayed data for the current class jic
-							}
-
-							Tree.Nodes[id].ForeColor = Color.Blue;
-						}
-					}
-					break;
-				}
-			}
 		}
 		#endregion Changes functs
 

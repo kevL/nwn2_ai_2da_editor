@@ -232,19 +232,18 @@ namespace nwn2_ai_2da_editor
 		/// <param name="e"></param>
 		void Click_clear(object sender, EventArgs e)
 		{
-			var btn = sender as Button;
-			if      (btn ==   cf_Clear) ClassFlags_text .Text = "0";
-			else if (btn ==  cf1_Clear) ClassFeat1_text .Text = "0";
-			else if (btn ==  cf2_Clear) ClassFeat2_text .Text = "0";
-			else if (btn ==  cf3_Clear) ClassFeat3_text .Text = "0";
-			else if (btn ==  cf4_Clear) ClassFeat4_text .Text = "0";
-			else if (btn ==  cf5_Clear) ClassFeat5_text .Text = "0";
-			else if (btn ==  cf6_Clear) ClassFeat6_text .Text = "0";
-			else if (btn ==  cf7_Clear) ClassFeat7_text .Text = "0";
-			else if (btn ==  cf8_Clear) ClassFeat8_text .Text = "0";
-			else if (btn ==  cf9_Clear) ClassFeat9_text .Text = "0";
-			else if (btn == cf10_Clear) ClassFeat10_text.Text = "0";
-			else                        ClassFeat11_text.Text = "0"; // btn == cf11_Clear
+			if      (sender ==   cf_Clear) ClassFlags_text .Text = "0";
+			else if (sender ==  cf1_Clear) ClassFeat1_text .Text = "0";
+			else if (sender ==  cf2_Clear) ClassFeat2_text .Text = "0";
+			else if (sender ==  cf3_Clear) ClassFeat3_text .Text = "0";
+			else if (sender ==  cf4_Clear) ClassFeat4_text .Text = "0";
+			else if (sender ==  cf5_Clear) ClassFeat5_text .Text = "0";
+			else if (sender ==  cf6_Clear) ClassFeat6_text .Text = "0";
+			else if (sender ==  cf7_Clear) ClassFeat7_text .Text = "0";
+			else if (sender ==  cf8_Clear) ClassFeat8_text .Text = "0";
+			else if (sender ==  cf9_Clear) ClassFeat9_text .Text = "0";
+			else if (sender == cf10_Clear) ClassFeat10_text.Text = "0";
+			else                           ClassFeat11_text.Text = "0"; // sender == cf11_Clear
 		}
 		#endregion eventhandlers
 

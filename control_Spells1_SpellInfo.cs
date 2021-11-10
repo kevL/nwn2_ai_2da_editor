@@ -215,50 +215,48 @@ namespace nwn2_ai_2da_editor
 			if (Int32.TryParse(SpellInfo_text.Text, out spellinfo))
 			{
 				int bit;
-
-				var cb = sender as CheckBox;
-				if (cb == si_IsMaster)
+				if (sender == si_IsMaster)
 				{
 					bit = hc.HENCH_SPELL_INFO_MASTER_FLAG;			// 0x00000100
 				}
-				else if (cb == si_Ignore)
+				else if (sender == si_Ignore)
 				{
 					bit = hc.HENCH_SPELL_INFO_IGNORE_FLAG;			// 0x00000200
 				}
-				else if (cb == si_Concentration)
+				else if (sender == si_Concentration)
 				{
 					bit = hc.HENCH_SPELL_INFO_CONCENTRATION_FLAG;	// 0x00000400
 				}
-				else if (cb == si_Unlimited)
+				else if (sender == si_Unlimited)
 				{
 					bit = hc.HENCH_SPELL_INFO_UNLIMITED_FLAG;		// 0x00000800
 				}
-//				else if (cb == si_NonVerbal) // TonyAI 2.3+ add ->
+//				else if (sender == si_NonVerbal) // TonyAI 2.3+ add ->
 //				{
 //					bit = hc.HENCH_SPELL_INFO_NO_VERBAL;			// 0x00001000
 //				}
-				else if (cb == si_HealOrCure)
+				else if (sender == si_HealOrCure)
 				{
 					bit = hc.HENCH_SPELL_INFO_HEAL_OR_CURE;			// 0x00020000
 				}
-				else if (cb == si_ShortDurBuff)
+				else if (sender == si_ShortDurBuff)
 				{
 					bit = hc.HENCH_SPELL_INFO_SHORT_DUR_BUFF;		// 0x00040000
 				}
-				else if (cb == si_MediumDurBuff)
+				else if (sender == si_MediumDurBuff)
 				{
 					bit = hc.HENCH_SPELL_INFO_MEDIUM_DUR_BUFF;		// 0x00080000
 				}
-				else if (cb == si_LongDurBuff)
+				else if (sender == si_LongDurBuff)
 				{
 					bit = hc.HENCH_SPELL_INFO_LONG_DUR_BUFF;		// 0x00100000
 				}
-				else // cb == si_ItemCast
+				else // sender == si_ItemCast
 				{
 					bit = hc.HENCH_SPELL_INFO_ITEM_FLAG;			// 0x00800000
 				}
 
-				if (cb.Checked)
+				if ((sender as CheckBox).Checked)
 				{
 					spellinfo |= bit;
 				}
@@ -288,26 +286,24 @@ namespace nwn2_ai_2da_editor
 			if (Int32.TryParse(SpellInfo_text.Text, out spellinfo))
 			{
 				int bit;
-
-				var cb = sender as CheckBox;
-				if (cb == si_Extend)
+				if (sender == si_Extend)
 				{
 					bit = hc.HENCH_SPELL_INFO_EXTEND_OK;	// 0x01000000
 				}
-				else if (cb == si_Persistent)
+				else if (sender == si_Persistent)
 				{
 					bit = hc.HENCH_SPELL_INFO_PERSIST_OK;	// 0x02000000
 				}
-				else if (cb == si_Empower)
+				else if (sender == si_Empower)
 				{
 					bit = hc.HENCH_SPELL_INFO_EMPOWER_OK;	// 0x04000000
 				}
-				else // cb == si_Maximize
+				else // sender == si_Maximize
 				{
 					bit = hc.HENCH_SPELL_INFO_MAXIMIZE_OK;	// 0x08000000
 				}
 
-				if (cb.Checked)
+				if ((sender as CheckBox).Checked)
 				{
 					spellinfo |= bit;
 				}
@@ -354,27 +350,27 @@ namespace nwn2_ai_2da_editor
 					{
 						Label lbl_subspell;
 
-						if (tb == si_Subspell1)
+						if (sender == si_Subspell1)
 						{
 							TargetInfo_text.Text = tb.Text;
 							lbl_subspell = si_SubspellLabel1;
 						}
-						else if (tb == si_Subspell2)
+						else if (sender == si_Subspell2)
 						{
 							EffectTypes_text.Text = tb.Text;
 							lbl_subspell = si_SubspellLabel2;
 						}
-						else if (tb == si_Subspell3)
+						else if (sender == si_Subspell3)
 						{
 							DamageInfo_text.Text = tb.Text;
 							lbl_subspell = si_SubspellLabel3;
 						}
-						else if (tb == si_Subspell4)
+						else if (sender == si_Subspell4)
 						{
 							SaveType_text.Text = tb.Text;
 							lbl_subspell = si_SubspellLabel4;
 						}
-						else // tb == si_Subspell5
+						else // sender == si_Subspell5
 						{
 							SaveDCType_text.Text = tb.Text;
 							lbl_subspell = si_SubspellLabel5;

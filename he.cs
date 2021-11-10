@@ -329,8 +329,9 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		/// <param name="sender">bu_Apply</param>
 		/// <param name="e"></param>
-		/// <remarks>See <c><see cref="applyall()">applyall()</see></c> to apply
-		/// all altered data globally.</remarks>
+		/// <remarks>See
+		/// <c><see cref="Click_applyGlobal()">Click_applyGlobal()</see></c> to
+		/// apply all altered data globally.</remarks>
 		void Click_apply(object sender, EventArgs e)
 		{
 			SetTitleText();
@@ -533,8 +534,7 @@ namespace nwn2_ai_2da_editor
 
 					int id;
 
-					var bu = sender as Button;
-					if (bu == bu_Search_d)
+					if (sender == bu_Search_d)
 					{
 						if (Id == total - 1)
 						{
@@ -557,7 +557,7 @@ namespace nwn2_ai_2da_editor
 							}
 						}
 					}
-					else // bu == bu_Search_u
+					else // sender == bu_Search_u
 					{
 						if (Id == 0)
 						{
