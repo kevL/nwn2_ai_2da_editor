@@ -392,7 +392,7 @@ namespace nwn2_ai_2da_editor
 // Radius textbox
 			val = (targetinfo & hc.HENCH_SPELL_TARGET_RADIUS_MASK)
 								>> HENCH_SPELL_TARGET_RADIUS_SHIFT;
-			ti_Radius.Text = he.Float2daFormat((float)val * 0.1f);
+			ti_Radius.Text = util.Float2daFormat((float)val * 0.1f);
 
 			// test ->
 			int roguebits = (targetinfo & ~ti_legitbits);

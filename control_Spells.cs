@@ -773,12 +773,12 @@ namespace nwn2_ai_2da_editor
 			TargetInfo_text.Text = val.ToString();
 
 // EffectWeight
-			string text = he.Float2daFormat(spell.effectweight);
+			string text = util.Float2daFormat(spell.effectweight);
 			EffectWeight_reset.Text = text;
 
 			if (dirty)
 			{
-				text = he.Float2daFormat(spellchanged.effectweight);
+				text = util.Float2daFormat(spellchanged.effectweight);
 			}
 			EffectWeight_text.Text = text;
 
@@ -920,7 +920,7 @@ namespace nwn2_ai_2da_editor
 			if (spell.targetinfo != spellchanged.targetinfo)
 				differ |= control_Spells.bit_targetinfo;
 
-			if (!he.FloatsEqual(spell.effectweight, spellchanged.effectweight))
+			if (!util.FloatsEqual(spell.effectweight, spellchanged.effectweight))
 				differ |= control_Spells.bit_effectweight;
 
 			if (spell.effecttypes != spellchanged.effecttypes)

@@ -190,7 +190,7 @@ namespace nwn2_ai_2da_editor
 
 			float result;
 			if (!Single.TryParse(text, out result)
-				|| he.FloatsEqual(result, 0f)) // handle unusual cases incl/ "", "-", "-0", "00", etc.
+				|| util.FloatsEqual(result, 0f)) // handle unusual cases incl/ "", "-", "-0", "00", etc.
 			{
 				text = "0.0";
 			}

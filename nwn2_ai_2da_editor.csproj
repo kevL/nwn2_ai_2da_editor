@@ -124,6 +124,7 @@
     <Compile Include="util\infobox.cs" />
     <Compile Include="util\logger.cs" />
     <Compile Include="util\progbar.cs" />
+    <Compile Include="util\util.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="he.resx">

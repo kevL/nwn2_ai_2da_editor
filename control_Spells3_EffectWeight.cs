@@ -116,7 +116,7 @@ namespace nwn2_ai_2da_editor
 
 				EffectWeight_reset.ForeColor = DefaultForeColor;
 
-				EffectWeight_text.Text = he.Float2daFormat(spell.effectweight);
+				EffectWeight_text.Text = util.Float2daFormat(spell.effectweight);
 			}
 		}
 		#endregion eventhandlers

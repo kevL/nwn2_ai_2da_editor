@@ -75,9 +75,9 @@ namespace nwn2_ai_2da_editor
 
 					line += " ";
 
-					if (!he.FloatsEqual(spell.effectweight, 0.0f))
+					if (!util.FloatsEqual(spell.effectweight, 0.0f))
 					{
-						line += he.Float2daFormat(spell.effectweight);
+						line += util.Float2daFormat(spell.effectweight);
 					}
 					else
 						line += he.stars;
