@@ -536,12 +536,8 @@ namespace nwn2_ai_2da_editor
 
 					if (sender == bu_Search_d)
 					{
-						if (Id == total - 1)
-						{
-							id = 0;
-						}
-						else
-							id = Id + 1;
+						if (Id == total - 1) id = 0;
+						else                 id = Id + 1;
 
 						while (!Tree.Nodes[id].Text.ToLower().Contains(text))
 						{
@@ -552,19 +548,13 @@ namespace nwn2_ai_2da_editor
 							}
 
 							if (++id == total) // wrap to first node
-							{
 								id = 0;
-							}
 						}
 					}
 					else // sender == bu_Search_u
 					{
-						if (Id == 0)
-						{
-							id = total - 1;
-						}
-						else
-							id = Id - 1;
+						if (Id == 0) id = total - 1;
+						else         id = Id - 1;
 
 						while (!Tree.Nodes[id].Text.ToLower().Contains(text))
 						{
@@ -575,9 +565,7 @@ namespace nwn2_ai_2da_editor
 							}
 
 							if (--id == -1) // wrap to last node
-							{
 								id = total - 1;
-							}
 						}
 					}
 
