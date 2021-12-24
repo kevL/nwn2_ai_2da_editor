@@ -19,7 +19,7 @@ namespace nwn2_ai_2da_editor
 	/// 
 	/// Do not turn this into an <c>interface</c> either since
 	/// <c>control_Spells</c> does not override the last two functs. (read:
-	/// it doesn't need to, so don't. your wel)</remarks>
+	/// it doesn't need to so don't)</remarks>
 	class HenchControl
 		: UserControl
 	{
