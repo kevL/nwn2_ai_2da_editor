@@ -713,6 +713,12 @@ namespace nwn2_ai_2da_editor
 		/// </summary>
 		/// <param name="group"></param>
 		/// <param name="color"></param>
+		/// <remarks>Called by
+		/// <list type="bullet">
+		/// <item><c><see cref="SetDefaultGroupColors()">SetDefaultGroupColors()</see></c></item>
+		/// <item><c><see cref="SetGroupColors()">SetGroupColors()</see></c></item>
+		/// <item><c><see cref="TextChanged_ti()">TextChanged_ti()</see></c></item>
+		/// </list></remarks>
 		void GroupColor(Control @group, Color color)
 		{
 			@group.ForeColor = color;
